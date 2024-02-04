@@ -10,7 +10,7 @@ using Volo.Abp.ObjectMapping;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors;
 
-public class ProposalProcessorBase<TEvent> : AElfLogEventProcessorBase<TEvent, LogEventInfo>
+public abstract class ProposalProcessorBase<TEvent> : AElfLogEventProcessorBase<TEvent, LogEventInfo>
     where TEvent : IEvent<TEvent>, new()
 {
     protected readonly ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> Logger;
