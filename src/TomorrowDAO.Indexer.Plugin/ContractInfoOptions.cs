@@ -6,5 +6,5 @@ public class ContractInfoOptions
 }
 public class ContractInfo
 {
-    
+    public string GovernanceContract  { get; set; }
 }
