@@ -11,7 +11,7 @@ public class GovernanceSubSchemeIndex : AElfIndexerClientEntity<string>, IIndexB
     
     [Keyword] public string ParentSchemeId { get; set; }
    
-    public GovernanceType GovernanceType { get; set; }
+    public GovernanceMechanism GovernanceMechanism { get; set; }
    
     public int MinimalRequiredThreshold { get; set; }
         

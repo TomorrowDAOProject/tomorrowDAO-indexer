@@ -21,7 +21,7 @@ public class ProposalBase : AElfIndexerClientEntity<string>
 
     //get from GovernanceSchemeId
     [JsonConverter(typeof(StringEnumConverter))]
-    public GovernanceType? GovernanceType { get; set; }
+    public GovernanceMechanism? GovernanceMechanism { get; set; }
 
     [JsonConverter(typeof(StringEnumConverter))]
     public ProposalStatus ProposalStatus { get; set; }
@@ -53,11 +53,26 @@ public class ProposalBase : AElfIndexerClientEntity<string>
 
     //--------Governance Threshold param-------
     public int MinimalRequiredThreshold { get; set; }
+    
     public int MinimalVoteThreshold { get; set; }
+    
     //percentage            
     public int MinimalApproveThreshold { get; set; }
+    
     //percentage    
     public int MinimalRejectionThreshold { get; set; }
+    
     //percentage    
     public int MinimalAbstentionThreshold { get; set; }
+    
+    //--------Vote Result-------
+    public string AcceptedCurrency { get; set; }
+
+    public int ApproveCounts { get; set; }
+
+    public int RejectCounts { get; set; }
+
+    public int AbstainCounts { get; set; }
+
+    public int VotesAmount { get; set; }
 }

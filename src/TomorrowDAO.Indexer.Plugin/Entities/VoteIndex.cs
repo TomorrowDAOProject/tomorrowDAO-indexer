@@ -23,7 +23,9 @@ public class VoteIndex : AElfIndexerClientEntity<string>, IIndexBuild
         
     public int AbstainCounts  { get; set; }
                 
-    public int VotesAmount  { get; set; }        
+    public int VotesAmount  { get; set; }    
+    
+    [Keyword] public HashSet<string> VoterSet { get; set; } 
         
     public DateTime RegisterTime { get; set; }
     

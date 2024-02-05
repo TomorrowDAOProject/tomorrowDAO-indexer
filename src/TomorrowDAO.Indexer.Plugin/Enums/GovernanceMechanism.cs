@@ -1,6 +1,6 @@
 namespace TomorrowDAO.Indexer.Plugin.Enums;
 
-public enum GovernanceType
+public enum GovernanceMechanism
 {
     Unspecified = 0,
     Parliament = 1,
