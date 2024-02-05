@@ -1,10 +1,20 @@
+using AElf;
+using AElf.CSharp.Core.Extension;
 using AElf.Types;
+using AElfIndexer.Client;
 using AElfIndexer.Client.Handlers;
 using AElfIndexer.Client.Providers;
 using AElfIndexer.Grains;
 using AElfIndexer.Grains.State.Client;
+using TomorrowDAO.Contracts.DAO;
 using TomorrowDAO.Indexer.Orleans.TestBase;
+using TomorrowDAO.Indexer.Plugin.Entities;
+using TomorrowDAO.Indexer.Plugin.Processors;
 using TomorrowDAO.Indexer.Plugin.Tests.Helper;
+using File = TomorrowDAO.Contracts.DAO.File;
+using FileInfo = TomorrowDAO.Contracts.DAO.FileInfo;
+using GovernanceSchemeThreshold = TomorrowDAO.Contracts.DAO.GovernanceSchemeThreshold;
+using HighCouncilConfig = TomorrowDAO.Contracts.DAO.HighCouncilConfig;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests;
 
@@ -15,7 +25,35 @@ public abstract class TomorrowDaoIndexerPluginTestBase : TomorrowDaoIndexerOrlea
     private readonly IBlockStateSetProvider<TransactionInfo> _blockStateSetTransactionInfoProvider;
     private readonly IDAppDataProvider _dAppDataProvider;
     private readonly IDAppDataIndexManagerProvider _dAppDataIndexManagerProvider;
-
+    protected readonly IAElfIndexerClientEntityRepository<DaoIndex, LogEventInfo> _daoIndexRepository;
+    protected readonly DaoCreatedProcessor _daoCreatedProcessor;
+    protected readonly FileInfosRemovedProcessor _fileInfosRemovedProcessor;
+    
+    protected readonly long BlockHeight = 120;
+    protected readonly string ChainAelf = "tDVW";
+    protected static readonly string Id1 = "123";
+    protected static readonly string Id2 = "456";
+    protected readonly string DaoId = HashHelper.ComputeFrom(Id1).ToHex();
+    protected readonly string DaoName = "DaoName";
+    protected readonly string DaoLogoUrl = "DaoLogoUrl";
+    protected readonly string DaoDescription = "DaoDescription";
+    protected readonly string DaoSocialMedia = "{ \"name\": \"url\" }";
+    protected readonly string DaoMetadataAdmin = "2N9DJYUUruS7bFqRyKMvafA75qTWgqpWcB78nNZzpmxHrMv4D";
+    protected readonly string Dao = "2N9DJYUUruS7bFqRyKMvafA75qTWgqpWcB78nNZzpmxHrMv4D";
+    protected readonly string Elf = "Elf";
+    protected readonly string GovernanceSchemeId = HashHelper.ComputeFrom(Id2).ToHex();
+    protected readonly string FileHash = "FileHash";
+    protected readonly string FileName = "FileName";
+    protected readonly string FileUrl = "FileUrl";
+    protected readonly string DaoCreator = "2fbCtXNLVD2SC4AD6b8nqAkHtjqxRCfwvciX4MyH6257n8Gf63";
+    // protected readonly int MinimalRequiredThreshold = 1;
+    // protected readonly int MinimalVoteThreshold = 2;
+    // protected readonly int MinimalApproveThreshold = 3;
+    // protected readonly int MaximalAbstentionThreshold = 4;
+    // protected readonly int MaximalRejectionThreshold = 5;
+    protected readonly int MaxHighCouncilCandidateCount = 1;
+    protected readonly int MaxHighCouncilMemberCount = 2;
+    protected readonly int ElectionPeriod = 3;
 
     public TomorrowDaoIndexerPluginTestBase()
     {
@@ -24,6 +62,9 @@ public abstract class TomorrowDaoIndexerPluginTestBase : TomorrowDaoIndexerOrlea
         _blockStateSetTransactionInfoProvider = GetRequiredService<IBlockStateSetProvider<TransactionInfo>>();
         _dAppDataProvider = GetRequiredService<IDAppDataProvider>();
         _dAppDataIndexManagerProvider = GetRequiredService<IDAppDataIndexManagerProvider>();
+        _daoIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<DaoIndex, LogEventInfo>>();
+        _fileInfosRemovedProcessor = GetRequiredService<FileInfosRemovedProcessor>();
+        _daoCreatedProcessor = GetRequiredService<DaoCreatedProcessor>();
     }
 
     protected async Task<string> InitializeBlockStateSetAsync(BlockStateSet<LogEventInfo> blockStateSet, string chainId)
@@ -117,5 +158,96 @@ public abstract class TomorrowDaoIndexerPluginTestBase : TomorrowDaoIndexerOrlea
             PreviousBlockHash = logEventContext.PreviousBlockHash
         };
         return await InitializeBlockStateSetAsync(blockStateSet, logEventContext.ChainId);
+    }
+    
+    protected async Task MockEventProcess(LogEvent logEvent, IAElfLogEventProcessor processor)
+    {
+        var logEventContext = MockLogEventContext(BlockHeight, ChainAelf);
+        
+        // step1: create blockStateSet
+        var blockStateSetKey = await MockBlockState(logEventContext);
+        
+        // step2: create logEventInfo
+        var logEventInfo = MockLogEventInfo(logEvent);
+        
+        // step3 call the logic
+        await processor.HandleEventAsync(logEventInfo, logEventContext);
+        
+        // step4 save data after logic
+        await BlockStateSetSaveDataAsync<LogEventInfo>(blockStateSetKey);
+    }
+
+    protected LogEvent MaxInfoDaoCreated()
+    {
+        return new DAOCreated
+        {
+            Metadata = new Metadata
+            {
+                Name = DaoName,
+                LogoUrl = DaoLogoUrl,
+                Description = DaoDescription,
+                SocialMedia = { ["name"] = "url" }
+            },
+            MetadataAdmin = Address.FromBase58(DaoMetadataAdmin),
+            GovernanceToken = Elf,
+            GovernanceSchemeId = HashHelper.ComputeFrom(Id2),
+            GovernanceSchemeThreshold = new GovernanceSchemeThreshold
+            {
+                MinimalRequiredThreshold = 1,
+                MinimalVoteThreshold = 2,
+                MinimalApproveThreshold = 3,
+                MaximalAbstentionThreshold = 4,
+                MaximalRejectionThreshold = 5
+            },
+            IsHighCouncilEnabled = true,
+            HighCouncilConfig = new HighCouncilConfig
+            {
+                MaxHighCouncilCandidateCount = 1,
+                MaxHighCouncilMemberCount = 2,
+                ElectionPeriod = 3,
+                IsRequireHighCouncilForExecution = true
+            },
+            FileInfoList = GetFileInfoList(),
+            IsTreasuryContractNeeded = true,
+            IsVoteContractNeeded = true,
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Creator = Address.FromBase58(DaoCreator)
+        }.ToLogEvent();
+    }
+
+    protected LogEvent MinInfoDaoCreated()
+    {
+        return new DAOCreated
+        {
+            DaoId = HashHelper.ComputeFrom(Id1)
+        }.ToLogEvent();
+    }
+
+    protected LogEvent FileInfosRemoved()
+    {
+        return new FileInfosRemoved
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            RemovedFiles = GetFileInfoList()
+        }.ToLogEvent();
+    }
+
+    protected FileInfoList GetFileInfoList()
+    {
+        return new FileInfoList
+        {
+            FileInfos =
+            {
+                new FileInfo
+                {
+                    File = new File
+                    {
+                        Hash = FileHash,
+                        Name = FileName,
+                        Url = FileUrl
+                    }
+                }
+            }
+        };
     }
 }

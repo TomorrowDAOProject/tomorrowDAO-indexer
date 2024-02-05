@@ -76,7 +76,9 @@ public class TomorrowDAOIndexerPluginTestModule : AbpModule
                 {
                     "tDVW", new ContractInfo()
                     {
-                        //TODO
+                        VoteContractAddress = "VoteContractAddress",
+                        TreasuryContractAddress = "TreasuryContractAddress",
+                        DaoContractAddress = "DaoContractAddress"
                     }
                 }
             };
