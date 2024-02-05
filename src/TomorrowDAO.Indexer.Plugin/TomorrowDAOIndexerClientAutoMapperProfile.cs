@@ -2,6 +2,7 @@ using AElfIndexer.Client.Handlers;
 using AutoMapper;
 using TomorrowDAO.Contracts.Governance;
 using TomorrowDAO.Indexer.Plugin.Entities;
+using TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 
 namespace TomorrowDAO.Indexer.Plugin;
 
@@ -30,6 +31,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : Profile
                 => opt.MapFrom(source => source.ReleaseAddress != null ? source.ReleaseAddress.ToBase58() : null
                 ));
         CreateMap<ProposalReleased, ProposalIndex>();
-        CreateMap<GovernanceSubSchemeIndex, ProposalIndex>();
+        CreateMap<GovernanceSubSchemeIndex, ProposalIndex>(); 
+        CreateMap<ProposalIndex, ProposalSyncDto>();
     }
 }
