@@ -22,7 +22,7 @@ public class CandidateAddedProcessor : ElectionProcessorBase<CandidateAdded>
         var daoId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
         var candidate = eventValue.Candidate.ToBase58();
-        _logger.LogInformation("[CandidateAdded] START: Id={Id}, ChainId={ChainId}, Candidate={candidate}",
+        Logger.LogInformation("[CandidateAdded] START: Id={Id}, ChainId={ChainId}, Candidate={candidate}",
             daoId, chainId, candidate);
         try
         {
@@ -34,11 +34,11 @@ public class CandidateAddedProcessor : ElectionProcessorBase<CandidateAdded>
                 HighCouncilType = HighCouncilType.Candidate,
                 Id = IdGenerateHelper.GetId(chainId, daoId, candidate, CandidateTerm, HighCouncilType.Candidate) 
             }, context);
-            _logger.LogInformation("[CandidateAdded] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate);
+            Logger.LogInformation("[CandidateAdded] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate);
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "[CandidateAdded] Exception Id={daoId}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate);
+            Logger.LogError(e, "[CandidateAdded] Exception Id={daoId}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate);
             throw;
         }
     }

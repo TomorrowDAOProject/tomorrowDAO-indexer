@@ -22,26 +22,26 @@ public class CandidateAddressReplacedProcessor : ElectionProcessorBase<Candidate
     {
         var daoId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
-        _logger.LogInformation("[CandidateAddressReplaced] START: Id={Id}, ChainId={ChainId}, Event={Event}",
+        Logger.LogInformation("[CandidateAddressReplaced] START: Id={Id}, ChainId={ChainId}, Event={Event}",
             daoId, chainId, JsonConvert.SerializeObject(eventValue));
         try
         {
             var oldCandidate = eventValue.OldAddress.ToBase58();
             var newCandidate = eventValue.NewAddress.ToBase58();
-            var electionIndex = await _electionRepository.GetFromBlockStateSetAsync(IdGenerateHelper
+            var electionIndex = await ElectionRepository.GetFromBlockStateSetAsync(IdGenerateHelper
                 .GetId(chainId, daoId, oldCandidate, CandidateTerm, HighCouncilType.Candidate), chainId);
             if (electionIndex == null)
             {
-                _logger.LogInformation("[CandidateAddressReplaced] candidate not existed: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, oldCandidate);
+                Logger.LogInformation("[CandidateAddressReplaced] candidate not existed: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, oldCandidate);
                 return;
             }
             electionIndex.Address = newCandidate;
-            await _electionRepository.DeleteAsync(electionIndex);
-            _logger.LogInformation("[CandidateAddressReplaced] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, oldCandidate); 
+            await ElectionRepository.DeleteAsync(electionIndex);
+            Logger.LogInformation("[CandidateAddressReplaced] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, oldCandidate); 
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "[CandidateAddressReplaced] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogError(e, "[CandidateAddressReplaced] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
             throw;
         }
     }

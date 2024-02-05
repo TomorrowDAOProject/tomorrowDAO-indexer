@@ -24,28 +24,28 @@ public class HighCouncilEnabledProcessor : DaoProcessorBase<HighCouncilEnabled>
     {
         var daoId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
-        _logger.LogInformation("[HighCouncilEnabled] START: Id={Id}, ChainId={ChainId}, Event={Event}",
+        Logger.LogInformation("[HighCouncilEnabled] START: Id={Id}, ChainId={ChainId}, Event={Event}",
             daoId, chainId, JsonConvert.SerializeObject(eventValue));
         try
         {
-            var daoIndex = await _daoRepository.GetFromBlockStateSetAsync(daoId, chainId);
+            var daoIndex = await DaoRepository.GetFromBlockStateSetAsync(daoId, chainId);
             if (daoIndex == null)
             {
-                _logger.LogInformation("[HighCouncilEnabled] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
+                Logger.LogInformation("[HighCouncilEnabled] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
                 return;
             }
             daoIndex.IsHighCouncilEnabled = true;
             var highCouncilConfig = eventValue.HighCouncilConfig;
             if (highCouncilConfig != null)
             {
-                daoIndex.HighCouncilConfig = _objectMapper.Map<HighCouncilConfigContract, HighCouncilConfigIndexer>(highCouncilConfig);
+                daoIndex.HighCouncilConfig = ObjectMapper.Map<HighCouncilConfigContract, HighCouncilConfigIndexer>(highCouncilConfig);
             }
             await SaveIndexAsync(daoIndex, context);
-            _logger.LogInformation("[HighCouncilEnabled] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogInformation("[HighCouncilEnabled] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "[HighCouncilEnabled] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogError(e, "[HighCouncilEnabled] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
             throw;
         }
     }

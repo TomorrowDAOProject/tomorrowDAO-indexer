@@ -23,17 +23,17 @@ public class DaoCreatedProcessor : DaoProcessorBase<DAOCreated>
     {
         var daoId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
-        _logger.LogInformation("[DAOCreated] START: Id={Id}, ChainId={ChainId}, Event={Event}",
+        Logger.LogInformation("[DAOCreated] START: Id={Id}, ChainId={ChainId}, Event={Event}",
             daoId, chainId, JsonConvert.SerializeObject(eventValue));
         try
         {
-            var daoIndex = await _daoRepository.GetFromBlockStateSetAsync(daoId, chainId);
+            var daoIndex = await DaoRepository.GetFromBlockStateSetAsync(daoId, chainId);
             if (daoIndex != null)
             {
-                _logger.LogInformation("[DAOCreated] dao already existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
+                Logger.LogInformation("[DAOCreated] dao already existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
                 return;
             }
-            daoIndex = _objectMapper.Map<DAOCreated, DaoIndex>(eventValue);
+            daoIndex = ObjectMapper.Map<DAOCreated, DaoIndex>(eventValue);
             daoIndex.Id = daoId;
             daoIndex.GovernanceSchemeId = eventValue.GovernanceSchemeId?.ToHex();
             daoIndex.Creator = eventValue.Creator?.ToBase58();
@@ -46,14 +46,14 @@ public class DaoCreatedProcessor : DaoProcessorBase<DAOCreated>
                 : string.Empty;
             daoIndex.CreateTime = context.BlockTime;
             daoIndex.SubsistStatus = true;
-            daoIndex.TreasuryContractAddress = _contractInfoOptions.ContractInfos[chainId].TreasuryContractAddress;
-            daoIndex.VoteContractAddress = _contractInfoOptions.ContractInfos[chainId].VoteContractAddress;
+            daoIndex.TreasuryContractAddress = ContractInfoOptions.ContractInfos[chainId].TreasuryContractAddress;
+            daoIndex.VoteContractAddress = ContractInfoOptions.ContractInfos[chainId].VoteContractAddress;
             await SaveIndexAsync(daoIndex, context);
-            _logger.LogInformation("[DAOCreated] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogInformation("[DAOCreated] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "[DAOCreated] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogError(e, "[DAOCreated] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
             throw;
         }
     }

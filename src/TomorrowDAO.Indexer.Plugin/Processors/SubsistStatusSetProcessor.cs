@@ -22,23 +22,23 @@ public class SubsistStatusSetProcessor : DaoProcessorBase<SubsistStatusSet>
         var daoId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
         var subsistStatus = eventValue.Status;
-        _logger.LogInformation("[SubsistStatusSet] START: Id={Id}, ChainId={ChainId}, SubsistStatus={SubsistStatus}",
+        Logger.LogInformation("[SubsistStatusSet] START: Id={Id}, ChainId={ChainId}, SubsistStatus={SubsistStatus}",
             daoId, chainId, subsistStatus);
         try
         {
-            var daoIndex = await _daoRepository.GetFromBlockStateSetAsync(daoId, chainId);
+            var daoIndex = await DaoRepository.GetFromBlockStateSetAsync(daoId, chainId);
             if (daoIndex == null)
             {
-                _logger.LogInformation("[SubsistStatusSet] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
+                Logger.LogInformation("[SubsistStatusSet] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
                 return;
             }
             daoIndex.SubsistStatus = subsistStatus;
             await SaveIndexAsync(daoIndex, context);
-            _logger.LogInformation("[SubsistStatusSet] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogInformation("[SubsistStatusSet] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "[SubsistStatusSet] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogError(e, "[SubsistStatusSet] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
             throw;
         }
     }

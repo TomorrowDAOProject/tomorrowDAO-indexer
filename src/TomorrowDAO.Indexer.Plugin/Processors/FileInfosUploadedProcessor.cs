@@ -23,14 +23,14 @@ public class FileInfosUploadedProcessor : DaoProcessorBase<FileInfosUploaded>
     {
         var daoId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
-        _logger.LogInformation("[FileInfosUploaded] START: Id={Id}, ChainId={ChainId}, Event={Event}",
+        Logger.LogInformation("[FileInfosUploaded] START: Id={Id}, ChainId={ChainId}, Event={Event}",
             daoId, chainId, JsonConvert.SerializeObject(eventValue));
         try
         {
-            var daoIndex = await _daoRepository.GetFromBlockStateSetAsync(daoId, chainId);
+            var daoIndex = await DaoRepository.GetFromBlockStateSetAsync(daoId, chainId);
             if (daoIndex == null)
             {
-                _logger.LogInformation("[FileInfosUploaded] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
+                Logger.LogInformation("[FileInfosUploaded] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
                 return;
             }
 
@@ -44,12 +44,12 @@ public class FileInfosUploadedProcessor : DaoProcessorBase<FileInfosUploaded>
                 }).ToList());
                 daoIndex.FileInfoList = JsonConvert.SerializeObject(currentFileInfo);
                 await SaveIndexAsync(daoIndex, context);
-                _logger.LogInformation("[FileInfosUploaded] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
+                Logger.LogInformation("[FileInfosUploaded] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
             }
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "[FileInfosUploaded] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogError(e, "[FileInfosUploaded] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
             throw;
         }
     }

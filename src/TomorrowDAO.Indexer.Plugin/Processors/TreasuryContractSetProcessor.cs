@@ -22,23 +22,23 @@ public class TreasuryContractSetProcessor : DaoProcessorBase<TreasuryContractSet
         var daoId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
         var treasuryContract = eventValue.TreasuryContract?.ToBase58();
-        _logger.LogInformation("[TreasuryContractSet] START: Id={Id}, ChainId={ChainId}, TreasuryContract={treasuryContract}",
+        Logger.LogInformation("[TreasuryContractSet] START: Id={Id}, ChainId={ChainId}, TreasuryContract={treasuryContract}",
             daoId, chainId, treasuryContract);
         try
         {
-            var daoIndex = await _daoRepository.GetFromBlockStateSetAsync(daoId, chainId);
+            var daoIndex = await DaoRepository.GetFromBlockStateSetAsync(daoId, chainId);
             if (daoIndex == null)
             {
-                _logger.LogInformation("[TreasuryContractSet] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
+                Logger.LogInformation("[TreasuryContractSet] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
                 return;
             }
             daoIndex.TreasuryContractAddress = treasuryContract;
             await SaveIndexAsync(daoIndex, context);
-            _logger.LogInformation("[TreasuryContractSet] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogInformation("[TreasuryContractSet] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "[TreasuryContractSet] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogError(e, "[TreasuryContractSet] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
             throw;
         }
     }

@@ -23,28 +23,28 @@ public class CandidateInfoUpdatedProcessor : ElectionProcessorBase<CandidateInfo
         var daoId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
         var candidate = eventValue.CandidateAddress.ToBase58();
-        _logger.LogInformation("[CandidateInfoUpdated] START: Id={Id}, ChainId={ChainId}, Candidate={candidate}",
+        Logger.LogInformation("[CandidateInfoUpdated] START: Id={Id}, ChainId={ChainId}, Candidate={candidate}",
             daoId, chainId, candidate);
         try
         {
-            var electionIndex = await _electionRepository.GetFromBlockStateSetAsync(IdGenerateHelper
+            var electionIndex = await ElectionRepository.GetFromBlockStateSetAsync(IdGenerateHelper
                 .GetId(chainId, daoId, candidate, CandidateTerm, HighCouncilType.Candidate), chainId);
             if (electionIndex == null)
             {
-                _logger.LogInformation("[CandidateInfoUpdated] candidate not existed: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate);
+                Logger.LogInformation("[CandidateInfoUpdated] candidate not existed: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate);
                 return;
             }
 
             if (eventValue.IsEvilNode)
             {
                 electionIndex.HighCouncilType = HighCouncilType.BlackList;
-                await _electionRepository.DeleteAsync(electionIndex);
-                _logger.LogInformation("[CandidateInfoUpdated] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate); 
+                await ElectionRepository.DeleteAsync(electionIndex);
+                Logger.LogInformation("[CandidateInfoUpdated] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate); 
             }
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "[CandidateInfoUpdated] Exception Id={daoId}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate);
+            Logger.LogError(e, "[CandidateInfoUpdated] Exception Id={daoId}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate);
             throw;
         }
     }

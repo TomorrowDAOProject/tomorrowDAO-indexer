@@ -22,23 +22,23 @@ public class CandidateRemovedProcessor : ElectionProcessorBase<CandidateRemoved>
         var daoId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
         var candidate = eventValue.Candidate;
-        _logger.LogInformation("[CandidateRemoved] START: Id={Id}, ChainId={ChainId}, Candidate={candidate}",
+        Logger.LogInformation("[CandidateRemoved] START: Id={Id}, ChainId={ChainId}, Candidate={candidate}",
             daoId, chainId, candidate);
         try
         {
-            var electionIndex = await _electionRepository.GetFromBlockStateSetAsync(IdGenerateHelper
+            var electionIndex = await ElectionRepository.GetFromBlockStateSetAsync(IdGenerateHelper
                 .GetId(chainId, daoId, candidate, CandidateTerm, HighCouncilType.Candidate), chainId);
             if (electionIndex == null)
             {
-                _logger.LogInformation("[CandidateRemoved] candidate not existed: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate);
+                Logger.LogInformation("[CandidateRemoved] candidate not existed: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate);
                 return;
             }
-            await _electionRepository.DeleteAsync(electionIndex);
-            _logger.LogInformation("[CandidateRemoved] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate);
+            await ElectionRepository.DeleteAsync(electionIndex);
+            Logger.LogInformation("[CandidateRemoved] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate);
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "[CandidateRemoved] Exception Id={daoId}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate);
+            Logger.LogError(e, "[CandidateRemoved] Exception Id={daoId}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate);
             throw;
         }
     }

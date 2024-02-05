@@ -22,14 +22,14 @@ public class HighCouncilMemberUpdatedProcessor : DaoProcessorBase<HighCouncilMem
     {
         var daoId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
-        _logger.LogInformation("[HighCouncilMemberUpdated] START: Id={Id}, ChainId={ChainId}, Event={Event}",
+        Logger.LogInformation("[HighCouncilMemberUpdated] START: Id={Id}, ChainId={ChainId}, Event={Event}",
             daoId, chainId, JsonConvert.SerializeObject(eventValue));
         try
         {
-            var daoIndex = await _daoRepository.GetFromBlockStateSetAsync(daoId, chainId);
+            var daoIndex = await DaoRepository.GetFromBlockStateSetAsync(daoId, chainId);
             if (daoIndex == null)
             {
-                _logger.LogInformation("[HighCouncilMemberUpdated] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
+                Logger.LogInformation("[HighCouncilMemberUpdated] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
                 return;
             }
             var updatedHighCouncilInfo = eventValue.UpdatedHighCouncilInfo;
@@ -51,11 +51,11 @@ public class HighCouncilMemberUpdatedProcessor : DaoProcessorBase<HighCouncilMem
                 }
             }
             
-            _logger.LogInformation("[HighCouncilMemberUpdated] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogInformation("[HighCouncilMemberUpdated] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "[HighCouncilMemberUpdated] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogError(e, "[HighCouncilMemberUpdated] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
             throw;
         }
     }

@@ -22,23 +22,23 @@ public class SetHighCouncilExecutionSetProcessor : DaoProcessorBase<SetHighCounc
         var daoId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
         var highCouncilExecutionConfig = eventValue.HighCouncilExecutionConfig;
-        _logger.LogInformation("[SetHighCouncilExecutionSet] START: Id={Id}, ChainId={ChainId}, HighCouncilExecutionConfig={HighCouncilExecutionConfig}",
+        Logger.LogInformation("[SetHighCouncilExecutionSet] START: Id={Id}, ChainId={ChainId}, HighCouncilExecutionConfig={HighCouncilExecutionConfig}",
             daoId, chainId, highCouncilExecutionConfig);
         try
         {
-            var daoIndex = await _daoRepository.GetFromBlockStateSetAsync(daoId, chainId);
+            var daoIndex = await DaoRepository.GetFromBlockStateSetAsync(daoId, chainId);
             if (daoIndex == null)
             {
-                _logger.LogInformation("[SetHighCouncilExecutionSet] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
+                Logger.LogInformation("[SetHighCouncilExecutionSet] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
                 return;
             }
             daoIndex.HighCouncilExecutionConfig = highCouncilExecutionConfig;
             await SaveIndexAsync(daoIndex, context);
-            _logger.LogInformation("[SetHighCouncilExecutionSet] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogInformation("[SetHighCouncilExecutionSet] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "[SetHighCouncilExecutionSet] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogError(e, "[SetHighCouncilExecutionSet] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
             throw;
         }
     }

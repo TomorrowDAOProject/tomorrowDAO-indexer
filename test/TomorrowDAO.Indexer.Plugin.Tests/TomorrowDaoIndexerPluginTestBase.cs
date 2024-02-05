@@ -21,13 +21,13 @@ namespace TomorrowDAO.Indexer.Plugin.Tests;
 public abstract class TomorrowDaoIndexerPluginTestBase : TomorrowDaoIndexerOrleansTestBase<TomorrowDAOIndexerPluginTestModule>
 {
     private readonly IAElfIndexerClientInfoProvider _indexerClientInfoProvider;
-    public IBlockStateSetProvider<LogEventInfo> _blockStateSetLogEventInfoProvider;
+    public IBlockStateSetProvider<LogEventInfo> BlockStateSetLogEventInfoProvider;
     private readonly IBlockStateSetProvider<TransactionInfo> _blockStateSetTransactionInfoProvider;
     private readonly IDAppDataProvider _dAppDataProvider;
     private readonly IDAppDataIndexManagerProvider _dAppDataIndexManagerProvider;
-    protected readonly IAElfIndexerClientEntityRepository<DaoIndex, LogEventInfo> _daoIndexRepository;
-    protected readonly DaoCreatedProcessor _daoCreatedProcessor;
-    protected readonly FileInfosRemovedProcessor _fileInfosRemovedProcessor;
+    protected readonly IAElfIndexerClientEntityRepository<DaoIndex, LogEventInfo> DaoIndexRepository;
+    protected readonly DaoCreatedProcessor DaoCreatedProcessor;
+    protected readonly FileInfosRemovedProcessor FileInfosRemovedProcessor;
     
     protected readonly long BlockHeight = 120;
     protected readonly string ChainAelf = "tDVW";
@@ -58,13 +58,13 @@ public abstract class TomorrowDaoIndexerPluginTestBase : TomorrowDaoIndexerOrlea
     public TomorrowDaoIndexerPluginTestBase()
     {
         _indexerClientInfoProvider = GetRequiredService<IAElfIndexerClientInfoProvider>();
-        _blockStateSetLogEventInfoProvider = GetRequiredService<IBlockStateSetProvider<LogEventInfo>>();
+        BlockStateSetLogEventInfoProvider = GetRequiredService<IBlockStateSetProvider<LogEventInfo>>();
         _blockStateSetTransactionInfoProvider = GetRequiredService<IBlockStateSetProvider<TransactionInfo>>();
         _dAppDataProvider = GetRequiredService<IDAppDataProvider>();
         _dAppDataIndexManagerProvider = GetRequiredService<IDAppDataIndexManagerProvider>();
-        _daoIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<DaoIndex, LogEventInfo>>();
-        _fileInfosRemovedProcessor = GetRequiredService<FileInfosRemovedProcessor>();
-        _daoCreatedProcessor = GetRequiredService<DaoCreatedProcessor>();
+        DaoIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<DaoIndex, LogEventInfo>>();
+        FileInfosRemovedProcessor = GetRequiredService<FileInfosRemovedProcessor>();
+        DaoCreatedProcessor = GetRequiredService<DaoCreatedProcessor>();
     }
 
     protected async Task<string> InitializeBlockStateSetAsync(BlockStateSet<LogEventInfo> blockStateSet, string chainId)
@@ -72,9 +72,9 @@ public abstract class TomorrowDaoIndexerPluginTestBase : TomorrowDaoIndexerOrlea
         var key = GrainIdHelper.GenerateGrainId("BlockStateSets", _indexerClientInfoProvider.GetClientId(), chainId,
             _indexerClientInfoProvider.GetVersion());
 
-        await _blockStateSetLogEventInfoProvider.SetBlockStateSetAsync(key, blockStateSet);
-        await _blockStateSetLogEventInfoProvider.SetCurrentBlockStateSetAsync(key, blockStateSet);
-        await _blockStateSetLogEventInfoProvider.SetLongestChainBlockStateSetAsync(key, blockStateSet.BlockHash);
+        await BlockStateSetLogEventInfoProvider.SetBlockStateSetAsync(key, blockStateSet);
+        await BlockStateSetLogEventInfoProvider.SetCurrentBlockStateSetAsync(key, blockStateSet);
+        await BlockStateSetLogEventInfoProvider.SetLongestChainBlockStateSetAsync(key, blockStateSet.BlockHash);
 
         return key;
     }
@@ -99,7 +99,7 @@ public abstract class TomorrowDaoIndexerPluginTestBase : TomorrowDaoIndexerOrlea
         if (typeof(TSubscribeType) == typeof(TransactionInfo))
             await _blockStateSetTransactionInfoProvider.SaveDataAsync(key);
         else if (typeof(TSubscribeType) == typeof(LogEventInfo))
-            await _blockStateSetLogEventInfoProvider.SaveDataAsync(key);
+            await BlockStateSetLogEventInfoProvider.SaveDataAsync(key);
     }
 
     protected LogEventContext MockLogEventContext(long inputBlockHeight = 100, string chainId = "tDVW")

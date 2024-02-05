@@ -23,14 +23,14 @@ public class FileInfosRemovedProcessor : DaoProcessorBase<FileInfosRemoved>
     {
         var daoId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
-        _logger.LogInformation("[FileInfosRemoved] START: Id={Id}, ChainId={ChainId}, Event={Event}",
+        Logger.LogInformation("[FileInfosRemoved] START: Id={Id}, ChainId={ChainId}, Event={Event}",
             daoId, chainId, JsonConvert.SerializeObject(eventValue));
         try
         {
-            var daoIndex = await _daoRepository.GetFromBlockStateSetAsync(daoId, chainId);
+            var daoIndex = await DaoRepository.GetFromBlockStateSetAsync(daoId, chainId);
             if (daoIndex == null)
             {
-                _logger.LogInformation("[FileInfosRemoved] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
+                Logger.LogInformation("[FileInfosRemoved] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
                 return;
             }
             var removeFileInfo = eventValue.RemovedFiles;
@@ -40,12 +40,12 @@ public class FileInfosRemovedProcessor : DaoProcessorBase<FileInfosRemoved>
                 var removeFileIds = removeFileInfo.FileInfos.Select(x => x.File.Hash).ToList();
                 daoIndex.FileInfoList = JsonConvert.SerializeObject(currentFileInfo.Where(x => !removeFileIds.Contains(x.Hash)).ToList());
                 await SaveIndexAsync(daoIndex, context);
-                _logger.LogInformation("[FileInfosRemoved] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
+                Logger.LogInformation("[FileInfosRemoved] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
             }
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "[FileInfosRemoved] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogError(e, "[FileInfosRemoved] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
             throw;
         }
     }

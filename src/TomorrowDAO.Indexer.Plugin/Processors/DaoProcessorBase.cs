@@ -12,38 +12,38 @@ namespace TomorrowDAO.Indexer.Plugin.Processors;
 public abstract class DaoProcessorBase<TEvent> : AElfLogEventProcessorBase<TEvent, LogEventInfo>
     where TEvent : IEvent<TEvent>,new()
 {
-    protected readonly ILogger<DaoProcessorBase<TEvent>> _logger;
-    protected readonly IObjectMapper _objectMapper;
-    protected readonly ContractInfoOptions _contractInfoOptions;
-    protected readonly IAElfIndexerClientEntityRepository<DaoIndex, LogEventInfo> _daoRepository;
-    protected readonly IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> _electionRepository;
+    protected readonly ILogger<DaoProcessorBase<TEvent>> Logger;
+    protected readonly IObjectMapper ObjectMapper;
+    protected readonly ContractInfoOptions ContractInfoOptions;
+    protected readonly IAElfIndexerClientEntityRepository<DaoIndex, LogEventInfo> DaoRepository;
+    protected readonly IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> ElectionRepository;
     
     protected DaoProcessorBase(ILogger<DaoProcessorBase<TEvent>> logger,
         IObjectMapper objectMapper, IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, 
         IAElfIndexerClientEntityRepository<DaoIndex, LogEventInfo> daoRepository, 
         IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger)
     {
-        _logger = logger;
-        _objectMapper = objectMapper;
-        _daoRepository = daoRepository;
-        _electionRepository = electionRepository;
-        _contractInfoOptions = contractInfoOptions.Value;
+        Logger = logger;
+        ObjectMapper = objectMapper;
+        DaoRepository = daoRepository;
+        ElectionRepository = electionRepository;
+        ContractInfoOptions = contractInfoOptions.Value;
     }
 
     public override string GetContractAddress(string chainId)
     {
-        return _contractInfoOptions.ContractInfos[chainId].DaoContractAddress;
+        return ContractInfoOptions.ContractInfos[chainId].DaoContractAddress;
     }
 
     protected async Task SaveIndexAsync(DaoIndex index, LogEventContext context)
     {
-        _objectMapper.Map(context, index);
-        await _daoRepository.AddOrUpdateAsync(index);
+        ObjectMapper.Map(context, index);
+        await DaoRepository.AddOrUpdateAsync(index);
     }
     
     protected async Task SaveIndexAsync(ElectionIndex index, LogEventContext context)
     {
-        _objectMapper.Map(context, index);
-        await _electionRepository.AddOrUpdateAsync(index);
+        ObjectMapper.Map(context, index);
+        await ElectionRepository.AddOrUpdateAsync(index);
     }
 }

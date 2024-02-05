@@ -22,23 +22,23 @@ public class VoteContractSetProcessor : DaoProcessorBase<VoteContractSet>
         var daoId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
         var voteContract = eventValue.VoteContract?.ToBase58();
-        _logger.LogInformation("[VoteContractSet] START: Id={Id}, ChainId={ChainId}, VoteContract={voteContract}",
+        Logger.LogInformation("[VoteContractSet] START: Id={Id}, ChainId={ChainId}, VoteContract={voteContract}",
             daoId, chainId, voteContract);
         try
         {
-            var daoIndex = await _daoRepository.GetFromBlockStateSetAsync(daoId, chainId);
+            var daoIndex = await DaoRepository.GetFromBlockStateSetAsync(daoId, chainId);
             if (daoIndex == null)
             {
-                _logger.LogInformation("[VoteContractSet] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
+                Logger.LogInformation("[VoteContractSet] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
                 return;
             }
             daoIndex.TreasuryContractAddress = voteContract;
             await SaveIndexAsync(daoIndex, context);
-            _logger.LogInformation("[VoteContractSet] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogInformation("[VoteContractSet] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "[VoteContractSet] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogError(e, "[VoteContractSet] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
             throw;
         }
     }

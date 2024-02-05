@@ -13,9 +13,9 @@ public class DaoCreatedProcessorTest : TomorrowDaoIndexerPluginTestBase
     [Fact]
     public async Task HandleEventAsync_MaxInfo_Test()
     {
-        await MockEventProcess(MaxInfoDaoCreated(), _daoCreatedProcessor);
+        await MockEventProcess(MaxInfoDaoCreated(), DaoCreatedProcessor);
         
-        var daoIndex = await _daoIndexRepository.GetFromBlockStateSetAsync(DaoId, ChainAelf);
+        var daoIndex = await DaoIndexRepository.GetFromBlockStateSetAsync(DaoId, ChainAelf);
         daoIndex.ShouldNotBeNull();
         
         var daoMetadata = daoIndex.DaoMetadata;
@@ -59,9 +59,9 @@ public class DaoCreatedProcessorTest : TomorrowDaoIndexerPluginTestBase
     [Fact]
     public async Task HandleEventAsync_MinInfo_Test()
     {
-        await MockEventProcess(MinInfoDaoCreated(), _daoCreatedProcessor);
+        await MockEventProcess(MinInfoDaoCreated(), DaoCreatedProcessor);
         
-        var daoIndex = await _daoIndexRepository.GetFromBlockStateSetAsync(DaoId, ChainAelf);
+        var daoIndex = await DaoIndexRepository.GetFromBlockStateSetAsync(DaoId, ChainAelf);
         daoIndex.ShouldNotBeNull();
         daoIndex.Id.ShouldBe(DaoId);
         daoIndex.TreasuryContractAddress.ShouldBe("TreasuryContractAddress");
@@ -79,10 +79,10 @@ public class DaoCreatedProcessorTest : TomorrowDaoIndexerPluginTestBase
     [Fact]
     public async Task HandleEventAsync_Duplicate_Test()
     {
-        await MockEventProcess(MaxInfoDaoCreated(), _daoCreatedProcessor);
-        await MockEventProcess(MinInfoDaoCreated(), _daoCreatedProcessor);
+        await MockEventProcess(MaxInfoDaoCreated(), DaoCreatedProcessor);
+        await MockEventProcess(MinInfoDaoCreated(), DaoCreatedProcessor);
         
-        var daoIndex = await _daoIndexRepository.GetFromBlockStateSetAsync(DaoId, ChainAelf);
+        var daoIndex = await DaoIndexRepository.GetFromBlockStateSetAsync(DaoId, ChainAelf);
         daoIndex.ShouldNotBeNull();
         daoIndex.Creator.ShouldBe(DaoCreator);
     }
@@ -97,7 +97,7 @@ public class DaoCreatedProcessorTest : TomorrowDaoIndexerPluginTestBase
             {
                 FileInfos = { new FileInfo { File = null } }
             }
-        }.ToLogEvent(), _daoCreatedProcessor);
+        }.ToLogEvent(), DaoCreatedProcessor);
     }
 
     [Fact]
