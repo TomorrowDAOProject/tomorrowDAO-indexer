@@ -10,7 +10,7 @@ public class ProposalBase : AElfIndexerClientEntity<string>
 {
     [Keyword] public override string Id { get; set; }
 
-    [Keyword] public string DaoId { get; set; }
+    [Keyword] public string DAOId { get; set; }
 
     [Keyword] public string ProposalId { get; set; }
 
