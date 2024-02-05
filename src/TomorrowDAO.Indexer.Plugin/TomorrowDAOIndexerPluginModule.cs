@@ -1,6 +1,9 @@
 ﻿using AElfIndexer.Client;
+using AElfIndexer.Client.Handlers;
+using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.DependencyInjection;
 using TomorrowDAO.Indexer.Plugin.GraphQL;
+using TomorrowDAO.Indexer.Plugin.Processors;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 
@@ -14,6 +17,9 @@ public class TomorrowDAOIndexerPluginModule : AElfIndexerClientPluginBaseModule<
     {
         var configuration = serviceCollection.GetConfiguration();
         Configure<ContractInfoOptions>(configuration.GetSection("ContractInfo"));
+        //add processors
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, ProposalCreatedProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, ProposalReleasedProcessor>();
     }
 
     protected override string ClientId => "AElfIndexer_tmrwdao";

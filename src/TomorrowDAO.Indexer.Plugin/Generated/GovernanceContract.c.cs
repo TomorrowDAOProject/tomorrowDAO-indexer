@@ -218,9 +218,15 @@ namespace TomorrowDAO.Contracts.Governance {
         StartTime = StartTime,
         EndTime = EndTime,
         ExpiredTime = ExpiredTime,
+        ProposalStatus = ProposalStatus,
+        GovernanceSchemeId = GovernanceSchemeId,
+        VoteSchemeId = VoteSchemeId,
         Transaction = Transaction,
         ExecuteByHighCouncil = ExecuteByHighCouncil,
         ReleaseAddress = ReleaseAddress,
+        ProposalType = ProposalType,
+        DaoId = DaoId,
+        ProposalTitle = ProposalTitle,
       };
     }
   }
@@ -428,7 +434,6 @@ namespace TomorrowDAO.Contracts.Governance {
     #endregion
 
     /// <summary>Base class for the contract of GovernanceContract</summary>
-    
   }
 }
 #endregion
