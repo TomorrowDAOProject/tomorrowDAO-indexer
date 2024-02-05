@@ -46,6 +46,11 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly string FileName = "FileName";
     protected readonly string FileUrl = "FileUrl";
     protected readonly string DAOCreator = "2fbCtXNLVD2SC4AD6b8nqAkHtjqxRCfwvciX4MyH6257n8Gf63";
+    // protected readonly int MinimalRequiredThreshold = 1;
+    // protected readonly int MinimalVoteThreshold = 2;
+    // protected readonly int MinimalApproveThreshold = 3;
+    // protected readonly int MaximalAbstentionThreshold = 4;
+    // protected readonly int MaximalRejectionThreshold = 5;
     protected readonly int MaxHighCouncilCandidateCount = 1;
     protected readonly int MaxHighCouncilMemberCount = 2;
     protected readonly int ElectionPeriod = 3;
