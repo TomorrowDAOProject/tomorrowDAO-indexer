@@ -183,12 +183,12 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         {
             Metadata = new Metadata
             {
-                Name = DaoName,
-                LogoUrl = DaoLogoUrl,
-                Description = DaoDescription,
+                Name = DAOName,
+                LogoUrl = DAOLogoUrl,
+                Description = DAODescription,
                 SocialMedia = { ["name"] = "url" }
             },
-            MetadataAdmin = Address.FromBase58(DaoMetadataAdmin),
+            MetadataAdmin = Address.FromBase58(DAOMetadataAdmin),
             GovernanceToken = Elf,
             GovernanceSchemeId = HashHelper.ComputeFrom(Id2),
             GovernanceSchemeThreshold = new GovernanceSchemeThreshold
@@ -211,7 +211,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             IsTreasuryContractNeeded = true,
             IsVoteContractNeeded = true,
             DaoId = HashHelper.ComputeFrom(Id1),
-            Creator = Address.FromBase58(DaoCreator)
+            Creator = Address.FromBase58(DAOCreator)
         }.ToLogEvent();
     }
 
@@ -219,7 +219,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     {
         return new DAOCreated
         {
-            DAOId = HashHelper.ComputeFrom(Id1)
+            DaoId = HashHelper.ComputeFrom(Id1)
         }.ToLogEvent();
     }
 
