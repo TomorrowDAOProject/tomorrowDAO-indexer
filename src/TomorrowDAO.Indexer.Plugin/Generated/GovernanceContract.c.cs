@@ -27,6 +27,7 @@ namespace TomorrowDAO.Contracts.Governance {
         GovernanceSchemeId = GovernanceSchemeId,
         GovernanceMechanism = GovernanceMechanism,
         Creator = Creator,
+        SchemeThreshold = SchemeThreshold,
       };
     }
   }
@@ -106,7 +107,6 @@ namespace TomorrowDAO.Contracts.Governance {
         UpdateSchemeId = UpdateSchemeId,
         SubSchemeId = SubSchemeId,
         SchemeThresholdUpdate = SchemeThresholdUpdate,
-        GovernanceType = GovernanceType,
       };
     }
   }
@@ -127,8 +127,9 @@ namespace TomorrowDAO.Contracts.Governance {
         OrganizationAddress = OrganizationAddress,
         GovernanceSchemeId = GovernanceSchemeId,
         OrganizationHash = OrganizationHash,
-        TokenSymbol = TokenSymbol,
+        Symbol = Symbol,
         OrganizationName = OrganizationName,
+        OrganizationMemberList = OrganizationMemberList,
       };
     }
   }
@@ -227,6 +228,7 @@ namespace TomorrowDAO.Contracts.Governance {
         ProposalType = ProposalType,
         DaoId = DaoId,
         ProposalTitle = ProposalTitle,
+        ProposalDescription = ProposalDescription,
       };
     }
   }
@@ -270,9 +272,9 @@ namespace TomorrowDAO.Contracts.Governance {
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.AddressList> __Marshaller_AddressList = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.AddressList.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.ChangeMemberInput> __Marshaller_ChangeMemberInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.ChangeMemberInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.CreateProposalInput> __Marshaller_CreateProposalInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.CreateProposalInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.CreateOrganizationProposalInput> __Marshaller_CreateOrganizationProposalInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.CreateOrganizationProposalInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.GovernanceScheme> __Marshaller_GovernanceScheme = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.GovernanceScheme.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.GovernanceSubScheme> __Marshaller_GovernanceSubScheme = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.GovernanceSubScheme.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.GetGovernanceTypeOutput> __Marshaller_GetGovernanceTypeOutput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.GetGovernanceTypeOutput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.Organization> __Marshaller_Organization = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.Organization.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::Google.Protobuf.WellKnownTypes.BoolValue> __Marshaller_google_protobuf_BoolValue = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.BoolValue.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.ProposalInfo> __Marshaller_ProposalInfo = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.ProposalInfo.Parser.ParseFrom);
@@ -356,6 +358,13 @@ namespace TomorrowDAO.Contracts.Governance {
         __Marshaller_CreateProposalInput,
         __Marshaller_aelf_Hash);
 
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.CreateOrganizationProposalInput, global::AElf.Types.Hash> __Method_CreateOrganizationProposal = new aelf::Method<global::TomorrowDAO.Contracts.Governance.CreateOrganizationProposalInput, global::AElf.Types.Hash>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "CreateOrganizationProposal",
+        __Marshaller_CreateOrganizationProposalInput,
+        __Marshaller_aelf_Hash);
+
     static readonly aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty> __Method_ReleaseProposal = new aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty>(
         aelf::MethodType.Action,
         __ServiceName,
@@ -376,13 +385,6 @@ namespace TomorrowDAO.Contracts.Governance {
         "GetGovernanceSubSchemeInfo",
         __Marshaller_aelf_Hash,
         __Marshaller_GovernanceSubScheme);
-
-    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.GetGovernanceTypeOutput> __Method_GetGovernanceType = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.GetGovernanceTypeOutput>(
-        aelf::MethodType.View,
-        __ServiceName,
-        "GetGovernanceType",
-        __Marshaller_aelf_Hash,
-        __Marshaller_GetGovernanceTypeOutput);
 
     static readonly aelf::Method<global::AElf.Types.Address, global::TomorrowDAO.Contracts.Governance.Organization> __Method_GetOrganization = new aelf::Method<global::AElf.Types.Address, global::TomorrowDAO.Contracts.Governance.Organization>(
         aelf::MethodType.View,
