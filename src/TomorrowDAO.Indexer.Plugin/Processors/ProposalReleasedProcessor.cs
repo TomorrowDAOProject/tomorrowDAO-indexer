@@ -17,8 +17,8 @@ public class ProposalReleasedProcessor : ProposalProcessorBase<ProposalReleased>
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> proposalRepository,
-        IGovernanceSchemeProvider governanceSchemeProvider) :
-        base(logger, objectMapper, contractInfoOptions, proposalRepository, governanceSchemeProvider)
+        IGovernanceProvider governanceProvider) :
+        base(logger, objectMapper, contractInfoOptions, proposalRepository, governanceProvider)
     {
     }
 

@@ -31,9 +31,6 @@ public class ProposalBase : AElfIndexerClientEntity<string>
     public DateTime EndTime { get; set; }
 
     public DateTime ExpiredTime { get; set; }
-
-    [Keyword] public string OrganizationAddress { get; set; }
-
     [Keyword] public string ReleaseAddress { get; set; }
 
     [Keyword] public string ProposalDescription { get; set; }
@@ -50,6 +47,11 @@ public class ProposalBase : AElfIndexerClientEntity<string>
     public DateTime DeployTime { get; set; }    
     
     public bool VoteFinished  { get; set; } 
+    
+    //--------Organization info-------
+    [Keyword] public string OrganizationAddress { get; set; }
+
+    public int OrganizationMemberCount { get; set; }
 
     //--------Governance Threshold param-------
     public int MinimalRequiredThreshold { get; set; }
@@ -75,4 +77,6 @@ public class ProposalBase : AElfIndexerClientEntity<string>
     public int AbstainCounts { get; set; }
 
     public int VotesAmount { get; set; }
+    
+    public int VoterCount { get; set; }
 }

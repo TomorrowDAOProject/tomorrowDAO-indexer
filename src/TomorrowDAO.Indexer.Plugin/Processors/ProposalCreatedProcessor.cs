@@ -16,8 +16,8 @@ public class ProposalCreatedProcessor : ProposalProcessorBase<ProposalCreated>
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> proposalRepository,
-        IGovernanceSchemeProvider governanceSchemeProvider) :
-        base(logger, objectMapper, contractInfoOptions, proposalRepository, governanceSchemeProvider)
+        IGovernanceProvider governanceProvider) :
+        base(logger, objectMapper, contractInfoOptions, proposalRepository, governanceProvider)
     {
     }
 
@@ -41,11 +41,13 @@ public class ProposalCreatedProcessor : ProposalProcessorBase<ProposalCreated>
         proposalIndex.DeployTime = context.BlockTime;
         //Of governance info
         var governanceSubScheme =
-            await GovernanceSchemeProvider.GetGovernanceSubSchemeAsync(chainId, proposalIndex.GovernanceSchemeId);
+            await GovernanceProvider.GetGovernanceSubSchemeAsync(chainId, proposalIndex.GovernanceSchemeId);
         if (governanceSubScheme != null)
         {
             ObjectMapper.Map(governanceSubScheme, proposalIndex);
         }
+        proposalIndex.OrganizationMemberCount =
+            await GovernanceProvider.GetOrganizationMemberCountAsync(chainId, proposalIndex.OrganizationAddress);
         proposalIndex.Id = proposalId;
         await ProposalRepository.AddOrUpdateAsync(proposalIndex);
         Logger.LogInformation("[ProposalCreated] end proposalId:{proposalId} chainId:{chainId} ", proposalId, chainId);

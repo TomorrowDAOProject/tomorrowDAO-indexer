@@ -19,19 +19,19 @@ public abstract class ProposalProcessorBase<TEvent> : AElfLogEventProcessorBase<
 
     protected readonly IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo>
         ProposalRepository;
-    protected readonly IGovernanceSchemeProvider GovernanceSchemeProvider;
+    protected readonly IGovernanceProvider GovernanceProvider;
 
     protected ProposalProcessorBase(ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> logger,
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> proposalRepository, 
-        IGovernanceSchemeProvider governanceSchemeProvider) : base(logger)
+        IGovernanceProvider governanceProvider) : base(logger)
     {
         Logger = logger;
         ObjectMapper = objectMapper;
         ContractInfoOptions = contractInfoOptions.Value;
         ProposalRepository = proposalRepository;
-        GovernanceSchemeProvider = governanceSchemeProvider;
+        GovernanceProvider = governanceProvider;
     }
 
     public override string GetContractAddress(string chainId)
