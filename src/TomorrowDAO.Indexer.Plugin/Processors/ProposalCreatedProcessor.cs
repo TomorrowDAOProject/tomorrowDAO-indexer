@@ -56,7 +56,7 @@ public class ProposalCreatedProcessor : ProposalProcessorBase<ProposalCreated>
         //need decode
         var paramDict = new Dictionary<string, object>();
 
-        CallTransactionInfo transactionInfo = new CallTransactionInfo
+        var transactionInfo = new CallTransactionInfo
         {
             ToAddress = transaction.ToAddress?.ToBase58(),
             ContractMethodName = transaction.ContractMethodName,
