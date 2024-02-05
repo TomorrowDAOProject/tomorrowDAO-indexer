@@ -1,16 +1,15 @@
 using AElf.Indexing.Elasticsearch;
 using AElfIndexer.Client;
 using Nest;
-using TomorrowDAO.Contracts.DAO;
 
 namespace TomorrowDAO.Indexer.Plugin.Entities;
 
-public class DaoIndex : AElfIndexerClientEntity<string>, IIndexBuild
+public class DAOIndex : AElfIndexerClientEntity<string>, IIndexBuild
 {
     [Keyword] public override string Id { get; set; }
     [Keyword] public string Creator { get; set; }
     [Keyword] public string MetadataAdmin { get; set; }
-    public DaoMetadata DaoMetadata { get; set; }
+    public DAOMetadata DAOMetadata { get; set; }
     [Keyword] public string GovernanceToken { get; set; }
     [Keyword] public string GovernanceSchemeId { get; set; }
     // public GovernanceSchemeThreshold GovernanceSchemeThreshold { get; set; }

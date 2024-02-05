@@ -11,41 +11,41 @@ using FileInfo = TomorrowDAO.Indexer.Plugin.Entities.FileInfo;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors;
 
-public class FileInfosRemovedProcessor : DaoProcessorBase<FileInfosRemoved>
+public class FileInfosRemovedProcessor : DAOProcessorBase<FileInfosRemoved>
 {
-    public FileInfosRemovedProcessor(ILogger<DaoProcessorBase<FileInfosRemoved>> logger, IObjectMapper objectMapper, 
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<DaoIndex, LogEventInfo> daoRepository,
-        IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger, objectMapper, contractInfoOptions, daoRepository, electionRepository)
+    public FileInfosRemovedProcessor(ILogger<DAOProcessorBase<FileInfosRemoved>> logger, IObjectMapper objectMapper, 
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAORepository,
+        IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger, objectMapper, contractInfoOptions, DAORepository, electionRepository)
     {
     }
 
     protected override async Task HandleEventAsync(FileInfosRemoved eventValue, LogEventContext context)
     {
-        var daoId = eventValue.DaoId.ToHex();
+        var DAOId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
         Logger.LogInformation("[FileInfosRemoved] START: Id={Id}, ChainId={ChainId}, Event={Event}",
-            daoId, chainId, JsonConvert.SerializeObject(eventValue));
+            DAOId, chainId, JsonConvert.SerializeObject(eventValue));
         try
         {
-            var daoIndex = await DaoRepository.GetFromBlockStateSetAsync(daoId, chainId);
-            if (daoIndex == null)
+            var DAOIndex = await DAORepository.GetFromBlockStateSetAsync(DAOId, chainId);
+            if (DAOIndex == null)
             {
-                Logger.LogInformation("[FileInfosRemoved] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
+                Logger.LogInformation("[FileInfosRemoved] DAO not existed: Id={Id}, ChainId={ChainId}", DAOId, chainId);
                 return;
             }
             var removeFileInfo = eventValue.RemovedFiles;
-            var currentFileInfo = JsonConvert.DeserializeObject<List<FileInfo>>(daoIndex.FileInfoList);
+            var currentFileInfo = JsonConvert.DeserializeObject<List<FileInfo>>(DAOIndex.FileInfoList);
             if (currentFileInfo != null)
             {
                 var removeFileIds = removeFileInfo.FileInfos.Select(x => x.File.Hash).ToList();
-                daoIndex.FileInfoList = JsonConvert.SerializeObject(currentFileInfo.Where(x => !removeFileIds.Contains(x.Hash)).ToList());
-                await SaveIndexAsync(daoIndex, context);
-                Logger.LogInformation("[FileInfosRemoved] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
+                DAOIndex.FileInfoList = JsonConvert.SerializeObject(currentFileInfo.Where(x => !removeFileIds.Contains(x.Hash)).ToList());
+                await SaveIndexAsync(DAOIndex, context);
+                Logger.LogInformation("[FileInfosRemoved] FINISH: Id={Id}, ChainId={ChainId}", DAOId, chainId);
             }
         }
         catch (Exception e)
         {
-            Logger.LogError(e, "[FileInfosRemoved] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogError(e, "[FileInfosRemoved] Exception Id={DAOId}, ChainId={ChainId}", DAOId, chainId);
             throw;
         }
     }

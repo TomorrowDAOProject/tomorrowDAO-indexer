@@ -12,7 +12,7 @@ namespace TomorrowDAO.Indexer.Plugin.Processors;
 
 public class CandidateAddressReplacedProcessor : ElectionProcessorBase<CandidateAddressReplaced>
 {
-    public CandidateAddressReplacedProcessor(ILogger<DaoProcessorBase<CandidateAddressReplaced>> logger, IObjectMapper objectMapper, 
+    public CandidateAddressReplacedProcessor(ILogger<DAOProcessorBase<CandidateAddressReplaced>> logger, IObjectMapper objectMapper, 
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, 
         IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger, objectMapper, contractInfoOptions, electionRepository)
     {
@@ -20,28 +20,28 @@ public class CandidateAddressReplacedProcessor : ElectionProcessorBase<Candidate
 
     protected override async Task HandleEventAsync(CandidateAddressReplaced eventValue, LogEventContext context)
     {
-        var daoId = eventValue.DaoId.ToHex();
+        var DAOId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
         Logger.LogInformation("[CandidateAddressReplaced] START: Id={Id}, ChainId={ChainId}, Event={Event}",
-            daoId, chainId, JsonConvert.SerializeObject(eventValue));
+            DAOId, chainId, JsonConvert.SerializeObject(eventValue));
         try
         {
             var oldCandidate = eventValue.OldAddress.ToBase58();
             var newCandidate = eventValue.NewAddress.ToBase58();
             var electionIndex = await ElectionRepository.GetFromBlockStateSetAsync(IdGenerateHelper
-                .GetId(chainId, daoId, oldCandidate, CandidateTerm, HighCouncilType.Candidate), chainId);
+                .GetId(chainId, DAOId, oldCandidate, CandidateTerm, HighCouncilType.Candidate), chainId);
             if (electionIndex == null)
             {
-                Logger.LogInformation("[CandidateAddressReplaced] candidate not existed: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, oldCandidate);
+                Logger.LogInformation("[CandidateAddressReplaced] candidate not existed: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, oldCandidate);
                 return;
             }
             electionIndex.Address = newCandidate;
             await ElectionRepository.DeleteAsync(electionIndex);
-            Logger.LogInformation("[CandidateAddressReplaced] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, oldCandidate); 
+            Logger.LogInformation("[CandidateAddressReplaced] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, oldCandidate); 
         }
         catch (Exception e)
         {
-            Logger.LogError(e, "[CandidateAddressReplaced] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogError(e, "[CandidateAddressReplaced] Exception Id={DAOId}, ChainId={ChainId}", DAOId, chainId);
             throw;
         }
     }

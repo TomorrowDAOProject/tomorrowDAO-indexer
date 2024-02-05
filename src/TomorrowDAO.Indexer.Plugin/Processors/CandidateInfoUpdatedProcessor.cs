@@ -12,7 +12,7 @@ namespace TomorrowDAO.Indexer.Plugin.Processors;
 
 public class CandidateInfoUpdatedProcessor : ElectionProcessorBase<CandidateInfoUpdated>
 {
-    public CandidateInfoUpdatedProcessor(ILogger<DaoProcessorBase<CandidateInfoUpdated>> logger, IObjectMapper objectMapper, 
+    public CandidateInfoUpdatedProcessor(ILogger<DAOProcessorBase<CandidateInfoUpdated>> logger, IObjectMapper objectMapper, 
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, 
         IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger, objectMapper, contractInfoOptions, electionRepository)
     {
@@ -20,18 +20,18 @@ public class CandidateInfoUpdatedProcessor : ElectionProcessorBase<CandidateInfo
 
     protected override async Task HandleEventAsync(CandidateInfoUpdated eventValue, LogEventContext context)
     {
-        var daoId = eventValue.DaoId.ToHex();
+        var DAOId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
         var candidate = eventValue.CandidateAddress.ToBase58();
         Logger.LogInformation("[CandidateInfoUpdated] START: Id={Id}, ChainId={ChainId}, Candidate={candidate}",
-            daoId, chainId, candidate);
+            DAOId, chainId, candidate);
         try
         {
             var electionIndex = await ElectionRepository.GetFromBlockStateSetAsync(IdGenerateHelper
-                .GetId(chainId, daoId, candidate, CandidateTerm, HighCouncilType.Candidate), chainId);
+                .GetId(chainId, DAOId, candidate, CandidateTerm, HighCouncilType.Candidate), chainId);
             if (electionIndex == null)
             {
-                Logger.LogInformation("[CandidateInfoUpdated] candidate not existed: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate);
+                Logger.LogInformation("[CandidateInfoUpdated] candidate not existed: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, candidate);
                 return;
             }
 
@@ -39,12 +39,12 @@ public class CandidateInfoUpdatedProcessor : ElectionProcessorBase<CandidateInfo
             {
                 electionIndex.HighCouncilType = HighCouncilType.BlackList;
                 await ElectionRepository.DeleteAsync(electionIndex);
-                Logger.LogInformation("[CandidateInfoUpdated] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate); 
+                Logger.LogInformation("[CandidateInfoUpdated] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, candidate); 
             }
         }
         catch (Exception e)
         {
-            Logger.LogError(e, "[CandidateInfoUpdated] Exception Id={daoId}, ChainId={ChainId}, Candidate={candidate}", daoId, chainId, candidate);
+            Logger.LogError(e, "[CandidateInfoUpdated] Exception Id={DAOId}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, candidate);
             throw;
         }
     }

@@ -11,45 +11,45 @@ using FileInfo = TomorrowDAO.Indexer.Plugin.Entities.FileInfo;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors;
 
-public class FileInfosUploadedProcessor : DaoProcessorBase<FileInfosUploaded>
+public class FileInfosUploadedProcessor : DAOProcessorBase<FileInfosUploaded>
 {
-    public FileInfosUploadedProcessor(ILogger<DaoProcessorBase<FileInfosUploaded>> logger, IObjectMapper objectMapper, 
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<DaoIndex, LogEventInfo> daoRepository,
-        IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger, objectMapper, contractInfoOptions, daoRepository, electionRepository)
+    public FileInfosUploadedProcessor(ILogger<DAOProcessorBase<FileInfosUploaded>> logger, IObjectMapper objectMapper, 
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAORepository,
+        IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger, objectMapper, contractInfoOptions, DAORepository, electionRepository)
     {
     }
 
     protected override async Task HandleEventAsync(FileInfosUploaded eventValue, LogEventContext context)
     {
-        var daoId = eventValue.DaoId.ToHex();
+        var DAOId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
         Logger.LogInformation("[FileInfosUploaded] START: Id={Id}, ChainId={ChainId}, Event={Event}",
-            daoId, chainId, JsonConvert.SerializeObject(eventValue));
+            DAOId, chainId, JsonConvert.SerializeObject(eventValue));
         try
         {
-            var daoIndex = await DaoRepository.GetFromBlockStateSetAsync(daoId, chainId);
-            if (daoIndex == null)
+            var DAOIndex = await DAORepository.GetFromBlockStateSetAsync(DAOId, chainId);
+            if (DAOIndex == null)
             {
-                Logger.LogInformation("[FileInfosUploaded] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
+                Logger.LogInformation("[FileInfosUploaded] DAO not existed: Id={Id}, ChainId={ChainId}", DAOId, chainId);
                 return;
             }
 
             var addFileInfo = eventValue.UploadedFiles;
             if (addFileInfo != null)
             {
-                var currentFileInfo = JsonConvert.DeserializeObject<List<FileInfo>>(daoIndex.FileInfoList);
+                var currentFileInfo = JsonConvert.DeserializeObject<List<FileInfo>>(DAOIndex.FileInfoList);
                 currentFileInfo.AddRange(addFileInfo.FileInfos.Select(x => new FileInfo
                 {
                     Hash = x.File.Hash, Name = x.File.Name, Url = x.File.Url,
                 }).ToList());
-                daoIndex.FileInfoList = JsonConvert.SerializeObject(currentFileInfo);
-                await SaveIndexAsync(daoIndex, context);
-                Logger.LogInformation("[FileInfosUploaded] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
+                DAOIndex.FileInfoList = JsonConvert.SerializeObject(currentFileInfo);
+                await SaveIndexAsync(DAOIndex, context);
+                Logger.LogInformation("[FileInfosUploaded] FINISH: Id={Id}, ChainId={ChainId}", DAOId, chainId);
             }
         }
         catch (Exception e)
         {
-            Logger.LogError(e, "[FileInfosUploaded] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogError(e, "[FileInfosUploaded] Exception Id={DAOId}, ChainId={ChainId}", DAOId, chainId);
             throw;
         }
     }

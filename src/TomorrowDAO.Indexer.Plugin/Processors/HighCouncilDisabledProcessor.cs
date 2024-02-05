@@ -10,36 +10,36 @@ using HighCouncilConfig = TomorrowDAO.Indexer.Plugin.Entities.HighCouncilConfig;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors;
 
-public class HighCouncilDisabledProcessor : DaoProcessorBase<HighCouncilDisabled>
+public class HighCouncilDisabledProcessor : DAOProcessorBase<HighCouncilDisabled>
 {
-    public HighCouncilDisabledProcessor(ILogger<DaoProcessorBase<HighCouncilDisabled>> logger, IObjectMapper objectMapper, 
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<DaoIndex, LogEventInfo> daoRepository,
-        IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger, objectMapper, contractInfoOptions, daoRepository, electionRepository)
+    public HighCouncilDisabledProcessor(ILogger<DAOProcessorBase<HighCouncilDisabled>> logger, IObjectMapper objectMapper, 
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAORepository,
+        IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger, objectMapper, contractInfoOptions, DAORepository, electionRepository)
     {
     }
 
     protected override async Task HandleEventAsync(HighCouncilDisabled eventValue, LogEventContext context)
     {
-        var daoId = eventValue.DaoId.ToHex();
+        var DAOId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
         Logger.LogInformation("[HighCouncilDisabled] START: Id={Id}, ChainId={ChainId}",
-            daoId, chainId);
+            DAOId, chainId);
         try
         {
-            var daoIndex = await DaoRepository.GetFromBlockStateSetAsync(daoId, chainId);
-            if (daoIndex == null)
+            var DAOIndex = await DAORepository.GetFromBlockStateSetAsync(DAOId, chainId);
+            if (DAOIndex == null)
             {
-                Logger.LogInformation("[HighCouncilDisabled] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
+                Logger.LogInformation("[HighCouncilDisabled] DAO not existed: Id={Id}, ChainId={ChainId}", DAOId, chainId);
                 return;
             }
-            daoIndex.IsHighCouncilEnabled = false;
-            daoIndex.HighCouncilConfig = new HighCouncilConfig();
-            await SaveIndexAsync(daoIndex, context);
-            Logger.LogInformation("[HighCouncilDisabled] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
+            DAOIndex.IsHighCouncilEnabled = false;
+            DAOIndex.HighCouncilConfig = new HighCouncilConfig();
+            await SaveIndexAsync(DAOIndex, context);
+            Logger.LogInformation("[HighCouncilDisabled] FINISH: Id={Id}, ChainId={ChainId}", DAOId, chainId);
         }
         catch (Exception e)
         {
-            Logger.LogError(e, "[HighCouncilDisabled] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogError(e, "[HighCouncilDisabled] Exception Id={DAOId}, ChainId={ChainId}", DAOId, chainId);
             throw;
         }
     }

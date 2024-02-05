@@ -19,7 +19,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : Profile
     {
         CreateMap<LogEventContext, ProposalIndex>();
         CreateMap<ProposalCreated, ProposalIndex>()
-            .ForMember(des => des.DaoId, opt
+            .ForMember(des => des.DAOId, opt
                 => opt.MapFrom(source => source.DaoId.ToHex()
                 ))
             .ForMember(des => des.ProposalId, opt
@@ -40,11 +40,11 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : Profile
         CreateMap<ProposalReleased, ProposalIndex>();
         CreateMap<GovernanceSubSchemeIndex, ProposalIndex>(); 
         CreateMap<ProposalIndex, ProposalSyncDto>();
-        CreateMap<LogEventContext, DaoIndex>();
-        CreateMap<DAOCreated, DaoIndex>()
-            .ForMember(des => des.DaoMetadata, opt => opt.MapFrom(source => source.Metadata));
+        CreateMap<LogEventContext, DAOIndex>();
+        CreateMap<DAOCreated, DAOIndex>()
+            .ForMember(des => des.DAOMetadata, opt => opt.MapFrom(source => source.Metadata));
         CreateMap<GovernanceSchemeThresholdContract, GovernanceSchemeThresholdIndex>();
         CreateMap<HighCouncilConfigContract, HighCouncilConfigIndexer>();
-        CreateMap<Metadata, DaoMetadata>();
+        CreateMap<Metadata, DAOMetadata>();
     }
 }

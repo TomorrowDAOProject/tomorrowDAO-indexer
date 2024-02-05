@@ -7,7 +7,7 @@ public class VoteInfoDto
 
     public string VoteSchemeId { get; set; }
 
-    public string DaoId { get; set; }
+    public string DAOId { get; set; }
 
     public string AcceptedCurrency { get; set; }
 

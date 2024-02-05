@@ -13,12 +13,12 @@ public abstract class ElectionProcessorBase<TEvent> : AElfLogEventProcessorBase<
     where TEvent : IEvent<TEvent>,new()
 {
     protected readonly int CandidateTerm = 0;
-    protected readonly ILogger<DaoProcessorBase<TEvent>> Logger;
+    protected readonly ILogger<DAOProcessorBase<TEvent>> Logger;
     protected readonly IObjectMapper ObjectMapper;
     protected readonly ContractInfoOptions ContractInfoOptions;
     protected readonly IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> ElectionRepository;
     
-    protected ElectionProcessorBase(ILogger<DaoProcessorBase<TEvent>> logger,
+    protected ElectionProcessorBase(ILogger<DAOProcessorBase<TEvent>> logger,
         IObjectMapper objectMapper, IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, 
         IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger)
     {
@@ -30,7 +30,7 @@ public abstract class ElectionProcessorBase<TEvent> : AElfLogEventProcessorBase<
 
     public override string GetContractAddress(string chainId)
     {
-        return ContractInfoOptions.ContractInfos[chainId].DaoContractAddress;
+        return ContractInfoOptions.ContractInfos[chainId].DAOContractAddress;
     }
 
     protected async Task SaveIndexAsync(ElectionIndex index, LogEventContext context)

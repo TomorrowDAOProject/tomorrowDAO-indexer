@@ -20,8 +20,8 @@ public class TomorrowDAOIndexerPluginModule : AElfIndexerClientPluginBaseModule<
         //add processors
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, ProposalCreatedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, ProposalReleasedProcessor>();
-        // dao
-        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, DaoCreatedProcessor>();
+        // DAO
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, DAOCreatedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, FileInfosUploadedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, FileInfosRemovedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, HighCouncilDisabledProcessor>();

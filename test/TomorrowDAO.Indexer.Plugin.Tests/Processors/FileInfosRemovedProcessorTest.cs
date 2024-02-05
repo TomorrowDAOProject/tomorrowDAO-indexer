@@ -6,28 +6,28 @@ using Xunit;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.Processors;
 
-public class FileInfosRemovedProcessorTest : TomorrowDaoIndexerPluginTestBase
+public class FileInfosRemovedProcessorTest : TomorrowDAOIndexerPluginTestBase
 {
     [Fact]
     public async Task HandleEventAsync_MaxInfo_Test()
     {
-        await MockEventProcess(MaxInfoDaoCreated(), DaoCreatedProcessor);
+        await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
         await MockEventProcess(FileInfosRemoved(), FileInfosRemovedProcessor);
         
-        var daoIndex = await DaoIndexRepository.GetFromBlockStateSetAsync(DaoId, ChainAelf);
-        daoIndex.ShouldNotBeNull();
-        daoIndex.FileInfoList.ShouldBe("[]");
+        var DAOIndex = await DAOIndexRepository.GetFromBlockStateSetAsync(DAOId, ChainAelf);
+        DAOIndex.ShouldNotBeNull();
+        DAOIndex.FileInfoList.ShouldBe("[]");
     }
     
     [Fact]
     public async Task HandleEventAsync_MinInfo_Test()
     {
-        await MockEventProcess(MinInfoDaoCreated(), DaoCreatedProcessor);
+        await MockEventProcess(MinInfoDAOCreated(), DAOCreatedProcessor);
         await MockEventProcess(FileInfosRemoved(), FileInfosRemovedProcessor);
         
-        var daoIndex = await DaoIndexRepository.GetFromBlockStateSetAsync(DaoId, ChainAelf);
-        daoIndex.ShouldNotBeNull();
-        daoIndex.FileInfoList.ShouldBe("");
+        var DAOIndex = await DAOIndexRepository.GetFromBlockStateSetAsync(DAOId, ChainAelf);
+        DAOIndex.ShouldNotBeNull();
+        DAOIndex.FileInfoList.ShouldBe("");
     }
     
     [Fact]
@@ -35,17 +35,17 @@ public class FileInfosRemovedProcessorTest : TomorrowDaoIndexerPluginTestBase
     {
         await MockEventProcess(FileInfosRemoved(), FileInfosRemovedProcessor);
         
-        var daoIndex = await DaoIndexRepository.GetFromBlockStateSetAsync(DaoId, ChainAelf);
-        daoIndex.ShouldBeNull();
+        var DAOIndex = await DAOIndexRepository.GetFromBlockStateSetAsync(DAOId, ChainAelf);
+        DAOIndex.ShouldBeNull();
     }
     
     [Fact]
     public async Task HandleEventAsync_Exception_Test()
     {
-        await MockEventProcess(MaxInfoDaoCreated(), DaoCreatedProcessor);
+        await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
         await MockEventProcess(new FileInfosRemoved { DaoId = HashHelper.ComputeFrom(Id1) }.ToLogEvent(), FileInfosRemovedProcessor);
         
-        var daoIndex = await DaoIndexRepository.GetFromBlockStateSetAsync(DaoId, ChainAelf);
-        daoIndex.ShouldNotBeNull();
+        var DAOIndex = await DAOIndexRepository.GetFromBlockStateSetAsync(DAOId, ChainAelf);
+        DAOIndex.ShouldNotBeNull();
     }
 }

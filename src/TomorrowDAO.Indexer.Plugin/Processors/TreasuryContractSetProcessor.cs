@@ -9,36 +9,36 @@ using Volo.Abp.ObjectMapping;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors;
 
-public class TreasuryContractSetProcessor : DaoProcessorBase<TreasuryContractSet>
+public class TreasuryContractSetProcessor : DAOProcessorBase<TreasuryContractSet>
 {
-    public TreasuryContractSetProcessor(ILogger<DaoProcessorBase<TreasuryContractSet>> logger, IObjectMapper objectMapper, 
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<DaoIndex, LogEventInfo> daoRepository,
-        IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger, objectMapper, contractInfoOptions, daoRepository, electionRepository)
+    public TreasuryContractSetProcessor(ILogger<DAOProcessorBase<TreasuryContractSet>> logger, IObjectMapper objectMapper, 
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAORepository,
+        IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger, objectMapper, contractInfoOptions, DAORepository, electionRepository)
     {
     }
 
     protected override async Task HandleEventAsync(TreasuryContractSet eventValue, LogEventContext context)
     {
-        var daoId = eventValue.DaoId.ToHex();
+        var DAOId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
         var treasuryContract = eventValue.TreasuryContract?.ToBase58();
         Logger.LogInformation("[TreasuryContractSet] START: Id={Id}, ChainId={ChainId}, TreasuryContract={treasuryContract}",
-            daoId, chainId, treasuryContract);
+            DAOId, chainId, treasuryContract);
         try
         {
-            var daoIndex = await DaoRepository.GetFromBlockStateSetAsync(daoId, chainId);
-            if (daoIndex == null)
+            var DAOIndex = await DAORepository.GetFromBlockStateSetAsync(DAOId, chainId);
+            if (DAOIndex == null)
             {
-                Logger.LogInformation("[TreasuryContractSet] dao not existed: Id={Id}, ChainId={ChainId}", daoId, chainId);
+                Logger.LogInformation("[TreasuryContractSet] DAO not existed: Id={Id}, ChainId={ChainId}", DAOId, chainId);
                 return;
             }
-            daoIndex.TreasuryContractAddress = treasuryContract;
-            await SaveIndexAsync(daoIndex, context);
-            Logger.LogInformation("[TreasuryContractSet] FINISH: Id={Id}, ChainId={ChainId}", daoId, chainId);
+            DAOIndex.TreasuryContractAddress = treasuryContract;
+            await SaveIndexAsync(DAOIndex, context);
+            Logger.LogInformation("[TreasuryContractSet] FINISH: Id={Id}, ChainId={ChainId}", DAOId, chainId);
         }
         catch (Exception e)
         {
-            Logger.LogError(e, "[TreasuryContractSet] Exception Id={daoId}, ChainId={ChainId}", daoId, chainId);
+            Logger.LogError(e, "[TreasuryContractSet] Exception Id={DAOId}, ChainId={ChainId}", DAOId, chainId);
             throw;
         }
     }

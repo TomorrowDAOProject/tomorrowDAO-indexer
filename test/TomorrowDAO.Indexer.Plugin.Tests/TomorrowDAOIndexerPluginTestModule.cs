@@ -28,8 +28,8 @@ namespace TomorrowDAO.Indexer.Plugin.Tests;
     typeof(AElfIndexingElasticsearchModule))]
 public class TomorrowDAOIndexerPluginTestModule : AbpModule
 {
-    private string ClientId { get; } = "TestTmrwdaoClient";
-    private string Version { get; } = "TestTmrwdaoVersion";
+    private string ClientId { get; } = "TestTomorrowDAOClient";
+    private string Version { get; } = "TestTomorrowDAOVersion";
 
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
@@ -66,7 +66,7 @@ public class TomorrowDAOIndexerPluginTestModule : AbpModule
             options.NumberOfReplicas = 1;
             options.NumberOfShards = 1;
             options.Refresh = Refresh.True;
-            options.IndexPrefix = "TmrwdaoIndexer";
+            options.IndexPrefix = "TomorrowDAOIndexer";
         });
 
         context.Services.Configure<ContractInfoOptions>(options =>
@@ -78,7 +78,7 @@ public class TomorrowDAOIndexerPluginTestModule : AbpModule
                     {
                         VoteContractAddress = "VoteContractAddress",
                         TreasuryContractAddress = "TreasuryContractAddress",
-                        DaoContractAddress = "DaoContractAddress"
+                        DAOContractAddress = "DAOContractAddress"
                     }
                 }
             };
