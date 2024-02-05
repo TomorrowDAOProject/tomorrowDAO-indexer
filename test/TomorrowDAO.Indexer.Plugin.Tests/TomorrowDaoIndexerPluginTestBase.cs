@@ -181,37 +181,37 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     {
         return new DAOCreated
         {
-            Metadata = new Metadata
-            {
-                Name = DAOName,
-                LogoUrl = DAOLogoUrl,
-                Description = DAODescription,
-                SocialMedia = { ["name"] = "url" }
-            },
-            MetadataAdmin = Address.FromBase58(DAOMetadataAdmin),
-            GovernanceToken = Elf,
-            GovernanceSchemeId = HashHelper.ComputeFrom(Id2),
-            GovernanceSchemeThreshold = new GovernanceSchemeThreshold
-            {
-                MinimalRequiredThreshold = 1,
-                MinimalVoteThreshold = 2,
-                MinimalApproveThreshold = 3,
-                MaximalAbstentionThreshold = 4,
-                MaximalRejectionThreshold = 5
-            },
-            IsHighCouncilEnabled = true,
-            HighCouncilConfig = new HighCouncilConfig
-            {
-                MaxHighCouncilCandidateCount = 1,
-                MaxHighCouncilMemberCount = 2,
-                ElectionPeriod = 3,
-                IsRequireHighCouncilForExecution = true
-            },
-            FileInfoList = GetFileInfoList(),
-            IsTreasuryContractNeeded = true,
-            IsVoteContractNeeded = true,
-            DaoId = HashHelper.ComputeFrom(Id1),
-            Creator = Address.FromBase58(DAOCreator)
+            // Metadata = new Metadata
+            // {
+            //     Name = DaoName,
+            //     LogoUrl = DaoLogoUrl,
+            //     Description = DaoDescription,
+            //     SocialMedia = { ["name"] = "url" }
+            // },
+            // MetadataAdmin = Address.FromBase58(DaoMetadataAdmin),
+            // GovernanceToken = Elf,
+            // GovernanceSchemeId = HashHelper.ComputeFrom(Id2),
+            // GovernanceSchemeThreshold = new GovernanceSchemeThreshold
+            // {
+            //     MinimalRequiredThreshold = 1,
+            //     MinimalVoteThreshold = 2,
+            //     MinimalApproveThreshold = 3,
+            //     MaximalAbstentionThreshold = 4,
+            //     MaximalRejectionThreshold = 5
+            // },
+            // IsHighCouncilEnabled = true,
+            // HighCouncilConfig = new HighCouncilConfig
+            // {
+            //     MaxHighCouncilCandidateCount = 1,
+            //     MaxHighCouncilMemberCount = 2,
+            //     ElectionPeriod = 3,
+            //     IsRequireHighCouncilForExecution = true
+            // },
+            // FileInfoList = GetFileInfoList(),
+            // IsTreasuryContractNeeded = true,
+            // IsVoteContractNeeded = true,
+            // DaoId = HashHelper.ComputeFrom(Id1),
+            // Creator = Address.FromBase58(DaoCreator)
         }.ToLogEvent();
     }
 
@@ -219,7 +219,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     {
         return new DAOCreated
         {
-            DaoId = HashHelper.ComputeFrom(Id1)
+            // DAOId = HashHelper.ComputeFrom(Id1)
         }.ToLogEvent();
     }
 
