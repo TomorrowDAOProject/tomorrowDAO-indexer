@@ -31,9 +31,11 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly FileInfosRemovedProcessor FileInfosRemovedProcessor;
     
     protected readonly long BlockHeight = 120;
+    
     protected readonly string ChainAelf = "tDVW";
     protected static readonly string Id1 = "123";
     protected static readonly string Id2 = "456";
+    protected static readonly string Id3 = "789";
     protected readonly string DAOId = HashHelper.ComputeFrom(Id1).ToHex();
     protected readonly string DAOName = "DAOName";
     protected readonly string DAOLogoUrl = "DAOLogoUrl";
