@@ -42,10 +42,12 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly string DAO = "2N9DJYUUruS7bFqRyKMvafA75qTWgqpWcB78nNZzpmxHrMv4D";
     protected readonly string Elf = "Elf";
     protected readonly string GovernanceSchemeId = HashHelper.ComputeFrom(Id2).ToHex();
+    protected static readonly string SubId = "456-1";
     protected readonly string FileHash = "FileHash";
     protected readonly string FileName = "FileName";
     protected readonly string FileUrl = "FileUrl";
     protected readonly string DAOCreator = "2fbCtXNLVD2SC4AD6b8nqAkHtjqxRCfwvciX4MyH6257n8Gf63";
+    protected readonly string Creator = "2fbCtXNLVD2SC4AD6b8nqAkHtjqxRCfwvciX4MyH6257n8Gf63";
     // protected readonly int MinimalRequiredThreshold = 1;
     // protected readonly int MinimalVoteThreshold = 2;
     // protected readonly int MinimalApproveThreshold = 3;

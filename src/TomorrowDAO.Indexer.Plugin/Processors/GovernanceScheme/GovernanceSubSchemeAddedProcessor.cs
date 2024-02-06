@@ -42,6 +42,12 @@ public class GovernanceSubSchemeAddedProcessor : GovernanceSchemeProcessorBase<G
         governanceSubSchemeIndex.Id = subSchemeId;
         governanceSubSchemeIndex.CreateTime = context.BlockTime;
         governanceSubSchemeIndex.OfThreshold(eventValue.SchemeThreshold);
+        //use governanceScheme GovernanceMechanism
+        var governanceSchemeIndex =
+            await GovernanceSchemeRepository.GetFromBlockStateSetAsync(governanceSubSchemeIndex.ParentSchemeId,
+                context.ChainId);
+        governanceSubSchemeIndex.GovernanceMechanism = governanceSchemeIndex.GovernanceMechanism;
+
         await SaveIndexAsync(governanceSubSchemeIndex, context);
         Logger.LogInformation(
             "[GovernanceSubSchemeAdded] end subSchemeId:{subSchemeId} chainId:{chainId} ",

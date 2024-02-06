@@ -39,6 +39,11 @@ public class GovernanceSubSchemeUpdatedProcessor : GovernanceSchemeProcessorBase
         }
         //update governance scheme
         governanceSubSchemeIndex.ParentSchemeId = eventValue.UpdateSchemeId?.ToHex();
+        //use governanceScheme GovernanceMechanism
+        var governanceSchemeIndex =
+            await GovernanceSchemeRepository.GetFromBlockStateSetAsync(governanceSubSchemeIndex.ParentSchemeId,
+                context.ChainId);
+        governanceSubSchemeIndex.GovernanceMechanism = governanceSchemeIndex.GovernanceMechanism;
         governanceSubSchemeIndex.OfThreshold(eventValue.SchemeThresholdUpdate);
         await SaveIndexAsync(governanceSubSchemeIndex, context);
         Logger.LogInformation(
