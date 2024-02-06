@@ -4,12 +4,12 @@ using TomorrowDAO.Contracts.Governance;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 using TomorrowDAO.Contracts.DAO;
-using TomorrowDAO.Indexer.Plugin.Entities;
 using GovernanceSchemeThresholdIndex = TomorrowDAO.Indexer.Plugin.Entities.GovernanceSchemeThreshold;
 using GovernanceSchemeThresholdContract = TomorrowDAO.Contracts.DAO.GovernanceSchemeThreshold;
 using HighCouncilConfigContract = TomorrowDAO.Contracts.DAO.HighCouncilConfig;
 using HighCouncilConfigIndexer = TomorrowDAO.Indexer.Plugin.Entities.HighCouncilConfig;
-using HighCouncilInfo = TomorrowDAO.Contracts.DAO.HighCouncilInfo;
+using MetadataContract = TomorrowDAO.Contracts.DAO.Metadata;
+using MetadataIndexer = TomorrowDAO.Indexer.Plugin.Entities.Metadata;
 
 namespace TomorrowDAO.Indexer.Plugin;
 
@@ -41,10 +41,9 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : Profile
         CreateMap<GovernanceSubSchemeIndex, ProposalIndex>(); 
         CreateMap<ProposalIndex, ProposalSyncDto>();
         CreateMap<LogEventContext, DAOIndex>();
-        CreateMap<DAOCreated, DAOIndex>()
-            .ForMember(des => des.DAOMetadata, opt => opt.MapFrom(source => source.Metadata));
+        CreateMap<DAOCreated, DAOIndex>();
         CreateMap<GovernanceSchemeThresholdContract, GovernanceSchemeThresholdIndex>();
         CreateMap<HighCouncilConfigContract, HighCouncilConfigIndexer>();
-        CreateMap<Metadata, DAOMetadata>();
+        CreateMap<MetadataContract, MetadataIndexer>();
     }
 }
