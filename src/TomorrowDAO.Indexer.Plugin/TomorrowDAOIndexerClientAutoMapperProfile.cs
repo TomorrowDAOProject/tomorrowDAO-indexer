@@ -27,7 +27,14 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.OrganizationAddress, opt
                 => opt.MapFrom(source => MapAddress(source.OrganizationAddress)))
             .ForMember(des => des.ReleaseAddress, opt
-                => opt.MapFrom(source => MapAddress(source.ReleaseAddress)));
+                => opt.MapFrom(source => MapAddress(source.ReleaseAddress)))
+            .ForMember(des => des.StartTime, opt
+                => opt.MapFrom(source => MapDateTime(source.StartTime)))
+            .ForMember(des => des.EndTime, opt
+                => opt.MapFrom(source => MapDateTime(source.EndTime)))
+            .ForMember(des => des.ExpiredTime, opt
+                => opt.MapFrom(source => MapDateTime(source.ExpiredTime)));
+        
         CreateMap<ProposalReleased, ProposalIndex>();
         CreateMap<GovernanceSubSchemeIndex, ProposalIndex>();
         CreateMap<ProposalIndex, ProposalSyncDto>();
