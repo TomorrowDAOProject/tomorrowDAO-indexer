@@ -126,6 +126,7 @@ namespace TomorrowDAO.Contracts.Treasury {
     {
       return new TreasuryTokenLocked
       {
+        DaoId = DaoId,
         LockInfo = LockInfo,
         Proposer = Proposer,
       };
@@ -169,7 +170,9 @@ namespace TomorrowDAO.Contracts.Treasury {
     {
       return new TreasuryTokenUnlocked
       {
+        DaoId = DaoId,
         LockInfo = LockInfo,
+        Executor = Executor,
       };
     }
   }

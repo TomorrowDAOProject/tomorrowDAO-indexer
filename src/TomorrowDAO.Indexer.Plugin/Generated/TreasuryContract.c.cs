@@ -126,6 +126,7 @@ namespace TomorrowDAO.Contracts.Treasury {
     {
       return new TreasuryTokenLocked
       {
+        DaoId = DaoId,
         LockInfo = LockInfo,
         Proposer = Proposer,
       };
@@ -169,7 +170,9 @@ namespace TomorrowDAO.Contracts.Treasury {
     {
       return new TreasuryTokenUnlocked
       {
+        DaoId = DaoId,
         LockInfo = LockInfo,
+        Executor = Executor,
       };
     }
   }
@@ -268,7 +271,7 @@ namespace TomorrowDAO.Contracts.Treasury {
     // public abstract partial class TreasuryContractBase : AElf.Sdk.CSharp.CSharpSmartContract<TomorrowDAO.Contracts.Treasury.TreasuryContractState>
     // {
     // }
-
+    //
     // public static aelf::ServerServiceDefinition BindService(TreasuryContractBase serviceImpl)
     // {
     //   return aelf::ServerServiceDefinition.CreateBuilder()
