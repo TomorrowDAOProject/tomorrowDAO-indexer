@@ -5,7 +5,6 @@ using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TomorrowDAO.Indexer.Plugin.Entities;
-using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors.Organization;
@@ -19,19 +18,16 @@ public abstract class OrganizationProcessorBase<TEvent> : AElfLogEventProcessorB
 
     protected readonly IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo>
         OrganizationRepository;
-    protected readonly IGovernanceProvider GovernanceProvider;
 
     protected OrganizationProcessorBase(ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> logger,
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
-        IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> organizationRepository,
-        IGovernanceProvider governanceProvider) : base(logger)
+        IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> organizationRepository) : base(logger)
     {
         Logger = logger;
         ObjectMapper = objectMapper;
         ContractInfoOptions = contractInfoOptions.Value;
         OrganizationRepository = organizationRepository;
-        GovernanceProvider = governanceProvider;
     }
 
     public override string GetContractAddress(string chainId)

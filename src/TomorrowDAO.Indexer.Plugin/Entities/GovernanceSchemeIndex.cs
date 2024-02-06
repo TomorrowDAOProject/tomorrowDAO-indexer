@@ -1,5 +1,4 @@
 using AElf.Indexing.Elasticsearch;
-using AElfIndexer.Client;
 using Nest;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -7,16 +6,16 @@ using TomorrowDAO.Indexer.Plugin.Enums;
 
 namespace TomorrowDAO.Indexer.Plugin.Entities;
 
-public class GovernanceSubSchemeIndex : GovernanceSchemeThreshold, IIndexBuild
+public class GovernanceSchemeIndex : GovernanceSchemeThreshold, IIndexBuild
 {
     [Keyword] public override string Id { get; set; }
     
-    [Keyword] public string SubSchemeId { get; set; }
-
-    [Keyword] public string ParentSchemeId { get; set; }
-    
+    [Keyword] public string GovernanceSchemeId { get; set; }
+   
     [JsonConverter(typeof(StringEnumConverter))]
     public GovernanceMechanism GovernanceMechanism { get; set; }
+   
+    [Keyword] public string Creator { get; set; }
     
     public DateTime CreateTime { get; set; }
 }

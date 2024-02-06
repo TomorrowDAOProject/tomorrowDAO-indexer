@@ -5,7 +5,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TomorrowDAO.Contracts.Governance;
 using TomorrowDAO.Indexer.Plugin.Entities;
-using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors.Organization;
@@ -15,9 +14,8 @@ public class OrganizationCreatedProcessor : OrganizationProcessorBase<Organizati
     public OrganizationCreatedProcessor(ILogger<AElfLogEventProcessorBase<OrganizationCreated, LogEventInfo>> logger,
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
-        IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> organizationRepository,
-        IGovernanceProvider governanceProvider) :
-        base(logger, objectMapper, contractInfoOptions, organizationRepository, governanceProvider)
+        IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> organizationRepository) :
+        base(logger, objectMapper, contractInfoOptions, organizationRepository)
     {
     }
 

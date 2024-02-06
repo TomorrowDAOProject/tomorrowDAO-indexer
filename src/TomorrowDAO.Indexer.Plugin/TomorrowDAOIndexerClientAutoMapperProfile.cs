@@ -45,5 +45,17 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => MapHash(source.GovernanceSchemeId)))
             .ForMember(des => des.OrganizationMemberSet, opt 
                 => opt.MapFrom(source => MapOrganizationMemberSet(source)));
+        CreateMap<LogEventContext, GovernanceSchemeIndex>();
+        CreateMap<LogEventContext, GovernanceSubSchemeIndex>();
+        CreateMap<GovernanceSchemeCreated, GovernanceSchemeIndex>()
+            .ForMember(des => des.GovernanceSchemeId, opt
+                => opt.MapFrom(source => MapHash(source.GovernanceSchemeId)))
+            .ForMember(des => des.Creator, opt
+                => opt.MapFrom(source => MapAddress(source.Creator)));
+        CreateMap<GovernanceSubSchemeAdded, GovernanceSubSchemeIndex>()
+            .ForMember(des => des.SubSchemeId, opt
+                => opt.MapFrom(source => MapHash(source.SubSchemeId)))
+            .ForMember(des => des.ParentSchemeId, opt
+                => opt.MapFrom(source => MapHash(source.ParentSchemeId)));
     }
 }
