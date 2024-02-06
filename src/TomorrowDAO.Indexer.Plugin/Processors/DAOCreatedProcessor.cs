@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using TomorrowDAO.Contracts.DAO;
 using TomorrowDAO.Indexer.Plugin.Entities;
+using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 using FileInfo = TomorrowDAO.Indexer.Plugin.Entities.FileInfo;
 
@@ -15,7 +16,8 @@ public class DAOCreatedProcessor : DAOProcessorBase<DAOCreated>
 {
     public DAOCreatedProcessor(ILogger<DAOProcessorBase<DAOCreated>> logger, IObjectMapper objectMapper, 
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAORepository,
-        IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger, objectMapper, contractInfoOptions, DAORepository, electionRepository)
+        IElectionProvider electionProvider) 
+        : base(logger, objectMapper, contractInfoOptions, DAORepository, electionProvider)
     {
     }
 
@@ -39,9 +41,9 @@ public class DAOCreatedProcessor : DAOProcessorBase<DAOCreated>
             DAOIndex.Creator = eventValue.Creator?.ToBase58();
             DAOIndex.MetadataAdmin = eventValue.MetadataAdmin?.ToBase58();
             DAOIndex.FileInfoList = eventValue.FileInfoList != null ? 
-                JsonConvert.SerializeObject(eventValue.FileInfoList.FileInfos.Select(x => new FileInfo
+                JsonConvert.SerializeObject(eventValue.FileInfoList.Data.Values.Select(x => new FileInfo
                 {
-                    Hash = x.File.Hash, Name = x.File.Name, Url = x.File.Url
+                    Cid = x.File.Cid, Name = x.File.Name, Url = x.File.Url
                 }).ToList()) 
                 : string.Empty;
             DAOIndex.CreateTime = context.BlockTime;

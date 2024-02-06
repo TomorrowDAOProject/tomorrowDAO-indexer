@@ -33,7 +33,8 @@ public class CandidateRemovedProcessor : ElectionProcessorBase<CandidateRemoved>
                 Logger.LogInformation("[CandidateRemoved] candidate not existed: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, candidate);
                 return;
             }
-            await ElectionRepository.DeleteAsync(electionIndex);
+            electionIndex.IsRemoved = true;
+            await SaveIndexAsync(electionIndex, context);
             Logger.LogInformation("[CandidateRemoved] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, candidate);
         }
         catch (Exception e)

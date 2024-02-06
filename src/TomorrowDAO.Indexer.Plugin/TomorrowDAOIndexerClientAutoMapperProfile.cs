@@ -3,10 +3,13 @@ using TomorrowDAO.Contracts.DAO;
 using TomorrowDAO.Contracts.Governance;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
+
 using GovernanceSchemeThresholdIndex = TomorrowDAO.Indexer.Plugin.Entities.GovernanceSchemeThreshold;
 using GovernanceSchemeThresholdContract = TomorrowDAO.Contracts.DAO.GovernanceSchemeThreshold;
 using HighCouncilConfigContract = TomorrowDAO.Contracts.DAO.HighCouncilConfig;
 using HighCouncilConfigIndexer = TomorrowDAO.Indexer.Plugin.Entities.HighCouncilConfig;
+using MetadataContract = TomorrowDAO.Contracts.DAO.Metadata;
+using MetadataIndexer = TomorrowDAO.Indexer.Plugin.Entities.Metadata;
 
 namespace TomorrowDAO.Indexer.Plugin;
 
@@ -32,11 +35,9 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<GovernanceSubSchemeIndex, ProposalIndex>();
         CreateMap<ProposalIndex, ProposalSyncDto>();
         CreateMap<LogEventContext, DAOIndex>();
-        CreateMap<DAOCreated, DAOIndex>()
-            .ForMember(des => des.DAOMetadata, opt => opt.MapFrom(source => source.Metadata));
+        CreateMap<DAOCreated, DAOIndex>();
         CreateMap<GovernanceSchemeThresholdContract, GovernanceSchemeThresholdIndex>();
         CreateMap<HighCouncilConfigContract, HighCouncilConfigIndexer>();
-        CreateMap<Metadata, DAOMetadata>();
         CreateMap<LogEventContext, OrganizationIndex>();
         CreateMap<OrganizationCreated, OrganizationIndex>()
             .ForMember(des => des.OrganizationAddress, opt
@@ -45,5 +46,9 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => MapHash(source.GovernanceSchemeId)))
             .ForMember(des => des.OrganizationMemberSet, opt 
                 => opt.MapFrom(source => MapOrganizationMemberSet(source)));
+        CreateMap<MetadataContract, MetadataIndexer>();
+        CreateMap<DAOIndex, DAOInfoDto>();
+        CreateMap<MetadataIndexer, MetadataDto>();
+        CreateMap<HighCouncilConfigIndexer, HighCouncilConfigDto>();
     }
 }

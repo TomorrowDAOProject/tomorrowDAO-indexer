@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using TomorrowDAO.Contracts.DAO;
 using TomorrowDAO.Indexer.Plugin.Entities;
+using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors;
@@ -14,7 +15,8 @@ public class HighCouncilMemberUpdatedProcessor : DAOProcessorBase<HighCouncilMem
 { 
     public HighCouncilMemberUpdatedProcessor(ILogger<DAOProcessorBase<HighCouncilMemberUpdated>> logger, IObjectMapper objectMapper, 
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAORepository,
-        IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger, objectMapper, contractInfoOptions, DAORepository, electionRepository)
+        IElectionProvider electionProvider) 
+        : base(logger, objectMapper, contractInfoOptions, DAORepository, electionProvider)
     {
     }
 
@@ -36,11 +38,11 @@ public class HighCouncilMemberUpdatedProcessor : DAOProcessorBase<HighCouncilMem
             if (updatedHighCouncilInfo != null)
             {
                 var termNumber = updatedHighCouncilInfo.TermNumber;
-                DAOIndex.TermNumber = termNumber;
+                DAOIndex.HighCouncilTermNumber = termNumber;
                 await SaveIndexAsync(DAOIndex, context);
                 foreach (var member in updatedHighCouncilInfo.MemberList.Data)
                 {
-                    await SaveIndexAsync(new ElectionIndex
+                    await ElectionProvider.SaveIndexAsync(new ElectionIndex
                     {
                         Address = member.ToBase58(),
                         DaoId = DAOId,
