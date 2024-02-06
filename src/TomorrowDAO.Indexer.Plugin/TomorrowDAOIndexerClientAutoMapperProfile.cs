@@ -45,5 +45,8 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : Profile
         CreateMap<GovernanceSchemeThresholdContract, GovernanceSchemeThresholdIndex>();
         CreateMap<HighCouncilConfigContract, HighCouncilConfigIndexer>();
         CreateMap<MetadataContract, MetadataIndexer>();
+        CreateMap<DAOIndex, DAOInfoDto>();
+        CreateMap<MetadataIndexer, MetadataDto>();
+        CreateMap<HighCouncilConfigIndexer, HighCouncilConfigDto>();
     }
 }
