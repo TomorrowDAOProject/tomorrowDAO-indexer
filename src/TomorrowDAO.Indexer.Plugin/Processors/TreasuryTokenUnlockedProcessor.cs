@@ -44,7 +44,7 @@ public class TreasuryTokenUnlockedProcessor : TreasuryProcessorBase<TreasuryToke
             var executor = eventValue.Executor.ToBase58();
             await SaveIndexAsync(new TreasuryRecordIndex
             {
-                Id = IdGenerateHelper.GetId(chainId, context.TransactionId, executor, TreasuryRecordType.Donate),
+                Id = IdGenerateHelper.GetId(chainId, context.TransactionId, executor, TreasuryRecordType.UnLock),
                 DAOId = DAOId,
                 Executor = executor,
                 From = string.Empty,

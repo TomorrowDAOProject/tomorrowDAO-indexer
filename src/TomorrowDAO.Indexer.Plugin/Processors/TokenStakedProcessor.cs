@@ -43,7 +43,7 @@ public class TokenStakedProcessor : TreasuryProcessorBase<TokenStaked>
             var DAOIndex = await DAOProvider.GetDAOAsync(chainId, DAOId);
             await SaveIndexAsync(new TreasuryRecordIndex
             {
-                Id = IdGenerateHelper.GetId(chainId, context.TransactionId, executor, TreasuryRecordType.Donate),
+                Id = IdGenerateHelper.GetId(chainId, context.TransactionId, executor, TreasuryRecordType.StakeToken),
                 DAOId = DAOId,
                 Executor = executor,
                 From = executor,

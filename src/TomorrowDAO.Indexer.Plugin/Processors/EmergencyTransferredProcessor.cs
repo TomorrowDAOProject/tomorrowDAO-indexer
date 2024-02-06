@@ -43,7 +43,7 @@ public class EmergencyTransferredProcessor : TreasuryProcessorBase<EmergencyTran
             var DAOIndex = await DAOProvider.GetDAOAsync(chainId, DAOId);
             await SaveIndexAsync(new TreasuryRecordIndex
             {
-                Id = IdGenerateHelper.GetId(chainId, context.TransactionId, executor, TreasuryRecordType.Donate),
+                Id = IdGenerateHelper.GetId(chainId, context.TransactionId, executor, TreasuryRecordType.EmergencyTransfer),
                 DAOId = DAOId,
                 Executor = executor,
                 From = DAOIndex?.TreasuryAccountAddress,
