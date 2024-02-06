@@ -14,7 +14,7 @@ public interface IDAOProvider
     Task SaveIndexAsync(DAOIndex index, LogEventContext context);
 }
 
-public class DAOProvider  : IDAOProvider, ISingletonDependency
+public class DAOProvider : IDAOProvider, ISingletonDependency
 {
     private readonly ILogger<DAOProvider> _logger;
     private readonly IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> _daoRepository;
