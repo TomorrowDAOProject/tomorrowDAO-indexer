@@ -36,7 +36,7 @@ public class CandidateAddressReplacedProcessor : ElectionProcessorBase<Candidate
                 return;
             }
             electionIndex.Address = newCandidate;
-            await ElectionRepository.DeleteAsync(electionIndex);
+            await SaveIndexAsync(electionIndex, context);
             Logger.LogInformation("[CandidateAddressReplaced] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, oldCandidate); 
         }
         catch (Exception e)

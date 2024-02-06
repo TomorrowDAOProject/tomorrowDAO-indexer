@@ -12,7 +12,7 @@ namespace TomorrowDAO.Indexer.Plugin.Processors;
 public abstract class ElectionProcessorBase<TEvent> : AElfLogEventProcessorBase<TEvent, LogEventInfo>
     where TEvent : IEvent<TEvent>,new()
 {
-    protected readonly int CandidateTerm = 0;
+    protected const int CandidateTerm = 0;
     protected readonly ILogger<DAOProcessorBase<TEvent>> Logger;
     protected readonly IObjectMapper ObjectMapper;
     protected readonly ContractInfoOptions ContractInfoOptions;

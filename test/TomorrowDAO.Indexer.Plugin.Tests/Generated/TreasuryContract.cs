@@ -46,26 +46,28 @@ namespace TomorrowDAO.Contracts.Treasury {
             "OgSguxgBIqABCgtUb2tlblN0YWtlZBIaCgZkYW9faWQYASABKAsyCi5hZWxm",
             "Lkhhc2gSDgoGYW1vdW50GAIgASgDEg4KBnN5bWJvbBgDIAEoCRIeCgdhY2Nv",
             "dW50GAQgASgLMg0uYWVsZi5BZGRyZXNzEi8KC3N0YWtlZF90aW1lGAUgASgL",
-            "MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcDoEoLsYASJaChNUcmVhc3Vy",
-            "eVRva2VuTG9ja2VkEhwKCWxvY2tfaW5mbxgBIAEoCzIJLkxvY2tJbmZvEh8K",
-            "CHByb3Bvc2VyGAIgASgLMg0uYWVsZi5BZGRyZXNzOgSguxgBIs4BChhUcmVh",
-            "c3VyeVRyYW5zZmVyUmVsZWFzZWQSGgoGZGFvX2lkGAEgASgLMgouYWVsZi5I",
-            "YXNoEg4KBmFtb3VudBgCIAEoAxIOCgZzeW1ib2wYAyABKAkSIAoJcmVjaXBp",
-            "ZW50GAQgASgLMg0uYWVsZi5BZGRyZXNzEgwKBG1lbW8YBSABKAkSHwoLcHJv",
-            "cG9zYWxfaWQYBiABKAsyCi5hZWxmLkhhc2gSHwoIZXhlY3V0b3IYByABKAsy",
-            "DS5hZWxmLkFkZHJlc3M6BKC7GAEiOwoVVHJlYXN1cnlUb2tlblVubG9ja2Vk",
-            "EhwKCWxvY2tfaW5mbxgBIAEoCzIJLkxvY2tJbmZvOgSguxgBIkoKBlBhdXNl",
-            "ZBIeCgdhY2NvdW50GAEgASgLMg0uYWVsZi5BZGRyZXNzEhoKBmRhb19pZBgC",
-            "IAEoCzIKLmFlbGYuSGFzaDoEoLsYASJMCghVbnBhdXNlZBIeCgdhY2NvdW50",
-            "GAEgASgLMg0uYWVsZi5BZGRyZXNzEhoKBmRhb19pZBgCIAEoCzIKLmFlbGYu",
-            "SGFzaDoEoLsYASKaAQoURW1lcmdlbmN5VHJhbnNmZXJyZWQSGgoGZGFvX2lk",
-            "GAEgASgLMgouYWVsZi5IYXNoEg4KBnN5bWJvbBgCIAEoCRIOCgZhbW91bnQY",
-            "AyABKAMSIAoJcmVjaXBpZW50GAQgASgLMg0uYWVsZi5BZGRyZXNzEh4KB2Fj",
-            "Y291bnQYBSABKAsyDS5hZWxmLkFkZHJlc3M6BKC7GAEyawoQVHJlYXN1cnlD",
-            "b250cmFjdBpXssz2ATRUb21vcnJvd0RBTy5Db250cmFjdHMuVHJlYXN1cnku",
-            "VHJlYXN1cnlDb250cmFjdFN0YXRlysr2ARlQcm90b2J1Zi9iYXNlL2FjczEy",
-            "LnByb3RvQiGqAh5Ub21vcnJvd0RBTy5Db250cmFjdHMuVHJlYXN1cnliBnBy",
-            "b3RvMw=="));
+            "MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcDoEoLsYASJ2ChNUcmVhc3Vy",
+            "eVRva2VuTG9ja2VkEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIcCgls",
+            "b2NrX2luZm8YAiABKAsyCS5Mb2NrSW5mbxIfCghwcm9wb3NlchgDIAEoCzIN",
+            "LmFlbGYuQWRkcmVzczoEoLsYASLOAQoYVHJlYXN1cnlUcmFuc2ZlclJlbGVh",
+            "c2VkEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIOCgZhbW91bnQYAiAB",
+            "KAMSDgoGc3ltYm9sGAMgASgJEiAKCXJlY2lwaWVudBgEIAEoCzINLmFlbGYu",
+            "QWRkcmVzcxIMCgRtZW1vGAUgASgJEh8KC3Byb3Bvc2FsX2lkGAYgASgLMgou",
+            "YWVsZi5IYXNoEh8KCGV4ZWN1dG9yGAcgASgLMg0uYWVsZi5BZGRyZXNzOgSg",
+            "uxgBIngKFVRyZWFzdXJ5VG9rZW5VbmxvY2tlZBIaCgZkYW9faWQYASABKAsy",
+            "Ci5hZWxmLkhhc2gSHAoJbG9ja19pbmZvGAIgASgLMgkuTG9ja0luZm8SHwoI",
+            "ZXhlY3V0b3IYAyABKAsyDS5hZWxmLkFkZHJlc3M6BKC7GAEiSgoGUGF1c2Vk",
+            "Eh4KB2FjY291bnQYASABKAsyDS5hZWxmLkFkZHJlc3MSGgoGZGFvX2lkGAIg",
+            "ASgLMgouYWVsZi5IYXNoOgSguxgBIkwKCFVucGF1c2VkEh4KB2FjY291bnQY",
+            "ASABKAsyDS5hZWxmLkFkZHJlc3MSGgoGZGFvX2lkGAIgASgLMgouYWVsZi5I",
+            "YXNoOgSguxgBIpoBChRFbWVyZ2VuY3lUcmFuc2ZlcnJlZBIaCgZkYW9faWQY",
+            "ASABKAsyCi5hZWxmLkhhc2gSDgoGc3ltYm9sGAIgASgJEg4KBmFtb3VudBgD",
+            "IAEoAxIgCglyZWNpcGllbnQYBCABKAsyDS5hZWxmLkFkZHJlc3MSHgoHYWNj",
+            "b3VudBgFIAEoCzINLmFlbGYuQWRkcmVzczoEoLsYATJrChBUcmVhc3VyeUNv",
+            "bnRyYWN0GleyzPYBNFRvbW9ycm93REFPLkNvbnRyYWN0cy5UcmVhc3VyeS5U",
+            "cmVhc3VyeUNvbnRyYWN0U3RhdGXKyvYBGVByb3RvYnVmL2Jhc2UvYWNzMTIu",
+            "cHJvdG9CIaoCHlRvbW9ycm93REFPLkNvbnRyYWN0cy5UcmVhc3VyeWIGcHJv",
+            "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::AElf.Types.CoreReflection.Descriptor, global::AElf.OptionsReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::AElf.Standards.ACS12.Acs12Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -76,9 +78,9 @@ namespace TomorrowDAO.Contracts.Treasury {
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.SupportedStakingTokensRemoved), global::TomorrowDAO.Contracts.Treasury.SupportedStakingTokensRemoved.Parser, new[]{ "DaoId", "RemovedTokens" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.DonationReceived), global::TomorrowDAO.Contracts.Treasury.DonationReceived.Parser, new[]{ "DaoId", "Amount", "Symbol", "Donor", "DonationTime" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.TokenStaked), global::TomorrowDAO.Contracts.Treasury.TokenStaked.Parser, new[]{ "DaoId", "Amount", "Symbol", "Account", "StakedTime" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.TreasuryTokenLocked), global::TomorrowDAO.Contracts.Treasury.TreasuryTokenLocked.Parser, new[]{ "LockInfo", "Proposer" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.TreasuryTokenLocked), global::TomorrowDAO.Contracts.Treasury.TreasuryTokenLocked.Parser, new[]{ "DaoId", "LockInfo", "Proposer" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.TreasuryTransferReleased), global::TomorrowDAO.Contracts.Treasury.TreasuryTransferReleased.Parser, new[]{ "DaoId", "Amount", "Symbol", "Recipient", "Memo", "ProposalId", "Executor" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.TreasuryTokenUnlocked), global::TomorrowDAO.Contracts.Treasury.TreasuryTokenUnlocked.Parser, new[]{ "LockInfo" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.TreasuryTokenUnlocked), global::TomorrowDAO.Contracts.Treasury.TreasuryTokenUnlocked.Parser, new[]{ "DaoId", "LockInfo", "Executor" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.Paused), global::TomorrowDAO.Contracts.Treasury.Paused.Parser, new[]{ "Account", "DaoId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.Unpaused), global::TomorrowDAO.Contracts.Treasury.Unpaused.Parser, new[]{ "Account", "DaoId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.EmergencyTransferred), global::TomorrowDAO.Contracts.Treasury.EmergencyTransferred.Parser, new[]{ "DaoId", "Symbol", "Amount", "Recipient", "Account" }, null, null, null, null)
@@ -2130,6 +2132,7 @@ namespace TomorrowDAO.Contracts.Treasury {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public TreasuryTokenLocked(TreasuryTokenLocked other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
       lockInfo_ = other.lockInfo_ != null ? other.lockInfo_.Clone() : null;
       proposer_ = other.proposer_ != null ? other.proposer_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -2141,8 +2144,20 @@ namespace TomorrowDAO.Contracts.Treasury {
       return new TreasuryTokenLocked(this);
     }
 
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
     /// <summary>Field number for the "lock_info" field.</summary>
-    public const int LockInfoFieldNumber = 1;
+    public const int LockInfoFieldNumber = 2;
     private global::TomorrowDAO.Contracts.Treasury.LockInfo lockInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2154,7 +2169,7 @@ namespace TomorrowDAO.Contracts.Treasury {
     }
 
     /// <summary>Field number for the "proposer" field.</summary>
-    public const int ProposerFieldNumber = 2;
+    public const int ProposerFieldNumber = 3;
     private global::AElf.Types.Address proposer_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2180,6 +2195,7 @@ namespace TomorrowDAO.Contracts.Treasury {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
       if (!object.Equals(LockInfo, other.LockInfo)) return false;
       if (!object.Equals(Proposer, other.Proposer)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -2189,6 +2205,7 @@ namespace TomorrowDAO.Contracts.Treasury {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
       if (lockInfo_ != null) hash ^= LockInfo.GetHashCode();
       if (proposer_ != null) hash ^= Proposer.GetHashCode();
       if (_unknownFields != null) {
@@ -2209,12 +2226,16 @@ namespace TomorrowDAO.Contracts.Treasury {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (lockInfo_ != null) {
+      if (daoId_ != null) {
         output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (lockInfo_ != null) {
+        output.WriteRawTag(18);
         output.WriteMessage(LockInfo);
       }
       if (proposer_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteMessage(Proposer);
       }
       if (_unknownFields != null) {
@@ -2227,12 +2248,16 @@ namespace TomorrowDAO.Contracts.Treasury {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (lockInfo_ != null) {
+      if (daoId_ != null) {
         output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (lockInfo_ != null) {
+        output.WriteRawTag(18);
         output.WriteMessage(LockInfo);
       }
       if (proposer_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteMessage(Proposer);
       }
       if (_unknownFields != null) {
@@ -2245,6 +2270,9 @@ namespace TomorrowDAO.Contracts.Treasury {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
       if (lockInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(LockInfo);
       }
@@ -2262,6 +2290,12 @@ namespace TomorrowDAO.Contracts.Treasury {
     public void MergeFrom(TreasuryTokenLocked other) {
       if (other == null) {
         return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
       }
       if (other.lockInfo_ != null) {
         if (lockInfo_ == null) {
@@ -2291,13 +2325,20 @@ namespace TomorrowDAO.Contracts.Treasury {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
             if (lockInfo_ == null) {
               LockInfo = new global::TomorrowDAO.Contracts.Treasury.LockInfo();
             }
             input.ReadMessage(LockInfo);
             break;
           }
-          case 18: {
+          case 26: {
             if (proposer_ == null) {
               Proposer = new global::AElf.Types.Address();
             }
@@ -2320,13 +2361,20 @@ namespace TomorrowDAO.Contracts.Treasury {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
             if (lockInfo_ == null) {
               LockInfo = new global::TomorrowDAO.Contracts.Treasury.LockInfo();
             }
             input.ReadMessage(LockInfo);
             break;
           }
-          case 18: {
+          case 26: {
             if (proposer_ == null) {
               Proposer = new global::AElf.Types.Address();
             }
@@ -2821,7 +2869,9 @@ namespace TomorrowDAO.Contracts.Treasury {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public TreasuryTokenUnlocked(TreasuryTokenUnlocked other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
       lockInfo_ = other.lockInfo_ != null ? other.lockInfo_.Clone() : null;
+      executor_ = other.executor_ != null ? other.executor_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2831,8 +2881,20 @@ namespace TomorrowDAO.Contracts.Treasury {
       return new TreasuryTokenUnlocked(this);
     }
 
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
     /// <summary>Field number for the "lock_info" field.</summary>
-    public const int LockInfoFieldNumber = 1;
+    public const int LockInfoFieldNumber = 2;
     private global::TomorrowDAO.Contracts.Treasury.LockInfo lockInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2840,6 +2902,18 @@ namespace TomorrowDAO.Contracts.Treasury {
       get { return lockInfo_; }
       set {
         lockInfo_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "executor" field.</summary>
+    public const int ExecutorFieldNumber = 3;
+    private global::AElf.Types.Address executor_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address Executor {
+      get { return executor_; }
+      set {
+        executor_ = value;
       }
     }
 
@@ -2858,7 +2932,9 @@ namespace TomorrowDAO.Contracts.Treasury {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
       if (!object.Equals(LockInfo, other.LockInfo)) return false;
+      if (!object.Equals(Executor, other.Executor)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2866,7 +2942,9 @@ namespace TomorrowDAO.Contracts.Treasury {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
       if (lockInfo_ != null) hash ^= LockInfo.GetHashCode();
+      if (executor_ != null) hash ^= Executor.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2885,9 +2963,17 @@ namespace TomorrowDAO.Contracts.Treasury {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (lockInfo_ != null) {
+      if (daoId_ != null) {
         output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (lockInfo_ != null) {
+        output.WriteRawTag(18);
         output.WriteMessage(LockInfo);
+      }
+      if (executor_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Executor);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2899,9 +2985,17 @@ namespace TomorrowDAO.Contracts.Treasury {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (lockInfo_ != null) {
+      if (daoId_ != null) {
         output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (lockInfo_ != null) {
+        output.WriteRawTag(18);
         output.WriteMessage(LockInfo);
+      }
+      if (executor_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Executor);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -2913,8 +3007,14 @@ namespace TomorrowDAO.Contracts.Treasury {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
       if (lockInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(LockInfo);
+      }
+      if (executor_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Executor);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2928,11 +3028,23 @@ namespace TomorrowDAO.Contracts.Treasury {
       if (other == null) {
         return;
       }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
       if (other.lockInfo_ != null) {
         if (lockInfo_ == null) {
           LockInfo = new global::TomorrowDAO.Contracts.Treasury.LockInfo();
         }
         LockInfo.MergeFrom(other.LockInfo);
+      }
+      if (other.executor_ != null) {
+        if (executor_ == null) {
+          Executor = new global::AElf.Types.Address();
+        }
+        Executor.MergeFrom(other.Executor);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2950,10 +3062,24 @@ namespace TomorrowDAO.Contracts.Treasury {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
             if (lockInfo_ == null) {
               LockInfo = new global::TomorrowDAO.Contracts.Treasury.LockInfo();
             }
             input.ReadMessage(LockInfo);
+            break;
+          }
+          case 26: {
+            if (executor_ == null) {
+              Executor = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Executor);
             break;
           }
         }
@@ -2972,10 +3098,24 @@ namespace TomorrowDAO.Contracts.Treasury {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
             if (lockInfo_ == null) {
               LockInfo = new global::TomorrowDAO.Contracts.Treasury.LockInfo();
             }
             input.ReadMessage(LockInfo);
+            break;
+          }
+          case 26: {
+            if (executor_ == null) {
+              Executor = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Executor);
             break;
           }
         }

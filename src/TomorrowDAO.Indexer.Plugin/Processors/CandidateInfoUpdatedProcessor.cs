@@ -38,7 +38,7 @@ public class CandidateInfoUpdatedProcessor : ElectionProcessorBase<CandidateInfo
             if (eventValue.IsEvilNode)
             {
                 electionIndex.HighCouncilType = HighCouncilType.BlackList;
-                await ElectionRepository.DeleteAsync(electionIndex);
+                await SaveIndexAsync(electionIndex, context);
                 Logger.LogInformation("[CandidateInfoUpdated] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, candidate); 
             }
         }

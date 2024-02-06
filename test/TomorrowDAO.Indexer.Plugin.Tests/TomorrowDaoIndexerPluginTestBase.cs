@@ -15,6 +15,7 @@ using File = TomorrowDAO.Contracts.DAO.File;
 using FileInfo = TomorrowDAO.Contracts.DAO.FileInfo;
 using GovernanceSchemeThreshold = TomorrowDAO.Contracts.DAO.GovernanceSchemeThreshold;
 using HighCouncilConfig = TomorrowDAO.Contracts.DAO.HighCouncilConfig;
+using Metadata = TomorrowDAO.Contracts.DAO.Metadata;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests;
 
@@ -42,15 +43,10 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly string DAO = "2N9DJYUUruS7bFqRyKMvafA75qTWgqpWcB78nNZzpmxHrMv4D";
     protected readonly string Elf = "Elf";
     protected readonly string GovernanceSchemeId = HashHelper.ComputeFrom(Id2).ToHex();
-    protected readonly string FileHash = "FileHash";
+    protected readonly string FileCid = "FileCid";
     protected readonly string FileName = "FileName";
     protected readonly string FileUrl = "FileUrl";
     protected readonly string DAOCreator = "2fbCtXNLVD2SC4AD6b8nqAkHtjqxRCfwvciX4MyH6257n8Gf63";
-    // protected readonly int MinimalRequiredThreshold = 1;
-    // protected readonly int MinimalVoteThreshold = 2;
-    // protected readonly int MinimalApproveThreshold = 3;
-    // protected readonly int MaximalAbstentionThreshold = 4;
-    // protected readonly int MaximalRejectionThreshold = 5;
     protected readonly int MaxHighCouncilCandidateCount = 1;
     protected readonly int MaxHighCouncilMemberCount = 2;
     protected readonly int ElectionPeriod = 3;
@@ -236,17 +232,9 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     {
         return new FileInfoList
         {
-            FileInfos =
+            Data =
             {
-                new FileInfo
-                {
-                    File = new File
-                    {
-                        Hash = FileHash,
-                        Name = FileName,
-                        Url = FileUrl
-                    }
-                }
+                [FileCid] = new FileInfo { File = new File{ Cid = FileCid, Name = FileName, Url = FileUrl} }
             }
         };
     }
