@@ -9,9 +9,4 @@
     <ItemGroup>
       <PackageReference Include="AElfIndexer.Client" Version="1.0.0-28" />
     </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Processors\Governance\" />
-    </ItemGroup> 
-
 </Project>
