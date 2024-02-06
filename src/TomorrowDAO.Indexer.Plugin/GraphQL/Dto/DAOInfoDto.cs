@@ -3,6 +3,8 @@ namespace TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 public class DAOInfoDto
 {
     public string Id { get; set; }
+    public string ChainId { get; set; }
+    public long BlockHeight { get; set; }
     public string Creator { get; set; }
     public string MetadataAdmin { get; set; }
     public MetadataDto Metadata { get; set; }
