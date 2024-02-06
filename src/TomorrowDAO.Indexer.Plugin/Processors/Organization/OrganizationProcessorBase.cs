@@ -8,34 +8,40 @@ using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 
-namespace TomorrowDAO.Indexer.Plugin.Processors;
+namespace TomorrowDAO.Indexer.Plugin.Processors.Organization;
 
-public abstract class ProposalProcessorBase<TEvent> : AElfLogEventProcessorBase<TEvent, LogEventInfo>
+public abstract class OrganizationProcessorBase<TEvent> : AElfLogEventProcessorBase<TEvent, LogEventInfo>
     where TEvent : IEvent<TEvent>, new()
 {
     protected readonly ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> Logger;
     protected readonly IObjectMapper ObjectMapper;
     protected readonly ContractInfoOptions ContractInfoOptions;
 
-    protected readonly IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo>
-        ProposalRepository;
+    protected readonly IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo>
+        OrganizationRepository;
     protected readonly IGovernanceProvider GovernanceProvider;
 
-    protected ProposalProcessorBase(ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> logger,
+    protected OrganizationProcessorBase(ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> logger,
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
-        IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> proposalRepository, 
+        IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> organizationRepository,
         IGovernanceProvider governanceProvider) : base(logger)
     {
         Logger = logger;
         ObjectMapper = objectMapper;
         ContractInfoOptions = contractInfoOptions.Value;
-        ProposalRepository = proposalRepository;
+        OrganizationRepository = organizationRepository;
         GovernanceProvider = governanceProvider;
     }
 
     public override string GetContractAddress(string chainId)
     {
         return ContractInfoOptions.ContractInfos[chainId].GovernanceContract;
+    }
+    
+    protected async Task SaveIndexAsync(OrganizationIndex index, LogEventContext context)
+    {
+        ObjectMapper.Map(context, index);
+        await OrganizationRepository.AddOrUpdateAsync(index);
     }
 }

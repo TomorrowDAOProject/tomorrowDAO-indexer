@@ -9,7 +9,7 @@ using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 using ProposalStatus = TomorrowDAO.Indexer.Plugin.Enums.ProposalStatus;
 
-namespace TomorrowDAO.Indexer.Plugin.Processors;
+namespace TomorrowDAO.Indexer.Plugin.Processors.Proposal;
 
 public class ProposalReleasedProcessor : ProposalProcessorBase<ProposalReleased>
 {
