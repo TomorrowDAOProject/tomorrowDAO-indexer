@@ -38,6 +38,7 @@ public class ProposalExecutedProcessor : ProposalProcessorBase<ProposalExecuted>
 
         ObjectMapper.Map(context, proposalIndex);
         proposalIndex.ProposalStatus = ProposalStatus.Executed;
+        proposalIndex.ExecuteTime = eventValue.ExecuteTime?.ToDateTime();
         await ProposalRepository.AddOrUpdateAsync(proposalIndex);
         Logger.LogInformation("[ProposalExecuted] end proposalId:{proposalId} chainId:{chainId} ", proposalId, chainId);
     }
