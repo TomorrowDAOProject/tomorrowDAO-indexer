@@ -11,9 +11,9 @@ using ProposalStatus = TomorrowDAO.Indexer.Plugin.Enums.ProposalStatus;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors.Proposal;
 
-public class ProposalReleasedProcessor : ProposalProcessorBase<ProposalReleased>
+public class ProposalExecutedProcessor : ProposalProcessorBase<ProposalExecuted>
 {
-    public ProposalReleasedProcessor(ILogger<AElfLogEventProcessorBase<ProposalReleased, LogEventInfo>> logger,
+    public ProposalExecutedProcessor(ILogger<AElfLogEventProcessorBase<ProposalExecuted, LogEventInfo>> logger,
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> proposalRepository,
@@ -22,16 +22,16 @@ public class ProposalReleasedProcessor : ProposalProcessorBase<ProposalReleased>
     {
     }
 
-    protected override async Task HandleEventAsync(ProposalReleased eventValue, LogEventContext context)
+    protected override async Task HandleEventAsync(ProposalExecuted eventValue, LogEventContext context)
     {
         var chainId = context.ChainId;
         var proposalId = eventValue.ProposalId.ToHex();
-        Logger.LogInformation("[ProposalReleased] start proposalId:{proposalId} chainId:{chainId} ", proposalId,
+        Logger.LogInformation("[ProposalExecuted] start proposalId:{proposalId} chainId:{chainId} ", proposalId,
             chainId);
         var proposalIndex = await ProposalRepository.GetFromBlockStateSetAsync(proposalId, context.ChainId);
         if (proposalIndex == null)
         {
-            Logger.LogInformation("[ProposalReleased] proposalIndex with id {id} chainId {chainId} has not existed.",
+            Logger.LogInformation("[ProposalExecuted] proposalIndex with id {id} chainId {chainId} has not existed.",
                 proposalId, chainId);
             return;
         }
@@ -39,6 +39,6 @@ public class ProposalReleasedProcessor : ProposalProcessorBase<ProposalReleased>
         ObjectMapper.Map(context, proposalIndex);
         proposalIndex.ProposalStatus = ProposalStatus.Executed;
         await ProposalRepository.AddOrUpdateAsync(proposalIndex);
-        Logger.LogInformation("[ProposalReleased] end proposalId:{proposalId} chainId:{chainId} ", proposalId, chainId);
+        Logger.LogInformation("[ProposalExecuted] end proposalId:{proposalId} chainId:{chainId} ", proposalId, chainId);
     }
 }

@@ -31,7 +31,8 @@ public class ProposalBase : AElfIndexerClientEntity<string>
     public DateTime EndTime { get; set; }
 
     public DateTime ExpiredTime { get; set; }
-    [Keyword] public string ReleaseAddress { get; set; }
+    
+    [Keyword] public string ExecuteAddress { get; set; }
 
     [Keyword] public string ProposalDescription { get; set; }
     

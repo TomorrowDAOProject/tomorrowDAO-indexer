@@ -26,8 +26,8 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => MapHash(source.VoteSchemeId)))
             .ForMember(des => des.OrganizationAddress, opt
                 => opt.MapFrom(source => MapAddress(source.OrganizationAddress)))
-            .ForMember(des => des.ReleaseAddress, opt
-                => opt.MapFrom(source => MapAddress(source.ReleaseAddress)))
+            .ForMember(des => des.ExecuteAddress, opt
+                => opt.MapFrom(source => MapAddress(source.ExecuteAddress)))
             .ForMember(des => des.StartTime, opt
                 => opt.MapFrom(source => MapDateTime(source.StartTime)))
             .ForMember(des => des.EndTime, opt
@@ -35,7 +35,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.ExpiredTime, opt
                 => opt.MapFrom(source => MapDateTime(source.ExpiredTime)));
         
-        CreateMap<ProposalReleased, ProposalIndex>();
+        CreateMap<ProposalExecuted, ProposalIndex>();
         CreateMap<GovernanceSubSchemeIndex, ProposalIndex>();
         CreateMap<ProposalIndex, ProposalSyncDto>();
         CreateMap<LogEventContext, DAOIndex>();
