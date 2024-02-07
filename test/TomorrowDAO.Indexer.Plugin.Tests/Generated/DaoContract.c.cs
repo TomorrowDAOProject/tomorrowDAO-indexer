@@ -27,13 +27,6 @@ namespace TomorrowDAO.Contracts.DAO {
         Metadata = Metadata,
         MetadataAdmin = MetadataAdmin,
         GovernanceToken = GovernanceToken,
-        GovernanceSchemeId = GovernanceSchemeId,
-        GovernanceSchemeThreshold = GovernanceSchemeThreshold,
-        IsHighCouncilEnabled = IsHighCouncilEnabled,
-        HighCouncilConfig = HighCouncilConfig,
-        FileInfoList = FileInfoList,
-        IsTreasuryContractNeeded = IsTreasuryContractNeeded,
-        IsVoteContractNeeded = IsVoteContractNeeded,
         DaoId = DaoId,
         Creator = Creator,
       };
@@ -111,7 +104,7 @@ namespace TomorrowDAO.Contracts.DAO {
       return new HighCouncilEnabled
       {
         DaoId = DaoId,
-        HighCouncilConfig = HighCouncilConfig,
+        ExecutionConfig = ExecutionConfig,
       };
     }
   }
@@ -134,41 +127,21 @@ namespace TomorrowDAO.Contracts.DAO {
     }
   }
 
-  public partial class HighCouncilConfigSet : aelf::IEvent<HighCouncilConfigSet>
+  public partial class HighCouncilExecutionConfigSet : aelf::IEvent<HighCouncilExecutionConfigSet>
   {
-    public global::System.Collections.Generic.IEnumerable<HighCouncilConfigSet> GetIndexed()
+    public global::System.Collections.Generic.IEnumerable<HighCouncilExecutionConfigSet> GetIndexed()
     {
-      return new List<HighCouncilConfigSet>
+      return new List<HighCouncilExecutionConfigSet>
       {
       };
     }
 
-    public HighCouncilConfigSet GetNonIndexed()
+    public HighCouncilExecutionConfigSet GetNonIndexed()
     {
-      return new HighCouncilConfigSet
+      return new HighCouncilExecutionConfigSet
       {
         DaoId = DaoId,
-        HighCouncilConfig = HighCouncilConfig,
-      };
-    }
-  }
-
-  public partial class HighCouncilMemberUpdated : aelf::IEvent<HighCouncilMemberUpdated>
-  {
-    public global::System.Collections.Generic.IEnumerable<HighCouncilMemberUpdated> GetIndexed()
-    {
-      return new List<HighCouncilMemberUpdated>
-      {
-      };
-    }
-
-    public HighCouncilMemberUpdated GetNonIndexed()
-    {
-      return new HighCouncilMemberUpdated
-      {
-        DaoId = DaoId,
-        PreviousHighCouncilInfo = PreviousHighCouncilInfo,
-        UpdatedHighCouncilInfo = UpdatedHighCouncilInfo,
+        ExecutionConfig = ExecutionConfig,
       };
     }
   }
@@ -240,12 +213,11 @@ namespace TomorrowDAO.Contracts.DAO {
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.InitializeInput> __Marshaller_InitializeInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.InitializeInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_google_protobuf_Empty = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.CreateDAOInput> __Marshaller_CreateDAOInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.CreateDAOInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput> __Marshaller_EnableHighCouncilInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::AElf.Types.Hash> __Marshaller_aelf_Hash = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::AElf.Types.Hash.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.DAOInfo> __Marshaller_DAOInfo = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.DAOInfo.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput> __Marshaller_EnableHighCouncilInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::Google.Protobuf.WellKnownTypes.BoolValue> __Marshaller_google_protobuf_BoolValue = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.BoolValue.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.SetHighCouncilExecutionConfigInput> __Marshaller_SetHighCouncilExecutionConfigInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.SetHighCouncilExecutionConfigInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.HighCouncilConfig> __Marshaller_HighCouncilConfig = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.HighCouncilConfig.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.UpdateHighCouncilMemberInput> __Marshaller_UpdateHighCouncilMemberInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.UpdateHighCouncilMemberInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.UploadFileInfosInput> __Marshaller_UploadFileInfosInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.UploadFileInfosInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.RemoveFileInfosInput> __Marshaller_RemoveFileInfosInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.RemoveFileInfosInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.FileInfoList> __Marshaller_FileInfoList = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.FileInfoList.Parser.ParseFrom);
@@ -267,6 +239,13 @@ namespace TomorrowDAO.Contracts.DAO {
         "CreateDAO",
         __Marshaller_CreateDAOInput,
         __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.DAO.DAOInfo> __Method_GetDAOInfo = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.DAO.DAOInfo>(
+        aelf::MethodType.View,
+        __ServiceName,
+        "GetDAOInfo",
+        __Marshaller_aelf_Hash,
+        __Marshaller_DAOInfo);
 
     static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_EnableHighCouncil = new aelf::Method<global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput, global::Google.Protobuf.WellKnownTypes.Empty>(
         aelf::MethodType.Action,
@@ -294,20 +273,6 @@ namespace TomorrowDAO.Contracts.DAO {
         __ServiceName,
         "SetHighCouncilExecutionConfig",
         __Marshaller_SetHighCouncilExecutionConfigInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.DAO.HighCouncilConfig> __Method_GetHighCouncilConfig = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.DAO.HighCouncilConfig>(
-        aelf::MethodType.View,
-        __ServiceName,
-        "GetHighCouncilConfig",
-        __Marshaller_aelf_Hash,
-        __Marshaller_HighCouncilConfig);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.UpdateHighCouncilMemberInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateHighCouncilMember = new aelf::Method<global::TomorrowDAO.Contracts.DAO.UpdateHighCouncilMemberInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "UpdateHighCouncilMember",
-        __Marshaller_UpdateHighCouncilMemberInput,
         __Marshaller_google_protobuf_Empty);
 
     static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.UploadFileInfosInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UploadFileInfos = new aelf::Method<global::TomorrowDAO.Contracts.DAO.UploadFileInfosInput, global::Google.Protobuf.WellKnownTypes.Empty>(
@@ -379,6 +344,11 @@ namespace TomorrowDAO.Contracts.DAO {
     //     throw new global::System.NotImplementedException();
     //   }
     //
+    //   public virtual global::TomorrowDAO.Contracts.DAO.DAOInfo GetDAOInfo(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
     //   public virtual global::Google.Protobuf.WellKnownTypes.Empty EnableHighCouncil(global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput input)
     //   {
     //     throw new global::System.NotImplementedException();
@@ -395,16 +365,6 @@ namespace TomorrowDAO.Contracts.DAO {
     //   }
     //
     //   public virtual global::Google.Protobuf.WellKnownTypes.Empty SetHighCouncilExecutionConfig(global::TomorrowDAO.Contracts.DAO.SetHighCouncilExecutionConfigInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::TomorrowDAO.Contracts.DAO.HighCouncilConfig GetHighCouncilConfig(global::AElf.Types.Hash input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateHighCouncilMember(global::TomorrowDAO.Contracts.DAO.UpdateHighCouncilMemberInput input)
     //   {
     //     throw new global::System.NotImplementedException();
     //   }
@@ -442,12 +402,11 @@ namespace TomorrowDAO.Contracts.DAO {
     //       .AddDescriptors(Descriptors)
     //       .AddMethod(__Method_Initialize, serviceImpl.Initialize)
     //       .AddMethod(__Method_CreateDAO, serviceImpl.CreateDAO)
+    //       .AddMethod(__Method_GetDAOInfo, serviceImpl.GetDAOInfo)
     //       .AddMethod(__Method_EnableHighCouncil, serviceImpl.EnableHighCouncil)
     //       .AddMethod(__Method_DisableHighCouncil, serviceImpl.DisableHighCouncil)
     //       .AddMethod(__Method_GetHighCouncilStatus, serviceImpl.GetHighCouncilStatus)
     //       .AddMethod(__Method_SetHighCouncilExecutionConfig, serviceImpl.SetHighCouncilExecutionConfig)
-    //       .AddMethod(__Method_GetHighCouncilConfig, serviceImpl.GetHighCouncilConfig)
-    //       .AddMethod(__Method_UpdateHighCouncilMember, serviceImpl.UpdateHighCouncilMember)
     //       .AddMethod(__Method_UploadFileInfos, serviceImpl.UploadFileInfos)
     //       .AddMethod(__Method_RemoveFileInfos, serviceImpl.RemoveFileInfos)
     //       .AddMethod(__Method_GetFileInfos, serviceImpl.GetFileInfos)

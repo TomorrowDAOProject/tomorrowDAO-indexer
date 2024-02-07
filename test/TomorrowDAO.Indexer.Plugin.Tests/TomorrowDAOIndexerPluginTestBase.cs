@@ -6,15 +6,14 @@ using AElfIndexer.Client.Handlers;
 using AElfIndexer.Client.Providers;
 using AElfIndexer.Grains;
 using AElfIndexer.Grains.State.Client;
+using Google.Protobuf.WellKnownTypes;
 using TomorrowDAO.Contracts.DAO;
 using TomorrowDAO.Indexer.Orleans.TestBase;
 using TomorrowDAO.Indexer.Plugin.Entities;
-using TomorrowDAO.Indexer.Plugin.Processors;
+using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using TomorrowDAO.Indexer.Plugin.Tests.Helper;
 using File = TomorrowDAO.Contracts.DAO.File;
 using FileInfo = TomorrowDAO.Contracts.DAO.FileInfo;
-using GovernanceSchemeThreshold = TomorrowDAO.Contracts.DAO.GovernanceSchemeThreshold;
-using HighCouncilConfig = TomorrowDAO.Contracts.DAO.HighCouncilConfig;
 using Metadata = TomorrowDAO.Contracts.DAO.Metadata;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests;
@@ -29,6 +28,14 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAOIndexRepository;
     protected readonly DAOCreatedProcessor DAOCreatedProcessor;
     protected readonly FileInfosRemovedProcessor FileInfosRemovedProcessor;
+    protected readonly FileInfosUploadedProcessor FileInfosUploadedProcessor;
+    protected readonly HighCouncilDisabledProcessor HighCouncilDisabledProcessor;
+    protected readonly HighCouncilEnabledProcessor HighCouncilEnabledProcessor;
+    protected readonly PermissionsSetProcessor PermissionsSetProcessor;
+    protected readonly SubsistStatusSetProcessor SubsistStatusSetProcessor;
+    protected readonly TreasuryContractSetProcessor TreasuryContractSetProcessor;
+    protected readonly VoteContractSetProcessor VoteContractSetProcessor;
+    
 
     protected readonly long BlockHeight = 120;
     protected readonly string ChainAelf = "tDVV";
@@ -75,6 +82,13 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         _dAppDataIndexManagerProvider = GetRequiredService<IDAppDataIndexManagerProvider>();
         DAOIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo>>();
         FileInfosRemovedProcessor = GetRequiredService<FileInfosRemovedProcessor>();
+        FileInfosUploadedProcessor = GetRequiredService<FileInfosUploadedProcessor>();
+        HighCouncilDisabledProcessor = GetRequiredService<HighCouncilDisabledProcessor>();
+        HighCouncilEnabledProcessor = GetRequiredService<HighCouncilEnabledProcessor>();
+        PermissionsSetProcessor = GetRequiredService<PermissionsSetProcessor>();
+        SubsistStatusSetProcessor = GetRequiredService<SubsistStatusSetProcessor>();
+        TreasuryContractSetProcessor = GetRequiredService<TreasuryContractSetProcessor>();
+        VoteContractSetProcessor = GetRequiredService<VoteContractSetProcessor>();
         DAOCreatedProcessor = GetRequiredService<DAOCreatedProcessor>();
     }
 
@@ -113,7 +127,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             await BlockStateSetLogEventInfoProvider.SaveDataAsync(key);
     }
 
-    protected LogEventContext MockLogEventContext(long inputBlockHeight = 100, string chainId = "tDVW")
+    protected LogEventContext MockLogEventContext(long inputBlockHeight = 100, string chainId = "tDVV")
     {
         const string blockHash = "dac5cd67a2783d0a3d843426c2d45f1178f4d052235a907a0d796ae4659103b1";
         const string previousBlockHash = "e38c4fb1cf6af05878657cb3f7b5fc8a5fcfb2eec19cd76b73abb831973fbf4e";
@@ -201,26 +215,6 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             },
             MetadataAdmin = Address.FromBase58(DAOMetadataAdmin),
             GovernanceToken = Elf,
-            GovernanceSchemeId = HashHelper.ComputeFrom(Id2),
-            GovernanceSchemeThreshold = new GovernanceSchemeThreshold
-            {
-                MinimalRequiredThreshold = 1,
-                MinimalVoteThreshold = 2,
-                MinimalApproveThreshold = 3,
-                MaximalAbstentionThreshold = 4,
-                MaximalRejectionThreshold = 5
-            },
-            IsHighCouncilEnabled = true,
-            HighCouncilConfig = new HighCouncilConfig
-            {
-                MaxHighCouncilCandidateCount = 1,
-                MaxHighCouncilMemberCount = 2,
-                ElectionPeriod = 3,
-                IsRequireHighCouncilForExecution = true
-            },
-            FileInfoList = GetFileInfoList(),
-            IsTreasuryContractNeeded = true,
-            IsVoteContractNeeded = true,
             DaoId = HashHelper.ComputeFrom(Id1),
             Creator = Address.FromBase58(DAOCreator)
         }.ToLogEvent();
@@ -242,6 +236,15 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             RemovedFiles = GetFileInfoList()
         }.ToLogEvent();
     }
+    
+    protected LogEvent FileInfosUploaded()
+    {
+        return new FileInfosUploaded
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            UploadedFiles = GetFileInfoList()
+        }.ToLogEvent();
+    }
 
     protected FileInfoList GetFileInfoList()
     {
@@ -249,7 +252,12 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         {
             Data =
             {
-                [FileCid] = new FileInfo { File = new File{ Cid = FileCid, Name = FileName, Url = FileUrl} }
+                [FileCid] = new FileInfo
+                {
+                    File = new File{ Cid = FileCid, Name = FileName, Url = FileUrl},
+                    UploadTime = new Timestamp(),
+                    Uploader = Address.FromBase58(DAOCreator)
+                }
             }
         };
     }

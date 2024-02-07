@@ -11,8 +11,6 @@ public class DAOIndex : AElfIndexerClientEntity<string>, IIndexBuild
     [Keyword] public string MetadataAdmin { get; set; }
     public Metadata Metadata { get; set; }
     [Keyword] public string GovernanceToken { get; set; }
-    [Keyword] public string GovernanceSchemeId { get; set; }
-    // public GovernanceSchemeThreshold GovernanceSchemeThreshold { get; set; }
     public bool IsHighCouncilEnabled { get; set; }
     public HighCouncilConfig HighCouncilConfig { get; set; }
     public long HighCouncilTermNumber { get; set; }

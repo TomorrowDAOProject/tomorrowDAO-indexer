@@ -1,15 +1,17 @@
 using AElfIndexer.Client.Handlers;
 using TomorrowDAO.Contracts.DAO;
 using TomorrowDAO.Contracts.Governance;
+using TomorrowDAO.Contracts.Treasury;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
-
-using GovernanceSchemeThresholdIndex = TomorrowDAO.Indexer.Plugin.Entities.GovernanceSchemeThreshold;
-using GovernanceSchemeThresholdContract = TomorrowDAO.Contracts.DAO.GovernanceSchemeThreshold;
 using HighCouncilConfigContract = TomorrowDAO.Contracts.DAO.HighCouncilConfig;
 using HighCouncilConfigIndexer = TomorrowDAO.Indexer.Plugin.Entities.HighCouncilConfig;
 using MetadataContract = TomorrowDAO.Contracts.DAO.Metadata;
 using MetadataIndexer = TomorrowDAO.Indexer.Plugin.Entities.Metadata;
+using FileInfoIndexer = TomorrowDAO.Indexer.Plugin.Entities.FileInfo;
+using FileInfoContract = TomorrowDAO.Contracts.DAO.FileInfo;
+using FileIndexer = TomorrowDAO.Indexer.Plugin.Entities.File;
+using FileContract = TomorrowDAO.Contracts.DAO.File;
 
 namespace TomorrowDAO.Indexer.Plugin;
 
@@ -42,8 +44,35 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<GovernanceSubSchemeIndex, ProposalIndex>();
         CreateMap<ProposalIndex, ProposalSyncDto>();
         CreateMap<LogEventContext, DAOIndex>();
-        CreateMap<DAOCreated, DAOIndex>();
-        CreateMap<GovernanceSchemeThresholdContract, GovernanceSchemeThresholdIndex>();
+        CreateMap<DAOCreated, DAOIndex>()
+            .ForMember(des => des.Creator, opt
+                => opt.MapFrom(source => MapAddress(source.Creator)))
+            .ForMember(des => des.Id, opt
+                => opt.MapFrom(source => MapHash(source.DaoId)))
+            .ForMember(des => des.MetadataAdmin, opt
+                => opt.MapFrom(source => MapAddress(source.MetadataAdmin)))
+            ;
+        CreateMap<FileInfoContract, FileInfoIndexer>()
+            .ForMember(des => des.Uploader, opt
+                => opt.MapFrom(source => MapAddress(source.Uploader)))
+            .ForMember(des => des.UploadTime, opt
+                => opt.MapFrom(source => source.UploadTime.ToDateTime()))
+            ;
+        CreateMap<FileContract, FileIndexer>();
+        CreateMap<Unpaused, DAOIndex>()
+            .ForMember(des => des.TreasuryPauseExecutor, opt
+                => opt.MapFrom(source => MapAddress(source.Account)))
+            ;
+        CreateMap<Paused, DAOIndex>()
+            .ForMember(des => des.TreasuryPauseExecutor, opt
+                => opt.MapFrom(source => MapAddress(source.Account)))
+            ;
+        CreateMap<PermissionsSet, DAOIndex>()
+            .ForMember(des => des.PermissionAddress, opt
+                => opt.MapFrom(source => MapAddress(source.Here)))
+            .ForMember(des => des.PermissionInfoList, opt
+                => opt.MapFrom(source => MapPermissionInfoList(source)))
+            ;
         CreateMap<HighCouncilConfigContract, HighCouncilConfigIndexer>();
         CreateMap<LogEventContext, OrganizationIndex>();
         CreateMap<OrganizationCreated, OrganizationIndex>()

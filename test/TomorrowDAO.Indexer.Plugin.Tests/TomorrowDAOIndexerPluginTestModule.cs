@@ -74,7 +74,7 @@ public class TomorrowDAOIndexerPluginTestModule : AbpModule
             options.ContractInfos = new Dictionary<string, ContractInfo>()
             {
                 {
-                    "tDVW", new ContractInfo()
+                    "tDVV", new ContractInfo()
                     {
                         VoteContractAddress = "VoteContractAddress",
                         TreasuryContractAddress = "TreasuryContractAddress",
