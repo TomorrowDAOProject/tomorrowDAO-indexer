@@ -28,11 +28,12 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAOIndexRepository;
     protected readonly DAOCreatedProcessor DAOCreatedProcessor;
     protected readonly FileInfosRemovedProcessor FileInfosRemovedProcessor;
-    
+
     protected readonly long BlockHeight = 120;
-    protected readonly string ChainAelf = "tDVW";
+    protected readonly string ChainAelf = "tDVV";
     protected static readonly string Id1 = "123";
     protected static readonly string Id2 = "456";
+    protected static readonly string ProposalId = "p-1";
     protected readonly string DAOId = HashHelper.ComputeFrom(Id1).ToHex();
     protected readonly string DAOName = "DAOName";
     protected readonly string DAOLogoUrl = "DAOLogoUrl";
@@ -42,10 +43,17 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly string DAO = "2N9DJYUUruS7bFqRyKMvafA75qTWgqpWcB78nNZzpmxHrMv4D";
     protected readonly string Elf = "Elf";
     protected readonly string GovernanceSchemeId = HashHelper.ComputeFrom(Id2).ToHex();
+    protected static readonly string SubId = "456-1";
     protected readonly string FileHash = "FileHash";
     protected readonly string FileName = "FileName";
     protected readonly string FileUrl = "FileUrl";
     protected readonly string DAOCreator = "2fbCtXNLVD2SC4AD6b8nqAkHtjqxRCfwvciX4MyH6257n8Gf63";
+    protected readonly string Creator = "2fbCtXNLVD2SC4AD6b8nqAkHtjqxRCfwvciX4MyH6257n8Gf63";
+    protected readonly string OrganizationAddress = "UE6mcinaCFJZmGNgY9fpMnyzwMETJUhqwbnvtjRgX1f12rBQj";
+    protected readonly string ExecuteAddress = "aLyxCJvWMQH6UEykTyeWAcYss9baPyXkrMQ37BHnUicxD2LL3";
+    protected readonly string ExecuteContractAddress = "YeCqKprLBGbZZeRTkN1FaBLXsetY8QFotmVKqo98w9K6jK2PY";
+    protected readonly string ProposalDescription = HashHelper.ComputeFrom("ProposalDescription").ToHex();
+
     // protected readonly int MinimalRequiredThreshold = 1;
     // protected readonly int MinimalVoteThreshold = 2;
     // protected readonly int MinimalApproveThreshold = 3;
@@ -54,6 +62,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly int MaxHighCouncilCandidateCount = 1;
     protected readonly int MaxHighCouncilMemberCount = 2;
     protected readonly int ElectionPeriod = 3;
+
 
     public TomorrowDAOIndexerPluginTestBase()
     {
@@ -159,20 +168,20 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         };
         return await InitializeBlockStateSetAsync(blockStateSet, logEventContext.ChainId);
     }
-    
+
     protected async Task MockEventProcess(LogEvent logEvent, IAElfLogEventProcessor processor)
     {
         var logEventContext = MockLogEventContext(BlockHeight, ChainAelf);
-        
+
         // step1: create blockStateSet
         var blockStateSetKey = await MockBlockState(logEventContext);
-        
+
         // step2: create logEventInfo
         var logEventInfo = MockLogEventInfo(logEvent);
-        
+
         // step3 call the logic
         await processor.HandleEventAsync(logEventInfo, logEventContext);
-        
+
         // step4 save data after logic
         await BlockStateSetSaveDataAsync<LogEventInfo>(blockStateSetKey);
     }
