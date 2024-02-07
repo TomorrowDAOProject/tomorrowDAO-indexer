@@ -40,14 +40,23 @@ public partial class Query
         return objectMapper.Map<List<ProposalIndex>, List<ProposalSyncDto>>(result.Item2);
     }
 
-    [Name("getVoteInfoMemory")]
-    public static async Task<VoteInfoDto> GetVoteInfoMemoryAsync(
+    [Name("getVoteInfosMemory")]
+    public static async Task<List<VoteInfoDto>> GetVoteInfoMemoryAsync(
         [FromServices] IAElfIndexerClientEntityRepository<VoteIndex, LogEventInfo> repository,
         [FromServices] IObjectMapper objectMapper,
         GetVoteInfoInput input)
     {
-        var voteInfo = await repository.GetFromBlockStateSetAsync(input.VotingItemId, input.ChainId);
-        return voteInfo == null ? null : objectMapper.Map<VoteIndex, VoteInfoDto>(voteInfo);
+        if (input.VotingItemIds.IsNullOrEmpty())
+        {
+            return new List<VoteInfoDto>();
+        }
+
+        var tasks = input.VotingItemIds
+            .Select(votingItemId => repository.GetFromBlockStateSetAsync(votingItemId, input.ChainId)).ToList();
+
+        var results = await Task.WhenAll(tasks);
+        return results.Where(index => index != null).Select(objectMapper.Map<VoteIndex, VoteInfoDto>)
+            .ToList();
     }
 
     [Name("getVoteInfos")]
@@ -68,5 +77,24 @@ public partial class Query
 
         var result = await repository.GetListAsync(Filter);
         return objectMapper.Map<List<VoteIndex>, List<VoteInfoDto>>(result.Item2);
+    }
+    
+    [Name("getOrganizationInfosMemory")]
+    public static async Task<List<OrganizationInfoDto>> GetOrganizationInfosMemoryAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> repository,
+        [FromServices] IObjectMapper objectMapper,
+        GetOrganizationInfoInput input)
+    {
+        if (input.OrganizationAddressList.IsNullOrEmpty())
+        {
+            return new List<OrganizationInfoDto>();
+        }
+
+        var tasks = input.OrganizationAddressList
+            .Select(organizationAddress => repository.GetFromBlockStateSetAsync(organizationAddress, input.ChainId)).ToList();
+
+        var results = await Task.WhenAll(tasks);
+        return results.Where(index => index != null).Select(objectMapper.Map<OrganizationIndex, OrganizationInfoDto>)
+            .ToList();
     }
 }

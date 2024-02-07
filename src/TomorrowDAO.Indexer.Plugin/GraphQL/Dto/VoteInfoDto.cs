@@ -18,4 +18,6 @@ public class VoteInfoDto
     public int AbstainCounts { get; set; }
 
     public int VotesAmount { get; set; }
+    
+    public int VoterCount { get; set; }
 }

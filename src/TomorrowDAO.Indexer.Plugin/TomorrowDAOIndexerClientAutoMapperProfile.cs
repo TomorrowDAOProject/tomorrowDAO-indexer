@@ -64,5 +64,11 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => MapHash(source.SubSchemeId)))
             .ForMember(des => des.ParentSchemeId, opt
                 => opt.MapFrom(source => MapHash(source.ParentSchemeId)));
+        CreateMap<VoteIndex, VoteInfoDto>()
+            .ForMember(des => des.VoterCount, opt
+                => opt.MapFrom(source => source.VoterSet.Count));
+        CreateMap<OrganizationIndex, OrganizationInfoDto>()
+            .ForMember(des => des.OrganizationMemberCount, opt
+                => opt.MapFrom(source => source.OrganizationMemberSet.Count));
     }
 }

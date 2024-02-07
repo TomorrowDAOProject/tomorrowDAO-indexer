@@ -48,12 +48,10 @@ public class ProposalBase : AElfIndexerClientEntity<string>
     
     public bool VoteFinished  { get; set; } 
     
-    //--------Organization info-------
     [Keyword] public string OrganizationAddress { get; set; }
-
-    public int OrganizationMemberCount { get; set; }
-
+    
     //--------Governance Threshold param-------
+    
     public int MinimalRequiredThreshold { get; set; }
     
     public int MinimalVoteThreshold { get; set; }
@@ -66,17 +64,4 @@ public class ProposalBase : AElfIndexerClientEntity<string>
     
     //percentage    
     public int MinimalAbstentionThreshold { get; set; }
-    
-    //--------Vote Result-------
-    public string AcceptedCurrency { get; set; }
-
-    public int ApproveCounts { get; set; }
-
-    public int RejectCounts { get; set; }
-
-    public int AbstainCounts { get; set; }
-
-    public int VotesAmount { get; set; }
-    
-    public int VoterCount { get; set; }
 }
