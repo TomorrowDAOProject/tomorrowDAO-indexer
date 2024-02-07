@@ -13,6 +13,7 @@ public class VoteIndex : AElfIndexerClientEntity<string>, IIndexBuild
     
     [Keyword] public string VoteSchemeId { get; set; }
     
+    [PropertyName("DAOId")]
     [Keyword] public string DAOId { get; set; }
         
     [Keyword] public string AcceptedCurrency { get; set; }

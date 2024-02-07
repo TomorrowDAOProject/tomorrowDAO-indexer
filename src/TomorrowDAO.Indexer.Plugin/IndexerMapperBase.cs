@@ -14,6 +14,11 @@ public class IndexerMapperBase : Profile
     {
         return address?.ToBase58();
     }
+    
+    protected static DateTime? MapDateTime(Google.Protobuf.WellKnownTypes.Timestamp timestamp)
+    {
+        return timestamp?.ToDateTime();
+    }
 
     protected static HashSet<string> MapOrganizationMemberSet(OrganizationCreated source)
     {

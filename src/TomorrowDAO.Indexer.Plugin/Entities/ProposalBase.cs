@@ -9,7 +9,8 @@ namespace TomorrowDAO.Indexer.Plugin.Entities;
 public class ProposalBase : AElfIndexerClientEntity<string>
 {
     [Keyword] public override string Id { get; set; }
-
+    
+    [PropertyName("DAOId")]
     [Keyword] public string DAOId { get; set; }
 
     [Keyword] public string ProposalId { get; set; }
@@ -31,7 +32,8 @@ public class ProposalBase : AElfIndexerClientEntity<string>
     public DateTime EndTime { get; set; }
 
     public DateTime ExpiredTime { get; set; }
-    [Keyword] public string ReleaseAddress { get; set; }
+    
+    [Keyword] public string ExecuteAddress { get; set; }
 
     [Keyword] public string ProposalDescription { get; set; }
     
@@ -44,16 +46,16 @@ public class ProposalBase : AElfIndexerClientEntity<string>
 
     public bool ExecuteByHighCouncil { get; set; }
 
-    public DateTime DeployTime { get; set; }    
+    public DateTime DeployTime { get; set; }
+
+    public DateTime? ExecuteTime { get; set; }   
     
     public bool VoteFinished  { get; set; } 
     
-    //--------Organization info-------
     [Keyword] public string OrganizationAddress { get; set; }
-
-    public int OrganizationMemberCount { get; set; }
-
+    
     //--------Governance Threshold param-------
+    
     public int MinimalRequiredThreshold { get; set; }
     
     public int MinimalVoteThreshold { get; set; }
@@ -62,21 +64,8 @@ public class ProposalBase : AElfIndexerClientEntity<string>
     public int MinimalApproveThreshold { get; set; }
     
     //percentage    
-    public int MinimalRejectionThreshold { get; set; }
+    public int MaximalRejectionThreshold { get; set; }
     
     //percentage    
-    public int MinimalAbstentionThreshold { get; set; }
-    
-    //--------Vote Result-------
-    public string AcceptedCurrency { get; set; }
-
-    public int ApproveCounts { get; set; }
-
-    public int RejectCounts { get; set; }
-
-    public int AbstainCounts { get; set; }
-
-    public int VotesAmount { get; set; }
-    
-    public int VoterCount { get; set; }
+    public int MaximalAbstentionThreshold { get; set; }
 }

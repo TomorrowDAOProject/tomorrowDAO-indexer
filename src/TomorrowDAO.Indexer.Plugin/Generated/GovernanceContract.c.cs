@@ -224,7 +224,7 @@ namespace TomorrowDAO.Contracts.Governance {
         VoteSchemeId = VoteSchemeId,
         Transaction = Transaction,
         ExecuteByHighCouncil = ExecuteByHighCouncil,
-        ReleaseAddress = ReleaseAddress,
+        ExecuteAddress = ExecuteAddress,
         ProposalType = ProposalType,
         DaoId = DaoId,
         ProposalTitle = ProposalTitle,
@@ -233,22 +233,22 @@ namespace TomorrowDAO.Contracts.Governance {
     }
   }
 
-  public partial class ProposalReleased : aelf::IEvent<ProposalReleased>
+  public partial class ProposalExecuted : aelf::IEvent<ProposalExecuted>
   {
-    public global::System.Collections.Generic.IEnumerable<ProposalReleased> GetIndexed()
+    public global::System.Collections.Generic.IEnumerable<ProposalExecuted> GetIndexed()
     {
-      return new List<ProposalReleased>
+      return new List<ProposalExecuted>
       {
       };
     }
 
-    public ProposalReleased GetNonIndexed()
+    public ProposalExecuted GetNonIndexed()
     {
-      return new ProposalReleased
+      return new ProposalExecuted
       {
         ProposalId = ProposalId,
         OrganizationAddress = OrganizationAddress,
-        ReleaseTime = ReleaseTime,
+        ExecuteTime = ExecuteTime,
       };
     }
   }
@@ -387,10 +387,10 @@ namespace TomorrowDAO.Contracts.Governance {
         __Marshaller_CreateOrganizationProposalInput,
         __Marshaller_aelf_Hash);
 
-    static readonly aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty> __Method_ReleaseProposal = new aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty>(
+    static readonly aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty> __Method_ExecuteProposal = new aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty>(
         aelf::MethodType.Action,
         __ServiceName,
-        "ReleaseProposal",
+        "ExecuteProposal",
         __Marshaller_aelf_Hash,
         __Marshaller_google_protobuf_Empty);
 
@@ -493,6 +493,7 @@ namespace TomorrowDAO.Contracts.Governance {
     #endregion
 
     /// <summary>Base class for the contract of GovernanceContract</summary>
+
   }
 }
 #endregion

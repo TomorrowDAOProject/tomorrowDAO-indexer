@@ -1,7 +1,6 @@
 using AElf.Indexing.Elasticsearch;
 using AElfIndexer.Client;
 using Nest;
-using Org.BouncyCastle.Utilities.Collections;
 
 namespace TomorrowDAO.Indexer.Plugin.Entities;
 

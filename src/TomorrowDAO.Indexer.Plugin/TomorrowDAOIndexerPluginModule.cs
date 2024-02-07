@@ -4,6 +4,7 @@ using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.DependencyInjection;
 using TomorrowDAO.Indexer.Plugin.GraphQL;
 using TomorrowDAO.Indexer.Plugin.Processors;
+using TomorrowDAO.Indexer.Plugin.Processors.GovernanceScheme;
 using TomorrowDAO.Indexer.Plugin.Processors.Organization;
 using TomorrowDAO.Indexer.Plugin.Processors.Proposal;
 using Volo.Abp.AutoMapper;
@@ -21,7 +22,7 @@ public class TomorrowDAOIndexerPluginModule : AElfIndexerClientPluginBaseModule<
         Configure<ContractInfoOptions>(configuration.GetSection("ContractInfo"));
         // proposal
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, ProposalCreatedProcessor>();
-        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, ProposalReleasedProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, ProposalExecutedProcessor>();
         // DAO
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, DAOCreatedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, FileInfosRemovedProcessor>();
@@ -44,6 +45,15 @@ public class TomorrowDAOIndexerPluginModule : AElfIndexerClientPluginBaseModule<
         // treasury
         // organization
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, OrganizationCreatedProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, MemberAddedProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, MemberChangedProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, MemberRemovedProcessor>();
+        // governanceScheme
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, GovernanceSchemeCreatedProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, GovernanceSubSchemeAddedProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, GovernanceSubSchemeRemovedProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, GovernanceSubSchemeUpdatedProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, GovernanceThresholdUpdatedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, DonationReceivedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, EmergencyTransferredProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, SupportedStakingTokensAddedProcessor>();

@@ -46,8 +46,7 @@ public class ProposalCreatedProcessor : ProposalProcessorBase<ProposalCreated>
         {
             ObjectMapper.Map(governanceSubScheme, proposalIndex);
         }
-        proposalIndex.OrganizationMemberCount =
-            await GovernanceProvider.GetOrganizationMemberCountAsync(chainId, proposalIndex.OrganizationAddress);
+
         proposalIndex.Id = proposalId;
         await ProposalRepository.AddOrUpdateAsync(proposalIndex);
         Logger.LogInformation("[ProposalCreated] end proposalId:{proposalId} chainId:{chainId} ", proposalId, chainId);
