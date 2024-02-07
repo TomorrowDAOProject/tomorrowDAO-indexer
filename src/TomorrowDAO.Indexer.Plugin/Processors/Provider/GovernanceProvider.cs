@@ -52,7 +52,7 @@ public class GovernanceProvider : IGovernanceProvider, ISingletonDependency
             await _organizationRepository.GetFromBlockStateSetAsync(organizationAddress, chainId);
         if (organizationIndex != null)
         {
-            return organizationIndex.OrganizationMemberList?.Count ?? 0;
+            return organizationIndex.OrganizationMemberSet?.Count ?? 0;
         }
 
         _logger.LogInformation("OrganizationIndex with id {id} chainId {chainId} has not existed.",

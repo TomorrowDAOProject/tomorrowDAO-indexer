@@ -8,7 +8,7 @@ using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 
-namespace TomorrowDAO.Indexer.Plugin.Processors;
+namespace TomorrowDAO.Indexer.Plugin.Processors.Proposal;
 
 public class ProposalCreatedProcessor : ProposalProcessorBase<ProposalCreated>
 {
