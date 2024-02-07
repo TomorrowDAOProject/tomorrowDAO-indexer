@@ -2,7 +2,7 @@ using Nest;
 
 namespace TomorrowDAO.Indexer.Plugin.Entities;
 
-public class DAOMetadata
+public class Metadata
 {
     [Keyword] public string Name { get; set; }
     

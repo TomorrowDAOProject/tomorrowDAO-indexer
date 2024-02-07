@@ -18,12 +18,12 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
         var DAOIndex = await DAOIndexRepository.GetFromBlockStateSetAsync(DAOId, ChainAelf);
         DAOIndex.ShouldNotBeNull();
         
-        var DAOMetadata = DAOIndex.DAOMetadata;
-        DAOMetadata.ShouldNotBeNull();
-        DAOMetadata.Name.ShouldBe(DAOName);
-        DAOMetadata.LogoUrl.ShouldBe(DAOLogoUrl);
-        DAOMetadata.Description.ShouldBe(DAODescription);
-        DAOMetadata.SocialMedia.ShouldBe(DAOSocialMedia);
+        var metadata = DAOIndex.Metadata;
+        metadata.ShouldNotBeNull();
+        metadata.Name.ShouldBe(DAOName);
+        metadata.LogoUrl.ShouldBe(DAOLogoUrl);
+        metadata.Description.ShouldBe(DAODescription);
+        metadata.SocialMedia.ShouldBe(DAOSocialMedia);
         DAOIndex.MetadataAdmin.ShouldBe(DAOMetadataAdmin);
         DAOIndex.GovernanceToken.ShouldBe(Elf);
         DAOIndex.GovernanceSchemeId.ShouldBe(GovernanceSchemeId);
@@ -86,7 +86,7 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
             DaoId = HashHelper.ComputeFrom(Id1),
             FileInfoList = new FileInfoList
             {
-                FileInfos = { new FileInfo { File = null } }
+                Data = { ["cid"] = new FileInfo {File = null} }
             }
         }.ToLogEvent(), DAOCreatedProcessor);
     }
