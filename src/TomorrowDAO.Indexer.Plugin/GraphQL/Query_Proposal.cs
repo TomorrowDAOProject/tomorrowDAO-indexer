@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using AElfIndexer.Client;
 using AElfIndexer.Grains.State.Client;
 using GraphQL;
@@ -79,22 +80,73 @@ public partial class Query
         return objectMapper.Map<List<VoteIndex>, List<VoteInfoDto>>(result.Item2);
     }
     
-    [Name("getOrganizationInfosMemory")]
-    public static async Task<List<OrganizationInfoDto>> GetOrganizationInfosMemoryAsync(
-        [FromServices] IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> repository,
+    [Name("getVoteRecord")]
+    public static async Task<List<VoteRecordDto>> GetVoteRecordAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo> repository,
         [FromServices] IObjectMapper objectMapper,
-        GetOrganizationInfoInput input)
+        GetVoteRecordInput input)
     {
-        if (input.OrganizationAddressList.IsNullOrEmpty())
+        var mustQuery = new List<Func<QueryContainerDescriptor<VoteRecordIndex>, QueryContainer>>();
+        mustQuery.Add(q => q.Term(i
+            => i.Field(f => f.ChainId).Value(input.ChainId)));
+
+        mustQuery.Add(q => q.Term(i
+            => i.Field(f => f.VotingItemId).Value(input.VotingItemId)));
+
+        if (!input.Voter.IsNullOrWhiteSpace())
         {
-            return new List<OrganizationInfoDto>();
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.Voter).Value(input.Voter)));
         }
 
-        var tasks = input.OrganizationAddressList
-            .Select(organizationAddress => repository.GetFromBlockStateSetAsync(organizationAddress, input.ChainId)).ToList();
+        QueryContainer Filter(QueryContainerDescriptor<VoteRecordIndex> f) =>
+            f.Bool(b => b.Must(mustQuery));
 
-        var results = await Task.WhenAll(tasks);
-        return results.Where(index => index != null).Select(objectMapper.Map<OrganizationIndex, OrganizationInfoDto>)
-            .ToList();
+        var sortDescriptor = GetVoteRecordSort(input.Sorting);
+        var result = await repository.GetSortListAsync(Filter, sortFunc: sortDescriptor);
+        return objectMapper.Map<List<VoteRecordIndex>, List<VoteRecordDto>>(result.Item2);
+    }
+    
+    private static Func<SortDescriptor<VoteRecordIndex>, IPromise<IList<ISort>>> GetVoteRecordSort(string sorting)
+    {
+        var sortDescriptor = new SortDescriptor<VoteRecordIndex>();
+
+        if (sorting.IsNullOrWhiteSpace())
+        {
+            sortDescriptor.Descending(a => a.VoteTime);
+            return _ => sortDescriptor;
+        }
+
+        var sortingArray = sorting.Split(" ");
+        var field = sortingArray[0];
+        var order = sortingArray[1];
+
+        switch (field)
+        {
+            case "VoteTime":
+                if (order == "ASC")
+                {
+                    sortDescriptor.Ascending(a => a.VoteTime);
+                }
+                else
+                {
+                    sortDescriptor.Descending(a => a.VoteTime);
+                }
+                break;
+            case "Amount":
+                if (order == "ASC")
+                {
+                    sortDescriptor.Ascending(a => a.Amount);
+                }
+                else
+                {
+                    sortDescriptor.Descending(a => a.Amount);
+                }
+                break;
+            default:
+                sortDescriptor.Descending(a => a.VoteTime);
+                break;
+        }
+        return _ => sortDescriptor;
     }
 }
