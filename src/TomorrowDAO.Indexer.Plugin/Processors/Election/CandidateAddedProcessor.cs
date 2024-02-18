@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 using TomorrowDAO.Contracts.Election;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Enums;
+using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using Volo.Abp.ObjectMapping;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors.Election;

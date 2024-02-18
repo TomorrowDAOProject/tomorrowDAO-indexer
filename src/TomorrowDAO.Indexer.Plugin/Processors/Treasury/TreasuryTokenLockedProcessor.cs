@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using TomorrowDAO.Contracts.Treasury;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Enums;
+using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 

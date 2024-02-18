@@ -8,7 +8,7 @@ using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 
-namespace TomorrowDAO.Indexer.Plugin.Processors;
+namespace TomorrowDAO.Indexer.Plugin.Processors.DAO;
 
 public abstract class DAOProcessorBase<TEvent> : AElfLogEventProcessorBase<TEvent, LogEventInfo>
     where TEvent : IEvent<TEvent>,new()
