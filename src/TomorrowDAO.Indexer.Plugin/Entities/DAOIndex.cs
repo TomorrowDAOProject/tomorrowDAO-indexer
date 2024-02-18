@@ -23,6 +23,9 @@ public class DAOIndex : AElfIndexerClientEntity<string>, IIndexBuild
     public bool IsTreasuryPause { get; set; }
     [Keyword] public string TreasuryPauseExecutor { get; set; }
     [Keyword] public string VoteContractAddress { get; set; }
+    [Keyword] public string ElectionContractAddress { get; set; }
+    [Keyword] public string GovernanceContractAddress { get; set; }
+    [Keyword] public string TimelockContractAddress { get; set; }
     [Keyword] public string PermissionAddress { get; set; }
     [Keyword] public string PermissionInfoList { get; set; }
     public DateTime CreateTime { get; set; }

@@ -51,12 +51,27 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => MapHash(source.DaoId)))
             .ForMember(des => des.MetadataAdmin, opt
                 => opt.MapFrom(source => MapAddress(source.MetadataAdmin)))
+            .ForMember(des => des.TreasuryContractAddress, opt
+                => opt.MapFrom(source => source.ContractAddressList == null ? 
+                    string.Empty : MapAddress(source.ContractAddressList.TreasuryContractAddress)))
+            .ForMember(des => des.VoteContractAddress, opt
+                => opt.MapFrom(source => source.ContractAddressList == null ? 
+                    string.Empty : MapAddress(source.ContractAddressList.VoteContractAddress)))
+            .ForMember(des => des.ElectionContractAddress, opt
+                => opt.MapFrom(source => source.ContractAddressList == null ? 
+                    string.Empty : MapAddress(source.ContractAddressList.ElectionContractAddress)))
+            .ForMember(des => des.GovernanceContractAddress, opt
+                => opt.MapFrom(source => source.ContractAddressList == null ? 
+                    string.Empty : MapAddress(source.ContractAddressList.GovernanceContractAddress)))
+            .ForMember(des => des.TimelockContractAddress, opt
+                => opt.MapFrom(source => source.ContractAddressList == null ? 
+                    string.Empty : MapAddress(source.ContractAddressList.TimelockContractAddress)))
             ;
         CreateMap<FileInfoContract, FileInfoIndexer>()
             .ForMember(des => des.Uploader, opt
                 => opt.MapFrom(source => MapAddress(source.Uploader)))
             .ForMember(des => des.UploadTime, opt
-                => opt.MapFrom(source => source.UploadTime.ToDateTime()))
+                => opt.MapFrom(source => MapDateTime(source.UploadTime)))
             ;
         CreateMap<FileContract, FileIndexer>();
         CreateMap<Unpaused, DAOIndex>()

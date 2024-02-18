@@ -22,6 +22,11 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
         metadata.SocialMedia.ShouldBe(DAOSocialMedia);
         DAOIndex.MetadataAdmin.ShouldBe(DAOMetadataAdmin);
         DAOIndex.GovernanceToken.ShouldBe(Elf);
+        DAOIndex.TreasuryContractAddress.ShouldBe(TreasuryContractAddress);
+        DAOIndex.VoteContractAddress.ShouldBe(VoteContractAddress);
+        DAOIndex.ElectionContractAddress.ShouldBe(ElectionContractAddress);
+        DAOIndex.GovernanceContractAddress.ShouldBe(GovernanceContractAddress);
+        DAOIndex.TimelockContractAddress.ShouldBe(TimelockContractAddress);
 
         DAOIndex.HighCouncilConfig.ShouldBeNull();
         DAOIndex.FileInfoList.ShouldBeNull();
@@ -29,8 +34,6 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
         DAOIndex.PermissionInfoList.ShouldBeNull();
         DAOIndex.IsTreasuryContractNeeded.ShouldBe(false);
         DAOIndex.IsVoteContractNeeded.ShouldBe(false);
-        DAOIndex.TreasuryContractAddress.ShouldBe("TreasuryContractAddress");
-        DAOIndex.VoteContractAddress.ShouldBe("VoteContractAddress");
         DAOIndex.SubsistStatus.ShouldBe(true);
         DAOIndex.Id.ShouldBe(DAOId);
         DAOIndex.Creator.ShouldBe(DAOCreator);
@@ -45,8 +48,6 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
         var DAOIndex = await DAOIndexRepository.GetFromBlockStateSetAsync(DAOId, ChainAelf);
         DAOIndex.ShouldNotBeNull();
         DAOIndex.Id.ShouldBe(DAOId);
-        DAOIndex.TreasuryContractAddress.ShouldBe("TreasuryContractAddress");
-        DAOIndex.VoteContractAddress.ShouldBe("VoteContractAddress");
         DAOIndex.SubsistStatus.ShouldBe(true);
         
         DAOIndex.Creator.ShouldBeNull();

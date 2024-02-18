@@ -37,8 +37,6 @@ public class DAOCreatedProcessor : DAOProcessorBase<DAOCreated>
             DAOIndex = ObjectMapper.Map<DAOCreated, DAOIndex>(eventValue);
             DAOIndex.CreateTime = context.BlockTime;
             DAOIndex.SubsistStatus = true;
-            DAOIndex.TreasuryContractAddress = ContractInfoOptions.ContractInfos[chainId].TreasuryContractAddress;
-            DAOIndex.VoteContractAddress = ContractInfoOptions.ContractInfos[chainId].VoteContractAddress;
             await SaveIndexAsync(DAOIndex, context);
             Logger.LogInformation("[DAOCreated] FINISH: Id={Id}, ChainId={ChainId}", DAOId, chainId);
         }

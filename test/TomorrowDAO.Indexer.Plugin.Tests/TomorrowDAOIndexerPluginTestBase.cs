@@ -33,8 +33,6 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly HighCouncilEnabledProcessor HighCouncilEnabledProcessor;
     protected readonly PermissionsSetProcessor PermissionsSetProcessor;
     protected readonly SubsistStatusSetProcessor SubsistStatusSetProcessor;
-    protected readonly TreasuryContractSetProcessor TreasuryContractSetProcessor;
-    protected readonly VoteContractSetProcessor VoteContractSetProcessor;
     
 
     protected readonly long BlockHeight = 120;
@@ -62,6 +60,11 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly string ExecuteAddress = "aLyxCJvWMQH6UEykTyeWAcYss9baPyXkrMQ37BHnUicxD2LL3";
     protected readonly string ExecuteContractAddress = "YeCqKprLBGbZZeRTkN1FaBLXsetY8QFotmVKqo98w9K6jK2PY";
     protected readonly string ProposalDescription = HashHelper.ComputeFrom("ProposalDescription").ToHex();
+    protected readonly string TreasuryContractAddress = "7RzVGiuVWkvL4VfVHdZfQF2Tri3sgLe9U991bohHFfSRZXuGX";
+    protected readonly string VoteContractAddress = "vQfjcuW3RbGmkcL74YY4q3BX9UcH5rmwLmbQi3PsZxg8vE9Uk";
+    protected readonly string ElectionContractAddress = "YeCqKprLBGbZZeRTkN1FaBLXsetY8QFotmVKqo98w9K6jK2PY";
+    protected readonly string GovernanceContractAddress = "HJfhXPPL3Eb2wYPAc6ePmirenNzqGBAsynyeYF9tKSV2kHTAF";
+    protected readonly string TimelockContractAddress = "7VzrKvnFRjrK4duJz8HNA1nWf2AJcxwwGXzTtC4MC3tKUtdbH";
 
     // protected readonly int MinimalRequiredThreshold = 1;
     // protected readonly int MinimalVoteThreshold = 2;
@@ -87,8 +90,6 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         HighCouncilEnabledProcessor = GetRequiredService<HighCouncilEnabledProcessor>();
         PermissionsSetProcessor = GetRequiredService<PermissionsSetProcessor>();
         SubsistStatusSetProcessor = GetRequiredService<SubsistStatusSetProcessor>();
-        TreasuryContractSetProcessor = GetRequiredService<TreasuryContractSetProcessor>();
-        VoteContractSetProcessor = GetRequiredService<VoteContractSetProcessor>();
         DAOCreatedProcessor = GetRequiredService<DAOCreatedProcessor>();
     }
 
@@ -216,7 +217,15 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             MetadataAdmin = Address.FromBase58(DAOMetadataAdmin),
             GovernanceToken = Elf,
             DaoId = HashHelper.ComputeFrom(Id1),
-            Creator = Address.FromBase58(DAOCreator)
+            Creator = Address.FromBase58(DAOCreator),
+            ContractAddressList = new ContractAddressList
+            {
+                TreasuryContractAddress = Address.FromBase58(TreasuryContractAddress),
+                VoteContractAddress = Address.FromBase58(VoteContractAddress),
+                ElectionContractAddress = Address.FromBase58(ElectionContractAddress),
+                GovernanceContractAddress = Address.FromBase58(GovernanceContractAddress),
+                TimelockContractAddress = Address.FromBase58(TimelockContractAddress)
+            }
         }.ToLogEvent();
     }
 
