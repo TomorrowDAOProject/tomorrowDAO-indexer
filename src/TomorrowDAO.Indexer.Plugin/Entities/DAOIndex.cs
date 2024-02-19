@@ -8,11 +8,8 @@ public class DAOIndex : AElfIndexerClientEntity<string>, IIndexBuild
 {
     [Keyword] public override string Id { get; set; }
     [Keyword] public string Creator { get; set; }
-    [Keyword] public string MetadataAdmin { get; set; }
     public Metadata Metadata { get; set; }
     [Keyword] public string GovernanceToken { get; set; }
-    [Keyword] public string GovernanceSchemeId { get; set; }
-    // public GovernanceSchemeThreshold GovernanceSchemeThreshold { get; set; }
     public bool IsHighCouncilEnabled { get; set; }
     public HighCouncilConfig HighCouncilConfig { get; set; }
     public long HighCouncilTermNumber { get; set; }
@@ -25,6 +22,9 @@ public class DAOIndex : AElfIndexerClientEntity<string>, IIndexBuild
     public bool IsTreasuryPause { get; set; }
     [Keyword] public string TreasuryPauseExecutor { get; set; }
     [Keyword] public string VoteContractAddress { get; set; }
+    [Keyword] public string ElectionContractAddress { get; set; }
+    [Keyword] public string GovernanceContractAddress { get; set; }
+    [Keyword] public string TimelockContractAddress { get; set; }
     [Keyword] public string PermissionAddress { get; set; }
     [Keyword] public string PermissionInfoList { get; set; }
     public DateTime CreateTime { get; set; }
