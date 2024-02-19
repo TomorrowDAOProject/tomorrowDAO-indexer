@@ -1,10 +1,7 @@
-using AElfIndexer.Client;
 using AElfIndexer.Client.Handlers;
-using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TomorrowDAO.Contracts.Treasury;
-using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
@@ -14,9 +11,9 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.Treasury;
 public class PausedProcessor : DAOProcessorBase<Paused>
 {
     public PausedProcessor(ILogger<DAOProcessorBase<Paused>> logger, IObjectMapper objectMapper, 
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAORepository,
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IDAOProvider DAOProvider,
         IElectionProvider electionProvider) 
-        : base(logger, objectMapper, contractInfoOptions, DAORepository, electionProvider)
+        : base(logger, objectMapper, contractInfoOptions, DAOProvider, electionProvider)
     {
     }
 
@@ -27,7 +24,7 @@ public class PausedProcessor : DAOProcessorBase<Paused>
         Logger.LogInformation("[Paused] START: Id={Id}, ChainId={ChainId}", DAOId, chainId);
         try
         {
-            var DAOIndex = await DAORepository.GetFromBlockStateSetAsync(DAOId, chainId);
+            var DAOIndex = await DAOProvider.GetDAOAsync(chainId, DAOId);
             if (DAOIndex == null)
             {
                 Logger.LogInformation("[Paused] DAO not existed: Id={Id}, ChainId={ChainId}", DAOId, chainId);
@@ -35,7 +32,7 @@ public class PausedProcessor : DAOProcessorBase<Paused>
             }
             ObjectMapper.Map(eventValue, DAOIndex);
             DAOIndex.IsTreasuryPause = true;
-            await SaveIndexAsync(DAOIndex, context);
+            await DAOProvider.SaveIndexAsync(DAOIndex, context);
             Logger.LogInformation("[Paused] FINISH: Id={Id}, ChainId={ChainId}", DAOId, chainId);
         }
         catch (Exception e)

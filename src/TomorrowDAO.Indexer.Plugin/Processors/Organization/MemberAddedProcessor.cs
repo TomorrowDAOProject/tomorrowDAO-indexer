@@ -1,10 +1,9 @@
-using AElfIndexer.Client;
 using AElfIndexer.Client.Handlers;
 using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TomorrowDAO.Contracts.Governance;
-using TomorrowDAO.Indexer.Plugin.Entities;
+using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors.Organization;
@@ -14,8 +13,8 @@ public class MemberAddedProcessor : OrganizationProcessorBase<MemberAdded>
     public MemberAddedProcessor(ILogger<AElfLogEventProcessorBase<MemberAdded, LogEventInfo>> logger,
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
-        IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> organizationRepository) :
-        base(logger, objectMapper, contractInfoOptions, organizationRepository)
+        IOrganizationProvider organizationProvider) :
+        base(logger, objectMapper, contractInfoOptions, organizationProvider)
     {
     }
 
@@ -26,8 +25,7 @@ public class MemberAddedProcessor : OrganizationProcessorBase<MemberAdded>
         Logger.LogInformation(
             "[MemberAdded] start organizationAddress:{organizationAddress} chainId:{chainId} ",
             organizationAddress, chainId);
-        var organizationIndex =
-            await OrganizationRepository.GetFromBlockStateSetAsync(organizationAddress, context.ChainId);
+        var organizationIndex = await OrganizationProvider.GetIndexAsync(context.ChainId, organizationAddress);
         if (organizationIndex == null)
         {
             Logger.LogInformation("[MemberAdded] organizationIndex with id {id} chainId {chainId} has not existed.",
@@ -36,7 +34,7 @@ public class MemberAddedProcessor : OrganizationProcessorBase<MemberAdded>
         }
 
         organizationIndex.AddMembers(eventValue.MemberList?.Value.Select(m => m.ToBase58()).ToHashSet());
-        await SaveIndexAsync(organizationIndex, context);
+        await OrganizationProvider.SaveIndexAsync(organizationIndex, context);
         Logger.LogInformation("[MemberAdded] end organizationAddress:{organizationAddress} chainId:{chainId} ",
             organizationAddress, chainId);
     }

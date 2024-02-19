@@ -1,6 +1,4 @@
-using AElfIndexer.Client;
 using AElfIndexer.Client.Handlers;
-using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -14,9 +12,9 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.DAO;
 public class DAOCreatedProcessor : DAOProcessorBase<DAOCreated>
 {
     public DAOCreatedProcessor(ILogger<DAOProcessorBase<DAOCreated>> logger, IObjectMapper objectMapper, 
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAORepository,
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IDAOProvider DAOProvider,
         IElectionProvider electionProvider) 
-        : base(logger, objectMapper, contractInfoOptions, DAORepository, electionProvider)
+        : base(logger, objectMapper, contractInfoOptions, DAOProvider, electionProvider)
     {
     }
 
@@ -28,7 +26,7 @@ public class DAOCreatedProcessor : DAOProcessorBase<DAOCreated>
             DAOId, chainId, JsonConvert.SerializeObject(eventValue));
         try
         {
-            var DAOIndex = await DAORepository.GetFromBlockStateSetAsync(DAOId, chainId);
+            var DAOIndex = await DAOProvider.GetDAOAsync(chainId, DAOId);
             if (DAOIndex != null)
             {
                 Logger.LogInformation("[DAOCreated] DAO already existed: Id={Id}, ChainId={ChainId}", DAOId, chainId);
@@ -37,7 +35,7 @@ public class DAOCreatedProcessor : DAOProcessorBase<DAOCreated>
             DAOIndex = ObjectMapper.Map<DAOCreated, DAOIndex>(eventValue);
             DAOIndex.CreateTime = context.BlockTime;
             DAOIndex.SubsistStatus = true;
-            await SaveIndexAsync(DAOIndex, context);
+            await DAOProvider.SaveIndexAsync(DAOIndex, context);
             Logger.LogInformation("[DAOCreated] FINISH: Id={Id}, ChainId={ChainId}", DAOId, chainId);
         }
         catch (Exception e)

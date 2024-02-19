@@ -1,22 +1,18 @@
-using AElfIndexer.Client;
 using AElfIndexer.Client.Handlers;
-using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TomorrowDAO.Contracts.DAO;
-using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
-using HighCouncilConfig = TomorrowDAO.Indexer.Plugin.Entities.HighCouncilConfig;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors.DAO;
 
 public class HighCouncilDisabledProcessor : DAOProcessorBase<HighCouncilDisabled>
 {
     public HighCouncilDisabledProcessor(ILogger<DAOProcessorBase<HighCouncilDisabled>> logger, IObjectMapper objectMapper, 
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAORepository,
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IDAOProvider DAOProvider,
         IElectionProvider electionProvider) 
-        : base(logger, objectMapper, contractInfoOptions, DAORepository, electionProvider)
+        : base(logger, objectMapper, contractInfoOptions, DAOProvider, electionProvider)
     {
     }
 
@@ -28,14 +24,14 @@ public class HighCouncilDisabledProcessor : DAOProcessorBase<HighCouncilDisabled
             DAOId, chainId);
         try
         {
-            var DAOIndex = await DAORepository.GetFromBlockStateSetAsync(DAOId, chainId);
+            var DAOIndex = await DAOProvider.GetDAOAsync(chainId, DAOId);
             if (DAOIndex == null)
             {
                 Logger.LogInformation("[HighCouncilDisabled] DAO not existed: Id={Id}, ChainId={ChainId}", DAOId, chainId);
                 return;
             }
             DAOIndex.IsHighCouncilEnabled = false;
-            await SaveIndexAsync(DAOIndex, context);
+            await DAOProvider.SaveIndexAsync(DAOIndex, context);
             Logger.LogInformation("[HighCouncilDisabled] FINISH: Id={Id}, ChainId={ChainId}", DAOId, chainId);
         }
         catch (Exception e)

@@ -11,6 +11,7 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.Provider;
 public interface IDAOProvider
 {
     Task<DAOIndex> GetDAOAsync(string chainId, string DAOId);
+    
     Task SaveIndexAsync(DAOIndex index, LogEventContext context);
 }
 
@@ -19,8 +20,10 @@ public class DAOProvider : IDAOProvider, ISingletonDependency
     private readonly ILogger<DAOProvider> _logger;
     private readonly IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> _daoRepository;
     private readonly IObjectMapper _objectMapper;
-
-    public DAOProvider(ILogger<DAOProvider> logger, IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> daoRepository, IObjectMapper objectMapper)
+    
+    public DAOProvider(ILogger<DAOProvider> logger, 
+        IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> daoRepository, 
+        IObjectMapper objectMapper)
     {
         _logger = logger;
         _daoRepository = daoRepository;

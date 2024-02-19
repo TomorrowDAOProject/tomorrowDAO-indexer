@@ -1,10 +1,8 @@
 using AElf.CSharp.Core;
-using AElfIndexer.Client;
 using AElfIndexer.Client.Handlers;
 using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 
@@ -16,17 +14,17 @@ public abstract class DAOProcessorBase<TEvent> : AElfLogEventProcessorBase<TEven
     protected readonly ILogger<DAOProcessorBase<TEvent>> Logger;
     protected readonly IObjectMapper ObjectMapper;
     protected readonly ContractInfoOptions ContractInfoOptions;
-    protected readonly IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAORepository;
+    protected readonly IDAOProvider DAOProvider;
     protected readonly IElectionProvider ElectionProvider;
     
     protected DAOProcessorBase(ILogger<DAOProcessorBase<TEvent>> logger,
         IObjectMapper objectMapper, IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, 
-        IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAORepository, 
+        IDAOProvider DAOProvider, 
         IElectionProvider electionProvider) : base(logger)
     {
         Logger = logger;
         ObjectMapper = objectMapper;
-        this.DAORepository = DAORepository;
+        this.DAOProvider = DAOProvider;
         ElectionProvider = electionProvider;
         ContractInfoOptions = contractInfoOptions.Value;
     }
@@ -34,11 +32,5 @@ public abstract class DAOProcessorBase<TEvent> : AElfLogEventProcessorBase<TEven
     public override string GetContractAddress(string chainId)
     {
         return ContractInfoOptions.ContractInfos[chainId].DAOContractAddress;
-    }
-
-    protected async Task SaveIndexAsync(DAOIndex index, LogEventContext context)
-    {
-        ObjectMapper.Map(context, index);
-        await DAORepository.AddOrUpdateAsync(index);
     }
 }

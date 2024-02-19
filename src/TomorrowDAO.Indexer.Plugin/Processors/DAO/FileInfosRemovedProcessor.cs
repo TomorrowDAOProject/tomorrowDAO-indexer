@@ -1,11 +1,8 @@
-using AElfIndexer.Client;
 using AElfIndexer.Client.Handlers;
-using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using TomorrowDAO.Contracts.DAO;
-using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 using FileInfo = TomorrowDAO.Indexer.Plugin.Entities.FileInfo;
@@ -15,9 +12,9 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.DAO;
 public class FileInfosRemovedProcessor : DAOProcessorBase<FileInfosRemoved>
 {
     public FileInfosRemovedProcessor(ILogger<DAOProcessorBase<FileInfosRemoved>> logger, IObjectMapper objectMapper, 
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAORepository,
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IDAOProvider DAOProvider,
         IElectionProvider electionProvider) 
-        : base(logger, objectMapper, contractInfoOptions, DAORepository, electionProvider)
+        : base(logger, objectMapper, contractInfoOptions, DAOProvider, electionProvider)
     {
     }
 
@@ -29,7 +26,7 @@ public class FileInfosRemovedProcessor : DAOProcessorBase<FileInfosRemoved>
             DAOId, chainId, JsonConvert.SerializeObject(eventValue));
         try
         {
-            var DAOIndex = await DAORepository.GetFromBlockStateSetAsync(DAOId, chainId);
+            var DAOIndex = await DAOProvider.GetDAOAsync(chainId, DAOId);
             if (DAOIndex == null)
             {
                 Logger.LogInformation("[FileInfosRemoved] DAO not existed: Id={Id}, ChainId={ChainId}", DAOId, chainId);
@@ -42,7 +39,7 @@ public class FileInfosRemovedProcessor : DAOProcessorBase<FileInfosRemoved>
             {
                 var removeFileIds = removeFileInfo.Data.Values.Select(x => x.File.Cid).ToList();
                 DAOIndex.FileInfoList = JsonConvert.SerializeObject(currentFileInfo.Where(x => !removeFileIds.Contains(x.File.Cid)).ToList());
-                await SaveIndexAsync(DAOIndex, context);
+                await DAOProvider.SaveIndexAsync(DAOIndex, context);
                 Logger.LogInformation("[FileInfosRemoved] REMOVED: Id={Id}, ChainId={ChainId}", DAOId, chainId);
             }
             Logger.LogInformation("[FileInfosRemoved] FINISH: Id={Id}, ChainId={ChainId}", DAOId, chainId);
