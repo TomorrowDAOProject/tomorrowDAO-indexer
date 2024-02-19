@@ -49,8 +49,6 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => MapAddress(source.Creator)))
             .ForMember(des => des.Id, opt
                 => opt.MapFrom(source => MapHash(source.DaoId)))
-            .ForMember(des => des.MetadataAdmin, opt
-                => opt.MapFrom(source => MapAddress(source.MetadataAdmin)))
             .ForMember(des => des.TreasuryContractAddress, opt
                 => opt.MapFrom(source => source.ContractAddressList == null ? 
                     string.Empty : MapAddress(source.ContractAddressList.TreasuryContractAddress)))

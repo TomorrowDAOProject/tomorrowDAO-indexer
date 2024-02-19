@@ -214,7 +214,6 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
                 Description = DAODescription,
                 SocialMedia = { ["name"] = "url" }
             },
-            MetadataAdmin = Address.FromBase58(DAOMetadataAdmin),
             GovernanceToken = Elf,
             DaoId = HashHelper.ComputeFrom(Id1),
             Creator = Address.FromBase58(DAOCreator),

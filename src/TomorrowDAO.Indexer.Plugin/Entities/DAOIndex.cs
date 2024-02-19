@@ -8,7 +8,6 @@ public class DAOIndex : AElfIndexerClientEntity<string>, IIndexBuild
 {
     [Keyword] public override string Id { get; set; }
     [Keyword] public string Creator { get; set; }
-    [Keyword] public string MetadataAdmin { get; set; }
     public Metadata Metadata { get; set; }
     [Keyword] public string GovernanceToken { get; set; }
     public bool IsHighCouncilEnabled { get; set; }

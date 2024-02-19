@@ -20,7 +20,6 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
         metadata.LogoUrl.ShouldBe(DAOLogoUrl);
         metadata.Description.ShouldBe(DAODescription);
         metadata.SocialMedia.ShouldBe(DAOSocialMedia);
-        DAOIndex.MetadataAdmin.ShouldBe(DAOMetadataAdmin);
         DAOIndex.GovernanceToken.ShouldBe(Elf);
         DAOIndex.TreasuryContractAddress.ShouldBe(TreasuryContractAddress);
         DAOIndex.VoteContractAddress.ShouldBe(VoteContractAddress);
@@ -51,7 +50,6 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
         DAOIndex.SubsistStatus.ShouldBe(true);
         
         DAOIndex.Creator.ShouldBeNull();
-        DAOIndex.MetadataAdmin.ShouldBeNull();
         DAOIndex.FileInfoList.ShouldBeNull();
         DAOIndex.HighCouncilConfig.ShouldBeNull();
     }
