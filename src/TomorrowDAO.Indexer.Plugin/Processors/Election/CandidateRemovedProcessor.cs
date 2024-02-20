@@ -23,7 +23,7 @@ public class CandidateRemovedProcessor : ElectionProcessorBase<CandidateRemoved>
     {
         var DAOId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
-        var candidate = eventValue.Candidate;
+        var candidate = eventValue.Candidate?.ToBase58();
         Logger.LogInformation("[CandidateRemoved] START: Id={Id}, ChainId={ChainId}, Candidate={candidate}",
             DAOId, chainId, candidate);
         try

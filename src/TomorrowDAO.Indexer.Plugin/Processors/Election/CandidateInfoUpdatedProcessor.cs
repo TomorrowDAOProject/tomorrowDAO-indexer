@@ -30,16 +30,23 @@ public class CandidateInfoUpdatedProcessor : ElectionProcessorBase<CandidateInfo
         {
             var electionIndex = await ElectionRepository.GetFromBlockStateSetAsync(IdGenerateHelper
                 .GetId(chainId, DAOId, candidate, CandidateTerm, HighCouncilType.Candidate), chainId);
-            if (electionIndex == null)
+            if (electionIndex != null)
             {
-                Logger.LogInformation("[CandidateInfoUpdated] candidate not existed: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, candidate);
-                return;
+                electionIndex.IsRemoved = true;
+                await SaveIndexAsync(electionIndex, context);
             }
 
             if (eventValue.IsEvilNode)
             {
-                electionIndex.HighCouncilType = HighCouncilType.BlackList;
-                await SaveIndexAsync(electionIndex, context);
+                await SaveIndexAsync(new ElectionIndex 
+                {
+                    IsRemoved = false,
+                    Address = candidate,
+                    DAOId = DAOId,
+                    TermNumber = CandidateTerm,
+                    HighCouncilType = HighCouncilType.BlackList,
+                    Id = IdGenerateHelper.GetId(chainId, DAOId, candidate, CandidateTerm, HighCouncilType.BlackList) 
+                }, context);
                 Logger.LogInformation("[CandidateInfoUpdated] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, candidate); 
             }
         }

@@ -8,10 +8,12 @@ using AElfIndexer.Grains;
 using AElfIndexer.Grains.State.Client;
 using Google.Protobuf.WellKnownTypes;
 using TomorrowDAO.Contracts.DAO;
+using TomorrowDAO.Contracts.Election;
 using TomorrowDAO.Contracts.Treasury;
 using TomorrowDAO.Indexer.Orleans.TestBase;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.DAO;
+using TomorrowDAO.Indexer.Plugin.Processors.Election;
 using TomorrowDAO.Indexer.Plugin.Processors.Treasury;
 using TomorrowDAO.Indexer.Plugin.Tests.Helper;
 using File = TomorrowDAO.Contracts.DAO.File;
@@ -30,6 +32,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAOIndexRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> TreasuryFundRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> TreasuryRecordRepository;
+    protected readonly IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> ElectionRepository;
     protected readonly DAOCreatedProcessor DAOCreatedProcessor;
     protected readonly FileInfosRemovedProcessor FileInfosRemovedProcessor;
     protected readonly FileInfosUploadedProcessor FileInfosUploadedProcessor;
@@ -46,8 +49,12 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly SupportedStakingTokensRemovedProcessor SupportedStakingTokensRemovedProcessor;
     protected readonly TokenStakedProcessor TokenStakedProcessor;
     protected readonly TreasuryTokenUnlockedProcessor TreasuryTokenUnlockedProcessor;
-    protected readonly private TreasuryTransferReleasedProcessor TreasuryTransferReleasedProcessor;
-    protected readonly private UnpausedProcessor UnpausedProcessor;
+    protected readonly TreasuryTransferReleasedProcessor TreasuryTransferReleasedProcessor;
+    protected readonly UnpausedProcessor UnpausedProcessor;
+    protected readonly CandidateAddedProcessor CandidateAddedProcessor;
+    protected readonly CandidateAddressReplacedProcessor CandidateAddressReplacedProcessor;
+    protected readonly CandidateInfoUpdatedProcessor CandidateInfoUpdatedProcessor;
+    protected readonly CandidateRemovedProcessor CandidateRemovedProcessor;
     
 
     protected readonly long BlockHeight = 120;
@@ -103,6 +110,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         DAOIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo>>();
         TreasuryFundRepository = GetRequiredService<IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo>>();
         TreasuryRecordRepository = GetRequiredService<IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo>>();
+        ElectionRepository = GetRequiredService<IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo>>();
         FileInfosRemovedProcessor = GetRequiredService<FileInfosRemovedProcessor>();
         FileInfosUploadedProcessor = GetRequiredService<FileInfosUploadedProcessor>();
         HighCouncilDisabledProcessor = GetRequiredService<HighCouncilDisabledProcessor>();
@@ -121,6 +129,10 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         TreasuryTokenUnlockedProcessor = GetRequiredService<TreasuryTokenUnlockedProcessor>();
         TreasuryTransferReleasedProcessor = GetRequiredService<TreasuryTransferReleasedProcessor>();
         UnpausedProcessor = GetRequiredService<UnpausedProcessor>();
+        CandidateAddedProcessor = GetRequiredService<CandidateAddedProcessor>();
+        CandidateAddressReplacedProcessor = GetRequiredService<CandidateAddressReplacedProcessor>();
+        CandidateInfoUpdatedProcessor = GetRequiredService<CandidateInfoUpdatedProcessor>();
+        CandidateRemovedProcessor = GetRequiredService<CandidateRemovedProcessor>();
     }
 
     protected async Task<string> InitializeBlockStateSetAsync(BlockStateSet<LogEventInfo> blockStateSet, string chainId)
@@ -432,6 +444,44 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         {
             DaoId = HashHelper.ComputeFrom(Id1),
             Account = Address.FromBase58(DAOCreator)
+        }.ToLogEvent();
+    }
+    
+    protected LogEvent CandidateAdded()
+    {
+        return new CandidateAdded
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Candidate = Address.FromBase58(DAOCreator)
+        }.ToLogEvent();
+    }
+    
+    protected LogEvent CandidateAddressReplaced()
+    {
+        return new CandidateAddressReplaced
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            NewAddress = Address.FromBase58(Creator),
+            OldAddress = Address.FromBase58(DAOCreator)
+        }.ToLogEvent();
+    }
+    
+    protected LogEvent CandidateInfoUpdated()
+    {
+        return new CandidateInfoUpdated
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            CandidateAddress = Address.FromBase58(DAOCreator),
+            IsEvilNode = true
+        }.ToLogEvent();
+    }
+    
+    protected LogEvent CandidateRemoved()
+    {
+        return new CandidateRemoved
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Candidate = Address.FromBase58(DAOCreator)
         }.ToLogEvent();
     }
 }
