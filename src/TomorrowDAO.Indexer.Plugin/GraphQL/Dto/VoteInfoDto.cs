@@ -11,11 +11,11 @@ public class VoteInfoDto
 
     public string AcceptedCurrency { get; set; }
 
-    public int ApproveCount { get; set; }
+    public int ApprovedCount { get; set; }
 
-    public int RejectCount { get; set; }
+    public int RejectionCount { get; set; }
 
-    public int AbstainCount { get; set; }
+    public int AbstentionCount { get; set; }
 
     public int VotesAmount { get; set; }
     
