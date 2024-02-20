@@ -1,6 +1,8 @@
 using AElf.Indexing.Elasticsearch;
 using AElfIndexer.Client;
 using Nest;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using TomorrowDAO.Indexer.Plugin.Enums;
 
 namespace TomorrowDAO.Indexer.Plugin.Entities;
@@ -16,8 +18,10 @@ public class VoteRecordIndex : AElfIndexerClientEntity<string>, IIndexBuild
     
     public int Amount { get; set; }
     
-    // Approve/reject/abstain     
+    [JsonConverter(typeof(StringEnumConverter))]
     public VoteOption Option { get; set; }
     
     public DateTime VoteTime { get; set; }
+    
+    public bool IsFinished { get; set; }
 }
