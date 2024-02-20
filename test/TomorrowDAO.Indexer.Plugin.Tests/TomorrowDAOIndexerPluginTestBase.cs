@@ -42,6 +42,12 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly TreasuryTokenLockedProcessor TreasuryTokenLockedProcessor;
     protected readonly EmergencyTransferredProcessor EmergencyTransferredProcessor;
     protected readonly PausedProcessor PausedProcessor;
+    protected readonly SupportedStakingTokensAddedProcessor SupportedStakingTokensAddedProcessor;
+    protected readonly SupportedStakingTokensRemovedProcessor SupportedStakingTokensRemovedProcessor;
+    protected readonly TokenStakedProcessor TokenStakedProcessor;
+    protected readonly TreasuryTokenUnlockedProcessor TreasuryTokenUnlockedProcessor;
+    protected readonly private TreasuryTransferReleasedProcessor TreasuryTransferReleasedProcessor;
+    protected readonly private UnpausedProcessor UnpausedProcessor;
     
 
     protected readonly long BlockHeight = 120;
@@ -109,6 +115,12 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         TreasuryTokenLockedProcessor = GetRequiredService<TreasuryTokenLockedProcessor>();
         EmergencyTransferredProcessor = GetRequiredService<EmergencyTransferredProcessor>();
         PausedProcessor = GetService<PausedProcessor>();
+        SupportedStakingTokensAddedProcessor = GetRequiredService<SupportedStakingTokensAddedProcessor>();
+        SupportedStakingTokensRemovedProcessor = GetRequiredService<SupportedStakingTokensRemovedProcessor>();
+        TokenStakedProcessor = GetRequiredService<TokenStakedProcessor>();
+        TreasuryTokenUnlockedProcessor = GetRequiredService<TreasuryTokenUnlockedProcessor>();
+        TreasuryTransferReleasedProcessor = GetRequiredService<TreasuryTransferReleasedProcessor>();
+        UnpausedProcessor = GetRequiredService<UnpausedProcessor>();
     }
 
     protected async Task<string> InitializeBlockStateSetAsync(BlockStateSet<LogEventInfo> blockStateSet, string chainId)
@@ -344,6 +356,79 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected LogEvent Paused()
     {
         return new Paused
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Account = Address.FromBase58(DAOCreator)
+        }.ToLogEvent();
+    }
+    
+    protected LogEvent SupportedStakingTokensAdded()
+    {
+        return new SupportedStakingTokensAdded
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            AddedTokens = new SymbolList
+            {
+                Data = { Elf }
+            }
+        }.ToLogEvent();
+    }
+    
+    protected LogEvent SupportedStakingTokensRemoved()
+    {
+        return new SupportedStakingTokensRemoved
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            RemovedTokens = new SymbolList
+            {
+                Data = { Elf }
+            }
+        }.ToLogEvent();
+    }
+    
+    protected LogEvent TokenStaked()
+    {
+        return new TokenStaked
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Account = Address.FromBase58(DAOCreator),
+            Amount = 1L,
+            StakedTime = new Timestamp(),
+            Symbol = Elf
+        }.ToLogEvent();
+    }
+    
+    protected LogEvent TreasuryTokenUnlocked()
+    {
+        return new TreasuryTokenUnlocked
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            LockInfo = new LockInfo
+            {
+                Amount = 1L,
+                LockDdl = new Timestamp(),
+                Symbol = Elf,
+                ProposalId = HashHelper.ComputeFrom(Id1)
+            },
+            Executor = Address.FromBase58(DAOCreator)
+        }.ToLogEvent();
+    }
+    
+    protected LogEvent TreasuryTransferReleased()
+    {
+        return new TreasuryTransferReleased
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Amount = 1L,
+            Recipient = Address.FromBase58(DAOCreator),
+            Executor = Address.FromBase58(DAOCreator),
+            Symbol = Elf
+        }.ToLogEvent();
+    }
+    
+    protected LogEvent Unpaused()
+    {
+        return new Unpaused
         {
             DaoId = HashHelper.ComputeFrom(Id1),
             Account = Address.FromBase58(DAOCreator)

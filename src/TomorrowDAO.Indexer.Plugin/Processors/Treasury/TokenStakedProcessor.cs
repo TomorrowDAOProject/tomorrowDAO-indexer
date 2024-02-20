@@ -41,7 +41,7 @@ public class TokenStakedProcessor : TreasuryProcessorBase<TokenStaked>
             }
             treasuryFundIndex.AvailableFunds += eventValue.Amount;
             await SaveIndexAsync(treasuryFundIndex, context);
-            var executor = eventValue.Account.ToBase58();
+            var executor = eventValue.Account?.ToBase58();
             var DAOIndex = await DAOProvider.GetDAOAsync(chainId, DAOId);
             await SaveIndexAsync(new TreasuryRecordIndex
             {
