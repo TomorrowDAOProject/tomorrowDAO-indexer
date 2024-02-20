@@ -44,6 +44,8 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<GovernanceSubSchemeIndex, ProposalIndex>();
         CreateMap<ProposalIndex, ProposalSyncDto>();
         CreateMap<LogEventContext, DAOIndex>();
+        CreateMap<LogEventContext, TreasuryFundIndex>();
+        CreateMap<LogEventContext, TreasuryRecordIndex>();
         CreateMap<DAOCreated, DAOIndex>()
             .ForMember(des => des.Creator, opt
                 => opt.MapFrom(source => MapAddress(source.Creator)))

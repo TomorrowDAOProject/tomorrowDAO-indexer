@@ -8,9 +8,11 @@ using AElfIndexer.Grains;
 using AElfIndexer.Grains.State.Client;
 using Google.Protobuf.WellKnownTypes;
 using TomorrowDAO.Contracts.DAO;
+using TomorrowDAO.Contracts.Treasury;
 using TomorrowDAO.Indexer.Orleans.TestBase;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.DAO;
+using TomorrowDAO.Indexer.Plugin.Processors.Treasury;
 using TomorrowDAO.Indexer.Plugin.Tests.Helper;
 using File = TomorrowDAO.Contracts.DAO.File;
 using FileInfo = TomorrowDAO.Contracts.DAO.FileInfo;
@@ -26,6 +28,8 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     private readonly IDAppDataProvider _dAppDataProvider;
     private readonly IDAppDataIndexManagerProvider _dAppDataIndexManagerProvider;
     protected readonly IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAOIndexRepository;
+    protected readonly IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> TreasuryFundRepository;
+    protected readonly IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> TreasuryRecordRepository;
     protected readonly DAOCreatedProcessor DAOCreatedProcessor;
     protected readonly FileInfosRemovedProcessor FileInfosRemovedProcessor;
     protected readonly FileInfosUploadedProcessor FileInfosUploadedProcessor;
@@ -33,6 +37,11 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly HighCouncilEnabledProcessor HighCouncilEnabledProcessor;
     protected readonly PermissionsSetProcessor PermissionsSetProcessor;
     protected readonly SubsistStatusSetProcessor SubsistStatusSetProcessor;
+    protected readonly DonationReceivedProcessor DonationReceivedProcessor;
+    protected readonly TreasuryCreatedProcessor TreasuryCreatedProcessor;
+    protected readonly TreasuryTokenLockedProcessor TreasuryTokenLockedProcessor;
+    protected readonly EmergencyTransferredProcessor EmergencyTransferredProcessor;
+    protected readonly PausedProcessor PausedProcessor;
     
 
     protected readonly long BlockHeight = 120;
@@ -66,6 +75,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly string ElectionContractAddress = "YeCqKprLBGbZZeRTkN1FaBLXsetY8QFotmVKqo98w9K6jK2PY";
     protected readonly string GovernanceContractAddress = "HJfhXPPL3Eb2wYPAc6ePmirenNzqGBAsynyeYF9tKSV2kHTAF";
     protected readonly string TimelockContractAddress = "7VzrKvnFRjrK4duJz8HNA1nWf2AJcxwwGXzTtC4MC3tKUtdbH";
+    protected readonly string TreasuryAccountAddress = "pykr77ft9UUKJZLVq15wCH8PinBSjVRQ12sD1Ayq92mKFsJ1i";
 
     // protected readonly int MinimalRequiredThreshold = 1;
     // protected readonly int MinimalVoteThreshold = 2;
@@ -85,6 +95,8 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         _dAppDataProvider = GetRequiredService<IDAppDataProvider>();
         _dAppDataIndexManagerProvider = GetRequiredService<IDAppDataIndexManagerProvider>();
         DAOIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo>>();
+        TreasuryFundRepository = GetRequiredService<IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo>>();
+        TreasuryRecordRepository = GetRequiredService<IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo>>();
         FileInfosRemovedProcessor = GetRequiredService<FileInfosRemovedProcessor>();
         FileInfosUploadedProcessor = GetRequiredService<FileInfosUploadedProcessor>();
         HighCouncilDisabledProcessor = GetRequiredService<HighCouncilDisabledProcessor>();
@@ -92,6 +104,11 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         PermissionsSetProcessor = GetRequiredService<PermissionsSetProcessor>();
         SubsistStatusSetProcessor = GetRequiredService<SubsistStatusSetProcessor>();
         DAOCreatedProcessor = GetRequiredService<DAOCreatedProcessor>();
+        DonationReceivedProcessor = GetRequiredService<DonationReceivedProcessor>();
+        TreasuryCreatedProcessor = GetRequiredService<TreasuryCreatedProcessor>();
+        TreasuryTokenLockedProcessor = GetRequiredService<TreasuryTokenLockedProcessor>();
+        EmergencyTransferredProcessor = GetRequiredService<EmergencyTransferredProcessor>();
+        PausedProcessor = GetService<PausedProcessor>();
     }
 
     protected async Task<string> InitializeBlockStateSetAsync(BlockStateSet<LogEventInfo> blockStateSet, string chainId)
@@ -269,5 +286,67 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
                 }
             }
         };
+    }
+    
+    protected LogEvent TreasuryCreated()
+    {
+        return new TreasuryCreated
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            TreasuryAccountAddress = Address.FromBase58(TreasuryAccountAddress),
+            SymbolList = new SymbolList
+            {
+                Data = { Elf }
+            }
+        }.ToLogEvent();
+    }
+    
+    protected LogEvent DonationReceived()
+    {
+        return new DonationReceived
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Amount = 1L,
+            DonationTime = new Timestamp(),
+            Symbol = Elf,
+            Donor = Address.FromBase58(DAOCreator)
+        }.ToLogEvent();
+    }
+    
+    protected LogEvent TreasuryTokenLocked()
+    {
+        return new TreasuryTokenLocked
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            LockInfo = new LockInfo
+            {
+                Amount = 1L,
+                LockDdl = new Timestamp(),
+                Symbol = Elf,
+                ProposalId = HashHelper.ComputeFrom(Id1)
+            },
+            Proposer = Address.FromBase58(DAOCreator)
+        }.ToLogEvent();
+    }
+    
+    protected LogEvent EmergencyTransferred()
+    {
+        return new EmergencyTransferred
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Account = Address.FromBase58(DAOCreator),
+            Amount = 1L,
+            Recipient = Address.FromBase58(DAOCreator),
+            Symbol = Elf
+        }.ToLogEvent();
+    }
+    
+    protected LogEvent Paused()
+    {
+        return new Paused
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Account = Address.FromBase58(DAOCreator)
+        }.ToLogEvent();
     }
 }

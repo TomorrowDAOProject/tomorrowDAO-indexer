@@ -41,15 +41,15 @@ public class EmergencyTransferredProcessor : TreasuryProcessorBase<EmergencyTran
             }
             treasuryFundIndex.LockedFunds -= eventValue.Amount;
             await SaveIndexAsync(treasuryFundIndex, context);
-            var executor = eventValue.Account.ToBase58();
+            var executor = eventValue.Account?.ToBase58();
             var DAOIndex = await DAOProvider.GetDAOAsync(chainId, DAOId);
             await SaveIndexAsync(new TreasuryRecordIndex
             {
                 Id = IdGenerateHelper.GetId(chainId, context.TransactionId, executor, TreasuryRecordType.EmergencyTransfer),
                 DAOId = DAOId,
                 Executor = executor,
-                From = DAOIndex?.TreasuryAccountAddress,
-                To = eventValue.Recipient?.ToBase58(),
+                FromAddress = DAOIndex?.TreasuryAccountAddress,
+                ToAddress = eventValue.Recipient?.ToBase58(),
                 Amount = eventValue.Amount,
                 Symbol = symbol,
                 TreasuryRecordType = TreasuryRecordType.EmergencyTransfer,

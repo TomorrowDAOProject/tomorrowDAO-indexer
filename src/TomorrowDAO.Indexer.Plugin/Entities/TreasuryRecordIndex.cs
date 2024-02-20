@@ -15,8 +15,8 @@ public class TreasuryRecordIndex : AElfIndexerClientEntity<string>, IIndexBuild
     public long Amount { get; set; }
     [Keyword] public string Symbol { get; set; }
     [Keyword] public string Executor { get; set; }
-    [Keyword] public string From { get; set; }
-    [Keyword] public string To { get; set; }
+    [Keyword] public string FromAddress { get; set; }
+    [Keyword] public string ToAddress { get; set; }
     [JsonConverter(typeof(StringEnumConverter))]
     public TreasuryRecordType TreasuryRecordType { get; set; }
     public DateTime CreateTime { get; set; }

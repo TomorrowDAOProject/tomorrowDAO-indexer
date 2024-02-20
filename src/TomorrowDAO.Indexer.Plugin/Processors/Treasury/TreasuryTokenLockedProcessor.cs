@@ -43,14 +43,14 @@ public class TreasuryTokenLockedProcessor : TreasuryProcessorBase<TreasuryTokenL
             treasuryFundIndex.AvailableFunds -= lockInfo.Amount;
             treasuryFundIndex.LockedFunds += lockInfo.Amount;
             await SaveIndexAsync(treasuryFundIndex, context);
-            var executor = eventValue.Proposer.ToBase58();
+            var executor = eventValue.Proposer?.ToBase58();
             await SaveIndexAsync(new TreasuryRecordIndex
             {
                 Id = IdGenerateHelper.GetId(chainId, context.TransactionId, executor, TreasuryRecordType.Lock),
                 DAOId = DAOId,
                 Executor = executor,
-                From = string.Empty,
-                To = string.Empty,
+                FromAddress = string.Empty,
+                ToAddress = string.Empty,
                 Amount = lockInfo.Amount,
                 Symbol = symbol,
                 TreasuryRecordType = TreasuryRecordType.Lock,

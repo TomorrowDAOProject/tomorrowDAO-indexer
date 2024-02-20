@@ -42,14 +42,14 @@ public class DonationReceivedProcessor : TreasuryProcessorBase<DonationReceived>
             treasuryFundIndex.AvailableFunds += eventValue.Amount;
             await SaveIndexAsync(treasuryFundIndex, context);
             var DAOIndex = await DAOProvider.GetDAOAsync(chainId, DAOId);
-            var executor = eventValue.Donor.ToBase58();
+            var executor = eventValue.Donor?.ToBase58();
             await SaveIndexAsync(new TreasuryRecordIndex
             {
                 Id = IdGenerateHelper.GetId(chainId, context.TransactionId, executor, TreasuryRecordType.Donate),
                 DAOId = DAOId,
                 Executor = executor,
-                From = executor,
-                To = DAOIndex?.TreasuryAccountAddress,
+                FromAddress = executor,
+                ToAddress = DAOIndex?.TreasuryAccountAddress,
                 Amount = eventValue.Amount,
                 Symbol = symbol,
                 TreasuryRecordType = TreasuryRecordType.Donate,
