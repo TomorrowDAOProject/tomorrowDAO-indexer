@@ -12,7 +12,7 @@ public interface IVoteProvider
 {
     Task<VoteSchemeIndex> GetVoteSchemeAsync(string chainId, string voteSchemeId);
     
-    Task<VoteIndex> GetVoteItemAsync(string chainId, string id);
+    Task<VoteIndex> GetVoteItemAsync(string chainId, string votingItemId);
     
     Task<VoteRecordIndex> GetVoteRecordAsync(string chainId, string voteId);
     
@@ -55,14 +55,14 @@ public class VoteProvider : IVoteProvider, ISingletonDependency
         return null;
     }
 
-    public async Task<VoteIndex> GetVoteItemAsync(string chainId, string id)
+    public async Task<VoteIndex> GetVoteItemAsync(string chainId, string votingItemId)
     {
-        var voteItemIndex = await _voteItemRepository.GetFromBlockStateSetAsync(id, chainId);
+        var voteItemIndex = await _voteItemRepository.GetFromBlockStateSetAsync(votingItemId, chainId);
         if (voteItemIndex != null)
         {
             return voteItemIndex;
         }
-        _logger.LogInformation("VoteItemIndex with id {id} chainId {chainId} not existed.", id, chainId);
+        _logger.LogInformation("VoteItemIndex with id {id} chainId {chainId} not existed.", votingItemId, chainId);
         return null;
     }
     
