@@ -9,6 +9,7 @@ using TomorrowDAO.Indexer.Plugin.Processors.GovernanceScheme;
 using TomorrowDAO.Indexer.Plugin.Processors.Organization;
 using TomorrowDAO.Indexer.Plugin.Processors.Proposal;
 using TomorrowDAO.Indexer.Plugin.Processors.Treasury;
+using TomorrowDAO.Indexer.Plugin.Processors.Vote;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 
@@ -61,6 +62,10 @@ public class TomorrowDAOIndexerPluginModule : AElfIndexerClientPluginBaseModule<
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, TreasuryTokenLockedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, TreasuryTokenUnlockedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, TreasuryTransferReleasedProcessor>();
+        // vote
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, VoteCreatedProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, VotingItemRegisteredProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, VotedProcessor>();
     }
 
     protected override string ClientId => "AElfIndexer_tomorrowDAO";
