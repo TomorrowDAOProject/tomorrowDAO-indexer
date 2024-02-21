@@ -114,6 +114,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.VoterCount, opt
                 => opt.MapFrom(source => source.VoterSet.Count));
         CreateMap<VoteRecordIndex, VoteRecordDto>();
+        CreateMap<GovernanceSubSchemeIndex, GovernanceMode>();
         CreateMap<OrganizationIndex, OrganizationInfoDto>()
             .ForMember(des => des.OrganizationMemberCount, opt
                 => opt.MapFrom(source => source.OrganizationMemberSet.Count));
