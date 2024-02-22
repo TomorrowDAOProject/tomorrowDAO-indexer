@@ -2,6 +2,7 @@ using AElfIndexer.Client.Handlers;
 using TomorrowDAO.Contracts.DAO;
 using TomorrowDAO.Contracts.Governance;
 using TomorrowDAO.Contracts.Treasury;
+using TomorrowDAO.Contracts.Vote;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 using HighCouncilConfigContract = TomorrowDAO.Contracts.DAO.HighCouncilConfig;
@@ -19,6 +20,9 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
 {
     public TomorrowDAOIndexerClientAutoMapperProfile()
     {
+        CreateMap<ElectionIndex, ElectionDto>();
+        CreateMap<TreasuryFundIndex, TreasuryFundDto>();
+        CreateMap<TreasuryRecordIndex, TreasuryRecordDto>();
         CreateMap<LogEventContext, ProposalIndex>();
         CreateMap<ProposalCreated, ProposalIndex>()
             .ForMember(des => des.DAOId, opt
@@ -122,8 +126,31 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<DAOIndex, DAOInfoDto>();
         CreateMap<MetadataIndexer, MetadataDto>();
         CreateMap<HighCouncilConfigIndexer, HighCouncilConfigDto>();
-        CreateMap<ElectionIndex, ElectionDto>();
-        CreateMap<TreasuryFundIndex, TreasuryFundDto>();
-        CreateMap<TreasuryRecordIndex, TreasuryRecordDto>();
+        CreateMap<LogEventContext, VoteSchemeIndex>();
+        CreateMap<LogEventContext, VoteIndex>();
+        CreateMap<LogEventContext, VoteRecordIndex>();
+        CreateMap<VoteSchemeCreated, VoteSchemeIndex>()
+            .ForMember(des => des.VoteSchemeId, opt
+                => opt.MapFrom(source => MapHash(source.VoteSchemeId)));
+        CreateMap<VotingItemRegistered, VoteIndex>()
+            .ForMember(des => des.DAOId, opt
+                => opt.MapFrom(source => MapHash(source.DaoId)))
+            .ForMember(des => des.VotingItemId, opt
+                => opt.MapFrom(source => MapHash(source.VotingItemId)))
+            .ForMember(des => des.VoteSchemeId, opt
+                => opt.MapFrom(source => MapHash(source.SchemeId)))
+            .ForMember(des => des.RegisterTime, opt
+                => opt.MapFrom(source => MapDateTime(source.RegisterTimestamp)))
+            .ForMember(des => des.StartTime, opt
+                => opt.MapFrom(source => MapDateTime(source.StartTimestamp)))
+            .ForMember(des => des.EndTime, opt
+                => opt.MapFrom(source => MapDateTime(source.EndTimestamp)));
+        CreateMap<Voted, VoteRecordIndex>()
+            .ForMember(des => des.VotingItemId, opt
+                => opt.MapFrom(source => MapHash(source.VotingItemId)))
+            .ForMember(des => des.Voter, opt
+                => opt.MapFrom(source => MapAddress(source.Voter)))
+            .ForMember(des => des.VoteTime, opt
+                => opt.MapFrom(source => MapDateTime(source.VoteTimestamp)));
     }
 }
