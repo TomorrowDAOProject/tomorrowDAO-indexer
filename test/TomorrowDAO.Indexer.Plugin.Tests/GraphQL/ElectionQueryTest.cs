@@ -24,11 +24,9 @@ public class ElectionQueryTest : QueryTestBase
         elections.Count.ShouldBe(1);
         var electionDto = elections[0];
         electionDto.ChainId.ShouldBe(ChainAelf);
-        electionDto.IsRemoved.ShouldBe(false);
         electionDto.DAOId.ShouldBe(DAOId);
         electionDto.TermNumber.ShouldBe(0);
         electionDto.HighCouncilType.ShouldBe(HighCouncilType.Candidate);
-        electionDto.IsRemoved.ShouldBe(false);
         electionDto.Address.ShouldBe(DAOCreator);
     }
 
@@ -51,11 +49,9 @@ public class ElectionQueryTest : QueryTestBase
         elections.DataList.Count.ShouldBe(1);
         var electionDto = elections.DataList[0];
         electionDto.ChainId.ShouldBe(ChainAelf);
-        electionDto.IsRemoved.ShouldBe(false);
         electionDto.DAOId.ShouldBe(DAOId);
         electionDto.TermNumber.ShouldBe(0);
         electionDto.HighCouncilType.ShouldBe(HighCouncilType.Candidate);
-        electionDto.IsRemoved.ShouldBe(false);
         electionDto.Address.ShouldBe(DAOCreator);
     }
 }

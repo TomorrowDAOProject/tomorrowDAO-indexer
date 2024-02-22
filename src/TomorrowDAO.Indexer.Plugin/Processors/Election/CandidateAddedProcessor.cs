@@ -30,7 +30,6 @@ public class CandidateAddedProcessor : ElectionProcessorBase<CandidateAdded>
         {
             await SaveIndexAsync(new ElectionIndex 
             {
-                IsRemoved = false,
                 Address = candidate,
                 DAOId = DAOId,
                 TermNumber = CandidateTerm,

@@ -19,7 +19,6 @@ public class CandidateAddressReplacedProcessorTest : TomorrowDAOIndexerPluginTes
         electionIndex.DAOId.ShouldBe(DAOId);
         electionIndex.TermNumber.ShouldBe(0);
         electionIndex.HighCouncilType.ShouldBe(HighCouncilType.Candidate);
-        electionIndex.IsRemoved.ShouldBe(false);
         electionIndex.Address.ShouldBe(Creator);
     }
     [Fact]

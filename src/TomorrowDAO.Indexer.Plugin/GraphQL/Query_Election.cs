@@ -61,8 +61,6 @@ public partial class Query
             q => q.Term(i
                 => i.Field(f => f.ChainId).Value(input.ChainId)),
             q => q.Term(i
-                => i.Field(f => f.IsRemoved).Value(false)),
-            q => q.Term(i
                 => i.Field(f => f.TermNumber).Value(input.TermNumber)),
             q => q.Term(i
                 => i.Field(f => f.HighCouncilType).Value(highCouncilType))
@@ -84,6 +82,5 @@ public partial class Query
             TotalCount = result.Item1,
             DataList = objectMapper.Map<List<ElectionIndex>, List<ElectionDto>>(result.Item2)
         };
-
     }
 }

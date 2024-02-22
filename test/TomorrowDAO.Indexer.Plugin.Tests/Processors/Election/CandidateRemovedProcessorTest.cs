@@ -13,8 +13,7 @@ public class CandidateRemovedProcessorTest : TomorrowDAOIndexerPluginTestBase
         await MockEventProcess(CandidateRemoved(), CandidateRemovedProcessor);
 
         var electionIndex = await ElectionRepository.GetFromBlockStateSetAsync(IdGenerateHelper.GetId(ChainAelf, DAOId, DAOCreator, 0, HighCouncilType.Candidate), ChainAelf);
-        electionIndex.ShouldNotBeNull();
-        electionIndex.IsRemoved.ShouldBe(true);
+        electionIndex.ShouldBeNull();
     }
     
     [Fact]

@@ -13,14 +13,12 @@ public class CandidateInfoUpdatedProcessorTest : TomorrowDAOIndexerPluginTestBas
         await MockEventProcess(CandidateInfoUpdated(), CandidateInfoUpdatedProcessor);
 
         var electionIndex = await ElectionRepository.GetFromBlockStateSetAsync(IdGenerateHelper.GetId(ChainAelf, DAOId, DAOCreator, 0, HighCouncilType.Candidate), ChainAelf);
-        electionIndex.ShouldNotBeNull();
-        electionIndex.IsRemoved.ShouldBe(true);
+        electionIndex.ShouldBeNull();
         var electionIndex1 = await ElectionRepository.GetFromBlockStateSetAsync(IdGenerateHelper.GetId(ChainAelf, DAOId, DAOCreator, 0, HighCouncilType.BlackList), ChainAelf);
         electionIndex1.ShouldNotBeNull();
         electionIndex1.DAOId.ShouldBe(DAOId);
         electionIndex1.TermNumber.ShouldBe(0);
         electionIndex1.HighCouncilType.ShouldBe(HighCouncilType.BlackList);
-        electionIndex1.IsRemoved.ShouldBe(false);
         electionIndex1.Address.ShouldBe(DAOCreator);
     }
 }

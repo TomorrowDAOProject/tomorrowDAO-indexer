@@ -70,12 +70,7 @@ public abstract class TreasuryProcessorBase<TEvent> : AElfLogEventProcessorBase<
                     Symbol = symbol,
                     AvailableFunds = InitialAvailableFunds,
                     LockedFunds = InitialLockedFunds,
-                    IsRemoved = false
                 };
-            }
-            else
-            {
-                treasuryFundIndex.IsRemoved = false;
             }
             ObjectMapper.Map(context, treasuryFundIndex);
             await TreasuryFundRepository.AddOrUpdateAsync(treasuryFundIndex);

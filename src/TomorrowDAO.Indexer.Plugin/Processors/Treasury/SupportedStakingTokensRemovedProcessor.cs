@@ -35,9 +35,8 @@ public class SupportedStakingTokensRemovedProcessor : TreasuryProcessorBase<Supp
                 var treasuryFundIndex = await TreasuryFundRepository.GetFromBlockStateSetAsync(id, chainId);
                 if (treasuryFundIndex != null)
                 {
-                    treasuryFundIndex.IsRemoved = true;
+                    await TreasuryFundRepository.DeleteAsync(treasuryFundIndex);
                 }
-                await SaveIndexAsync(treasuryFundIndex, context);
             }
         }
         catch (Exception e)

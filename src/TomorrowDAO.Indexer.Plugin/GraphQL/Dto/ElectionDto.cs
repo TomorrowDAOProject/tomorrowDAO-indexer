@@ -11,5 +11,4 @@ public class ElectionDto
     public long TermNumber { get; set; }
     public HighCouncilType HighCouncilType { get; set; }
     public string Address { get; set; }
-    public bool IsRemoved { get; set; }
 }

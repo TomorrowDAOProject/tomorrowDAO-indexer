@@ -25,7 +25,6 @@ public class TreasuryQueryTest : QueryTestBase
         treasuryFunds.Count.ShouldBe(1);
         var treasuryFundDto = treasuryFunds[0];
         treasuryFundDto.DAOId.ShouldBe(DAOId);
-        treasuryFundDto.IsRemoved.ShouldBe(false);
         treasuryFundDto.Symbol.ShouldBe(Elf);
         treasuryFundDto.AvailableFunds.ShouldBe(0);
         treasuryFundDto.LockedFunds.ShouldBe(0);

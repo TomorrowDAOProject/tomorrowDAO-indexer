@@ -30,17 +30,15 @@ public class CandidateInfoUpdatedProcessor : ElectionProcessorBase<CandidateInfo
         {
             var electionIndex = await ElectionRepository.GetFromBlockStateSetAsync(IdGenerateHelper
                 .GetId(chainId, DAOId, candidate, CandidateTerm, HighCouncilType.Candidate), chainId);
-            if (electionIndex != null)
-            {
-                electionIndex.IsRemoved = true;
-                await SaveIndexAsync(electionIndex, context);
-            }
-
             if (eventValue.IsEvilNode)
             {
+                if (electionIndex != null)
+                {
+                    await ElectionRepository.DeleteAsync(electionIndex);
+                }
+                
                 await SaveIndexAsync(new ElectionIndex 
                 {
-                    IsRemoved = false,
                     Address = candidate,
                     DAOId = DAOId,
                     TermNumber = CandidateTerm,

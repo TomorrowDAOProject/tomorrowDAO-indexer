@@ -15,7 +15,6 @@ public class SupportedStakingTokensAddedProcessorTest : TomorrowDAOIndexerPlugin
         treasuryFundIndex.ShouldNotBeNull();
         treasuryFundIndex.Id.ShouldBe(treasuryFundId);
         treasuryFundIndex.DAOId.ShouldBe(DAOId);
-        treasuryFundIndex.IsRemoved.ShouldBe(false);
         treasuryFundIndex.Symbol.ShouldBe(Elf);
         treasuryFundIndex.AvailableFunds.ShouldBe(0);
         treasuryFundIndex.LockedFunds.ShouldBe(0);

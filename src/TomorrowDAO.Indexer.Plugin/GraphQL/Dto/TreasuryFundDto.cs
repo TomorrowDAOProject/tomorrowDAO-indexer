@@ -1,5 +1,3 @@
-using TomorrowDAO.Indexer.Plugin.Entities;
-
 namespace TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 
 public class TreasuryFundDto
@@ -11,5 +9,4 @@ public class TreasuryFundDto
     public string Symbol { get; set; }
     public long AvailableFunds { get; set; }
     public long LockedFunds { get; set; }
-    public bool IsRemoved { get; set; }
 }

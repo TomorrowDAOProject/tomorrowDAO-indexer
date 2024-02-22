@@ -12,5 +12,4 @@ public class TreasuryFundIndex : AElfIndexerClientEntity<string>, IIndexBuild
     [Keyword] public string Symbol { get; set; }
     public long AvailableFunds { get; set; }
     public long LockedFunds { get; set; }
-    public bool IsRemoved { get; set; }
 }
