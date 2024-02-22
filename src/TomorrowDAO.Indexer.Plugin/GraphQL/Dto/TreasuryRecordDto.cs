@@ -11,8 +11,8 @@ public class TreasuryRecordDto
     public long Amount { get; set; }
     public string Symbol { get; set; }
     public string Executor { get; set; }
-    public string From { get; set; }
-    public string To { get; set; }
+    public string FromAddress { get; set; }
+    public string ToAddress { get; set; }
     public TreasuryRecordType TreasuryRecordType { get; set; }
     public DateTime CreateTime { get; set; }
 }

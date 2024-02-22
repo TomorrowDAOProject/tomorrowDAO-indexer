@@ -35,7 +35,7 @@ public partial class Query
         QueryContainer Filter(QueryContainerDescriptor<TreasuryFundIndex> f) =>
             f.Bool(b => b.Must(mustQuery));
 
-        var result = await repository.GetListAsync(Filter, skip: input.SkipCount,
+        var result = await repository.GetListAsync(Filter, skip: input.SkipCount, limit: input.MaxResultCount,
             sortType: SortOrder.Ascending, sortExp: o => o.BlockHeight);
         return objectMapper.Map<List<TreasuryFundIndex>, List<TreasuryFundDto>>(result.Item2);
     }
@@ -64,7 +64,7 @@ public partial class Query
         QueryContainer Filter(QueryContainerDescriptor<TreasuryRecordIndex> f) =>
             f.Bool(b => b.Must(mustQuery));
 
-        var result = await repository.GetListAsync(Filter, skip: input.SkipCount,
+        var result = await repository.GetListAsync(Filter, skip: input.SkipCount, limit: input.MaxResultCount,
             sortType: SortOrder.Descending, sortExp: o => o.BlockHeight);
         return objectMapper.Map<List<TreasuryRecordIndex>, List<TreasuryRecordDto>>(result.Item2);
     }

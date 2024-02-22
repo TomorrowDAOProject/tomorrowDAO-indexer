@@ -32,7 +32,6 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
         DAOIndex.PermissionAddress.ShouldBeNull();
         DAOIndex.PermissionInfoList.ShouldBeNull();
         DAOIndex.IsTreasuryContractNeeded.ShouldBe(false);
-        DAOIndex.IsVoteContractNeeded.ShouldBe(false);
         DAOIndex.SubsistStatus.ShouldBe(true);
         DAOIndex.Id.ShouldBe(DAOId);
         DAOIndex.Creator.ShouldBe(DAOCreator);

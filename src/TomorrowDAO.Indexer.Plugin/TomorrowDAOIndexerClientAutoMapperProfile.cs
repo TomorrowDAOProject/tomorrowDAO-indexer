@@ -122,5 +122,8 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<DAOIndex, DAOInfoDto>();
         CreateMap<MetadataIndexer, MetadataDto>();
         CreateMap<HighCouncilConfigIndexer, HighCouncilConfigDto>();
+        CreateMap<ElectionIndex, ElectionDto>();
+        CreateMap<TreasuryFundIndex, TreasuryFundDto>();
+        CreateMap<TreasuryRecordIndex, TreasuryRecordDto>();
     }
 }

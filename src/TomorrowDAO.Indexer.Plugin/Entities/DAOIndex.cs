@@ -15,7 +15,6 @@ public class DAOIndex : AElfIndexerClientEntity<string>, IIndexBuild
     public long HighCouncilTermNumber { get; set; }
     [Keyword] public string FileInfoList { get; set; }
     public bool IsTreasuryContractNeeded { get; set; }
-    public bool IsVoteContractNeeded { get; set; }
     public bool SubsistStatus { get; set; }
     [Keyword] public string TreasuryContractAddress { get; set; }
     [Keyword] public string TreasuryAccountAddress { get; set; }

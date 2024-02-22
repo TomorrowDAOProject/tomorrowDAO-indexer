@@ -22,6 +22,9 @@ public class DAOInfoDto
     public bool IsTreasuryPause { get; set; }
     public string TreasuryPauseExecutor { get; set; }
     public string VoteContractAddress { get; set; }
+    public string ElectionContractAddress { get; set; }
+    public string GovernanceContractAddress { get; set; }
+    public string TimelockContractAddress { get; set; }
     public string PermissionAddress { get; set; }
     public string PermissionInfoList { get; set; }
     public DateTime CreateTime { get; set; }
