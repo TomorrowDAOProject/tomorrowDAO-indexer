@@ -28,18 +28,25 @@ public class CandidateAddressReplacedProcessor : ElectionProcessorBase<Candidate
             DAOId, chainId, JsonConvert.SerializeObject(eventValue));
         try
         {
-            var oldCandidate = eventValue.OldAddress.ToBase58();
-            var newCandidate = eventValue.NewAddress.ToBase58();
+            var oldCandidate = eventValue.OldAddress?.ToBase58();
+            var newCandidate = eventValue.NewAddress?.ToBase58();
             var electionIndex = await ElectionRepository.GetFromBlockStateSetAsync(IdGenerateHelper
-                .GetId(chainId, DAOId, oldCandidate, CandidateTerm, HighCouncilType.Candidate), chainId);
+                .GetId(chainId, DAOId, oldCandidate, CandidateTerm), chainId);
             if (electionIndex == null)
             {
-                Logger.LogInformation("[CandidateAddressReplaced] candidate not existed: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, oldCandidate);
+                Logger.LogInformation("[CandidateAddressReplaced] oldCandidate not existed: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, oldCandidate);
                 return;
             }
-            electionIndex.Address = newCandidate;
-            await SaveIndexAsync(electionIndex, context);
-            Logger.LogInformation("[CandidateAddressReplaced] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, oldCandidate); 
+            await ElectionRepository.DeleteAsync(electionIndex);
+            await SaveIndexAsync(new ElectionIndex 
+            {
+                Address = newCandidate,
+                DAOId = DAOId,
+                TermNumber = CandidateTerm,
+                HighCouncilType = HighCouncilType.Candidate,
+                Id = IdGenerateHelper.GetId(chainId, DAOId, newCandidate, CandidateTerm) 
+            }, context);
+            Logger.LogInformation("[CandidateAddressReplaced] FINISH: Id={Id}, ChainId={ChainId}, oldCandidate={candidate} newCandidate{}", DAOId, chainId, oldCandidate, newCandidate); 
         }
         catch (Exception e)
         {

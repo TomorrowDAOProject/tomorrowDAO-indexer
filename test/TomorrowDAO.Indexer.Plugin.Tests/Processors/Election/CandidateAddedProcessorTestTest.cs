@@ -11,7 +11,7 @@ public class CandidateAddedProcessorTest : TomorrowDAOIndexerPluginTestBase
     {
         await MockEventProcess(CandidateAdded(), CandidateAddedProcessor);
 
-        var electionId = IdGenerateHelper.GetId(ChainAelf, DAOId, DAOCreator, 0, HighCouncilType.Candidate);
+        var electionId = IdGenerateHelper.GetId(ChainAelf, DAOId, DAOCreator, 0);
         var electionIndex = await ElectionRepository.GetFromBlockStateSetAsync(electionId, ChainAelf);
         electionIndex.ShouldNotBeNull();
         electionIndex.Id.ShouldBe(electionId);

@@ -29,7 +29,7 @@ public class CandidateRemovedProcessor : ElectionProcessorBase<CandidateRemoved>
         try
         {
             var electionIndex = await ElectionRepository.GetFromBlockStateSetAsync(IdGenerateHelper
-                .GetId(chainId, DAOId, candidate, CandidateTerm, HighCouncilType.Candidate), chainId);
+                .GetId(chainId, DAOId, candidate, CandidateTerm), chainId);
             if (electionIndex == null)
             {
                 Logger.LogInformation("[CandidateRemoved] candidate not existed: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, candidate);

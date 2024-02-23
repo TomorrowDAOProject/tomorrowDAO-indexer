@@ -1,5 +1,4 @@
 using Shouldly;
-using TomorrowDAO.Indexer.Plugin.Enums;
 using Xunit;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.Processors.Election;
@@ -12,7 +11,7 @@ public class CandidateRemovedProcessorTest : TomorrowDAOIndexerPluginTestBase
         await MockEventProcess(CandidateAdded(), CandidateAddedProcessor);
         await MockEventProcess(CandidateRemoved(), CandidateRemovedProcessor);
 
-        var electionIndex = await ElectionRepository.GetFromBlockStateSetAsync(IdGenerateHelper.GetId(ChainAelf, DAOId, DAOCreator, 0, HighCouncilType.Candidate), ChainAelf);
+        var electionIndex = await ElectionRepository.GetFromBlockStateSetAsync(IdGenerateHelper.GetId(ChainAelf, DAOId, DAOCreator, 0), ChainAelf);
         electionIndex.ShouldBeNull();
     }
     

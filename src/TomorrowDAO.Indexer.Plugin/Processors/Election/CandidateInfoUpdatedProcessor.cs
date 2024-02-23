@@ -23,28 +23,22 @@ public class CandidateInfoUpdatedProcessor : ElectionProcessorBase<CandidateInfo
     {
         var DAOId = eventValue.DaoId.ToHex();
         var chainId = context.ChainId;
-        var candidate = eventValue.CandidateAddress.ToBase58();
+        var candidate = eventValue.CandidateAddress?.ToBase58();
         Logger.LogInformation("[CandidateInfoUpdated] START: Id={Id}, ChainId={ChainId}, Candidate={candidate}",
             DAOId, chainId, candidate);
         try
         {
             var electionIndex = await ElectionRepository.GetFromBlockStateSetAsync(IdGenerateHelper
-                .GetId(chainId, DAOId, candidate, CandidateTerm, HighCouncilType.Candidate), chainId);
+                .GetId(chainId, DAOId, candidate, CandidateTerm), chainId);
+            if (electionIndex == null)
+            {
+                Logger.LogInformation("[CandidateInfoUpdated] candidate not existed: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, candidate);
+                return;
+            }
             if (eventValue.IsEvilNode)
             {
-                if (electionIndex != null)
-                {
-                    await ElectionRepository.DeleteAsync(electionIndex);
-                }
-                
-                await SaveIndexAsync(new ElectionIndex 
-                {
-                    Address = candidate,
-                    DAOId = DAOId,
-                    TermNumber = CandidateTerm,
-                    HighCouncilType = HighCouncilType.BlackList,
-                    Id = IdGenerateHelper.GetId(chainId, DAOId, candidate, CandidateTerm, HighCouncilType.BlackList) 
-                }, context);
+                electionIndex.HighCouncilType = HighCouncilType.BlackList;
+                await SaveIndexAsync(electionIndex, context);
                 Logger.LogInformation("[CandidateInfoUpdated] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, candidate); 
             }
         }

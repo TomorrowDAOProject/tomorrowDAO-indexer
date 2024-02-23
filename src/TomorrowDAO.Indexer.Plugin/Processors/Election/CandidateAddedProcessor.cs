@@ -34,7 +34,7 @@ public class CandidateAddedProcessor : ElectionProcessorBase<CandidateAdded>
                 DAOId = DAOId,
                 TermNumber = CandidateTerm,
                 HighCouncilType = HighCouncilType.Candidate,
-                Id = IdGenerateHelper.GetId(chainId, DAOId, candidate, CandidateTerm, HighCouncilType.Candidate) 
+                Id = IdGenerateHelper.GetId(chainId, DAOId, candidate, CandidateTerm) 
             }, context);
             Logger.LogInformation("[CandidateAdded] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, candidate);
         }
