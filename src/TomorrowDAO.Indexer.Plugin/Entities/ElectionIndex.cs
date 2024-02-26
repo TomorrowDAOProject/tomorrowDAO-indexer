@@ -16,4 +16,6 @@ public class ElectionIndex : AElfIndexerClientEntity<string>, IIndexBuild
     [JsonConverter(typeof(StringEnumConverter))]
     public HighCouncilType HighCouncilType { get; set; }
     [Keyword] public string Address { get; set; }
+    public long VotesAmount { get; set; }
+    public long StakeAmount { get; set; }
 }

@@ -6,14 +6,13 @@ using Microsoft.Extensions.Options;
 using TomorrowDAO.Contracts.Election;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Enums;
-using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using Volo.Abp.ObjectMapping;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors.Election;
 
 public class CandidateInfoUpdatedProcessor : ElectionProcessorBase<CandidateInfoUpdated>
 {
-    public CandidateInfoUpdatedProcessor(ILogger<DAOProcessorBase<CandidateInfoUpdated>> logger, IObjectMapper objectMapper, 
+    public CandidateInfoUpdatedProcessor(ILogger<ElectionProcessorBase<CandidateInfoUpdated>> logger, IObjectMapper objectMapper, 
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, 
         IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger, objectMapper, contractInfoOptions, electionRepository)
     {

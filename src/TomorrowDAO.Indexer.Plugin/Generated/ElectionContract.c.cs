@@ -68,6 +68,7 @@ namespace TomorrowDAO.Contracts.Election {
       {
         DaoId = DaoId,
         Candidate = Candidate,
+        Amount = Amount,
       };
     }
   }

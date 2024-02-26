@@ -7,14 +7,13 @@ using Newtonsoft.Json;
 using TomorrowDAO.Contracts.Election;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Enums;
-using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using Volo.Abp.ObjectMapping;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors.Election;
 
 public class CandidateAddressReplacedProcessor : ElectionProcessorBase<CandidateAddressReplaced>
 {
-    public CandidateAddressReplacedProcessor(ILogger<DAOProcessorBase<CandidateAddressReplaced>> logger, IObjectMapper objectMapper, 
+    public CandidateAddressReplacedProcessor(ILogger<ElectionProcessorBase<CandidateAddressReplaced>> logger, IObjectMapper objectMapper, 
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, 
         IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger, objectMapper, contractInfoOptions, electionRepository)
     {

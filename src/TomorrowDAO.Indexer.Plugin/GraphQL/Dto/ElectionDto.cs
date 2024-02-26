@@ -11,4 +11,6 @@ public class ElectionDto
     public long TermNumber { get; set; }
     public HighCouncilType HighCouncilType { get; set; }
     public string Address { get; set; }
+    public long VotesAmount { get; set; }
+    public long StakeAmount { get; set; }
 }
