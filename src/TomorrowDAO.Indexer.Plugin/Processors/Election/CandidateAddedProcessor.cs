@@ -6,14 +6,13 @@ using Microsoft.Extensions.Options;
 using TomorrowDAO.Contracts.Election;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Enums;
-using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using Volo.Abp.ObjectMapping;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors.Election;
 
 public class CandidateAddedProcessor : ElectionProcessorBase<CandidateAdded>
 {
-    public CandidateAddedProcessor(ILogger<DAOProcessorBase<CandidateAdded>> logger, IObjectMapper objectMapper, 
+    public CandidateAddedProcessor(ILogger<ElectionProcessorBase<CandidateAdded>> logger, IObjectMapper objectMapper, 
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, 
         IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger, objectMapper, contractInfoOptions, electionRepository)
     {
@@ -34,6 +33,7 @@ public class CandidateAddedProcessor : ElectionProcessorBase<CandidateAdded>
                 DAOId = DAOId,
                 TermNumber = CandidateTerm,
                 HighCouncilType = HighCouncilType.Candidate,
+                StakeAmount = eventValue.Amount,
                 Id = IdGenerateHelper.GetId(chainId, DAOId, candidate, CandidateTerm) 
             }, context);
             Logger.LogInformation("[CandidateAdded] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, candidate);

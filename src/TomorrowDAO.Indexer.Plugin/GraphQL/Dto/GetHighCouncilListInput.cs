@@ -8,4 +8,5 @@ public class GetHighCouncilListInput
     public string HighCouncilType { get; set; }
     public int SkipCount { get; set; }
     public int MaxResultCount { get; set; } 
+    public string Sorting { get; set; } 
 }
