@@ -30,7 +30,7 @@ public class ProposalProcessorTests : GovernanceSchemeProcessorTests
     [Fact]
     public async Task ProposalCreated_Test()
     {
-        await GovernanceSubSchemeAdded_Test();
+        // await GovernanceSubSchemeAdded_Test();
         
         var processor = GetRequiredService<ProposalCreatedProcessor>();
 
@@ -38,15 +38,15 @@ public class ProposalProcessorTests : GovernanceSchemeProcessorTests
         {
             ProposalId = HashHelper.ComputeFrom(ProposalId),
             DaoId = HashHelper.ComputeFrom(Id1),
-            GovernanceSchemeId = HashHelper.ComputeFrom(SubId),
-            StartTime = Timestamp.FromDateTime(DateTime.UtcNow),
-            EndTime = Timestamp.FromDateTime(DateTime.UtcNow.AddDays(2)),
-            ExpiredTime = Timestamp.FromDateTime(DateTime.UtcNow.AddDays(3)),
-            ProposalStatus = ProposalStatus.Active,
+            // GovernanceSchemeId = HashHelper.ComputeFrom(SubId),
+            // StartTime = Timestamp.FromDateTime(DateTime.UtcNow),
+            // EndTime = Timestamp.FromDateTime(DateTime.UtcNow.AddDays(2)),
+            // ExpiredTime = Timestamp.FromDateTime(DateTime.UtcNow.AddDays(3)),
+            // ProposalStatus = ProposalStatus.Active,
             ProposalType = ProposalType.Governance,
-            ExecuteByHighCouncil = false,
-            OrganizationAddress = Address.FromBase58(OrganizationAddress),
-            ExecuteAddress =  Address.FromBase58(ExecuteAddress),
+            // ExecuteByHighCouncil = false,
+            // OrganizationAddress = Address.FromBase58(OrganizationAddress),
+            // ExecuteAddress =  Address.FromBase58(ExecuteAddress),
             ProposalTitle = "Proposal Title test",
             ProposalDescription = ProposalDescription,
             Transaction = new ExecuteTransaction()
@@ -81,7 +81,7 @@ public class ProposalProcessorTests : GovernanceSchemeProcessorTests
         var logEvent = new ProposalExecuted
         {
             ProposalId = HashHelper.ComputeFrom(ProposalId),
-            OrganizationAddress = Address.FromBase58(OrganizationAddress),
+            // OrganizationAddress = Address.FromBase58(OrganizationAddress),
             ExecuteTime = Timestamp.FromDateTime(executeTime)
         };
         await MockEventProcess(logEvent.ToLogEvent(), processor);

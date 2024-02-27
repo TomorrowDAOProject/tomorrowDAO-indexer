@@ -20,10 +20,10 @@ public class IndexerMapperBase : Profile
         return timestamp?.ToDateTime();
     }
 
-    protected static HashSet<string> MapOrganizationMemberSet(OrganizationCreated source)
-    {
-        return source.OrganizationMemberList?.OrganizationMembers
-            ?.Select(MapAddress)
-            .ToHashSet() ?? new HashSet<string>();
-    }
+    // protected static HashSet<string> MapOrganizationMemberSet(OrganizationCreated source)
+    // {
+    //     return source.OrganizationMemberList?.OrganizationMembers
+    //         ?.Select(MapAddress)
+    //         .ToHashSet() ?? new HashSet<string>();
+    // }
 }

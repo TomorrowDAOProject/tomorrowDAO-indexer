@@ -11,192 +11,83 @@ using aelf = global::AElf.CSharp.Core;
 namespace TomorrowDAO.Contracts.Governance {
 
   #region Events
-  public partial class GovernanceSchemeCreated : aelf::IEvent<GovernanceSchemeCreated>
+  public partial class GovernanceSchemeAdded : aelf::IEvent<GovernanceSchemeAdded>
   {
-    public global::System.Collections.Generic.IEnumerable<GovernanceSchemeCreated> GetIndexed()
+    public global::System.Collections.Generic.IEnumerable<GovernanceSchemeAdded> GetIndexed()
     {
-      return new List<GovernanceSchemeCreated>
+      return new List<GovernanceSchemeAdded>
       {
       };
     }
 
-    public GovernanceSchemeCreated GetNonIndexed()
+    public GovernanceSchemeAdded GetNonIndexed()
     {
-      return new GovernanceSchemeCreated
+      return new GovernanceSchemeAdded
       {
-        GovernanceSchemeId = GovernanceSchemeId,
+        DaoId = DaoId,
+        SchemeId = SchemeId,
+        SchemeAddress = SchemeAddress,
         GovernanceMechanism = GovernanceMechanism,
-        Creator = Creator,
         SchemeThreshold = SchemeThreshold,
+        GovernanceToken = GovernanceToken,
       };
     }
   }
 
-  public partial class GovernanceSubSchemeAdded : aelf::IEvent<GovernanceSubSchemeAdded>
+  public partial class GovernanceSchemeThresholdUpdated : aelf::IEvent<GovernanceSchemeThresholdUpdated>
   {
-    public global::System.Collections.Generic.IEnumerable<GovernanceSubSchemeAdded> GetIndexed()
+    public global::System.Collections.Generic.IEnumerable<GovernanceSchemeThresholdUpdated> GetIndexed()
     {
-      return new List<GovernanceSubSchemeAdded>
+      return new List<GovernanceSchemeThresholdUpdated>
       {
       };
     }
 
-    public GovernanceSubSchemeAdded GetNonIndexed()
+    public GovernanceSchemeThresholdUpdated GetNonIndexed()
     {
-      return new GovernanceSubSchemeAdded
+      return new GovernanceSchemeThresholdUpdated
       {
-        ParentSchemeId = ParentSchemeId,
-        SubSchemeId = SubSchemeId,
-        SchemeThreshold = SchemeThreshold,
-        Manager = Manager,
+        DaoId = DaoId,
+        SchemeAddress = SchemeAddress,
+        UpdateSchemeThreshold = UpdateSchemeThreshold,
       };
     }
   }
 
-  public partial class GovernanceSubSchemeRemoved : aelf::IEvent<GovernanceSubSchemeRemoved>
+  public partial class GovernanceSchemeThresholdRemoved : aelf::IEvent<GovernanceSchemeThresholdRemoved>
   {
-    public global::System.Collections.Generic.IEnumerable<GovernanceSubSchemeRemoved> GetIndexed()
+    public global::System.Collections.Generic.IEnumerable<GovernanceSchemeThresholdRemoved> GetIndexed()
     {
-      return new List<GovernanceSubSchemeRemoved>
+      return new List<GovernanceSchemeThresholdRemoved>
       {
       };
     }
 
-    public GovernanceSubSchemeRemoved GetNonIndexed()
+    public GovernanceSchemeThresholdRemoved GetNonIndexed()
     {
-      return new GovernanceSubSchemeRemoved
+      return new GovernanceSchemeThresholdRemoved
       {
-        ParentSchemeId = ParentSchemeId,
-        SubSchemeId = SubSchemeId,
+        DaoId = DaoId,
+        SchemeAddress = SchemeAddress,
       };
     }
   }
 
-  public partial class GovernanceThresholdUpdated : aelf::IEvent<GovernanceThresholdUpdated>
+  public partial class GovernanceTokenSet : aelf::IEvent<GovernanceTokenSet>
   {
-    public global::System.Collections.Generic.IEnumerable<GovernanceThresholdUpdated> GetIndexed()
+    public global::System.Collections.Generic.IEnumerable<GovernanceTokenSet> GetIndexed()
     {
-      return new List<GovernanceThresholdUpdated>
+      return new List<GovernanceTokenSet>
       {
       };
     }
 
-    public GovernanceThresholdUpdated GetNonIndexed()
+    public GovernanceTokenSet GetNonIndexed()
     {
-      return new GovernanceThresholdUpdated
+      return new GovernanceTokenSet
       {
-        SubSchemeId = SubSchemeId,
-        SchemeThresholdUpdate = SchemeThresholdUpdate,
-      };
-    }
-  }
-
-  public partial class GovernanceSubSchemeUpdated : aelf::IEvent<GovernanceSubSchemeUpdated>
-  {
-    public global::System.Collections.Generic.IEnumerable<GovernanceSubSchemeUpdated> GetIndexed()
-    {
-      return new List<GovernanceSubSchemeUpdated>
-      {
-      };
-    }
-
-    public GovernanceSubSchemeUpdated GetNonIndexed()
-    {
-      return new GovernanceSubSchemeUpdated
-      {
-        UpdateSchemeId = UpdateSchemeId,
-        SubSchemeId = SubSchemeId,
-        SchemeThresholdUpdate = SchemeThresholdUpdate,
-      };
-    }
-  }
-
-  public partial class OrganizationCreated : aelf::IEvent<OrganizationCreated>
-  {
-    public global::System.Collections.Generic.IEnumerable<OrganizationCreated> GetIndexed()
-    {
-      return new List<OrganizationCreated>
-      {
-      };
-    }
-
-    public OrganizationCreated GetNonIndexed()
-    {
-      return new OrganizationCreated
-      {
-        OrganizationAddress = OrganizationAddress,
-        GovernanceSchemeId = GovernanceSchemeId,
-        OrganizationHash = OrganizationHash,
-        Symbol = Symbol,
-        OrganizationName = OrganizationName,
-        OrganizationMemberList = OrganizationMemberList,
-      };
-    }
-  }
-
-  public partial class MemberAdded : aelf::IEvent<MemberAdded>
-  {
-    public global::System.Collections.Generic.IEnumerable<MemberAdded> GetIndexed()
-    {
-      return new List<MemberAdded>
-      {
-      new MemberAdded
-      {
-        OrganizationAddress = OrganizationAddress
-      },
-      };
-    }
-
-    public MemberAdded GetNonIndexed()
-    {
-      return new MemberAdded
-      {
-        MemberList = MemberList,
-      };
-    }
-  }
-
-  public partial class MemberRemoved : aelf::IEvent<MemberRemoved>
-  {
-    public global::System.Collections.Generic.IEnumerable<MemberRemoved> GetIndexed()
-    {
-      return new List<MemberRemoved>
-      {
-      new MemberRemoved
-      {
-        OrganizationAddress = OrganizationAddress
-      },
-      };
-    }
-
-    public MemberRemoved GetNonIndexed()
-    {
-      return new MemberRemoved
-      {
-        MemberList = MemberList,
-      };
-    }
-  }
-
-  public partial class MemberChanged : aelf::IEvent<MemberChanged>
-  {
-    public global::System.Collections.Generic.IEnumerable<MemberChanged> GetIndexed()
-    {
-      return new List<MemberChanged>
-      {
-      new MemberChanged
-      {
-        OrganizationAddress = OrganizationAddress
-      },
-      };
-    }
-
-    public MemberChanged GetNonIndexed()
-    {
-      return new MemberChanged
-      {
-        OldMember = OldMember,
-        NewMember = NewMember,
+        DaoId = DaoId,
+        GovernanceToken = GovernanceToken,
       };
     }
   }
@@ -214,21 +105,44 @@ namespace TomorrowDAO.Contracts.Governance {
     {
       return new ProposalCreated
       {
-        ProposalId = ProposalId,
-        OrganizationAddress = OrganizationAddress,
-        StartTime = StartTime,
-        EndTime = EndTime,
-        ExpiredTime = ExpiredTime,
-        ProposalStatus = ProposalStatus,
-        GovernanceSchemeId = GovernanceSchemeId,
-        VoteSchemeId = VoteSchemeId,
-        Transaction = Transaction,
-        ExecuteByHighCouncil = ExecuteByHighCouncil,
-        ExecuteAddress = ExecuteAddress,
-        ProposalType = ProposalType,
         DaoId = DaoId,
+        ProposalId = ProposalId,
         ProposalTitle = ProposalTitle,
         ProposalDescription = ProposalDescription,
+        ForumUrl = ForumUrl,
+        ProposalType = ProposalType,
+        ActiveStartTime = ActiveStartTime,
+        ActiveEndTime = ActiveEndTime,
+        ExecuteStartTime = ExecuteStartTime,
+        ExecuteEndTime = ExecuteEndTime,
+        ProposalStatus = ProposalStatus,
+        ProposalStage = ProposalStage,
+        Proposer = Proposer,
+        SchemeAddress = SchemeAddress,
+        Transaction = Transaction,
+        VoteSchemeId = VoteSchemeId,
+        VetoProposalId = VetoProposalId,
+      };
+    }
+  }
+
+  public partial class ProposalVetoed : aelf::IEvent<ProposalVetoed>
+  {
+    public global::System.Collections.Generic.IEnumerable<ProposalVetoed> GetIndexed()
+    {
+      return new List<ProposalVetoed>
+      {
+      };
+    }
+
+    public ProposalVetoed GetNonIndexed()
+    {
+      return new ProposalVetoed
+      {
+        DaoId = DaoId,
+        ProposalId = ProposalId,
+        VetoProposalId = VetoProposalId,
+        VetoTime = VetoTime,
       };
     }
   }
@@ -246,27 +160,32 @@ namespace TomorrowDAO.Contracts.Governance {
     {
       return new ProposalExecuted
       {
+        DaoId = DaoId,
         ProposalId = ProposalId,
-        OrganizationAddress = OrganizationAddress,
         ExecuteTime = ExecuteTime,
       };
     }
   }
 
-  public partial class ProposalCleared : aelf::IEvent<ProposalCleared>
+  public partial class DaoProposalTimePeriodSet : aelf::IEvent<DaoProposalTimePeriodSet>
   {
-    public global::System.Collections.Generic.IEnumerable<ProposalCleared> GetIndexed()
+    public global::System.Collections.Generic.IEnumerable<DaoProposalTimePeriodSet> GetIndexed()
     {
-      return new List<ProposalCleared>
+      return new List<DaoProposalTimePeriodSet>
       {
       };
     }
 
-    public ProposalCleared GetNonIndexed()
+    public DaoProposalTimePeriodSet GetNonIndexed()
     {
-      return new ProposalCleared
+      return new DaoProposalTimePeriodSet
       {
-        ProposalId = ProposalId,
+        DaoId = DaoId,
+        ActiveTimePeriod = ActiveTimePeriod,
+        VetoActiveTimePeriod = VetoActiveTimePeriod,
+        PendingTimePeriod = PendingTimePeriod,
+        ExecuteTimePeriod = ExecuteTimePeriod,
+        VetoExecuteTimePeriod = VetoExecuteTimePeriod,
       };
     }
   }
@@ -279,27 +198,22 @@ namespace TomorrowDAO.Contracts.Governance {
     #region Marshallers
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.InitializeInput> __Marshaller_InitializeInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.InitializeInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_google_protobuf_Empty = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.CreateGovernanceSchemeInput> __Marshaller_CreateGovernanceSchemeInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.CreateGovernanceSchemeInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::AElf.Types.Hash> __Marshaller_aelf_Hash = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::AElf.Types.Hash.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.AddGovernanceSubSchemeInput> __Marshaller_AddGovernanceSubSchemeInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.AddGovernanceSubSchemeInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.RemoveGovernanceSubSchemeInput> __Marshaller_RemoveGovernanceSubSchemeInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.RemoveGovernanceSubSchemeInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.UpdateGovernanceSubSchemeInput> __Marshaller_UpdateGovernanceSubSchemeInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.UpdateGovernanceSubSchemeInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.UpdateGovernanceThresholdInput> __Marshaller_UpdateGovernanceThresholdInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.UpdateGovernanceThresholdInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.CreateOrganizationInput> __Marshaller_CreateOrganizationInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.CreateOrganizationInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.AddGovernanceSchemeInput> __Marshaller_AddGovernanceSchemeInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.AddGovernanceSchemeInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::AElf.Types.Address> __Marshaller_aelf_Address = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::AElf.Types.Address.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.UpdateGovernanceSchemeThresholdInput> __Marshaller_UpdateGovernanceSchemeThresholdInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.UpdateGovernanceSchemeThresholdInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.RemoveGovernanceSchemeInput> __Marshaller_RemoveGovernanceSchemeInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.RemoveGovernanceSchemeInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.SetGovernanceTokenInput> __Marshaller_SetGovernanceTokenInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.SetGovernanceTokenInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::AElf.Types.Hash> __Marshaller_aelf_Hash = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::AElf.Types.Hash.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.AddressList> __Marshaller_AddressList = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.AddressList.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.ChangeMemberInput> __Marshaller_ChangeMemberInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.ChangeMemberInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.CreateProposalInput> __Marshaller_CreateProposalInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.CreateProposalInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.CreateOrganizationProposalInput> __Marshaller_CreateOrganizationProposalInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.CreateOrganizationProposalInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.SetProposalTimePeriodInput> __Marshaller_SetProposalTimePeriodInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.SetProposalTimePeriodInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.SetOrganizationProposalWhitelistTransactionInput> __Marshaller_SetOrganizationProposalWhitelistTransactionInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.SetOrganizationProposalWhitelistTransactionInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.GovernanceSchemeList> __Marshaller_GovernanceSchemeList = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.GovernanceSchemeList.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.GovernanceScheme> __Marshaller_GovernanceScheme = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.GovernanceScheme.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.GovernanceSubScheme> __Marshaller_GovernanceSubScheme = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.GovernanceSubScheme.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.Organization> __Marshaller_Organization = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.Organization.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::Google.Protobuf.WellKnownTypes.BoolValue> __Marshaller_google_protobuf_BoolValue = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.BoolValue.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.ProposalInfo> __Marshaller_ProposalInfo = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.ProposalInfo.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.CalculateGovernanceSchemeAddressInput> __Marshaller_CalculateGovernanceSchemeAddressInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.CalculateGovernanceSchemeAddressInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.CreateProposalInput> __Marshaller_CreateProposalInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.CreateProposalInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.CreateVetoProposalInput> __Marshaller_CreateVetoProposalInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.CreateVetoProposalInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.SetProposalTimePeriodInput> __Marshaller_SetProposalTimePeriodInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.SetProposalTimePeriodInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.ProposalInfoOutput> __Marshaller_ProposalInfoOutput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.ProposalInfoOutput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.DaoProposalTimePeriod> __Marshaller_DaoProposalTimePeriod = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.DaoProposalTimePeriod.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.WhitelistTransactionList> __Marshaller_WhitelistTransactionList = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.WhitelistTransactionList.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.ProposalStatusOutput> __Marshaller_ProposalStatusOutput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.ProposalStatusOutput.Parser.ParseFrom);
     #endregion
 
     #region Methods
@@ -310,68 +224,61 @@ namespace TomorrowDAO.Contracts.Governance {
         __Marshaller_InitializeInput,
         __Marshaller_google_protobuf_Empty);
 
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.CreateGovernanceSchemeInput, global::AElf.Types.Hash> __Method_CreateGovernanceScheme = new aelf::Method<global::TomorrowDAO.Contracts.Governance.CreateGovernanceSchemeInput, global::AElf.Types.Hash>(
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.AddGovernanceSchemeInput, global::AElf.Types.Address> __Method_AddGovernanceScheme = new aelf::Method<global::TomorrowDAO.Contracts.Governance.AddGovernanceSchemeInput, global::AElf.Types.Address>(
         aelf::MethodType.Action,
         __ServiceName,
-        "CreateGovernanceScheme",
-        __Marshaller_CreateGovernanceSchemeInput,
-        __Marshaller_aelf_Hash);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.AddGovernanceSubSchemeInput, global::AElf.Types.Hash> __Method_AddGovernanceSubScheme = new aelf::Method<global::TomorrowDAO.Contracts.Governance.AddGovernanceSubSchemeInput, global::AElf.Types.Hash>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "AddGovernanceSubScheme",
-        __Marshaller_AddGovernanceSubSchemeInput,
-        __Marshaller_aelf_Hash);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.RemoveGovernanceSubSchemeInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_RemoveGovernanceSubScheme = new aelf::Method<global::TomorrowDAO.Contracts.Governance.RemoveGovernanceSubSchemeInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "RemoveGovernanceSubScheme",
-        __Marshaller_RemoveGovernanceSubSchemeInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.UpdateGovernanceSubSchemeInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateGovernanceSubScheme = new aelf::Method<global::TomorrowDAO.Contracts.Governance.UpdateGovernanceSubSchemeInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "UpdateGovernanceSubScheme",
-        __Marshaller_UpdateGovernanceSubSchemeInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.UpdateGovernanceThresholdInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateGovernanceThreshold = new aelf::Method<global::TomorrowDAO.Contracts.Governance.UpdateGovernanceThresholdInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "UpdateGovernanceThreshold",
-        __Marshaller_UpdateGovernanceThresholdInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.CreateOrganizationInput, global::AElf.Types.Address> __Method_CreateOrganization = new aelf::Method<global::TomorrowDAO.Contracts.Governance.CreateOrganizationInput, global::AElf.Types.Address>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "CreateOrganization",
-        __Marshaller_CreateOrganizationInput,
+        "AddGovernanceScheme",
+        __Marshaller_AddGovernanceSchemeInput,
         __Marshaller_aelf_Address);
 
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.AddressList, global::Google.Protobuf.WellKnownTypes.Empty> __Method_AddMembers = new aelf::Method<global::TomorrowDAO.Contracts.Governance.AddressList, global::Google.Protobuf.WellKnownTypes.Empty>(
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.UpdateGovernanceSchemeThresholdInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateGovernanceSchemeThreshold = new aelf::Method<global::TomorrowDAO.Contracts.Governance.UpdateGovernanceSchemeThresholdInput, global::Google.Protobuf.WellKnownTypes.Empty>(
         aelf::MethodType.Action,
         __ServiceName,
-        "AddMembers",
-        __Marshaller_AddressList,
+        "UpdateGovernanceSchemeThreshold",
+        __Marshaller_UpdateGovernanceSchemeThresholdInput,
         __Marshaller_google_protobuf_Empty);
 
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.AddressList, global::Google.Protobuf.WellKnownTypes.Empty> __Method_RemoveMembers = new aelf::Method<global::TomorrowDAO.Contracts.Governance.AddressList, global::Google.Protobuf.WellKnownTypes.Empty>(
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.RemoveGovernanceSchemeInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_RemoveGovernanceScheme = new aelf::Method<global::TomorrowDAO.Contracts.Governance.RemoveGovernanceSchemeInput, global::Google.Protobuf.WellKnownTypes.Empty>(
         aelf::MethodType.Action,
         __ServiceName,
-        "RemoveMembers",
-        __Marshaller_AddressList,
+        "RemoveGovernanceScheme",
+        __Marshaller_RemoveGovernanceSchemeInput,
         __Marshaller_google_protobuf_Empty);
 
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.ChangeMemberInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_ChangeMember = new aelf::Method<global::TomorrowDAO.Contracts.Governance.ChangeMemberInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.SetGovernanceTokenInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SetGovernanceToken = new aelf::Method<global::TomorrowDAO.Contracts.Governance.SetGovernanceTokenInput, global::Google.Protobuf.WellKnownTypes.Empty>(
         aelf::MethodType.Action,
         __ServiceName,
-        "ChangeMember",
-        __Marshaller_ChangeMemberInput,
+        "SetGovernanceToken",
+        __Marshaller_SetGovernanceTokenInput,
         __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.AddressList> __Method_GetDaoGovernanceSchemeAddressList = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.AddressList>(
+        aelf::MethodType.View,
+        __ServiceName,
+        "GetDaoGovernanceSchemeAddressList",
+        __Marshaller_aelf_Hash,
+        __Marshaller_AddressList);
+
+    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.GovernanceSchemeList> __Method_GetDaoGovernanceSchemeList = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.GovernanceSchemeList>(
+        aelf::MethodType.View,
+        __ServiceName,
+        "GetDaoGovernanceSchemeList",
+        __Marshaller_aelf_Hash,
+        __Marshaller_GovernanceSchemeList);
+
+    static readonly aelf::Method<global::AElf.Types.Address, global::TomorrowDAO.Contracts.Governance.GovernanceScheme> __Method_GetGovernanceScheme = new aelf::Method<global::AElf.Types.Address, global::TomorrowDAO.Contracts.Governance.GovernanceScheme>(
+        aelf::MethodType.View,
+        __ServiceName,
+        "GetGovernanceScheme",
+        __Marshaller_aelf_Address,
+        __Marshaller_GovernanceScheme);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.CalculateGovernanceSchemeAddressInput, global::AElf.Types.Address> __Method_CalculateGovernanceSchemeAddress = new aelf::Method<global::TomorrowDAO.Contracts.Governance.CalculateGovernanceSchemeAddressInput, global::AElf.Types.Address>(
+        aelf::MethodType.View,
+        __ServiceName,
+        "CalculateGovernanceSchemeAddress",
+        __Marshaller_CalculateGovernanceSchemeAddressInput,
+        __Marshaller_aelf_Address);
 
     static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.CreateProposalInput, global::AElf.Types.Hash> __Method_CreateProposal = new aelf::Method<global::TomorrowDAO.Contracts.Governance.CreateProposalInput, global::AElf.Types.Hash>(
         aelf::MethodType.Action,
@@ -380,12 +287,19 @@ namespace TomorrowDAO.Contracts.Governance {
         __Marshaller_CreateProposalInput,
         __Marshaller_aelf_Hash);
 
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.CreateOrganizationProposalInput, global::AElf.Types.Hash> __Method_CreateOrganizationProposal = new aelf::Method<global::TomorrowDAO.Contracts.Governance.CreateOrganizationProposalInput, global::AElf.Types.Hash>(
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.CreateVetoProposalInput, global::AElf.Types.Hash> __Method_CreateVetoProposal = new aelf::Method<global::TomorrowDAO.Contracts.Governance.CreateVetoProposalInput, global::AElf.Types.Hash>(
         aelf::MethodType.Action,
         __ServiceName,
-        "CreateOrganizationProposal",
-        __Marshaller_CreateOrganizationProposalInput,
+        "CreateVetoProposal",
+        __Marshaller_CreateVetoProposalInput,
         __Marshaller_aelf_Hash);
+
+    static readonly aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty> __Method_VetoProposal = new aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "VetoProposal",
+        __Marshaller_aelf_Hash,
+        __Marshaller_google_protobuf_Empty);
 
     static readonly aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty> __Method_ExecuteProposal = new aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty>(
         aelf::MethodType.Action,
@@ -408,68 +322,33 @@ namespace TomorrowDAO.Contracts.Governance {
         __Marshaller_SetProposalTimePeriodInput,
         __Marshaller_google_protobuf_Empty);
 
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.SetOrganizationProposalWhitelistTransactionInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SetOrganizationProposalWhitelistTransaction = new aelf::Method<global::TomorrowDAO.Contracts.Governance.SetOrganizationProposalWhitelistTransactionInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "SetOrganizationProposalWhitelistTransaction",
-        __Marshaller_SetOrganizationProposalWhitelistTransactionInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.GovernanceScheme> __Method_GetGovernanceSchemeInfo = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.GovernanceScheme>(
-        aelf::MethodType.View,
-        __ServiceName,
-        "GetGovernanceSchemeInfo",
-        __Marshaller_aelf_Hash,
-        __Marshaller_GovernanceScheme);
-
-    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.GovernanceSubScheme> __Method_GetGovernanceSubSchemeInfo = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.GovernanceSubScheme>(
-        aelf::MethodType.View,
-        __ServiceName,
-        "GetGovernanceSubSchemeInfo",
-        __Marshaller_aelf_Hash,
-        __Marshaller_GovernanceSubScheme);
-
-    static readonly aelf::Method<global::AElf.Types.Address, global::TomorrowDAO.Contracts.Governance.Organization> __Method_GetOrganization = new aelf::Method<global::AElf.Types.Address, global::TomorrowDAO.Contracts.Governance.Organization>(
-        aelf::MethodType.View,
-        __ServiceName,
-        "GetOrganization",
-        __Marshaller_aelf_Address,
-        __Marshaller_Organization);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.CreateOrganizationInput, global::AElf.Types.Address> __Method_CalculateOrganizationAddress = new aelf::Method<global::TomorrowDAO.Contracts.Governance.CreateOrganizationInput, global::AElf.Types.Address>(
-        aelf::MethodType.View,
-        __ServiceName,
-        "CalculateOrganizationAddress",
-        __Marshaller_CreateOrganizationInput,
-        __Marshaller_aelf_Address);
-
-    static readonly aelf::Method<global::AElf.Types.Address, global::Google.Protobuf.WellKnownTypes.BoolValue> __Method_ValidateOrganizationExist = new aelf::Method<global::AElf.Types.Address, global::Google.Protobuf.WellKnownTypes.BoolValue>(
-        aelf::MethodType.View,
-        __ServiceName,
-        "ValidateOrganizationExist",
-        __Marshaller_aelf_Address,
-        __Marshaller_google_protobuf_BoolValue);
-
-    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.ProposalInfo> __Method_GetProposalInfo = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.ProposalInfo>(
+    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.ProposalInfoOutput> __Method_GetProposalInfo = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.ProposalInfoOutput>(
         aelf::MethodType.View,
         __ServiceName,
         "GetProposalInfo",
         __Marshaller_aelf_Hash,
-        __Marshaller_ProposalInfo);
+        __Marshaller_ProposalInfoOutput);
 
-    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.DaoProposalTimePeriod> __Method_GetProposalTimePeriod = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.DaoProposalTimePeriod>(
+    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.DaoProposalTimePeriod> __Method_GetDaoProposalTimePeriod = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.DaoProposalTimePeriod>(
         aelf::MethodType.View,
         __ServiceName,
-        "GetProposalTimePeriod",
+        "GetDaoProposalTimePeriod",
         __Marshaller_aelf_Hash,
         __Marshaller_DaoProposalTimePeriod);
 
-    static readonly aelf::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::TomorrowDAO.Contracts.Governance.WhitelistTransactionList> __Method_GetOrganizationProposalWhitelistTransaction = new aelf::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::TomorrowDAO.Contracts.Governance.WhitelistTransactionList>(
+    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.GovernanceScheme> __Method_GetProposalSnapShotScheme = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.GovernanceScheme>(
         aelf::MethodType.View,
         __ServiceName,
-        "GetOrganizationProposalWhitelistTransaction",
-        __Marshaller_google_protobuf_Empty,
-        __Marshaller_WhitelistTransactionList);
+        "GetProposalSnapShotScheme",
+        __Marshaller_aelf_Hash,
+        __Marshaller_GovernanceScheme);
+
+    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.ProposalStatusOutput> __Method_GetProposalStatus = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.ProposalStatusOutput>(
+        aelf::MethodType.View,
+        __ServiceName,
+        "GetProposalStatus",
+        __Marshaller_aelf_Hash,
+        __Marshaller_ProposalStatusOutput);
 
     #endregion
 
@@ -493,6 +372,129 @@ namespace TomorrowDAO.Contracts.Governance {
     #endregion
 
     /// <summary>Base class for the contract of GovernanceContract</summary>
+    // public abstract partial class GovernanceContractBase : AElf.Sdk.CSharp.CSharpSmartContract<TomorrowDAO.Contracts.Governance.GovernanceContractState>
+    // {
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty Initialize(global::TomorrowDAO.Contracts.Governance.InitializeInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::AElf.Types.Address AddGovernanceScheme(global::TomorrowDAO.Contracts.Governance.AddGovernanceSchemeInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateGovernanceSchemeThreshold(global::TomorrowDAO.Contracts.Governance.UpdateGovernanceSchemeThresholdInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty RemoveGovernanceScheme(global::TomorrowDAO.Contracts.Governance.RemoveGovernanceSchemeInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty SetGovernanceToken(global::TomorrowDAO.Contracts.Governance.SetGovernanceTokenInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::TomorrowDAO.Contracts.Governance.AddressList GetDaoGovernanceSchemeAddressList(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::TomorrowDAO.Contracts.Governance.GovernanceSchemeList GetDaoGovernanceSchemeList(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::TomorrowDAO.Contracts.Governance.GovernanceScheme GetGovernanceScheme(global::AElf.Types.Address input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::AElf.Types.Address CalculateGovernanceSchemeAddress(global::TomorrowDAO.Contracts.Governance.CalculateGovernanceSchemeAddressInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::AElf.Types.Hash CreateProposal(global::TomorrowDAO.Contracts.Governance.CreateProposalInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::AElf.Types.Hash CreateVetoProposal(global::TomorrowDAO.Contracts.Governance.CreateVetoProposalInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty VetoProposal(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty ExecuteProposal(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty ClearProposal(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty SetProposalTimePeriod(global::TomorrowDAO.Contracts.Governance.SetProposalTimePeriodInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::TomorrowDAO.Contracts.Governance.ProposalInfoOutput GetProposalInfo(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::TomorrowDAO.Contracts.Governance.DaoProposalTimePeriod GetDaoProposalTimePeriod(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::TomorrowDAO.Contracts.Governance.GovernanceScheme GetProposalSnapShotScheme(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::TomorrowDAO.Contracts.Governance.ProposalStatusOutput GetProposalStatus(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    // }
+
+    // public static aelf::ServerServiceDefinition BindService(GovernanceContractBase serviceImpl)
+    // {
+    //   return aelf::ServerServiceDefinition.CreateBuilder()
+    //       .AddDescriptors(Descriptors)
+    //       .AddMethod(__Method_Initialize, serviceImpl.Initialize)
+    //       .AddMethod(__Method_AddGovernanceScheme, serviceImpl.AddGovernanceScheme)
+    //       .AddMethod(__Method_UpdateGovernanceSchemeThreshold, serviceImpl.UpdateGovernanceSchemeThreshold)
+    //       .AddMethod(__Method_RemoveGovernanceScheme, serviceImpl.RemoveGovernanceScheme)
+    //       .AddMethod(__Method_SetGovernanceToken, serviceImpl.SetGovernanceToken)
+    //       .AddMethod(__Method_GetDaoGovernanceSchemeAddressList, serviceImpl.GetDaoGovernanceSchemeAddressList)
+    //       .AddMethod(__Method_GetDaoGovernanceSchemeList, serviceImpl.GetDaoGovernanceSchemeList)
+    //       .AddMethod(__Method_GetGovernanceScheme, serviceImpl.GetGovernanceScheme)
+    //       .AddMethod(__Method_CalculateGovernanceSchemeAddress, serviceImpl.CalculateGovernanceSchemeAddress)
+    //       .AddMethod(__Method_CreateProposal, serviceImpl.CreateProposal)
+    //       .AddMethod(__Method_CreateVetoProposal, serviceImpl.CreateVetoProposal)
+    //       .AddMethod(__Method_VetoProposal, serviceImpl.VetoProposal)
+    //       .AddMethod(__Method_ExecuteProposal, serviceImpl.ExecuteProposal)
+    //       .AddMethod(__Method_ClearProposal, serviceImpl.ClearProposal)
+    //       .AddMethod(__Method_SetProposalTimePeriod, serviceImpl.SetProposalTimePeriod)
+    //       .AddMethod(__Method_GetProposalInfo, serviceImpl.GetProposalInfo)
+    //       .AddMethod(__Method_GetDaoProposalTimePeriod, serviceImpl.GetDaoProposalTimePeriod)
+    //       .AddMethod(__Method_GetProposalSnapShotScheme, serviceImpl.GetProposalSnapShotScheme)
+    //       .AddMethod(__Method_GetProposalStatus, serviceImpl.GetProposalStatus).Build();
+    // }
 
   }
 }
