@@ -11,6 +11,7 @@ public class DAOIndex : AElfIndexerClientEntity<string>, IIndexBuild
     public Metadata Metadata { get; set; }
     [Keyword] public string GovernanceToken { get; set; }
     public bool IsHighCouncilEnabled { get; set; }
+    [Keyword] public string HighCouncilAddress { get; set; }
     public HighCouncilConfig HighCouncilConfig { get; set; }
     public long HighCouncilTermNumber { get; set; }
     [Keyword] public string FileInfoList { get; set; }
@@ -24,7 +25,5 @@ public class DAOIndex : AElfIndexerClientEntity<string>, IIndexBuild
     [Keyword] public string ElectionContractAddress { get; set; }
     [Keyword] public string GovernanceContractAddress { get; set; }
     [Keyword] public string TimelockContractAddress { get; set; }
-    [Keyword] public string PermissionAddress { get; set; }
-    [Keyword] public string PermissionInfoList { get; set; }
     public DateTime CreateTime { get; set; }
 }

@@ -42,7 +42,6 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly FileInfosUploadedProcessor FileInfosUploadedProcessor;
     protected readonly HighCouncilDisabledProcessor HighCouncilDisabledProcessor;
     protected readonly HighCouncilEnabledProcessor HighCouncilEnabledProcessor;
-    protected readonly PermissionsSetProcessor PermissionsSetProcessor;
     protected readonly SubsistStatusSetProcessor SubsistStatusSetProcessor;
     protected readonly DonationReceivedProcessor DonationReceivedProcessor;
     protected readonly TreasuryCreatedProcessor TreasuryCreatedProcessor;
@@ -123,7 +122,6 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         FileInfosUploadedProcessor = GetRequiredService<FileInfosUploadedProcessor>();
         HighCouncilDisabledProcessor = GetRequiredService<HighCouncilDisabledProcessor>();
         HighCouncilEnabledProcessor = GetRequiredService<HighCouncilEnabledProcessor>();
-        PermissionsSetProcessor = GetRequiredService<PermissionsSetProcessor>();
         SubsistStatusSetProcessor = GetRequiredService<SubsistStatusSetProcessor>();
         VoteCreatedProcessor = GetRequiredService<VoteCreatedProcessor>();
         DAOCreatedProcessor = GetRequiredService<DAOCreatedProcessor>();

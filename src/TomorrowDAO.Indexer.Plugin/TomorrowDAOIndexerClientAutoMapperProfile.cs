@@ -88,11 +88,11 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.TreasuryPauseExecutor, opt
                 => opt.MapFrom(source => MapAddress(source.Account)))
             ;
-        CreateMap<PermissionsSet, DAOIndex>()
-            .ForMember(des => des.PermissionAddress, opt
-                => opt.MapFrom(source => MapAddress(source.Here)))
-            .ForMember(des => des.PermissionInfoList, opt
-                => opt.MapFrom(source => MapPermissionInfoList(source)))
+        CreateMap<HighCouncilEnabled, DAOIndex>()
+            .ForMember(des => des.HighCouncilAddress, opt
+                => opt.MapFrom(source => MapAddress(source.HighCouncilAddress)))
+            .ForMember(des => des.HighCouncilConfig, opt
+                => opt.MapFrom(source => source.HighCouncilInput == null ? null : source.HighCouncilInput.HighCouncilConfig))
             ;
         CreateMap<HighCouncilConfigContract, HighCouncilConfigIndexer>();
         CreateMap<LogEventContext, OrganizationIndex>();

@@ -29,8 +29,6 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
 
         DAOIndex.HighCouncilConfig.ShouldBeNull();
         DAOIndex.FileInfoList.ShouldBeNull();
-        DAOIndex.PermissionAddress.ShouldBeNull();
-        DAOIndex.PermissionInfoList.ShouldBeNull();
         DAOIndex.IsTreasuryContractNeeded.ShouldBe(false);
         DAOIndex.SubsistStatus.ShouldBe(true);
         DAOIndex.Id.ShouldBe(DAOId);

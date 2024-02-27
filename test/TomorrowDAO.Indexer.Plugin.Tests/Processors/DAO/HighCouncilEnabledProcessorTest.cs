@@ -1,5 +1,6 @@
 using AElf;
 using AElf.CSharp.Core.Extension;
+using AElf.Types;
 using Shouldly;
 using TomorrowDAO.Contracts.DAO;
 using Xunit;
@@ -13,8 +14,7 @@ public class HighCouncilEnabledProcessorTest : TomorrowDAOIndexerPluginTestBase
     {
         await MockEventProcess(new HighCouncilEnabled
         {
-            DaoId = HashHelper.ComputeFrom(Id1),
-            ExecutionConfig = true
+            DaoId = HashHelper.ComputeFrom(Id1)
         }.ToLogEvent(), HighCouncilEnabledProcessor);
         
         var DAOIndex = await DAOIndexRepository.GetFromBlockStateSetAsync(DAOId, ChainAelf);
@@ -28,11 +28,29 @@ public class HighCouncilEnabledProcessorTest : TomorrowDAOIndexerPluginTestBase
         await MockEventProcess(new HighCouncilEnabled
         {
             DaoId = HashHelper.ComputeFrom(Id1),
-            ExecutionConfig = true
+            HighCouncilAddress = Address.FromBase58(Creator),
+            HighCouncilInput = new HighCouncilInput
+            {
+                GovernanceSchemeThreshold = new GovernanceSchemeThreshold(),
+                HighCouncilConfig = new HighCouncilConfig
+                {
+                    MaxHighCouncilMemberCount = 1L,
+                    ElectionPeriod = 2L,
+                    MaxHighCouncilCandidateCount = 3L,
+                    StakingAmount = 4L
+                }
+            }
         }.ToLogEvent(), HighCouncilEnabledProcessor);
         
         var DAOIndex = await DAOIndexRepository.GetFromBlockStateSetAsync(DAOId, ChainAelf);
         DAOIndex.ShouldNotBeNull();
         DAOIndex.IsHighCouncilEnabled.ShouldBe(true);
+        DAOIndex.HighCouncilAddress.ShouldBe(Creator);
+        var highCouncilConfig = DAOIndex.HighCouncilConfig;
+        highCouncilConfig.ShouldNotBeNull();
+        highCouncilConfig.MaxHighCouncilMemberCount.ShouldBe(1);
+        highCouncilConfig.ElectionPeriod.ShouldBe(2);
+        highCouncilConfig.MaxHighCouncilCandidateCount.ShouldBe(3);
+        highCouncilConfig.StakingAmount.ShouldBe(4);
     }
 }

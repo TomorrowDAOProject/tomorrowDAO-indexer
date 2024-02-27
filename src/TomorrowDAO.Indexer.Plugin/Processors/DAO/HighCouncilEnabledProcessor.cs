@@ -31,7 +31,8 @@ public class HighCouncilEnabledProcessor : DAOProcessorBase<HighCouncilEnabled>
                 Logger.LogInformation("[HighCouncilEnabled] DAO not existed: Id={Id}, ChainId={ChainId}", DAOId, chainId);
                 return;
             }
-            DAOIndex.IsHighCouncilEnabled = eventValue.ExecutionConfig;
+            ObjectMapper.Map(eventValue, DAOIndex);
+            DAOIndex.IsHighCouncilEnabled = true;
             await DAOProvider.SaveIndexAsync(DAOIndex, context);
             Logger.LogInformation("[HighCouncilEnabled] FINISH: Id={Id}, ChainId={ChainId}", DAOId, chainId);
         }

@@ -66,7 +66,7 @@ namespace TomorrowDAO.Contracts.DAO {
       return new HighCouncilEnabled
       {
         DaoId = DaoId,
-        ExecutionConfig = ExecutionConfig,
+        HighCouncilInput = HighCouncilInput,
         HighCouncilAddress = HighCouncilAddress,
       };
     }
@@ -86,25 +86,6 @@ namespace TomorrowDAO.Contracts.DAO {
       return new HighCouncilDisabled
       {
         DaoId = DaoId,
-      };
-    }
-  }
-
-  public partial class HighCouncilExecutionConfigSet : aelf::IEvent<HighCouncilExecutionConfigSet>
-  {
-    public global::System.Collections.Generic.IEnumerable<HighCouncilExecutionConfigSet> GetIndexed()
-    {
-      return new List<HighCouncilExecutionConfigSet>
-      {
-      };
-    }
-
-    public HighCouncilExecutionConfigSet GetNonIndexed()
-    {
-      return new HighCouncilExecutionConfigSet
-      {
-        DaoId = DaoId,
-        ExecutionConfig = ExecutionConfig,
       };
     }
   }
@@ -147,26 +128,6 @@ namespace TomorrowDAO.Contracts.DAO {
     }
   }
 
-  public partial class PermissionsSet : aelf::IEvent<PermissionsSet>
-  {
-    public global::System.Collections.Generic.IEnumerable<PermissionsSet> GetIndexed()
-    {
-      return new List<PermissionsSet>
-      {
-      };
-    }
-
-    public PermissionsSet GetNonIndexed()
-    {
-      return new PermissionsSet
-      {
-        DaoId = DaoId,
-        Here = Here,
-        PermissionInfoList = PermissionInfoList,
-      };
-    }
-  }
-
   #endregion
   public static partial class DAOContractContainer
   {
@@ -177,17 +138,16 @@ namespace TomorrowDAO.Contracts.DAO {
     static readonly aelf::Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_google_protobuf_Empty = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.CreateDAOInput> __Marshaller_CreateDAOInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.CreateDAOInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.SetSubsistStatusInput> __Marshaller_SetSubsistStatusInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.SetSubsistStatusInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput> __Marshaller_EnableHighCouncilInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::AElf.Types.Hash> __Marshaller_aelf_Hash = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::AElf.Types.Hash.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.SetHighCouncilExecutionConfigInput> __Marshaller_SetHighCouncilExecutionConfigInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.SetHighCouncilExecutionConfigInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.UploadFileInfosInput> __Marshaller_UploadFileInfosInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.UploadFileInfosInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.RemoveFileInfosInput> __Marshaller_RemoveFileInfosInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.RemoveFileInfosInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.SetPermissionsInput> __Marshaller_SetPermissionsInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.SetPermissionsInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.DAOInfo> __Marshaller_DAOInfo = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.DAOInfo.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::Google.Protobuf.WellKnownTypes.StringValue> __Marshaller_google_protobuf_StringValue = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.StringValue.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.Metadata> __Marshaller_Metadata = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.Metadata.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::Google.Protobuf.WellKnownTypes.BoolValue> __Marshaller_google_protobuf_BoolValue = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.BoolValue.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.ContractAddressList> __Marshaller_ContractAddressList = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.ContractAddressList.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::AElf.Types.Address> __Marshaller_aelf_Address = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::AElf.Types.Address.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput> __Marshaller_EnableHighCouncilInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.UploadFileInfosInput> __Marshaller_UploadFileInfosInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.UploadFileInfosInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.RemoveFileInfosInput> __Marshaller_RemoveFileInfosInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.RemoveFileInfosInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.FileInfoList> __Marshaller_FileInfoList = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.FileInfoList.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.HasPermissionInput> __Marshaller_HasPermissionInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.HasPermissionInput.Parser.ParseFrom);
     #endregion
@@ -212,48 +172,6 @@ namespace TomorrowDAO.Contracts.DAO {
         __ServiceName,
         "SetSubsistStatus",
         __Marshaller_SetSubsistStatusInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_EnableHighCouncil = new aelf::Method<global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "EnableHighCouncil",
-        __Marshaller_EnableHighCouncilInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty> __Method_DisableHighCouncil = new aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "DisableHighCouncil",
-        __Marshaller_aelf_Hash,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.SetHighCouncilExecutionConfigInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SetHighCouncilExecutionConfig = new aelf::Method<global::TomorrowDAO.Contracts.DAO.SetHighCouncilExecutionConfigInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "SetHighCouncilExecutionConfig",
-        __Marshaller_SetHighCouncilExecutionConfigInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.UploadFileInfosInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UploadFileInfos = new aelf::Method<global::TomorrowDAO.Contracts.DAO.UploadFileInfosInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "UploadFileInfos",
-        __Marshaller_UploadFileInfosInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.RemoveFileInfosInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_RemoveFileInfos = new aelf::Method<global::TomorrowDAO.Contracts.DAO.RemoveFileInfosInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "RemoveFileInfos",
-        __Marshaller_RemoveFileInfosInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.SetPermissionsInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SetPermissions = new aelf::Method<global::TomorrowDAO.Contracts.DAO.SetPermissionsInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "SetPermissions",
-        __Marshaller_SetPermissionsInput,
         __Marshaller_google_protobuf_Empty);
 
     static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.DAO.DAOInfo> __Method_GetDAOInfo = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.DAO.DAOInfo>(
@@ -291,19 +209,19 @@ namespace TomorrowDAO.Contracts.DAO {
         __Marshaller_aelf_Hash,
         __Marshaller_google_protobuf_StringValue);
 
-    static readonly aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.BoolValue> __Method_GetHighCouncilStatus = new aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.BoolValue>(
+    static readonly aelf::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::TomorrowDAO.Contracts.DAO.ContractAddressList> __Method_GetInitializedContracts = new aelf::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::TomorrowDAO.Contracts.DAO.ContractAddressList>(
         aelf::MethodType.View,
         __ServiceName,
-        "GetHighCouncilStatus",
-        __Marshaller_aelf_Hash,
-        __Marshaller_google_protobuf_BoolValue);
+        "GetInitializedContracts",
+        __Marshaller_google_protobuf_Empty,
+        __Marshaller_ContractAddressList);
 
-    static readonly aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.BoolValue> __Method_GetHighCouncilExecutionConfig = new aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.BoolValue>(
+    static readonly aelf::Method<global::AElf.Types.Hash, global::AElf.Types.Address> __Method_GetReferendumAddress = new aelf::Method<global::AElf.Types.Hash, global::AElf.Types.Address>(
         aelf::MethodType.View,
         __ServiceName,
-        "GetHighCouncilExecutionConfig",
+        "GetReferendumAddress",
         __Marshaller_aelf_Hash,
-        __Marshaller_google_protobuf_BoolValue);
+        __Marshaller_aelf_Address);
 
     static readonly aelf::Method<global::AElf.Types.Hash, global::AElf.Types.Address> __Method_GetHighCouncilAddress = new aelf::Method<global::AElf.Types.Hash, global::AElf.Types.Address>(
         aelf::MethodType.View,
@@ -311,6 +229,41 @@ namespace TomorrowDAO.Contracts.DAO {
         "GetHighCouncilAddress",
         __Marshaller_aelf_Hash,
         __Marshaller_aelf_Address);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_EnableHighCouncil = new aelf::Method<global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "EnableHighCouncil",
+        __Marshaller_EnableHighCouncilInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty> __Method_DisableHighCouncil = new aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "DisableHighCouncil",
+        __Marshaller_aelf_Hash,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.BoolValue> __Method_GetHighCouncilStatus = new aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.BoolValue>(
+        aelf::MethodType.View,
+        __ServiceName,
+        "GetHighCouncilStatus",
+        __Marshaller_aelf_Hash,
+        __Marshaller_google_protobuf_BoolValue);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.UploadFileInfosInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UploadFileInfos = new aelf::Method<global::TomorrowDAO.Contracts.DAO.UploadFileInfosInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "UploadFileInfos",
+        __Marshaller_UploadFileInfosInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.RemoveFileInfosInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_RemoveFileInfos = new aelf::Method<global::TomorrowDAO.Contracts.DAO.RemoveFileInfosInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "RemoveFileInfos",
+        __Marshaller_RemoveFileInfosInput,
+        __Marshaller_google_protobuf_Empty);
 
     static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.DAO.FileInfoList> __Method_GetFileInfos = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.DAO.FileInfoList>(
         aelf::MethodType.View,
@@ -365,36 +318,6 @@ namespace TomorrowDAO.Contracts.DAO {
     //     throw new global::System.NotImplementedException();
     //   }
     //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty EnableHighCouncil(global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty DisableHighCouncil(global::AElf.Types.Hash input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty SetHighCouncilExecutionConfig(global::TomorrowDAO.Contracts.DAO.SetHighCouncilExecutionConfigInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty UploadFileInfos(global::TomorrowDAO.Contracts.DAO.UploadFileInfosInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty RemoveFileInfos(global::TomorrowDAO.Contracts.DAO.RemoveFileInfosInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty SetPermissions(global::TomorrowDAO.Contracts.DAO.SetPermissionsInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
     //   public virtual global::TomorrowDAO.Contracts.DAO.DAOInfo GetDAOInfo(global::AElf.Types.Hash input)
     //   {
     //     throw new global::System.NotImplementedException();
@@ -420,17 +343,42 @@ namespace TomorrowDAO.Contracts.DAO {
     //     throw new global::System.NotImplementedException();
     //   }
     //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.BoolValue GetHighCouncilStatus(global::AElf.Types.Hash input)
+    //   public virtual global::TomorrowDAO.Contracts.DAO.ContractAddressList GetInitializedContracts(global::Google.Protobuf.WellKnownTypes.Empty input)
     //   {
     //     throw new global::System.NotImplementedException();
     //   }
     //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.BoolValue GetHighCouncilExecutionConfig(global::AElf.Types.Hash input)
+    //   public virtual global::AElf.Types.Address GetReferendumAddress(global::AElf.Types.Hash input)
     //   {
     //     throw new global::System.NotImplementedException();
     //   }
     //
     //   public virtual global::AElf.Types.Address GetHighCouncilAddress(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty EnableHighCouncil(global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty DisableHighCouncil(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.BoolValue GetHighCouncilStatus(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty UploadFileInfos(global::TomorrowDAO.Contracts.DAO.UploadFileInfosInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty RemoveFileInfos(global::TomorrowDAO.Contracts.DAO.RemoveFileInfosInput input)
     //   {
     //     throw new global::System.NotImplementedException();
     //   }
@@ -446,7 +394,7 @@ namespace TomorrowDAO.Contracts.DAO {
     //   }
     //
     // }
-    //
+
     // public static aelf::ServerServiceDefinition BindService(DAOContractBase serviceImpl)
     // {
     //   return aelf::ServerServiceDefinition.CreateBuilder()
@@ -454,20 +402,19 @@ namespace TomorrowDAO.Contracts.DAO {
     //       .AddMethod(__Method_Initialize, serviceImpl.Initialize)
     //       .AddMethod(__Method_CreateDAO, serviceImpl.CreateDAO)
     //       .AddMethod(__Method_SetSubsistStatus, serviceImpl.SetSubsistStatus)
-    //       .AddMethod(__Method_EnableHighCouncil, serviceImpl.EnableHighCouncil)
-    //       .AddMethod(__Method_DisableHighCouncil, serviceImpl.DisableHighCouncil)
-    //       .AddMethod(__Method_SetHighCouncilExecutionConfig, serviceImpl.SetHighCouncilExecutionConfig)
-    //       .AddMethod(__Method_UploadFileInfos, serviceImpl.UploadFileInfos)
-    //       .AddMethod(__Method_RemoveFileInfos, serviceImpl.RemoveFileInfos)
-    //       .AddMethod(__Method_SetPermissions, serviceImpl.SetPermissions)
     //       .AddMethod(__Method_GetDAOInfo, serviceImpl.GetDAOInfo)
     //       .AddMethod(__Method_GetDAOIdByName, serviceImpl.GetDAOIdByName)
     //       .AddMethod(__Method_GetMetadata, serviceImpl.GetMetadata)
     //       .AddMethod(__Method_GetSubsistStatus, serviceImpl.GetSubsistStatus)
     //       .AddMethod(__Method_GetGovernanceToken, serviceImpl.GetGovernanceToken)
-    //       .AddMethod(__Method_GetHighCouncilStatus, serviceImpl.GetHighCouncilStatus)
-    //       .AddMethod(__Method_GetHighCouncilExecutionConfig, serviceImpl.GetHighCouncilExecutionConfig)
+    //       .AddMethod(__Method_GetInitializedContracts, serviceImpl.GetInitializedContracts)
+    //       .AddMethod(__Method_GetReferendumAddress, serviceImpl.GetReferendumAddress)
     //       .AddMethod(__Method_GetHighCouncilAddress, serviceImpl.GetHighCouncilAddress)
+    //       .AddMethod(__Method_EnableHighCouncil, serviceImpl.EnableHighCouncil)
+    //       .AddMethod(__Method_DisableHighCouncil, serviceImpl.DisableHighCouncil)
+    //       .AddMethod(__Method_GetHighCouncilStatus, serviceImpl.GetHighCouncilStatus)
+    //       .AddMethod(__Method_UploadFileInfos, serviceImpl.UploadFileInfos)
+    //       .AddMethod(__Method_RemoveFileInfos, serviceImpl.RemoveFileInfos)
     //       .AddMethod(__Method_GetFileInfos, serviceImpl.GetFileInfos)
     //       .AddMethod(__Method_HasPermission, serviceImpl.HasPermission).Build();
     // }
