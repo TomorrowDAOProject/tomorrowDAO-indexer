@@ -14,9 +14,13 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.Treasury;
 
 public class SupportedStakingTokensAddedProcessor : TreasuryProcessorBase<SupportedStakingTokensAdded>
 {
-    public SupportedStakingTokensAddedProcessor(ILogger<DAOProcessorBase<SupportedStakingTokensAdded>> logger, IObjectMapper objectMapper, 
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> treasuryFundRepository,
-        IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> treasuryRecordRepository, IDAOProvider DAOProvider) 
+    public SupportedStakingTokensAddedProcessor(
+        ILogger<AElfLogEventProcessorBase<SupportedStakingTokensAdded, LogEventInfo>> logger,
+        IObjectMapper objectMapper,
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
+        IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> treasuryFundRepository,
+        IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> treasuryRecordRepository,
+        IDAOProvider DAOProvider)
         : base(logger, objectMapper, contractInfoOptions, treasuryFundRepository, treasuryRecordRepository, DAOProvider)
     {
     }

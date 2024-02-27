@@ -1,4 +1,5 @@
 using AElfIndexer.Client.Handlers;
+using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -10,9 +11,10 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.DAO;
 
 public class PermissionsSetProcessor : DAOProcessorBase<PermissionsSet>
 {
-    public PermissionsSetProcessor(ILogger<DAOProcessorBase<PermissionsSet>> logger, IObjectMapper objectMapper, 
+    public PermissionsSetProcessor(ILogger<AElfLogEventProcessorBase<PermissionsSet, LogEventInfo>> logger,
+        IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IDAOProvider DAOProvider,
-        IElectionProvider electionProvider) 
+        IElectionProvider electionProvider)
         : base(logger, objectMapper, contractInfoOptions, DAOProvider, electionProvider)
     {
     }

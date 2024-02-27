@@ -1,4 +1,5 @@
 using AElfIndexer.Client.Handlers;
+using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TomorrowDAO.Contracts.Treasury;
@@ -10,9 +11,9 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.Treasury;
 
 public class PausedProcessor : DAOProcessorBase<Paused>
 {
-    public PausedProcessor(ILogger<DAOProcessorBase<Paused>> logger, IObjectMapper objectMapper, 
+    public PausedProcessor(ILogger<AElfLogEventProcessorBase<Paused, LogEventInfo>> logger, IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IDAOProvider DAOProvider,
-        IElectionProvider electionProvider) 
+        IElectionProvider electionProvider)
         : base(logger, objectMapper, contractInfoOptions, DAOProvider, electionProvider)
     {
     }

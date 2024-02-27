@@ -1,4 +1,5 @@
 using AElfIndexer.Client.Handlers;
+using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TomorrowDAO.Contracts.DAO;
@@ -9,9 +10,10 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.DAO;
 
 public class HighCouncilDisabledProcessor : DAOProcessorBase<HighCouncilDisabled>
 {
-    public HighCouncilDisabledProcessor(ILogger<DAOProcessorBase<HighCouncilDisabled>> logger, IObjectMapper objectMapper, 
+    public HighCouncilDisabledProcessor(ILogger<AElfLogEventProcessorBase<HighCouncilDisabled, LogEventInfo>> logger,
+        IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IDAOProvider DAOProvider,
-        IElectionProvider electionProvider) 
+        IElectionProvider electionProvider)
         : base(logger, objectMapper, contractInfoOptions, DAOProvider, electionProvider)
     {
     }

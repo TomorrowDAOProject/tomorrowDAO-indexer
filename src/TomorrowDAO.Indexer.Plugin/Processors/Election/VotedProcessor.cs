@@ -14,9 +14,9 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.Election;
 
 public class VotedProcessor : ElectionProcessorBase<Voted>
 {
-    public VotedProcessor(ILogger<ElectionProcessorBase<Voted>> logger, IObjectMapper objectMapper, 
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, 
-        IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : 
+    public VotedProcessor(ILogger<AElfLogEventProcessorBase<Voted, LogEventInfo>> logger, IObjectMapper objectMapper,
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
+        IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) :
         base(logger, objectMapper, contractInfoOptions, electionRepository)
     {
     }
