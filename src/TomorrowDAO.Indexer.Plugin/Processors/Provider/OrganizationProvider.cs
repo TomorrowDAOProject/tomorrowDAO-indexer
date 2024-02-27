@@ -17,13 +17,13 @@ public interface IOrganizationProvider
 
 public class OrganizationProvider : IOrganizationProvider, ISingletonDependency
 {
-    protected readonly ILogger<IOrganizationProvider> _logger;
+    protected readonly ILogger<OrganizationProvider> _logger;
     protected readonly IObjectMapper _objectMapper;
     protected readonly IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> _organizationRepository;
 
     public OrganizationProvider(IObjectMapper objectMapper,
         IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> organizationRepository,
-        ILogger<IOrganizationProvider> logger)
+        ILogger<OrganizationProvider> logger)
     {
         _objectMapper = objectMapper;
         _organizationRepository = organizationRepository;

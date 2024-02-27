@@ -11,15 +11,15 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.DAO;
 public abstract class DAOProcessorBase<TEvent> : AElfLogEventProcessorBase<TEvent, LogEventInfo>
     where TEvent : IEvent<TEvent>,new()
 {
-    protected readonly ILogger<DAOProcessorBase<TEvent>> Logger;
+    protected readonly ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> Logger;
     protected readonly IObjectMapper ObjectMapper;
     protected readonly ContractInfoOptions ContractInfoOptions;
     protected readonly IDAOProvider DAOProvider;
     protected readonly IElectionProvider ElectionProvider;
-    
-    protected DAOProcessorBase(ILogger<DAOProcessorBase<TEvent>> logger,
-        IObjectMapper objectMapper, IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, 
-        IDAOProvider DAOProvider, 
+
+    protected DAOProcessorBase(ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> logger,
+        IObjectMapper objectMapper, IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
+        IDAOProvider DAOProvider,
         IElectionProvider electionProvider) : base(logger)
     {
         Logger = logger;

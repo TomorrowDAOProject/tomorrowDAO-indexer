@@ -14,7 +14,7 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.Treasury;
 public abstract class TreasuryProcessorBase<TEvent> : AElfLogEventProcessorBase<TEvent, LogEventInfo>
     where TEvent : IEvent<TEvent>,new()
 {
-    protected readonly ILogger<DAOProcessorBase<TEvent>> Logger;
+    protected readonly ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> Logger;
     protected readonly IObjectMapper ObjectMapper;
     protected readonly ContractInfoOptions ContractInfoOptions;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> TreasuryFundRepository;
@@ -22,11 +22,11 @@ public abstract class TreasuryProcessorBase<TEvent> : AElfLogEventProcessorBase<
     protected readonly IDAOProvider DAOProvider;
     private const int InitialAvailableFunds = 0;
     private const int InitialLockedFunds = 0;
-    
-    protected TreasuryProcessorBase(ILogger<DAOProcessorBase<TEvent>> logger,
-        IObjectMapper objectMapper, IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, 
-        IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> treasuryFundRepository, 
-        IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> treasuryRecordRepository, 
+
+    protected TreasuryProcessorBase(ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> logger,
+        IObjectMapper objectMapper, IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
+        IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> treasuryFundRepository,
+        IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> treasuryRecordRepository,
         IDAOProvider DAOProvider) : base(logger)
     {
         Logger = logger;

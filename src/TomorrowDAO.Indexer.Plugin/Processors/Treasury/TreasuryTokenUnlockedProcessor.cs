@@ -15,9 +15,12 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.Treasury;
 
 public class TreasuryTokenUnlockedProcessor : TreasuryProcessorBase<TreasuryTokenUnlocked>
 {
-    public TreasuryTokenUnlockedProcessor(ILogger<DAOProcessorBase<TreasuryTokenUnlocked>> logger, IObjectMapper objectMapper, 
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> treasuryFundRepository,
-        IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> treasuryRecordRepository, IDAOProvider DAOProvider) 
+    public TreasuryTokenUnlockedProcessor(
+        ILogger<AElfLogEventProcessorBase<TreasuryTokenUnlocked, LogEventInfo>> logger, IObjectMapper objectMapper,
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
+        IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> treasuryFundRepository,
+        IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> treasuryRecordRepository,
+        IDAOProvider DAOProvider)
         : base(logger, objectMapper, contractInfoOptions, treasuryFundRepository, treasuryRecordRepository, DAOProvider)
     {
     }

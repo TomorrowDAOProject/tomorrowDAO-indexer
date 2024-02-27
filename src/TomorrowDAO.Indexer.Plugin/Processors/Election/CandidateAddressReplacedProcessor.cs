@@ -13,9 +13,11 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.Election;
 
 public class CandidateAddressReplacedProcessor : ElectionProcessorBase<CandidateAddressReplaced>
 {
-    public CandidateAddressReplacedProcessor(ILogger<ElectionProcessorBase<CandidateAddressReplaced>> logger, IObjectMapper objectMapper, 
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, 
-        IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger, objectMapper, contractInfoOptions, electionRepository)
+    public CandidateAddressReplacedProcessor(
+        ILogger<AElfLogEventProcessorBase<CandidateAddressReplaced, LogEventInfo>> logger, IObjectMapper objectMapper,
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
+        IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) : base(logger, objectMapper,
+        contractInfoOptions, electionRepository)
     {
     }
 

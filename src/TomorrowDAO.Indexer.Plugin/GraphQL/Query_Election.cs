@@ -97,7 +97,7 @@ public partial class Query
 
         var sortingArray = sorting.Trim().ToLower().Split(" ", StringSplitOptions.RemoveEmptyEntries);
         var field = sortingArray[0];
-        var order = sortingArray[1];
+        var order = sortingArray.Length == 1 ? TomorrowDAOConst.Asc : sortingArray[1];
 
         switch (field)
         {
