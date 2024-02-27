@@ -15,9 +15,12 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.Treasury;
 
 public class DonationReceivedProcessor : TreasuryProcessorBase<DonationReceived>
 {
-    public DonationReceivedProcessor(ILogger<DAOProcessorBase<DonationReceived>> logger, IObjectMapper objectMapper, 
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> treasuryFundRepository,
-        IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> treasuryRecordRepository, IDAOProvider DAOProvider) 
+    public DonationReceivedProcessor(ILogger<AElfLogEventProcessorBase<DonationReceived, LogEventInfo>> logger,
+        IObjectMapper objectMapper,
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
+        IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> treasuryFundRepository,
+        IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> treasuryRecordRepository,
+        IDAOProvider DAOProvider)
         : base(logger, objectMapper, contractInfoOptions, treasuryFundRepository, treasuryRecordRepository, DAOProvider)
     {
     }

@@ -14,9 +14,13 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.Treasury;
 
 public class SupportedStakingTokensRemovedProcessor : TreasuryProcessorBase<SupportedStakingTokensRemoved>
 {
-    public SupportedStakingTokensRemovedProcessor(ILogger<DAOProcessorBase<SupportedStakingTokensRemoved>> logger, IObjectMapper objectMapper, 
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> treasuryFundRepository,
-        IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> treasuryRecordRepository, IDAOProvider DAOProvider) 
+    public SupportedStakingTokensRemovedProcessor(
+        ILogger<AElfLogEventProcessorBase<SupportedStakingTokensRemoved, LogEventInfo>> logger,
+        IObjectMapper objectMapper,
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
+        IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> treasuryFundRepository,
+        IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> treasuryRecordRepository,
+        IDAOProvider DAOProvider)
         : base(logger, objectMapper, contractInfoOptions, treasuryFundRepository, treasuryRecordRepository, DAOProvider)
     {
     }

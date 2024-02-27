@@ -11,14 +11,14 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.Vote;
 public abstract class VoteProcessorBase<TEvent> : AElfLogEventProcessorBase<TEvent, LogEventInfo>
     where TEvent : IEvent<TEvent>, new()
 {
-    protected readonly ILogger<VoteProcessorBase<TEvent>> Logger;
+    protected readonly ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> Logger;
     protected readonly IObjectMapper ObjectMapper;
     protected readonly ContractInfoOptions ContractInfoOptions;
     protected readonly IVoteProvider VoteProvider;
-    
-    protected VoteProcessorBase(ILogger<VoteProcessorBase<TEvent>> logger,
+
+    protected VoteProcessorBase(ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> logger,
         IObjectMapper objectMapper,
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, 
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IVoteProvider voteProvider) : base(logger)
     {
         Logger = logger;

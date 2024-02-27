@@ -15,7 +15,7 @@ public interface IGovernanceProvider
 
 public class GovernanceProvider : IGovernanceProvider, ISingletonDependency
 {
-    private readonly ILogger<IGovernanceProvider> _logger;
+    private readonly ILogger<GovernanceProvider> _logger;
 
     private readonly IAElfIndexerClientEntityRepository<GovernanceSubSchemeIndex, LogEventInfo>
         _governanceSubSchemeRepository;
@@ -23,7 +23,7 @@ public class GovernanceProvider : IGovernanceProvider, ISingletonDependency
     private readonly IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo>
         _organizationRepository;
     
-    public GovernanceProvider(ILogger<IGovernanceProvider> logger,
+    public GovernanceProvider(ILogger<GovernanceProvider> logger,
         IAElfIndexerClientEntityRepository<GovernanceSubSchemeIndex, LogEventInfo> governanceSubSchemeRepository, 
         IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> organizationRepository)
     {

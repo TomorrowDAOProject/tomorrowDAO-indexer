@@ -1,4 +1,5 @@
 using AElfIndexer.Client.Handlers;
+using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -11,8 +12,9 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.Vote;
 
 public class VotingItemRegisteredProcessor : VoteProcessorBase<VotingItemRegistered>
 {
-    public VotingItemRegisteredProcessor(ILogger<VoteProcessorBase<VotingItemRegistered>> logger, IObjectMapper objectMapper, 
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IVoteProvider voteProvider) 
+    public VotingItemRegisteredProcessor(ILogger<AElfLogEventProcessorBase<VotingItemRegistered, LogEventInfo>> logger,
+        IObjectMapper objectMapper,
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IVoteProvider voteProvider)
         : base(logger, objectMapper, contractInfoOptions, voteProvider)
     {
     }

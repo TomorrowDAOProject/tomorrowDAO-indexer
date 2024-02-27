@@ -7,4 +7,7 @@ public class TomorrowDAOConst
 
     public const string VotesAmount = "votesamount";
     public const string StakeAmount = "stakeamount";
+    
+    public const string VoteTime = "votetime";
+    public const string Amount = "amount";
 }

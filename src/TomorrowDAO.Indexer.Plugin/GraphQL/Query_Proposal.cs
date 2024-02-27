@@ -117,14 +117,14 @@ public partial class Query
             return _ => sortDescriptor;
         }
 
-        var sortingArray = sorting.Split(" ");
+        var sortingArray = sorting.Trim().ToLower().Split(" ", StringSplitOptions.RemoveEmptyEntries);
         var field = sortingArray[0];
-        var order = sortingArray[1];
+        var order = sortingArray.Length == 1 ? TomorrowDAOConst.Asc : sortingArray[1];
 
         switch (field)
         {
-            case "VoteTime":
-                if (order == "ASC")
+            case TomorrowDAOConst.VoteTime:
+                if (order == TomorrowDAOConst.Asc || order == TomorrowDAOConst.Ascend)
                 {
                     sortDescriptor.Ascending(a => a.VoteTime);
                 }
@@ -133,8 +133,8 @@ public partial class Query
                     sortDescriptor.Descending(a => a.VoteTime);
                 }
                 break;
-            case "Amount":
-                if (order == "ASC")
+            case TomorrowDAOConst.Amount:
+                if (order == TomorrowDAOConst.Asc || order == TomorrowDAOConst.Ascend)
                 {
                     sortDescriptor.Ascending(a => a.Amount);
                 }

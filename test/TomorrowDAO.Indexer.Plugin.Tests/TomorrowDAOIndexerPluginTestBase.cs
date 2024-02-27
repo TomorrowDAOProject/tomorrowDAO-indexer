@@ -10,17 +10,17 @@ using Google.Protobuf.WellKnownTypes;
 using TomorrowDAO.Contracts.DAO;
 using TomorrowDAO.Contracts.Election;
 using TomorrowDAO.Contracts.Treasury;
-using TomorrowDAO.Contracts.Vote;
 using TomorrowDAO.Indexer.Orleans.TestBase;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using TomorrowDAO.Indexer.Plugin.Processors.Election;
 using TomorrowDAO.Indexer.Plugin.Processors.Treasury;
-using TomorrowDAO.Indexer.Plugin.Processors.Vote;
 using TomorrowDAO.Indexer.Plugin.Tests.Helper;
 using File = TomorrowDAO.Contracts.DAO.File;
 using FileInfo = TomorrowDAO.Contracts.DAO.FileInfo;
 using Metadata = TomorrowDAO.Contracts.DAO.Metadata;
+using Vote = TomorrowDAO.Indexer.Plugin.Processors.Vote;
+using ContractsVote = TomorrowDAO.Contracts.Vote;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests;
 
@@ -36,7 +36,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> TreasuryFundRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> TreasuryRecordRepository;
     protected readonly IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> ElectionRepository;
-    protected readonly VoteCreatedProcessor VoteCreatedProcessor;
+    protected readonly Vote.VoteCreatedProcessor VoteCreatedProcessor;
     protected readonly DAOCreatedProcessor DAOCreatedProcessor;
     protected readonly FileInfosRemovedProcessor FileInfosRemovedProcessor;
     protected readonly FileInfosUploadedProcessor FileInfosUploadedProcessor;
@@ -58,7 +58,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly CandidateAddressReplacedProcessor CandidateAddressReplacedProcessor;
     protected readonly CandidateInfoUpdatedProcessor CandidateInfoUpdatedProcessor;
     protected readonly CandidateRemovedProcessor CandidateRemovedProcessor;
-    
+    protected readonly VotedProcessor VotedProcessor;
 
     protected readonly long BlockHeight = 120;
     protected readonly string ChainAelf = "tDVV";
@@ -123,7 +123,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         HighCouncilDisabledProcessor = GetRequiredService<HighCouncilDisabledProcessor>();
         HighCouncilEnabledProcessor = GetRequiredService<HighCouncilEnabledProcessor>();
         SubsistStatusSetProcessor = GetRequiredService<SubsistStatusSetProcessor>();
-        VoteCreatedProcessor = GetRequiredService<VoteCreatedProcessor>();
+        VoteCreatedProcessor = GetRequiredService<Vote.VoteCreatedProcessor>();
         DAOCreatedProcessor = GetRequiredService<DAOCreatedProcessor>();
         DonationReceivedProcessor = GetRequiredService<DonationReceivedProcessor>();
         TreasuryCreatedProcessor = GetRequiredService<TreasuryCreatedProcessor>();
@@ -140,6 +140,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         CandidateAddressReplacedProcessor = GetRequiredService<CandidateAddressReplacedProcessor>();
         CandidateInfoUpdatedProcessor = GetRequiredService<CandidateInfoUpdatedProcessor>();
         CandidateRemovedProcessor = GetRequiredService<CandidateRemovedProcessor>();
+        VotedProcessor = GetRequiredService<VotedProcessor>();
     }
 
     protected async Task<string> InitializeBlockStateSetAsync(BlockStateSet<LogEventInfo> blockStateSet, string chainId)
@@ -492,24 +493,34 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         }.ToLogEvent();
     }
     
-    protected LogEvent VoteSchemeCreated_UniqueVote()
+    protected LogEvent Voted()
     {
-        return new VoteSchemeCreated
+        return new Voted
         {
-            IsLockToken = true,
-            IsQuadratic = true,
-            VoteMechanism = VoteMechanism.UniqueVote,
-            VoteSchemeId = HashHelper.ComputeFrom(Id3)
+            DaoId = HashHelper.ComputeFrom(Id1),
+            CandidateAddress = Address.FromBase58(DAOCreator),
+            Amount = 100
         }.ToLogEvent();
     }
     
-    protected LogEvent VoteSchemeCreated_TokenBallot()
+    protected LogEvent VoteSchemeCreated_UniqueVote()
     {
-        return new VoteSchemeCreated
+        return new ContractsVote.VoteSchemeCreated
         {
             IsLockToken = true,
             IsQuadratic = true,
-            VoteMechanism = VoteMechanism.TokenBallot,
+            VoteMechanism = ContractsVote.VoteMechanism.UniqueVote,
+            VoteSchemeId = HashHelper.ComputeFrom(Id3)
+        }.ToLogEvent();
+    }
+
+    protected LogEvent VoteSchemeCreated_TokenBallot()
+    {
+        return new ContractsVote.VoteSchemeCreated
+        {
+            IsLockToken = true,
+            IsQuadratic = true,
+            VoteMechanism = ContractsVote.VoteMechanism.TokenBallot,
             VoteSchemeId = HashHelper.ComputeFrom(Id1)
         }.ToLogEvent();
     }
