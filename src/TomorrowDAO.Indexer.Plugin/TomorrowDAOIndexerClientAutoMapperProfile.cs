@@ -20,6 +20,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
 {
     public TomorrowDAOIndexerClientAutoMapperProfile()
     {
+        CreateMap<VoteSchemeIndex, VoteSchemeInfoDto>();
         CreateMap<ElectionIndex, ElectionDto>();
         CreateMap<TreasuryFundIndex, TreasuryFundDto>();
         CreateMap<TreasuryRecordIndex, TreasuryRecordDto>();
