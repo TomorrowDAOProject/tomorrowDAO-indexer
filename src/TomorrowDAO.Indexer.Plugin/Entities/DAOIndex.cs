@@ -25,5 +25,10 @@ public class DAOIndex : AElfIndexerClientEntity<string>, IIndexBuild
     [Keyword] public string ElectionContractAddress { get; set; }
     [Keyword] public string GovernanceContractAddress { get; set; }
     [Keyword] public string TimelockContractAddress { get; set; }
+    public long ActiveTimePeriod { get; set; }
+    public long VetoActiveTimePeriod { get; set; }
+    public long PendingTimePeriod { get; set; }
+    public long ExecuteTimePeriod { get; set; }
+    public long VetoExecuteTimePeriod { get; set; }
     public DateTime CreateTime { get; set; }
 }

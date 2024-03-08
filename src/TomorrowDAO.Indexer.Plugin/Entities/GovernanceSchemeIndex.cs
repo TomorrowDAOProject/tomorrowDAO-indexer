@@ -9,13 +9,12 @@ namespace TomorrowDAO.Indexer.Plugin.Entities;
 public class GovernanceSchemeIndex : GovernanceSchemeThreshold, IIndexBuild
 {
     [Keyword] public override string Id { get; set; }
-    
-    [Keyword] public string GovernanceSchemeId { get; set; }
-   
+    [PropertyName("DAOId")]
+    [Keyword] public string DAOId { get; set; }
+    [Keyword] public string SchemeId { get; set; }
+    [Keyword] public string SchemeAddress { get; set; }
     [JsonConverter(typeof(StringEnumConverter))]
     public GovernanceMechanism GovernanceMechanism { get; set; }
-   
-    [Keyword] public string Creator { get; set; }
-    
+    [Keyword] public string GovernanceToken { get; set; }
     public DateTime CreateTime { get; set; }
 }

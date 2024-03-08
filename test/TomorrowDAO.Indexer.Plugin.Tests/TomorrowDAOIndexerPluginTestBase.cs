@@ -9,11 +9,14 @@ using AElfIndexer.Grains.State.Client;
 using Google.Protobuf.WellKnownTypes;
 using TomorrowDAO.Contracts.DAO;
 using TomorrowDAO.Contracts.Election;
+using TomorrowDAO.Contracts.Governance;
 using TomorrowDAO.Contracts.Treasury;
 using TomorrowDAO.Indexer.Orleans.TestBase;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using TomorrowDAO.Indexer.Plugin.Processors.Election;
+using TomorrowDAO.Indexer.Plugin.Processors.GovernanceScheme;
+using TomorrowDAO.Indexer.Plugin.Processors.Proposal;
 using TomorrowDAO.Indexer.Plugin.Processors.Treasury;
 using TomorrowDAO.Indexer.Plugin.Tests.Helper;
 using File = TomorrowDAO.Contracts.DAO.File;
@@ -21,6 +24,8 @@ using FileInfo = TomorrowDAO.Contracts.DAO.FileInfo;
 using Metadata = TomorrowDAO.Contracts.DAO.Metadata;
 using Vote = TomorrowDAO.Indexer.Plugin.Processors.Vote;
 using ContractsVote = TomorrowDAO.Contracts.Vote;
+using ExecuteTransaction = TomorrowDAO.Contracts.Governance.ExecuteTransaction;
+using GovernanceSchemeThreshold = TomorrowDAO.Contracts.Governance.GovernanceSchemeThreshold;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests;
 
@@ -36,6 +41,9 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> TreasuryFundRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> TreasuryRecordRepository;
     protected readonly IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> ElectionRepository;
+    protected readonly IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo> GovernanceSchemeRepository;
+    protected readonly IAElfIndexerClientEntityRepository<GovernanceMechanismIndex, LogEventInfo> GovernanceMechanismRepository;
+    protected readonly IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> ProposalIndexRepository;
     protected readonly Vote.VoteCreatedProcessor VoteCreatedProcessor;
     protected readonly DAOCreatedProcessor DAOCreatedProcessor;
     protected readonly FileInfosRemovedProcessor FileInfosRemovedProcessor;
@@ -59,15 +67,25 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly CandidateInfoUpdatedProcessor CandidateInfoUpdatedProcessor;
     protected readonly CandidateRemovedProcessor CandidateRemovedProcessor;
     protected readonly VotedProcessor VotedProcessor;
+    protected readonly GovernanceSchemeAddedProcessor GovernanceSchemeAddedProcessor;
+    protected readonly GovernanceSchemeThresholdRemovedProcessor GovernanceSchemeThresholdRemovedProcessor;
+    protected readonly GovernanceSchemeThresholdUpdatedProcessor GovernanceSchemeThresholdUpdatedProcessor;
+    protected readonly GovernanceTokenSetProcessor GovernanceTokenSetProcessor;
+    protected readonly ProposalCreatedProcessor ProposalCreatedProcessor;
+    protected readonly DAOProposalTimePeriodSetProcessor DAOProposalTimePeriodSetProcessor;
+    protected readonly ProposalExecutedProcessor ProposalExecutedProcessor;
+    protected readonly ProposalVetoedProcessor ProposalVetoedProcessor;
 
     protected readonly long BlockHeight = 120;
     protected readonly string ChainAelf = "tDVV";
     protected static readonly string Id1 = "123";
     protected static readonly string Id2 = "456";
     protected static readonly string Id3 = "789";
+    protected static readonly string Id4 = "101";
     protected static readonly string ProposalId = "p-1";
     protected readonly string DAOId = HashHelper.ComputeFrom(Id1).ToHex();
     protected readonly string VoteSchemeId = HashHelper.ComputeFrom(Id3).ToHex();
+    protected readonly string VetoProposalId = HashHelper.ComputeFrom(Id4).ToHex();
     protected readonly string DAOName = "DAOName";
     protected readonly string DAOLogoUrl = "DAOLogoUrl";
     protected readonly string DAODescription = "DAODescription";
@@ -75,7 +93,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly string DAOMetadataAdmin = "2N9DJYUUruS7bFqRyKMvafA75qTWgqpWcB78nNZzpmxHrMv4D";
     protected readonly string DAO = "2N9DJYUUruS7bFqRyKMvafA75qTWgqpWcB78nNZzpmxHrMv4D";
     protected readonly string Elf = "ELF";
-    protected readonly string GovernanceSchemeId = HashHelper.ComputeFrom(Id2).ToHex();
+    protected readonly string SchemeId = HashHelper.ComputeFrom(Id2).ToHex();
     protected static readonly string SubId = "456-1";
     protected readonly string FileHash = "FileHash";
     protected readonly string FileCid = "FileCid";
@@ -95,6 +113,9 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly string GovernanceContractAddress = "HJfhXPPL3Eb2wYPAc6ePmirenNzqGBAsynyeYF9tKSV2kHTAF";
     protected readonly string TimelockContractAddress = "7VzrKvnFRjrK4duJz8HNA1nWf2AJcxwwGXzTtC4MC3tKUtdbH";
     protected readonly string TreasuryAccountAddress = "pykr77ft9UUKJZLVq15wCH8PinBSjVRQ12sD1Ayq92mKFsJ1i";
+    protected readonly string SchemeAddress = "2RjBxiiMKnEe72w5R6CtbdH3M8UQSmh7MfRPs7wJTNMU3KgUpm";
+    protected readonly string ForumUrl = "ForumUrl";
+    protected readonly string ProposalTitle = "ProposalTitle";
 
     // protected readonly int MinimalRequiredThreshold = 1;
     // protected readonly int MinimalVoteThreshold = 2;
@@ -118,6 +139,9 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         TreasuryFundRepository = GetRequiredService<IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo>>();
         TreasuryRecordRepository = GetRequiredService<IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo>>();
         ElectionRepository = GetRequiredService<IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo>>();
+        GovernanceSchemeRepository = GetRequiredService<IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo>>();
+        GovernanceMechanismRepository = GetRequiredService<IAElfIndexerClientEntityRepository<GovernanceMechanismIndex, LogEventInfo>>();
+        ProposalIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo>>();
         FileInfosRemovedProcessor = GetRequiredService<FileInfosRemovedProcessor>();
         FileInfosUploadedProcessor = GetRequiredService<FileInfosUploadedProcessor>();
         HighCouncilDisabledProcessor = GetRequiredService<HighCouncilDisabledProcessor>();
@@ -141,6 +165,14 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         CandidateInfoUpdatedProcessor = GetRequiredService<CandidateInfoUpdatedProcessor>();
         CandidateRemovedProcessor = GetRequiredService<CandidateRemovedProcessor>();
         VotedProcessor = GetRequiredService<VotedProcessor>();
+        GovernanceSchemeAddedProcessor = GetRequiredService<GovernanceSchemeAddedProcessor>();
+        GovernanceSchemeThresholdRemovedProcessor = GetRequiredService<GovernanceSchemeThresholdRemovedProcessor>();
+        GovernanceSchemeThresholdUpdatedProcessor = GetRequiredService<GovernanceSchemeThresholdUpdatedProcessor>();
+        GovernanceTokenSetProcessor = GetRequiredService<GovernanceTokenSetProcessor>();
+        ProposalCreatedProcessor = GetRequiredService<ProposalCreatedProcessor>();
+        DAOProposalTimePeriodSetProcessor = GetRequiredService<DAOProposalTimePeriodSetProcessor>();
+        ProposalExecutedProcessor = GetRequiredService<ProposalExecutedProcessor>();
+        ProposalVetoedProcessor = GetRequiredService<ProposalVetoedProcessor>();
     }
 
     protected async Task<string> InitializeBlockStateSetAsync(BlockStateSet<LogEventInfo> blockStateSet, string chainId)
@@ -522,6 +554,132 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             IsQuadratic = true,
             VoteMechanism = ContractsVote.VoteMechanism.TokenBallot,
             VoteSchemeId = HashHelper.ComputeFrom(Id1)
+        }.ToLogEvent();
+    }
+
+    protected LogEvent GovernanceSchemeAdded()
+    {
+        return new GovernanceSchemeAdded
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            GovernanceMechanism = GovernanceMechanism.Referendum,
+            SchemeThreshold = new GovernanceSchemeThreshold
+            {
+                MinimalRequiredThreshold = 10,
+                MinimalVoteThreshold = 12,
+                MinimalApproveThreshold = 50,
+                MaximalRejectionThreshold = 30,
+                MaximalAbstentionThreshold = 20
+            },
+            GovernanceToken = Elf,
+            SchemeId = HashHelper.ComputeFrom(Id2),
+            SchemeAddress = Address.FromBase58(SchemeAddress)
+        }.ToLogEvent();
+    }
+
+    protected LogEvent GovernanceSchemeThresholdRemoved()
+    {
+        return new GovernanceSchemeThresholdRemoved
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            SchemeAddress = Address.FromBase58(SchemeAddress)
+        }.ToLogEvent();
+    }
+
+    protected LogEvent GovernanceSchemeThresholdUpdated()
+    {
+        return new GovernanceSchemeThresholdUpdated
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            UpdateSchemeThreshold = new GovernanceSchemeThreshold
+            {
+                MinimalRequiredThreshold = 1,
+                MinimalVoteThreshold = 1,
+                MinimalApproveThreshold = 1,
+                MaximalRejectionThreshold = 1,
+                MaximalAbstentionThreshold = 1
+            },
+            SchemeAddress = Address.FromBase58(SchemeAddress)
+        }.ToLogEvent();
+    }
+
+    protected LogEvent GovernanceTokenSet()
+    {
+        return new GovernanceTokenSet
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            GovernanceToken = Elf
+        }.ToLogEvent();
+    }
+
+    protected LogEvent ProposalCreated()
+    {
+        return new ProposalCreated
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            ProposalId = HashHelper.ComputeFrom(ProposalId),
+            ProposalTitle = ProposalTitle,
+            ForumUrl = ForumUrl,
+            ProposalDescription = ProposalDescription,
+            ProposalType = ProposalType.Advisory,
+            ActiveStartTime = new Timestamp(),
+            ActiveEndTime = new Timestamp(),
+            ExecuteStartTime = new Timestamp(),
+            ExecuteEndTime = new Timestamp(),
+            ProposalStatus = ProposalStatus.Empty,
+            ProposalStage = ProposalStage.Active,
+            Proposer = Address.FromBase58(DAOCreator),
+            SchemeAddress = Address.FromBase58(SchemeAddress),
+            Transaction = new ExecuteTransaction
+            {
+                ContractMethodName = "ContractMethodName",
+                ToAddress = Address.FromBase58(ExecuteAddress)
+            },
+            VoteSchemeId = HashHelper.ComputeFrom(Id3),
+            VetoProposalId = HashHelper.ComputeFrom(Id4)
+        }.ToLogEvent();
+    }
+
+    protected LogEvent ProposalCreated_Veto()
+    {
+        return new ProposalCreated
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            ProposalId = HashHelper.ComputeFrom(Id4)
+        }.ToLogEvent();
+    }
+
+    protected LogEvent DaoProposalTimePeriodSet()
+    {
+        return new DaoProposalTimePeriodSet
+        {
+            ActiveTimePeriod = 1L,
+            DaoId = HashHelper.ComputeFrom(Id1),
+            ExecuteTimePeriod = 2L,
+            PendingTimePeriod = 3L,
+            VetoExecuteTimePeriod = 4L,
+            VetoActiveTimePeriod = 5L
+        }.ToLogEvent();
+    }
+
+    protected LogEvent ProposalExecuted()
+    {
+        return new ProposalExecuted
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            ExecuteTime = new Timestamp(),
+            ProposalId = HashHelper.ComputeFrom(ProposalId)
+        }.ToLogEvent();
+    }
+
+    protected LogEvent ProposalVetoed()
+    {
+        return new ProposalVetoed
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            VetoProposalId = HashHelper.ComputeFrom(Id4),
+            ProposalId = HashHelper.ComputeFrom(ProposalId),
+            VetoTime = new Timestamp()
         }.ToLogEvent();
     }
 }

@@ -3,8 +3,6 @@ namespace TomorrowDAO.Indexer.Plugin.Enums;
 public enum GovernanceMechanism
 {
     Unspecified = 0,
-    Parliament = 1,
-    Association = 2,
-    Customize = 3,
-    Referendum = 4
+    Referendum = 1,
+    HighCouncil = 2
 }

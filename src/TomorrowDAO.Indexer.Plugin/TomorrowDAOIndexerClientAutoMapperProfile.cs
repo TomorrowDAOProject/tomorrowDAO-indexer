@@ -5,6 +5,8 @@ using TomorrowDAO.Contracts.Treasury;
 using TomorrowDAO.Contracts.Vote;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
+using ExecuteTransaction = TomorrowDAO.Indexer.Plugin.Entities.ExecuteTransaction;
+using ExecuteTransactionContract = TomorrowDAO.Contracts.Governance.ExecuteTransaction;
 using HighCouncilConfigContract = TomorrowDAO.Contracts.DAO.HighCouncilConfig;
 using HighCouncilConfigIndexer = TomorrowDAO.Indexer.Plugin.Entities.HighCouncilConfig;
 using MetadataContract = TomorrowDAO.Contracts.DAO.Metadata;
@@ -25,34 +27,41 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<TreasuryFundIndex, TreasuryFundDto>();
         CreateMap<TreasuryRecordIndex, TreasuryRecordDto>();
         CreateMap<LogEventContext, ProposalIndex>();
+        CreateMap<GovernanceSchemeIndex, ProposalIndex>();
+        CreateMap<ExecuteTransactionContract, ExecuteTransaction>();
         CreateMap<ProposalCreated, ProposalIndex>()
+            .ForMember(des => des.Id, opt
+                => opt.MapFrom(source => MapHash(source.ProposalId)))
             .ForMember(des => des.DAOId, opt
                 => opt.MapFrom(source => MapHash(source.DaoId)))
             .ForMember(des => des.ProposalId, opt
                 => opt.MapFrom(source => MapHash(source.ProposalId)))
-            // .ForMember(des => des.GovernanceSchemeId, opt
-            //     => opt.MapFrom(source => MapHash(source.GovernanceSchemeId)))
-            // .ForMember(des => des.VoteSchemeId, opt
-            //     => opt.MapFrom(source => MapHash(source.VoteSchemeId)))
-            // .ForMember(des => des.OrganizationAddress, opt
-            //     => opt.MapFrom(source => MapAddress(source.OrganizationAddress)))
-            // .ForMember(des => des.ExecuteAddress, opt
-            //     => opt.MapFrom(source => MapAddress(source.ExecuteAddress)))
-            // .ForMember(des => des.StartTime, opt
-            //     => opt.MapFrom(source => MapDateTime(source.StartTime)))
-            // .ForMember(des => des.EndTime, opt
-            //     => opt.MapFrom(source => MapDateTime(source.EndTime)))
-            // .ForMember(des => des.ExpiredTime, opt
-            //     => opt.MapFrom(source => MapDateTime(source.ExpiredTime)))
+            .ForMember(des => des.ActiveStartTime, opt
+                => opt.MapFrom(source => MapDateTime(source.ActiveStartTime)))
+            .ForMember(des => des.ActiveEndTime, opt
+                => opt.MapFrom(source => MapDateTime(source.ActiveEndTime)))
+            .ForMember(des => des.ExecuteStartTime, opt
+                => opt.MapFrom(source => MapDateTime(source.ExecuteStartTime)))
+            .ForMember(des => des.ExecuteEndTime, opt
+                => opt.MapFrom(source => MapDateTime(source.ExecuteEndTime)))
+            .ForMember(des => des.Proposer, opt
+                => opt.MapFrom(source => MapAddress(source.Proposer)))
+            .ForMember(des => des.SchemeAddress, opt
+                => opt.MapFrom(source => MapAddress(source.SchemeAddress)))
+            .ForMember(des => des.VoteSchemeId, opt
+                => opt.MapFrom(source => MapHash(source.VoteSchemeId)))
+            .ForMember(des => des.VetoProposalId, opt
+                => opt.MapFrom(source => MapHash(source.VetoProposalId)))
             ;
         
         CreateMap<ProposalExecuted, ProposalIndex>();
-        CreateMap<GovernanceSubSchemeIndex, ProposalIndex>();
+        CreateMap<DAOIndex, ProposalIndex>();
         CreateMap<ProposalIndex, ProposalSyncDto>();
         CreateMap<LogEventContext, DAOIndex>();
         CreateMap<LogEventContext, TreasuryFundIndex>();
         CreateMap<LogEventContext, TreasuryRecordIndex>();
         CreateMap<LogEventContext, ElectionIndex>();
+        CreateMap<DaoProposalTimePeriodSet, DAOIndex>();
         CreateMap<DAOCreated, DAOIndex>()
             .ForMember(des => des.Creator, opt
                 => opt.MapFrom(source => MapAddress(source.Creator)))
@@ -106,22 +115,21 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             //     => opt.MapFrom(source => MapOrganizationMemberSet(source)))
             // ;
         CreateMap<LogEventContext, GovernanceSchemeIndex>();
-        CreateMap<LogEventContext, GovernanceSubSchemeIndex>();
-        // CreateMap<GovernanceSchemeCreated, GovernanceSchemeIndex>()
-        //     .ForMember(des => des.GovernanceSchemeId, opt
-        //         => opt.MapFrom(source => MapHash(source.GovernanceSchemeId)))
-        //     .ForMember(des => des.Creator, opt
-        //         => opt.MapFrom(source => MapAddress(source.Creator)));
-        // CreateMap<GovernanceSubSchemeAdded, GovernanceSubSchemeIndex>()
-        //     .ForMember(des => des.SubSchemeId, opt
-        //         => opt.MapFrom(source => MapHash(source.SubSchemeId)))
-        //     .ForMember(des => des.ParentSchemeId, opt
-        //         => opt.MapFrom(source => MapHash(source.ParentSchemeId)));
+        CreateMap<LogEventContext, GovernanceMechanismIndex>();
+        CreateMap<GovernanceSchemeAdded, GovernanceSchemeIndex>()
+            .ForMember(des => des.SchemeId, opt
+                => opt.MapFrom(source => MapHash(source.SchemeId)))
+            .ForMember(des => des.DAOId, opt
+                => opt.MapFrom(source => MapHash(source.DaoId)))
+            .ForMember(des => des.SchemeAddress, opt
+                => opt.MapFrom(source => MapAddress(source.SchemeAddress)))
+            ;
         CreateMap<VoteIndex, VoteInfoDto>()
             .ForMember(des => des.VoterCount, opt
                 => opt.MapFrom(source => source.VoterSet.Count));
         CreateMap<VoteRecordIndex, VoteRecordDto>();
-        CreateMap<GovernanceSubSchemeIndex, GovernanceMode>();
+        CreateMap<GovernanceMechanismIndex, GovernanceMode>();
+        CreateMap<GovernanceSchemeAdded, GovernanceMechanismIndex>();
         CreateMap<OrganizationIndex, OrganizationInfoDto>()
             .ForMember(des => des.OrganizationMemberCount, opt
                 => opt.MapFrom(source => source.OrganizationMemberSet.Count));

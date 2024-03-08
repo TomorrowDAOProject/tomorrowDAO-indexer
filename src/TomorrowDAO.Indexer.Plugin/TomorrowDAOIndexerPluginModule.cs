@@ -5,8 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using TomorrowDAO.Indexer.Plugin.GraphQL;
 using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using TomorrowDAO.Indexer.Plugin.Processors.Election;
-using TomorrowDAO.Indexer.Plugin.Processors.GovernanceScheme;
-using TomorrowDAO.Indexer.Plugin.Processors.Organization;
 using TomorrowDAO.Indexer.Plugin.Processors.Proposal;
 using TomorrowDAO.Indexer.Plugin.Processors.Treasury;
 using Volo.Abp.AutoMapper;

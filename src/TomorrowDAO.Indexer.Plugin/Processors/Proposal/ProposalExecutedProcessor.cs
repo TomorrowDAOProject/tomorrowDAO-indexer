@@ -7,6 +7,7 @@ using TomorrowDAO.Contracts.Governance;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
+using ProposalStage = TomorrowDAO.Indexer.Plugin.Enums.ProposalStage;
 using ProposalStatus = TomorrowDAO.Indexer.Plugin.Enums.ProposalStatus;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors.Proposal;
@@ -17,8 +18,8 @@ public class ProposalExecutedProcessor : ProposalProcessorBase<ProposalExecuted>
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> proposalRepository,
-        IGovernanceProvider governanceProvider) :
-        base(logger, objectMapper, contractInfoOptions, proposalRepository, governanceProvider)
+        IGovernanceProvider governanceProvider, IDAOProvider DAOProvider) :
+        base(logger, objectMapper, contractInfoOptions, proposalRepository, governanceProvider, DAOProvider)
     {
     }
 
@@ -28,18 +29,15 @@ public class ProposalExecutedProcessor : ProposalProcessorBase<ProposalExecuted>
         var proposalId = eventValue.ProposalId.ToHex();
         Logger.LogInformation("[ProposalExecuted] start proposalId:{proposalId} chainId:{chainId} ", proposalId,
             chainId);
-        var proposalIndex = await ProposalRepository.GetFromBlockStateSetAsync(proposalId, context.ChainId);
-        if (proposalIndex == null)
+        try
         {
-            Logger.LogInformation("[ProposalExecuted] proposalIndex with id {id} chainId {chainId} has not existed.",
-                proposalId, chainId);
-            return;
+            UpdateVetoProposal(proposalId, ProposalStatus.Executed, ProposalStage.Finished, eventValue.ExecuteTime?.ToDateTime(), context);
+            Logger.LogInformation("[ProposalExecuted] end proposalId:{proposalId} chainId:{chainId} ", proposalId, chainId);
         }
-
-        ObjectMapper.Map(context, proposalIndex);
-        proposalIndex.ProposalStatus = ProposalStatus.Executed;
-        proposalIndex.ExecuteTime = eventValue.ExecuteTime?.ToDateTime();
-        await ProposalRepository.AddOrUpdateAsync(proposalIndex);
-        Logger.LogInformation("[ProposalExecuted] end proposalId:{proposalId} chainId:{chainId} ", proposalId, chainId);
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 }

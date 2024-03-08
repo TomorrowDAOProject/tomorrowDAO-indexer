@@ -2,7 +2,7 @@ using Nest;
 
 namespace TomorrowDAO.Indexer.Plugin.Entities;
 
-public class CallTransactionInfo
+public class ExecuteTransaction
 {
     // The address of the target contract.
     [Keyword] public string ToAddress { get; set; }

@@ -5,6 +5,7 @@ using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TomorrowDAO.Indexer.Plugin.Entities;
+using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors.GovernanceScheme;
@@ -15,24 +16,24 @@ public abstract class GovernanceSchemeProcessorBase<TEvent> : AElfLogEventProces
     protected readonly ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> Logger;
     protected readonly IObjectMapper ObjectMapper;
     protected readonly ContractInfoOptions ContractInfoOptions;
-
-    protected readonly IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo>
-        GovernanceSchemeRepository;
-    protected readonly IAElfIndexerClientEntityRepository<GovernanceSubSchemeIndex, LogEventInfo>
-        GovernanceSubSchemeRepository;
+    protected readonly IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo> GovernanceSchemeRepository;
+    protected readonly IAElfIndexerClientEntityRepository<GovernanceMechanismIndex, LogEventInfo> GovernanceMechanismRepository;
+    protected readonly IDAOProvider DAOProvider;
 
     protected GovernanceSchemeProcessorBase(ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> logger,
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
-        IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo> governanceSchemeRepository, 
-        IAElfIndexerClientEntityRepository<GovernanceSubSchemeIndex, LogEventInfo> governanceSubSchemeRepository) :
+        IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo> governanceSchemeRepository,
+        IAElfIndexerClientEntityRepository<GovernanceMechanismIndex, LogEventInfo> governanceMechanismRepository,
+        IDAOProvider DAOProvider) :
         base(logger)
     {
         Logger = logger;
         ObjectMapper = objectMapper;
         ContractInfoOptions = contractInfoOptions.Value;
         GovernanceSchemeRepository = governanceSchemeRepository;
-        GovernanceSubSchemeRepository = governanceSubSchemeRepository;
+        GovernanceMechanismRepository = governanceMechanismRepository;
+        this.DAOProvider = DAOProvider;
     }
 
     public override string GetContractAddress(string chainId)
@@ -46,9 +47,9 @@ public abstract class GovernanceSchemeProcessorBase<TEvent> : AElfLogEventProces
         await GovernanceSchemeRepository.AddOrUpdateAsync(index);
     }
     
-    protected async Task SaveIndexAsync(GovernanceSubSchemeIndex index, LogEventContext context)
+    protected async Task SaveIndexAsync(GovernanceMechanismIndex index, LogEventContext context)
     {
         ObjectMapper.Map(context, index);
-        await GovernanceSubSchemeRepository.AddOrUpdateAsync(index);
+        await GovernanceMechanismRepository.AddOrUpdateAsync(index);
     }
 }

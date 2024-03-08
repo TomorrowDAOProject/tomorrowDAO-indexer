@@ -13,7 +13,7 @@ public class GovernanceSchemeThreshold : AElfIndexerClientEntity<string>
     public int MaximalRejectionThreshold { get; set; }
     
     public int MaximalAbstentionThreshold { get; set; }
-
+    
     public void OfThreshold(TomorrowDAO.Contracts.Governance.GovernanceSchemeThreshold schemeThreshold)
     {
         MinimalRequiredThreshold = (int)schemeThreshold.MinimalRequiredThreshold;
