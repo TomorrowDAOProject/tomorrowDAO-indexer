@@ -105,15 +105,6 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => source.HighCouncilInput == null ? null : source.HighCouncilInput.HighCouncilConfig))
             ;
         CreateMap<HighCouncilConfigContract, HighCouncilConfigIndexer>();
-        CreateMap<LogEventContext, OrganizationIndex>();
-        // CreateMap<OrganizationCreated, OrganizationIndex>()
-        //     .ForMember(des => des.OrganizationAddress, opt
-        //         => opt.MapFrom(source => MapAddress(source.OrganizationAddress)))
-        //     .ForMember(des => des.GovernanceSchemeId, opt
-        //         => opt.MapFrom(source => MapHash(source.GovernanceSchemeId)))
-            // .ForMember(des => des.OrganizationMemberSet, opt 
-            //     => opt.MapFrom(source => MapOrganizationMemberSet(source)))
-            // ;
         CreateMap<LogEventContext, GovernanceSchemeIndex>();
         CreateMap<LogEventContext, GovernanceMechanismIndex>();
         CreateMap<GovernanceSchemeAdded, GovernanceSchemeIndex>()
@@ -130,9 +121,6 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<VoteRecordIndex, VoteRecordDto>();
         CreateMap<GovernanceMechanismIndex, GovernanceMode>();
         CreateMap<GovernanceSchemeAdded, GovernanceMechanismIndex>();
-        CreateMap<OrganizationIndex, OrganizationInfoDto>()
-            .ForMember(des => des.OrganizationMemberCount, opt
-                => opt.MapFrom(source => source.OrganizationMemberSet.Count));
         CreateMap<MetadataContract, MetadataIndexer>();
         CreateMap<DAOIndex, DAOInfoDto>();
         CreateMap<MetadataIndexer, MetadataDto>();
