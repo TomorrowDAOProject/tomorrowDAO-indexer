@@ -6,7 +6,7 @@ public class ContractInfoOptions
 }
 public class ContractInfo
 {
-    public string GovernanceContract  { get; set; }
+    public string GovernanceContractAddress  { get; set; }
     public string DAOContractAddress { get; set; }
     public string ElectionContractAddress { get; set; }
     public string VoteContractAddress { get; set; }

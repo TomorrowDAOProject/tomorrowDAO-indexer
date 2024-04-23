@@ -38,7 +38,7 @@ public abstract class GovernanceSchemeProcessorBase<TEvent> : AElfLogEventProces
 
     public override string GetContractAddress(string chainId)
     {
-        return ContractInfoOptions.ContractInfos[chainId].GovernanceContract;
+        return ContractInfoOptions.ContractInfos[chainId].GovernanceContractAddress;
     }
 
     protected async Task SaveIndexAsync(GovernanceSchemeIndex index, LogEventContext context)
