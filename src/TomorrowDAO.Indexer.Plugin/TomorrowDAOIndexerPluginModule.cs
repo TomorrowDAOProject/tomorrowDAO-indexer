@@ -66,6 +66,6 @@ public class TomorrowDAOIndexerPluginModule : AElfIndexerClientPluginBaseModule<
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, Vote.VotedProcessor>();
     }
 
-    protected override string ClientId => "AElfIndexer_tomorrowDAO";
-    protected override string Version => "******";
+    protected override string ClientId => "AElfIndexer_TomorrowDAO";
+    protected override string Version => "3a6d3abe5e4f4356a02c35a6d90257e7";
 }
