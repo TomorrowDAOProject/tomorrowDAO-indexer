@@ -6,6 +6,8 @@ namespace TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 public class ProposalSyncDto
 {
     public string Id { get; set; }
+    public string ChainId { get; set; }
+    public long BlockHeight { get; set; }
     
     public string DAOId { get; set; }
 

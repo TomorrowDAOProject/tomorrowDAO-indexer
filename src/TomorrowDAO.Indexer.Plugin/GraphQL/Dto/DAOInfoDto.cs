@@ -6,16 +6,14 @@ public class DAOInfoDto
     public string ChainId { get; set; }
     public long BlockHeight { get; set; }
     public string Creator { get; set; }
-    public string MetadataAdmin { get; set; }
     public MetadataDto Metadata { get; set; }
     public string GovernanceToken { get; set; }
-    public string GovernanceSchemeId { get; set; }
     public bool IsHighCouncilEnabled { get; set; }
+    public string HighCouncilAddress { get; set; }
     public HighCouncilConfigDto HighCouncilConfig { get; set; }
     public long HighCouncilTermNumber { get; set; }
     public string FileInfoList { get; set; }
     public bool IsTreasuryContractNeeded { get; set; }
-    public bool IsVoteContractNeeded { get; set; }
     public bool SubsistStatus { get; set; }
     public string TreasuryContractAddress { get; set; }
     public string TreasuryAccountAddress { get; set; }
@@ -25,8 +23,11 @@ public class DAOInfoDto
     public string ElectionContractAddress { get; set; }
     public string GovernanceContractAddress { get; set; }
     public string TimelockContractAddress { get; set; }
-    public string PermissionAddress { get; set; }
-    public string PermissionInfoList { get; set; }
+    public long ActiveTimePeriod { get; set; }
+    public long VetoActiveTimePeriod { get; set; }
+    public long PendingTimePeriod { get; set; }
+    public long ExecuteTimePeriod { get; set; }
+    public long VetoExecuteTimePeriod { get; set; }
     public DateTime CreateTime { get; set; }
 }
 
@@ -40,8 +41,8 @@ public class MetadataDto
 
 public class HighCouncilConfigDto
 {
-    public int MaxHighCouncilMemberCount { get; set; }
-    public int MaxHighCouncilCandidateCount { get; set; }
-    public int ElectionPeriod { get; set; }
-    public bool IsRequireHighCouncilForExecution { get; set; }
+    public long MaxHighCouncilMemberCount { get; set; }
+    public long MaxHighCouncilCandidateCount { get; set; }
+    public long ElectionPeriod { get; set; }
+    public long StakingAmount { get; set; }
 }

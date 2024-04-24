@@ -38,8 +38,6 @@ public class QueryTest : QueryTestBase
 
         DAOInfoDto.HighCouncilConfig.ShouldBeNull();
         DAOInfoDto.FileInfoList.ShouldBeNull();
-        DAOInfoDto.PermissionAddress.ShouldBeNull();
-        DAOInfoDto.PermissionInfoList.ShouldBeNull();
         DAOInfoDto.IsTreasuryContractNeeded.ShouldBe(false);
         DAOInfoDto.SubsistStatus.ShouldBe(true);
         DAOInfoDto.Id.ShouldBe(DAOId);
