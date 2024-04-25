@@ -17,9 +17,8 @@ public class GovernanceSchemeAddedProcessor : GovernanceSchemeProcessorBase<Gove
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo> governanceSchemeRepository,
-        IAElfIndexerClientEntityRepository<GovernanceMechanismIndex, LogEventInfo> governanceMechanismRepository,
         IDAOProvider DAOProvider) :
-        base(logger, objectMapper, contractInfoOptions, governanceSchemeRepository, governanceMechanismRepository, DAOProvider)
+        base(logger, objectMapper, contractInfoOptions, governanceSchemeRepository, DAOProvider)
     {
     }
 
@@ -42,10 +41,8 @@ public class GovernanceSchemeAddedProcessor : GovernanceSchemeProcessorBase<Gove
             governanceSchemeIndex.Id = id;
             governanceSchemeIndex.CreateTime = context.BlockTime;
             governanceSchemeIndex.OfThreshold(eventValue.SchemeThreshold);
+            governanceSchemeIndex.ChainId = chainId;
             await SaveIndexAsync(governanceSchemeIndex, context);
-            var governanceMechanismIndex = ObjectMapper.Map<GovernanceSchemeAdded, GovernanceMechanismIndex>(eventValue);
-            governanceMechanismIndex.Id = IdGenerateHelper.GetId(chainId, eventValue.GovernanceMechanism);
-            await SaveIndexAsync(governanceMechanismIndex, context);
             Logger.LogInformation("[GovernanceSchemeAdded] end id {id}", id);
         }
         catch (Exception e)

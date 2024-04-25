@@ -18,9 +18,8 @@ public class GovernanceTokenSetProcessor : GovernanceSchemeProcessorBase<Governa
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo> governanceSchemeRepository,
-        IAElfIndexerClientEntityRepository<GovernanceMechanismIndex, LogEventInfo> governanceMechanismRepository,
         IDAOProvider DAOProvider) :
-        base(logger, objectMapper, contractInfoOptions, governanceSchemeRepository, governanceMechanismRepository, DAOProvider)
+        base(logger, objectMapper, contractInfoOptions, governanceSchemeRepository, DAOProvider)
     {
     }
 

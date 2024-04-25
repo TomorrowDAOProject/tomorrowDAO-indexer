@@ -17,14 +17,12 @@ public abstract class GovernanceSchemeProcessorBase<TEvent> : AElfLogEventProces
     protected readonly IObjectMapper ObjectMapper;
     protected readonly ContractInfoOptions ContractInfoOptions;
     protected readonly IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo> GovernanceSchemeRepository;
-    protected readonly IAElfIndexerClientEntityRepository<GovernanceMechanismIndex, LogEventInfo> GovernanceMechanismRepository;
     protected readonly IDAOProvider DAOProvider;
 
     protected GovernanceSchemeProcessorBase(ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> logger,
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo> governanceSchemeRepository,
-        IAElfIndexerClientEntityRepository<GovernanceMechanismIndex, LogEventInfo> governanceMechanismRepository,
         IDAOProvider DAOProvider) :
         base(logger)
     {
@@ -32,7 +30,6 @@ public abstract class GovernanceSchemeProcessorBase<TEvent> : AElfLogEventProces
         ObjectMapper = objectMapper;
         ContractInfoOptions = contractInfoOptions.Value;
         GovernanceSchemeRepository = governanceSchemeRepository;
-        GovernanceMechanismRepository = governanceMechanismRepository;
         this.DAOProvider = DAOProvider;
     }
 
@@ -45,11 +42,5 @@ public abstract class GovernanceSchemeProcessorBase<TEvent> : AElfLogEventProces
     {
         ObjectMapper.Map(context, index);
         await GovernanceSchemeRepository.AddOrUpdateAsync(index);
-    }
-    
-    protected async Task SaveIndexAsync(GovernanceMechanismIndex index, LogEventContext context)
-    {
-        ObjectMapper.Map(context, index);
-        await GovernanceMechanismRepository.AddOrUpdateAsync(index);
     }
 }

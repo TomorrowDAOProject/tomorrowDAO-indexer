@@ -17,9 +17,8 @@ public class GovernanceSchemeThresholdRemovedProcessor : GovernanceSchemeProcess
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo> governanceSchemeRepository,
-        IAElfIndexerClientEntityRepository<GovernanceMechanismIndex, LogEventInfo> governanceMechanismRepository,
         IDAOProvider DAOProvider) :
-        base(logger, objectMapper, contractInfoOptions, governanceSchemeRepository, governanceMechanismRepository, DAOProvider)
+        base(logger, objectMapper, contractInfoOptions, governanceSchemeRepository, DAOProvider)
     {
     }
 

@@ -53,7 +53,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.VetoProposalId, opt
                 => opt.MapFrom(source => MapHash(source.VetoProposalId)))
             ;
-        
+
         CreateMap<ProposalExecuted, ProposalIndex>();
         CreateMap<DAOIndex, ProposalIndex>();
         CreateMap<ProposalIndex, ProposalSyncDto>();
@@ -68,20 +68,30 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.Id, opt
                 => opt.MapFrom(source => MapHash(source.DaoId)))
             .ForMember(des => des.TreasuryContractAddress, opt
-                => opt.MapFrom(source => source.ContractAddressList == null ? 
-                    string.Empty : MapAddress(source.ContractAddressList.TreasuryContractAddress)))
+                => opt.MapFrom(source =>
+                    source.ContractAddressList == null
+                        ? string.Empty
+                        : MapAddress(source.ContractAddressList.TreasuryContractAddress)))
             .ForMember(des => des.VoteContractAddress, opt
-                => opt.MapFrom(source => source.ContractAddressList == null ? 
-                    string.Empty : MapAddress(source.ContractAddressList.VoteContractAddress)))
+                => opt.MapFrom(source =>
+                    source.ContractAddressList == null
+                        ? string.Empty
+                        : MapAddress(source.ContractAddressList.VoteContractAddress)))
             .ForMember(des => des.ElectionContractAddress, opt
-                => opt.MapFrom(source => source.ContractAddressList == null ? 
-                    string.Empty : MapAddress(source.ContractAddressList.ElectionContractAddress)))
+                => opt.MapFrom(source =>
+                    source.ContractAddressList == null
+                        ? string.Empty
+                        : MapAddress(source.ContractAddressList.ElectionContractAddress)))
             .ForMember(des => des.GovernanceContractAddress, opt
-                => opt.MapFrom(source => source.ContractAddressList == null ? 
-                    string.Empty : MapAddress(source.ContractAddressList.GovernanceContractAddress)))
+                => opt.MapFrom(source =>
+                    source.ContractAddressList == null
+                        ? string.Empty
+                        : MapAddress(source.ContractAddressList.GovernanceContractAddress)))
             .ForMember(des => des.TimelockContractAddress, opt
-                => opt.MapFrom(source => source.ContractAddressList == null ? 
-                    string.Empty : MapAddress(source.ContractAddressList.TimelockContractAddress)))
+                => opt.MapFrom(source =>
+                    source.ContractAddressList == null
+                        ? string.Empty
+                        : MapAddress(source.ContractAddressList.TimelockContractAddress)))
             ;
         CreateMap<FileInfoContract, FileInfoIndexer>()
             .ForMember(des => des.Uploader, opt
@@ -102,7 +112,8 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.HighCouncilAddress, opt
                 => opt.MapFrom(source => MapAddress(source.HighCouncilAddress)))
             .ForMember(des => des.HighCouncilConfig, opt
-                => opt.MapFrom(source => source.HighCouncilInput == null ? null : source.HighCouncilInput.HighCouncilConfig))
+                => opt.MapFrom(source =>
+                    source.HighCouncilInput == null ? null : source.HighCouncilInput.HighCouncilConfig))
             ;
         CreateMap<HighCouncilConfigContract, HighCouncilConfigIndexer>();
         CreateMap<LogEventContext, GovernanceSchemeIndex>();
@@ -114,7 +125,28 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => MapHash(source.DaoId)))
             .ForMember(des => des.SchemeAddress, opt
                 => opt.MapFrom(source => MapAddress(source.SchemeAddress)))
-            ;
+            .ForMember(des => des.MinimalRequiredThreshold,
+                opt => opt.MapFrom(source => source.SchemeThreshold.MinimalRequiredThreshold))
+            .ForMember(des => des.MinimalVoteThreshold,
+                opt => opt.MapFrom(source => source.SchemeThreshold.MinimalVoteThreshold))
+            .ForMember(des => des.MinimalApproveThreshold,
+                opt => opt.MapFrom(source => source.SchemeThreshold.MinimalApproveThreshold))
+            .ForMember(des => des.MaximalRejectionThreshold,
+                opt => opt.MapFrom(source => source.SchemeThreshold.MaximalRejectionThreshold))
+            .ForMember(des => des.MaximalAbstentionThreshold,
+                opt => opt.MapFrom(source => source.SchemeThreshold.MaximalAbstentionThreshold));
+        CreateMap<GovernanceSchemeIndex, GovernanceSchemeIndexDto>()
+            .ForMember(des => des.SchemeThreshold.MinimalRequiredThreshold,
+                opt => opt.MapFrom(source => source.MinimalRequiredThreshold))
+            .ForMember(des => des.SchemeThreshold.MinimalVoteThreshold,
+                opt => opt.MapFrom(source => source.MinimalVoteThreshold))
+            .ForMember(des => des.SchemeThreshold.MinimalApproveThreshold,
+                opt => opt.MapFrom(source => source.MinimalApproveThreshold))
+            .ForMember(des => des.SchemeThreshold.MaximalRejectionThreshold,
+                opt => opt.MapFrom(source => source.MaximalRejectionThreshold))
+            .ForMember(des => des.SchemeThreshold.MaximalAbstentionThreshold,
+                opt => opt.MapFrom(source => source.MaximalAbstentionThreshold));
+
         CreateMap<VoteIndex, VoteInfoDto>()
             .ForMember(des => des.VoterCount, opt
                 => opt.MapFrom(source => source.VoterSet.Count));
