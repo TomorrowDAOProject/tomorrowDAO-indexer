@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using TomorrowDAO.Indexer.Plugin.Enums;
 
 namespace TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
@@ -9,7 +11,7 @@ public class GovernanceSchemeIndexDto
     public string SchemeId { get; set; }
     public string SchemeAddress { get; set; }
     public string ChainId { get; set; }
-    public GovernanceMechanism GovernanceMechanism { get; set; }
+    public int GovernanceMechanism { get; set; }
     public string GovernanceToken { get; set; }
     public DateTime CreateTime { get; set; }
     public GovernanceSchemeThresholdDto SchemeThresholdDto { get; set; }

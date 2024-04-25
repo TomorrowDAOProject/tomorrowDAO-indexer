@@ -14,7 +14,6 @@ public class GovernanceSchemeIndex : GovernanceSchemeThreshold, IIndexBuild
     [Keyword] public string SchemeId { get; set; }
     [Keyword] public string SchemeAddress { get; set; }
     [Keyword] public string ChainId { get; set; }
-    [JsonConverter(typeof(StringEnumConverter))]
     public GovernanceMechanism GovernanceMechanism { get; set; }
     [Keyword] public string GovernanceToken { get; set; }
     public DateTime CreateTime { get; set; }

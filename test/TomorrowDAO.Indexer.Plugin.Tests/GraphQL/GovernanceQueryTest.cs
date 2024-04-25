@@ -26,14 +26,14 @@ public class GovernanceQueryTest : QueryTestBase
         result.ShouldNotBeNull();
     }
 
-    private LogEvent MockGovernanceSchemeAdded()
+    private static LogEvent MockGovernanceSchemeAdded()
     {
         return new GovernanceSchemeAdded
         {
             DaoId = HashHelper.ComputeFrom("DaoId"),
             SchemeId = HashHelper.ComputeFrom("06c84e65f48d95959cb580bfe13c45a3f5eec2ecb7851dc44e2f0b4362adafbc"),
             SchemeAddress = Address.FromBase58("8XepdGhyo27gUQNVzqq7GVvdEvMDXcxqPuQpXvBkooxzDb34S"),
-            GovernanceMechanism = GovernanceMechanism.Referendum,
+            GovernanceMechanism = GovernanceMechanism.HighCouncil,
             SchemeThreshold = new GovernanceSchemeThreshold
             {
                 MinimalRequiredThreshold = 1,
