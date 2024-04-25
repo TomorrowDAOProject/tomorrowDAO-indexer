@@ -12,10 +12,10 @@ public class GovernanceSchemeIndexDto
     public GovernanceMechanism GovernanceMechanism { get; set; }
     public string GovernanceToken { get; set; }
     public DateTime CreateTime { get; set; }
-    public GovernanceSchemeThreshold SchemeThreshold { get; set; }
+    public GovernanceSchemeThresholdDto SchemeThresholdDto { get; set; }
 }
 
-public class GovernanceSchemeThreshold
+public class GovernanceSchemeThresholdDto
 {
     public int MinimalRequiredThreshold { get; set; }
     public int MinimalVoteThreshold { get; set; }

@@ -15,6 +15,7 @@ using FileInfoIndexer = TomorrowDAO.Indexer.Plugin.Entities.FileInfo;
 using FileInfoContract = TomorrowDAO.Contracts.DAO.FileInfo;
 using FileIndexer = TomorrowDAO.Indexer.Plugin.Entities.File;
 using FileContract = TomorrowDAO.Contracts.DAO.File;
+using GovernanceSchemeThreshold = TomorrowDAO.Indexer.Plugin.Entities.GovernanceSchemeThreshold;
 
 namespace TomorrowDAO.Indexer.Plugin;
 
@@ -134,18 +135,8 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 opt => opt.MapFrom(source => source.SchemeThreshold.MaximalRejectionThreshold))
             .ForMember(des => des.MaximalAbstentionThreshold,
                 opt => opt.MapFrom(source => source.SchemeThreshold.MaximalAbstentionThreshold));
-        CreateMap<GovernanceSchemeIndex, GovernanceSchemeIndexDto>()
-            .ForMember(des => des.SchemeThreshold.MinimalRequiredThreshold,
-                opt => opt.MapFrom(source => source.MinimalRequiredThreshold))
-            .ForMember(des => des.SchemeThreshold.MinimalVoteThreshold,
-                opt => opt.MapFrom(source => source.MinimalVoteThreshold))
-            .ForMember(des => des.SchemeThreshold.MinimalApproveThreshold,
-                opt => opt.MapFrom(source => source.MinimalApproveThreshold))
-            .ForMember(des => des.SchemeThreshold.MaximalRejectionThreshold,
-                opt => opt.MapFrom(source => source.MaximalRejectionThreshold))
-            .ForMember(des => des.SchemeThreshold.MaximalAbstentionThreshold,
-                opt => opt.MapFrom(source => source.MaximalAbstentionThreshold));
-
+        CreateMap<GovernanceSchemeIndex, GovernanceSchemeIndexDto>();
+        CreateMap<GovernanceSchemeThreshold, GovernanceSchemeThresholdDto>();
         CreateMap<VoteIndex, VoteInfoDto>()
             .ForMember(des => des.VoterCount, opt
                 => opt.MapFrom(source => source.VoterSet.Count));
