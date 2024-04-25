@@ -37,7 +37,7 @@ public class ProposalSyncDto
     
     public string SchemeAddress { get; set; }
     
-    public ExecuteTransaction Transaction { get; set; }
+    public ExecuteTransactionDto Transaction { get; set; }
     
     public string VoteSchemeId { get; set; }
     
@@ -71,4 +71,16 @@ public class ProposalSyncDto
     public long ExecuteTimePeriod { get; set; }
     
     public long VetoExecuteTimePeriod { get; set; }
+}
+
+public class ExecuteTransactionDto
+{
+    // The address of the target contract.
+    public string ToAddress { get; set; }
+
+    // The method that this proposal will call when being released.
+    public string ContractMethodName { get; set; }
+
+    //key is paramName, value is param value
+    //public Dictionary<string, object> Params { get; set; }
 }

@@ -40,137 +40,137 @@ public partial class Query
             sortType: SortOrder.Ascending, sortExp: o => o.BlockHeight);
         return objectMapper.Map<List<ProposalIndex>, List<ProposalSyncDto>>(result.Item2);
     }
+
+    [Name("getVoteInfosMemory")]
+    public static async Task<List<VoteInfoDto>> GetVoteInfoMemoryAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<VoteIndex, LogEventInfo> repository,
+        [FromServices] IObjectMapper objectMapper,
+        GetVoteInfoInput input)
+    {
+        if (input.VotingItemIds.IsNullOrEmpty())
+        {
+            return new List<VoteInfoDto>();
+        }
     
-    // [Name("getVoteInfosMemory")]
-    // public static async Task<List<VoteInfoDto>> GetVoteInfoMemoryAsync(
-    //     [FromServices] IAElfIndexerClientEntityRepository<VoteIndex, LogEventInfo> repository,
-    //     [FromServices] IObjectMapper objectMapper,
-    //     GetVoteInfoInput input)
-    // {
-    //     if (input.VotingItemIds.IsNullOrEmpty())
-    //     {
-    //         return new List<VoteInfoDto>();
-    //     }
-    //
-    //     var tasks = input.VotingItemIds
-    //         .Select(votingItemId => repository.GetFromBlockStateSetAsync(votingItemId, input.ChainId)).ToList();
-    //
-    //     var results = await Task.WhenAll(tasks);
-    //     return results.Where(index => index != null).Select(objectMapper.Map<VoteIndex, VoteInfoDto>)
-    //         .ToList();
-    // }
+        var tasks = input.VotingItemIds
+            .Select(votingItemId => repository.GetFromBlockStateSetAsync(votingItemId, input.ChainId)).ToList();
     
-    // [Name("getVoteInfos")]
-    // public static async Task<List<VoteInfoDto>> GetVoteInfosAsync(
-    //     [FromServices] IAElfIndexerClientEntityRepository<VoteIndex, LogEventInfo> repository,
-    //     [FromServices] IObjectMapper objectMapper,
-    //     GetVoteInfoInput input)
-    // {
-    //     var mustQuery = new List<Func<QueryContainerDescriptor<VoteIndex>, QueryContainer>>();
-    //     mustQuery.Add(q => q.Term(i
-    //         => i.Field(f => f.ChainId).Value(input.ChainId)));
-    //
-    //     mustQuery.Add(q => q.Terms(i
-    //         => i.Field(f => f.ChainId).Terms(input.VotingItemIds)));
-    //
-    //     QueryContainer Filter(QueryContainerDescriptor<VoteIndex> f) =>
-    //         f.Bool(b => b.Must(mustQuery));
-    //
-    //     var result = await repository.GetListAsync(Filter);
-    //     return objectMapper.Map<List<VoteIndex>, List<VoteInfoDto>>(result.Item2);
-    // }
-    //
-    // [Name("getVoteRecord")]
-    // public static async Task<List<VoteRecordDto>> GetVoteRecordAsync(
-    //     [FromServices] IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo> repository,
-    //     [FromServices] IObjectMapper objectMapper,
-    //     GetVoteRecordInput input)
-    // {
-    //     var mustQuery = new List<Func<QueryContainerDescriptor<VoteRecordIndex>, QueryContainer>>();
-    //     mustQuery.Add(q => q.Term(i
-    //         => i.Field(f => f.ChainId).Value(input.ChainId)));
-    //
-    //     mustQuery.Add(q => q.Term(i
-    //         => i.Field(f => f.VotingItemId).Value(input.VotingItemId)));
-    //
-    //     if (!input.Voter.IsNullOrWhiteSpace())
-    //     {
-    //         mustQuery.Add(q => q.Term(i
-    //             => i.Field(f => f.Voter).Value(input.Voter)));
-    //     }
-    //
-    //     QueryContainer Filter(QueryContainerDescriptor<VoteRecordIndex> f) =>
-    //         f.Bool(b => b.Must(mustQuery));
-    //
-    //     var sortDescriptor = GetVoteRecordSort(input.Sorting);
-    //     var result = await repository.GetSortListAsync(Filter, sortFunc: sortDescriptor);
-    //     return objectMapper.Map<List<VoteRecordIndex>, List<VoteRecordDto>>(result.Item2);
-    // }
-    //
-    // private static Func<SortDescriptor<VoteRecordIndex>, IPromise<IList<ISort>>> GetVoteRecordSort(string sorting)
-    // {
-    //     var sortDescriptor = new SortDescriptor<VoteRecordIndex>();
-    //
-    //     if (sorting.IsNullOrWhiteSpace())
-    //     {
-    //         sortDescriptor.Descending(a => a.VoteTime);
-    //         return _ => sortDescriptor;
-    //     }
-    //
-    //     var sortingArray = sorting.Trim().ToLower().Split(" ", StringSplitOptions.RemoveEmptyEntries);
-    //     var field = sortingArray[0];
-    //     var order = sortingArray.Length == 1 ? TomorrowDAOConst.Asc : sortingArray[1];
-    //
-    //     switch (field)
-    //     {
-    //         case TomorrowDAOConst.VoteTime:
-    //             if (order == TomorrowDAOConst.Asc || order == TomorrowDAOConst.Ascend)
-    //             {
-    //                 sortDescriptor.Ascending(a => a.VoteTime);
-    //             }
-    //             else
-    //             {
-    //                 sortDescriptor.Descending(a => a.VoteTime);
-    //             }
-    //             break;
-    //         case TomorrowDAOConst.Amount:
-    //             if (order == TomorrowDAOConst.Asc || order == TomorrowDAOConst.Ascend)
-    //             {
-    //                 sortDescriptor.Ascending(a => a.Amount);
-    //             }
-    //             else
-    //             {
-    //                 sortDescriptor.Descending(a => a.Amount);
-    //             }
-    //             break;
-    //         default:
-    //             sortDescriptor.Descending(a => a.VoteTime);
-    //             break;
-    //     }
-    //     return _ => sortDescriptor;
-    // }
-    //
-    // [Name("getVoteSchemeInfo")]
-    // public static async Task<List<VoteSchemeInfoDto>> GetVoteSchemeInfoAsync(
-    //     [FromServices] IAElfIndexerClientEntityRepository<VoteSchemeIndex, LogEventInfo> repository,
-    //     [FromServices] IObjectMapper objectMapper,
-    //     GetVoteSchemeInput input)
-    // {
-    //     var voteMechanismList = input.Types?.Where(x => Enum.IsDefined(typeof(VoteMechanism), x))
-    //         .Select(x => (VoteMechanism)Enum.Parse(typeof(VoteMechanism), x.ToString())).ToList() ?? new List<VoteMechanism>();
-    //     
-    //     var mustQuery = new List<Func<QueryContainerDescriptor<VoteSchemeIndex>, QueryContainer>>
-    //     {
-    //         q => q.Term(i
-    //             => i.Field(f => f.ChainId).Value(input.ChainId)),
-    //         q => q.Terms(i
-    //             => i.Field(f => f.VoteMechanism).Terms(voteMechanismList))
-    //     };
-    //
-    //     QueryContainer Filter(QueryContainerDescriptor<VoteSchemeIndex> f) =>
-    //         f.Bool(b => b.Must(mustQuery));
-    //
-    //     var result = await repository.GetListAsync(Filter);
-    //     return objectMapper.Map<List<VoteSchemeIndex>, List<VoteSchemeInfoDto>>(result.Item2);
-    // }
+        var results = await Task.WhenAll(tasks);
+        return results.Where(index => index != null).Select(objectMapper.Map<VoteIndex, VoteInfoDto>)
+            .ToList();
+    }
+    
+    [Name("getVoteInfos")]
+    public static async Task<List<VoteInfoDto>> GetVoteInfosAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<VoteIndex, LogEventInfo> repository,
+        [FromServices] IObjectMapper objectMapper,
+        GetVoteInfoInput input)
+    {
+        var mustQuery = new List<Func<QueryContainerDescriptor<VoteIndex>, QueryContainer>>();
+        mustQuery.Add(q => q.Term(i
+            => i.Field(f => f.ChainId).Value(input.ChainId)));
+    
+        mustQuery.Add(q => q.Terms(i
+            => i.Field(f => f.VotingItemId).Terms(input.VotingItemIds)));
+    
+        QueryContainer Filter(QueryContainerDescriptor<VoteIndex> f) =>
+            f.Bool(b => b.Must(mustQuery));
+    
+        var result = await repository.GetListAsync(Filter);
+        return objectMapper.Map<List<VoteIndex>, List<VoteInfoDto>>(result.Item2);
+    }
+    
+    [Name("getVoteRecord")]
+    public static async Task<List<VoteRecordDto>> GetVoteRecordAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo> repository,
+        [FromServices] IObjectMapper objectMapper,
+        GetVoteRecordInput input)
+    {
+        var mustQuery = new List<Func<QueryContainerDescriptor<VoteRecordIndex>, QueryContainer>>();
+        mustQuery.Add(q => q.Term(i
+            => i.Field(f => f.ChainId).Value(input.ChainId)));
+    
+        mustQuery.Add(q => q.Term(i
+            => i.Field(f => f.VotingItemId).Value(input.VotingItemId)));
+    
+        if (!input.Voter.IsNullOrWhiteSpace())
+        {
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.Voter).Value(input.Voter)));
+        }
+    
+        QueryContainer Filter(QueryContainerDescriptor<VoteRecordIndex> f) =>
+            f.Bool(b => b.Must(mustQuery));
+    
+        var sortDescriptor = GetVoteRecordSort(input.Sorting);
+        var result = await repository.GetSortListAsync(Filter, sortFunc: sortDescriptor);
+        return objectMapper.Map<List<VoteRecordIndex>, List<VoteRecordDto>>(result.Item2);
+    }
+    
+    private static Func<SortDescriptor<VoteRecordIndex>, IPromise<IList<ISort>>> GetVoteRecordSort(string sorting)
+    {
+        var sortDescriptor = new SortDescriptor<VoteRecordIndex>();
+    
+        if (sorting.IsNullOrWhiteSpace())
+        {
+            sortDescriptor.Descending(a => a.VoteTime);
+            return _ => sortDescriptor;
+        }
+    
+        var sortingArray = sorting.Trim().ToLower().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+        var field = sortingArray[0];
+        var order = sortingArray.Length == 1 ? TomorrowDAOConst.Asc : sortingArray[1];
+    
+        switch (field)
+        {
+            case TomorrowDAOConst.VoteTime:
+                if (order == TomorrowDAOConst.Asc || order == TomorrowDAOConst.Ascend)
+                {
+                    sortDescriptor.Ascending(a => a.VoteTime);
+                }
+                else
+                {
+                    sortDescriptor.Descending(a => a.VoteTime);
+                }
+                break;
+            case TomorrowDAOConst.Amount:
+                if (order == TomorrowDAOConst.Asc || order == TomorrowDAOConst.Ascend)
+                {
+                    sortDescriptor.Ascending(a => a.Amount);
+                }
+                else
+                {
+                    sortDescriptor.Descending(a => a.Amount);
+                }
+                break;
+            default:
+                sortDescriptor.Descending(a => a.VoteTime);
+                break;
+        }
+        return _ => sortDescriptor;
+    }
+    
+    [Name("getVoteSchemeInfo")]
+    public static async Task<List<VoteSchemeInfoDto>> GetVoteSchemeInfoAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<VoteSchemeIndex, LogEventInfo> repository,
+        [FromServices] IObjectMapper objectMapper,
+        GetVoteSchemeInput input)
+    {
+        var voteMechanismList = input.Types?.Where(x => Enum.IsDefined(typeof(VoteMechanism), x))
+            .Select(x => (VoteMechanism)Enum.Parse(typeof(VoteMechanism), x.ToString())).ToList() ?? new List<VoteMechanism>();
+        
+        var mustQuery = new List<Func<QueryContainerDescriptor<VoteSchemeIndex>, QueryContainer>>
+        {
+            q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId)),
+            q => q.Terms(i
+                => i.Field(f => f.VoteMechanism).Terms(voteMechanismList))
+        };
+    
+        QueryContainer Filter(QueryContainerDescriptor<VoteSchemeIndex> f) =>
+            f.Bool(b => b.Must(mustQuery));
+    
+        var result = await repository.GetListAsync(Filter);
+        return objectMapper.Map<List<VoteSchemeIndex>, List<VoteSchemeInfoDto>>(result.Item2);
+    }
 }
