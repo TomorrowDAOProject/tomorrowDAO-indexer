@@ -117,7 +117,6 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             ;
         CreateMap<HighCouncilConfigContract, HighCouncilConfigIndexer>();
         CreateMap<LogEventContext, GovernanceSchemeIndex>();
-        CreateMap<LogEventContext, GovernanceMechanismIndex>();
         CreateMap<GovernanceSchemeAdded, GovernanceSchemeIndex>()
             .ForMember(des => des.SchemeId, opt
                 => opt.MapFrom(source => MapHash(source.SchemeId)))
@@ -151,8 +150,6 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.VoterCount, opt
                 => opt.MapFrom(source => source.VoterSet.Count));
         CreateMap<VoteRecordIndex, VoteRecordDto>();
-        CreateMap<GovernanceMechanismIndex, GovernanceMode>();
-        CreateMap<GovernanceSchemeAdded, GovernanceMechanismIndex>();
         CreateMap<MetadataContract, MetadataIndexer>();
         CreateMap<DAOIndex, DAOInfoDto>();
         CreateMap<MetadataIndexer, MetadataDto>();

@@ -25,11 +25,6 @@ public class GovernanceSchemeProcessorTests : TomorrowDAOIndexerPluginTestBase
          governanceSchemeIndex.MaximalRejectionThreshold.ShouldBe(30);
          governanceSchemeIndex.MaximalAbstentionThreshold.ShouldBe(20);
          
-         var governanceMechanismIndex = await GovernanceMechanismRepository.GetFromBlockStateSetAsync(
-             IdGenerateHelper.GetId(ChainAelf, GovernanceMechanism.Referendum), ChainAelf);
-         governanceMechanismIndex.ShouldNotBeNull();
-         governanceMechanismIndex.GovernanceMechanism.ShouldBe(GovernanceMechanism.Referendum);
-         
          await MockEventProcess(GovernanceSchemeAdded(), GovernanceSchemeAddedProcessor);
      }
      
