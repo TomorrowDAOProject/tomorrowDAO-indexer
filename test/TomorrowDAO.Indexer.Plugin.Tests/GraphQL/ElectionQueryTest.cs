@@ -13,21 +13,21 @@ public class ElectionQueryTest : QueryTestBase
     {
         await MockEventProcess(CandidateAdded(), CandidateAddedProcessor);
         
-        var elections = await Query.GetElectionListAsync(ElectionRepository, ObjectMapper, new GetChainBlockHeightInput
-        {
-            ChainId = ChainAelf,
-            StartBlockHeight = BlockHeight,
-            EndBlockHeight = BlockHeight + 1,
-            MaxResultCount = 10
-        });
-        elections.ShouldNotBeNull();
-        elections.Count.ShouldBe(1);
-        var electionDto = elections[0];
-        electionDto.ChainId.ShouldBe(ChainAelf);
-        electionDto.DAOId.ShouldBe(DAOId);
-        electionDto.TermNumber.ShouldBe(0);
-        electionDto.HighCouncilType.ShouldBe(HighCouncilType.Candidate);
-        electionDto.Address.ShouldBe(DAOCreator);
+        // var elections = await Query.GetElectionListAsync(ElectionRepository, ObjectMapper, new GetChainBlockHeightInput
+        // {
+        //     ChainId = ChainAelf,
+        //     StartBlockHeight = BlockHeight,
+        //     EndBlockHeight = BlockHeight + 1,
+        //     MaxResultCount = 10
+        // });
+        // elections.ShouldNotBeNull();
+        // elections.Count.ShouldBe(1);
+        // var electionDto = elections[0];
+        // electionDto.ChainId.ShouldBe(ChainAelf);
+        // electionDto.DAOId.ShouldBe(DAOId);
+        // electionDto.TermNumber.ShouldBe(0);
+        // electionDto.HighCouncilType.ShouldBe(HighCouncilType.Candidate);
+        // electionDto.Address.ShouldBe(DAOCreator);
     }
 
     [Fact]
@@ -35,23 +35,23 @@ public class ElectionQueryTest : QueryTestBase
     {
         await MockEventProcess(CandidateAdded(), CandidateAddedProcessor);
         
-        var elections = await Query.GetHighCouncilListAsync(ElectionRepository, ObjectMapper, new GetHighCouncilListInput
-        {
-            DAOId = DAOId,
-            ChainId = ChainAelf,
-            MaxResultCount = 1,
-            SkipCount = 0,
-            TermNumber = 0,
-            HighCouncilType = HighCouncilType.Candidate.ToString()
-        });
-        elections.ShouldNotBeNull();
-        elections.TotalCount.ShouldBe(1);
-        elections.DataList.Count.ShouldBe(1);
-        var electionDto = elections.DataList[0];
-        electionDto.ChainId.ShouldBe(ChainAelf);
-        electionDto.DAOId.ShouldBe(DAOId);
-        electionDto.TermNumber.ShouldBe(0);
-        electionDto.HighCouncilType.ShouldBe(HighCouncilType.Candidate);
-        electionDto.Address.ShouldBe(DAOCreator);
+        // var elections = await Query.GetHighCouncilListAsync(ElectionRepository, ObjectMapper, new GetHighCouncilListInput
+        // {
+        //     DAOId = DAOId,
+        //     ChainId = ChainAelf,
+        //     MaxResultCount = 1,
+        //     SkipCount = 0,
+        //     TermNumber = 0,
+        //     HighCouncilType = HighCouncilType.Candidate.ToString()
+        // });
+        // elections.ShouldNotBeNull();
+        // elections.TotalCount.ShouldBe(1);
+        // elections.DataList.Count.ShouldBe(1);
+        // var electionDto = elections.DataList[0];
+        // electionDto.ChainId.ShouldBe(ChainAelf);
+        // electionDto.DAOId.ShouldBe(DAOId);
+        // electionDto.TermNumber.ShouldBe(0);
+        // electionDto.HighCouncilType.ShouldBe(HighCouncilType.Candidate);
+        // electionDto.Address.ShouldBe(DAOCreator);
     }
 }

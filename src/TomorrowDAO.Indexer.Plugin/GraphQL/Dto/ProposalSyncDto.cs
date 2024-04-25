@@ -45,7 +45,7 @@ public class ProposalSyncDto
 
     public DateTime DeployTime { get; set; }
 
-    public DateTime? ExecuteTime { get; set; }   
+    public DateTime ExecuteTime { get; set; }   
     
     public GovernanceMechanism GovernanceMechanism { get; set; }
     

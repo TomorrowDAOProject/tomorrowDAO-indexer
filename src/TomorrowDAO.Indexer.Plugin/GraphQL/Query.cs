@@ -41,22 +41,22 @@ public partial class Query
         var mustQuery = new List<Func<QueryContainerDescriptor<DAOIndex>, QueryContainer>>();
         mustQuery.Add(q => q.Term(i
             => i.Field(f => f.ChainId).Value(input.ChainId)));
-
+    
         if (input.StartBlockHeight > 0)
         {
             mustQuery.Add(q => q.Range(i
                 => i.Field(f => f.BlockHeight).GreaterThanOrEquals(input.StartBlockHeight)));
         }
-
+    
         if (input.EndBlockHeight > 0)
         {
             mustQuery.Add(q => q.Range(i
                 => i.Field(f => f.BlockHeight).LessThanOrEquals(input.EndBlockHeight)));
         }
-
+    
         QueryContainer Filter(QueryContainerDescriptor<DAOIndex> f) =>
             f.Bool(b => b.Must(mustQuery));
-
+    
         var result = await repository.GetSortListAsync(Filter, 
             sortFunc: s => s.Ascending(a => a.BlockHeight),
             skip: input.SkipCount, limit: input.MaxResultCount);
