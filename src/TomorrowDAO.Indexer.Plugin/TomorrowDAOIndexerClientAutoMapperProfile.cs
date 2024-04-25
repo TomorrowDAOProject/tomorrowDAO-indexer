@@ -30,6 +30,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<LogEventContext, ProposalIndex>();
         CreateMap<GovernanceSchemeIndex, ProposalIndex>();
         CreateMap<ExecuteTransactionContract, ExecuteTransaction>();
+        CreateMap<ExecuteTransaction, ExecuteTransactionDto>();
         CreateMap<ProposalCreated, ProposalIndex>()
             .ForMember(des => des.Id, opt
                 => opt.MapFrom(source => MapHash(source.ProposalId)))
