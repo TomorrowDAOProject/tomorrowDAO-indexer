@@ -71,7 +71,7 @@ public partial class Query
             => i.Field(f => f.ChainId).Value(input.ChainId)));
 
         mustQuery.Add(q => q.Terms(i
-            => i.Field(f => f.ChainId).Terms(input.VotingItemIds)));
+            => i.Field(f => f.VotingItemId).Terms(input.VotingItemIds)));
 
         QueryContainer Filter(QueryContainerDescriptor<VoteIndex> f) =>
             f.Bool(b => b.Must(mustQuery));
