@@ -29,9 +29,9 @@ public class ProposalSyncDto
 
     public DateTime ExecuteEndTime { get; set; }
     
-    public ProposalStatus ProposalStatus { get; set; }
+    public int ProposalStatus { get; set; }
     
-    public ProposalStage ProposalStage { get; set; }
+    public int ProposalStage { get; set; }
     
     public string Proposer { get; set; }
     
@@ -47,7 +47,7 @@ public class ProposalSyncDto
 
     public DateTime ExecuteTime { get; set; }   
     
-    public GovernanceMechanism GovernanceMechanism { get; set; }
+    public int GovernanceMechanism { get; set; }
     
     public int MinimalRequiredThreshold { get; set; }
     
