@@ -82,5 +82,5 @@ public class ExecuteTransactionDto
     public string ContractMethodName { get; set; }
 
     //key is paramName, value is param value
-    //public Dictionary<string, object> Params { get; set; }
+    public string Params { get; set; }
 }
