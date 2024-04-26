@@ -60,14 +60,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
 
         CreateMap<ProposalExecuted, ProposalIndex>();
         CreateMap<DAOIndex, ProposalIndex>();
-        CreateMap<ProposalIndex, ProposalSyncDto>()
-            // .ForMember(des => des.ProposalStatus, opt
-            //     => opt.MapFrom(source => (int)source.ProposalStatus))
-            // .ForMember(des => des.ProposalStage, opt
-            //     => opt.MapFrom(source => (int)source.ProposalStage))
-            // .ForMember(des => des.GovernanceMechanism, opt
-            //     => opt.MapFrom(source => (int)source.GovernanceMechanism))
-            ;
+        CreateMap<ProposalIndex, ProposalSyncDto>();
         CreateMap<LogEventContext, DAOIndex>();
         CreateMap<LogEventContext, TreasuryFundIndex>();
         CreateMap<LogEventContext, TreasuryRecordIndex>();
