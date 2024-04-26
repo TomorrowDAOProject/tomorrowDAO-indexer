@@ -139,6 +139,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.MaximalAbstentionThreshold,
                 opt => opt.MapFrom(source => source.SchemeThreshold.MaximalAbstentionThreshold));
         CreateMap<GovernanceSchemeIndex, GovernanceSchemeIndexDto>();
+        CreateMap<GovernanceSchemeIndex, GovernanceSchemeThresholdDto>();
         CreateMap<GovernanceSchemeThreshold, GovernanceSchemeThresholdDto>();
         CreateMap<VoteIndex, VoteInfoDto>()
             .ForMember(des => des.VoterCount, opt
