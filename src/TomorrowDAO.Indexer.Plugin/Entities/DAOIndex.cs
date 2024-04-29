@@ -12,7 +12,10 @@ public class DAOIndex : AElfIndexerClientEntity<string>, IIndexBuild
     [Keyword] public string GovernanceToken { get; set; }
     public bool IsHighCouncilEnabled { get; set; }
     [Keyword] public string HighCouncilAddress { get; set; }
-    public HighCouncilConfig HighCouncilConfig { get; set; }
+    public long MaxHighCouncilMemberCount { get; set; }
+    public long MaxHighCouncilCandidateCount { get; set; }
+    public long ElectionPeriod { get; set; }
+    public long StakingAmount { get; set; }
     public long HighCouncilTermNumber { get; set; }
     [Keyword] public string FileInfoList { get; set; }
     public bool IsTreasuryContractNeeded { get; set; }

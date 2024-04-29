@@ -36,7 +36,7 @@ public class QueryTest : QueryTestBase
         DAOInfoDto.GovernanceContractAddress.ShouldBe(GovernanceContractAddress);
         DAOInfoDto.TimelockContractAddress.ShouldBe(TimelockContractAddress);
         
-        DAOInfoDto.HighCouncilConfig.ShouldBeNull();
+        // DAOInfoDto.HighCouncilConfig.ShouldBeNull();
         DAOInfoDto.FileInfoList.ShouldBeNull();
         DAOInfoDto.IsTreasuryContractNeeded.ShouldBe(false);
         DAOInfoDto.SubsistStatus.ShouldBe(true);

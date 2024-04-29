@@ -27,7 +27,7 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
         DAOIndex.GovernanceContractAddress.ShouldBe(GovernanceContractAddress);
         DAOIndex.TimelockContractAddress.ShouldBe(TimelockContractAddress);
 
-        DAOIndex.HighCouncilConfig.ShouldBeNull();
+        // DAOIndex.HighCouncilConfig.ShouldBeNull();
         DAOIndex.FileInfoList.ShouldBeNull();
         DAOIndex.IsTreasuryContractNeeded.ShouldBe(false);
         DAOIndex.SubsistStatus.ShouldBe(true);
@@ -48,7 +48,7 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
         
         DAOIndex.Creator.ShouldBeNull();
         DAOIndex.FileInfoList.ShouldBeNull();
-        DAOIndex.HighCouncilConfig.ShouldBeNull();
+        // DAOIndex.HighCouncilConfig.ShouldBeNull();
     }
 
     [Fact]

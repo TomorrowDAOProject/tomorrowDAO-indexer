@@ -8,7 +8,6 @@ using TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 using ExecuteTransaction = TomorrowDAO.Indexer.Plugin.Entities.ExecuteTransaction;
 using ExecuteTransactionContract = TomorrowDAO.Contracts.Governance.ExecuteTransaction;
 using HighCouncilConfigContract = TomorrowDAO.Contracts.DAO.HighCouncilConfig;
-using HighCouncilConfigIndexer = TomorrowDAO.Indexer.Plugin.Entities.HighCouncilConfig;
 using MetadataContract = TomorrowDAO.Contracts.DAO.Metadata;
 using MetadataIndexer = TomorrowDAO.Indexer.Plugin.Entities.Metadata;
 using FileInfoIndexer = TomorrowDAO.Indexer.Plugin.Entities.FileInfo;
@@ -115,11 +114,15 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<HighCouncilEnabled, DAOIndex>()
             .ForMember(des => des.HighCouncilAddress, opt
                 => opt.MapFrom(source => MapAddress(source.HighCouncilAddress)))
-            .ForMember(des => des.HighCouncilConfig, opt
-                => opt.MapFrom(source =>
-                    source.HighCouncilInput == null ? null : source.HighCouncilInput.HighCouncilConfig))
+            .ForMember(des => des.MaxHighCouncilMemberCount, opt
+                => opt.MapFrom(source => source.HighCouncilInput.HighCouncilConfig.MaxHighCouncilMemberCount))
+            .ForMember(des => des.MaxHighCouncilCandidateCount, opt
+                => opt.MapFrom(source => source.HighCouncilInput.HighCouncilConfig.MaxHighCouncilCandidateCount))
+            .ForMember(des => des.ElectionPeriod, opt
+                => opt.MapFrom(source => source.HighCouncilInput.HighCouncilConfig.ElectionPeriod))
+            .ForMember(des => des.StakingAmount, opt
+                => opt.MapFrom(source => source.HighCouncilInput.HighCouncilConfig.StakingAmount))
             ;
-        CreateMap<HighCouncilConfigContract, HighCouncilConfigIndexer>();
         CreateMap<LogEventContext, GovernanceSchemeIndex>();
         CreateMap<GovernanceSchemeAdded, GovernanceSchemeIndex>()
             .ForMember(des => des.SchemeId, opt
@@ -146,7 +149,6 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<MetadataContract, MetadataIndexer>();
         CreateMap<DAOIndex, DAOInfoDto>();
         CreateMap<MetadataIndexer, MetadataDto>();
-        CreateMap<HighCouncilConfigIndexer, HighCouncilConfigDto>();
         CreateMap<LogEventContext, VoteSchemeIndex>();
         CreateMap<LogEventContext, VoteIndex>();
         CreateMap<LogEventContext, VoteRecordIndex>();
