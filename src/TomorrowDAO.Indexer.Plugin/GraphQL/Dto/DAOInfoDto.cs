@@ -10,7 +10,10 @@ public class DAOInfoDto
     public string GovernanceToken { get; set; }
     public bool IsHighCouncilEnabled { get; set; }
     public string HighCouncilAddress { get; set; }
-    public HighCouncilConfigDto HighCouncilConfig { get; set; }
+    public long MaxHighCouncilMemberCount { get; set; }
+    public long MaxHighCouncilCandidateCount { get; set; }
+    public long ElectionPeriod { get; set; }
+    public long StakingAmount { get; set; }
     public long HighCouncilTermNumber { get; set; }
     public string FileInfoList { get; set; }
     public bool IsTreasuryContractNeeded { get; set; }
@@ -37,12 +40,4 @@ public class MetadataDto
     public string LogoUrl { get; set; }
     public string Description { get; set; }
     public string SocialMedia { get; set; }
-}
-
-public class HighCouncilConfigDto
-{
-    public long MaxHighCouncilMemberCount { get; set; }
-    public long MaxHighCouncilCandidateCount { get; set; }
-    public long ElectionPeriod { get; set; }
-    public long StakingAmount { get; set; }
 }

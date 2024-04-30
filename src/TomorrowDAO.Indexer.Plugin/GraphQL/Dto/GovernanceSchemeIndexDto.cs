@@ -14,11 +14,6 @@ public class GovernanceSchemeIndexDto
     public int GovernanceMechanism { get; set; }
     public string GovernanceToken { get; set; }
     public DateTime CreateTime { get; set; }
-    public GovernanceSchemeThresholdDto SchemeThresholdDto { get; set; }
-}
-
-public class GovernanceSchemeThresholdDto
-{
     public int MinimalRequiredThreshold { get; set; }
     public int MinimalVoteThreshold { get; set; }
     public int MinimalApproveThreshold { get; set; }
