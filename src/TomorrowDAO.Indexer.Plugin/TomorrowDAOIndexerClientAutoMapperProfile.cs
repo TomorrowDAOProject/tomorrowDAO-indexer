@@ -57,6 +57,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.VetoProposalId, opt
                 => opt.MapFrom(source => MapHash(source.VetoProposalId)))
             ;
+        CreateMap<TomorrowDAO.Contracts.Governance.ExecuteTransaction, ExecuteTransaction>();
 
         CreateMap<ProposalExecuted, ProposalIndex>();
         CreateMap<DAOIndex, ProposalIndex>();
