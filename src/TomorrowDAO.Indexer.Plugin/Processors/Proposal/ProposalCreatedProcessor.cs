@@ -7,7 +7,6 @@ using TomorrowDAO.Contracts.Governance;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
-using ExecuteTransaction = TomorrowDAO.Indexer.Plugin.Entities.ExecuteTransaction;
 using ProposalStage = TomorrowDAO.Indexer.Plugin.Enums.ProposalStage;
 using ProposalStatus = TomorrowDAO.Indexer.Plugin.Enums.ProposalStatus;
 
@@ -52,7 +51,6 @@ public class ProposalCreatedProcessor : ProposalProcessorBase<ProposalCreated>
             { 
                 ObjectMapper.Map(DAO, proposalIndex);
             }
-            proposalIndex.Transaction = OfCallTransactionInfo(eventValue.Transaction);
             proposalIndex.DeployTime = context.BlockTime;
             proposalIndex.Id = proposalId;
             await SaveIndexAsync(proposalIndex, context);
@@ -68,23 +66,5 @@ public class ProposalCreatedProcessor : ProposalProcessorBase<ProposalCreated>
             Logger.LogError(e, "[ProposalCreated] Exception proposalId:{proposalId} chainId:{chainId} ", proposalId, chainId);
             throw;
         }
-    }
-    
-    private static ExecuteTransaction OfCallTransactionInfo(Contracts.Governance.ExecuteTransaction transaction)
-    {
-        if (transaction == null)
-        {
-            return null;
-        }
-        //need decode
-        var paramDict = new Dictionary<string, object>();
-
-        var transactionInfo = new ExecuteTransaction
-        {
-            ToAddress = transaction.ToAddress?.ToBase58(),
-            ContractMethodName = transaction.ContractMethodName,
-            Params = paramDict
-        };
-        return transactionInfo;
     }
 }

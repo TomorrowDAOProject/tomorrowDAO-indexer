@@ -1,4 +1,7 @@
+using AElf;
 using AutoMapper;
+using Google.Protobuf;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 using TomorrowDAO.Contracts.Governance;
 
@@ -28,6 +31,11 @@ public class IndexerMapperBase : Profile
     protected static DateTime? MapDateTime(Google.Protobuf.WellKnownTypes.Timestamp timestamp)
     {
         return timestamp?.ToDateTime();
+    }
+
+    protected static string MapByteString([CanBeNull] ByteString byteString)
+    {
+        return byteString?.ToByteArray().ToHex();
     }
 
     // protected static HashSet<string> MapOrganizationMemberSet(OrganizationCreated source)

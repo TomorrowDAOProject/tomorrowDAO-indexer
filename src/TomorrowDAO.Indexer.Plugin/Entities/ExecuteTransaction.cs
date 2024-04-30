@@ -1,3 +1,4 @@
+using Google.Protobuf;
 using Nest;
 
 namespace TomorrowDAO.Indexer.Plugin.Entities;
@@ -11,5 +12,5 @@ public class ExecuteTransaction
     [Keyword] public string ContractMethodName { get; set; }
 
     //key is paramName, value is param value
-    public Dictionary<string, object> Params { get; set; }
+    public string Params { get; set; }
 }

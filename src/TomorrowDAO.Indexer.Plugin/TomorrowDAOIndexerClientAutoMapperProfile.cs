@@ -1,3 +1,4 @@
+using AElf;
 using AElfIndexer.Client.Handlers;
 using TomorrowDAO.Contracts.DAO;
 using TomorrowDAO.Contracts.Governance;
@@ -31,7 +32,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<ExecuteTransactionContract, ExecuteTransaction>();
         CreateMap<ExecuteTransaction, ExecuteTransactionDto>()
             .ForMember(des => des.Params, opt
-                => opt.MapFrom(source => MapToJsonString(source.Params)));
+                => opt.MapFrom(source => source.Params));
         CreateMap<ProposalCreated, ProposalIndex>()
             .ForMember(des => des.Id, opt
                 => opt.MapFrom(source => MapHash(source.ProposalId)))
@@ -56,7 +57,8 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.VetoProposalId, opt
                 => opt.MapFrom(source => MapHash(source.VetoProposalId)))
             ;
-        CreateMap<TomorrowDAO.Contracts.Governance.ExecuteTransaction, ExecuteTransaction>();
+        CreateMap<TomorrowDAO.Contracts.Governance.ExecuteTransaction, TomorrowDAO.Indexer.Plugin.Entities.ExecuteTransaction>()
+            .ForMember(des => des.Params, opt => opt.MapFrom(source => MapByteString(source.Params)));
 
         CreateMap<ProposalExecuted, ProposalIndex>();
         CreateMap<DAOIndex, ProposalIndex>();
