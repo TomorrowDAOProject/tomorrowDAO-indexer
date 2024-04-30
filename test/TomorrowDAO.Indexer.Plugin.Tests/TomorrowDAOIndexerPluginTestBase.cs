@@ -631,7 +631,8 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             Transaction = new ExecuteTransaction
             {
                 ContractMethodName = "ContractMethodName",
-                ToAddress = Address.FromBase58(ExecuteAddress)
+                ToAddress = Address.FromBase58(ExecuteAddress),
+                Params = ByteStringHelper.FromHexString("0102030405")
             },
             VoteSchemeId = HashHelper.ComputeFrom(Id3),
             VetoProposalId = HashHelper.ComputeFrom(Id4)
