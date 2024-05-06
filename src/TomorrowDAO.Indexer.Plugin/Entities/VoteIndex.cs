@@ -8,7 +8,7 @@ public class VoteIndex : AElfIndexerClientEntity<string>, IIndexBuild
 {
     [Keyword] public override string Id { get; set; }
     
-    // The voting activity id.(proposal id/customize)
+    // The voting activity id.(proposal id)
     [Keyword] public string VotingItemId { get; set; }
     
     [Keyword] public string VoteSchemeId { get; set; }
@@ -18,13 +18,13 @@ public class VoteIndex : AElfIndexerClientEntity<string>, IIndexBuild
         
     [Keyword] public string AcceptedCurrency { get; set; }
    
-    public int ApprovedCount  { get; set; }
+    public int ApprovedCount { get; set; }
     
-    public int RejectionCount  { get; set; }
+    public int RejectionCount { get; set; }
         
-    public int AbstentionCount  { get; set; }
+    public int AbstentionCount { get; set; }
                 
-    public int VotesAmount  { get; set; }    
+    public int VotesAmount { get; set; }    
     
     [Keyword] public HashSet<string> VoterSet { get; set; } 
         

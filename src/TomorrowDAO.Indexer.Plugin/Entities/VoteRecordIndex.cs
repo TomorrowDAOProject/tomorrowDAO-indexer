@@ -11,7 +11,7 @@ public class VoteRecordIndex : AElfIndexerClientEntity<string>, IIndexBuild
 {
     [Keyword] public override string Id { get; set; }
     
-    // The voting activity id.(proposal id/customize)
+    // The voting activity id.(proposal id)
     [Keyword] public string VotingItemId { get; set; }
     
     [Keyword] public string Voter { get; set; }
