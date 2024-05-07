@@ -166,12 +166,12 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => MapHash(source.VotingItemId)))
             .ForMember(des => des.VoteSchemeId, opt
                 => opt.MapFrom(source => MapHash(source.SchemeId)))
-            // .ForMember(des => des.RegisterTime, opt
-            //     => opt.MapFrom(source => MapDateTime(source.RegisterTimestamp)))
-            // .ForMember(des => des.StartTime, opt
-            //     => opt.MapFrom(source => MapDateTime(source.StartTimestamp)))
-            // .ForMember(des => des.EndTime, opt
-            //     => opt.MapFrom(source => MapDateTime(source.EndTimestamp)))
+            .ForMember(des => des.RegisterTime, opt
+                => opt.MapFrom(source => MapDateTime(source.RegisterTimestamp)))
+            .ForMember(des => des.StartTime, opt
+                => opt.MapFrom(source => MapDateTime(source.StartTimestamp)))
+            .ForMember(des => des.EndTime, opt
+                => opt.MapFrom(source => MapDateTime(source.EndTimestamp)))
             ;
         CreateMap<Voted, VoteRecordIndex>()
             .ForMember(des => des.VotingItemId, opt
