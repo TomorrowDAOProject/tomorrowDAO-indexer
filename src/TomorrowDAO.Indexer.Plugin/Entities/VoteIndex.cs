@@ -26,13 +26,14 @@ public class VoteIndex : AElfIndexerClientEntity<string>, IIndexBuild
                 
     public int VotesAmount { get; set; }    
     
-    [Keyword] public HashSet<string> VoterSet { get; set; } 
+    public HashSet<string> VoterSet { get; set; } 
         
-    public DateTime RegisterTime { get; set; }
-    
-    public DateTime StartTime { get; set; }
-        
-    public DateTime EndTime { get; set; }
-    
-    public DateTime CreateTime { get; set; }
+    //todo
+    // public DateTime RegisterTime { get; set; }
+    //
+    // public DateTime StartTime { get; set; }
+    //     
+    // public DateTime EndTime { get; set; }
+    //
+    // public DateTime CreateTime { get; set; }
 }
