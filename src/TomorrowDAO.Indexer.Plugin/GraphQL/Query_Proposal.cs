@@ -156,15 +156,10 @@ public partial class Query
         [FromServices] IObjectMapper objectMapper,
         GetVoteSchemeInput input)
     {
-        var voteMechanismList = input.Types?.Where(x => Enum.IsDefined(typeof(VoteMechanism), x))
-            .Select(x => (VoteMechanism)Enum.Parse(typeof(VoteMechanism), x.ToString())).ToList() ?? new List<VoteMechanism>();
-        
         var mustQuery = new List<Func<QueryContainerDescriptor<VoteSchemeIndex>, QueryContainer>>
         {
             q => q.Term(i
-                => i.Field(f => f.ChainId).Value(input.ChainId)),
-            q => q.Terms(i
-                => i.Field(f => f.VoteMechanism).Terms(voteMechanismList))
+                => i.Field(f => f.ChainId).Value(input.ChainId))
         };
     
         QueryContainer Filter(QueryContainerDescriptor<VoteSchemeIndex> f) =>

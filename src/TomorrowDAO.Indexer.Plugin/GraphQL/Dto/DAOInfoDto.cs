@@ -32,6 +32,7 @@ public class DAOInfoDto
     public long ExecuteTimePeriod { get; set; }
     public long VetoExecuteTimePeriod { get; set; }
     public DateTime CreateTime { get; set; }
+    public bool IsNetworkDAO { get; set; }
 }
 
 public class MetadataDto

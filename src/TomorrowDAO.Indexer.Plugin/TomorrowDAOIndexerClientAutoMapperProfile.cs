@@ -71,6 +71,8 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<LogEventContext, ElectionIndex>();
         CreateMap<DaoProposalTimePeriodSet, DAOIndex>();
         CreateMap<DAOCreated, DAOIndex>()
+            .ForMember(des => des.IsNetworkDAO, opt
+                => opt.MapFrom(source => source.IsNetworkDao))
             .ForMember(des => des.Creator, opt
                 => opt.MapFrom(source => MapAddress(source.Creator)))
             .ForMember(des => des.Id, opt

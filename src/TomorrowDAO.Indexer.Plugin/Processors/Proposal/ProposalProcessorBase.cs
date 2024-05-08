@@ -46,13 +46,13 @@ public abstract class ProposalProcessorBase<TEvent> : AElfLogEventProcessorBase<
         await ProposalRepository.AddOrUpdateAsync(index);
     }
 
-    protected async void UpdateVetoProposal(string proposalId, ProposalStatus proposalStatus,
+    protected async void UpdateProposal(string proposalId, ProposalStatus proposalStatus,
         ProposalStage proposalStage, LogEventContext context)
     {
-        UpdateVetoProposal(proposalId, proposalStatus, proposalStage, null, context);
+        UpdateProposal(proposalId, proposalStatus, proposalStage, null, context);
     }
 
-    protected async void UpdateVetoProposal(string proposalId, ProposalStatus proposalStatus, 
+    protected async void UpdateProposal(string proposalId, ProposalStatus proposalStatus, 
         ProposalStage proposalStage, DateTime? executeTime, LogEventContext context)
     {
         var proposalIndex = await ProposalRepository.GetFromBlockStateSetAsync(proposalId, context.ChainId);
@@ -63,6 +63,7 @@ public abstract class ProposalProcessorBase<TEvent> : AElfLogEventProcessorBase<
         ObjectMapper.Map(context, proposalIndex);
         proposalIndex.ProposalStatus = proposalStatus;
         proposalIndex.ProposalStage = proposalStage;
+        proposalIndex.ExecuteTime = executeTime;
         await ProposalRepository.AddOrUpdateAsync(proposalIndex);
     }
 }
