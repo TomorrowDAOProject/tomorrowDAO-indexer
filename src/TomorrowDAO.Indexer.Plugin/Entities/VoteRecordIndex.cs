@@ -1,8 +1,6 @@
 using AElf.Indexing.Elasticsearch;
 using AElfIndexer.Client;
 using Nest;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using TomorrowDAO.Indexer.Plugin.Enums;
 
 namespace TomorrowDAO.Indexer.Plugin.Entities;

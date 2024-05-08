@@ -25,50 +25,264 @@ namespace TomorrowDAO.Contracts.Election {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CilQcm90b2J1Zi9jb250cmFjdC9lbGVjdGlvbl9jb250cmFjdC5wcm90bxoP",
-            "YWVsZi9jb3JlLnByb3RvGhJhZWxmL29wdGlvbnMucHJvdG8aG2dvb2dsZS9w",
-            "cm90b2J1Zi9lbXB0eS5wcm90bxoeZ29vZ2xlL3Byb3RvYnVmL3dyYXBwZXJz",
-            "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIqgBCh1F",
-            "bGVjdGlvblZvdGluZ0V2ZW50UmVnaXN0ZXJlZBIaCgZkYW9faWQYASABKAsy",
-            "Ci5hZWxmLkhhc2gSFgoOdGltZV9lYWNoX3Rlcm0YAiABKAMSFwoPY2FuZGlk",
-            "YXRlX2NvdW50GAMgASgDEhoKEmhpZ2hfY291bmNpbF9jb3VudBgEIAEoAxIY",
-            "ChBnb3Zlcm5hbmNlX3Rva2VuGAUgASgJOgSguxgBIlgKB05ld1Rlcm0SGgoG",
-            "ZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEhcKD3ByZV90ZXJtX251bWJlchgC",
-            "IAEoAxISCgpuZXdfbnVtYmVyGAMgASgDOgSguxgBIlQKDkNhbmRpZGF0ZUFk",
-            "ZGVkEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIgCgljYW5kaWRhdGUY",
-            "AiABKAsyDS5hZWxmLkFkZHJlc3M6BKC7GAEiVgoQQ2FuZGlkYXRlUmVtb3Zl",
-            "ZBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSIAoJY2FuZGlkYXRlGAIg",
-            "ASgLMg0uYWVsZi5BZGRyZXNzOgSguxgBIrMBCgVWb3RlZBIaCgZkYW9faWQY",
-            "ASABKAsyCi5hZWxmLkhhc2gSKAoRY2FuZGlkYXRlX2FkZHJlc3MYAiABKAsy",
-            "DS5hZWxmLkFkZHJlc3MSDgoGYW1vdW50GAMgASgDEjEKDWVuZF90aW1lc3Rh",
-            "bXAYBCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhsKB3ZvdGVf",
-            "aWQYBSABKAsyCi5hZWxmLkhhc2g6BKC7GAEiWgoLVm90ZUNoYW5nZWQSGwoH",
-            "dm90ZV9pZBgBIAEoCzIKLmFlbGYuSGFzaBIoChFjYW5kaWRhdGVfYWRkcmVz",
-            "cxgCIAEoCzINLmFlbGYuQWRkcmVzczoEoLsYASJ4ChRDYW5kaWRhdGVJbmZv",
-            "VXBkYXRlZBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSKAoRY2FuZGlk",
-            "YXRlX2FkZHJlc3MYAiABKAsyDS5hZWxmLkFkZHJlc3MSFAoMaXNfZXZpbF9u",
-            "b2RlGAMgASgIOgSguxgBIoQBChhDYW5kaWRhdGVBZGRyZXNzUmVwbGFjZWQS",
-            "GgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEiIKC29sZF9hZGRyZXNzGAIg",
-            "ASgLMg0uYWVsZi5BZGRyZXNzEiIKC25ld19hZGRyZXNzGAMgASgLMg0uYWVs",
-            "Zi5BZGRyZXNzOgSguxgBIl0KD0V2aWxOb2RlUmVtb3ZlZBIaCgZkYW9faWQY",
-            "ASABKAsyCi5hZWxmLkhhc2gSKAoRZXZpbF9ub2RlX2FkZHJlc3MYAiABKAsy",
-            "DS5hZWxmLkFkZHJlc3M6BKC7GAEiMwoPRWxlY3Rpb25FbmFibGVkEhoKBmRh",
-            "b19pZBgBIAEoCzIKLmFlbGYuSGFzaDoEoLsYATLUAQoQRWxlY3Rpb25Db250",
-            "cmFjdBJACgZVcGRhdGUSHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUa",
-            "Fi5nb29nbGUucHJvdG9idWYuRW1wdHkiABJDCgRSZWFkEhYuZ29vZ2xlLnBy",
-            "b3RvYnVmLkVtcHR5GhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlIgWI",
-            "ifcBARo5ssz2ATRUb21vcnJvd0RBTy5Db250cmFjdHMuRWxlY3Rpb24uRWxl",
-            "Y3Rpb25Db250cmFjdFN0YXRlQiGqAh5Ub21vcnJvd0RBTy5Db250cmFjdHMu",
-            "RWxlY3Rpb25QBGIGcHJvdG8z"));
+            "YWVsZi9jb3JlLnByb3RvGhJhZWxmL29wdGlvbnMucHJvdG8aH2dvb2dsZS9w",
+            "cm90b2J1Zi90aW1lc3RhbXAucHJvdG8aG2dvb2dsZS9wcm90b2J1Zi9lbXB0",
+            "eS5wcm90bxoeZ29vZ2xlL3Byb3RvYnVmL3dyYXBwZXJzLnByb3RvGhlQcm90",
+            "b2J1Zi9iYXNlL2FjczEyLnByb3RvItYBCg9Jbml0aWFsaXplSW5wdXQSKwoU",
+            "ZGFvX2NvbnRyYWN0X2FkZHJlc3MYASABKAsyDS5hZWxmLkFkZHJlc3MSLAoV",
+            "dm90ZV9jb250cmFjdF9hZGRyZXNzGAIgASgLMg0uYWVsZi5BZGRyZXNzEjIK",
+            "G2dvdmVybmFuY2VfY29udHJhY3RfYWRkcmVzcxgDIAEoCzINLmFlbGYuQWRk",
+            "cmVzcxIZChFtaW5pbXVtX2xvY2tfdGltZRgEIAEoAxIZChFtYXhpbXVtX2xv",
+            "Y2tfdGltZRgFIAEoAyKDAgoZU2V0SGlnaENvdW5jaWxDb25maWdJbnB1dBIa",
+            "CgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSJQodbWF4X2hpZ2hfY291bmNp",
+            "bF9tZW1iZXJfY291bnQYAiABKAMSKAogbWF4X2hpZ2hfY291bmNpbF9jYW5k",
+            "aWRhdGVfY291bnQYAyABKAMSFwoPc3Rha2VfdGhyZXNob2xkGAQgASgDEhcK",
+            "D2VsZWN0aW9uX3BlcmlvZBgFIAEoAxItCiVpc19yZXF1aXJlX2hpZ2hfY291",
+            "bmNpbF9mb3JfZXhlY3V0aW9uGAYgASgIEhgKEGdvdmVybmFuY2VfdG9rZW4Y",
+            "ByABKAkiaQoUSGlnaENvdW5jaWxDb25maWdTZXQSGgoGZGFvX2lkGAEgASgL",
+            "MgouYWVsZi5IYXNoEi8KE2hpZ2hfY291bmNpbF9jb25maWcYAiABKAsyEi5I",
+            "aWdoQ291bmNpbENvbmZpZzoEoLsYASKKAgogUmVnaXN0ZXJFbGVjdGlvblZv",
+            "dGluZ0V2ZW50SW5wdXQSGgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEhcK",
+            "D2VsZWN0aW9uX3BlcmlvZBgCIAEoAxIoCiBtYXhfaGlnaF9jb3VuY2lsX2Nh",
+            "bmRpZGF0ZV9jb3VudBgDIAEoAxIlCh1tYXhfaGlnaF9jb3VuY2lsX21lbWJl",
+            "cl9jb3VudBgEIAEoAxIXCg9zdGFrZV90aHJlc2hvbGQYBSABKAMSGAoQZ292",
+            "ZXJuYW5jZV90b2tlbhgGIAEoCRItCiVpc19yZXF1aXJlX2hpZ2hfY291bmNp",
+            "bF9mb3JfZXhlY3V0aW9uGAggASgIIoYBCh1FbGVjdGlvblZvdGluZ0V2ZW50",
+            "UmVnaXN0ZXJlZBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSIgoGY29u",
+            "ZmlnGAIgASgLMhIuSGlnaENvdW5jaWxDb25maWcSHwoKdm90aW5nSXRlbRgD",
+            "IAEoCzILLlZvdGluZ0l0ZW06BKC7GAEi5AMKClZvdGluZ0l0ZW0SIgoOdm90",
+            "aW5nX2l0ZW1faWQYASABKAsyCi5hZWxmLkhhc2gSGQoRYWNjZXB0ZWRfY3Vy",
+            "cmVuY3kYAiABKAkSFQoNaXNfbG9ja190b2tlbhgDIAEoCBIfChdjdXJyZW50",
+            "X3NuYXBzaG90X251bWJlchgEIAEoAxIdChV0b3RhbF9zbmFwc2hvdF9udW1i",
+            "ZXIYBSABKAMSDwoHb3B0aW9ucxgGIAMoCRI2ChJyZWdpc3Rlcl90aW1lc3Rh",
+            "bXAYByABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjMKD3N0YXJ0",
+            "X3RpbWVzdGFtcBgIIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAS",
+            "MQoNZW5kX3RpbWVzdGFtcBgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
+            "c3RhbXASRAogY3VycmVudF9zbmFwc2hvdF9zdGFydF90aW1lc3RhbXAYCiAB",
+            "KAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEh4KB3Nwb25zb3IYCyAB",
+            "KAsyDS5hZWxmLkFkZHJlc3MSFAoMaXNfcXVhZHJhdGljGAwgASgIEhMKC3Rp",
+            "Y2tldF9jb3N0GA0gASgDIs4CCgxWb3RpbmdSZXN1bHQSIgoOdm90aW5nX2l0",
+            "ZW1faWQYASABKAsyCi5hZWxmLkhhc2gSKwoHcmVzdWx0cxgCIAMoCzIaLlZv",
+            "dGluZ1Jlc3VsdC5SZXN1bHRzRW50cnkSFwoPc25hcHNob3RfbnVtYmVyGAMg",
+            "ASgDEhQKDHZvdGVyc19jb3VudBgEIAEoAxI8ChhzbmFwc2hvdF9zdGFydF90",
+            "aW1lc3RhbXAYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjoK",
+            "FnNuYXBzaG90X2VuZF90aW1lc3RhbXAYBiABKAsyGi5nb29nbGUucHJvdG9i",
+            "dWYuVGltZXN0YW1wEhQKDHZvdGVzX2Ftb3VudBgHIAEoAxouCgxSZXN1bHRz",
+            "RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgDOgI4ASJbChVBbm5v",
+            "dW5jZUVsZWN0aW9uSW5wdXQSGgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNo",
+            "EiYKD2NhbmRpZGF0ZV9hZG1pbhgCIAEoCzINLmFlbGYuQWRkcmVzcyKAAQoY",
+            "QW5ub3VuY2VFbGVjdGlvbkZvcklucHV0EhoKBmRhb19pZBgBIAEoCzIKLmFl",
+            "bGYuSGFzaBIgCgljYW5kaWRhdGUYAiABKAsyDS5hZWxmLkFkZHJlc3MSJgoP",
+            "Y2FuZGlkYXRlX2FkbWluGAMgASgLMg0uYWVsZi5BZGRyZXNzIoQBCg5DYW5k",
+            "aWRhdGVBZGRlZBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSIAoJY2Fu",
+            "ZGlkYXRlGAIgASgLMg0uYWVsZi5BZGRyZXNzEh4KB3Nwb25zb3IYAyABKAsy",
+            "DS5hZWxmLkFkZHJlc3MSDgoGYW1vdW50GAQgASgDOgSguxgBIisKC0FkZHJl",
+            "c3NMaXN0EhwKBXZhbHVlGAEgAygLMg0uYWVsZi5BZGRyZXNzIlEKEVF1aXRF",
+            "bGVjdGlvbklucHV0EhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIgCglj",
+            "YW5kaWRhdGUYAiABKAsyDS5hZWxmLkFkZHJlc3MiVgoQQ2FuZGlkYXRlUmVt",
+            "b3ZlZBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSIAoJY2FuZGlkYXRl",
+            "GAIgASgLMg0uYWVsZi5BZGRyZXNzOgSguxgBIroBChRWb3RlSGlnaENvdW5j",
+            "aWxJbnB1dBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSKAoRY2FuZGlk",
+            "YXRlX2FkZHJlc3MYAiABKAsyDS5hZWxmLkFkZHJlc3MSDgoGYW1vdW50GAMg",
+            "ASgDEjEKDWVuZF90aW1lc3RhbXAYBCABKAsyGi5nb29nbGUucHJvdG9idWYu",
+            "VGltZXN0YW1wEhkKBXRva2VuGAUgASgLMgouYWVsZi5IYXNoIuUCCg1DYW5k",
+            "aWRhdGVWb3RlEjUKIW9idGFpbmVkX2FjdGl2ZV92b3RpbmdfcmVjb3JkX2lk",
+            "cxgBIAMoCzIKLmFlbGYuSGFzaBI4CiRvYnRhaW5lZF93aXRoZHJhd25fdm90",
+            "aW5nX3JlY29yZF9pZHMYAiADKAsyCi5hZWxmLkhhc2gSKgoib2J0YWluZWRf",
+            "YWN0aXZlX3ZvdGVkX3ZvdGVzX2Ftb3VudBgDIAEoAxInCh9hbGxfb2J0YWlu",
+            "ZWRfdm90ZWRfdm90ZXNfYW1vdW50GAQgASgDEjUKHm9idGFpbmVkX2FjdGl2",
+            "ZV92b3RpbmdfcmVjb3JkcxgFIAMoCzINLlZvdGluZ1JlY29yZBI3CiBvYnRh",
+            "aW5lZF93aXRoZHJhd25fdm90ZXNfcmVjb3JkcxgGIAMoCzINLlZvdGluZ1Jl",
+            "Y29yZBIeCgdhZGRyZXNzGAcgASgLMg0uYWVsZi5BZGRyZXNzIq0CCgtFbGVj",
+            "dG9yVm90ZRIsChhhY3RpdmVfdm90aW5nX3JlY29yZF9pZHMYASADKAsyCi5h",
+            "ZWxmLkhhc2gSLwobd2l0aGRyYXduX3ZvdGluZ19yZWNvcmRfaWRzGAIgAygL",
+            "MgouYWVsZi5IYXNoEiEKGWFjdGl2ZV92b3RlZF92b3Rlc19hbW91bnQYAyAB",
+            "KAMSHgoWYWxsX3ZvdGVkX3ZvdGVzX2Ftb3VudBgEIAEoAxIsChVhY3RpdmVf",
+            "dm90aW5nX3JlY29yZHMYBSADKAsyDS5Wb3RpbmdSZWNvcmQSLgoXd2l0aGRy",
+            "YXduX3ZvdGVzX3JlY29yZHMYBiADKAsyDS5Wb3RpbmdSZWNvcmQSHgoHYWRk",
+            "cmVzcxgHIAEoCzINLmFlbGYuQWRkcmVzcyK7AwoMVm90aW5nUmVjb3JkEhwK",
+            "BXZvdGVyGAEgASgLMg0uYWVsZi5BZGRyZXNzEiAKCWNhbmRpZGF0ZRgCIAEo",
+            "CzINLmFlbGYuQWRkcmVzcxIOCgZhbW91bnQYAyABKAMSEwoLdGVybV9udW1i",
+            "ZXIYBCABKAMSGwoHdm90ZV9pZBgFIAEoCzIKLmFlbGYuSGFzaBI0ChB1bmxv",
+            "Y2tfdGltZXN0YW1wGAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFt",
+            "cBI2ChJ3aXRoZHJhd190aW1lc3RhbXAYByABKAsyGi5nb29nbGUucHJvdG9i",
+            "dWYuVGltZXN0YW1wEjIKDnZvdGVfdGltZXN0YW1wGAggASgLMhouZ29vZ2xl",
+            "LnByb3RvYnVmLlRpbWVzdGFtcBIUCgxpc193aXRoZHJhd24YCSABKAgSIgoO",
+            "dm90aW5nX2l0ZW1faWQYCiABKAsyCi5hZWxmLkhhc2gSFwoPc25hcHNob3Rf",
+            "bnVtYmVyGAsgASgDEhgKEGlzX2NoYW5nZV90YXJnZXQYDCABKAgSGgoGZGFv",
+            "X2lkGA0gASgLMgouYWVsZi5IYXNoIrMBCgVWb3RlZBIaCgZkYW9faWQYASAB",
+            "KAsyCi5hZWxmLkhhc2gSKAoRY2FuZGlkYXRlX2FkZHJlc3MYAiABKAsyDS5h",
+            "ZWxmLkFkZHJlc3MSDgoGYW1vdW50GAMgASgDEjEKDWVuZF90aW1lc3RhbXAY",
+            "BCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhsKB3ZvdGVfaWQY",
+            "BSABKAsyCi5hZWxmLkhhc2g6BKC7GAEiTAoZVGFrZUVsZWN0aW9uU25hcHNo",
+            "b3RJbnB1dBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSEwoLdGVybV9u",
+            "dW1iZXIYAiABKAMi1QEKFENhbmRpZGF0ZUluZm9ybWF0aW9uEhoKBmRhb19p",
+            "ZBgBIAEoCzIKLmFlbGYuSGFzaBIeCgdhZGRyZXNzGAIgASgLMg0uYWVsZi5B",
+            "ZGRyZXNzEg0KBXRlcm1zGAMgAygDEi8KG2Fubm91bmNlbWVudF90cmFuc2Fj",
+            "dGlvbl9pZBgEIAEoCzIKLmFlbGYuSGFzaBIcChRpc19jdXJyZW50X2NhbmRp",
+            "ZGF0ZRgFIAEoCBIjChtjb250aW51YWxfYXBwb2ludG1lbnRfY291bnQYBiAB",
+            "KAMiYQoQQ2FuZGlkYXRlRWxlY3RlZBIaCgZkYW9faWQYASABKAsyCi5hZWxm",
+            "Lkhhc2gSFwoPcHJlX3Rlcm1fbnVtYmVyGAIgASgDEhIKCm5ld19udW1iZXIY",
+            "AyABKAM6BKC7GAEiXAocR2V0Q2FuZGlkYXRlSW5mb3JtYXRpb25JbnB1dBIa",
+            "CgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSIAoJY2FuZGlkYXRlGAIgASgL",
+            "Mg0uYWVsZi5BZGRyZXNzIkwKD1BhZ2VJbmZvcm1hdGlvbhIaCgZkYW9faWQY",
+            "ASABKAsyCi5hZWxmLkhhc2gSDQoFc3RhcnQYAiABKAUSDgoGbGVuZ3RoGAMg",
+            "ASgFIkgKJUdldFBhZ2VhYmxlQ2FuZGlkYXRlSW5mb3JtYXRpb25PdXRwdXQS",
+            "HwoFdmFsdWUYASADKAsyEC5DYW5kaWRhdGVEZXRhaWwiZgoPQ2FuZGlkYXRl",
+            "RGV0YWlsEjQKFWNhbmRpZGF0ZV9pbmZvcm1hdGlvbhgBIAEoCzIVLkNhbmRp",
+            "ZGF0ZUluZm9ybWF0aW9uEh0KFW9idGFpbmVkX3ZvdGVzX2Ftb3VudBgCIAEo",
+            "AyJVChVHZXRDYW5kaWRhdGVWb3RlSW5wdXQSGgoGZGFvX2lkGAEgASgLMgou",
+            "YWVsZi5IYXNoEiAKCWNhbmRpZGF0ZRgCIAEoCzINLmFlbGYuQWRkcmVzcyLf",
+            "AQoRSGlnaENvdW5jaWxDb25maWcSJQodbWF4X2hpZ2hfY291bmNpbF9tZW1i",
+            "ZXJfY291bnQYASABKAMSKAogbWF4X2hpZ2hfY291bmNpbF9jYW5kaWRhdGVf",
+            "Y291bnQYAiABKAMSFwoPZWxlY3Rpb25fcGVyaW9kGAMgASgDEi0KJWlzX3Jl",
+            "cXVpcmVfaGlnaF9jb3VuY2lsX2Zvcl9leGVjdXRpb24YBCABKAgSGAoQZ292",
+            "ZXJuYW5jZV90b2tlbhgFIAEoCRIXCg9zdGFrZV90aHJlc2hvbGQYBiABKAMi",
+            "TwoTR2V0RWxlY3RvclZvdGVJbnB1dBIaCgZkYW9faWQYASABKAsyCi5hZWxm",
+            "Lkhhc2gSHAoFdm90ZXIYAiABKAsyDS5hZWxmLkFkZHJlc3MiRwoUR2V0VGVy",
+            "bVNuYXBzaG90SW5wdXQSGgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEhMK",
+            "C3Rlcm1fbnVtYmVyGAIgASgDIrIBCgxUZXJtU25hcHNob3QSGgoGZGFvX2lk",
+            "GAEgASgLMgouYWVsZi5IYXNoEhMKC3Rlcm1fbnVtYmVyGAIgASgDEjoKD2Vs",
+            "ZWN0aW9uX3Jlc3VsdBgDIAMoCzIhLlRlcm1TbmFwc2hvdC5FbGVjdGlvblJl",
+            "c3VsdEVudHJ5GjUKE0VsZWN0aW9uUmVzdWx0RW50cnkSCwoDa2V5GAEgASgJ",
+            "Eg0KBXZhbHVlGAIgASgDOgI4ASJJChZHZXRFbGVjdGlvblJlc3VsdElucHV0",
+            "EhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBITCgt0ZXJtX251bWJlchgC",
+            "IAEoAyKzAQoORWxlY3Rpb25SZXN1bHQSGgoGZGFvX2lkGAEgASgLMgouYWVs",
+            "Zi5IYXNoEhMKC3Rlcm1fbnVtYmVyGAIgASgDEi0KB3Jlc3VsdHMYAyADKAsy",
+            "HC5FbGVjdGlvblJlc3VsdC5SZXN1bHRzRW50cnkSEQoJaXNfYWN0aXZlGAQg",
+            "ASgIGi4KDFJlc3VsdHNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiAB",
+            "KAM6AjgBIngKFlNldENhbmRpZGF0ZUFkbWluSW5wdXQSGgoGZGFvX2lkGAEg",
+            "ASgLMgouYWVsZi5IYXNoEiAKCWNhbmRpZGF0ZRgCIAEoCzINLmFlbGYuQWRk",
+            "cmVzcxIgCgluZXdfYWRtaW4YAyABKAsyDS5hZWxmLkFkZHJlc3MifgoXQ2hh",
+            "bmdlVm90aW5nT3B0aW9uSW5wdXQSGwoHdm90ZV9pZBgBIAEoCzIKLmFlbGYu",
+            "SGFzaBIoChFjYW5kaWRhdGVfYWRkcmVzcxgCIAEoCzINLmFlbGYuQWRkcmVz",
+            "cxIcChRpc19yZXNldF92b3RpbmdfdGltZRgDIAEoCCJ9Ch9VcGRhdGVDYW5k",
+            "aWRhdGVJbmZvcm1hdGlvbklucHV0EhoKBmRhb19pZBgBIAEoCzIKLmFlbGYu",
+            "SGFzaBIoChFjYW5kaWRhdGVfYWRkcmVzcxgCIAEoCzINLmFlbGYuQWRkcmVz",
+            "cxIUCgxpc19ldmlsX25vZGUYAyABKAgiWgonVXBkYXRlTXVsdGlwbGVDYW5k",
+            "aWRhdGVJbmZvcm1hdGlvbklucHV0Ei8KBXZhbHVlGAEgAygLMiAuVXBkYXRl",
+            "Q2FuZGlkYXRlSW5mb3JtYXRpb25JbnB1dCJPCg1DYW5kaWRhdGVJbmZvEigK",
+            "EWNhbmRpZGF0ZV9hZGRyZXNzGAEgASgLMg0uYWVsZi5BZGRyZXNzEhQKDGlz",
+            "X2V2aWxfbm9kZRgCIAEoCCIyChFDYW5kaWRhdGVJbmZvTGlzdBIdCgV2YWx1",
+            "ZRgBIAMoCzIOLkNhbmRpZGF0ZUluZm8igQEKG1JlcGxhY2VDYW5kaWRhdGVQ",
+            "dWJrZXlJbnB1dBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSIgoLb2xk",
+            "X2FkZHJlc3MYAiABKAsyDS5hZWxmLkFkZHJlc3MSIgoLbmV3X2FkZHJlc3MY",
+            "AyABKAsyDS5hZWxmLkFkZHJlc3MiWwoTUmVtb3ZlRXZpbE5vZGVJbnB1dBIa",
+            "CgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSKAoRZXZpbF9ub2RlX2FkZHJl",
+            "c3MYAiABKAsyDS5hZWxmLkFkZHJlc3MiVAoRU2V0RW1lcmdlbmN5SW5wdXQS",
+            "GgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEiMKDG9yZ2FuaXphdGlvbhgC",
+            "IAEoCzINLmFlbGYuQWRkcmVzcyKKAQoVRGF0YUNlbnRlclJhbmtpbmdMaXN0",
+            "Ej0KDGRhdGFfY2VudGVycxgBIAMoCzInLkRhdGFDZW50ZXJSYW5raW5nTGlz",
+            "dC5EYXRhQ2VudGVyc0VudHJ5GjIKEERhdGFDZW50ZXJzRW50cnkSCwoDa2V5",
+            "GAEgASgJEg0KBXZhbHVlGAIgASgDOgI4ASJaCgtWb3RlQ2hhbmdlZBIbCgd2",
+            "b3RlX2lkGAEgASgLMgouYWVsZi5IYXNoEigKEWNhbmRpZGF0ZV9hZGRyZXNz",
+            "GAIgASgLMg0uYWVsZi5BZGRyZXNzOgSguxgBIngKFENhbmRpZGF0ZUluZm9V",
+            "cGRhdGVkEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIoChFjYW5kaWRh",
+            "dGVfYWRkcmVzcxgCIAEoCzINLmFlbGYuQWRkcmVzcxIUCgxpc19ldmlsX25v",
+            "ZGUYAyABKAg6BKC7GAEiYgocTXVsdGlwbGVDYW5kaWRhdGVJbmZvVXBkYXRl",
+            "ZBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSIAoEbGlzdBgCIAEoCzIS",
+            "LkNhbmRpZGF0ZUluZm9MaXN0OgSguxgBIoQBChhDYW5kaWRhdGVBZGRyZXNz",
+            "UmVwbGFjZWQSGgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEiIKC29sZF9h",
+            "ZGRyZXNzGAIgASgLMg0uYWVsZi5BZGRyZXNzEiIKC25ld19hZGRyZXNzGAMg",
+            "ASgLMg0uYWVsZi5BZGRyZXNzOgSguxgBIl0KD0V2aWxOb2RlUmVtb3ZlZBIa",
+            "CgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSKAoRZXZpbF9ub2RlX2FkZHJl",
+            "c3MYAiABKAsyDS5hZWxmLkFkZHJlc3M6BKC7GAEiMwoPRWxlY3Rpb25FbmFi",
+            "bGVkEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaDoEoLsYATKbEAoQRWxl",
+            "Y3Rpb25Db250cmFjdBI4CgpJbml0aWFsaXplEhAuSW5pdGlhbGl6ZUlucHV0",
+            "GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASTAoUU2V0SGlnaENvdW5jaWxD",
+            "b25maWcSGi5TZXRIaWdoQ291bmNpbENvbmZpZ0lucHV0GhYuZ29vZ2xlLnBy",
+            "b3RvYnVmLkVtcHR5IgASWgobUmVnaXN0ZXJFbGVjdGlvblZvdGluZ0V2ZW50",
+            "EiEuUmVnaXN0ZXJFbGVjdGlvblZvdGluZ0V2ZW50SW5wdXQaFi5nb29nbGUu",
+            "cHJvdG9idWYuRW1wdHkiABJEChBBbm5vdW5jZUVsZWN0aW9uEhYuQW5ub3Vu",
+            "Y2VFbGVjdGlvbklucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASSgoT",
+            "QW5ub3VuY2VFbGVjdGlvbkZvchIZLkFubm91bmNlRWxlY3Rpb25Gb3JJbnB1",
+            "dBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEjwKDFF1aXRFbGVjdGlvbhIS",
+            "LlF1aXRFbGVjdGlvbklucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgAS",
+            "KwoEVm90ZRIVLlZvdGVIaWdoQ291bmNpbElucHV0GgouYWVsZi5IYXNoIgAS",
+            "RAoMVGFrZVNuYXBzaG90EhouVGFrZUVsZWN0aW9uU25hcHNob3RJbnB1dBoW",
+            "Lmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEkYKEVNldENhbmRpZGF0ZUFkbWlu",
+            "EhcuU2V0Q2FuZGlkYXRlQWRtaW5JbnB1dBoWLmdvb2dsZS5wcm90b2J1Zi5F",
+            "bXB0eSIAEjAKCFdpdGhkcmF3EgouYWVsZi5IYXNoGhYuZ29vZ2xlLnByb3Rv",
+            "YnVmLkVtcHR5IgASMAoNR2V0Q2FuZGlkYXRlcxIKLmFlbGYuSGFzaBoMLkFk",
+            "ZHJlc3NMaXN0IgWIifcBARI1ChJHZXRWb3RlZENhbmRpZGF0ZXMSCi5hZWxm",
+            "Lkhhc2gaDC5BZGRyZXNzTGlzdCIFiIn3AQESLwoMR2V0VmljdG9yaWVzEgou",
+            "YWVsZi5IYXNoGgwuQWRkcmVzc0xpc3QiBYiJ9wEBElYKF0dldENhbmRpZGF0",
+            "ZUluZm9ybWF0aW9uEh0uR2V0Q2FuZGlkYXRlSW5mb3JtYXRpb25JbnB1dBoV",
+            "LkNhbmRpZGF0ZUluZm9ybWF0aW9uIgWIifcBARJiCh9HZXRQYWdlYWJsZUNh",
+            "bmRpZGF0ZUluZm9ybWF0aW9uEhAuUGFnZUluZm9ybWF0aW9uGiYuR2V0UGFn",
+            "ZWFibGVDYW5kaWRhdGVJbmZvcm1hdGlvbk91dHB1dCIFiIn3AQESQQoQR2V0",
+            "Q2FuZGlkYXRlVm90ZRIWLkdldENhbmRpZGF0ZVZvdGVJbnB1dBoOLkNhbmRp",
+            "ZGF0ZVZvdGUiBYiJ9wEBEj0KFEdldEhpZ2hDb3VuY2lsQ29uZmlnEgouYWVs",
+            "Zi5IYXNoGhIuSGlnaENvdW5jaWxDb25maWciBYiJ9wEBEjsKDkdldEVsZWN0",
+            "b3JWb3RlEhQuR2V0RWxlY3RvclZvdGVJbnB1dBoMLkVsZWN0b3JWb3RlIgWI",
+            "ifcBARI+Cg9HZXRUZXJtU25hcHNob3QSFS5HZXRUZXJtU25hcHNob3RJbnB1",
+            "dBoNLlRlcm1TbmFwc2hvdCIFiIn3AQESRAoRR2V0RWxlY3Rpb25SZXN1bHQS",
+            "Fy5HZXRFbGVjdGlvblJlc3VsdElucHV0Gg8uRWxlY3Rpb25SZXN1bHQiBYiJ",
+            "9wEBEkgKEkNoYW5nZVZvdGluZ09wdGlvbhIYLkNoYW5nZVZvdGluZ09wdGlv",
+            "bklucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASWAoaVXBkYXRlQ2Fu",
+            "ZGlkYXRlSW5mb3JtYXRpb24SIC5VcGRhdGVDYW5kaWRhdGVJbmZvcm1hdGlv",
+            "bklucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASaAoiVXBkYXRlTXVs",
+            "dGlwbGVDYW5kaWRhdGVJbmZvcm1hdGlvbhIoLlVwZGF0ZU11bHRpcGxlQ2Fu",
+            "ZGlkYXRlSW5mb3JtYXRpb25JbnB1dBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0",
+            "eSIAElEKF1JlcGxhY2VDYW5kaWRhdGVBZGRyZXNzEhwuUmVwbGFjZUNhbmRp",
+            "ZGF0ZVB1YmtleUlucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASQAoO",
+            "UmVtb3ZlRXZpbE5vZGUSFC5SZW1vdmVFdmlsTm9kZUlucHV0GhYuZ29vZ2xl",
+            "LnByb3RvYnVmLkVtcHR5IgASNgoORW5hYmxlRWxlY3Rpb24SCi5hZWxmLkhh",
+            "c2gaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABI8CgxTZXRFbWVyZ2VuY3kS",
+            "Ei5TZXRFbWVyZ2VuY3lJbnB1dBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIA",
+            "EkUKGEdldERhdGFDZW50ZXJSYW5raW5nTGlzdBIKLmFlbGYuSGFzaBoWLkRh",
+            "dGFDZW50ZXJSYW5raW5nTGlzdCIFiIn3AQESMAoMR2V0RW1lcmdlbmN5Egou",
+            "YWVsZi5IYXNoGg0uYWVsZi5BZGRyZXNzIgWIifcBARo5ssz2ATRUb21vcnJv",
+            "d0RBTy5Db250cmFjdHMuRWxlY3Rpb24uRWxlY3Rpb25Db250cmFjdFN0YXRl",
+            "QiGqAh5Ub21vcnJvd0RBTy5Db250cmFjdHMuRWxlY3Rpb25iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::AElf.Types.CoreReflection.Descriptor, global::AElf.OptionsReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::AElf.Types.CoreReflection.Descriptor, global::AElf.OptionsReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::AElf.Standards.ACS12.Acs12Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.ElectionVotingEventRegistered), global::TomorrowDAO.Contracts.Election.ElectionVotingEventRegistered.Parser, new[]{ "DaoId", "TimeEachTerm", "CandidateCount", "HighCouncilCount", "GovernanceToken" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.NewTerm), global::TomorrowDAO.Contracts.Election.NewTerm.Parser, new[]{ "DaoId", "PreTermNumber", "NewNumber" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.CandidateAdded), global::TomorrowDAO.Contracts.Election.CandidateAdded.Parser, new[]{ "DaoId", "Candidate" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.InitializeInput), global::TomorrowDAO.Contracts.Election.InitializeInput.Parser, new[]{ "DaoContractAddress", "VoteContractAddress", "GovernanceContractAddress", "MinimumLockTime", "MaximumLockTime" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.SetHighCouncilConfigInput), global::TomorrowDAO.Contracts.Election.SetHighCouncilConfigInput.Parser, new[]{ "DaoId", "MaxHighCouncilMemberCount", "MaxHighCouncilCandidateCount", "StakeThreshold", "ElectionPeriod", "IsRequireHighCouncilForExecution", "GovernanceToken" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.HighCouncilConfigSet), global::TomorrowDAO.Contracts.Election.HighCouncilConfigSet.Parser, new[]{ "DaoId", "HighCouncilConfig" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.RegisterElectionVotingEventInput), global::TomorrowDAO.Contracts.Election.RegisterElectionVotingEventInput.Parser, new[]{ "DaoId", "ElectionPeriod", "MaxHighCouncilCandidateCount", "MaxHighCouncilMemberCount", "StakeThreshold", "GovernanceToken", "IsRequireHighCouncilForExecution" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.ElectionVotingEventRegistered), global::TomorrowDAO.Contracts.Election.ElectionVotingEventRegistered.Parser, new[]{ "DaoId", "Config", "VotingItem" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.VotingItem), global::TomorrowDAO.Contracts.Election.VotingItem.Parser, new[]{ "VotingItemId", "AcceptedCurrency", "IsLockToken", "CurrentSnapshotNumber", "TotalSnapshotNumber", "Options", "RegisterTimestamp", "StartTimestamp", "EndTimestamp", "CurrentSnapshotStartTimestamp", "Sponsor", "IsQuadratic", "TicketCost" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.VotingResult), global::TomorrowDAO.Contracts.Election.VotingResult.Parser, new[]{ "VotingItemId", "Results", "SnapshotNumber", "VotersCount", "SnapshotStartTimestamp", "SnapshotEndTimestamp", "VotesAmount" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.AnnounceElectionInput), global::TomorrowDAO.Contracts.Election.AnnounceElectionInput.Parser, new[]{ "DaoId", "CandidateAdmin" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.AnnounceElectionForInput), global::TomorrowDAO.Contracts.Election.AnnounceElectionForInput.Parser, new[]{ "DaoId", "Candidate", "CandidateAdmin" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.CandidateAdded), global::TomorrowDAO.Contracts.Election.CandidateAdded.Parser, new[]{ "DaoId", "Candidate", "Sponsor", "Amount" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.AddressList), global::TomorrowDAO.Contracts.Election.AddressList.Parser, new[]{ "Value" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.QuitElectionInput), global::TomorrowDAO.Contracts.Election.QuitElectionInput.Parser, new[]{ "DaoId", "Candidate" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.CandidateRemoved), global::TomorrowDAO.Contracts.Election.CandidateRemoved.Parser, new[]{ "DaoId", "Candidate" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.VoteHighCouncilInput), global::TomorrowDAO.Contracts.Election.VoteHighCouncilInput.Parser, new[]{ "DaoId", "CandidateAddress", "Amount", "EndTimestamp", "Token" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.CandidateVote), global::TomorrowDAO.Contracts.Election.CandidateVote.Parser, new[]{ "ObtainedActiveVotingRecordIds", "ObtainedWithdrawnVotingRecordIds", "ObtainedActiveVotedVotesAmount", "AllObtainedVotedVotesAmount", "ObtainedActiveVotingRecords", "ObtainedWithdrawnVotesRecords", "Address" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.ElectorVote), global::TomorrowDAO.Contracts.Election.ElectorVote.Parser, new[]{ "ActiveVotingRecordIds", "WithdrawnVotingRecordIds", "ActiveVotedVotesAmount", "AllVotedVotesAmount", "ActiveVotingRecords", "WithdrawnVotesRecords", "Address" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.VotingRecord), global::TomorrowDAO.Contracts.Election.VotingRecord.Parser, new[]{ "Voter", "Candidate", "Amount", "TermNumber", "VoteId", "UnlockTimestamp", "WithdrawTimestamp", "VoteTimestamp", "IsWithdrawn", "VotingItemId", "SnapshotNumber", "IsChangeTarget", "DaoId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.Voted), global::TomorrowDAO.Contracts.Election.Voted.Parser, new[]{ "DaoId", "CandidateAddress", "Amount", "EndTimestamp", "VoteId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.TakeElectionSnapshotInput), global::TomorrowDAO.Contracts.Election.TakeElectionSnapshotInput.Parser, new[]{ "DaoId", "TermNumber" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.CandidateInformation), global::TomorrowDAO.Contracts.Election.CandidateInformation.Parser, new[]{ "DaoId", "Address", "Terms", "AnnouncementTransactionId", "IsCurrentCandidate", "ContinualAppointmentCount" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.CandidateElected), global::TomorrowDAO.Contracts.Election.CandidateElected.Parser, new[]{ "DaoId", "PreTermNumber", "NewNumber" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.GetCandidateInformationInput), global::TomorrowDAO.Contracts.Election.GetCandidateInformationInput.Parser, new[]{ "DaoId", "Candidate" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.PageInformation), global::TomorrowDAO.Contracts.Election.PageInformation.Parser, new[]{ "DaoId", "Start", "Length" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.GetPageableCandidateInformationOutput), global::TomorrowDAO.Contracts.Election.GetPageableCandidateInformationOutput.Parser, new[]{ "Value" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.CandidateDetail), global::TomorrowDAO.Contracts.Election.CandidateDetail.Parser, new[]{ "CandidateInformation", "ObtainedVotesAmount" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.GetCandidateVoteInput), global::TomorrowDAO.Contracts.Election.GetCandidateVoteInput.Parser, new[]{ "DaoId", "Candidate" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.HighCouncilConfig), global::TomorrowDAO.Contracts.Election.HighCouncilConfig.Parser, new[]{ "MaxHighCouncilMemberCount", "MaxHighCouncilCandidateCount", "ElectionPeriod", "IsRequireHighCouncilForExecution", "GovernanceToken", "StakeThreshold" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.GetElectorVoteInput), global::TomorrowDAO.Contracts.Election.GetElectorVoteInput.Parser, new[]{ "DaoId", "Voter" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.GetTermSnapshotInput), global::TomorrowDAO.Contracts.Election.GetTermSnapshotInput.Parser, new[]{ "DaoId", "TermNumber" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.TermSnapshot), global::TomorrowDAO.Contracts.Election.TermSnapshot.Parser, new[]{ "DaoId", "TermNumber", "ElectionResult" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.GetElectionResultInput), global::TomorrowDAO.Contracts.Election.GetElectionResultInput.Parser, new[]{ "DaoId", "TermNumber" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.ElectionResult), global::TomorrowDAO.Contracts.Election.ElectionResult.Parser, new[]{ "DaoId", "TermNumber", "Results", "IsActive" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.SetCandidateAdminInput), global::TomorrowDAO.Contracts.Election.SetCandidateAdminInput.Parser, new[]{ "DaoId", "Candidate", "NewAdmin" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.ChangeVotingOptionInput), global::TomorrowDAO.Contracts.Election.ChangeVotingOptionInput.Parser, new[]{ "VoteId", "CandidateAddress", "IsResetVotingTime" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.UpdateCandidateInformationInput), global::TomorrowDAO.Contracts.Election.UpdateCandidateInformationInput.Parser, new[]{ "DaoId", "CandidateAddress", "IsEvilNode" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.UpdateMultipleCandidateInformationInput), global::TomorrowDAO.Contracts.Election.UpdateMultipleCandidateInformationInput.Parser, new[]{ "Value" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.CandidateInfo), global::TomorrowDAO.Contracts.Election.CandidateInfo.Parser, new[]{ "CandidateAddress", "IsEvilNode" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.CandidateInfoList), global::TomorrowDAO.Contracts.Election.CandidateInfoList.Parser, new[]{ "Value" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.ReplaceCandidatePubkeyInput), global::TomorrowDAO.Contracts.Election.ReplaceCandidatePubkeyInput.Parser, new[]{ "DaoId", "OldAddress", "NewAddress" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.RemoveEvilNodeInput), global::TomorrowDAO.Contracts.Election.RemoveEvilNodeInput.Parser, new[]{ "DaoId", "EvilNodeAddress" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.SetEmergencyInput), global::TomorrowDAO.Contracts.Election.SetEmergencyInput.Parser, new[]{ "DaoId", "Organization" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.DataCenterRankingList), global::TomorrowDAO.Contracts.Election.DataCenterRankingList.Parser, new[]{ "DataCenters" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.VoteChanged), global::TomorrowDAO.Contracts.Election.VoteChanged.Parser, new[]{ "VoteId", "CandidateAddress" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.CandidateInfoUpdated), global::TomorrowDAO.Contracts.Election.CandidateInfoUpdated.Parser, new[]{ "DaoId", "CandidateAddress", "IsEvilNode" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.MultipleCandidateInfoUpdated), global::TomorrowDAO.Contracts.Election.MultipleCandidateInfoUpdated.Parser, new[]{ "DaoId", "List" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.CandidateAddressReplaced), global::TomorrowDAO.Contracts.Election.CandidateAddressReplaced.Parser, new[]{ "DaoId", "OldAddress", "NewAddress" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.EvilNodeRemoved), global::TomorrowDAO.Contracts.Election.EvilNodeRemoved.Parser, new[]{ "DaoId", "EvilNodeAddress" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Election.ElectionEnabled), global::TomorrowDAO.Contracts.Election.ElectionEnabled.Parser, new[]{ "DaoId" }, null, null, null, null)
@@ -78,16 +292,16 @@ namespace TomorrowDAO.Contracts.Election {
 
   }
   #region Messages
-  public sealed partial class ElectionVotingEventRegistered : pb::IMessage<ElectionVotingEventRegistered>
+  public sealed partial class InitializeInput : pb::IMessage<InitializeInput>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<ElectionVotingEventRegistered> _parser = new pb::MessageParser<ElectionVotingEventRegistered>(() => new ElectionVotingEventRegistered());
+    private static readonly pb::MessageParser<InitializeInput> _parser = new pb::MessageParser<InitializeInput>(() => new InitializeInput());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<ElectionVotingEventRegistered> Parser { get { return _parser; } }
+    public static pb::MessageParser<InitializeInput> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -103,7 +317,7 @@ namespace TomorrowDAO.Contracts.Election {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ElectionVotingEventRegistered() {
+    public InitializeInput() {
       OnConstruction();
     }
 
@@ -111,19 +325,385 @@ namespace TomorrowDAO.Contracts.Election {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ElectionVotingEventRegistered(ElectionVotingEventRegistered other) : this() {
+    public InitializeInput(InitializeInput other) : this() {
+      daoContractAddress_ = other.daoContractAddress_ != null ? other.daoContractAddress_.Clone() : null;
+      voteContractAddress_ = other.voteContractAddress_ != null ? other.voteContractAddress_.Clone() : null;
+      governanceContractAddress_ = other.governanceContractAddress_ != null ? other.governanceContractAddress_.Clone() : null;
+      minimumLockTime_ = other.minimumLockTime_;
+      maximumLockTime_ = other.maximumLockTime_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public InitializeInput Clone() {
+      return new InitializeInput(this);
+    }
+
+    /// <summary>Field number for the "dao_contract_address" field.</summary>
+    public const int DaoContractAddressFieldNumber = 1;
+    private global::AElf.Types.Address daoContractAddress_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address DaoContractAddress {
+      get { return daoContractAddress_; }
+      set {
+        daoContractAddress_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "vote_contract_address" field.</summary>
+    public const int VoteContractAddressFieldNumber = 2;
+    private global::AElf.Types.Address voteContractAddress_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address VoteContractAddress {
+      get { return voteContractAddress_; }
+      set {
+        voteContractAddress_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "governance_contract_address" field.</summary>
+    public const int GovernanceContractAddressFieldNumber = 3;
+    private global::AElf.Types.Address governanceContractAddress_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address GovernanceContractAddress {
+      get { return governanceContractAddress_; }
+      set {
+        governanceContractAddress_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "minimum_lock_time" field.</summary>
+    public const int MinimumLockTimeFieldNumber = 4;
+    private long minimumLockTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long MinimumLockTime {
+      get { return minimumLockTime_; }
+      set {
+        minimumLockTime_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "maximum_lock_time" field.</summary>
+    public const int MaximumLockTimeFieldNumber = 5;
+    private long maximumLockTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long MaximumLockTime {
+      get { return maximumLockTime_; }
+      set {
+        maximumLockTime_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as InitializeInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(InitializeInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoContractAddress, other.DaoContractAddress)) return false;
+      if (!object.Equals(VoteContractAddress, other.VoteContractAddress)) return false;
+      if (!object.Equals(GovernanceContractAddress, other.GovernanceContractAddress)) return false;
+      if (MinimumLockTime != other.MinimumLockTime) return false;
+      if (MaximumLockTime != other.MaximumLockTime) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoContractAddress_ != null) hash ^= DaoContractAddress.GetHashCode();
+      if (voteContractAddress_ != null) hash ^= VoteContractAddress.GetHashCode();
+      if (governanceContractAddress_ != null) hash ^= GovernanceContractAddress.GetHashCode();
+      if (MinimumLockTime != 0L) hash ^= MinimumLockTime.GetHashCode();
+      if (MaximumLockTime != 0L) hash ^= MaximumLockTime.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoContractAddress_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoContractAddress);
+      }
+      if (voteContractAddress_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(VoteContractAddress);
+      }
+      if (governanceContractAddress_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(GovernanceContractAddress);
+      }
+      if (MinimumLockTime != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(MinimumLockTime);
+      }
+      if (MaximumLockTime != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(MaximumLockTime);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoContractAddress_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoContractAddress);
+      }
+      if (voteContractAddress_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(VoteContractAddress);
+      }
+      if (governanceContractAddress_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(GovernanceContractAddress);
+      }
+      if (MinimumLockTime != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(MinimumLockTime);
+      }
+      if (MaximumLockTime != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(MaximumLockTime);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoContractAddress_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoContractAddress);
+      }
+      if (voteContractAddress_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(VoteContractAddress);
+      }
+      if (governanceContractAddress_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(GovernanceContractAddress);
+      }
+      if (MinimumLockTime != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(MinimumLockTime);
+      }
+      if (MaximumLockTime != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(MaximumLockTime);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(InitializeInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoContractAddress_ != null) {
+        if (daoContractAddress_ == null) {
+          DaoContractAddress = new global::AElf.Types.Address();
+        }
+        DaoContractAddress.MergeFrom(other.DaoContractAddress);
+      }
+      if (other.voteContractAddress_ != null) {
+        if (voteContractAddress_ == null) {
+          VoteContractAddress = new global::AElf.Types.Address();
+        }
+        VoteContractAddress.MergeFrom(other.VoteContractAddress);
+      }
+      if (other.governanceContractAddress_ != null) {
+        if (governanceContractAddress_ == null) {
+          GovernanceContractAddress = new global::AElf.Types.Address();
+        }
+        GovernanceContractAddress.MergeFrom(other.GovernanceContractAddress);
+      }
+      if (other.MinimumLockTime != 0L) {
+        MinimumLockTime = other.MinimumLockTime;
+      }
+      if (other.MaximumLockTime != 0L) {
+        MaximumLockTime = other.MaximumLockTime;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoContractAddress_ == null) {
+              DaoContractAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(DaoContractAddress);
+            break;
+          }
+          case 18: {
+            if (voteContractAddress_ == null) {
+              VoteContractAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(VoteContractAddress);
+            break;
+          }
+          case 26: {
+            if (governanceContractAddress_ == null) {
+              GovernanceContractAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(GovernanceContractAddress);
+            break;
+          }
+          case 32: {
+            MinimumLockTime = input.ReadInt64();
+            break;
+          }
+          case 40: {
+            MaximumLockTime = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoContractAddress_ == null) {
+              DaoContractAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(DaoContractAddress);
+            break;
+          }
+          case 18: {
+            if (voteContractAddress_ == null) {
+              VoteContractAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(VoteContractAddress);
+            break;
+          }
+          case 26: {
+            if (governanceContractAddress_ == null) {
+              GovernanceContractAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(GovernanceContractAddress);
+            break;
+          }
+          case 32: {
+            MinimumLockTime = input.ReadInt64();
+            break;
+          }
+          case 40: {
+            MaximumLockTime = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SetHighCouncilConfigInput : pb::IMessage<SetHighCouncilConfigInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SetHighCouncilConfigInput> _parser = new pb::MessageParser<SetHighCouncilConfigInput>(() => new SetHighCouncilConfigInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SetHighCouncilConfigInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SetHighCouncilConfigInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SetHighCouncilConfigInput(SetHighCouncilConfigInput other) : this() {
       daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
-      timeEachTerm_ = other.timeEachTerm_;
-      candidateCount_ = other.candidateCount_;
-      highCouncilCount_ = other.highCouncilCount_;
+      maxHighCouncilMemberCount_ = other.maxHighCouncilMemberCount_;
+      maxHighCouncilCandidateCount_ = other.maxHighCouncilCandidateCount_;
+      stakeThreshold_ = other.stakeThreshold_;
+      electionPeriod_ = other.electionPeriod_;
+      isRequireHighCouncilForExecution_ = other.isRequireHighCouncilForExecution_;
       governanceToken_ = other.governanceToken_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ElectionVotingEventRegistered Clone() {
-      return new ElectionVotingEventRegistered(this);
+    public SetHighCouncilConfigInput Clone() {
+      return new SetHighCouncilConfigInput(this);
     }
 
     /// <summary>Field number for the "dao_id" field.</summary>
@@ -138,47 +718,68 @@ namespace TomorrowDAO.Contracts.Election {
       }
     }
 
-    /// <summary>Field number for the "time_each_term" field.</summary>
-    public const int TimeEachTermFieldNumber = 2;
-    private long timeEachTerm_;
-    /// <summary>
-    /// The number of seconds per term. 每一届时间
-    /// </summary>
+    /// <summary>Field number for the "max_high_council_member_count" field.</summary>
+    public const int MaxHighCouncilMemberCountFieldNumber = 2;
+    private long maxHighCouncilMemberCount_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long TimeEachTerm {
-      get { return timeEachTerm_; }
+    public long MaxHighCouncilMemberCount {
+      get { return maxHighCouncilMemberCount_; }
       set {
-        timeEachTerm_ = value;
+        maxHighCouncilMemberCount_ = value;
       }
     }
 
-    /// <summary>Field number for the "candidate_count" field.</summary>
-    public const int CandidateCountFieldNumber = 3;
-    private long candidateCount_;
+    /// <summary>Field number for the "max_high_council_candidate_count" field.</summary>
+    public const int MaxHighCouncilCandidateCountFieldNumber = 3;
+    private long maxHighCouncilCandidateCount_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long CandidateCount {
-      get { return candidateCount_; }
+    public long MaxHighCouncilCandidateCount {
+      get { return maxHighCouncilCandidateCount_; }
       set {
-        candidateCount_ = value;
+        maxHighCouncilCandidateCount_ = value;
       }
     }
 
-    /// <summary>Field number for the "high_council_count" field.</summary>
-    public const int HighCouncilCountFieldNumber = 4;
-    private long highCouncilCount_;
+    /// <summary>Field number for the "stake_threshold" field.</summary>
+    public const int StakeThresholdFieldNumber = 4;
+    private long stakeThreshold_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long HighCouncilCount {
-      get { return highCouncilCount_; }
+    public long StakeThreshold {
+      get { return stakeThreshold_; }
       set {
-        highCouncilCount_ = value;
+        stakeThreshold_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "election_period" field.</summary>
+    public const int ElectionPeriodFieldNumber = 5;
+    private long electionPeriod_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long ElectionPeriod {
+      get { return electionPeriod_; }
+      set {
+        electionPeriod_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "is_require_high_council_for_execution" field.</summary>
+    public const int IsRequireHighCouncilForExecutionFieldNumber = 6;
+    private bool isRequireHighCouncilForExecution_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsRequireHighCouncilForExecution {
+      get { return isRequireHighCouncilForExecution_; }
+      set {
+        isRequireHighCouncilForExecution_ = value;
       }
     }
 
     /// <summary>Field number for the "governance_token" field.</summary>
-    public const int GovernanceTokenFieldNumber = 5;
+    public const int GovernanceTokenFieldNumber = 7;
     private string governanceToken_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -192,12 +793,12 @@ namespace TomorrowDAO.Contracts.Election {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as ElectionVotingEventRegistered);
+      return Equals(other as SetHighCouncilConfigInput);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(ElectionVotingEventRegistered other) {
+    public bool Equals(SetHighCouncilConfigInput other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -205,9 +806,11 @@ namespace TomorrowDAO.Contracts.Election {
         return true;
       }
       if (!object.Equals(DaoId, other.DaoId)) return false;
-      if (TimeEachTerm != other.TimeEachTerm) return false;
-      if (CandidateCount != other.CandidateCount) return false;
-      if (HighCouncilCount != other.HighCouncilCount) return false;
+      if (MaxHighCouncilMemberCount != other.MaxHighCouncilMemberCount) return false;
+      if (MaxHighCouncilCandidateCount != other.MaxHighCouncilCandidateCount) return false;
+      if (StakeThreshold != other.StakeThreshold) return false;
+      if (ElectionPeriod != other.ElectionPeriod) return false;
+      if (IsRequireHighCouncilForExecution != other.IsRequireHighCouncilForExecution) return false;
       if (GovernanceToken != other.GovernanceToken) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -217,9 +820,11 @@ namespace TomorrowDAO.Contracts.Election {
     public override int GetHashCode() {
       int hash = 1;
       if (daoId_ != null) hash ^= DaoId.GetHashCode();
-      if (TimeEachTerm != 0L) hash ^= TimeEachTerm.GetHashCode();
-      if (CandidateCount != 0L) hash ^= CandidateCount.GetHashCode();
-      if (HighCouncilCount != 0L) hash ^= HighCouncilCount.GetHashCode();
+      if (MaxHighCouncilMemberCount != 0L) hash ^= MaxHighCouncilMemberCount.GetHashCode();
+      if (MaxHighCouncilCandidateCount != 0L) hash ^= MaxHighCouncilCandidateCount.GetHashCode();
+      if (StakeThreshold != 0L) hash ^= StakeThreshold.GetHashCode();
+      if (ElectionPeriod != 0L) hash ^= ElectionPeriod.GetHashCode();
+      if (IsRequireHighCouncilForExecution != false) hash ^= IsRequireHighCouncilForExecution.GetHashCode();
       if (GovernanceToken.Length != 0) hash ^= GovernanceToken.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -243,20 +848,28 @@ namespace TomorrowDAO.Contracts.Election {
         output.WriteRawTag(10);
         output.WriteMessage(DaoId);
       }
-      if (TimeEachTerm != 0L) {
+      if (MaxHighCouncilMemberCount != 0L) {
         output.WriteRawTag(16);
-        output.WriteInt64(TimeEachTerm);
+        output.WriteInt64(MaxHighCouncilMemberCount);
       }
-      if (CandidateCount != 0L) {
+      if (MaxHighCouncilCandidateCount != 0L) {
         output.WriteRawTag(24);
-        output.WriteInt64(CandidateCount);
+        output.WriteInt64(MaxHighCouncilCandidateCount);
       }
-      if (HighCouncilCount != 0L) {
+      if (StakeThreshold != 0L) {
         output.WriteRawTag(32);
-        output.WriteInt64(HighCouncilCount);
+        output.WriteInt64(StakeThreshold);
+      }
+      if (ElectionPeriod != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(ElectionPeriod);
+      }
+      if (IsRequireHighCouncilForExecution != false) {
+        output.WriteRawTag(48);
+        output.WriteBool(IsRequireHighCouncilForExecution);
       }
       if (GovernanceToken.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(58);
         output.WriteString(GovernanceToken);
       }
       if (_unknownFields != null) {
@@ -273,20 +886,28 @@ namespace TomorrowDAO.Contracts.Election {
         output.WriteRawTag(10);
         output.WriteMessage(DaoId);
       }
-      if (TimeEachTerm != 0L) {
+      if (MaxHighCouncilMemberCount != 0L) {
         output.WriteRawTag(16);
-        output.WriteInt64(TimeEachTerm);
+        output.WriteInt64(MaxHighCouncilMemberCount);
       }
-      if (CandidateCount != 0L) {
+      if (MaxHighCouncilCandidateCount != 0L) {
         output.WriteRawTag(24);
-        output.WriteInt64(CandidateCount);
+        output.WriteInt64(MaxHighCouncilCandidateCount);
       }
-      if (HighCouncilCount != 0L) {
+      if (StakeThreshold != 0L) {
         output.WriteRawTag(32);
-        output.WriteInt64(HighCouncilCount);
+        output.WriteInt64(StakeThreshold);
+      }
+      if (ElectionPeriod != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(ElectionPeriod);
+      }
+      if (IsRequireHighCouncilForExecution != false) {
+        output.WriteRawTag(48);
+        output.WriteBool(IsRequireHighCouncilForExecution);
       }
       if (GovernanceToken.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(58);
         output.WriteString(GovernanceToken);
       }
       if (_unknownFields != null) {
@@ -302,14 +923,20 @@ namespace TomorrowDAO.Contracts.Election {
       if (daoId_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
       }
-      if (TimeEachTerm != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TimeEachTerm);
+      if (MaxHighCouncilMemberCount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(MaxHighCouncilMemberCount);
       }
-      if (CandidateCount != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(CandidateCount);
+      if (MaxHighCouncilCandidateCount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(MaxHighCouncilCandidateCount);
       }
-      if (HighCouncilCount != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(HighCouncilCount);
+      if (StakeThreshold != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(StakeThreshold);
+      }
+      if (ElectionPeriod != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ElectionPeriod);
+      }
+      if (IsRequireHighCouncilForExecution != false) {
+        size += 1 + 1;
       }
       if (GovernanceToken.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(GovernanceToken);
@@ -322,7 +949,7 @@ namespace TomorrowDAO.Contracts.Election {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(ElectionVotingEventRegistered other) {
+    public void MergeFrom(SetHighCouncilConfigInput other) {
       if (other == null) {
         return;
       }
@@ -332,14 +959,20 @@ namespace TomorrowDAO.Contracts.Election {
         }
         DaoId.MergeFrom(other.DaoId);
       }
-      if (other.TimeEachTerm != 0L) {
-        TimeEachTerm = other.TimeEachTerm;
+      if (other.MaxHighCouncilMemberCount != 0L) {
+        MaxHighCouncilMemberCount = other.MaxHighCouncilMemberCount;
       }
-      if (other.CandidateCount != 0L) {
-        CandidateCount = other.CandidateCount;
+      if (other.MaxHighCouncilCandidateCount != 0L) {
+        MaxHighCouncilCandidateCount = other.MaxHighCouncilCandidateCount;
       }
-      if (other.HighCouncilCount != 0L) {
-        HighCouncilCount = other.HighCouncilCount;
+      if (other.StakeThreshold != 0L) {
+        StakeThreshold = other.StakeThreshold;
+      }
+      if (other.ElectionPeriod != 0L) {
+        ElectionPeriod = other.ElectionPeriod;
+      }
+      if (other.IsRequireHighCouncilForExecution != false) {
+        IsRequireHighCouncilForExecution = other.IsRequireHighCouncilForExecution;
       }
       if (other.GovernanceToken.Length != 0) {
         GovernanceToken = other.GovernanceToken;
@@ -367,18 +1000,26 @@ namespace TomorrowDAO.Contracts.Election {
             break;
           }
           case 16: {
-            TimeEachTerm = input.ReadInt64();
+            MaxHighCouncilMemberCount = input.ReadInt64();
             break;
           }
           case 24: {
-            CandidateCount = input.ReadInt64();
+            MaxHighCouncilCandidateCount = input.ReadInt64();
             break;
           }
           case 32: {
-            HighCouncilCount = input.ReadInt64();
+            StakeThreshold = input.ReadInt64();
             break;
           }
-          case 42: {
+          case 40: {
+            ElectionPeriod = input.ReadInt64();
+            break;
+          }
+          case 48: {
+            IsRequireHighCouncilForExecution = input.ReadBool();
+            break;
+          }
+          case 58: {
             GovernanceToken = input.ReadString();
             break;
           }
@@ -405,18 +1046,26 @@ namespace TomorrowDAO.Contracts.Election {
             break;
           }
           case 16: {
-            TimeEachTerm = input.ReadInt64();
+            MaxHighCouncilMemberCount = input.ReadInt64();
             break;
           }
           case 24: {
-            CandidateCount = input.ReadInt64();
+            MaxHighCouncilCandidateCount = input.ReadInt64();
             break;
           }
           case 32: {
-            HighCouncilCount = input.ReadInt64();
+            StakeThreshold = input.ReadInt64();
             break;
           }
-          case 42: {
+          case 40: {
+            ElectionPeriod = input.ReadInt64();
+            break;
+          }
+          case 48: {
+            IsRequireHighCouncilForExecution = input.ReadBool();
+            break;
+          }
+          case 58: {
             GovernanceToken = input.ReadString();
             break;
           }
@@ -427,21 +1076,21 @@ namespace TomorrowDAO.Contracts.Election {
 
   }
 
-  public sealed partial class NewTerm : pb::IMessage<NewTerm>
+  public sealed partial class HighCouncilConfigSet : pb::IMessage<HighCouncilConfigSet>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<NewTerm> _parser = new pb::MessageParser<NewTerm>(() => new NewTerm());
+    private static readonly pb::MessageParser<HighCouncilConfigSet> _parser = new pb::MessageParser<HighCouncilConfigSet>(() => new HighCouncilConfigSet());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<NewTerm> Parser { get { return _parser; } }
+    public static pb::MessageParser<HighCouncilConfigSet> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[1]; }
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -452,7 +1101,7 @@ namespace TomorrowDAO.Contracts.Election {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public NewTerm() {
+    public HighCouncilConfigSet() {
       OnConstruction();
     }
 
@@ -460,17 +1109,16 @@ namespace TomorrowDAO.Contracts.Election {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public NewTerm(NewTerm other) : this() {
+    public HighCouncilConfigSet(HighCouncilConfigSet other) : this() {
       daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
-      preTermNumber_ = other.preTermNumber_;
-      newNumber_ = other.newNumber_;
+      highCouncilConfig_ = other.highCouncilConfig_ != null ? other.highCouncilConfig_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public NewTerm Clone() {
-      return new NewTerm(this);
+    public HighCouncilConfigSet Clone() {
+      return new HighCouncilConfigSet(this);
     }
 
     /// <summary>Field number for the "dao_id" field.</summary>
@@ -485,39 +1133,27 @@ namespace TomorrowDAO.Contracts.Election {
       }
     }
 
-    /// <summary>Field number for the "pre_term_number" field.</summary>
-    public const int PreTermNumberFieldNumber = 2;
-    private long preTermNumber_;
+    /// <summary>Field number for the "high_council_config" field.</summary>
+    public const int HighCouncilConfigFieldNumber = 2;
+    private global::TomorrowDAO.Contracts.Election.HighCouncilConfig highCouncilConfig_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long PreTermNumber {
-      get { return preTermNumber_; }
+    public global::TomorrowDAO.Contracts.Election.HighCouncilConfig HighCouncilConfig {
+      get { return highCouncilConfig_; }
       set {
-        preTermNumber_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "new_number" field.</summary>
-    public const int NewNumberFieldNumber = 3;
-    private long newNumber_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long NewNumber {
-      get { return newNumber_; }
-      set {
-        newNumber_ = value;
+        highCouncilConfig_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as NewTerm);
+      return Equals(other as HighCouncilConfigSet);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(NewTerm other) {
+    public bool Equals(HighCouncilConfigSet other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -525,8 +1161,7 @@ namespace TomorrowDAO.Contracts.Election {
         return true;
       }
       if (!object.Equals(DaoId, other.DaoId)) return false;
-      if (PreTermNumber != other.PreTermNumber) return false;
-      if (NewNumber != other.NewNumber) return false;
+      if (!object.Equals(HighCouncilConfig, other.HighCouncilConfig)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -535,8 +1170,7 @@ namespace TomorrowDAO.Contracts.Election {
     public override int GetHashCode() {
       int hash = 1;
       if (daoId_ != null) hash ^= DaoId.GetHashCode();
-      if (PreTermNumber != 0L) hash ^= PreTermNumber.GetHashCode();
-      if (NewNumber != 0L) hash ^= NewNumber.GetHashCode();
+      if (highCouncilConfig_ != null) hash ^= HighCouncilConfig.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -559,13 +1193,9 @@ namespace TomorrowDAO.Contracts.Election {
         output.WriteRawTag(10);
         output.WriteMessage(DaoId);
       }
-      if (PreTermNumber != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(PreTermNumber);
-      }
-      if (NewNumber != 0L) {
-        output.WriteRawTag(24);
-        output.WriteInt64(NewNumber);
+      if (highCouncilConfig_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(HighCouncilConfig);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -581,13 +1211,9 @@ namespace TomorrowDAO.Contracts.Election {
         output.WriteRawTag(10);
         output.WriteMessage(DaoId);
       }
-      if (PreTermNumber != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(PreTermNumber);
-      }
-      if (NewNumber != 0L) {
-        output.WriteRawTag(24);
-        output.WriteInt64(NewNumber);
+      if (highCouncilConfig_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(HighCouncilConfig);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -602,11 +1228,8 @@ namespace TomorrowDAO.Contracts.Election {
       if (daoId_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
       }
-      if (PreTermNumber != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(PreTermNumber);
-      }
-      if (NewNumber != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(NewNumber);
+      if (highCouncilConfig_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(HighCouncilConfig);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -616,7 +1239,7 @@ namespace TomorrowDAO.Contracts.Election {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(NewTerm other) {
+    public void MergeFrom(HighCouncilConfigSet other) {
       if (other == null) {
         return;
       }
@@ -626,11 +1249,400 @@ namespace TomorrowDAO.Contracts.Election {
         }
         DaoId.MergeFrom(other.DaoId);
       }
-      if (other.PreTermNumber != 0L) {
-        PreTermNumber = other.PreTermNumber;
+      if (other.highCouncilConfig_ != null) {
+        if (highCouncilConfig_ == null) {
+          HighCouncilConfig = new global::TomorrowDAO.Contracts.Election.HighCouncilConfig();
+        }
+        HighCouncilConfig.MergeFrom(other.HighCouncilConfig);
       }
-      if (other.NewNumber != 0L) {
-        NewNumber = other.NewNumber;
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (highCouncilConfig_ == null) {
+              HighCouncilConfig = new global::TomorrowDAO.Contracts.Election.HighCouncilConfig();
+            }
+            input.ReadMessage(HighCouncilConfig);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (highCouncilConfig_ == null) {
+              HighCouncilConfig = new global::TomorrowDAO.Contracts.Election.HighCouncilConfig();
+            }
+            input.ReadMessage(HighCouncilConfig);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class RegisterElectionVotingEventInput : pb::IMessage<RegisterElectionVotingEventInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<RegisterElectionVotingEventInput> _parser = new pb::MessageParser<RegisterElectionVotingEventInput>(() => new RegisterElectionVotingEventInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<RegisterElectionVotingEventInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RegisterElectionVotingEventInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RegisterElectionVotingEventInput(RegisterElectionVotingEventInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      electionPeriod_ = other.electionPeriod_;
+      maxHighCouncilCandidateCount_ = other.maxHighCouncilCandidateCount_;
+      maxHighCouncilMemberCount_ = other.maxHighCouncilMemberCount_;
+      stakeThreshold_ = other.stakeThreshold_;
+      governanceToken_ = other.governanceToken_;
+      isRequireHighCouncilForExecution_ = other.isRequireHighCouncilForExecution_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RegisterElectionVotingEventInput Clone() {
+      return new RegisterElectionVotingEventInput(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "election_period" field.</summary>
+    public const int ElectionPeriodFieldNumber = 2;
+    private long electionPeriod_;
+    /// <summary>
+    /// The number of seconds per term.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long ElectionPeriod {
+      get { return electionPeriod_; }
+      set {
+        electionPeriod_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_high_council_candidate_count" field.</summary>
+    public const int MaxHighCouncilCandidateCountFieldNumber = 3;
+    private long maxHighCouncilCandidateCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long MaxHighCouncilCandidateCount {
+      get { return maxHighCouncilCandidateCount_; }
+      set {
+        maxHighCouncilCandidateCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_high_council_member_count" field.</summary>
+    public const int MaxHighCouncilMemberCountFieldNumber = 4;
+    private long maxHighCouncilMemberCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long MaxHighCouncilMemberCount {
+      get { return maxHighCouncilMemberCount_; }
+      set {
+        maxHighCouncilMemberCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "stake_threshold" field.</summary>
+    public const int StakeThresholdFieldNumber = 5;
+    private long stakeThreshold_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long StakeThreshold {
+      get { return stakeThreshold_; }
+      set {
+        stakeThreshold_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "governance_token" field.</summary>
+    public const int GovernanceTokenFieldNumber = 6;
+    private string governanceToken_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string GovernanceToken {
+      get { return governanceToken_; }
+      set {
+        governanceToken_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "is_require_high_council_for_execution" field.</summary>
+    public const int IsRequireHighCouncilForExecutionFieldNumber = 8;
+    private bool isRequireHighCouncilForExecution_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsRequireHighCouncilForExecution {
+      get { return isRequireHighCouncilForExecution_; }
+      set {
+        isRequireHighCouncilForExecution_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as RegisterElectionVotingEventInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(RegisterElectionVotingEventInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (ElectionPeriod != other.ElectionPeriod) return false;
+      if (MaxHighCouncilCandidateCount != other.MaxHighCouncilCandidateCount) return false;
+      if (MaxHighCouncilMemberCount != other.MaxHighCouncilMemberCount) return false;
+      if (StakeThreshold != other.StakeThreshold) return false;
+      if (GovernanceToken != other.GovernanceToken) return false;
+      if (IsRequireHighCouncilForExecution != other.IsRequireHighCouncilForExecution) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (ElectionPeriod != 0L) hash ^= ElectionPeriod.GetHashCode();
+      if (MaxHighCouncilCandidateCount != 0L) hash ^= MaxHighCouncilCandidateCount.GetHashCode();
+      if (MaxHighCouncilMemberCount != 0L) hash ^= MaxHighCouncilMemberCount.GetHashCode();
+      if (StakeThreshold != 0L) hash ^= StakeThreshold.GetHashCode();
+      if (GovernanceToken.Length != 0) hash ^= GovernanceToken.GetHashCode();
+      if (IsRequireHighCouncilForExecution != false) hash ^= IsRequireHighCouncilForExecution.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (ElectionPeriod != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(ElectionPeriod);
+      }
+      if (MaxHighCouncilCandidateCount != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(MaxHighCouncilCandidateCount);
+      }
+      if (MaxHighCouncilMemberCount != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(MaxHighCouncilMemberCount);
+      }
+      if (StakeThreshold != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(StakeThreshold);
+      }
+      if (GovernanceToken.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(GovernanceToken);
+      }
+      if (IsRequireHighCouncilForExecution != false) {
+        output.WriteRawTag(64);
+        output.WriteBool(IsRequireHighCouncilForExecution);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (ElectionPeriod != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(ElectionPeriod);
+      }
+      if (MaxHighCouncilCandidateCount != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(MaxHighCouncilCandidateCount);
+      }
+      if (MaxHighCouncilMemberCount != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(MaxHighCouncilMemberCount);
+      }
+      if (StakeThreshold != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(StakeThreshold);
+      }
+      if (GovernanceToken.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(GovernanceToken);
+      }
+      if (IsRequireHighCouncilForExecution != false) {
+        output.WriteRawTag(64);
+        output.WriteBool(IsRequireHighCouncilForExecution);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (ElectionPeriod != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ElectionPeriod);
+      }
+      if (MaxHighCouncilCandidateCount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(MaxHighCouncilCandidateCount);
+      }
+      if (MaxHighCouncilMemberCount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(MaxHighCouncilMemberCount);
+      }
+      if (StakeThreshold != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(StakeThreshold);
+      }
+      if (GovernanceToken.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(GovernanceToken);
+      }
+      if (IsRequireHighCouncilForExecution != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(RegisterElectionVotingEventInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.ElectionPeriod != 0L) {
+        ElectionPeriod = other.ElectionPeriod;
+      }
+      if (other.MaxHighCouncilCandidateCount != 0L) {
+        MaxHighCouncilCandidateCount = other.MaxHighCouncilCandidateCount;
+      }
+      if (other.MaxHighCouncilMemberCount != 0L) {
+        MaxHighCouncilMemberCount = other.MaxHighCouncilMemberCount;
+      }
+      if (other.StakeThreshold != 0L) {
+        StakeThreshold = other.StakeThreshold;
+      }
+      if (other.GovernanceToken.Length != 0) {
+        GovernanceToken = other.GovernanceToken;
+      }
+      if (other.IsRequireHighCouncilForExecution != false) {
+        IsRequireHighCouncilForExecution = other.IsRequireHighCouncilForExecution;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -655,11 +1667,27 @@ namespace TomorrowDAO.Contracts.Election {
             break;
           }
           case 16: {
-            PreTermNumber = input.ReadInt64();
+            ElectionPeriod = input.ReadInt64();
             break;
           }
           case 24: {
-            NewNumber = input.ReadInt64();
+            MaxHighCouncilCandidateCount = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            MaxHighCouncilMemberCount = input.ReadInt64();
+            break;
+          }
+          case 40: {
+            StakeThreshold = input.ReadInt64();
+            break;
+          }
+          case 50: {
+            GovernanceToken = input.ReadString();
+            break;
+          }
+          case 64: {
+            IsRequireHighCouncilForExecution = input.ReadBool();
             break;
           }
         }
@@ -685,11 +1713,2020 @@ namespace TomorrowDAO.Contracts.Election {
             break;
           }
           case 16: {
-            PreTermNumber = input.ReadInt64();
+            ElectionPeriod = input.ReadInt64();
             break;
           }
           case 24: {
-            NewNumber = input.ReadInt64();
+            MaxHighCouncilCandidateCount = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            MaxHighCouncilMemberCount = input.ReadInt64();
+            break;
+          }
+          case 40: {
+            StakeThreshold = input.ReadInt64();
+            break;
+          }
+          case 50: {
+            GovernanceToken = input.ReadString();
+            break;
+          }
+          case 64: {
+            IsRequireHighCouncilForExecution = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// events
+  /// </summary>
+  public sealed partial class ElectionVotingEventRegistered : pb::IMessage<ElectionVotingEventRegistered>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ElectionVotingEventRegistered> _parser = new pb::MessageParser<ElectionVotingEventRegistered>(() => new ElectionVotingEventRegistered());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ElectionVotingEventRegistered> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ElectionVotingEventRegistered() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ElectionVotingEventRegistered(ElectionVotingEventRegistered other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      config_ = other.config_ != null ? other.config_.Clone() : null;
+      votingItem_ = other.votingItem_ != null ? other.votingItem_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ElectionVotingEventRegistered Clone() {
+      return new ElectionVotingEventRegistered(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "config" field.</summary>
+    public const int ConfigFieldNumber = 2;
+    private global::TomorrowDAO.Contracts.Election.HighCouncilConfig config_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::TomorrowDAO.Contracts.Election.HighCouncilConfig Config {
+      get { return config_; }
+      set {
+        config_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "votingItem" field.</summary>
+    public const int VotingItemFieldNumber = 3;
+    private global::TomorrowDAO.Contracts.Election.VotingItem votingItem_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::TomorrowDAO.Contracts.Election.VotingItem VotingItem {
+      get { return votingItem_; }
+      set {
+        votingItem_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ElectionVotingEventRegistered);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ElectionVotingEventRegistered other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (!object.Equals(Config, other.Config)) return false;
+      if (!object.Equals(VotingItem, other.VotingItem)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (config_ != null) hash ^= Config.GetHashCode();
+      if (votingItem_ != null) hash ^= VotingItem.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (config_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Config);
+      }
+      if (votingItem_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(VotingItem);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (config_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Config);
+      }
+      if (votingItem_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(VotingItem);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (config_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Config);
+      }
+      if (votingItem_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(VotingItem);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ElectionVotingEventRegistered other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.config_ != null) {
+        if (config_ == null) {
+          Config = new global::TomorrowDAO.Contracts.Election.HighCouncilConfig();
+        }
+        Config.MergeFrom(other.Config);
+      }
+      if (other.votingItem_ != null) {
+        if (votingItem_ == null) {
+          VotingItem = new global::TomorrowDAO.Contracts.Election.VotingItem();
+        }
+        VotingItem.MergeFrom(other.VotingItem);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (config_ == null) {
+              Config = new global::TomorrowDAO.Contracts.Election.HighCouncilConfig();
+            }
+            input.ReadMessage(Config);
+            break;
+          }
+          case 26: {
+            if (votingItem_ == null) {
+              VotingItem = new global::TomorrowDAO.Contracts.Election.VotingItem();
+            }
+            input.ReadMessage(VotingItem);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (config_ == null) {
+              Config = new global::TomorrowDAO.Contracts.Election.HighCouncilConfig();
+            }
+            input.ReadMessage(Config);
+            break;
+          }
+          case 26: {
+            if (votingItem_ == null) {
+              VotingItem = new global::TomorrowDAO.Contracts.Election.VotingItem();
+            }
+            input.ReadMessage(VotingItem);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class VotingItem : pb::IMessage<VotingItem>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<VotingItem> _parser = new pb::MessageParser<VotingItem>(() => new VotingItem());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<VotingItem> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VotingItem() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VotingItem(VotingItem other) : this() {
+      votingItemId_ = other.votingItemId_ != null ? other.votingItemId_.Clone() : null;
+      acceptedCurrency_ = other.acceptedCurrency_;
+      isLockToken_ = other.isLockToken_;
+      currentSnapshotNumber_ = other.currentSnapshotNumber_;
+      totalSnapshotNumber_ = other.totalSnapshotNumber_;
+      options_ = other.options_.Clone();
+      registerTimestamp_ = other.registerTimestamp_ != null ? other.registerTimestamp_.Clone() : null;
+      startTimestamp_ = other.startTimestamp_ != null ? other.startTimestamp_.Clone() : null;
+      endTimestamp_ = other.endTimestamp_ != null ? other.endTimestamp_.Clone() : null;
+      currentSnapshotStartTimestamp_ = other.currentSnapshotStartTimestamp_ != null ? other.currentSnapshotStartTimestamp_.Clone() : null;
+      sponsor_ = other.sponsor_ != null ? other.sponsor_.Clone() : null;
+      isQuadratic_ = other.isQuadratic_;
+      ticketCost_ = other.ticketCost_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VotingItem Clone() {
+      return new VotingItem(this);
+    }
+
+    /// <summary>Field number for the "voting_item_id" field.</summary>
+    public const int VotingItemIdFieldNumber = 1;
+    private global::AElf.Types.Hash votingItemId_;
+    /// <summary>
+    /// The voting activity id.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash VotingItemId {
+      get { return votingItemId_; }
+      set {
+        votingItemId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "accepted_currency" field.</summary>
+    public const int AcceptedCurrencyFieldNumber = 2;
+    private string acceptedCurrency_ = "";
+    /// <summary>
+    /// The token symbol which will be accepted.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string AcceptedCurrency {
+      get { return acceptedCurrency_; }
+      set {
+        acceptedCurrency_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "is_lock_token" field.</summary>
+    public const int IsLockTokenFieldNumber = 3;
+    private bool isLockToken_;
+    /// <summary>
+    /// Whether the vote will lock token.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsLockToken {
+      get { return isLockToken_; }
+      set {
+        isLockToken_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "current_snapshot_number" field.</summary>
+    public const int CurrentSnapshotNumberFieldNumber = 4;
+    private long currentSnapshotNumber_;
+    /// <summary>
+    /// The current snapshot number.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long CurrentSnapshotNumber {
+      get { return currentSnapshotNumber_; }
+      set {
+        currentSnapshotNumber_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "total_snapshot_number" field.</summary>
+    public const int TotalSnapshotNumberFieldNumber = 5;
+    private long totalSnapshotNumber_;
+    /// <summary>
+    /// The total snapshot number.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long TotalSnapshotNumber {
+      get { return totalSnapshotNumber_; }
+      set {
+        totalSnapshotNumber_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "options" field.</summary>
+    public const int OptionsFieldNumber = 6;
+    private static readonly pb::FieldCodec<string> _repeated_options_codec
+        = pb::FieldCodec.ForString(50);
+    private readonly pbc::RepeatedField<string> options_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// The list of options.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<string> Options {
+      get { return options_; }
+    }
+
+    /// <summary>Field number for the "register_timestamp" field.</summary>
+    public const int RegisterTimestampFieldNumber = 7;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp registerTimestamp_;
+    /// <summary>
+    /// The register time of the voting activity.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp RegisterTimestamp {
+      get { return registerTimestamp_; }
+      set {
+        registerTimestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "start_timestamp" field.</summary>
+    public const int StartTimestampFieldNumber = 8;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp startTimestamp_;
+    /// <summary>
+    /// The start time of the voting.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp StartTimestamp {
+      get { return startTimestamp_; }
+      set {
+        startTimestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "end_timestamp" field.</summary>
+    public const int EndTimestampFieldNumber = 9;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp endTimestamp_;
+    /// <summary>
+    /// The end time of the voting.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp EndTimestamp {
+      get { return endTimestamp_; }
+      set {
+        endTimestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "current_snapshot_start_timestamp" field.</summary>
+    public const int CurrentSnapshotStartTimestampFieldNumber = 10;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp currentSnapshotStartTimestamp_;
+    /// <summary>
+    /// The start time of current round of the voting.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp CurrentSnapshotStartTimestamp {
+      get { return currentSnapshotStartTimestamp_; }
+      set {
+        currentSnapshotStartTimestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "sponsor" field.</summary>
+    public const int SponsorFieldNumber = 11;
+    private global::AElf.Types.Address sponsor_;
+    /// <summary>
+    /// The sponsor address of the voting activity.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address Sponsor {
+      get { return sponsor_; }
+      set {
+        sponsor_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "is_quadratic" field.</summary>
+    public const int IsQuadraticFieldNumber = 12;
+    private bool isQuadratic_;
+    /// <summary>
+    /// Is quadratic voting.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsQuadratic {
+      get { return isQuadratic_; }
+      set {
+        isQuadratic_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ticket_cost" field.</summary>
+    public const int TicketCostFieldNumber = 13;
+    private long ticketCost_;
+    /// <summary>
+    /// Quadratic voting item ticket cost.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long TicketCost {
+      get { return ticketCost_; }
+      set {
+        ticketCost_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as VotingItem);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(VotingItem other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(VotingItemId, other.VotingItemId)) return false;
+      if (AcceptedCurrency != other.AcceptedCurrency) return false;
+      if (IsLockToken != other.IsLockToken) return false;
+      if (CurrentSnapshotNumber != other.CurrentSnapshotNumber) return false;
+      if (TotalSnapshotNumber != other.TotalSnapshotNumber) return false;
+      if(!options_.Equals(other.options_)) return false;
+      if (!object.Equals(RegisterTimestamp, other.RegisterTimestamp)) return false;
+      if (!object.Equals(StartTimestamp, other.StartTimestamp)) return false;
+      if (!object.Equals(EndTimestamp, other.EndTimestamp)) return false;
+      if (!object.Equals(CurrentSnapshotStartTimestamp, other.CurrentSnapshotStartTimestamp)) return false;
+      if (!object.Equals(Sponsor, other.Sponsor)) return false;
+      if (IsQuadratic != other.IsQuadratic) return false;
+      if (TicketCost != other.TicketCost) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (votingItemId_ != null) hash ^= VotingItemId.GetHashCode();
+      if (AcceptedCurrency.Length != 0) hash ^= AcceptedCurrency.GetHashCode();
+      if (IsLockToken != false) hash ^= IsLockToken.GetHashCode();
+      if (CurrentSnapshotNumber != 0L) hash ^= CurrentSnapshotNumber.GetHashCode();
+      if (TotalSnapshotNumber != 0L) hash ^= TotalSnapshotNumber.GetHashCode();
+      hash ^= options_.GetHashCode();
+      if (registerTimestamp_ != null) hash ^= RegisterTimestamp.GetHashCode();
+      if (startTimestamp_ != null) hash ^= StartTimestamp.GetHashCode();
+      if (endTimestamp_ != null) hash ^= EndTimestamp.GetHashCode();
+      if (currentSnapshotStartTimestamp_ != null) hash ^= CurrentSnapshotStartTimestamp.GetHashCode();
+      if (sponsor_ != null) hash ^= Sponsor.GetHashCode();
+      if (IsQuadratic != false) hash ^= IsQuadratic.GetHashCode();
+      if (TicketCost != 0L) hash ^= TicketCost.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (votingItemId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(VotingItemId);
+      }
+      if (AcceptedCurrency.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(AcceptedCurrency);
+      }
+      if (IsLockToken != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(IsLockToken);
+      }
+      if (CurrentSnapshotNumber != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(CurrentSnapshotNumber);
+      }
+      if (TotalSnapshotNumber != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(TotalSnapshotNumber);
+      }
+      options_.WriteTo(output, _repeated_options_codec);
+      if (registerTimestamp_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(RegisterTimestamp);
+      }
+      if (startTimestamp_ != null) {
+        output.WriteRawTag(66);
+        output.WriteMessage(StartTimestamp);
+      }
+      if (endTimestamp_ != null) {
+        output.WriteRawTag(74);
+        output.WriteMessage(EndTimestamp);
+      }
+      if (currentSnapshotStartTimestamp_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(CurrentSnapshotStartTimestamp);
+      }
+      if (sponsor_ != null) {
+        output.WriteRawTag(90);
+        output.WriteMessage(Sponsor);
+      }
+      if (IsQuadratic != false) {
+        output.WriteRawTag(96);
+        output.WriteBool(IsQuadratic);
+      }
+      if (TicketCost != 0L) {
+        output.WriteRawTag(104);
+        output.WriteInt64(TicketCost);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (votingItemId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(VotingItemId);
+      }
+      if (AcceptedCurrency.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(AcceptedCurrency);
+      }
+      if (IsLockToken != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(IsLockToken);
+      }
+      if (CurrentSnapshotNumber != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(CurrentSnapshotNumber);
+      }
+      if (TotalSnapshotNumber != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(TotalSnapshotNumber);
+      }
+      options_.WriteTo(ref output, _repeated_options_codec);
+      if (registerTimestamp_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(RegisterTimestamp);
+      }
+      if (startTimestamp_ != null) {
+        output.WriteRawTag(66);
+        output.WriteMessage(StartTimestamp);
+      }
+      if (endTimestamp_ != null) {
+        output.WriteRawTag(74);
+        output.WriteMessage(EndTimestamp);
+      }
+      if (currentSnapshotStartTimestamp_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(CurrentSnapshotStartTimestamp);
+      }
+      if (sponsor_ != null) {
+        output.WriteRawTag(90);
+        output.WriteMessage(Sponsor);
+      }
+      if (IsQuadratic != false) {
+        output.WriteRawTag(96);
+        output.WriteBool(IsQuadratic);
+      }
+      if (TicketCost != 0L) {
+        output.WriteRawTag(104);
+        output.WriteInt64(TicketCost);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (votingItemId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(VotingItemId);
+      }
+      if (AcceptedCurrency.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(AcceptedCurrency);
+      }
+      if (IsLockToken != false) {
+        size += 1 + 1;
+      }
+      if (CurrentSnapshotNumber != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(CurrentSnapshotNumber);
+      }
+      if (TotalSnapshotNumber != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TotalSnapshotNumber);
+      }
+      size += options_.CalculateSize(_repeated_options_codec);
+      if (registerTimestamp_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RegisterTimestamp);
+      }
+      if (startTimestamp_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(StartTimestamp);
+      }
+      if (endTimestamp_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(EndTimestamp);
+      }
+      if (currentSnapshotStartTimestamp_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CurrentSnapshotStartTimestamp);
+      }
+      if (sponsor_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Sponsor);
+      }
+      if (IsQuadratic != false) {
+        size += 1 + 1;
+      }
+      if (TicketCost != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TicketCost);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(VotingItem other) {
+      if (other == null) {
+        return;
+      }
+      if (other.votingItemId_ != null) {
+        if (votingItemId_ == null) {
+          VotingItemId = new global::AElf.Types.Hash();
+        }
+        VotingItemId.MergeFrom(other.VotingItemId);
+      }
+      if (other.AcceptedCurrency.Length != 0) {
+        AcceptedCurrency = other.AcceptedCurrency;
+      }
+      if (other.IsLockToken != false) {
+        IsLockToken = other.IsLockToken;
+      }
+      if (other.CurrentSnapshotNumber != 0L) {
+        CurrentSnapshotNumber = other.CurrentSnapshotNumber;
+      }
+      if (other.TotalSnapshotNumber != 0L) {
+        TotalSnapshotNumber = other.TotalSnapshotNumber;
+      }
+      options_.Add(other.options_);
+      if (other.registerTimestamp_ != null) {
+        if (registerTimestamp_ == null) {
+          RegisterTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        RegisterTimestamp.MergeFrom(other.RegisterTimestamp);
+      }
+      if (other.startTimestamp_ != null) {
+        if (startTimestamp_ == null) {
+          StartTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        StartTimestamp.MergeFrom(other.StartTimestamp);
+      }
+      if (other.endTimestamp_ != null) {
+        if (endTimestamp_ == null) {
+          EndTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        EndTimestamp.MergeFrom(other.EndTimestamp);
+      }
+      if (other.currentSnapshotStartTimestamp_ != null) {
+        if (currentSnapshotStartTimestamp_ == null) {
+          CurrentSnapshotStartTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        CurrentSnapshotStartTimestamp.MergeFrom(other.CurrentSnapshotStartTimestamp);
+      }
+      if (other.sponsor_ != null) {
+        if (sponsor_ == null) {
+          Sponsor = new global::AElf.Types.Address();
+        }
+        Sponsor.MergeFrom(other.Sponsor);
+      }
+      if (other.IsQuadratic != false) {
+        IsQuadratic = other.IsQuadratic;
+      }
+      if (other.TicketCost != 0L) {
+        TicketCost = other.TicketCost;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (votingItemId_ == null) {
+              VotingItemId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(VotingItemId);
+            break;
+          }
+          case 18: {
+            AcceptedCurrency = input.ReadString();
+            break;
+          }
+          case 24: {
+            IsLockToken = input.ReadBool();
+            break;
+          }
+          case 32: {
+            CurrentSnapshotNumber = input.ReadInt64();
+            break;
+          }
+          case 40: {
+            TotalSnapshotNumber = input.ReadInt64();
+            break;
+          }
+          case 50: {
+            options_.AddEntriesFrom(input, _repeated_options_codec);
+            break;
+          }
+          case 58: {
+            if (registerTimestamp_ == null) {
+              RegisterTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(RegisterTimestamp);
+            break;
+          }
+          case 66: {
+            if (startTimestamp_ == null) {
+              StartTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(StartTimestamp);
+            break;
+          }
+          case 74: {
+            if (endTimestamp_ == null) {
+              EndTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(EndTimestamp);
+            break;
+          }
+          case 82: {
+            if (currentSnapshotStartTimestamp_ == null) {
+              CurrentSnapshotStartTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(CurrentSnapshotStartTimestamp);
+            break;
+          }
+          case 90: {
+            if (sponsor_ == null) {
+              Sponsor = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Sponsor);
+            break;
+          }
+          case 96: {
+            IsQuadratic = input.ReadBool();
+            break;
+          }
+          case 104: {
+            TicketCost = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (votingItemId_ == null) {
+              VotingItemId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(VotingItemId);
+            break;
+          }
+          case 18: {
+            AcceptedCurrency = input.ReadString();
+            break;
+          }
+          case 24: {
+            IsLockToken = input.ReadBool();
+            break;
+          }
+          case 32: {
+            CurrentSnapshotNumber = input.ReadInt64();
+            break;
+          }
+          case 40: {
+            TotalSnapshotNumber = input.ReadInt64();
+            break;
+          }
+          case 50: {
+            options_.AddEntriesFrom(ref input, _repeated_options_codec);
+            break;
+          }
+          case 58: {
+            if (registerTimestamp_ == null) {
+              RegisterTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(RegisterTimestamp);
+            break;
+          }
+          case 66: {
+            if (startTimestamp_ == null) {
+              StartTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(StartTimestamp);
+            break;
+          }
+          case 74: {
+            if (endTimestamp_ == null) {
+              EndTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(EndTimestamp);
+            break;
+          }
+          case 82: {
+            if (currentSnapshotStartTimestamp_ == null) {
+              CurrentSnapshotStartTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(CurrentSnapshotStartTimestamp);
+            break;
+          }
+          case 90: {
+            if (sponsor_ == null) {
+              Sponsor = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Sponsor);
+            break;
+          }
+          case 96: {
+            IsQuadratic = input.ReadBool();
+            break;
+          }
+          case 104: {
+            TicketCost = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class VotingResult : pb::IMessage<VotingResult>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<VotingResult> _parser = new pb::MessageParser<VotingResult>(() => new VotingResult());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<VotingResult> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[6]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VotingResult() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VotingResult(VotingResult other) : this() {
+      votingItemId_ = other.votingItemId_ != null ? other.votingItemId_.Clone() : null;
+      results_ = other.results_.Clone();
+      snapshotNumber_ = other.snapshotNumber_;
+      votersCount_ = other.votersCount_;
+      snapshotStartTimestamp_ = other.snapshotStartTimestamp_ != null ? other.snapshotStartTimestamp_.Clone() : null;
+      snapshotEndTimestamp_ = other.snapshotEndTimestamp_ != null ? other.snapshotEndTimestamp_.Clone() : null;
+      votesAmount_ = other.votesAmount_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VotingResult Clone() {
+      return new VotingResult(this);
+    }
+
+    /// <summary>Field number for the "voting_item_id" field.</summary>
+    public const int VotingItemIdFieldNumber = 1;
+    private global::AElf.Types.Hash votingItemId_;
+    /// <summary>
+    /// The voting activity id.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash VotingItemId {
+      get { return votingItemId_; }
+      set {
+        votingItemId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "results" field.</summary>
+    public const int ResultsFieldNumber = 2;
+    private static readonly pbc::MapField<string, long>.Codec _map_results_codec
+        = new pbc::MapField<string, long>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForInt64(16, 0L), 18);
+    private readonly pbc::MapField<string, long> results_ = new pbc::MapField<string, long>();
+    /// <summary>
+    /// The voting result, option -> amount of votes,
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::MapField<string, long> Results {
+      get { return results_; }
+    }
+
+    /// <summary>Field number for the "snapshot_number" field.</summary>
+    public const int SnapshotNumberFieldNumber = 3;
+    private long snapshotNumber_;
+    /// <summary>
+    /// The snapshot number.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long SnapshotNumber {
+      get { return snapshotNumber_; }
+      set {
+        snapshotNumber_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "voters_count" field.</summary>
+    public const int VotersCountFieldNumber = 4;
+    private long votersCount_;
+    /// <summary>
+    /// The total number of voters.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long VotersCount {
+      get { return votersCount_; }
+      set {
+        votersCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "snapshot_start_timestamp" field.</summary>
+    public const int SnapshotStartTimestampFieldNumber = 5;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp snapshotStartTimestamp_;
+    /// <summary>
+    /// The start time of this snapshot.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp SnapshotStartTimestamp {
+      get { return snapshotStartTimestamp_; }
+      set {
+        snapshotStartTimestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "snapshot_end_timestamp" field.</summary>
+    public const int SnapshotEndTimestampFieldNumber = 6;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp snapshotEndTimestamp_;
+    /// <summary>
+    /// The end time of this snapshot.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp SnapshotEndTimestamp {
+      get { return snapshotEndTimestamp_; }
+      set {
+        snapshotEndTimestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "votes_amount" field.</summary>
+    public const int VotesAmountFieldNumber = 7;
+    private long votesAmount_;
+    /// <summary>
+    /// Total votes received during the process of this snapshot.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long VotesAmount {
+      get { return votesAmount_; }
+      set {
+        votesAmount_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as VotingResult);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(VotingResult other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(VotingItemId, other.VotingItemId)) return false;
+      if (!Results.Equals(other.Results)) return false;
+      if (SnapshotNumber != other.SnapshotNumber) return false;
+      if (VotersCount != other.VotersCount) return false;
+      if (!object.Equals(SnapshotStartTimestamp, other.SnapshotStartTimestamp)) return false;
+      if (!object.Equals(SnapshotEndTimestamp, other.SnapshotEndTimestamp)) return false;
+      if (VotesAmount != other.VotesAmount) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (votingItemId_ != null) hash ^= VotingItemId.GetHashCode();
+      hash ^= Results.GetHashCode();
+      if (SnapshotNumber != 0L) hash ^= SnapshotNumber.GetHashCode();
+      if (VotersCount != 0L) hash ^= VotersCount.GetHashCode();
+      if (snapshotStartTimestamp_ != null) hash ^= SnapshotStartTimestamp.GetHashCode();
+      if (snapshotEndTimestamp_ != null) hash ^= SnapshotEndTimestamp.GetHashCode();
+      if (VotesAmount != 0L) hash ^= VotesAmount.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (votingItemId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(VotingItemId);
+      }
+      results_.WriteTo(output, _map_results_codec);
+      if (SnapshotNumber != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(SnapshotNumber);
+      }
+      if (VotersCount != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(VotersCount);
+      }
+      if (snapshotStartTimestamp_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(SnapshotStartTimestamp);
+      }
+      if (snapshotEndTimestamp_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(SnapshotEndTimestamp);
+      }
+      if (VotesAmount != 0L) {
+        output.WriteRawTag(56);
+        output.WriteInt64(VotesAmount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (votingItemId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(VotingItemId);
+      }
+      results_.WriteTo(ref output, _map_results_codec);
+      if (SnapshotNumber != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(SnapshotNumber);
+      }
+      if (VotersCount != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(VotersCount);
+      }
+      if (snapshotStartTimestamp_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(SnapshotStartTimestamp);
+      }
+      if (snapshotEndTimestamp_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(SnapshotEndTimestamp);
+      }
+      if (VotesAmount != 0L) {
+        output.WriteRawTag(56);
+        output.WriteInt64(VotesAmount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (votingItemId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(VotingItemId);
+      }
+      size += results_.CalculateSize(_map_results_codec);
+      if (SnapshotNumber != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(SnapshotNumber);
+      }
+      if (VotersCount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(VotersCount);
+      }
+      if (snapshotStartTimestamp_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SnapshotStartTimestamp);
+      }
+      if (snapshotEndTimestamp_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SnapshotEndTimestamp);
+      }
+      if (VotesAmount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(VotesAmount);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(VotingResult other) {
+      if (other == null) {
+        return;
+      }
+      if (other.votingItemId_ != null) {
+        if (votingItemId_ == null) {
+          VotingItemId = new global::AElf.Types.Hash();
+        }
+        VotingItemId.MergeFrom(other.VotingItemId);
+      }
+      results_.Add(other.results_);
+      if (other.SnapshotNumber != 0L) {
+        SnapshotNumber = other.SnapshotNumber;
+      }
+      if (other.VotersCount != 0L) {
+        VotersCount = other.VotersCount;
+      }
+      if (other.snapshotStartTimestamp_ != null) {
+        if (snapshotStartTimestamp_ == null) {
+          SnapshotStartTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        SnapshotStartTimestamp.MergeFrom(other.SnapshotStartTimestamp);
+      }
+      if (other.snapshotEndTimestamp_ != null) {
+        if (snapshotEndTimestamp_ == null) {
+          SnapshotEndTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        SnapshotEndTimestamp.MergeFrom(other.SnapshotEndTimestamp);
+      }
+      if (other.VotesAmount != 0L) {
+        VotesAmount = other.VotesAmount;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (votingItemId_ == null) {
+              VotingItemId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(VotingItemId);
+            break;
+          }
+          case 18: {
+            results_.AddEntriesFrom(input, _map_results_codec);
+            break;
+          }
+          case 24: {
+            SnapshotNumber = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            VotersCount = input.ReadInt64();
+            break;
+          }
+          case 42: {
+            if (snapshotStartTimestamp_ == null) {
+              SnapshotStartTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(SnapshotStartTimestamp);
+            break;
+          }
+          case 50: {
+            if (snapshotEndTimestamp_ == null) {
+              SnapshotEndTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(SnapshotEndTimestamp);
+            break;
+          }
+          case 56: {
+            VotesAmount = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (votingItemId_ == null) {
+              VotingItemId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(VotingItemId);
+            break;
+          }
+          case 18: {
+            results_.AddEntriesFrom(ref input, _map_results_codec);
+            break;
+          }
+          case 24: {
+            SnapshotNumber = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            VotersCount = input.ReadInt64();
+            break;
+          }
+          case 42: {
+            if (snapshotStartTimestamp_ == null) {
+              SnapshotStartTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(SnapshotStartTimestamp);
+            break;
+          }
+          case 50: {
+            if (snapshotEndTimestamp_ == null) {
+              SnapshotEndTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(SnapshotEndTimestamp);
+            break;
+          }
+          case 56: {
+            VotesAmount = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class AnnounceElectionInput : pb::IMessage<AnnounceElectionInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<AnnounceElectionInput> _parser = new pb::MessageParser<AnnounceElectionInput>(() => new AnnounceElectionInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<AnnounceElectionInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public AnnounceElectionInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public AnnounceElectionInput(AnnounceElectionInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      candidateAdmin_ = other.candidateAdmin_ != null ? other.candidateAdmin_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public AnnounceElectionInput Clone() {
+      return new AnnounceElectionInput(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "candidate_admin" field.</summary>
+    public const int CandidateAdminFieldNumber = 2;
+    private global::AElf.Types.Address candidateAdmin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address CandidateAdmin {
+      get { return candidateAdmin_; }
+      set {
+        candidateAdmin_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as AnnounceElectionInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(AnnounceElectionInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (!object.Equals(CandidateAdmin, other.CandidateAdmin)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (candidateAdmin_ != null) hash ^= CandidateAdmin.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (candidateAdmin_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(CandidateAdmin);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (candidateAdmin_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(CandidateAdmin);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (candidateAdmin_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CandidateAdmin);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(AnnounceElectionInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.candidateAdmin_ != null) {
+        if (candidateAdmin_ == null) {
+          CandidateAdmin = new global::AElf.Types.Address();
+        }
+        CandidateAdmin.MergeFrom(other.CandidateAdmin);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (candidateAdmin_ == null) {
+              CandidateAdmin = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(CandidateAdmin);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (candidateAdmin_ == null) {
+              CandidateAdmin = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(CandidateAdmin);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class AnnounceElectionForInput : pb::IMessage<AnnounceElectionForInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<AnnounceElectionForInput> _parser = new pb::MessageParser<AnnounceElectionForInput>(() => new AnnounceElectionForInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<AnnounceElectionForInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public AnnounceElectionForInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public AnnounceElectionForInput(AnnounceElectionForInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      candidate_ = other.candidate_ != null ? other.candidate_.Clone() : null;
+      candidateAdmin_ = other.candidateAdmin_ != null ? other.candidateAdmin_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public AnnounceElectionForInput Clone() {
+      return new AnnounceElectionForInput(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "candidate" field.</summary>
+    public const int CandidateFieldNumber = 2;
+    private global::AElf.Types.Address candidate_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address Candidate {
+      get { return candidate_; }
+      set {
+        candidate_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "candidate_admin" field.</summary>
+    public const int CandidateAdminFieldNumber = 3;
+    private global::AElf.Types.Address candidateAdmin_;
+    /// <summary>
+    /// Can manage the current candidate of the address can be replaced
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address CandidateAdmin {
+      get { return candidateAdmin_; }
+      set {
+        candidateAdmin_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as AnnounceElectionForInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(AnnounceElectionForInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (!object.Equals(Candidate, other.Candidate)) return false;
+      if (!object.Equals(CandidateAdmin, other.CandidateAdmin)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (candidate_ != null) hash ^= Candidate.GetHashCode();
+      if (candidateAdmin_ != null) hash ^= CandidateAdmin.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (candidate_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Candidate);
+      }
+      if (candidateAdmin_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(CandidateAdmin);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (candidate_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Candidate);
+      }
+      if (candidateAdmin_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(CandidateAdmin);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (candidate_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Candidate);
+      }
+      if (candidateAdmin_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CandidateAdmin);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(AnnounceElectionForInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.candidate_ != null) {
+        if (candidate_ == null) {
+          Candidate = new global::AElf.Types.Address();
+        }
+        Candidate.MergeFrom(other.Candidate);
+      }
+      if (other.candidateAdmin_ != null) {
+        if (candidateAdmin_ == null) {
+          CandidateAdmin = new global::AElf.Types.Address();
+        }
+        CandidateAdmin.MergeFrom(other.CandidateAdmin);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (candidate_ == null) {
+              Candidate = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Candidate);
+            break;
+          }
+          case 26: {
+            if (candidateAdmin_ == null) {
+              CandidateAdmin = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(CandidateAdmin);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (candidate_ == null) {
+              Candidate = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Candidate);
+            break;
+          }
+          case 26: {
+            if (candidateAdmin_ == null) {
+              CandidateAdmin = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(CandidateAdmin);
             break;
           }
         }
@@ -713,7 +3750,7 @@ namespace TomorrowDAO.Contracts.Election {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[2]; }
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -735,6 +3772,8 @@ namespace TomorrowDAO.Contracts.Election {
     public CandidateAdded(CandidateAdded other) : this() {
       daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
       candidate_ = other.candidate_ != null ? other.candidate_.Clone() : null;
+      sponsor_ = other.sponsor_ != null ? other.sponsor_.Clone() : null;
+      amount_ = other.amount_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -767,8 +3806,21 @@ namespace TomorrowDAO.Contracts.Election {
         candidate_ = value;
       }
     }
-    
-    public const int AmountFieldNumber = 3;
+
+    /// <summary>Field number for the "sponsor" field.</summary>
+    public const int SponsorFieldNumber = 3;
+    private global::AElf.Types.Address sponsor_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address Sponsor {
+      get { return sponsor_; }
+      set {
+        sponsor_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "amount" field.</summary>
+    public const int AmountFieldNumber = 4;
     private long amount_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -788,6 +3840,485 @@ namespace TomorrowDAO.Contracts.Election {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(CandidateAdded other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (!object.Equals(Candidate, other.Candidate)) return false;
+      if (!object.Equals(Sponsor, other.Sponsor)) return false;
+      if (Amount != other.Amount) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (candidate_ != null) hash ^= Candidate.GetHashCode();
+      if (sponsor_ != null) hash ^= Sponsor.GetHashCode();
+      if (Amount != 0L) hash ^= Amount.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (candidate_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Candidate);
+      }
+      if (sponsor_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Sponsor);
+      }
+      if (Amount != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(Amount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (candidate_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Candidate);
+      }
+      if (sponsor_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Sponsor);
+      }
+      if (Amount != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(Amount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (candidate_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Candidate);
+      }
+      if (sponsor_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Sponsor);
+      }
+      if (Amount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Amount);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CandidateAdded other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.candidate_ != null) {
+        if (candidate_ == null) {
+          Candidate = new global::AElf.Types.Address();
+        }
+        Candidate.MergeFrom(other.Candidate);
+      }
+      if (other.sponsor_ != null) {
+        if (sponsor_ == null) {
+          Sponsor = new global::AElf.Types.Address();
+        }
+        Sponsor.MergeFrom(other.Sponsor);
+      }
+      if (other.Amount != 0L) {
+        Amount = other.Amount;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (candidate_ == null) {
+              Candidate = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Candidate);
+            break;
+          }
+          case 26: {
+            if (sponsor_ == null) {
+              Sponsor = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Sponsor);
+            break;
+          }
+          case 32: {
+            Amount = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (candidate_ == null) {
+              Candidate = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Candidate);
+            break;
+          }
+          case 26: {
+            if (sponsor_ == null) {
+              Sponsor = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Sponsor);
+            break;
+          }
+          case 32: {
+            Amount = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class AddressList : pb::IMessage<AddressList>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<AddressList> _parser = new pb::MessageParser<AddressList>(() => new AddressList());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<AddressList> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[10]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public AddressList() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public AddressList(AddressList other) : this() {
+      value_ = other.value_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public AddressList Clone() {
+      return new AddressList(this);
+    }
+
+    /// <summary>Field number for the "value" field.</summary>
+    public const int ValueFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::AElf.Types.Address> _repeated_value_codec
+        = pb::FieldCodec.ForMessage(10, global::AElf.Types.Address.Parser);
+    private readonly pbc::RepeatedField<global::AElf.Types.Address> value_ = new pbc::RepeatedField<global::AElf.Types.Address>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::AElf.Types.Address> Value {
+      get { return value_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as AddressList);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(AddressList other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!value_.Equals(other.value_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= value_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      value_.WriteTo(output, _repeated_value_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      value_.WriteTo(ref output, _repeated_value_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += value_.CalculateSize(_repeated_value_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(AddressList other) {
+      if (other == null) {
+        return;
+      }
+      value_.Add(other.value_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            value_.AddEntriesFrom(input, _repeated_value_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            value_.AddEntriesFrom(ref input, _repeated_value_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class QuitElectionInput : pb::IMessage<QuitElectionInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<QuitElectionInput> _parser = new pb::MessageParser<QuitElectionInput>(() => new QuitElectionInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<QuitElectionInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[11]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public QuitElectionInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public QuitElectionInput(QuitElectionInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      candidate_ = other.candidate_ != null ? other.candidate_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public QuitElectionInput Clone() {
+      return new QuitElectionInput(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "candidate" field.</summary>
+    public const int CandidateFieldNumber = 2;
+    private global::AElf.Types.Address candidate_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address Candidate {
+      get { return candidate_; }
+      set {
+        candidate_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as QuitElectionInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(QuitElectionInput other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -873,7 +4404,7 @@ namespace TomorrowDAO.Contracts.Election {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CandidateAdded other) {
+    public void MergeFrom(QuitElectionInput other) {
       if (other == null) {
         return;
       }
@@ -968,7 +4499,7 @@ namespace TomorrowDAO.Contracts.Election {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[3]; }
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1198,6 +4729,1911 @@ namespace TomorrowDAO.Contracts.Election {
 
   }
 
+  public sealed partial class VoteHighCouncilInput : pb::IMessage<VoteHighCouncilInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<VoteHighCouncilInput> _parser = new pb::MessageParser<VoteHighCouncilInput>(() => new VoteHighCouncilInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<VoteHighCouncilInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[13]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VoteHighCouncilInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VoteHighCouncilInput(VoteHighCouncilInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      candidateAddress_ = other.candidateAddress_ != null ? other.candidateAddress_.Clone() : null;
+      amount_ = other.amount_;
+      endTimestamp_ = other.endTimestamp_ != null ? other.endTimestamp_.Clone() : null;
+      token_ = other.token_ != null ? other.token_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VoteHighCouncilInput Clone() {
+      return new VoteHighCouncilInput(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "candidate_address" field.</summary>
+    public const int CandidateAddressFieldNumber = 2;
+    private global::AElf.Types.Address candidateAddress_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address CandidateAddress {
+      get { return candidateAddress_; }
+      set {
+        candidateAddress_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "amount" field.</summary>
+    public const int AmountFieldNumber = 3;
+    private long amount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long Amount {
+      get { return amount_; }
+      set {
+        amount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "end_timestamp" field.</summary>
+    public const int EndTimestampFieldNumber = 4;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp endTimestamp_;
+    /// <summary>
+    /// The end timestamp of this vote.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp EndTimestamp {
+      get { return endTimestamp_; }
+      set {
+        endTimestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "token" field.</summary>
+    public const int TokenFieldNumber = 5;
+    private global::AElf.Types.Hash token_;
+    /// <summary>
+    /// Used to generate vote id.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash Token {
+      get { return token_; }
+      set {
+        token_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as VoteHighCouncilInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(VoteHighCouncilInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (!object.Equals(CandidateAddress, other.CandidateAddress)) return false;
+      if (Amount != other.Amount) return false;
+      if (!object.Equals(EndTimestamp, other.EndTimestamp)) return false;
+      if (!object.Equals(Token, other.Token)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (candidateAddress_ != null) hash ^= CandidateAddress.GetHashCode();
+      if (Amount != 0L) hash ^= Amount.GetHashCode();
+      if (endTimestamp_ != null) hash ^= EndTimestamp.GetHashCode();
+      if (token_ != null) hash ^= Token.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (candidateAddress_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(CandidateAddress);
+      }
+      if (Amount != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Amount);
+      }
+      if (endTimestamp_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(EndTimestamp);
+      }
+      if (token_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Token);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (candidateAddress_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(CandidateAddress);
+      }
+      if (Amount != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Amount);
+      }
+      if (endTimestamp_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(EndTimestamp);
+      }
+      if (token_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Token);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (candidateAddress_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CandidateAddress);
+      }
+      if (Amount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Amount);
+      }
+      if (endTimestamp_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(EndTimestamp);
+      }
+      if (token_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Token);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(VoteHighCouncilInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.candidateAddress_ != null) {
+        if (candidateAddress_ == null) {
+          CandidateAddress = new global::AElf.Types.Address();
+        }
+        CandidateAddress.MergeFrom(other.CandidateAddress);
+      }
+      if (other.Amount != 0L) {
+        Amount = other.Amount;
+      }
+      if (other.endTimestamp_ != null) {
+        if (endTimestamp_ == null) {
+          EndTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        EndTimestamp.MergeFrom(other.EndTimestamp);
+      }
+      if (other.token_ != null) {
+        if (token_ == null) {
+          Token = new global::AElf.Types.Hash();
+        }
+        Token.MergeFrom(other.Token);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (candidateAddress_ == null) {
+              CandidateAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(CandidateAddress);
+            break;
+          }
+          case 24: {
+            Amount = input.ReadInt64();
+            break;
+          }
+          case 34: {
+            if (endTimestamp_ == null) {
+              EndTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(EndTimestamp);
+            break;
+          }
+          case 42: {
+            if (token_ == null) {
+              Token = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(Token);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (candidateAddress_ == null) {
+              CandidateAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(CandidateAddress);
+            break;
+          }
+          case 24: {
+            Amount = input.ReadInt64();
+            break;
+          }
+          case 34: {
+            if (endTimestamp_ == null) {
+              EndTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(EndTimestamp);
+            break;
+          }
+          case 42: {
+            if (token_ == null) {
+              Token = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(Token);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CandidateVote : pb::IMessage<CandidateVote>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CandidateVote> _parser = new pb::MessageParser<CandidateVote>(() => new CandidateVote());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CandidateVote> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[14]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateVote() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateVote(CandidateVote other) : this() {
+      obtainedActiveVotingRecordIds_ = other.obtainedActiveVotingRecordIds_.Clone();
+      obtainedWithdrawnVotingRecordIds_ = other.obtainedWithdrawnVotingRecordIds_.Clone();
+      obtainedActiveVotedVotesAmount_ = other.obtainedActiveVotedVotesAmount_;
+      allObtainedVotedVotesAmount_ = other.allObtainedVotedVotesAmount_;
+      obtainedActiveVotingRecords_ = other.obtainedActiveVotingRecords_.Clone();
+      obtainedWithdrawnVotesRecords_ = other.obtainedWithdrawnVotesRecords_.Clone();
+      address_ = other.address_ != null ? other.address_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateVote Clone() {
+      return new CandidateVote(this);
+    }
+
+    /// <summary>Field number for the "obtained_active_voting_record_ids" field.</summary>
+    public const int ObtainedActiveVotingRecordIdsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::AElf.Types.Hash> _repeated_obtainedActiveVotingRecordIds_codec
+        = pb::FieldCodec.ForMessage(10, global::AElf.Types.Hash.Parser);
+    private readonly pbc::RepeatedField<global::AElf.Types.Hash> obtainedActiveVotingRecordIds_ = new pbc::RepeatedField<global::AElf.Types.Hash>();
+    /// <summary>
+    /// The active voting record ids obtained.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::AElf.Types.Hash> ObtainedActiveVotingRecordIds {
+      get { return obtainedActiveVotingRecordIds_; }
+    }
+
+    /// <summary>Field number for the "obtained_withdrawn_voting_record_ids" field.</summary>
+    public const int ObtainedWithdrawnVotingRecordIdsFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::AElf.Types.Hash> _repeated_obtainedWithdrawnVotingRecordIds_codec
+        = pb::FieldCodec.ForMessage(18, global::AElf.Types.Hash.Parser);
+    private readonly pbc::RepeatedField<global::AElf.Types.Hash> obtainedWithdrawnVotingRecordIds_ = new pbc::RepeatedField<global::AElf.Types.Hash>();
+    /// <summary>
+    /// The active voting record ids that were withdrawn.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::AElf.Types.Hash> ObtainedWithdrawnVotingRecordIds {
+      get { return obtainedWithdrawnVotingRecordIds_; }
+    }
+
+    /// <summary>Field number for the "obtained_active_voted_votes_amount" field.</summary>
+    public const int ObtainedActiveVotedVotesAmountFieldNumber = 3;
+    private long obtainedActiveVotedVotesAmount_;
+    /// <summary>
+    /// The total number of active votes obtained.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long ObtainedActiveVotedVotesAmount {
+      get { return obtainedActiveVotedVotesAmount_; }
+      set {
+        obtainedActiveVotedVotesAmount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "all_obtained_voted_votes_amount" field.</summary>
+    public const int AllObtainedVotedVotesAmountFieldNumber = 4;
+    private long allObtainedVotedVotesAmount_;
+    /// <summary>
+    /// The total number of votes obtained.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long AllObtainedVotedVotesAmount {
+      get { return allObtainedVotedVotesAmount_; }
+      set {
+        allObtainedVotedVotesAmount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "obtained_active_voting_records" field.</summary>
+    public const int ObtainedActiveVotingRecordsFieldNumber = 5;
+    private static readonly pb::FieldCodec<global::TomorrowDAO.Contracts.Election.VotingRecord> _repeated_obtainedActiveVotingRecords_codec
+        = pb::FieldCodec.ForMessage(42, global::TomorrowDAO.Contracts.Election.VotingRecord.Parser);
+    private readonly pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.VotingRecord> obtainedActiveVotingRecords_ = new pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.VotingRecord>();
+    /// <summary>
+    /// The active voting records.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.VotingRecord> ObtainedActiveVotingRecords {
+      get { return obtainedActiveVotingRecords_; }
+    }
+
+    /// <summary>Field number for the "obtained_withdrawn_votes_records" field.</summary>
+    public const int ObtainedWithdrawnVotesRecordsFieldNumber = 6;
+    private static readonly pb::FieldCodec<global::TomorrowDAO.Contracts.Election.VotingRecord> _repeated_obtainedWithdrawnVotesRecords_codec
+        = pb::FieldCodec.ForMessage(50, global::TomorrowDAO.Contracts.Election.VotingRecord.Parser);
+    private readonly pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.VotingRecord> obtainedWithdrawnVotesRecords_ = new pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.VotingRecord>();
+    /// <summary>
+    /// The voting records that were withdrawn.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.VotingRecord> ObtainedWithdrawnVotesRecords {
+      get { return obtainedWithdrawnVotesRecords_; }
+    }
+
+    /// <summary>Field number for the "address" field.</summary>
+    public const int AddressFieldNumber = 7;
+    private global::AElf.Types.Address address_;
+    /// <summary>
+    /// address for candidate.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address Address {
+      get { return address_; }
+      set {
+        address_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CandidateVote);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CandidateVote other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!obtainedActiveVotingRecordIds_.Equals(other.obtainedActiveVotingRecordIds_)) return false;
+      if(!obtainedWithdrawnVotingRecordIds_.Equals(other.obtainedWithdrawnVotingRecordIds_)) return false;
+      if (ObtainedActiveVotedVotesAmount != other.ObtainedActiveVotedVotesAmount) return false;
+      if (AllObtainedVotedVotesAmount != other.AllObtainedVotedVotesAmount) return false;
+      if(!obtainedActiveVotingRecords_.Equals(other.obtainedActiveVotingRecords_)) return false;
+      if(!obtainedWithdrawnVotesRecords_.Equals(other.obtainedWithdrawnVotesRecords_)) return false;
+      if (!object.Equals(Address, other.Address)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= obtainedActiveVotingRecordIds_.GetHashCode();
+      hash ^= obtainedWithdrawnVotingRecordIds_.GetHashCode();
+      if (ObtainedActiveVotedVotesAmount != 0L) hash ^= ObtainedActiveVotedVotesAmount.GetHashCode();
+      if (AllObtainedVotedVotesAmount != 0L) hash ^= AllObtainedVotedVotesAmount.GetHashCode();
+      hash ^= obtainedActiveVotingRecords_.GetHashCode();
+      hash ^= obtainedWithdrawnVotesRecords_.GetHashCode();
+      if (address_ != null) hash ^= Address.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      obtainedActiveVotingRecordIds_.WriteTo(output, _repeated_obtainedActiveVotingRecordIds_codec);
+      obtainedWithdrawnVotingRecordIds_.WriteTo(output, _repeated_obtainedWithdrawnVotingRecordIds_codec);
+      if (ObtainedActiveVotedVotesAmount != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(ObtainedActiveVotedVotesAmount);
+      }
+      if (AllObtainedVotedVotesAmount != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(AllObtainedVotedVotesAmount);
+      }
+      obtainedActiveVotingRecords_.WriteTo(output, _repeated_obtainedActiveVotingRecords_codec);
+      obtainedWithdrawnVotesRecords_.WriteTo(output, _repeated_obtainedWithdrawnVotesRecords_codec);
+      if (address_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Address);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      obtainedActiveVotingRecordIds_.WriteTo(ref output, _repeated_obtainedActiveVotingRecordIds_codec);
+      obtainedWithdrawnVotingRecordIds_.WriteTo(ref output, _repeated_obtainedWithdrawnVotingRecordIds_codec);
+      if (ObtainedActiveVotedVotesAmount != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(ObtainedActiveVotedVotesAmount);
+      }
+      if (AllObtainedVotedVotesAmount != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(AllObtainedVotedVotesAmount);
+      }
+      obtainedActiveVotingRecords_.WriteTo(ref output, _repeated_obtainedActiveVotingRecords_codec);
+      obtainedWithdrawnVotesRecords_.WriteTo(ref output, _repeated_obtainedWithdrawnVotesRecords_codec);
+      if (address_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Address);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += obtainedActiveVotingRecordIds_.CalculateSize(_repeated_obtainedActiveVotingRecordIds_codec);
+      size += obtainedWithdrawnVotingRecordIds_.CalculateSize(_repeated_obtainedWithdrawnVotingRecordIds_codec);
+      if (ObtainedActiveVotedVotesAmount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ObtainedActiveVotedVotesAmount);
+      }
+      if (AllObtainedVotedVotesAmount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(AllObtainedVotedVotesAmount);
+      }
+      size += obtainedActiveVotingRecords_.CalculateSize(_repeated_obtainedActiveVotingRecords_codec);
+      size += obtainedWithdrawnVotesRecords_.CalculateSize(_repeated_obtainedWithdrawnVotesRecords_codec);
+      if (address_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Address);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CandidateVote other) {
+      if (other == null) {
+        return;
+      }
+      obtainedActiveVotingRecordIds_.Add(other.obtainedActiveVotingRecordIds_);
+      obtainedWithdrawnVotingRecordIds_.Add(other.obtainedWithdrawnVotingRecordIds_);
+      if (other.ObtainedActiveVotedVotesAmount != 0L) {
+        ObtainedActiveVotedVotesAmount = other.ObtainedActiveVotedVotesAmount;
+      }
+      if (other.AllObtainedVotedVotesAmount != 0L) {
+        AllObtainedVotedVotesAmount = other.AllObtainedVotedVotesAmount;
+      }
+      obtainedActiveVotingRecords_.Add(other.obtainedActiveVotingRecords_);
+      obtainedWithdrawnVotesRecords_.Add(other.obtainedWithdrawnVotesRecords_);
+      if (other.address_ != null) {
+        if (address_ == null) {
+          Address = new global::AElf.Types.Address();
+        }
+        Address.MergeFrom(other.Address);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            obtainedActiveVotingRecordIds_.AddEntriesFrom(input, _repeated_obtainedActiveVotingRecordIds_codec);
+            break;
+          }
+          case 18: {
+            obtainedWithdrawnVotingRecordIds_.AddEntriesFrom(input, _repeated_obtainedWithdrawnVotingRecordIds_codec);
+            break;
+          }
+          case 24: {
+            ObtainedActiveVotedVotesAmount = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            AllObtainedVotedVotesAmount = input.ReadInt64();
+            break;
+          }
+          case 42: {
+            obtainedActiveVotingRecords_.AddEntriesFrom(input, _repeated_obtainedActiveVotingRecords_codec);
+            break;
+          }
+          case 50: {
+            obtainedWithdrawnVotesRecords_.AddEntriesFrom(input, _repeated_obtainedWithdrawnVotesRecords_codec);
+            break;
+          }
+          case 58: {
+            if (address_ == null) {
+              Address = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Address);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            obtainedActiveVotingRecordIds_.AddEntriesFrom(ref input, _repeated_obtainedActiveVotingRecordIds_codec);
+            break;
+          }
+          case 18: {
+            obtainedWithdrawnVotingRecordIds_.AddEntriesFrom(ref input, _repeated_obtainedWithdrawnVotingRecordIds_codec);
+            break;
+          }
+          case 24: {
+            ObtainedActiveVotedVotesAmount = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            AllObtainedVotedVotesAmount = input.ReadInt64();
+            break;
+          }
+          case 42: {
+            obtainedActiveVotingRecords_.AddEntriesFrom(ref input, _repeated_obtainedActiveVotingRecords_codec);
+            break;
+          }
+          case 50: {
+            obtainedWithdrawnVotesRecords_.AddEntriesFrom(ref input, _repeated_obtainedWithdrawnVotesRecords_codec);
+            break;
+          }
+          case 58: {
+            if (address_ == null) {
+              Address = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Address);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class ElectorVote : pb::IMessage<ElectorVote>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ElectorVote> _parser = new pb::MessageParser<ElectorVote>(() => new ElectorVote());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ElectorVote> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[15]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ElectorVote() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ElectorVote(ElectorVote other) : this() {
+      activeVotingRecordIds_ = other.activeVotingRecordIds_.Clone();
+      withdrawnVotingRecordIds_ = other.withdrawnVotingRecordIds_.Clone();
+      activeVotedVotesAmount_ = other.activeVotedVotesAmount_;
+      allVotedVotesAmount_ = other.allVotedVotesAmount_;
+      activeVotingRecords_ = other.activeVotingRecords_.Clone();
+      withdrawnVotesRecords_ = other.withdrawnVotesRecords_.Clone();
+      address_ = other.address_ != null ? other.address_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ElectorVote Clone() {
+      return new ElectorVote(this);
+    }
+
+    /// <summary>Field number for the "active_voting_record_ids" field.</summary>
+    public const int ActiveVotingRecordIdsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::AElf.Types.Hash> _repeated_activeVotingRecordIds_codec
+        = pb::FieldCodec.ForMessage(10, global::AElf.Types.Hash.Parser);
+    private readonly pbc::RepeatedField<global::AElf.Types.Hash> activeVotingRecordIds_ = new pbc::RepeatedField<global::AElf.Types.Hash>();
+    /// <summary>
+    /// The active voting record ids.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::AElf.Types.Hash> ActiveVotingRecordIds {
+      get { return activeVotingRecordIds_; }
+    }
+
+    /// <summary>Field number for the "withdrawn_voting_record_ids" field.</summary>
+    public const int WithdrawnVotingRecordIdsFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::AElf.Types.Hash> _repeated_withdrawnVotingRecordIds_codec
+        = pb::FieldCodec.ForMessage(18, global::AElf.Types.Hash.Parser);
+    private readonly pbc::RepeatedField<global::AElf.Types.Hash> withdrawnVotingRecordIds_ = new pbc::RepeatedField<global::AElf.Types.Hash>();
+    /// <summary>
+    /// The voting record ids that were withdrawn.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::AElf.Types.Hash> WithdrawnVotingRecordIds {
+      get { return withdrawnVotingRecordIds_; }
+    }
+
+    /// <summary>Field number for the "active_voted_votes_amount" field.</summary>
+    public const int ActiveVotedVotesAmountFieldNumber = 3;
+    private long activeVotedVotesAmount_;
+    /// <summary>
+    /// The total number of active votes.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long ActiveVotedVotesAmount {
+      get { return activeVotedVotesAmount_; }
+      set {
+        activeVotedVotesAmount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "all_voted_votes_amount" field.</summary>
+    public const int AllVotedVotesAmountFieldNumber = 4;
+    private long allVotedVotesAmount_;
+    /// <summary>
+    /// The total number of votes (including the number of votes withdrawn).
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long AllVotedVotesAmount {
+      get { return allVotedVotesAmount_; }
+      set {
+        allVotedVotesAmount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "active_voting_records" field.</summary>
+    public const int ActiveVotingRecordsFieldNumber = 5;
+    private static readonly pb::FieldCodec<global::TomorrowDAO.Contracts.Election.VotingRecord> _repeated_activeVotingRecords_codec
+        = pb::FieldCodec.ForMessage(42, global::TomorrowDAO.Contracts.Election.VotingRecord.Parser);
+    private readonly pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.VotingRecord> activeVotingRecords_ = new pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.VotingRecord>();
+    /// <summary>
+    /// The active voting records.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.VotingRecord> ActiveVotingRecords {
+      get { return activeVotingRecords_; }
+    }
+
+    /// <summary>Field number for the "withdrawn_votes_records" field.</summary>
+    public const int WithdrawnVotesRecordsFieldNumber = 6;
+    private static readonly pb::FieldCodec<global::TomorrowDAO.Contracts.Election.VotingRecord> _repeated_withdrawnVotesRecords_codec
+        = pb::FieldCodec.ForMessage(50, global::TomorrowDAO.Contracts.Election.VotingRecord.Parser);
+    private readonly pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.VotingRecord> withdrawnVotesRecords_ = new pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.VotingRecord>();
+    /// <summary>
+    /// The voting records that were withdrawn.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.VotingRecord> WithdrawnVotesRecords {
+      get { return withdrawnVotesRecords_; }
+    }
+
+    /// <summary>Field number for the "address" field.</summary>
+    public const int AddressFieldNumber = 7;
+    private global::AElf.Types.Address address_;
+    /// <summary>
+    /// Address for voter
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address Address {
+      get { return address_; }
+      set {
+        address_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ElectorVote);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ElectorVote other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!activeVotingRecordIds_.Equals(other.activeVotingRecordIds_)) return false;
+      if(!withdrawnVotingRecordIds_.Equals(other.withdrawnVotingRecordIds_)) return false;
+      if (ActiveVotedVotesAmount != other.ActiveVotedVotesAmount) return false;
+      if (AllVotedVotesAmount != other.AllVotedVotesAmount) return false;
+      if(!activeVotingRecords_.Equals(other.activeVotingRecords_)) return false;
+      if(!withdrawnVotesRecords_.Equals(other.withdrawnVotesRecords_)) return false;
+      if (!object.Equals(Address, other.Address)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= activeVotingRecordIds_.GetHashCode();
+      hash ^= withdrawnVotingRecordIds_.GetHashCode();
+      if (ActiveVotedVotesAmount != 0L) hash ^= ActiveVotedVotesAmount.GetHashCode();
+      if (AllVotedVotesAmount != 0L) hash ^= AllVotedVotesAmount.GetHashCode();
+      hash ^= activeVotingRecords_.GetHashCode();
+      hash ^= withdrawnVotesRecords_.GetHashCode();
+      if (address_ != null) hash ^= Address.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      activeVotingRecordIds_.WriteTo(output, _repeated_activeVotingRecordIds_codec);
+      withdrawnVotingRecordIds_.WriteTo(output, _repeated_withdrawnVotingRecordIds_codec);
+      if (ActiveVotedVotesAmount != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(ActiveVotedVotesAmount);
+      }
+      if (AllVotedVotesAmount != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(AllVotedVotesAmount);
+      }
+      activeVotingRecords_.WriteTo(output, _repeated_activeVotingRecords_codec);
+      withdrawnVotesRecords_.WriteTo(output, _repeated_withdrawnVotesRecords_codec);
+      if (address_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Address);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      activeVotingRecordIds_.WriteTo(ref output, _repeated_activeVotingRecordIds_codec);
+      withdrawnVotingRecordIds_.WriteTo(ref output, _repeated_withdrawnVotingRecordIds_codec);
+      if (ActiveVotedVotesAmount != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(ActiveVotedVotesAmount);
+      }
+      if (AllVotedVotesAmount != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(AllVotedVotesAmount);
+      }
+      activeVotingRecords_.WriteTo(ref output, _repeated_activeVotingRecords_codec);
+      withdrawnVotesRecords_.WriteTo(ref output, _repeated_withdrawnVotesRecords_codec);
+      if (address_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Address);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += activeVotingRecordIds_.CalculateSize(_repeated_activeVotingRecordIds_codec);
+      size += withdrawnVotingRecordIds_.CalculateSize(_repeated_withdrawnVotingRecordIds_codec);
+      if (ActiveVotedVotesAmount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ActiveVotedVotesAmount);
+      }
+      if (AllVotedVotesAmount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(AllVotedVotesAmount);
+      }
+      size += activeVotingRecords_.CalculateSize(_repeated_activeVotingRecords_codec);
+      size += withdrawnVotesRecords_.CalculateSize(_repeated_withdrawnVotesRecords_codec);
+      if (address_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Address);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ElectorVote other) {
+      if (other == null) {
+        return;
+      }
+      activeVotingRecordIds_.Add(other.activeVotingRecordIds_);
+      withdrawnVotingRecordIds_.Add(other.withdrawnVotingRecordIds_);
+      if (other.ActiveVotedVotesAmount != 0L) {
+        ActiveVotedVotesAmount = other.ActiveVotedVotesAmount;
+      }
+      if (other.AllVotedVotesAmount != 0L) {
+        AllVotedVotesAmount = other.AllVotedVotesAmount;
+      }
+      activeVotingRecords_.Add(other.activeVotingRecords_);
+      withdrawnVotesRecords_.Add(other.withdrawnVotesRecords_);
+      if (other.address_ != null) {
+        if (address_ == null) {
+          Address = new global::AElf.Types.Address();
+        }
+        Address.MergeFrom(other.Address);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            activeVotingRecordIds_.AddEntriesFrom(input, _repeated_activeVotingRecordIds_codec);
+            break;
+          }
+          case 18: {
+            withdrawnVotingRecordIds_.AddEntriesFrom(input, _repeated_withdrawnVotingRecordIds_codec);
+            break;
+          }
+          case 24: {
+            ActiveVotedVotesAmount = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            AllVotedVotesAmount = input.ReadInt64();
+            break;
+          }
+          case 42: {
+            activeVotingRecords_.AddEntriesFrom(input, _repeated_activeVotingRecords_codec);
+            break;
+          }
+          case 50: {
+            withdrawnVotesRecords_.AddEntriesFrom(input, _repeated_withdrawnVotesRecords_codec);
+            break;
+          }
+          case 58: {
+            if (address_ == null) {
+              Address = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Address);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            activeVotingRecordIds_.AddEntriesFrom(ref input, _repeated_activeVotingRecordIds_codec);
+            break;
+          }
+          case 18: {
+            withdrawnVotingRecordIds_.AddEntriesFrom(ref input, _repeated_withdrawnVotingRecordIds_codec);
+            break;
+          }
+          case 24: {
+            ActiveVotedVotesAmount = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            AllVotedVotesAmount = input.ReadInt64();
+            break;
+          }
+          case 42: {
+            activeVotingRecords_.AddEntriesFrom(ref input, _repeated_activeVotingRecords_codec);
+            break;
+          }
+          case 50: {
+            withdrawnVotesRecords_.AddEntriesFrom(ref input, _repeated_withdrawnVotesRecords_codec);
+            break;
+          }
+          case 58: {
+            if (address_ == null) {
+              Address = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Address);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class VotingRecord : pb::IMessage<VotingRecord>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<VotingRecord> _parser = new pb::MessageParser<VotingRecord>(() => new VotingRecord());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<VotingRecord> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[16]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VotingRecord() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VotingRecord(VotingRecord other) : this() {
+      voter_ = other.voter_ != null ? other.voter_.Clone() : null;
+      candidate_ = other.candidate_ != null ? other.candidate_.Clone() : null;
+      amount_ = other.amount_;
+      termNumber_ = other.termNumber_;
+      voteId_ = other.voteId_ != null ? other.voteId_.Clone() : null;
+      unlockTimestamp_ = other.unlockTimestamp_ != null ? other.unlockTimestamp_.Clone() : null;
+      withdrawTimestamp_ = other.withdrawTimestamp_ != null ? other.withdrawTimestamp_.Clone() : null;
+      voteTimestamp_ = other.voteTimestamp_ != null ? other.voteTimestamp_.Clone() : null;
+      isWithdrawn_ = other.isWithdrawn_;
+      votingItemId_ = other.votingItemId_ != null ? other.votingItemId_.Clone() : null;
+      snapshotNumber_ = other.snapshotNumber_;
+      isChangeTarget_ = other.isChangeTarget_;
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VotingRecord Clone() {
+      return new VotingRecord(this);
+    }
+
+    /// <summary>Field number for the "voter" field.</summary>
+    public const int VoterFieldNumber = 1;
+    private global::AElf.Types.Address voter_;
+    /// <summary>
+    /// The address of voter.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address Voter {
+      get { return voter_; }
+      set {
+        voter_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "candidate" field.</summary>
+    public const int CandidateFieldNumber = 2;
+    private global::AElf.Types.Address candidate_;
+    /// <summary>
+    /// The address of candidate.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address Candidate {
+      get { return candidate_; }
+      set {
+        candidate_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "amount" field.</summary>
+    public const int AmountFieldNumber = 3;
+    private long amount_;
+    /// <summary>
+    /// Amount of voting.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long Amount {
+      get { return amount_; }
+      set {
+        amount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "term_number" field.</summary>
+    public const int TermNumberFieldNumber = 4;
+    private long termNumber_;
+    /// <summary>
+    /// The term number of voting.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long TermNumber {
+      get { return termNumber_; }
+      set {
+        termNumber_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "vote_id" field.</summary>
+    public const int VoteIdFieldNumber = 5;
+    private global::AElf.Types.Hash voteId_;
+    /// <summary>
+    /// The vote id.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash VoteId {
+      get { return voteId_; }
+      set {
+        voteId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "unlock_timestamp" field.</summary>
+    public const int UnlockTimestampFieldNumber = 6;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp unlockTimestamp_;
+    /// <summary>
+    /// The unlock timestamp.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp UnlockTimestamp {
+      get { return unlockTimestamp_; }
+      set {
+        unlockTimestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "withdraw_timestamp" field.</summary>
+    public const int WithdrawTimestampFieldNumber = 7;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp withdrawTimestamp_;
+    /// <summary>
+    /// The withdraw timestamp.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp WithdrawTimestamp {
+      get { return withdrawTimestamp_; }
+      set {
+        withdrawTimestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "vote_timestamp" field.</summary>
+    public const int VoteTimestampFieldNumber = 8;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp voteTimestamp_;
+    /// <summary>
+    /// The vote timestamp.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp VoteTimestamp {
+      get { return voteTimestamp_; }
+      set {
+        voteTimestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "is_withdrawn" field.</summary>
+    public const int IsWithdrawnFieldNumber = 9;
+    private bool isWithdrawn_;
+    /// <summary>
+    /// Indicates if the vote has been withdrawn.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsWithdrawn {
+      get { return isWithdrawn_; }
+      set {
+        isWithdrawn_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "voting_item_id" field.</summary>
+    public const int VotingItemIdFieldNumber = 10;
+    private global::AElf.Types.Hash votingItemId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash VotingItemId {
+      get { return votingItemId_; }
+      set {
+        votingItemId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "snapshot_number" field.</summary>
+    public const int SnapshotNumberFieldNumber = 11;
+    private long snapshotNumber_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long SnapshotNumber {
+      get { return snapshotNumber_; }
+      set {
+        snapshotNumber_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "is_change_target" field.</summary>
+    public const int IsChangeTargetFieldNumber = 12;
+    private bool isChangeTarget_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsChangeTarget {
+      get { return isChangeTarget_; }
+      set {
+        isChangeTarget_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 13;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as VotingRecord);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(VotingRecord other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Voter, other.Voter)) return false;
+      if (!object.Equals(Candidate, other.Candidate)) return false;
+      if (Amount != other.Amount) return false;
+      if (TermNumber != other.TermNumber) return false;
+      if (!object.Equals(VoteId, other.VoteId)) return false;
+      if (!object.Equals(UnlockTimestamp, other.UnlockTimestamp)) return false;
+      if (!object.Equals(WithdrawTimestamp, other.WithdrawTimestamp)) return false;
+      if (!object.Equals(VoteTimestamp, other.VoteTimestamp)) return false;
+      if (IsWithdrawn != other.IsWithdrawn) return false;
+      if (!object.Equals(VotingItemId, other.VotingItemId)) return false;
+      if (SnapshotNumber != other.SnapshotNumber) return false;
+      if (IsChangeTarget != other.IsChangeTarget) return false;
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (voter_ != null) hash ^= Voter.GetHashCode();
+      if (candidate_ != null) hash ^= Candidate.GetHashCode();
+      if (Amount != 0L) hash ^= Amount.GetHashCode();
+      if (TermNumber != 0L) hash ^= TermNumber.GetHashCode();
+      if (voteId_ != null) hash ^= VoteId.GetHashCode();
+      if (unlockTimestamp_ != null) hash ^= UnlockTimestamp.GetHashCode();
+      if (withdrawTimestamp_ != null) hash ^= WithdrawTimestamp.GetHashCode();
+      if (voteTimestamp_ != null) hash ^= VoteTimestamp.GetHashCode();
+      if (IsWithdrawn != false) hash ^= IsWithdrawn.GetHashCode();
+      if (votingItemId_ != null) hash ^= VotingItemId.GetHashCode();
+      if (SnapshotNumber != 0L) hash ^= SnapshotNumber.GetHashCode();
+      if (IsChangeTarget != false) hash ^= IsChangeTarget.GetHashCode();
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (voter_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Voter);
+      }
+      if (candidate_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Candidate);
+      }
+      if (Amount != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Amount);
+      }
+      if (TermNumber != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(TermNumber);
+      }
+      if (voteId_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(VoteId);
+      }
+      if (unlockTimestamp_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(UnlockTimestamp);
+      }
+      if (withdrawTimestamp_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(WithdrawTimestamp);
+      }
+      if (voteTimestamp_ != null) {
+        output.WriteRawTag(66);
+        output.WriteMessage(VoteTimestamp);
+      }
+      if (IsWithdrawn != false) {
+        output.WriteRawTag(72);
+        output.WriteBool(IsWithdrawn);
+      }
+      if (votingItemId_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(VotingItemId);
+      }
+      if (SnapshotNumber != 0L) {
+        output.WriteRawTag(88);
+        output.WriteInt64(SnapshotNumber);
+      }
+      if (IsChangeTarget != false) {
+        output.WriteRawTag(96);
+        output.WriteBool(IsChangeTarget);
+      }
+      if (daoId_ != null) {
+        output.WriteRawTag(106);
+        output.WriteMessage(DaoId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (voter_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Voter);
+      }
+      if (candidate_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Candidate);
+      }
+      if (Amount != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Amount);
+      }
+      if (TermNumber != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(TermNumber);
+      }
+      if (voteId_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(VoteId);
+      }
+      if (unlockTimestamp_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(UnlockTimestamp);
+      }
+      if (withdrawTimestamp_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(WithdrawTimestamp);
+      }
+      if (voteTimestamp_ != null) {
+        output.WriteRawTag(66);
+        output.WriteMessage(VoteTimestamp);
+      }
+      if (IsWithdrawn != false) {
+        output.WriteRawTag(72);
+        output.WriteBool(IsWithdrawn);
+      }
+      if (votingItemId_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(VotingItemId);
+      }
+      if (SnapshotNumber != 0L) {
+        output.WriteRawTag(88);
+        output.WriteInt64(SnapshotNumber);
+      }
+      if (IsChangeTarget != false) {
+        output.WriteRawTag(96);
+        output.WriteBool(IsChangeTarget);
+      }
+      if (daoId_ != null) {
+        output.WriteRawTag(106);
+        output.WriteMessage(DaoId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (voter_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Voter);
+      }
+      if (candidate_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Candidate);
+      }
+      if (Amount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Amount);
+      }
+      if (TermNumber != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TermNumber);
+      }
+      if (voteId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(VoteId);
+      }
+      if (unlockTimestamp_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(UnlockTimestamp);
+      }
+      if (withdrawTimestamp_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(WithdrawTimestamp);
+      }
+      if (voteTimestamp_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(VoteTimestamp);
+      }
+      if (IsWithdrawn != false) {
+        size += 1 + 1;
+      }
+      if (votingItemId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(VotingItemId);
+      }
+      if (SnapshotNumber != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(SnapshotNumber);
+      }
+      if (IsChangeTarget != false) {
+        size += 1 + 1;
+      }
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(VotingRecord other) {
+      if (other == null) {
+        return;
+      }
+      if (other.voter_ != null) {
+        if (voter_ == null) {
+          Voter = new global::AElf.Types.Address();
+        }
+        Voter.MergeFrom(other.Voter);
+      }
+      if (other.candidate_ != null) {
+        if (candidate_ == null) {
+          Candidate = new global::AElf.Types.Address();
+        }
+        Candidate.MergeFrom(other.Candidate);
+      }
+      if (other.Amount != 0L) {
+        Amount = other.Amount;
+      }
+      if (other.TermNumber != 0L) {
+        TermNumber = other.TermNumber;
+      }
+      if (other.voteId_ != null) {
+        if (voteId_ == null) {
+          VoteId = new global::AElf.Types.Hash();
+        }
+        VoteId.MergeFrom(other.VoteId);
+      }
+      if (other.unlockTimestamp_ != null) {
+        if (unlockTimestamp_ == null) {
+          UnlockTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        UnlockTimestamp.MergeFrom(other.UnlockTimestamp);
+      }
+      if (other.withdrawTimestamp_ != null) {
+        if (withdrawTimestamp_ == null) {
+          WithdrawTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        WithdrawTimestamp.MergeFrom(other.WithdrawTimestamp);
+      }
+      if (other.voteTimestamp_ != null) {
+        if (voteTimestamp_ == null) {
+          VoteTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        VoteTimestamp.MergeFrom(other.VoteTimestamp);
+      }
+      if (other.IsWithdrawn != false) {
+        IsWithdrawn = other.IsWithdrawn;
+      }
+      if (other.votingItemId_ != null) {
+        if (votingItemId_ == null) {
+          VotingItemId = new global::AElf.Types.Hash();
+        }
+        VotingItemId.MergeFrom(other.VotingItemId);
+      }
+      if (other.SnapshotNumber != 0L) {
+        SnapshotNumber = other.SnapshotNumber;
+      }
+      if (other.IsChangeTarget != false) {
+        IsChangeTarget = other.IsChangeTarget;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (voter_ == null) {
+              Voter = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Voter);
+            break;
+          }
+          case 18: {
+            if (candidate_ == null) {
+              Candidate = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Candidate);
+            break;
+          }
+          case 24: {
+            Amount = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            TermNumber = input.ReadInt64();
+            break;
+          }
+          case 42: {
+            if (voteId_ == null) {
+              VoteId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(VoteId);
+            break;
+          }
+          case 50: {
+            if (unlockTimestamp_ == null) {
+              UnlockTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(UnlockTimestamp);
+            break;
+          }
+          case 58: {
+            if (withdrawTimestamp_ == null) {
+              WithdrawTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(WithdrawTimestamp);
+            break;
+          }
+          case 66: {
+            if (voteTimestamp_ == null) {
+              VoteTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(VoteTimestamp);
+            break;
+          }
+          case 72: {
+            IsWithdrawn = input.ReadBool();
+            break;
+          }
+          case 82: {
+            if (votingItemId_ == null) {
+              VotingItemId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(VotingItemId);
+            break;
+          }
+          case 88: {
+            SnapshotNumber = input.ReadInt64();
+            break;
+          }
+          case 96: {
+            IsChangeTarget = input.ReadBool();
+            break;
+          }
+          case 106: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (voter_ == null) {
+              Voter = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Voter);
+            break;
+          }
+          case 18: {
+            if (candidate_ == null) {
+              Candidate = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Candidate);
+            break;
+          }
+          case 24: {
+            Amount = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            TermNumber = input.ReadInt64();
+            break;
+          }
+          case 42: {
+            if (voteId_ == null) {
+              VoteId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(VoteId);
+            break;
+          }
+          case 50: {
+            if (unlockTimestamp_ == null) {
+              UnlockTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(UnlockTimestamp);
+            break;
+          }
+          case 58: {
+            if (withdrawTimestamp_ == null) {
+              WithdrawTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(WithdrawTimestamp);
+            break;
+          }
+          case 66: {
+            if (voteTimestamp_ == null) {
+              VoteTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(VoteTimestamp);
+            break;
+          }
+          case 72: {
+            IsWithdrawn = input.ReadBool();
+            break;
+          }
+          case 82: {
+            if (votingItemId_ == null) {
+              VotingItemId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(VotingItemId);
+            break;
+          }
+          case 88: {
+            SnapshotNumber = input.ReadInt64();
+            break;
+          }
+          case 96: {
+            IsChangeTarget = input.ReadBool();
+            break;
+          }
+          case 106: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class Voted : pb::IMessage<Voted>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1212,7 +6648,7 @@ namespace TomorrowDAO.Contracts.Election {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[4]; }
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1574,6 +7010,6199 @@ namespace TomorrowDAO.Contracts.Election {
 
   }
 
+  public sealed partial class TakeElectionSnapshotInput : pb::IMessage<TakeElectionSnapshotInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<TakeElectionSnapshotInput> _parser = new pb::MessageParser<TakeElectionSnapshotInput>(() => new TakeElectionSnapshotInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<TakeElectionSnapshotInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[18]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public TakeElectionSnapshotInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public TakeElectionSnapshotInput(TakeElectionSnapshotInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      termNumber_ = other.termNumber_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public TakeElectionSnapshotInput Clone() {
+      return new TakeElectionSnapshotInput(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "term_number" field.</summary>
+    public const int TermNumberFieldNumber = 2;
+    private long termNumber_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long TermNumber {
+      get { return termNumber_; }
+      set {
+        termNumber_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as TakeElectionSnapshotInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(TakeElectionSnapshotInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (TermNumber != other.TermNumber) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (TermNumber != 0L) hash ^= TermNumber.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (TermNumber != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(TermNumber);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (TermNumber != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(TermNumber);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (TermNumber != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TermNumber);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(TakeElectionSnapshotInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.TermNumber != 0L) {
+        TermNumber = other.TermNumber;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 16: {
+            TermNumber = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 16: {
+            TermNumber = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CandidateInformation : pb::IMessage<CandidateInformation>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CandidateInformation> _parser = new pb::MessageParser<CandidateInformation>(() => new CandidateInformation());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CandidateInformation> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[19]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateInformation() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateInformation(CandidateInformation other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      address_ = other.address_ != null ? other.address_.Clone() : null;
+      terms_ = other.terms_.Clone();
+      announcementTransactionId_ = other.announcementTransactionId_ != null ? other.announcementTransactionId_.Clone() : null;
+      isCurrentCandidate_ = other.isCurrentCandidate_;
+      continualAppointmentCount_ = other.continualAppointmentCount_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateInformation Clone() {
+      return new CandidateInformation(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "address" field.</summary>
+    public const int AddressFieldNumber = 2;
+    private global::AElf.Types.Address address_;
+    /// <summary>
+    /// Candidate’s address.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address Address {
+      get { return address_; }
+      set {
+        address_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "terms" field.</summary>
+    public const int TermsFieldNumber = 3;
+    private static readonly pb::FieldCodec<long> _repeated_terms_codec
+        = pb::FieldCodec.ForInt64(26);
+    private readonly pbc::RepeatedField<long> terms_ = new pbc::RepeatedField<long>();
+    /// <summary>
+    /// The number of terms that the candidate is elected.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<long> Terms {
+      get { return terms_; }
+    }
+
+    /// <summary>Field number for the "announcement_transaction_id" field.</summary>
+    public const int AnnouncementTransactionIdFieldNumber = 4;
+    private global::AElf.Types.Hash announcementTransactionId_;
+    /// <summary>
+    /// The transaction id when the candidate announced.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash AnnouncementTransactionId {
+      get { return announcementTransactionId_; }
+      set {
+        announcementTransactionId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "is_current_candidate" field.</summary>
+    public const int IsCurrentCandidateFieldNumber = 5;
+    private bool isCurrentCandidate_;
+    /// <summary>
+    /// Indicate whether the candidate can be elected in the current term.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsCurrentCandidate {
+      get { return isCurrentCandidate_; }
+      set {
+        isCurrentCandidate_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "continual_appointment_count" field.</summary>
+    public const int ContinualAppointmentCountFieldNumber = 6;
+    private long continualAppointmentCount_;
+    /// <summary>
+    /// The count of continual appointment.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long ContinualAppointmentCount {
+      get { return continualAppointmentCount_; }
+      set {
+        continualAppointmentCount_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CandidateInformation);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CandidateInformation other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (!object.Equals(Address, other.Address)) return false;
+      if(!terms_.Equals(other.terms_)) return false;
+      if (!object.Equals(AnnouncementTransactionId, other.AnnouncementTransactionId)) return false;
+      if (IsCurrentCandidate != other.IsCurrentCandidate) return false;
+      if (ContinualAppointmentCount != other.ContinualAppointmentCount) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (address_ != null) hash ^= Address.GetHashCode();
+      hash ^= terms_.GetHashCode();
+      if (announcementTransactionId_ != null) hash ^= AnnouncementTransactionId.GetHashCode();
+      if (IsCurrentCandidate != false) hash ^= IsCurrentCandidate.GetHashCode();
+      if (ContinualAppointmentCount != 0L) hash ^= ContinualAppointmentCount.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (address_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Address);
+      }
+      terms_.WriteTo(output, _repeated_terms_codec);
+      if (announcementTransactionId_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(AnnouncementTransactionId);
+      }
+      if (IsCurrentCandidate != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(IsCurrentCandidate);
+      }
+      if (ContinualAppointmentCount != 0L) {
+        output.WriteRawTag(48);
+        output.WriteInt64(ContinualAppointmentCount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (address_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Address);
+      }
+      terms_.WriteTo(ref output, _repeated_terms_codec);
+      if (announcementTransactionId_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(AnnouncementTransactionId);
+      }
+      if (IsCurrentCandidate != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(IsCurrentCandidate);
+      }
+      if (ContinualAppointmentCount != 0L) {
+        output.WriteRawTag(48);
+        output.WriteInt64(ContinualAppointmentCount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (address_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Address);
+      }
+      size += terms_.CalculateSize(_repeated_terms_codec);
+      if (announcementTransactionId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(AnnouncementTransactionId);
+      }
+      if (IsCurrentCandidate != false) {
+        size += 1 + 1;
+      }
+      if (ContinualAppointmentCount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ContinualAppointmentCount);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CandidateInformation other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.address_ != null) {
+        if (address_ == null) {
+          Address = new global::AElf.Types.Address();
+        }
+        Address.MergeFrom(other.Address);
+      }
+      terms_.Add(other.terms_);
+      if (other.announcementTransactionId_ != null) {
+        if (announcementTransactionId_ == null) {
+          AnnouncementTransactionId = new global::AElf.Types.Hash();
+        }
+        AnnouncementTransactionId.MergeFrom(other.AnnouncementTransactionId);
+      }
+      if (other.IsCurrentCandidate != false) {
+        IsCurrentCandidate = other.IsCurrentCandidate;
+      }
+      if (other.ContinualAppointmentCount != 0L) {
+        ContinualAppointmentCount = other.ContinualAppointmentCount;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (address_ == null) {
+              Address = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Address);
+            break;
+          }
+          case 26:
+          case 24: {
+            terms_.AddEntriesFrom(input, _repeated_terms_codec);
+            break;
+          }
+          case 34: {
+            if (announcementTransactionId_ == null) {
+              AnnouncementTransactionId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(AnnouncementTransactionId);
+            break;
+          }
+          case 40: {
+            IsCurrentCandidate = input.ReadBool();
+            break;
+          }
+          case 48: {
+            ContinualAppointmentCount = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (address_ == null) {
+              Address = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Address);
+            break;
+          }
+          case 26:
+          case 24: {
+            terms_.AddEntriesFrom(ref input, _repeated_terms_codec);
+            break;
+          }
+          case 34: {
+            if (announcementTransactionId_ == null) {
+              AnnouncementTransactionId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(AnnouncementTransactionId);
+            break;
+          }
+          case 40: {
+            IsCurrentCandidate = input.ReadBool();
+            break;
+          }
+          case 48: {
+            ContinualAppointmentCount = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CandidateElected : pb::IMessage<CandidateElected>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CandidateElected> _parser = new pb::MessageParser<CandidateElected>(() => new CandidateElected());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CandidateElected> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[20]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateElected() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateElected(CandidateElected other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      preTermNumber_ = other.preTermNumber_;
+      newNumber_ = other.newNumber_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateElected Clone() {
+      return new CandidateElected(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pre_term_number" field.</summary>
+    public const int PreTermNumberFieldNumber = 2;
+    private long preTermNumber_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long PreTermNumber {
+      get { return preTermNumber_; }
+      set {
+        preTermNumber_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "new_number" field.</summary>
+    public const int NewNumberFieldNumber = 3;
+    private long newNumber_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long NewNumber {
+      get { return newNumber_; }
+      set {
+        newNumber_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CandidateElected);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CandidateElected other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (PreTermNumber != other.PreTermNumber) return false;
+      if (NewNumber != other.NewNumber) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (PreTermNumber != 0L) hash ^= PreTermNumber.GetHashCode();
+      if (NewNumber != 0L) hash ^= NewNumber.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (PreTermNumber != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(PreTermNumber);
+      }
+      if (NewNumber != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(NewNumber);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (PreTermNumber != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(PreTermNumber);
+      }
+      if (NewNumber != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(NewNumber);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (PreTermNumber != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(PreTermNumber);
+      }
+      if (NewNumber != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(NewNumber);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CandidateElected other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.PreTermNumber != 0L) {
+        PreTermNumber = other.PreTermNumber;
+      }
+      if (other.NewNumber != 0L) {
+        NewNumber = other.NewNumber;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 16: {
+            PreTermNumber = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            NewNumber = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 16: {
+            PreTermNumber = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            NewNumber = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class GetCandidateInformationInput : pb::IMessage<GetCandidateInformationInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<GetCandidateInformationInput> _parser = new pb::MessageParser<GetCandidateInformationInput>(() => new GetCandidateInformationInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<GetCandidateInformationInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[21]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetCandidateInformationInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetCandidateInformationInput(GetCandidateInformationInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      candidate_ = other.candidate_ != null ? other.candidate_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetCandidateInformationInput Clone() {
+      return new GetCandidateInformationInput(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "candidate" field.</summary>
+    public const int CandidateFieldNumber = 2;
+    private global::AElf.Types.Address candidate_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address Candidate {
+      get { return candidate_; }
+      set {
+        candidate_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as GetCandidateInformationInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(GetCandidateInformationInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (!object.Equals(Candidate, other.Candidate)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (candidate_ != null) hash ^= Candidate.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (candidate_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Candidate);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (candidate_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Candidate);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (candidate_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Candidate);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(GetCandidateInformationInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.candidate_ != null) {
+        if (candidate_ == null) {
+          Candidate = new global::AElf.Types.Address();
+        }
+        Candidate.MergeFrom(other.Candidate);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (candidate_ == null) {
+              Candidate = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Candidate);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (candidate_ == null) {
+              Candidate = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Candidate);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class PageInformation : pb::IMessage<PageInformation>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<PageInformation> _parser = new pb::MessageParser<PageInformation>(() => new PageInformation());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<PageInformation> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[22]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PageInformation() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PageInformation(PageInformation other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      start_ = other.start_;
+      length_ = other.length_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PageInformation Clone() {
+      return new PageInformation(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "start" field.</summary>
+    public const int StartFieldNumber = 2;
+    private int start_;
+    /// <summary>
+    /// The start index.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Start {
+      get { return start_; }
+      set {
+        start_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "length" field.</summary>
+    public const int LengthFieldNumber = 3;
+    private int length_;
+    /// <summary>
+    /// The number of records.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Length {
+      get { return length_; }
+      set {
+        length_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as PageInformation);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(PageInformation other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (Start != other.Start) return false;
+      if (Length != other.Length) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (Start != 0) hash ^= Start.GetHashCode();
+      if (Length != 0) hash ^= Length.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (Start != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Start);
+      }
+      if (Length != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Length);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (Start != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Start);
+      }
+      if (Length != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Length);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (Start != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Start);
+      }
+      if (Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Length);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(PageInformation other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.Start != 0) {
+        Start = other.Start;
+      }
+      if (other.Length != 0) {
+        Length = other.Length;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 16: {
+            Start = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            Length = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 16: {
+            Start = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            Length = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class GetPageableCandidateInformationOutput : pb::IMessage<GetPageableCandidateInformationOutput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<GetPageableCandidateInformationOutput> _parser = new pb::MessageParser<GetPageableCandidateInformationOutput>(() => new GetPageableCandidateInformationOutput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<GetPageableCandidateInformationOutput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[23]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetPageableCandidateInformationOutput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetPageableCandidateInformationOutput(GetPageableCandidateInformationOutput other) : this() {
+      value_ = other.value_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetPageableCandidateInformationOutput Clone() {
+      return new GetPageableCandidateInformationOutput(this);
+    }
+
+    /// <summary>Field number for the "value" field.</summary>
+    public const int ValueFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::TomorrowDAO.Contracts.Election.CandidateDetail> _repeated_value_codec
+        = pb::FieldCodec.ForMessage(10, global::TomorrowDAO.Contracts.Election.CandidateDetail.Parser);
+    private readonly pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.CandidateDetail> value_ = new pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.CandidateDetail>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.CandidateDetail> Value {
+      get { return value_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as GetPageableCandidateInformationOutput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(GetPageableCandidateInformationOutput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!value_.Equals(other.value_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= value_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      value_.WriteTo(output, _repeated_value_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      value_.WriteTo(ref output, _repeated_value_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += value_.CalculateSize(_repeated_value_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(GetPageableCandidateInformationOutput other) {
+      if (other == null) {
+        return;
+      }
+      value_.Add(other.value_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            value_.AddEntriesFrom(input, _repeated_value_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            value_.AddEntriesFrom(ref input, _repeated_value_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CandidateDetail : pb::IMessage<CandidateDetail>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CandidateDetail> _parser = new pb::MessageParser<CandidateDetail>(() => new CandidateDetail());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CandidateDetail> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[24]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateDetail() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateDetail(CandidateDetail other) : this() {
+      candidateInformation_ = other.candidateInformation_ != null ? other.candidateInformation_.Clone() : null;
+      obtainedVotesAmount_ = other.obtainedVotesAmount_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateDetail Clone() {
+      return new CandidateDetail(this);
+    }
+
+    /// <summary>Field number for the "candidate_information" field.</summary>
+    public const int CandidateInformationFieldNumber = 1;
+    private global::TomorrowDAO.Contracts.Election.CandidateInformation candidateInformation_;
+    /// <summary>
+    /// The candidate information.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::TomorrowDAO.Contracts.Election.CandidateInformation CandidateInformation {
+      get { return candidateInformation_; }
+      set {
+        candidateInformation_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "obtained_votes_amount" field.</summary>
+    public const int ObtainedVotesAmountFieldNumber = 2;
+    private long obtainedVotesAmount_;
+    /// <summary>
+    /// The number of votes a candidate has obtained.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long ObtainedVotesAmount {
+      get { return obtainedVotesAmount_; }
+      set {
+        obtainedVotesAmount_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CandidateDetail);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CandidateDetail other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(CandidateInformation, other.CandidateInformation)) return false;
+      if (ObtainedVotesAmount != other.ObtainedVotesAmount) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (candidateInformation_ != null) hash ^= CandidateInformation.GetHashCode();
+      if (ObtainedVotesAmount != 0L) hash ^= ObtainedVotesAmount.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (candidateInformation_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(CandidateInformation);
+      }
+      if (ObtainedVotesAmount != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(ObtainedVotesAmount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (candidateInformation_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(CandidateInformation);
+      }
+      if (ObtainedVotesAmount != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(ObtainedVotesAmount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (candidateInformation_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CandidateInformation);
+      }
+      if (ObtainedVotesAmount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ObtainedVotesAmount);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CandidateDetail other) {
+      if (other == null) {
+        return;
+      }
+      if (other.candidateInformation_ != null) {
+        if (candidateInformation_ == null) {
+          CandidateInformation = new global::TomorrowDAO.Contracts.Election.CandidateInformation();
+        }
+        CandidateInformation.MergeFrom(other.CandidateInformation);
+      }
+      if (other.ObtainedVotesAmount != 0L) {
+        ObtainedVotesAmount = other.ObtainedVotesAmount;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (candidateInformation_ == null) {
+              CandidateInformation = new global::TomorrowDAO.Contracts.Election.CandidateInformation();
+            }
+            input.ReadMessage(CandidateInformation);
+            break;
+          }
+          case 16: {
+            ObtainedVotesAmount = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (candidateInformation_ == null) {
+              CandidateInformation = new global::TomorrowDAO.Contracts.Election.CandidateInformation();
+            }
+            input.ReadMessage(CandidateInformation);
+            break;
+          }
+          case 16: {
+            ObtainedVotesAmount = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class GetCandidateVoteInput : pb::IMessage<GetCandidateVoteInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<GetCandidateVoteInput> _parser = new pb::MessageParser<GetCandidateVoteInput>(() => new GetCandidateVoteInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<GetCandidateVoteInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[25]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetCandidateVoteInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetCandidateVoteInput(GetCandidateVoteInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      candidate_ = other.candidate_ != null ? other.candidate_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetCandidateVoteInput Clone() {
+      return new GetCandidateVoteInput(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "candidate" field.</summary>
+    public const int CandidateFieldNumber = 2;
+    private global::AElf.Types.Address candidate_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address Candidate {
+      get { return candidate_; }
+      set {
+        candidate_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as GetCandidateVoteInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(GetCandidateVoteInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (!object.Equals(Candidate, other.Candidate)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (candidate_ != null) hash ^= Candidate.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (candidate_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Candidate);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (candidate_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Candidate);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (candidate_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Candidate);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(GetCandidateVoteInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.candidate_ != null) {
+        if (candidate_ == null) {
+          Candidate = new global::AElf.Types.Address();
+        }
+        Candidate.MergeFrom(other.Candidate);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (candidate_ == null) {
+              Candidate = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Candidate);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (candidate_ == null) {
+              Candidate = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Candidate);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class HighCouncilConfig : pb::IMessage<HighCouncilConfig>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<HighCouncilConfig> _parser = new pb::MessageParser<HighCouncilConfig>(() => new HighCouncilConfig());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<HighCouncilConfig> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[26]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public HighCouncilConfig() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public HighCouncilConfig(HighCouncilConfig other) : this() {
+      maxHighCouncilMemberCount_ = other.maxHighCouncilMemberCount_;
+      maxHighCouncilCandidateCount_ = other.maxHighCouncilCandidateCount_;
+      electionPeriod_ = other.electionPeriod_;
+      isRequireHighCouncilForExecution_ = other.isRequireHighCouncilForExecution_;
+      governanceToken_ = other.governanceToken_;
+      stakeThreshold_ = other.stakeThreshold_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public HighCouncilConfig Clone() {
+      return new HighCouncilConfig(this);
+    }
+
+    /// <summary>Field number for the "max_high_council_member_count" field.</summary>
+    public const int MaxHighCouncilMemberCountFieldNumber = 1;
+    private long maxHighCouncilMemberCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long MaxHighCouncilMemberCount {
+      get { return maxHighCouncilMemberCount_; }
+      set {
+        maxHighCouncilMemberCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_high_council_candidate_count" field.</summary>
+    public const int MaxHighCouncilCandidateCountFieldNumber = 2;
+    private long maxHighCouncilCandidateCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long MaxHighCouncilCandidateCount {
+      get { return maxHighCouncilCandidateCount_; }
+      set {
+        maxHighCouncilCandidateCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "election_period" field.</summary>
+    public const int ElectionPeriodFieldNumber = 3;
+    private long electionPeriod_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long ElectionPeriod {
+      get { return electionPeriod_; }
+      set {
+        electionPeriod_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "is_require_high_council_for_execution" field.</summary>
+    public const int IsRequireHighCouncilForExecutionFieldNumber = 4;
+    private bool isRequireHighCouncilForExecution_;
+    /// <summary>
+    /// Whether to limit High Council execution proposal
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsRequireHighCouncilForExecution {
+      get { return isRequireHighCouncilForExecution_; }
+      set {
+        isRequireHighCouncilForExecution_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "governance_token" field.</summary>
+    public const int GovernanceTokenFieldNumber = 5;
+    private string governanceToken_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string GovernanceToken {
+      get { return governanceToken_; }
+      set {
+        governanceToken_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "stake_threshold" field.</summary>
+    public const int StakeThresholdFieldNumber = 6;
+    private long stakeThreshold_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long StakeThreshold {
+      get { return stakeThreshold_; }
+      set {
+        stakeThreshold_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as HighCouncilConfig);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(HighCouncilConfig other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (MaxHighCouncilMemberCount != other.MaxHighCouncilMemberCount) return false;
+      if (MaxHighCouncilCandidateCount != other.MaxHighCouncilCandidateCount) return false;
+      if (ElectionPeriod != other.ElectionPeriod) return false;
+      if (IsRequireHighCouncilForExecution != other.IsRequireHighCouncilForExecution) return false;
+      if (GovernanceToken != other.GovernanceToken) return false;
+      if (StakeThreshold != other.StakeThreshold) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (MaxHighCouncilMemberCount != 0L) hash ^= MaxHighCouncilMemberCount.GetHashCode();
+      if (MaxHighCouncilCandidateCount != 0L) hash ^= MaxHighCouncilCandidateCount.GetHashCode();
+      if (ElectionPeriod != 0L) hash ^= ElectionPeriod.GetHashCode();
+      if (IsRequireHighCouncilForExecution != false) hash ^= IsRequireHighCouncilForExecution.GetHashCode();
+      if (GovernanceToken.Length != 0) hash ^= GovernanceToken.GetHashCode();
+      if (StakeThreshold != 0L) hash ^= StakeThreshold.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (MaxHighCouncilMemberCount != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(MaxHighCouncilMemberCount);
+      }
+      if (MaxHighCouncilCandidateCount != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(MaxHighCouncilCandidateCount);
+      }
+      if (ElectionPeriod != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(ElectionPeriod);
+      }
+      if (IsRequireHighCouncilForExecution != false) {
+        output.WriteRawTag(32);
+        output.WriteBool(IsRequireHighCouncilForExecution);
+      }
+      if (GovernanceToken.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(GovernanceToken);
+      }
+      if (StakeThreshold != 0L) {
+        output.WriteRawTag(48);
+        output.WriteInt64(StakeThreshold);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (MaxHighCouncilMemberCount != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(MaxHighCouncilMemberCount);
+      }
+      if (MaxHighCouncilCandidateCount != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(MaxHighCouncilCandidateCount);
+      }
+      if (ElectionPeriod != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(ElectionPeriod);
+      }
+      if (IsRequireHighCouncilForExecution != false) {
+        output.WriteRawTag(32);
+        output.WriteBool(IsRequireHighCouncilForExecution);
+      }
+      if (GovernanceToken.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(GovernanceToken);
+      }
+      if (StakeThreshold != 0L) {
+        output.WriteRawTag(48);
+        output.WriteInt64(StakeThreshold);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (MaxHighCouncilMemberCount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(MaxHighCouncilMemberCount);
+      }
+      if (MaxHighCouncilCandidateCount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(MaxHighCouncilCandidateCount);
+      }
+      if (ElectionPeriod != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ElectionPeriod);
+      }
+      if (IsRequireHighCouncilForExecution != false) {
+        size += 1 + 1;
+      }
+      if (GovernanceToken.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(GovernanceToken);
+      }
+      if (StakeThreshold != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(StakeThreshold);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(HighCouncilConfig other) {
+      if (other == null) {
+        return;
+      }
+      if (other.MaxHighCouncilMemberCount != 0L) {
+        MaxHighCouncilMemberCount = other.MaxHighCouncilMemberCount;
+      }
+      if (other.MaxHighCouncilCandidateCount != 0L) {
+        MaxHighCouncilCandidateCount = other.MaxHighCouncilCandidateCount;
+      }
+      if (other.ElectionPeriod != 0L) {
+        ElectionPeriod = other.ElectionPeriod;
+      }
+      if (other.IsRequireHighCouncilForExecution != false) {
+        IsRequireHighCouncilForExecution = other.IsRequireHighCouncilForExecution;
+      }
+      if (other.GovernanceToken.Length != 0) {
+        GovernanceToken = other.GovernanceToken;
+      }
+      if (other.StakeThreshold != 0L) {
+        StakeThreshold = other.StakeThreshold;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            MaxHighCouncilMemberCount = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            MaxHighCouncilCandidateCount = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            ElectionPeriod = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            IsRequireHighCouncilForExecution = input.ReadBool();
+            break;
+          }
+          case 42: {
+            GovernanceToken = input.ReadString();
+            break;
+          }
+          case 48: {
+            StakeThreshold = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            MaxHighCouncilMemberCount = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            MaxHighCouncilCandidateCount = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            ElectionPeriod = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            IsRequireHighCouncilForExecution = input.ReadBool();
+            break;
+          }
+          case 42: {
+            GovernanceToken = input.ReadString();
+            break;
+          }
+          case 48: {
+            StakeThreshold = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class GetElectorVoteInput : pb::IMessage<GetElectorVoteInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<GetElectorVoteInput> _parser = new pb::MessageParser<GetElectorVoteInput>(() => new GetElectorVoteInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<GetElectorVoteInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[27]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetElectorVoteInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetElectorVoteInput(GetElectorVoteInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      voter_ = other.voter_ != null ? other.voter_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetElectorVoteInput Clone() {
+      return new GetElectorVoteInput(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "voter" field.</summary>
+    public const int VoterFieldNumber = 2;
+    private global::AElf.Types.Address voter_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address Voter {
+      get { return voter_; }
+      set {
+        voter_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as GetElectorVoteInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(GetElectorVoteInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (!object.Equals(Voter, other.Voter)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (voter_ != null) hash ^= Voter.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (voter_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Voter);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (voter_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Voter);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (voter_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Voter);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(GetElectorVoteInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.voter_ != null) {
+        if (voter_ == null) {
+          Voter = new global::AElf.Types.Address();
+        }
+        Voter.MergeFrom(other.Voter);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (voter_ == null) {
+              Voter = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Voter);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (voter_ == null) {
+              Voter = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Voter);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class GetTermSnapshotInput : pb::IMessage<GetTermSnapshotInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<GetTermSnapshotInput> _parser = new pb::MessageParser<GetTermSnapshotInput>(() => new GetTermSnapshotInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<GetTermSnapshotInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[28]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetTermSnapshotInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetTermSnapshotInput(GetTermSnapshotInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      termNumber_ = other.termNumber_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetTermSnapshotInput Clone() {
+      return new GetTermSnapshotInput(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "term_number" field.</summary>
+    public const int TermNumberFieldNumber = 2;
+    private long termNumber_;
+    /// <summary>
+    /// The term number.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long TermNumber {
+      get { return termNumber_; }
+      set {
+        termNumber_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as GetTermSnapshotInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(GetTermSnapshotInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (TermNumber != other.TermNumber) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (TermNumber != 0L) hash ^= TermNumber.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (TermNumber != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(TermNumber);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (TermNumber != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(TermNumber);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (TermNumber != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TermNumber);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(GetTermSnapshotInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.TermNumber != 0L) {
+        TermNumber = other.TermNumber;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 16: {
+            TermNumber = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 16: {
+            TermNumber = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class TermSnapshot : pb::IMessage<TermSnapshot>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<TermSnapshot> _parser = new pb::MessageParser<TermSnapshot>(() => new TermSnapshot());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<TermSnapshot> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[29]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public TermSnapshot() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public TermSnapshot(TermSnapshot other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      termNumber_ = other.termNumber_;
+      electionResult_ = other.electionResult_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public TermSnapshot Clone() {
+      return new TermSnapshot(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "term_number" field.</summary>
+    public const int TermNumberFieldNumber = 2;
+    private long termNumber_;
+    /// <summary>
+    /// The end round number of this term.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long TermNumber {
+      get { return termNumber_; }
+      set {
+        termNumber_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "election_result" field.</summary>
+    public const int ElectionResultFieldNumber = 3;
+    private static readonly pbc::MapField<string, long>.Codec _map_electionResult_codec
+        = new pbc::MapField<string, long>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForInt64(16, 0L), 26);
+    private readonly pbc::MapField<string, long> electionResult_ = new pbc::MapField<string, long>();
+    /// <summary>
+    /// The election result, candidates’ address -> number of votes.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::MapField<string, long> ElectionResult {
+      get { return electionResult_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as TermSnapshot);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(TermSnapshot other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (TermNumber != other.TermNumber) return false;
+      if (!ElectionResult.Equals(other.ElectionResult)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (TermNumber != 0L) hash ^= TermNumber.GetHashCode();
+      hash ^= ElectionResult.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (TermNumber != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(TermNumber);
+      }
+      electionResult_.WriteTo(output, _map_electionResult_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (TermNumber != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(TermNumber);
+      }
+      electionResult_.WriteTo(ref output, _map_electionResult_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (TermNumber != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TermNumber);
+      }
+      size += electionResult_.CalculateSize(_map_electionResult_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(TermSnapshot other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.TermNumber != 0L) {
+        TermNumber = other.TermNumber;
+      }
+      electionResult_.Add(other.electionResult_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 16: {
+            TermNumber = input.ReadInt64();
+            break;
+          }
+          case 26: {
+            electionResult_.AddEntriesFrom(input, _map_electionResult_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 16: {
+            TermNumber = input.ReadInt64();
+            break;
+          }
+          case 26: {
+            electionResult_.AddEntriesFrom(ref input, _map_electionResult_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class GetElectionResultInput : pb::IMessage<GetElectionResultInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<GetElectionResultInput> _parser = new pb::MessageParser<GetElectionResultInput>(() => new GetElectionResultInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<GetElectionResultInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[30]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetElectionResultInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetElectionResultInput(GetElectionResultInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      termNumber_ = other.termNumber_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetElectionResultInput Clone() {
+      return new GetElectionResultInput(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "term_number" field.</summary>
+    public const int TermNumberFieldNumber = 2;
+    private long termNumber_;
+    /// <summary>
+    /// The term number.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long TermNumber {
+      get { return termNumber_; }
+      set {
+        termNumber_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as GetElectionResultInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(GetElectionResultInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (TermNumber != other.TermNumber) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (TermNumber != 0L) hash ^= TermNumber.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (TermNumber != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(TermNumber);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (TermNumber != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(TermNumber);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (TermNumber != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TermNumber);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(GetElectionResultInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.TermNumber != 0L) {
+        TermNumber = other.TermNumber;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 16: {
+            TermNumber = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 16: {
+            TermNumber = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class ElectionResult : pb::IMessage<ElectionResult>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ElectionResult> _parser = new pb::MessageParser<ElectionResult>(() => new ElectionResult());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ElectionResult> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[31]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ElectionResult() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ElectionResult(ElectionResult other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      termNumber_ = other.termNumber_;
+      results_ = other.results_.Clone();
+      isActive_ = other.isActive_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ElectionResult Clone() {
+      return new ElectionResult(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "term_number" field.</summary>
+    public const int TermNumberFieldNumber = 2;
+    private long termNumber_;
+    /// <summary>
+    /// The term number
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long TermNumber {
+      get { return termNumber_; }
+      set {
+        termNumber_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "results" field.</summary>
+    public const int ResultsFieldNumber = 3;
+    private static readonly pbc::MapField<string, long>.Codec _map_results_codec
+        = new pbc::MapField<string, long>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForInt64(16, 0L), 26);
+    private readonly pbc::MapField<string, long> results_ = new pbc::MapField<string, long>();
+    /// <summary>
+    /// The election result, candidates’ address -> number of votes.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::MapField<string, long> Results {
+      get { return results_; }
+    }
+
+    /// <summary>Field number for the "is_active" field.</summary>
+    public const int IsActiveFieldNumber = 4;
+    private bool isActive_;
+    /// <summary>
+    /// Whether an election is currently being held.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsActive {
+      get { return isActive_; }
+      set {
+        isActive_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ElectionResult);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ElectionResult other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (TermNumber != other.TermNumber) return false;
+      if (!Results.Equals(other.Results)) return false;
+      if (IsActive != other.IsActive) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (TermNumber != 0L) hash ^= TermNumber.GetHashCode();
+      hash ^= Results.GetHashCode();
+      if (IsActive != false) hash ^= IsActive.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (TermNumber != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(TermNumber);
+      }
+      results_.WriteTo(output, _map_results_codec);
+      if (IsActive != false) {
+        output.WriteRawTag(32);
+        output.WriteBool(IsActive);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (TermNumber != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(TermNumber);
+      }
+      results_.WriteTo(ref output, _map_results_codec);
+      if (IsActive != false) {
+        output.WriteRawTag(32);
+        output.WriteBool(IsActive);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (TermNumber != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TermNumber);
+      }
+      size += results_.CalculateSize(_map_results_codec);
+      if (IsActive != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ElectionResult other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.TermNumber != 0L) {
+        TermNumber = other.TermNumber;
+      }
+      results_.Add(other.results_);
+      if (other.IsActive != false) {
+        IsActive = other.IsActive;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 16: {
+            TermNumber = input.ReadInt64();
+            break;
+          }
+          case 26: {
+            results_.AddEntriesFrom(input, _map_results_codec);
+            break;
+          }
+          case 32: {
+            IsActive = input.ReadBool();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 16: {
+            TermNumber = input.ReadInt64();
+            break;
+          }
+          case 26: {
+            results_.AddEntriesFrom(ref input, _map_results_codec);
+            break;
+          }
+          case 32: {
+            IsActive = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SetCandidateAdminInput : pb::IMessage<SetCandidateAdminInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SetCandidateAdminInput> _parser = new pb::MessageParser<SetCandidateAdminInput>(() => new SetCandidateAdminInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SetCandidateAdminInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[32]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SetCandidateAdminInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SetCandidateAdminInput(SetCandidateAdminInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      candidate_ = other.candidate_ != null ? other.candidate_.Clone() : null;
+      newAdmin_ = other.newAdmin_ != null ? other.newAdmin_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SetCandidateAdminInput Clone() {
+      return new SetCandidateAdminInput(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "candidate" field.</summary>
+    public const int CandidateFieldNumber = 2;
+    private global::AElf.Types.Address candidate_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address Candidate {
+      get { return candidate_; }
+      set {
+        candidate_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "new_admin" field.</summary>
+    public const int NewAdminFieldNumber = 3;
+    private global::AElf.Types.Address newAdmin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address NewAdmin {
+      get { return newAdmin_; }
+      set {
+        newAdmin_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SetCandidateAdminInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SetCandidateAdminInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (!object.Equals(Candidate, other.Candidate)) return false;
+      if (!object.Equals(NewAdmin, other.NewAdmin)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (candidate_ != null) hash ^= Candidate.GetHashCode();
+      if (newAdmin_ != null) hash ^= NewAdmin.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (candidate_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Candidate);
+      }
+      if (newAdmin_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(NewAdmin);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (candidate_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Candidate);
+      }
+      if (newAdmin_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(NewAdmin);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (candidate_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Candidate);
+      }
+      if (newAdmin_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NewAdmin);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SetCandidateAdminInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.candidate_ != null) {
+        if (candidate_ == null) {
+          Candidate = new global::AElf.Types.Address();
+        }
+        Candidate.MergeFrom(other.Candidate);
+      }
+      if (other.newAdmin_ != null) {
+        if (newAdmin_ == null) {
+          NewAdmin = new global::AElf.Types.Address();
+        }
+        NewAdmin.MergeFrom(other.NewAdmin);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (candidate_ == null) {
+              Candidate = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Candidate);
+            break;
+          }
+          case 26: {
+            if (newAdmin_ == null) {
+              NewAdmin = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(NewAdmin);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (candidate_ == null) {
+              Candidate = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Candidate);
+            break;
+          }
+          case 26: {
+            if (newAdmin_ == null) {
+              NewAdmin = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(NewAdmin);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class ChangeVotingOptionInput : pb::IMessage<ChangeVotingOptionInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ChangeVotingOptionInput> _parser = new pb::MessageParser<ChangeVotingOptionInput>(() => new ChangeVotingOptionInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ChangeVotingOptionInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[33]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ChangeVotingOptionInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ChangeVotingOptionInput(ChangeVotingOptionInput other) : this() {
+      voteId_ = other.voteId_ != null ? other.voteId_.Clone() : null;
+      candidateAddress_ = other.candidateAddress_ != null ? other.candidateAddress_.Clone() : null;
+      isResetVotingTime_ = other.isResetVotingTime_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ChangeVotingOptionInput Clone() {
+      return new ChangeVotingOptionInput(this);
+    }
+
+    /// <summary>Field number for the "vote_id" field.</summary>
+    public const int VoteIdFieldNumber = 1;
+    private global::AElf.Types.Hash voteId_;
+    /// <summary>
+    /// The vote id to change.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash VoteId {
+      get { return voteId_; }
+      set {
+        voteId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "candidate_address" field.</summary>
+    public const int CandidateAddressFieldNumber = 2;
+    private global::AElf.Types.Address candidateAddress_;
+    /// <summary>
+    /// The new candidate address.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address CandidateAddress {
+      get { return candidateAddress_; }
+      set {
+        candidateAddress_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "is_reset_voting_time" field.</summary>
+    public const int IsResetVotingTimeFieldNumber = 3;
+    private bool isResetVotingTime_;
+    /// <summary>
+    /// Tokens will be locked another previous locking time if this is true.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsResetVotingTime {
+      get { return isResetVotingTime_; }
+      set {
+        isResetVotingTime_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ChangeVotingOptionInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ChangeVotingOptionInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(VoteId, other.VoteId)) return false;
+      if (!object.Equals(CandidateAddress, other.CandidateAddress)) return false;
+      if (IsResetVotingTime != other.IsResetVotingTime) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (voteId_ != null) hash ^= VoteId.GetHashCode();
+      if (candidateAddress_ != null) hash ^= CandidateAddress.GetHashCode();
+      if (IsResetVotingTime != false) hash ^= IsResetVotingTime.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (voteId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(VoteId);
+      }
+      if (candidateAddress_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(CandidateAddress);
+      }
+      if (IsResetVotingTime != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(IsResetVotingTime);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (voteId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(VoteId);
+      }
+      if (candidateAddress_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(CandidateAddress);
+      }
+      if (IsResetVotingTime != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(IsResetVotingTime);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (voteId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(VoteId);
+      }
+      if (candidateAddress_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CandidateAddress);
+      }
+      if (IsResetVotingTime != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ChangeVotingOptionInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.voteId_ != null) {
+        if (voteId_ == null) {
+          VoteId = new global::AElf.Types.Hash();
+        }
+        VoteId.MergeFrom(other.VoteId);
+      }
+      if (other.candidateAddress_ != null) {
+        if (candidateAddress_ == null) {
+          CandidateAddress = new global::AElf.Types.Address();
+        }
+        CandidateAddress.MergeFrom(other.CandidateAddress);
+      }
+      if (other.IsResetVotingTime != false) {
+        IsResetVotingTime = other.IsResetVotingTime;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (voteId_ == null) {
+              VoteId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(VoteId);
+            break;
+          }
+          case 18: {
+            if (candidateAddress_ == null) {
+              CandidateAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(CandidateAddress);
+            break;
+          }
+          case 24: {
+            IsResetVotingTime = input.ReadBool();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (voteId_ == null) {
+              VoteId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(VoteId);
+            break;
+          }
+          case 18: {
+            if (candidateAddress_ == null) {
+              CandidateAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(CandidateAddress);
+            break;
+          }
+          case 24: {
+            IsResetVotingTime = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class UpdateCandidateInformationInput : pb::IMessage<UpdateCandidateInformationInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<UpdateCandidateInformationInput> _parser = new pb::MessageParser<UpdateCandidateInformationInput>(() => new UpdateCandidateInformationInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<UpdateCandidateInformationInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[34]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateCandidateInformationInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateCandidateInformationInput(UpdateCandidateInformationInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      candidateAddress_ = other.candidateAddress_ != null ? other.candidateAddress_.Clone() : null;
+      isEvilNode_ = other.isEvilNode_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateCandidateInformationInput Clone() {
+      return new UpdateCandidateInformationInput(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "candidate_address" field.</summary>
+    public const int CandidateAddressFieldNumber = 2;
+    private global::AElf.Types.Address candidateAddress_;
+    /// <summary>
+    /// The candidate public key.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address CandidateAddress {
+      get { return candidateAddress_; }
+      set {
+        candidateAddress_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "is_evil_node" field.</summary>
+    public const int IsEvilNodeFieldNumber = 3;
+    private bool isEvilNode_;
+    /// <summary>
+    /// Is it a evil node. If true will remove the candidate.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsEvilNode {
+      get { return isEvilNode_; }
+      set {
+        isEvilNode_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateCandidateInformationInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(UpdateCandidateInformationInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (!object.Equals(CandidateAddress, other.CandidateAddress)) return false;
+      if (IsEvilNode != other.IsEvilNode) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (candidateAddress_ != null) hash ^= CandidateAddress.GetHashCode();
+      if (IsEvilNode != false) hash ^= IsEvilNode.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (candidateAddress_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(CandidateAddress);
+      }
+      if (IsEvilNode != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(IsEvilNode);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (candidateAddress_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(CandidateAddress);
+      }
+      if (IsEvilNode != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(IsEvilNode);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (candidateAddress_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CandidateAddress);
+      }
+      if (IsEvilNode != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(UpdateCandidateInformationInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.candidateAddress_ != null) {
+        if (candidateAddress_ == null) {
+          CandidateAddress = new global::AElf.Types.Address();
+        }
+        CandidateAddress.MergeFrom(other.CandidateAddress);
+      }
+      if (other.IsEvilNode != false) {
+        IsEvilNode = other.IsEvilNode;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (candidateAddress_ == null) {
+              CandidateAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(CandidateAddress);
+            break;
+          }
+          case 24: {
+            IsEvilNode = input.ReadBool();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (candidateAddress_ == null) {
+              CandidateAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(CandidateAddress);
+            break;
+          }
+          case 24: {
+            IsEvilNode = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class UpdateMultipleCandidateInformationInput : pb::IMessage<UpdateMultipleCandidateInformationInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<UpdateMultipleCandidateInformationInput> _parser = new pb::MessageParser<UpdateMultipleCandidateInformationInput>(() => new UpdateMultipleCandidateInformationInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<UpdateMultipleCandidateInformationInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[35]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateMultipleCandidateInformationInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateMultipleCandidateInformationInput(UpdateMultipleCandidateInformationInput other) : this() {
+      value_ = other.value_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateMultipleCandidateInformationInput Clone() {
+      return new UpdateMultipleCandidateInformationInput(this);
+    }
+
+    /// <summary>Field number for the "value" field.</summary>
+    public const int ValueFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::TomorrowDAO.Contracts.Election.UpdateCandidateInformationInput> _repeated_value_codec
+        = pb::FieldCodec.ForMessage(10, global::TomorrowDAO.Contracts.Election.UpdateCandidateInformationInput.Parser);
+    private readonly pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.UpdateCandidateInformationInput> value_ = new pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.UpdateCandidateInformationInput>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.UpdateCandidateInformationInput> Value {
+      get { return value_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateMultipleCandidateInformationInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(UpdateMultipleCandidateInformationInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!value_.Equals(other.value_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= value_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      value_.WriteTo(output, _repeated_value_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      value_.WriteTo(ref output, _repeated_value_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += value_.CalculateSize(_repeated_value_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(UpdateMultipleCandidateInformationInput other) {
+      if (other == null) {
+        return;
+      }
+      value_.Add(other.value_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            value_.AddEntriesFrom(input, _repeated_value_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            value_.AddEntriesFrom(ref input, _repeated_value_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CandidateInfo : pb::IMessage<CandidateInfo>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CandidateInfo> _parser = new pb::MessageParser<CandidateInfo>(() => new CandidateInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CandidateInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[36]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateInfo(CandidateInfo other) : this() {
+      candidateAddress_ = other.candidateAddress_ != null ? other.candidateAddress_.Clone() : null;
+      isEvilNode_ = other.isEvilNode_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateInfo Clone() {
+      return new CandidateInfo(this);
+    }
+
+    /// <summary>Field number for the "candidate_address" field.</summary>
+    public const int CandidateAddressFieldNumber = 1;
+    private global::AElf.Types.Address candidateAddress_;
+    /// <summary>
+    /// The candidate address.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address CandidateAddress {
+      get { return candidateAddress_; }
+      set {
+        candidateAddress_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "is_evil_node" field.</summary>
+    public const int IsEvilNodeFieldNumber = 2;
+    private bool isEvilNode_;
+    /// <summary>
+    /// Is it a evil node. If true will remove the candidate.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsEvilNode {
+      get { return isEvilNode_; }
+      set {
+        isEvilNode_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CandidateInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CandidateInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(CandidateAddress, other.CandidateAddress)) return false;
+      if (IsEvilNode != other.IsEvilNode) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (candidateAddress_ != null) hash ^= CandidateAddress.GetHashCode();
+      if (IsEvilNode != false) hash ^= IsEvilNode.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (candidateAddress_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(CandidateAddress);
+      }
+      if (IsEvilNode != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(IsEvilNode);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (candidateAddress_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(CandidateAddress);
+      }
+      if (IsEvilNode != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(IsEvilNode);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (candidateAddress_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CandidateAddress);
+      }
+      if (IsEvilNode != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CandidateInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.candidateAddress_ != null) {
+        if (candidateAddress_ == null) {
+          CandidateAddress = new global::AElf.Types.Address();
+        }
+        CandidateAddress.MergeFrom(other.CandidateAddress);
+      }
+      if (other.IsEvilNode != false) {
+        IsEvilNode = other.IsEvilNode;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (candidateAddress_ == null) {
+              CandidateAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(CandidateAddress);
+            break;
+          }
+          case 16: {
+            IsEvilNode = input.ReadBool();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (candidateAddress_ == null) {
+              CandidateAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(CandidateAddress);
+            break;
+          }
+          case 16: {
+            IsEvilNode = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CandidateInfoList : pb::IMessage<CandidateInfoList>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CandidateInfoList> _parser = new pb::MessageParser<CandidateInfoList>(() => new CandidateInfoList());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CandidateInfoList> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[37]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateInfoList() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateInfoList(CandidateInfoList other) : this() {
+      value_ = other.value_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CandidateInfoList Clone() {
+      return new CandidateInfoList(this);
+    }
+
+    /// <summary>Field number for the "value" field.</summary>
+    public const int ValueFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::TomorrowDAO.Contracts.Election.CandidateInfo> _repeated_value_codec
+        = pb::FieldCodec.ForMessage(10, global::TomorrowDAO.Contracts.Election.CandidateInfo.Parser);
+    private readonly pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.CandidateInfo> value_ = new pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.CandidateInfo>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::TomorrowDAO.Contracts.Election.CandidateInfo> Value {
+      get { return value_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CandidateInfoList);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CandidateInfoList other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!value_.Equals(other.value_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= value_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      value_.WriteTo(output, _repeated_value_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      value_.WriteTo(ref output, _repeated_value_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += value_.CalculateSize(_repeated_value_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CandidateInfoList other) {
+      if (other == null) {
+        return;
+      }
+      value_.Add(other.value_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            value_.AddEntriesFrom(input, _repeated_value_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            value_.AddEntriesFrom(ref input, _repeated_value_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class ReplaceCandidatePubkeyInput : pb::IMessage<ReplaceCandidatePubkeyInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ReplaceCandidatePubkeyInput> _parser = new pb::MessageParser<ReplaceCandidatePubkeyInput>(() => new ReplaceCandidatePubkeyInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ReplaceCandidatePubkeyInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[38]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ReplaceCandidatePubkeyInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ReplaceCandidatePubkeyInput(ReplaceCandidatePubkeyInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      oldAddress_ = other.oldAddress_ != null ? other.oldAddress_.Clone() : null;
+      newAddress_ = other.newAddress_ != null ? other.newAddress_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ReplaceCandidatePubkeyInput Clone() {
+      return new ReplaceCandidatePubkeyInput(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "old_address" field.</summary>
+    public const int OldAddressFieldNumber = 2;
+    private global::AElf.Types.Address oldAddress_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address OldAddress {
+      get { return oldAddress_; }
+      set {
+        oldAddress_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "new_address" field.</summary>
+    public const int NewAddressFieldNumber = 3;
+    private global::AElf.Types.Address newAddress_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address NewAddress {
+      get { return newAddress_; }
+      set {
+        newAddress_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ReplaceCandidatePubkeyInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ReplaceCandidatePubkeyInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (!object.Equals(OldAddress, other.OldAddress)) return false;
+      if (!object.Equals(NewAddress, other.NewAddress)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (oldAddress_ != null) hash ^= OldAddress.GetHashCode();
+      if (newAddress_ != null) hash ^= NewAddress.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (oldAddress_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(OldAddress);
+      }
+      if (newAddress_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(NewAddress);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (oldAddress_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(OldAddress);
+      }
+      if (newAddress_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(NewAddress);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (oldAddress_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(OldAddress);
+      }
+      if (newAddress_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NewAddress);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ReplaceCandidatePubkeyInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.oldAddress_ != null) {
+        if (oldAddress_ == null) {
+          OldAddress = new global::AElf.Types.Address();
+        }
+        OldAddress.MergeFrom(other.OldAddress);
+      }
+      if (other.newAddress_ != null) {
+        if (newAddress_ == null) {
+          NewAddress = new global::AElf.Types.Address();
+        }
+        NewAddress.MergeFrom(other.NewAddress);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (oldAddress_ == null) {
+              OldAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(OldAddress);
+            break;
+          }
+          case 26: {
+            if (newAddress_ == null) {
+              NewAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(NewAddress);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (oldAddress_ == null) {
+              OldAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(OldAddress);
+            break;
+          }
+          case 26: {
+            if (newAddress_ == null) {
+              NewAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(NewAddress);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class RemoveEvilNodeInput : pb::IMessage<RemoveEvilNodeInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<RemoveEvilNodeInput> _parser = new pb::MessageParser<RemoveEvilNodeInput>(() => new RemoveEvilNodeInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<RemoveEvilNodeInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[39]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RemoveEvilNodeInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RemoveEvilNodeInput(RemoveEvilNodeInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      evilNodeAddress_ = other.evilNodeAddress_ != null ? other.evilNodeAddress_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RemoveEvilNodeInput Clone() {
+      return new RemoveEvilNodeInput(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "evil_node_address" field.</summary>
+    public const int EvilNodeAddressFieldNumber = 2;
+    private global::AElf.Types.Address evilNodeAddress_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address EvilNodeAddress {
+      get { return evilNodeAddress_; }
+      set {
+        evilNodeAddress_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as RemoveEvilNodeInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(RemoveEvilNodeInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (!object.Equals(EvilNodeAddress, other.EvilNodeAddress)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (evilNodeAddress_ != null) hash ^= EvilNodeAddress.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (evilNodeAddress_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(EvilNodeAddress);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (evilNodeAddress_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(EvilNodeAddress);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (evilNodeAddress_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(EvilNodeAddress);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(RemoveEvilNodeInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.evilNodeAddress_ != null) {
+        if (evilNodeAddress_ == null) {
+          EvilNodeAddress = new global::AElf.Types.Address();
+        }
+        EvilNodeAddress.MergeFrom(other.EvilNodeAddress);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (evilNodeAddress_ == null) {
+              EvilNodeAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(EvilNodeAddress);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (evilNodeAddress_ == null) {
+              EvilNodeAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(EvilNodeAddress);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SetEmergencyInput : pb::IMessage<SetEmergencyInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SetEmergencyInput> _parser = new pb::MessageParser<SetEmergencyInput>(() => new SetEmergencyInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SetEmergencyInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[40]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SetEmergencyInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SetEmergencyInput(SetEmergencyInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      organization_ = other.organization_ != null ? other.organization_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SetEmergencyInput Clone() {
+      return new SetEmergencyInput(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "organization" field.</summary>
+    public const int OrganizationFieldNumber = 2;
+    private global::AElf.Types.Address organization_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address Organization {
+      get { return organization_; }
+      set {
+        organization_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SetEmergencyInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SetEmergencyInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (!object.Equals(Organization, other.Organization)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (organization_ != null) hash ^= Organization.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (organization_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Organization);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (organization_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Organization);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (organization_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Organization);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SetEmergencyInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.organization_ != null) {
+        if (organization_ == null) {
+          Organization = new global::AElf.Types.Address();
+        }
+        Organization.MergeFrom(other.Organization);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (organization_ == null) {
+              Organization = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Organization);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (organization_ == null) {
+              Organization = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Organization);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class DataCenterRankingList : pb::IMessage<DataCenterRankingList>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<DataCenterRankingList> _parser = new pb::MessageParser<DataCenterRankingList>(() => new DataCenterRankingList());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<DataCenterRankingList> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[41]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public DataCenterRankingList() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public DataCenterRankingList(DataCenterRankingList other) : this() {
+      dataCenters_ = other.dataCenters_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public DataCenterRankingList Clone() {
+      return new DataCenterRankingList(this);
+    }
+
+    /// <summary>Field number for the "data_centers" field.</summary>
+    public const int DataCentersFieldNumber = 1;
+    private static readonly pbc::MapField<string, long>.Codec _map_dataCenters_codec
+        = new pbc::MapField<string, long>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForInt64(16, 0L), 10);
+    private readonly pbc::MapField<string, long> dataCenters_ = new pbc::MapField<string, long>();
+    /// <summary>
+    /// The top n * 5 candidates with vote amount, candidate address -> vote amount.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::MapField<string, long> DataCenters {
+      get { return dataCenters_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as DataCenterRankingList);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(DataCenterRankingList other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!DataCenters.Equals(other.DataCenters)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= DataCenters.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      dataCenters_.WriteTo(output, _map_dataCenters_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      dataCenters_.WriteTo(ref output, _map_dataCenters_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += dataCenters_.CalculateSize(_map_dataCenters_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(DataCenterRankingList other) {
+      if (other == null) {
+        return;
+      }
+      dataCenters_.Add(other.dataCenters_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            dataCenters_.AddEntriesFrom(input, _map_dataCenters_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            dataCenters_.AddEntriesFrom(ref input, _map_dataCenters_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class VoteChanged : pb::IMessage<VoteChanged>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1588,7 +13217,7 @@ namespace TomorrowDAO.Contracts.Election {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[5]; }
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[42]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1832,7 +13461,7 @@ namespace TomorrowDAO.Contracts.Election {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[6]; }
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[43]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1880,7 +13509,7 @@ namespace TomorrowDAO.Contracts.Election {
     public const int CandidateAddressFieldNumber = 2;
     private global::AElf.Types.Address candidateAddress_;
     /// <summary>
-    /// The candidate public key.
+    /// The candidate address.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2105,6 +13734,250 @@ namespace TomorrowDAO.Contracts.Election {
 
   }
 
+  public sealed partial class MultipleCandidateInfoUpdated : pb::IMessage<MultipleCandidateInfoUpdated>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<MultipleCandidateInfoUpdated> _parser = new pb::MessageParser<MultipleCandidateInfoUpdated>(() => new MultipleCandidateInfoUpdated());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<MultipleCandidateInfoUpdated> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[44]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public MultipleCandidateInfoUpdated() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public MultipleCandidateInfoUpdated(MultipleCandidateInfoUpdated other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      list_ = other.list_ != null ? other.list_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public MultipleCandidateInfoUpdated Clone() {
+      return new MultipleCandidateInfoUpdated(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "list" field.</summary>
+    public const int ListFieldNumber = 2;
+    private global::TomorrowDAO.Contracts.Election.CandidateInfoList list_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::TomorrowDAO.Contracts.Election.CandidateInfoList List {
+      get { return list_; }
+      set {
+        list_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as MultipleCandidateInfoUpdated);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(MultipleCandidateInfoUpdated other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (!object.Equals(List, other.List)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (list_ != null) hash ^= List.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (list_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(List);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (list_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(List);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (list_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(List);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(MultipleCandidateInfoUpdated other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.list_ != null) {
+        if (list_ == null) {
+          List = new global::TomorrowDAO.Contracts.Election.CandidateInfoList();
+        }
+        List.MergeFrom(other.List);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (list_ == null) {
+              List = new global::TomorrowDAO.Contracts.Election.CandidateInfoList();
+            }
+            input.ReadMessage(List);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (list_ == null) {
+              List = new global::TomorrowDAO.Contracts.Election.CandidateInfoList();
+            }
+            input.ReadMessage(List);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class CandidateAddressReplaced : pb::IMessage<CandidateAddressReplaced>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2119,7 +13992,7 @@ namespace TomorrowDAO.Contracts.Election {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[7]; }
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[45]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2409,7 +14282,7 @@ namespace TomorrowDAO.Contracts.Election {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[8]; }
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[46]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2653,7 +14526,7 @@ namespace TomorrowDAO.Contracts.Election {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[9]; }
+      get { return global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.MessageTypes[47]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
