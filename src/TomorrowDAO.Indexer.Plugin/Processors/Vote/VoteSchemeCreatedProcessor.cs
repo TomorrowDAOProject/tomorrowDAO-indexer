@@ -10,9 +10,9 @@ using Volo.Abp.ObjectMapping;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors.Vote;
 
-public class VoteCreatedProcessor : VoteProcessorBase<VoteSchemeCreated>
+public class VoteSchemeCreatedProcessor : VoteProcessorBase<VoteSchemeCreated>
 {
-    public VoteCreatedProcessor(ILogger<AElfLogEventProcessorBase<VoteSchemeCreated, LogEventInfo>> logger,
+    public VoteSchemeCreatedProcessor(ILogger<AElfLogEventProcessorBase<VoteSchemeCreated, LogEventInfo>> logger,
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IVoteProvider voteProvider)
         : base(logger, objectMapper, contractInfoOptions, voteProvider)

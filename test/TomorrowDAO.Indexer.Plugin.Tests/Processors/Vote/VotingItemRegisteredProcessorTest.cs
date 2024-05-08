@@ -4,12 +4,12 @@ using Xunit;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.Processors.Vote;
 
-public class VoteCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
+public class VotingItemRegisteredProcessorTest : TomorrowDAOIndexerPluginTestBase
 {
     [Fact]
     public async Task HandleEventAsync_Test()
     {
-        await MockEventProcess(VoteSchemeCreated_UniqueVote(), VoteCreatedProcessor);
+        await MockEventProcess(VoteSchemeCreated_UniqueVote(), VoteSchemeCreatedProcessor);
         
         var voteSchemeIndex = await VoteSchemeIndexRepository.GetFromBlockStateSetAsync(VoteSchemeId, ChainAelf);
         voteSchemeIndex.ShouldNotBeNull();

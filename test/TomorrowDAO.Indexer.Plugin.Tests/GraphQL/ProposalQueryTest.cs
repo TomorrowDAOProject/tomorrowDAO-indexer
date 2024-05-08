@@ -11,8 +11,8 @@ public class ProposalQueryTest : QueryTestBase
     [Fact]
     public async Task GetElectionListAsync_Test()
     {
-        await MockEventProcess(VoteSchemeCreated_UniqueVote(), VoteCreatedProcessor);
-        await MockEventProcess(VoteSchemeCreated_TokenBallot(), VoteCreatedProcessor);
+        await MockEventProcess(VoteSchemeCreated_UniqueVote(), VoteSchemeCreatedProcessor);
+        await MockEventProcess(VoteSchemeCreated_TokenBallot(), VoteSchemeCreatedProcessor);
         
         // var voteSchemes = await Query.GetVoteSchemeInfoAsync(VoteSchemeIndexRepository, ObjectMapper, new GetVoteSchemeInput
         // {

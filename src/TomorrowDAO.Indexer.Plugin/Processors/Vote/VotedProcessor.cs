@@ -7,6 +7,7 @@ using TomorrowDAO.Contracts.Vote;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
+using VoteOption = TomorrowDAO.Indexer.Plugin.Enums.VoteOption;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors.Vote;
 
@@ -29,12 +30,17 @@ public class VotedProcessor : VoteProcessorBase<Voted>
             var voteRecordIndex = await VoteProvider.GetVoteRecordAsync(chainId, voteId);
             if (voteRecordIndex != null)
             {
-                Logger.LogInformation("[Voted] VoteRecord already existed: Id={Id}, ChainId={ChainId}", voteId, chainId);
+                Logger.LogInformation("[Voted] VoteRecord already existed: Id={Id}, ChainId={ChainId}", voteId,
+                    chainId);
                 return;
             }
+
             voteRecordIndex = ObjectMapper.Map<Voted, VoteRecordIndex>(eventValue);
             voteRecordIndex.Id = voteId;
             await VoteProvider.SaveVoteRecordIndexAsync(voteRecordIndex, context);
+            
+            await UpdateVoteItemIndexAsync(chainId, voteRecordIndex);
+            
             Logger.LogInformation("[Voted] FINISH: Id={Id}, ChainId={ChainId}", voteId, chainId);
         }
         catch (Exception e)
@@ -42,5 +48,48 @@ public class VotedProcessor : VoteProcessorBase<Voted>
             Logger.LogError(e, "[Voted] Exception Id={Id}, ChainId={ChainId}", voteId, chainId);
             throw;
         }
+    }
+
+    private async Task UpdateVoteItemIndexAsync(string chainId, VoteRecordIndex voteRecordIndex)
+    {
+        Logger.LogInformation("[Voted] update VoteItemIndex: Id={Id}", voteRecordIndex.VotingItemId);
+        var voteItemIndex = await VoteProvider.GetVoteItemAsync(chainId, voteRecordIndex.VotingItemId);
+        if (voteItemIndex == null)
+        {
+            Logger.LogError("[Voted] VoteItemIndex not found: VotingItemId={voteItemIndex}",
+                voteRecordIndex.VotingItemId);
+            return;
+        }
+
+        var amount = voteRecordIndex.VoteMechanism switch
+        {
+            Enums.VoteMechanism.TokenBallot => voteRecordIndex.Amount,
+            Enums.VoteMechanism.UniqueVote => 1,
+            _ => 0
+        };
+
+        var voteOption = voteRecordIndex.Option;
+        switch (voteOption)
+        {
+            case VoteOption.Approved:
+                voteItemIndex.ApprovedCount += amount;
+                break;
+            case VoteOption.Rejected:
+                voteItemIndex.RejectionCount += amount;
+                break;
+            case VoteOption.Abstained:
+                voteItemIndex.AbstentionCount += amount;
+                break;
+        }
+
+        voteItemIndex.VotesAmount += amount;
+        var voterSet = voteItemIndex.VoterSet;
+        if (voterSet == null)
+        {
+            voterSet = new HashSet<string>();
+            voteItemIndex.VoterSet = voterSet;
+        }
+
+        voterSet.Add(voteRecordIndex.VoteId);
     }
 }

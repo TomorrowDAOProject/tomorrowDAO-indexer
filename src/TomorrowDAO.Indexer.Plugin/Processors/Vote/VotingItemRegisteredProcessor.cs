@@ -33,7 +33,7 @@ public class VotingItemRegisteredProcessor : VoteProcessorBase<VotingItemRegiste
                 Logger.LogInformation("[VotingItemRegistered] VoteItem already existed: Id={Id}, ChainId={ChainId}", votingItemId, chainId);
                 return;
             }
-            voteItemIndex = ObjectMapper.Map<VotingItemRegistered, VoteIndex>(eventValue);
+            voteItemIndex = ObjectMapper.Map<VotingItemRegistered, VoteItemIndex>(eventValue);
             voteItemIndex.Id = votingItemId;
             voteItemIndex.CreateTime = context.BlockTime;
             await VoteProvider.SaveVoteItemIndexAsync(voteItemIndex, context);

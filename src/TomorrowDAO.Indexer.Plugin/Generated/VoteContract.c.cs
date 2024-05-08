@@ -74,6 +74,7 @@ namespace TomorrowDAO.Contracts.Vote {
         Option = Option,
         VoteId = VoteId,
         DaoId = DaoId,
+        VoteMechanism = VoteMechanism,
       };
     }
   }

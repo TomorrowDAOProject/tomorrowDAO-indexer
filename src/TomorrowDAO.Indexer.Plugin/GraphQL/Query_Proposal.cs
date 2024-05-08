@@ -43,7 +43,7 @@ public partial class Query
 
     [Name("getVoteInfosMemory")]
     public static async Task<List<VoteInfoDto>> GetVoteInfoMemoryAsync(
-        [FromServices] IAElfIndexerClientEntityRepository<VoteIndex, LogEventInfo> repository,
+        [FromServices] IAElfIndexerClientEntityRepository<VoteItemIndex, LogEventInfo> repository,
         [FromServices] IObjectMapper objectMapper,
         GetVoteInfoInput input)
     {
@@ -56,28 +56,28 @@ public partial class Query
             .Select(votingItemId => repository.GetFromBlockStateSetAsync(votingItemId, input.ChainId)).ToList();
     
         var results = await Task.WhenAll(tasks);
-        return results.Where(index => index != null).Select(objectMapper.Map<VoteIndex, VoteInfoDto>)
+        return results.Where(index => index != null).Select(objectMapper.Map<VoteItemIndex, VoteInfoDto>)
             .ToList();
     }
     
     [Name("getVoteInfos")]
     public static async Task<List<VoteInfoDto>> GetVoteInfosAsync(
-        [FromServices] IAElfIndexerClientEntityRepository<VoteIndex, LogEventInfo> repository,
+        [FromServices] IAElfIndexerClientEntityRepository<VoteItemIndex, LogEventInfo> repository,
         [FromServices] IObjectMapper objectMapper,
         GetVoteInfoInput input)
     {
-        var mustQuery = new List<Func<QueryContainerDescriptor<VoteIndex>, QueryContainer>>();
+        var mustQuery = new List<Func<QueryContainerDescriptor<VoteItemIndex>, QueryContainer>>();
         mustQuery.Add(q => q.Term(i
             => i.Field(f => f.ChainId).Value(input.ChainId)));
     
         mustQuery.Add(q => q.Terms(i
             => i.Field(f => f.VotingItemId).Terms(input.VotingItemIds)));
     
-        QueryContainer Filter(QueryContainerDescriptor<VoteIndex> f) =>
+        QueryContainer Filter(QueryContainerDescriptor<VoteItemIndex> f) =>
             f.Bool(b => b.Must(mustQuery));
     
         var result = await repository.GetListAsync(Filter);
-        return objectMapper.Map<List<VoteIndex>, List<VoteInfoDto>>(result.Item2);
+        return objectMapper.Map<List<VoteItemIndex>, List<VoteInfoDto>>(result.Item2);
     }
     
     [Name("getVoteRecord")]
@@ -113,7 +113,7 @@ public partial class Query
     
         if (sorting.IsNullOrWhiteSpace())
         {
-            sortDescriptor.Descending(a => a.VoteTime);
+            sortDescriptor.Descending(a => a.VoteTimestamp);
             return _ => sortDescriptor;
         }
     
@@ -126,11 +126,11 @@ public partial class Query
             case TomorrowDAOConst.VoteTime:
                 if (order == TomorrowDAOConst.Asc || order == TomorrowDAOConst.Ascend)
                 {
-                    sortDescriptor.Ascending(a => a.VoteTime);
+                    sortDescriptor.Ascending(a => a.VoteTimestamp);
                 }
                 else
                 {
-                    sortDescriptor.Descending(a => a.VoteTime);
+                    sortDescriptor.Descending(a => a.VoteTimestamp);
                 }
                 break;
             case TomorrowDAOConst.Amount:
@@ -144,7 +144,7 @@ public partial class Query
                 }
                 break;
             default:
-                sortDescriptor.Descending(a => a.VoteTime);
+                sortDescriptor.Descending(a => a.VoteTimestamp);
                 break;
         }
         return _ => sortDescriptor;

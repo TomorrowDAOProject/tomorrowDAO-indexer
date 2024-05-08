@@ -57,7 +57,8 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.VetoProposalId, opt
                 => opt.MapFrom(source => MapHash(source.VetoProposalId)))
             ;
-        CreateMap<TomorrowDAO.Contracts.Governance.ExecuteTransaction, TomorrowDAO.Indexer.Plugin.Entities.ExecuteTransaction>()
+        CreateMap<TomorrowDAO.Contracts.Governance.ExecuteTransaction,
+                TomorrowDAO.Indexer.Plugin.Entities.ExecuteTransaction>()
             .ForMember(des => des.ToAddress, opt => opt.MapFrom(source => MapAddress(source.ToAddress)))
             .ForMember(des => des.Params, opt => opt.MapFrom(source => MapByteString(source.Params)));
 
@@ -146,7 +147,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.MaximalAbstentionThreshold,
                 opt => opt.MapFrom(source => source.SchemeThreshold.MaximalAbstentionThreshold));
         CreateMap<GovernanceSchemeIndex, GovernanceSchemeIndexDto>();
-        CreateMap<VoteIndex, VoteInfoDto>()
+        CreateMap<VoteItemIndex, VoteInfoDto>()
             .ForMember(des => des.VoterCount, opt
                 => opt.MapFrom(source => source.VoterSet.Count));
         CreateMap<VoteRecordIndex, VoteRecordDto>();
@@ -154,12 +155,12 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<DAOIndex, DAOInfoDto>();
         CreateMap<MetadataIndexer, MetadataDto>();
         CreateMap<LogEventContext, VoteSchemeIndex>();
-        CreateMap<LogEventContext, VoteIndex>();
+        CreateMap<LogEventContext, VoteItemIndex>();
         CreateMap<LogEventContext, VoteRecordIndex>();
         CreateMap<VoteSchemeCreated, VoteSchemeIndex>()
             .ForMember(des => des.VoteSchemeId, opt
                 => opt.MapFrom(source => MapHash(source.VoteSchemeId)));
-        CreateMap<VotingItemRegistered, VoteIndex>()
+        CreateMap<VotingItemRegistered, VoteItemIndex>()
             .ForMember(des => des.DAOId, opt
                 => opt.MapFrom(source => MapHash(source.DaoId)))
             .ForMember(des => des.VotingItemId, opt
@@ -178,7 +179,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => MapHash(source.VotingItemId)))
             .ForMember(des => des.Voter, opt
                 => opt.MapFrom(source => MapAddress(source.Voter)))
-            .ForMember(des => des.VoteTime, opt
-                => opt.MapFrom(source => MapDateTime(source.VoteTimestamp)));
+            .ForMember(des => des.VoteTimestamp, opt
+                => opt.MapFrom(source => MapDateTime(source.VoteTimestamp)))
+            .ForMember(des => des.VoteId, opt 
+                => opt.MapFrom(source => MapHash(source.VoteId)));
+        CreateMap<VoteSchemeIndex, VoteSchemeIndexDto>();
     }
 }

@@ -37,13 +37,15 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     private readonly IDAppDataProvider _dAppDataProvider;
     private readonly IDAppDataIndexManagerProvider _dAppDataIndexManagerProvider;
     protected readonly IAElfIndexerClientEntityRepository<VoteSchemeIndex, LogEventInfo> VoteSchemeIndexRepository;
+    protected readonly IAElfIndexerClientEntityRepository<VoteItemIndex, LogEventInfo> VoteItemIndexRespository;
     protected readonly IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAOIndexRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> TreasuryFundRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> TreasuryRecordRepository;
     protected readonly IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> ElectionRepository;
     protected readonly IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo> GovernanceSchemeRepository;
     protected readonly IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> ProposalIndexRepository;
-    protected readonly Vote.VoteCreatedProcessor VoteCreatedProcessor;
+    protected readonly Vote.VoteSchemeCreatedProcessor VoteSchemeCreatedProcessor;
+    protected readonly Vote.VotingItemRegisteredProcessor VotingItemRegisteredProcessor;
     protected readonly DAOCreatedProcessor DAOCreatedProcessor;
     protected readonly FileInfosRemovedProcessor FileInfosRemovedProcessor;
     protected readonly FileInfosUploadedProcessor FileInfosUploadedProcessor;
@@ -134,6 +136,8 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         _dAppDataProvider = GetRequiredService<IDAppDataProvider>();
         _dAppDataIndexManagerProvider = GetRequiredService<IDAppDataIndexManagerProvider>();
         VoteSchemeIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<VoteSchemeIndex, LogEventInfo>>();
+        VoteItemIndexRespository =
+            GetRequiredService<IAElfIndexerClientEntityRepository<VoteItemIndex, LogEventInfo>>(); 
         DAOIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo>>();
         TreasuryFundRepository = GetRequiredService<IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo>>();
         TreasuryRecordRepository = GetRequiredService<IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo>>();
@@ -145,7 +149,8 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         HighCouncilDisabledProcessor = GetRequiredService<HighCouncilDisabledProcessor>();
         HighCouncilEnabledProcessor = GetRequiredService<HighCouncilEnabledProcessor>();
         SubsistStatusSetProcessor = GetRequiredService<SubsistStatusSetProcessor>();
-        VoteCreatedProcessor = GetRequiredService<Vote.VoteCreatedProcessor>();
+        VoteSchemeCreatedProcessor = GetRequiredService<Vote.VoteSchemeCreatedProcessor>();
+        VotingItemRegisteredProcessor = GetRequiredService<Vote.VotingItemRegisteredProcessor>();
         DAOCreatedProcessor = GetRequiredService<DAOCreatedProcessor>();
         DonationReceivedProcessor = GetRequiredService<DonationReceivedProcessor>();
         TreasuryCreatedProcessor = GetRequiredService<TreasuryCreatedProcessor>();
@@ -537,8 +542,8 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     {
         return new ContractsVote.VoteSchemeCreated
         {
-            IsLockToken = true,
-            IsQuadratic = true,
+            // IsLockToken = true,
+            // IsQuadratic = true,
             VoteMechanism = ContractsVote.VoteMechanism.UniqueVote,
             VoteSchemeId = HashHelper.ComputeFrom(Id3)
         }.ToLogEvent();
@@ -548,8 +553,8 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     {
         return new ContractsVote.VoteSchemeCreated
         {
-            IsLockToken = true,
-            IsQuadratic = true,
+            // IsLockToken = true,
+            // IsQuadratic = true,
             VoteMechanism = ContractsVote.VoteMechanism.TokenBallot,
             VoteSchemeId = HashHelper.ComputeFrom(Id1)
         }.ToLogEvent();
