@@ -537,8 +537,8 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     {
         return new ContractsVote.VoteSchemeCreated
         {
-            IsLockToken = true,
-            IsQuadratic = true,
+            // IsLockToken = true,
+            // IsQuadratic = true,
             VoteMechanism = ContractsVote.VoteMechanism.UniqueVote,
             VoteSchemeId = HashHelper.ComputeFrom(Id3)
         }.ToLogEvent();
@@ -548,8 +548,8 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     {
         return new ContractsVote.VoteSchemeCreated
         {
-            IsLockToken = true,
-            IsQuadratic = true,
+            // IsLockToken = true,
+            // IsQuadratic = true,
             VoteMechanism = ContractsVote.VoteMechanism.TokenBallot,
             VoteSchemeId = HashHelper.ComputeFrom(Id1)
         }.ToLogEvent();
