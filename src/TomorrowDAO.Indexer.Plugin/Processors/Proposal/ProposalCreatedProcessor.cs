@@ -57,7 +57,7 @@ public class ProposalCreatedProcessor : ProposalProcessorBase<ProposalCreated>
 
             if (vetoProposalId != null)
             {
-                UpdateVetoProposal(vetoProposalId, ProposalStatus.Challenged, ProposalStage.Pending, context);
+                UpdateProposal(vetoProposalId, ProposalStatus.Challenged, ProposalStage.Pending, context);
             }
             Logger.LogInformation("[ProposalCreated] end proposalId:{proposalId} chainId:{chainId} ", proposalId, chainId);
         }
