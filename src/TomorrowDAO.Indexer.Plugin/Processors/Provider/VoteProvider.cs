@@ -2,6 +2,7 @@ using AElfIndexer.Client;
 using AElfIndexer.Client.Handlers;
 using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.ObjectMapping;
@@ -15,12 +16,16 @@ public interface IVoteProvider
     Task<VoteItemIndex> GetVoteItemAsync(string chainId, string votingItemId);
     
     Task<VoteRecordIndex> GetVoteRecordAsync(string chainId, string voteId);
-    
+
+    Task<VoteWithdrawnIndex> GetVoteWithdrawnAsync(string chainId, string id);
+
     Task SaveVoteSchemeIndexAsync(VoteSchemeIndex index, LogEventContext context);
 
     Task SaveVoteItemIndexAsync(VoteItemIndex itemIndex, LogEventContext context);
 
     Task SaveVoteRecordIndexAsync(VoteRecordIndex index, LogEventContext context);
+    
+    Task SaveVoteWithdrawnAsync(VoteWithdrawnIndex voteWithdrawn, LogEventContext context);
 }
 
 public class VoteProvider : IVoteProvider, ISingletonDependency
@@ -29,18 +34,21 @@ public class VoteProvider : IVoteProvider, ISingletonDependency
     private readonly IAElfIndexerClientEntityRepository<VoteSchemeIndex, LogEventInfo> _voteSchemeRepository;
     private readonly IAElfIndexerClientEntityRepository<VoteItemIndex, LogEventInfo> _voteItemRepository;
     private readonly IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo> _voteRecordRepository;
+    private readonly IAElfIndexerClientEntityRepository<VoteWithdrawnIndex, LogEventInfo> _voteWithdrawnRepository;
     private readonly IObjectMapper _objectMapper;
     
     public VoteProvider(ILogger<VoteProvider> logger, 
         IAElfIndexerClientEntityRepository<VoteSchemeIndex, LogEventInfo> voteSchemeRepository,
         IAElfIndexerClientEntityRepository<VoteItemIndex, LogEventInfo> voteItemRepository,
         IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo> voteRecordRepository,
+        IAElfIndexerClientEntityRepository<VoteWithdrawnIndex, LogEventInfo> voteWithdrawnRepository,
         IObjectMapper objectMapper)
     {
         _logger = logger;
         _voteSchemeRepository = voteSchemeRepository;
         _voteItemRepository = voteItemRepository;
         _voteRecordRepository = voteRecordRepository;
+        _voteWithdrawnRepository = voteWithdrawnRepository;
         _objectMapper = objectMapper;
     }
 
@@ -77,6 +85,17 @@ public class VoteProvider : IVoteProvider, ISingletonDependency
         return null;
     }
 
+    public async Task<VoteWithdrawnIndex> GetVoteWithdrawnAsync(string chainId, string id)
+    {
+        var voteWithdrawnIndex = await _voteWithdrawnRepository.GetFromBlockStateSetAsync(id, chainId);
+        if (voteWithdrawnIndex != null)
+        {
+            return voteWithdrawnIndex;
+        }
+        _logger.LogInformation("VoteWithdrawnIndexDto with id {id} chainId {chainId} not existed.", id, chainId);
+        return null;
+    }
+
     public async Task SaveVoteSchemeIndexAsync(VoteSchemeIndex index, LogEventContext context)
     {
         _objectMapper.Map(context, index);
@@ -93,5 +112,11 @@ public class VoteProvider : IVoteProvider, ISingletonDependency
     {
         _objectMapper.Map(context, index);
         await _voteRecordRepository.AddOrUpdateAsync(index);
+    }
+
+    public async Task SaveVoteWithdrawnAsync(VoteWithdrawnIndex voteWithdrawn, LogEventContext context)
+    {
+        _objectMapper.Map(context, voteWithdrawn);
+        await _voteWithdrawnRepository.AddOrUpdateAsync(voteWithdrawn);
     }
 }

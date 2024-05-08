@@ -37,7 +37,8 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     private readonly IDAppDataProvider _dAppDataProvider;
     private readonly IDAppDataIndexManagerProvider _dAppDataIndexManagerProvider;
     protected readonly IAElfIndexerClientEntityRepository<VoteSchemeIndex, LogEventInfo> VoteSchemeIndexRepository;
-    protected readonly IAElfIndexerClientEntityRepository<VoteItemIndex, LogEventInfo> VoteItemIndexRespository;
+    protected readonly IAElfIndexerClientEntityRepository<VoteItemIndex, LogEventInfo> VoteItemIndexRepository;
+    protected readonly IAElfIndexerClientEntityRepository<VoteWithdrawnIndex, LogEventInfo> VoteWithdrawnRepository;
     protected readonly IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAOIndexRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> TreasuryFundRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> TreasuryRecordRepository;
@@ -46,6 +47,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> ProposalIndexRepository;
     protected readonly Vote.VoteSchemeCreatedProcessor VoteSchemeCreatedProcessor;
     protected readonly Vote.VotingItemRegisteredProcessor VotingItemRegisteredProcessor;
+    protected readonly Vote.VoteWithdrawnProcessor VoteWithdrawnProcessor;
     protected readonly DAOCreatedProcessor DAOCreatedProcessor;
     protected readonly FileInfosRemovedProcessor FileInfosRemovedProcessor;
     protected readonly FileInfosUploadedProcessor FileInfosUploadedProcessor;
@@ -136,8 +138,10 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         _dAppDataProvider = GetRequiredService<IDAppDataProvider>();
         _dAppDataIndexManagerProvider = GetRequiredService<IDAppDataIndexManagerProvider>();
         VoteSchemeIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<VoteSchemeIndex, LogEventInfo>>();
-        VoteItemIndexRespository =
-            GetRequiredService<IAElfIndexerClientEntityRepository<VoteItemIndex, LogEventInfo>>(); 
+        VoteItemIndexRepository =
+            GetRequiredService<IAElfIndexerClientEntityRepository<VoteItemIndex, LogEventInfo>>();
+        VoteWithdrawnRepository=
+            GetRequiredService<IAElfIndexerClientEntityRepository<VoteWithdrawnIndex, LogEventInfo>>();
         DAOIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo>>();
         TreasuryFundRepository = GetRequiredService<IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo>>();
         TreasuryRecordRepository = GetRequiredService<IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo>>();
@@ -151,6 +155,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         SubsistStatusSetProcessor = GetRequiredService<SubsistStatusSetProcessor>();
         VoteSchemeCreatedProcessor = GetRequiredService<Vote.VoteSchemeCreatedProcessor>();
         VotingItemRegisteredProcessor = GetRequiredService<Vote.VotingItemRegisteredProcessor>();
+        VoteWithdrawnProcessor = GetRequiredService<Vote.VoteWithdrawnProcessor>();
         DAOCreatedProcessor = GetRequiredService<DAOCreatedProcessor>();
         DonationReceivedProcessor = GetRequiredService<DonationReceivedProcessor>();
         TreasuryCreatedProcessor = GetRequiredService<TreasuryCreatedProcessor>();
@@ -546,6 +551,22 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             // IsQuadratic = true,
             VoteMechanism = ContractsVote.VoteMechanism.UniqueVote,
             VoteSchemeId = HashHelper.ComputeFrom(Id3)
+        }.ToLogEvent();
+    }
+
+    protected LogEvent VoteWithdrawn()
+    {
+        var votingItemIdList = new ContractsVote.VotingItemIdList
+        {
+            Value = { HashHelper.ComputeFrom(VetoProposalId) }
+        };
+        return new ContractsVote.Withdrawn
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Withdrawer = Address.FromBase58(User),
+            WithdrawAmount = 10,
+            WithdrawTimestamp = new Timestamp(),
+            VotingItemIdList = votingItemIdList
         }.ToLogEvent();
     }
 

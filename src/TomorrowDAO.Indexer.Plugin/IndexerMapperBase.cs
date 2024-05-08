@@ -3,7 +3,7 @@ using AutoMapper;
 using Google.Protobuf;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
-using TomorrowDAO.Contracts.Governance;
+using TomorrowDAO.Contracts.Vote;
 
 namespace TomorrowDAO.Indexer.Plugin;
 
@@ -36,6 +36,18 @@ public class IndexerMapperBase : Profile
     protected static string MapByteString([CanBeNull] ByteString byteString)
     {
         return byteString?.ToByteArray().ToHex();
+    }
+
+    protected static List<string> MapVotingItemIdList(VotingItemIdList votingItemIdList)
+    {
+        var list = new List<string>();
+        if (votingItemIdList == null)
+        {
+            return list;
+        }
+
+        list.AddRange(votingItemIdList.Value.Select(votingItemId => votingItemId?.ToHex()));
+        return list;
     }
 
     // protected static HashSet<string> MapOrganizationMemberSet(OrganizationCreated source)
