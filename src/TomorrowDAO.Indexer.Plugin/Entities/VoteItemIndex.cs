@@ -10,6 +10,7 @@ public class VoteItemIndex : AElfIndexerClientEntity<string>, IIndexBuild
     
     [PropertyName("DAOId")]
     [Keyword] public string DAOId { get; set; }
+    [Keyword] public string Executer { get; set; }
     
     // The voting activity id.(proposal id)
     [Keyword] public string VotingItemId { get; set; }

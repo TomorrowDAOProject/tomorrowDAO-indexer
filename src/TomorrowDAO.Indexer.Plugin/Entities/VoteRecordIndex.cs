@@ -7,6 +7,8 @@ namespace TomorrowDAO.Indexer.Plugin.Entities;
 
 public class VoteRecordIndex : AElfIndexerClientEntity<string>, IIndexBuild
 {
+    
+    [Keyword] public string TransactionId { get; set; }
     [Keyword] public override string Id { get; set; }
     [Keyword] public string DAOId { get; set; }
     // The voting activity id.(proposal id)
