@@ -20,4 +20,6 @@ public class VoteRecordIndex : AElfIndexerClientEntity<string>, IIndexBuild
     
     public bool IsFinished { get; set; }
     public bool IsWithdraw { get; set; }
+    public DateTime StartTime { get; set; }
+    public DateTime EndTime { get; set; }
 }

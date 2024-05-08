@@ -12,4 +12,6 @@ public class VoteRecordDto
     public VoteOption Option { get; set; }
     
     public DateTime VoteTime { get; set; }
+    public DateTime StartTime { get; set; }
+    public DateTime EndTime { get; set; }
 }
