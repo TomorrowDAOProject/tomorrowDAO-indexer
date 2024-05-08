@@ -93,7 +93,7 @@ namespace TomorrowDAO.Contracts.Vote {
       return new Withdrawn
       {
         DaoId = DaoId,
-        User = User,
+        Withdrawer = Withdrawer,
         WithdrawAmount = WithdrawAmount,
         WithdrawTimestamp = WithdrawTimestamp,
         VotingItemIdList = VotingItemIdList,
@@ -261,6 +261,9 @@ namespace TomorrowDAO.Contracts.Vote {
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.GetVotingRecordInput> __Marshaller_GetVotingRecordInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.GetVotingRecordInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.VotingRecord> __Marshaller_VotingRecord = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.VotingRecord.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.VotedIds> __Marshaller_VotedIds = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.VotedIds.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.DaoRemainAmount> __Marshaller_DaoRemainAmount = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.DaoRemainAmount.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.GetProposalRemainAmountInput> __Marshaller_GetProposalRemainAmountInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.GetProposalRemainAmountInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.ProposalRemainAmount> __Marshaller_ProposalRemainAmount = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.ProposalRemainAmount.Parser.ParseFrom);
     #endregion
 
     #region Methods
@@ -453,6 +456,20 @@ namespace TomorrowDAO.Contracts.Vote {
         __Marshaller_aelf_Address,
         __Marshaller_VotedIds);
 
+    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Vote.DaoRemainAmount> __Method_GetDaoRemainAmount = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Vote.DaoRemainAmount>(
+        aelf::MethodType.View,
+        __ServiceName,
+        "GetDaoRemainAmount",
+        __Marshaller_aelf_Hash,
+        __Marshaller_DaoRemainAmount);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.GetProposalRemainAmountInput, global::TomorrowDAO.Contracts.Vote.ProposalRemainAmount> __Method_GetProposalRemainAmount = new aelf::Method<global::TomorrowDAO.Contracts.Vote.GetProposalRemainAmountInput, global::TomorrowDAO.Contracts.Vote.ProposalRemainAmount>(
+        aelf::MethodType.View,
+        __ServiceName,
+        "GetProposalRemainAmount",
+        __Marshaller_GetProposalRemainAmountInput,
+        __Marshaller_ProposalRemainAmount);
+
     #endregion
 
     #region Descriptors
@@ -611,6 +628,16 @@ namespace TomorrowDAO.Contracts.Vote {
     //     throw new global::System.NotImplementedException();
     //   }
     //
+    //   public virtual global::TomorrowDAO.Contracts.Vote.DaoRemainAmount GetDaoRemainAmount(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::TomorrowDAO.Contracts.Vote.ProposalRemainAmount GetProposalRemainAmount(global::TomorrowDAO.Contracts.Vote.GetProposalRemainAmountInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
     // }
     //
     // public static aelf::ServerServiceDefinition BindService(VoteContractBase serviceImpl)
@@ -643,7 +670,9 @@ namespace TomorrowDAO.Contracts.Vote {
     //       .AddMethod(__Method_GetVotingSnapShot, serviceImpl.GetVotingSnapShot)
     //       .AddMethod(__Method_GetVotingRecord, serviceImpl.GetVotingRecord)
     //       .AddMethod(__Method_GetVirtualAddress, serviceImpl.GetVirtualAddress)
-    //       .AddMethod(__Method_GetVotingIds, serviceImpl.GetVotingIds).Build();
+    //       .AddMethod(__Method_GetVotingIds, serviceImpl.GetVotingIds)
+    //       .AddMethod(__Method_GetDaoRemainAmount, serviceImpl.GetDaoRemainAmount)
+    //       .AddMethod(__Method_GetProposalRemainAmount, serviceImpl.GetProposalRemainAmount).Build();
     // }
 
   }
