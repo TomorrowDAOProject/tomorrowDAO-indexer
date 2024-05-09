@@ -13,9 +13,18 @@ public partial class Query
     [Name("getVoteSchemes")]
     public static async Task<List<VoteSchemeIndexDto>> GetVoteSchemesAsync(
         [FromServices] IAElfIndexerClientEntityRepository<VoteSchemeIndex, LogEventInfo> repository,
-        [FromServices] IObjectMapper objectMapper)
+        [FromServices] IObjectMapper objectMapper, GetVoteSchemeInput input)
     {
-        var result = await repository.GetListAsync();
+        var mustQuery = new List<Func<QueryContainerDescriptor<VoteSchemeIndex>, QueryContainer>>();
+        if (!string.IsNullOrWhiteSpace(input.ChainId))
+        {
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId)));
+        }
+        QueryContainer Filter(QueryContainerDescriptor<VoteSchemeIndex> f) =>
+            f.Bool(b => b.Must(mustQuery));
+        
+        var result = await repository.GetListAsync(Filter);
         return objectMapper.Map<List<VoteSchemeIndex>, List<VoteSchemeIndexDto>>(result.Item2);
     }
 

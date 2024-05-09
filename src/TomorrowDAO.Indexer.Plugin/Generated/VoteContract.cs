@@ -112,95 +112,99 @@ namespace TomorrowDAO.Contracts.Vote {
             "YWVsZi5IYXNoEg4KBnN5bWJvbBgCIAEoCSI8ChZHZXRWb3RpbmdTbmFwU2hv",
             "dElucHV0EiIKDnZvdGluZ19pdGVtX2lkGAEgASgLMgouYWVsZi5IYXNoIlgK",
             "FEdldFZvdGluZ1JlY29yZElucHV0EiIKDnZvdGluZ19pdGVtX2lkGAEgASgL",
-            "MgouYWVsZi5IYXNoEhwKBXZvdGVyGAIgASgLMg0uYWVsZi5BZGRyZXNzIl4K",
-            "HEdldFByb3Bvc2FsUmVtYWluQW1vdW50SW5wdXQSGgoGZGFvX2lkGAEgASgL",
-            "MgouYWVsZi5IYXNoEiIKDnZvdGluZ19pdGVtX2lkGAIgASgLMgouYWVsZi5I",
-            "YXNoImUKEVZvdGVTY2hlbWVDcmVhdGVkEiIKDnZvdGVfc2NoZW1lX2lkGAEg",
-            "ASgLMgouYWVsZi5IYXNoEiYKDnZvdGVfbWVjaGFuaXNtGAIgASgOMg4uVm90",
-            "ZU1lY2hhbmlzbToEoLsYASK2AgoUVm90aW5nSXRlbVJlZ2lzdGVyZWQSGgoG",
-            "ZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEiIKDnZvdGluZ19pdGVtX2lkGAIg",
-            "ASgLMgouYWVsZi5IYXNoEh0KCXNjaGVtZV9pZBgDIAEoCzIKLmFlbGYuSGFz",
-            "aBIZChFhY2NlcHRlZF9jdXJyZW5jeRgEIAEoCRI2ChJyZWdpc3Rlcl90aW1l",
-            "c3RhbXAYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjMKD3N0",
-            "YXJ0X3RpbWVzdGFtcBgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3Rh",
-            "bXASMQoNZW5kX3RpbWVzdGFtcBgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5U",
-            "aW1lc3RhbXA6BKC7GAEi7wIKBVZvdGVkEiIKDnZvdGluZ19pdGVtX2lkGAEg",
-            "ASgLMgouYWVsZi5IYXNoEhwKBXZvdGVyGAIgASgLMg0uYWVsZi5BZGRyZXNz",
-            "Eg4KBmFtb3VudBgDIAEoAxIyCg52b3RlX3RpbWVzdGFtcBgEIAEoCzIaLmdv",
-            "b2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASGwoGb3B0aW9uGAUgASgOMgsuVm90",
-            "ZU9wdGlvbhIbCgd2b3RlX2lkGAYgASgLMgouYWVsZi5IYXNoEhoKBmRhb19p",
-            "ZBgHIAEoCzIKLmFlbGYuSGFzaBImCg52b3RlX21lY2hhbmlzbRgIIAEoDjIO",
-            "LlZvdGVNZWNoYW5pc20SLgoKc3RhcnRfdGltZRgJIAEoCzIaLmdvb2dsZS5w",
-            "cm90b2J1Zi5UaW1lc3RhbXASLAoIZW5kX3RpbWUYCiABKAsyGi5nb29nbGUu",
-            "cHJvdG9idWYuVGltZXN0YW1wOgSguxgBItEBCglXaXRoZHJhd24SGgoGZGFv",
-            "X2lkGAEgASgLMgouYWVsZi5IYXNoEiEKCndpdGhkcmF3ZXIYAiABKAsyDS5h",
-            "ZWxmLkFkZHJlc3MSFwoPd2l0aGRyYXdfYW1vdW50GAMgASgDEjYKEndpdGhk",
-            "cmF3X3RpbWVzdGFtcBgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3Rh",
-            "bXASLgoTdm90aW5nX2l0ZW1faWRfbGlzdBgFIAEoCzIRLlZvdGluZ0l0ZW1J",
-            "ZExpc3Q6BKC7GAEiUAoSRW1lcmdlbmN5U3RhdHVzU2V0EhoKBmRhb19pZBgB",
-            "IAEoCzIKLmFlbGYuSGFzaBIYChBlbWVyZ2VuY3lfc3RhdHVzGAIgASgIOgSg",
-            "uxgBImkKBlN0YWtlZBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSDgoG",
-            "YW1vdW50GAIgASgDEh0KBnNlbmRlchgDIAEoCzINLmFlbGYuQWRkcmVzcxIO",
-            "CgZzeW1ib2wYBCABKAk6BKC7GAEieQoQVW5TdGFrZVJlcXVlc3RlZBIaCgZk",
-            "YW9faWQYASABKAsyCi5hZWxmLkhhc2gSDgoGYW1vdW50GAIgASgDEh0KBnNl",
-            "bmRlchgDIAEoCzINLmFlbGYuQWRkcmVzcxIUCgx0b2tlbl9zeW1ib2wYBCAB",
-            "KAk6BKC7GAEiXwoRU3Rha2VhYmxlVG9rZW5TZXQSGgoGZGFvX2lkGAEgASgL",
-            "MgouYWVsZi5IYXNoEigKE2FjY2VwdGVkX3Rva2VuX2xpc3QYAiABKAsyCy5T",
-            "dHJpbmdMaXN0OgSguxgBIl4KFFZvdGluZ1Bvd2VyV2VpZ2h0U2V0EhoKBmRh",
-            "b19pZBgBIAEoCzIKLmFlbGYuSGFzaBIUCgx0b2tlbl9zeW1ib2wYAiABKAkS",
-            "DgoGd2VpZ2h0GAMgASgDOgSguxgBImYKEk1heFZvdGluZ1Bvd2Vyc1NldBIa",
-            "CgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSFAoMdG9rZW5fc3ltYm9sGAIg",
-            "ASgJEhgKEG1heF92b3RpbmdfcG93ZXIYAyABKAM6BKC7GAEqMgoNVm90ZU1l",
-            "Y2hhbmlzbRIPCgtVTklRVUVfVk9URRAAEhAKDFRPS0VOX0JBTExPVBABKjcK",
-            "ClZvdGVPcHRpb24SDAoIQVBQUk9WRUQQABIMCghSRUpFQ1RFRBABEg0KCUFC",
-            "U1RBSU5FRBACKjcKE0dvdmVybmFuY2VNZWNoYW5pc20SDgoKUkVGRVJFTkRV",
-            "TRAAEhAKDEhJR0hfQ09VTkNJTBABMoAQCgxWb3RlQ29udHJhY3QSOAoKSW5p",
-            "dGlhbGl6ZRIQLkluaXRpYWxpemVJbnB1dBoWLmdvb2dsZS5wcm90b2J1Zi5F",
-            "bXB0eSIAEkQKEENyZWF0ZVZvdGVTY2hlbWUSFi5DcmVhdGVWb3RlU2NoZW1l",
-            "SW5wdXQaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABI6CghSZWdpc3RlchIU",
-            "LlZvdGluZ1JlZ2lzdGVySW5wdXQaFi5nb29nbGUucHJvdG9idWYuRW1wdHki",
-            "ABIsCgRWb3RlEgouVm90ZUlucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5",
-            "IgASNAoIV2l0aGRyYXcSDi5XaXRoZHJhd0lucHV0GhYuZ29vZ2xlLnByb3Rv",
-            "YnVmLkVtcHR5IgASLgoFU3Rha2USCy5TdGFrZUlucHV0GhYuZ29vZ2xlLnBy",
-            "b3RvYnVmLkVtcHR5IgASQAoOUmVxdWVzdFVuU3Rha2USFC5SZXF1ZXN0VW5T",
-            "dGFrZUlucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASSAoSU2V0U3Rh",
-            "a2VhYmxlVG9rZW5zEhguU2V0U3Rha2VhYmxlVG9rZW5zSW5wdXQaFi5nb29n",
-            "bGUucHJvdG9idWYuRW1wdHkiABJMChRTZXRWb3RpbmdQb3dlcldlaWdodBIa",
-            "LlNldFZvdGluZ1Bvd2VyV2VpZ2h0SW5wdXQaFi5nb29nbGUucHJvdG9idWYu",
-            "RW1wdHkiABJIChJTZXRNYXhWb3RpbmdQb3dlcnMSGC5TZXRNYXhWb3RpbmdQ",
-            "b3dlcnNJbnB1dBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAElQKGFNldFVu",
-            "c3Rha2VDb29sZG93blN0YXR1cxIeLlNldFVuc3Rha2VDb29sZG93blN0YXR1",
-            "c0lucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASSAoSU2V0RW1lcmdl",
-            "bmN5U3RhdHVzEhguU2V0RW1lcmdlbmN5U3RhdHVzSW5wdXQaFi5nb29nbGUu",
-            "cHJvdG9idWYuRW1wdHkiABJKChNXaXRoZHJhd0luRW1lcmdlbmN5EhkuV2l0",
-            "aGRyYXdJbkVtZXJnZW5jeUlucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5",
-            "IgASLwoNR2V0Vm90ZVNjaGVtZRIKLmFlbGYuSGFzaBoLLlZvdGVTY2hlbWUi",
-            "BYiJ9wEBEkgKFUdldFN1cHBvcnRTdGFrZVRva2VucxIKLmFlbGYuSGFzaBoc",
-            "LkdldFN1cHBvcnRTdGFrZVRva2Vuc091dHB1dCIFiIn3AQESSQoTR2V0U3Rh",
-            "a2VUb2tlbkFtb3VudBIZLkdldFN0YWtlVG9rZW5BbW91bnRJbnB1dBoQLlRv",
-            "a2VuQW1vdW50TGlzdCIFiIn3AQESTAoSR2V0VXNlclZvdGluZ1Bvd2VyEhgu",
-            "R2V0VXNlclZvdGluZ1Bvd2VySW5wdXQaFS5Vc2VyVm90aW5nUG93ZXJzSW5m",
-            "byIFiIn3AQESPAoRR2V0RGFvVm90aW5nUG93ZXISCi5hZWxmLkhhc2gaFC5E",
-            "YW9Wb3RpbmdQb3dlcnNJbmZvIgWIifcBARJSCh1HZXRWb3RpbmdQb3dlcnNP",
-            "blByb3Bvc2FsTGlzdBINLmFlbGYuQWRkcmVzcxobLlZvdGluZ1Bvd2Vyc09u",
-            "UHJvcG9zYWxMaXN0IgWIifcBARJiChpHZXRUb2tlblZvdGluZ1Bvd2Vyc1dl",
-            "aWdodBIgLkdldFRva2VuVm90aW5nUG93ZXJzV2VpZ2h0SW5wdXQaGy5nb29n",
-            "bGUucHJvdG9idWYuSW50MzJWYWx1ZSIFiIn3AQESUAoRR2V0TWF4Vm90aW5n",
-            "UG93ZXISFy5HZXRNYXhWb3RpbmdQb3dlcklucHV0GhsuZ29vZ2xlLnByb3Rv",
-            "YnVmLkludDY0VmFsdWUiBYiJ9wEBEi8KDUdldFZvdGluZ0l0ZW0SCi5hZWxm",
-            "Lkhhc2gaCy5Wb3RpbmdJdGVtIgWIifcBARIzCg9HZXRWb3RpbmdSZXN1bHQS",
-            "Ci5hZWxmLkhhc2gaDS5Wb3RpbmdSZXN1bHQiBYiJ9wEBEkIKEUdldFZvdGlu",
-            "Z1NuYXBTaG90EhcuR2V0Vm90aW5nU25hcFNob3RJbnB1dBoNLlZvdGluZ1Jl",
-            "c3VsdCIFiIn3AQESPgoPR2V0Vm90aW5nUmVjb3JkEhUuR2V0Vm90aW5nUmVj",
-            "b3JkSW5wdXQaDS5Wb3RpbmdSZWNvcmQiBYiJ9wEBEjUKEUdldFZpcnR1YWxB",
-            "ZGRyZXNzEgouYWVsZi5IYXNoGg0uYWVsZi5BZGRyZXNzIgWIifcBARIvCgxH",
-            "ZXRWb3RpbmdJZHMSDS5hZWxmLkFkZHJlc3MaCS5Wb3RlZElkcyIFiIn3AQES",
-            "OQoSR2V0RGFvUmVtYWluQW1vdW50EgouYWVsZi5IYXNoGhAuRGFvUmVtYWlu",
-            "QW1vdW50IgWIifcBARJWChdHZXRQcm9wb3NhbFJlbWFpbkFtb3VudBIdLkdl",
-            "dFByb3Bvc2FsUmVtYWluQW1vdW50SW5wdXQaFS5Qcm9wb3NhbFJlbWFpbkFt",
-            "b3VudCIFiIn3AQEaT7LM9gEsVG9tb3Jyb3dEQU8uQ29udHJhY3RzLlZvdGUu",
-            "Vm90ZUNvbnRyYWN0U3RhdGXKyvYBGVByb3RvYnVmL2Jhc2UvYWNzMTIucHJv",
-            "dG9CHaoCGlRvbW9ycm93REFPLkNvbnRyYWN0cy5Wb3RlUARiBnByb3RvMw=="));
+            "MgouYWVsZi5IYXNoEhwKBXZvdGVyGAIgASgLMg0uYWVsZi5BZGRyZXNzIlIK",
+            "FkdldFZpcnR1YWxBZGRyZXNzSW5wdXQSGgoGZGFvX2lkGAEgASgLMgouYWVs",
+            "Zi5IYXNoEhwKBXZvdGVyGAIgASgLMg0uYWVsZi5BZGRyZXNzIl4KHEdldFBy",
+            "b3Bvc2FsUmVtYWluQW1vdW50SW5wdXQSGgoGZGFvX2lkGAEgASgLMgouYWVs",
+            "Zi5IYXNoEiIKDnZvdGluZ19pdGVtX2lkGAIgASgLMgouYWVsZi5IYXNoImUK",
+            "EVZvdGVTY2hlbWVDcmVhdGVkEiIKDnZvdGVfc2NoZW1lX2lkGAEgASgLMgou",
+            "YWVsZi5IYXNoEiYKDnZvdGVfbWVjaGFuaXNtGAIgASgOMg4uVm90ZU1lY2hh",
+            "bmlzbToEoLsYASK2AgoUVm90aW5nSXRlbVJlZ2lzdGVyZWQSGgoGZGFvX2lk",
+            "GAEgASgLMgouYWVsZi5IYXNoEiIKDnZvdGluZ19pdGVtX2lkGAIgASgLMgou",
+            "YWVsZi5IYXNoEh0KCXNjaGVtZV9pZBgDIAEoCzIKLmFlbGYuSGFzaBIZChFh",
+            "Y2NlcHRlZF9jdXJyZW5jeRgEIAEoCRI2ChJyZWdpc3Rlcl90aW1lc3RhbXAY",
+            "BSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjMKD3N0YXJ0X3Rp",
+            "bWVzdGFtcBgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASMQoN",
+            "ZW5kX3RpbWVzdGFtcBgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3Rh",
+            "bXA6BKC7GAEi7wIKBVZvdGVkEiIKDnZvdGluZ19pdGVtX2lkGAEgASgLMgou",
+            "YWVsZi5IYXNoEhwKBXZvdGVyGAIgASgLMg0uYWVsZi5BZGRyZXNzEg4KBmFt",
+            "b3VudBgDIAEoAxIyCg52b3RlX3RpbWVzdGFtcBgEIAEoCzIaLmdvb2dsZS5w",
+            "cm90b2J1Zi5UaW1lc3RhbXASGwoGb3B0aW9uGAUgASgOMgsuVm90ZU9wdGlv",
+            "bhIbCgd2b3RlX2lkGAYgASgLMgouYWVsZi5IYXNoEhoKBmRhb19pZBgHIAEo",
+            "CzIKLmFlbGYuSGFzaBImCg52b3RlX21lY2hhbmlzbRgIIAEoDjIOLlZvdGVN",
+            "ZWNoYW5pc20SLgoKc3RhcnRfdGltZRgJIAEoCzIaLmdvb2dsZS5wcm90b2J1",
+            "Zi5UaW1lc3RhbXASLAoIZW5kX3RpbWUYCiABKAsyGi5nb29nbGUucHJvdG9i",
+            "dWYuVGltZXN0YW1wOgSguxgBItEBCglXaXRoZHJhd24SGgoGZGFvX2lkGAEg",
+            "ASgLMgouYWVsZi5IYXNoEiEKCndpdGhkcmF3ZXIYAiABKAsyDS5hZWxmLkFk",
+            "ZHJlc3MSFwoPd2l0aGRyYXdfYW1vdW50GAMgASgDEjYKEndpdGhkcmF3X3Rp",
+            "bWVzdGFtcBgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLgoT",
+            "dm90aW5nX2l0ZW1faWRfbGlzdBgFIAEoCzIRLlZvdGluZ0l0ZW1JZExpc3Q6",
+            "BKC7GAEiUAoSRW1lcmdlbmN5U3RhdHVzU2V0EhoKBmRhb19pZBgBIAEoCzIK",
+            "LmFlbGYuSGFzaBIYChBlbWVyZ2VuY3lfc3RhdHVzGAIgASgIOgSguxgBImkK",
+            "BlN0YWtlZBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSDgoGYW1vdW50",
+            "GAIgASgDEh0KBnNlbmRlchgDIAEoCzINLmFlbGYuQWRkcmVzcxIOCgZzeW1i",
+            "b2wYBCABKAk6BKC7GAEieQoQVW5TdGFrZVJlcXVlc3RlZBIaCgZkYW9faWQY",
+            "ASABKAsyCi5hZWxmLkhhc2gSDgoGYW1vdW50GAIgASgDEh0KBnNlbmRlchgD",
+            "IAEoCzINLmFlbGYuQWRkcmVzcxIUCgx0b2tlbl9zeW1ib2wYBCABKAk6BKC7",
+            "GAEiXwoRU3Rha2VhYmxlVG9rZW5TZXQSGgoGZGFvX2lkGAEgASgLMgouYWVs",
+            "Zi5IYXNoEigKE2FjY2VwdGVkX3Rva2VuX2xpc3QYAiABKAsyCy5TdHJpbmdM",
+            "aXN0OgSguxgBIl4KFFZvdGluZ1Bvd2VyV2VpZ2h0U2V0EhoKBmRhb19pZBgB",
+            "IAEoCzIKLmFlbGYuSGFzaBIUCgx0b2tlbl9zeW1ib2wYAiABKAkSDgoGd2Vp",
+            "Z2h0GAMgASgDOgSguxgBImYKEk1heFZvdGluZ1Bvd2Vyc1NldBIaCgZkYW9f",
+            "aWQYASABKAsyCi5hZWxmLkhhc2gSFAoMdG9rZW5fc3ltYm9sGAIgASgJEhgK",
+            "EG1heF92b3RpbmdfcG93ZXIYAyABKAM6BKC7GAEqMgoNVm90ZU1lY2hhbmlz",
+            "bRIPCgtVTklRVUVfVk9URRAAEhAKDFRPS0VOX0JBTExPVBABKjcKClZvdGVP",
+            "cHRpb24SDAoIQVBQUk9WRUQQABIMCghSRUpFQ1RFRBABEg0KCUFCU1RBSU5F",
+            "RBACKjcKE0dvdmVybmFuY2VNZWNoYW5pc20SDgoKUkVGRVJFTkRVTRAAEhAK",
+            "DEhJR0hfQ09VTkNJTBABMsoQCgxWb3RlQ29udHJhY3QSOAoKSW5pdGlhbGl6",
+            "ZRIQLkluaXRpYWxpemVJbnB1dBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIA",
+            "EkQKEENyZWF0ZVZvdGVTY2hlbWUSFi5DcmVhdGVWb3RlU2NoZW1lSW5wdXQa",
+            "Fi5nb29nbGUucHJvdG9idWYuRW1wdHkiABI6CghSZWdpc3RlchIULlZvdGlu",
+            "Z1JlZ2lzdGVySW5wdXQaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABIsCgRW",
+            "b3RlEgouVm90ZUlucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASNAoI",
+            "V2l0aGRyYXcSDi5XaXRoZHJhd0lucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVt",
+            "cHR5IgASLgoFU3Rha2USCy5TdGFrZUlucHV0GhYuZ29vZ2xlLnByb3RvYnVm",
+            "LkVtcHR5IgASQAoOUmVxdWVzdFVuU3Rha2USFC5SZXF1ZXN0VW5TdGFrZUlu",
+            "cHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASSAoSU2V0U3Rha2VhYmxl",
+            "VG9rZW5zEhguU2V0U3Rha2VhYmxlVG9rZW5zSW5wdXQaFi5nb29nbGUucHJv",
+            "dG9idWYuRW1wdHkiABJMChRTZXRWb3RpbmdQb3dlcldlaWdodBIaLlNldFZv",
+            "dGluZ1Bvd2VyV2VpZ2h0SW5wdXQaFi5nb29nbGUucHJvdG9idWYuRW1wdHki",
+            "ABJIChJTZXRNYXhWb3RpbmdQb3dlcnMSGC5TZXRNYXhWb3RpbmdQb3dlcnNJ",
+            "bnB1dBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAElQKGFNldFVuc3Rha2VD",
+            "b29sZG93blN0YXR1cxIeLlNldFVuc3Rha2VDb29sZG93blN0YXR1c0lucHV0",
+            "GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASSAoSU2V0RW1lcmdlbmN5U3Rh",
+            "dHVzEhguU2V0RW1lcmdlbmN5U3RhdHVzSW5wdXQaFi5nb29nbGUucHJvdG9i",
+            "dWYuRW1wdHkiABJKChNXaXRoZHJhd0luRW1lcmdlbmN5EhkuV2l0aGRyYXdJ",
+            "bkVtZXJnZW5jeUlucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASLwoN",
+            "R2V0Vm90ZVNjaGVtZRIKLmFlbGYuSGFzaBoLLlZvdGVTY2hlbWUiBYiJ9wEB",
+            "EkgKFUdldFN1cHBvcnRTdGFrZVRva2VucxIKLmFlbGYuSGFzaBocLkdldFN1",
+            "cHBvcnRTdGFrZVRva2Vuc091dHB1dCIFiIn3AQESSQoTR2V0U3Rha2VUb2tl",
+            "bkFtb3VudBIZLkdldFN0YWtlVG9rZW5BbW91bnRJbnB1dBoQLlRva2VuQW1v",
+            "dW50TGlzdCIFiIn3AQESTAoSR2V0VXNlclZvdGluZ1Bvd2VyEhguR2V0VXNl",
+            "clZvdGluZ1Bvd2VySW5wdXQaFS5Vc2VyVm90aW5nUG93ZXJzSW5mbyIFiIn3",
+            "AQESPAoRR2V0RGFvVm90aW5nUG93ZXISCi5hZWxmLkhhc2gaFC5EYW9Wb3Rp",
+            "bmdQb3dlcnNJbmZvIgWIifcBARJSCh1HZXRWb3RpbmdQb3dlcnNPblByb3Bv",
+            "c2FsTGlzdBINLmFlbGYuQWRkcmVzcxobLlZvdGluZ1Bvd2Vyc09uUHJvcG9z",
+            "YWxMaXN0IgWIifcBARJiChpHZXRUb2tlblZvdGluZ1Bvd2Vyc1dlaWdodBIg",
+            "LkdldFRva2VuVm90aW5nUG93ZXJzV2VpZ2h0SW5wdXQaGy5nb29nbGUucHJv",
+            "dG9idWYuSW50MzJWYWx1ZSIFiIn3AQESUAoRR2V0TWF4Vm90aW5nUG93ZXIS",
+            "Fy5HZXRNYXhWb3RpbmdQb3dlcklucHV0GhsuZ29vZ2xlLnByb3RvYnVmLklu",
+            "dDY0VmFsdWUiBYiJ9wEBEi8KDUdldFZvdGluZ0l0ZW0SCi5hZWxmLkhhc2ga",
+            "Cy5Wb3RpbmdJdGVtIgWIifcBARIzCg9HZXRWb3RpbmdSZXN1bHQSCi5hZWxm",
+            "Lkhhc2gaDS5Wb3RpbmdSZXN1bHQiBYiJ9wEBEkIKEUdldFZvdGluZ1NuYXBT",
+            "aG90EhcuR2V0Vm90aW5nU25hcFNob3RJbnB1dBoNLlZvdGluZ1Jlc3VsdCIF",
+            "iIn3AQESPgoPR2V0Vm90aW5nUmVjb3JkEhUuR2V0Vm90aW5nUmVjb3JkSW5w",
+            "dXQaDS5Wb3RpbmdSZWNvcmQiBYiJ9wEBEkgKF0dldFZpcnR1YWxBZGRyZXNz",
+            "RGVsZXRlEhcuR2V0VmlydHVhbEFkZHJlc3NJbnB1dBoNLmFlbGYuQWRkcmVz",
+            "cyIFiIn3AQESNQoRR2V0VmlydHVhbEFkZHJlc3MSCi5hZWxmLkhhc2gaDS5h",
+            "ZWxmLkFkZHJlc3MiBYiJ9wEBEi8KDEdldFZvdGluZ0lkcxINLmFlbGYuQWRk",
+            "cmVzcxoJLlZvdGVkSWRzIgWIifcBARI5ChJHZXREYW9SZW1haW5BbW91bnQS",
+            "Ci5hZWxmLkhhc2gaEC5EYW9SZW1haW5BbW91bnQiBYiJ9wEBElYKF0dldFBy",
+            "b3Bvc2FsUmVtYWluQW1vdW50Eh0uR2V0UHJvcG9zYWxSZW1haW5BbW91bnRJ",
+            "bnB1dBoVLlByb3Bvc2FsUmVtYWluQW1vdW50IgWIifcBARpPssz2ASxUb21v",
+            "cnJvd0RBTy5Db250cmFjdHMuVm90ZS5Wb3RlQ29udHJhY3RTdGF0ZcrK9gEZ",
+            "UHJvdG9idWYvYmFzZS9hY3MxMi5wcm90b0IdqgIaVG9tb3Jyb3dEQU8uQ29u",
+            "dHJhY3RzLlZvdGVQBGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::AElf.Types.CoreReflection.Descriptor, global::AElf.OptionsReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::AElf.Standards.ACS12.Acs12Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::TomorrowDAO.Contracts.Vote.VoteMechanism), typeof(global::TomorrowDAO.Contracts.Vote.VoteOption), typeof(global::TomorrowDAO.Contracts.Vote.GovernanceMechanism), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -243,6 +247,7 @@ namespace TomorrowDAO.Contracts.Vote {
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.GetMaxVotingPowerInput), global::TomorrowDAO.Contracts.Vote.GetMaxVotingPowerInput.Parser, new[]{ "DaoId", "Symbol" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.GetVotingSnapShotInput), global::TomorrowDAO.Contracts.Vote.GetVotingSnapShotInput.Parser, new[]{ "VotingItemId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.GetVotingRecordInput), global::TomorrowDAO.Contracts.Vote.GetVotingRecordInput.Parser, new[]{ "VotingItemId", "Voter" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.GetVirtualAddressInput), global::TomorrowDAO.Contracts.Vote.GetVirtualAddressInput.Parser, new[]{ "DaoId", "Voter" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.GetProposalRemainAmountInput), global::TomorrowDAO.Contracts.Vote.GetProposalRemainAmountInput.Parser, new[]{ "DaoId", "VotingItemId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.VoteSchemeCreated), global::TomorrowDAO.Contracts.Vote.VoteSchemeCreated.Parser, new[]{ "VoteSchemeId", "VoteMechanism" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.VotingItemRegistered), global::TomorrowDAO.Contracts.Vote.VotingItemRegistered.Parser, new[]{ "DaoId", "VotingItemId", "SchemeId", "AcceptedCurrency", "RegisterTimestamp", "StartTimestamp", "EndTimestamp" }, null, null, null, null),
@@ -10219,6 +10224,250 @@ namespace TomorrowDAO.Contracts.Vote {
 
   }
 
+  public sealed partial class GetVirtualAddressInput : pb::IMessage<GetVirtualAddressInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<GetVirtualAddressInput> _parser = new pb::MessageParser<GetVirtualAddressInput>(() => new GetVirtualAddressInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<GetVirtualAddressInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[39]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetVirtualAddressInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetVirtualAddressInput(GetVirtualAddressInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
+      voter_ = other.voter_ != null ? other.voter_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetVirtualAddressInput Clone() {
+      return new GetVirtualAddressInput(this);
+    }
+
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
+      set {
+        daoId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "voter" field.</summary>
+    public const int VoterFieldNumber = 2;
+    private global::AElf.Types.Address voter_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address Voter {
+      get { return voter_; }
+      set {
+        voter_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as GetVirtualAddressInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(GetVirtualAddressInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(DaoId, other.DaoId)) return false;
+      if (!object.Equals(Voter, other.Voter)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
+      if (voter_ != null) hash ^= Voter.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (voter_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Voter);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (daoId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoId);
+      }
+      if (voter_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Voter);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
+      }
+      if (voter_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Voter);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(GetVirtualAddressInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
+        }
+        DaoId.MergeFrom(other.DaoId);
+      }
+      if (other.voter_ != null) {
+        if (voter_ == null) {
+          Voter = new global::AElf.Types.Address();
+        }
+        Voter.MergeFrom(other.Voter);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (voter_ == null) {
+              Voter = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Voter);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(DaoId);
+            break;
+          }
+          case 18: {
+            if (voter_ == null) {
+              Voter = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(Voter);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class GetProposalRemainAmountInput : pb::IMessage<GetProposalRemainAmountInput>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -10233,7 +10482,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[39]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[40]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10480,7 +10729,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[40]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[41]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10715,7 +10964,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[41]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[42]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11195,7 +11444,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[42]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[43]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11798,7 +12047,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[43]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[44]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -12171,7 +12420,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[44]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[45]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -12406,7 +12655,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[45]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[46]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -12724,7 +12973,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[46]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[47]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -13045,7 +13294,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[47]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[48]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -13289,7 +13538,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[48]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[49]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -13561,7 +13810,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[49]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[50]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

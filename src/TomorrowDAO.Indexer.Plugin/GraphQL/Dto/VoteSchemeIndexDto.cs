@@ -1,3 +1,5 @@
+using TomorrowDAO.Indexer.Plugin.Enums;
+
 namespace TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 
 public class VoteSchemeIndexDto
@@ -9,4 +11,9 @@ public class VoteSchemeIndexDto
     public bool IsQuadratic { get; set; }
     public long TicketCost { get; set; }
     public DateTime CreateTime { get; set; }
+    public string ChainId { get; set; }
+    public string BlockHash { get; set; }
+    public long BlockHeight { get; set; }
+    public string PreviousBlockHash { get; set; }
+    public bool IsDeleted { get; set; }
 }
