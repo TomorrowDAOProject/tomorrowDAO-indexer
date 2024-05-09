@@ -75,6 +75,8 @@ namespace TomorrowDAO.Contracts.Vote {
         VoteId = VoteId,
         DaoId = DaoId,
         VoteMechanism = VoteMechanism,
+        StartTime = StartTime,
+        EndTime = EndTime,
       };
     }
   }
@@ -484,13 +486,14 @@ namespace TomorrowDAO.Contracts.Vote {
       {
         return new global::System.Collections.Generic.List<global::Google.Protobuf.Reflection.ServiceDescriptor>()
         {
+          global::AElf.Standards.ACS12.Acs12Reflection.Descriptor.Services[0],
           global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.Services[0],
         };
       }
     }
     #endregion
 
-    /// <summary>Base class for the contract of VoteContract</summary>
+    // /// <summary>Base class for the contract of VoteContract</summary>
     // public abstract partial class VoteContractBase : AElf.Sdk.CSharp.CSharpSmartContract<TomorrowDAO.Contracts.Vote.VoteContractState>
     // {
     //   public virtual global::Google.Protobuf.WellKnownTypes.Empty Initialize(global::TomorrowDAO.Contracts.Vote.InitializeInput input)
