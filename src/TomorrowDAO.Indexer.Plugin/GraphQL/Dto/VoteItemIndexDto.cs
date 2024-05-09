@@ -1,6 +1,6 @@
 namespace TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 
-public class VoteItemIndexDto
+public class VoteItemIndexDto : BlockInfoDto
 {
     // The voting activity id.(proposal id/customize)
     public string VotingItemId { get; set; }
