@@ -10,6 +10,7 @@ public class VoteRecordDto
     
     // Approve/reject/abstain     
     public VoteOption Option { get; set; }
+    public string VotingItemId { get; set; }
     
     public DateTime VoteTime { get; set; }
     public DateTime StartTime { get; set; }
