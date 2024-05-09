@@ -506,13 +506,14 @@ namespace TomorrowDAO.Contracts.Election {
       {
         return new global::System.Collections.Generic.List<global::Google.Protobuf.Reflection.ServiceDescriptor>()
         {
+          global::AElf.Standards.ACS12.Acs12Reflection.Descriptor.Services[0],
           global::TomorrowDAO.Contracts.Election.ElectionContractReflection.Descriptor.Services[0],
         };
       }
     }
     #endregion
 
-    // /// <summary>Base class for the contract of ElectionContract</summary>
+    /// <summary>Base class for the contract of ElectionContract</summary>
     // public abstract partial class ElectionContractBase : AElf.Sdk.CSharp.CSharpSmartContract<TomorrowDAO.Contracts.Election.ElectionContractState>
     // {
     //   public virtual global::Google.Protobuf.WellKnownTypes.Empty Initialize(global::TomorrowDAO.Contracts.Election.InitializeInput input)

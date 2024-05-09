@@ -16,8 +16,9 @@ public class VotedProcessor : ElectionProcessorBase<Voted>
 {
     public VotedProcessor(ILogger<AElfLogEventProcessorBase<Voted, LogEventInfo>> logger, IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
-        IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository) :
-        base(logger, objectMapper, contractInfoOptions, electionRepository)
+        IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> electionRepository,
+        IElectionProvider electionProvider) :
+        base(logger, objectMapper, contractInfoOptions, electionRepository, electionProvider)
     {
     }
 
@@ -32,21 +33,23 @@ public class VotedProcessor : ElectionProcessorBase<Voted>
         {
             var electionIndex = await ElectionRepository.GetFromBlockStateSetAsync(IdGenerateHelper
                 .GetId(chainId, DAOId, candidate, CandidateTerm), chainId);
-            await SaveIndexAsync(new ElectionIndex 
+            await SaveIndexAsync(new ElectionIndex
             {
                 Address = candidate,
                 DAOId = DAOId,
                 TermNumber = CandidateTerm,
                 HighCouncilType = HighCouncilType.Candidate,
                 VotesAmount = electionIndex == null ? eventValue.Amount : electionIndex.VotesAmount + eventValue.Amount,
-                Id = IdGenerateHelper.GetId(chainId, DAOId, candidate, CandidateTerm) 
+                Id = IdGenerateHelper.GetId(chainId, DAOId, candidate, CandidateTerm)
             }, context);
 
-            Logger.LogInformation("[ElectionVoted] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, candidate); 
+            Logger.LogInformation("[ElectionVoted] FINISH: Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId,
+                chainId, candidate);
         }
         catch (Exception e)
         {
-            Logger.LogError(e, "[ElectionVoted] Exception Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId, chainId, candidate);
+            Logger.LogError(e, "[ElectionVoted] Exception Id={Id}, ChainId={ChainId}, Candidate={candidate}", DAOId,
+                chainId, candidate);
             throw;
         }
     }

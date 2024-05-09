@@ -29,7 +29,8 @@ using GovernanceSchemeThreshold = TomorrowDAO.Contracts.Governance.GovernanceSch
 
 namespace TomorrowDAO.Indexer.Plugin.Tests;
 
-public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrleansTestBase<TomorrowDAOIndexerPluginTestModule>
+public abstract class
+    TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrleansTestBase<TomorrowDAOIndexerPluginTestModule>
 {
     private readonly IAElfIndexerClientInfoProvider _indexerClientInfoProvider;
     public IBlockStateSetProvider<LogEventInfo> BlockStateSetLogEventInfoProvider;
@@ -43,7 +44,16 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> TreasuryFundRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> TreasuryRecordRepository;
     protected readonly IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> ElectionRepository;
-    protected readonly IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo> GovernanceSchemeRepository;
+
+    protected readonly IAElfIndexerClientEntityRepository<ElectionHighCouncilConfigIndex, LogEventInfo>
+        ElectionHighCouncilConfigRepository;
+
+    protected readonly IAElfIndexerClientEntityRepository<ElectionVotingItemIndex, LogEventInfo>
+        ElectionVotingItemRepository;
+
+    protected readonly IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo>
+        GovernanceSchemeRepository;
+
     protected readonly IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> ProposalIndexRepository;
     protected readonly Vote.VoteSchemeCreatedProcessor VoteSchemeCreatedProcessor;
     protected readonly Vote.VotingItemRegisteredProcessor VotingItemRegisteredProcessor;
@@ -70,6 +80,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
     protected readonly CandidateInfoUpdatedProcessor CandidateInfoUpdatedProcessor;
     protected readonly CandidateRemovedProcessor CandidateRemovedProcessor;
     protected readonly VotedProcessor VotedProcessor;
+    protected readonly ElectionVotingEventRegisteredProcessor ElectionVotingEventRegisteredProcessor;
     protected readonly GovernanceSchemeAddedProcessor GovernanceSchemeAddedProcessor;
     protected readonly GovernanceSchemeThresholdRemovedProcessor GovernanceSchemeThresholdRemovedProcessor;
     protected readonly GovernanceSchemeThresholdUpdatedProcessor GovernanceSchemeThresholdUpdatedProcessor;
@@ -137,16 +148,24 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         _blockStateSetTransactionInfoProvider = GetRequiredService<IBlockStateSetProvider<TransactionInfo>>();
         _dAppDataProvider = GetRequiredService<IDAppDataProvider>();
         _dAppDataIndexManagerProvider = GetRequiredService<IDAppDataIndexManagerProvider>();
-        VoteSchemeIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<VoteSchemeIndex, LogEventInfo>>();
+        VoteSchemeIndexRepository =
+            GetRequiredService<IAElfIndexerClientEntityRepository<VoteSchemeIndex, LogEventInfo>>();
         VoteItemIndexRepository =
             GetRequiredService<IAElfIndexerClientEntityRepository<VoteItemIndex, LogEventInfo>>();
-        VoteWithdrawnRepository=
+        VoteWithdrawnRepository =
             GetRequiredService<IAElfIndexerClientEntityRepository<VoteWithdrawnIndex, LogEventInfo>>();
         DAOIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo>>();
-        TreasuryFundRepository = GetRequiredService<IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo>>();
-        TreasuryRecordRepository = GetRequiredService<IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo>>();
+        TreasuryFundRepository =
+            GetRequiredService<IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo>>();
+        TreasuryRecordRepository =
+            GetRequiredService<IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo>>();
         ElectionRepository = GetRequiredService<IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo>>();
-        GovernanceSchemeRepository = GetRequiredService<IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo>>();
+        ElectionHighCouncilConfigRepository =
+            GetRequiredService<IAElfIndexerClientEntityRepository<ElectionHighCouncilConfigIndex, LogEventInfo>>();
+        ElectionVotingItemRepository =
+            GetRequiredService<IAElfIndexerClientEntityRepository<ElectionVotingItemIndex, LogEventInfo>>();
+        GovernanceSchemeRepository =
+            GetRequiredService<IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo>>();
         ProposalIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo>>();
         FileInfosRemovedProcessor = GetRequiredService<FileInfosRemovedProcessor>();
         FileInfosUploadedProcessor = GetRequiredService<FileInfosUploadedProcessor>();
@@ -173,6 +192,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
         CandidateInfoUpdatedProcessor = GetRequiredService<CandidateInfoUpdatedProcessor>();
         CandidateRemovedProcessor = GetRequiredService<CandidateRemovedProcessor>();
         VotedProcessor = GetRequiredService<VotedProcessor>();
+        ElectionVotingEventRegisteredProcessor = GetRequiredService<ElectionVotingEventRegisteredProcessor>();
         GovernanceSchemeAddedProcessor = GetRequiredService<GovernanceSchemeAddedProcessor>();
         GovernanceSchemeThresholdRemovedProcessor = GetRequiredService<GovernanceSchemeThresholdRemovedProcessor>();
         GovernanceSchemeThresholdUpdatedProcessor = GetRequiredService<GovernanceSchemeThresholdUpdatedProcessor>();
@@ -334,7 +354,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             RemovedFiles = GetFileInfoList()
         }.ToLogEvent();
     }
-    
+
     protected LogEvent FileInfosUploaded()
     {
         return new FileInfosUploaded
@@ -352,14 +372,14 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             {
                 [FileCid] = new FileInfo
                 {
-                    File = new File{ Cid = FileCid, Name = FileName, Url = FileUrl},
+                    File = new File { Cid = FileCid, Name = FileName, Url = FileUrl },
                     UploadTime = new Timestamp(),
                     Uploader = Address.FromBase58(DAOCreator)
                 }
             }
         };
     }
-    
+
     protected LogEvent TreasuryCreated()
     {
         return new TreasuryCreated
@@ -372,7 +392,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             }
         }.ToLogEvent();
     }
-    
+
     protected LogEvent DonationReceived()
     {
         return new DonationReceived
@@ -384,7 +404,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             Donor = Address.FromBase58(DAOCreator)
         }.ToLogEvent();
     }
-    
+
     protected LogEvent TreasuryTokenLocked()
     {
         return new TreasuryTokenLocked
@@ -400,7 +420,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             Proposer = Address.FromBase58(DAOCreator)
         }.ToLogEvent();
     }
-    
+
     protected LogEvent EmergencyTransferred()
     {
         return new EmergencyTransferred
@@ -412,7 +432,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             Symbol = Elf
         }.ToLogEvent();
     }
-    
+
     protected LogEvent Paused()
     {
         return new Paused
@@ -421,7 +441,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             Account = Address.FromBase58(DAOCreator)
         }.ToLogEvent();
     }
-    
+
     protected LogEvent SupportedStakingTokensAdded()
     {
         return new SupportedStakingTokensAdded
@@ -433,7 +453,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             }
         }.ToLogEvent();
     }
-    
+
     protected LogEvent SupportedStakingTokensRemoved()
     {
         return new SupportedStakingTokensRemoved
@@ -445,7 +465,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             }
         }.ToLogEvent();
     }
-    
+
     protected LogEvent TokenStaked()
     {
         return new TokenStaked
@@ -457,7 +477,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             Symbol = Elf
         }.ToLogEvent();
     }
-    
+
     protected LogEvent TreasuryTokenUnlocked()
     {
         return new TreasuryTokenUnlocked
@@ -473,7 +493,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             Executor = Address.FromBase58(DAOCreator)
         }.ToLogEvent();
     }
-    
+
     protected LogEvent TreasuryTransferReleased()
     {
         return new TreasuryTransferReleased
@@ -485,7 +505,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             Symbol = Elf
         }.ToLogEvent();
     }
-    
+
     protected LogEvent Unpaused()
     {
         return new Unpaused
@@ -494,7 +514,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             Account = Address.FromBase58(DAOCreator)
         }.ToLogEvent();
     }
-    
+
     protected LogEvent CandidateAdded()
     {
         return new CandidateAdded
@@ -503,7 +523,39 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             Candidate = Address.FromBase58(DAOCreator)
         }.ToLogEvent();
     }
-    
+
+    protected LogEvent ElectionVotingEventRegistered()
+    {
+        return new ElectionVotingEventRegistered
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Config = new Contracts.Election.HighCouncilConfig
+            {
+                MaxHighCouncilMemberCount = 100,
+                MaxHighCouncilCandidateCount = 200,
+                ElectionPeriod = 100,
+                IsRequireHighCouncilForExecution = false,
+                GovernanceToken = "ELF",
+                StakeThreshold = 10000
+            },
+            VotingItem = new Contracts.Election.VotingItem
+            {
+                VotingItemId = HashHelper.ComputeFrom(Id1),
+                AcceptedCurrency = "ELF",
+                IsLockToken = true,
+                CurrentSnapshotNumber = 1,
+                TotalSnapshotNumber = long.MaxValue,
+                RegisterTimestamp = new Timestamp(),
+                StartTimestamp = new Timestamp(),
+                EndTimestamp = new Timestamp(),
+                CurrentSnapshotStartTimestamp = new Timestamp(),
+                Sponsor = Address.FromBase58(DAOCreator),
+                IsQuadratic = false,
+                TicketCost = 0
+            }
+        }.ToLogEvent();
+    }
+
     protected LogEvent CandidateAddressReplaced()
     {
         return new CandidateAddressReplaced
@@ -513,7 +565,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             OldAddress = Address.FromBase58(Creator)
         }.ToLogEvent();
     }
-    
+
     protected LogEvent CandidateInfoUpdated()
     {
         return new CandidateInfoUpdated
@@ -523,7 +575,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             IsEvilNode = true
         }.ToLogEvent();
     }
-    
+
     protected LogEvent CandidateRemoved()
     {
         return new CandidateRemoved
@@ -532,7 +584,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             Candidate = Address.FromBase58(DAOCreator)
         }.ToLogEvent();
     }
-    
+
     protected LogEvent Voted()
     {
         return new Voted
@@ -542,7 +594,7 @@ public abstract class TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrlea
             Amount = 100
         }.ToLogEvent();
     }
-    
+
     protected LogEvent VoteSchemeCreated_UniqueVote()
     {
         return new ContractsVote.VoteSchemeCreated

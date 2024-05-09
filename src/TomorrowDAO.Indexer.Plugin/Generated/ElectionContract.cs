@@ -187,7 +187,7 @@ namespace TomorrowDAO.Contracts.Election {
             "ASgLMg0uYWVsZi5BZGRyZXNzOgSguxgBIl0KD0V2aWxOb2RlUmVtb3ZlZBIa",
             "CgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSKAoRZXZpbF9ub2RlX2FkZHJl",
             "c3MYAiABKAsyDS5hZWxmLkFkZHJlc3M6BKC7GAEiMwoPRWxlY3Rpb25FbmFi",
-            "bGVkEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaDoEoLsYATKbEAoQRWxl",
+            "bGVkEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaDoEoLsYATK5EAoQRWxl",
             "Y3Rpb25Db250cmFjdBI4CgpJbml0aWFsaXplEhAuSW5pdGlhbGl6ZUlucHV0",
             "GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASTAoUU2V0SGlnaENvdW5jaWxD",
             "b25maWcSGi5TZXRIaWdoQ291bmNpbENvbmZpZ0lucHV0GhYuZ29vZ2xlLnBy",
@@ -232,9 +232,10 @@ namespace TomorrowDAO.Contracts.Election {
             "Ei5TZXRFbWVyZ2VuY3lJbnB1dBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIA",
             "EkUKGEdldERhdGFDZW50ZXJSYW5raW5nTGlzdBIKLmFlbGYuSGFzaBoWLkRh",
             "dGFDZW50ZXJSYW5raW5nTGlzdCIFiIn3AQESMAoMR2V0RW1lcmdlbmN5Egou",
-            "YWVsZi5IYXNoGg0uYWVsZi5BZGRyZXNzIgWIifcBARo5ssz2ATRUb21vcnJv",
+            "YWVsZi5IYXNoGg0uYWVsZi5BZGRyZXNzIgWIifcBARpXssz2ATRUb21vcnJv",
             "d0RBTy5Db250cmFjdHMuRWxlY3Rpb24uRWxlY3Rpb25Db250cmFjdFN0YXRl",
-            "QiGqAh5Ub21vcnJvd0RBTy5Db250cmFjdHMuRWxlY3Rpb25iBnByb3RvMw=="));
+            "ysr2ARlQcm90b2J1Zi9iYXNlL2FjczEyLnByb3RvQiGqAh5Ub21vcnJvd0RB",
+            "Ty5Db250cmFjdHMuRWxlY3Rpb25iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::AElf.Types.CoreReflection.Descriptor, global::AElf.OptionsReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::AElf.Standards.ACS12.Acs12Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
