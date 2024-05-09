@@ -83,6 +83,7 @@ public class VotedProcessor : VoteProcessorBase<Voted>
         }
 
         voteItemIndex.VotesAmount += amount;
+        voteItemIndex.VoterCount += 1;
         var voterSet = voteItemIndex.VoterSet;
         if (voterSet == null)
         {

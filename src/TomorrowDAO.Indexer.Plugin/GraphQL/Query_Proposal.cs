@@ -42,44 +42,24 @@ public partial class Query
     }
 
     [Name("getVoteInfosMemory")]
-    public static async Task<List<VoteInfoDto>> GetVoteInfoMemoryAsync(
+    public static async Task<List<VoteItemIndexDto>> GetVoteInfoMemoryAsync(
         [FromServices] IAElfIndexerClientEntityRepository<VoteItemIndex, LogEventInfo> repository,
         [FromServices] IObjectMapper objectMapper,
         GetVoteInfoInput input)
     {
         if (input.VotingItemIds.IsNullOrEmpty())
         {
-            return new List<VoteInfoDto>();
+            return new List<VoteItemIndexDto>();
         }
     
         var tasks = input.VotingItemIds
             .Select(votingItemId => repository.GetFromBlockStateSetAsync(votingItemId, input.ChainId)).ToList();
     
         var results = await Task.WhenAll(tasks);
-        return results.Where(index => index != null).Select(objectMapper.Map<VoteItemIndex, VoteInfoDto>)
+        return results.Where(index => index != null).Select(objectMapper.Map<VoteItemIndex, VoteItemIndexDto>)
             .ToList();
     }
-    
-    [Name("getVoteInfos")]
-    public static async Task<List<VoteInfoDto>> GetVoteInfosAsync(
-        [FromServices] IAElfIndexerClientEntityRepository<VoteItemIndex, LogEventInfo> repository,
-        [FromServices] IObjectMapper objectMapper,
-        GetVoteInfoInput input)
-    {
-        var mustQuery = new List<Func<QueryContainerDescriptor<VoteItemIndex>, QueryContainer>>();
-        mustQuery.Add(q => q.Term(i
-            => i.Field(f => f.ChainId).Value(input.ChainId)));
-    
-        mustQuery.Add(q => q.Terms(i
-            => i.Field(f => f.VotingItemId).Terms(input.VotingItemIds)));
-    
-        QueryContainer Filter(QueryContainerDescriptor<VoteItemIndex> f) =>
-            f.Bool(b => b.Must(mustQuery));
-    
-        var result = await repository.GetListAsync(Filter);
-        return objectMapper.Map<List<VoteItemIndex>, List<VoteInfoDto>>(result.Item2);
-    }
-    
+
     [Name("getVoteRecord")]
     public static async Task<List<VoteRecordDto>> GetVoteRecordAsync(
         [FromServices] IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo> repository,

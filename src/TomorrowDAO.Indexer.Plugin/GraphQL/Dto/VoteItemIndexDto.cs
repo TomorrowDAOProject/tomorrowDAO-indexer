@@ -1,6 +1,6 @@
 namespace TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 
-public class VoteInfoDto
+public class VoteItemIndexDto
 {
     // The voting activity id.(proposal id/customize)
     public string VotingItemId { get; set; }
@@ -20,6 +20,13 @@ public class VoteInfoDto
     public int AbstentionCount { get; set; }
 
     public int VotesAmount { get; set; }
-    
     public int VoterCount { get; set; }
+    
+    public DateTime RegisterTime { get; set; }
+
+    public DateTime StartTime { get; set; }
+
+    public DateTime EndTime { get; set; }
+    
+    public DateTime CreateTime { get; set; }
 }
