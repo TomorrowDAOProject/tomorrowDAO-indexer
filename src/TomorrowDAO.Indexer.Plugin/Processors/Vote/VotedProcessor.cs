@@ -39,7 +39,7 @@ public class VotedProcessor : VoteProcessorBase<Voted>
             voteRecordIndex.Id = voteId;
             await VoteProvider.SaveVoteRecordIndexAsync(voteRecordIndex, context);
             
-            await UpdateVoteItemIndexAsync(chainId, voteRecordIndex);
+            await UpdateVoteItemIndexAsync(chainId, voteRecordIndex, context);
             
             Logger.LogInformation("[Voted] FINISH: Id={Id}, ChainId={ChainId}", voteId, chainId);
         }
@@ -50,7 +50,7 @@ public class VotedProcessor : VoteProcessorBase<Voted>
         }
     }
 
-    private async Task UpdateVoteItemIndexAsync(string chainId, VoteRecordIndex voteRecordIndex)
+    private async Task UpdateVoteItemIndexAsync(string chainId, VoteRecordIndex voteRecordIndex, LogEventContext context)
     {
         Logger.LogInformation("[Voted] update VoteItemIndex: Id={Id}", voteRecordIndex.VotingItemId);
         var voteItemIndex = await VoteProvider.GetVoteItemAsync(chainId, voteRecordIndex.VotingItemId);
@@ -91,5 +91,7 @@ public class VotedProcessor : VoteProcessorBase<Voted>
         }
 
         voterSet.Add(voteRecordIndex.VoteId);
+
+        await VoteProvider.SaveVoteItemIndexAsync(voteItemIndex, context);
     }
 }
