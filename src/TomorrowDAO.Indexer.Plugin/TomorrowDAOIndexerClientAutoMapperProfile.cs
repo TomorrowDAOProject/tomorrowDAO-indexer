@@ -152,7 +152,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<VoteItemIndex, VoteInfoDto>()
             .ForMember(des => des.VoterCount, opt
                 => opt.MapFrom(source => source.VoterSet.Count));
-        CreateMap<VoteRecordIndex, VoteRecordDto>();
+        CreateMap<VoteRecordIndex, VoteRecordDto>()
+            .ForMember(des => des.VoteTime, opt
+                => opt.MapFrom(source => source.VoteTimestamp))
+            ;
         CreateMap<MetadataContract, MetadataIndexer>();
         CreateMap<DAOIndex, DAOInfoDto>();
         CreateMap<MetadataIndexer, MetadataDto>();
