@@ -43,7 +43,7 @@ namespace TomorrowDAO.Contracts.Governance {
             "IisKC0FkZHJlc3NMaXN0EhwKBXZhbHVlGAEgAygLMg0uYWVsZi5BZGRyZXNz",
             "ImcKH0dvdmVybmFuY2VTY2hlbWVIYXNoQWRkcmVzc1BhaXISHQoJc2NoZW1l",
             "X2lkGAEgASgLMgouYWVsZi5IYXNoEiUKDnNjaGVtZV9hZGRyZXNzGAIgASgL",
-            "Mg0uYWVsZi5BZGRyZXNzIu8CCgxQcm9wb3NhbEluZm8SHwoLcHJvcG9zYWxf",
+            "Mg0uYWVsZi5BZGRyZXNzIoIDCgxQcm9wb3NhbEluZm8SHwoLcHJvcG9zYWxf",
             "aWQYASABKAsyCi5hZWxmLkhhc2gSLwoTcHJvcG9zYWxfYmFzaWNfaW5mbxgC",
             "IAEoCzISLlByb3Bvc2FsQmFzaWNJbmZvEiQKDXByb3Bvc2FsX3R5cGUYAyAB",
             "KA4yDS5Qcm9wb3NhbFR5cGUSJAoNcHJvcG9zYWxfdGltZRgEIAEoCzINLlBy",
@@ -51,150 +51,151 @@ namespace TomorrowDAO.Contracts.Governance {
             "bFN0YXR1cxImCg5wcm9wb3NhbF9zdGFnZRgGIAEoDjIOLlByb3Bvc2FsU3Rh",
             "Z2USHwoIcHJvcG9zZXIYByABKAsyDS5hZWxmLkFkZHJlc3MSKAoLdHJhbnNh",
             "Y3Rpb24YCCABKAsyEy5FeGVjdXRlVHJhbnNhY3Rpb24SJAoQdmV0b19wcm9w",
-            "b3NhbF9pZBgJIAEoCzIKLmFlbGYuSGFzaCLDAQoRUHJvcG9zYWxCYXNpY0lu",
-            "Zm8SGgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEhYKDnByb3Bvc2FsX3Rp",
-            "dGxlGAIgASgJEhwKFHByb3Bvc2FsX2Rlc2NyaXB0aW9uGAMgASgJEhEKCWZv",
-            "cnVtX3VybBgEIAEoCRIlCg5zY2hlbWVfYWRkcmVzcxgFIAEoCzINLmFlbGYu",
-            "QWRkcmVzcxIiCg52b3RlX3NjaGVtZV9pZBgGIAEoCzIKLmFlbGYuSGFzaCLo",
-            "AQoMUHJvcG9zYWxUaW1lEjUKEWFjdGl2ZV9zdGFydF90aW1lGAEgASgLMhou",
-            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIzCg9hY3RpdmVfZW5kX3RpbWUY",
-            "AiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjYKEmV4ZWN1dGVf",
-            "c3RhcnRfdGltZRgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAS",
-            "NAoQZXhlY3V0ZV9lbmRfdGltZRgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5U",
-            "aW1lc3RhbXAiZQoSRXhlY3V0ZVRyYW5zYWN0aW9uEhwKFGNvbnRyYWN0X21l",
-            "dGhvZF9uYW1lGAEgASgJEiEKCnRvX2FkZHJlc3MYAiABKAsyDS5hZWxmLkFk",
-            "ZHJlc3MSDgoGcGFyYW1zGAMgASgMIrABChVEYW9Qcm9wb3NhbFRpbWVQZXJp",
-            "b2QSGgoSYWN0aXZlX3RpbWVfcGVyaW9kGAEgASgDEh8KF3ZldG9fYWN0aXZl",
-            "X3RpbWVfcGVyaW9kGAIgASgDEhsKE3BlbmRpbmdfdGltZV9wZXJpb2QYAyAB",
-            "KAMSGwoTZXhlY3V0ZV90aW1lX3BlcmlvZBgEIAEoAxIgChh2ZXRvX2V4ZWN1",
-            "dGVfdGltZV9wZXJpb2QYBSABKAMiPgoPSW5pdGlhbGl6ZUlucHV0EisKFGRh",
-            "b19jb250cmFjdF9hZGRyZXNzGAEgASgLMg0uYWVsZi5BZGRyZXNzIroBChhB",
-            "ZGRHb3Zlcm5hbmNlU2NoZW1lSW5wdXQSGgoGZGFvX2lkGAEgASgLMgouYWVs",
-            "Zi5IYXNoEjIKFGdvdmVybmFuY2VfbWVjaGFuaXNtGAIgASgOMhQuR292ZXJu",
-            "YW5jZU1lY2hhbmlzbRI0ChBzY2hlbWVfdGhyZXNob2xkGAMgASgLMhouR292",
-            "ZXJuYW5jZVNjaGVtZVRocmVzaG9sZBIYChBnb3Zlcm5hbmNlX3Rva2VuGAQg",
-            "ASgJIp8BCiRVcGRhdGVHb3Zlcm5hbmNlU2NoZW1lVGhyZXNob2xkSW5wdXQS",
+            "b3NhbF9pZBgJIAEoCzIKLmFlbGYuSGFzaBIRCglmb3J1bV91cmwYCiABKAki",
+            "wwEKEVByb3Bvc2FsQmFzaWNJbmZvEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYu",
+            "SGFzaBIWCg5wcm9wb3NhbF90aXRsZRgCIAEoCRIcChRwcm9wb3NhbF9kZXNj",
+            "cmlwdGlvbhgDIAEoCRIRCglmb3J1bV91cmwYBCABKAkSJQoOc2NoZW1lX2Fk",
+            "ZHJlc3MYBSABKAsyDS5hZWxmLkFkZHJlc3MSIgoOdm90ZV9zY2hlbWVfaWQY",
+            "BiABKAsyCi5hZWxmLkhhc2gi6AEKDFByb3Bvc2FsVGltZRI1ChFhY3RpdmVf",
+            "c3RhcnRfdGltZRgBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAS",
+            "MwoPYWN0aXZlX2VuZF90aW1lGAIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRp",
+            "bWVzdGFtcBI2ChJleGVjdXRlX3N0YXJ0X3RpbWUYAyABKAsyGi5nb29nbGUu",
+            "cHJvdG9idWYuVGltZXN0YW1wEjQKEGV4ZWN1dGVfZW5kX3RpbWUYBCABKAsy",
+            "Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wImUKEkV4ZWN1dGVUcmFuc2Fj",
+            "dGlvbhIcChRjb250cmFjdF9tZXRob2RfbmFtZRgBIAEoCRIhCgp0b19hZGRy",
+            "ZXNzGAIgASgLMg0uYWVsZi5BZGRyZXNzEg4KBnBhcmFtcxgDIAEoDCKwAQoV",
+            "RGFvUHJvcG9zYWxUaW1lUGVyaW9kEhoKEmFjdGl2ZV90aW1lX3BlcmlvZBgB",
+            "IAEoAxIfChd2ZXRvX2FjdGl2ZV90aW1lX3BlcmlvZBgCIAEoAxIbChNwZW5k",
+            "aW5nX3RpbWVfcGVyaW9kGAMgASgDEhsKE2V4ZWN1dGVfdGltZV9wZXJpb2QY",
+            "BCABKAMSIAoYdmV0b19leGVjdXRlX3RpbWVfcGVyaW9kGAUgASgDImwKD0lu",
+            "aXRpYWxpemVJbnB1dBIrChRkYW9fY29udHJhY3RfYWRkcmVzcxgBIAEoCzIN",
+            "LmFlbGYuQWRkcmVzcxIsChV2b3RlX2NvbnRyYWN0X2FkZHJlc3MYAiABKAsy",
+            "DS5hZWxmLkFkZHJlc3MiugEKGEFkZEdvdmVybmFuY2VTY2hlbWVJbnB1dBIa",
+            "CgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSMgoUZ292ZXJuYW5jZV9tZWNo",
+            "YW5pc20YAiABKA4yFC5Hb3Zlcm5hbmNlTWVjaGFuaXNtEjQKEHNjaGVtZV90",
+            "aHJlc2hvbGQYAyABKAsyGi5Hb3Zlcm5hbmNlU2NoZW1lVGhyZXNob2xkEhgK",
+            "EGdvdmVybmFuY2VfdG9rZW4YBCABKAkinwEKJFVwZGF0ZUdvdmVybmFuY2VT",
+            "Y2hlbWVUaHJlc2hvbGRJbnB1dBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhh",
+            "c2gSJQoOc2NoZW1lX2FkZHJlc3MYAiABKAsyDS5hZWxmLkFkZHJlc3MSNAoQ",
+            "c2NoZW1lX3RocmVzaG9sZBgDIAEoCzIaLkdvdmVybmFuY2VTY2hlbWVUaHJl",
+            "c2hvbGQiYAobUmVtb3ZlR292ZXJuYW5jZVNjaGVtZUlucHV0EhoKBmRhb19p",
+            "ZBgBIAEoCzIKLmFlbGYuSGFzaBIlCg5zY2hlbWVfYWRkcmVzcxgCIAEoCzIN",
+            "LmFlbGYuQWRkcmVzcyJPChdTZXRHb3Zlcm5hbmNlVG9rZW5JbnB1dBIaCgZk",
+            "YW9faWQYASABKAsyCi5hZWxmLkhhc2gSGAoQZ292ZXJuYW5jZV90b2tlbhgC",
+            "IAEoCSKWAQoTQ3JlYXRlUHJvcG9zYWxJbnB1dBIvChNwcm9wb3NhbF9iYXNp",
+            "Y19pbmZvGAEgASgLMhIuUHJvcG9zYWxCYXNpY0luZm8SJAoNcHJvcG9zYWxf",
+            "dHlwZRgCIAEoDjINLlByb3Bvc2FsVHlwZRIoCgt0cmFuc2FjdGlvbhgDIAEo",
+            "CzITLkV4ZWN1dGVUcmFuc2FjdGlvbiJwChdDcmVhdGVWZXRvUHJvcG9zYWxJ",
+            "bnB1dBIvChNwcm9wb3NhbF9iYXNpY19pbmZvGAEgASgLMhIuUHJvcG9zYWxC",
+            "YXNpY0luZm8SJAoQdmV0b19wcm9wb3NhbF9pZBgCIAEoCzIKLmFlbGYuSGFz",
+            "aCJuChpTZXRQcm9wb3NhbFRpbWVQZXJpb2RJbnB1dBIaCgZkYW9faWQYASAB",
+            "KAsyCi5hZWxmLkhhc2gSNAoUcHJvcG9zYWxfdGltZV9wZXJpb2QYAiABKAsy",
+            "Fi5EYW9Qcm9wb3NhbFRpbWVQZXJpb2QinQYKElByb3Bvc2FsSW5mb091dHB1",
+            "dBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSHwoLcHJvcG9zYWxfaWQY",
+            "AiABKAsyCi5hZWxmLkhhc2gSFgoOcHJvcG9zYWxfdGl0bGUYAyABKAkSHAoU",
+            "cHJvcG9zYWxfZGVzY3JpcHRpb24YBCABKAkSEQoJZm9ydW1fdXJsGAUgASgJ",
+            "EiQKDXByb3Bvc2FsX3R5cGUYBiABKA4yDS5Qcm9wb3NhbFR5cGUSNQoRYWN0",
+            "aXZlX3N0YXJ0X3RpbWUYByABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0",
+            "YW1wEjMKD2FjdGl2ZV9lbmRfdGltZRgIIAEoCzIaLmdvb2dsZS5wcm90b2J1",
+            "Zi5UaW1lc3RhbXASNgoSZXhlY3V0ZV9zdGFydF90aW1lGAkgASgLMhouZ29v",
+            "Z2xlLnByb3RvYnVmLlRpbWVzdGFtcBI0ChBleGVjdXRlX2VuZF90aW1lGAog",
+            "ASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIoCg9wcm9wb3NhbF9z",
+            "dGF0dXMYCyABKA4yDy5Qcm9wb3NhbFN0YXR1cxImCg5wcm9wb3NhbF9zdGFn",
+            "ZRgMIAEoDjIOLlByb3Bvc2FsU3RhZ2USHwoIcHJvcG9zZXIYDSABKAsyDS5h",
+            "ZWxmLkFkZHJlc3MSJQoOc2NoZW1lX2FkZHJlc3MYDiABKAsyDS5hZWxmLkFk",
+            "ZHJlc3MSKAoLdHJhbnNhY3Rpb24YDyABKAsyEy5FeGVjdXRlVHJhbnNhY3Rp",
+            "b24SIgoOdm90ZV9zY2hlbWVfaWQYECABKAsyCi5hZWxmLkhhc2gSJAoQdmV0",
+            "b19wcm9wb3NhbF9pZBgRIAEoCzIKLmFlbGYuSGFzaBIUCgx2b3RlcnNfY291",
+            "bnQYEiABKAMSEgoKdm90ZV9jb3VudBgTIAEoAxIWCg5hcHByb3ZhbF9jb3Vu",
+            "dBgUIAEoAxIXCg9yZWplY3Rpb25fY291bnQYFSABKAMSGAoQYWJzdGVudGlv",
+            "bl9jb3VudBgWIAEoAyJoChRQcm9wb3NhbFN0YXR1c091dHB1dBIoCg9wcm9w",
+            "b3NhbF9zdGF0dXMYASABKA4yDy5Qcm9wb3NhbFN0YXR1cxImCg5wcm9wb3Nh",
+            "bF9zdGFnZRgCIAEoDjIOLlByb3Bvc2FsU3RhZ2UidwolQ2FsY3VsYXRlR292",
+            "ZXJuYW5jZVNjaGVtZUFkZHJlc3NJbnB1dBIaCgZkYW9faWQYASABKAsyCi5h",
+            "ZWxmLkhhc2gSMgoUZ292ZXJuYW5jZV9tZWNoYW5pc20YAiABKA4yFC5Hb3Zl",
+            "cm5hbmNlTWVjaGFuaXNtIoMCChVHb3Zlcm5hbmNlU2NoZW1lQWRkZWQSGgoG",
+            "ZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEh0KCXNjaGVtZV9pZBgCIAEoCzIK",
+            "LmFlbGYuSGFzaBIlCg5zY2hlbWVfYWRkcmVzcxgDIAEoCzINLmFlbGYuQWRk",
+            "cmVzcxIyChRnb3Zlcm5hbmNlX21lY2hhbmlzbRgEIAEoDjIULkdvdmVybmFu",
+            "Y2VNZWNoYW5pc20SNAoQc2NoZW1lX3RocmVzaG9sZBgFIAEoCzIaLkdvdmVy",
+            "bmFuY2VTY2hlbWVUaHJlc2hvbGQSGAoQZ292ZXJuYW5jZV90b2tlbhgGIAEo",
+            "CToEoLsYASKoAQogR292ZXJuYW5jZVNjaGVtZVRocmVzaG9sZFVwZGF0ZWQS",
             "GgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEiUKDnNjaGVtZV9hZGRyZXNz",
-            "GAIgASgLMg0uYWVsZi5BZGRyZXNzEjQKEHNjaGVtZV90aHJlc2hvbGQYAyAB",
-            "KAsyGi5Hb3Zlcm5hbmNlU2NoZW1lVGhyZXNob2xkImAKG1JlbW92ZUdvdmVy",
-            "bmFuY2VTY2hlbWVJbnB1dBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gS",
-            "JQoOc2NoZW1lX2FkZHJlc3MYAiABKAsyDS5hZWxmLkFkZHJlc3MiTwoXU2V0",
-            "R292ZXJuYW5jZVRva2VuSW5wdXQSGgoGZGFvX2lkGAEgASgLMgouYWVsZi5I",
-            "YXNoEhgKEGdvdmVybmFuY2VfdG9rZW4YAiABKAkilgEKE0NyZWF0ZVByb3Bv",
-            "c2FsSW5wdXQSLwoTcHJvcG9zYWxfYmFzaWNfaW5mbxgBIAEoCzISLlByb3Bv",
-            "c2FsQmFzaWNJbmZvEiQKDXByb3Bvc2FsX3R5cGUYAiABKA4yDS5Qcm9wb3Nh",
-            "bFR5cGUSKAoLdHJhbnNhY3Rpb24YAyABKAsyEy5FeGVjdXRlVHJhbnNhY3Rp",
-            "b24icAoXQ3JlYXRlVmV0b1Byb3Bvc2FsSW5wdXQSLwoTcHJvcG9zYWxfYmFz",
-            "aWNfaW5mbxgBIAEoCzISLlByb3Bvc2FsQmFzaWNJbmZvEiQKEHZldG9fcHJv",
-            "cG9zYWxfaWQYAiABKAsyCi5hZWxmLkhhc2gibgoaU2V0UHJvcG9zYWxUaW1l",
-            "UGVyaW9kSW5wdXQSGgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEjQKFHBy",
-            "b3Bvc2FsX3RpbWVfcGVyaW9kGAIgASgLMhYuRGFvUHJvcG9zYWxUaW1lUGVy",
-            "aW9kIp0GChJQcm9wb3NhbEluZm9PdXRwdXQSGgoGZGFvX2lkGAEgASgLMgou",
-            "YWVsZi5IYXNoEh8KC3Byb3Bvc2FsX2lkGAIgASgLMgouYWVsZi5IYXNoEhYK",
-            "DnByb3Bvc2FsX3RpdGxlGAMgASgJEhwKFHByb3Bvc2FsX2Rlc2NyaXB0aW9u",
-            "GAQgASgJEhEKCWZvcnVtX3VybBgFIAEoCRIkCg1wcm9wb3NhbF90eXBlGAYg",
-            "ASgOMg0uUHJvcG9zYWxUeXBlEjUKEWFjdGl2ZV9zdGFydF90aW1lGAcgASgL",
-            "MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIzCg9hY3RpdmVfZW5kX3Rp",
-            "bWUYCCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjYKEmV4ZWN1",
-            "dGVfc3RhcnRfdGltZRgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3Rh",
-            "bXASNAoQZXhlY3V0ZV9lbmRfdGltZRgKIAEoCzIaLmdvb2dsZS5wcm90b2J1",
-            "Zi5UaW1lc3RhbXASKAoPcHJvcG9zYWxfc3RhdHVzGAsgASgOMg8uUHJvcG9z",
-            "YWxTdGF0dXMSJgoOcHJvcG9zYWxfc3RhZ2UYDCABKA4yDi5Qcm9wb3NhbFN0",
-            "YWdlEh8KCHByb3Bvc2VyGA0gASgLMg0uYWVsZi5BZGRyZXNzEiUKDnNjaGVt",
-            "ZV9hZGRyZXNzGA4gASgLMg0uYWVsZi5BZGRyZXNzEigKC3RyYW5zYWN0aW9u",
-            "GA8gASgLMhMuRXhlY3V0ZVRyYW5zYWN0aW9uEiIKDnZvdGVfc2NoZW1lX2lk",
-            "GBAgASgLMgouYWVsZi5IYXNoEiQKEHZldG9fcHJvcG9zYWxfaWQYESABKAsy",
-            "Ci5hZWxmLkhhc2gSFAoMdm90ZXJzX2NvdW50GBIgASgDEhIKCnZvdGVfY291",
-            "bnQYEyABKAMSFgoOYXBwcm92YWxfY291bnQYFCABKAMSFwoPcmVqZWN0aW9u",
-            "X2NvdW50GBUgASgDEhgKEGFic3RlbnRpb25fY291bnQYFiABKAMiaAoUUHJv",
-            "cG9zYWxTdGF0dXNPdXRwdXQSKAoPcHJvcG9zYWxfc3RhdHVzGAEgASgOMg8u",
-            "UHJvcG9zYWxTdGF0dXMSJgoOcHJvcG9zYWxfc3RhZ2UYAiABKA4yDi5Qcm9w",
-            "b3NhbFN0YWdlIncKJUNhbGN1bGF0ZUdvdmVybmFuY2VTY2hlbWVBZGRyZXNz",
-            "SW5wdXQSGgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEjIKFGdvdmVybmFu",
-            "Y2VfbWVjaGFuaXNtGAIgASgOMhQuR292ZXJuYW5jZU1lY2hhbmlzbSKDAgoV",
-            "R292ZXJuYW5jZVNjaGVtZUFkZGVkEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYu",
-            "SGFzaBIdCglzY2hlbWVfaWQYAiABKAsyCi5hZWxmLkhhc2gSJQoOc2NoZW1l",
-            "X2FkZHJlc3MYAyABKAsyDS5hZWxmLkFkZHJlc3MSMgoUZ292ZXJuYW5jZV9t",
-            "ZWNoYW5pc20YBCABKA4yFC5Hb3Zlcm5hbmNlTWVjaGFuaXNtEjQKEHNjaGVt",
-            "ZV90aHJlc2hvbGQYBSABKAsyGi5Hb3Zlcm5hbmNlU2NoZW1lVGhyZXNob2xk",
-            "EhgKEGdvdmVybmFuY2VfdG9rZW4YBiABKAk6BKC7GAEiqAEKIEdvdmVybmFu",
-            "Y2VTY2hlbWVUaHJlc2hvbGRVcGRhdGVkEhoKBmRhb19pZBgBIAEoCzIKLmFl",
-            "bGYuSGFzaBIlCg5zY2hlbWVfYWRkcmVzcxgCIAEoCzINLmFlbGYuQWRkcmVz",
-            "cxI7Chd1cGRhdGVfc2NoZW1lX3RocmVzaG9sZBgDIAEoCzIaLkdvdmVybmFu",
-            "Y2VTY2hlbWVUaHJlc2hvbGQ6BKC7GAEiawogR292ZXJuYW5jZVNjaGVtZVRo",
-            "cmVzaG9sZFJlbW92ZWQSGgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEiUK",
-            "DnNjaGVtZV9hZGRyZXNzGAIgASgLMg0uYWVsZi5BZGRyZXNzOgSguxgBIlAK",
-            "EkdvdmVybmFuY2VUb2tlblNldBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhh",
-            "c2gSGAoQZ292ZXJuYW5jZV90b2tlbhgCIAEoCToEoLsYASKrBQoPUHJvcG9z",
-            "YWxDcmVhdGVkEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIfCgtwcm9w",
-            "b3NhbF9pZBgCIAEoCzIKLmFlbGYuSGFzaBIWCg5wcm9wb3NhbF90aXRsZRgD",
-            "IAEoCRIcChRwcm9wb3NhbF9kZXNjcmlwdGlvbhgEIAEoCRIRCglmb3J1bV91",
-            "cmwYBSABKAkSJAoNcHJvcG9zYWxfdHlwZRgGIAEoDjINLlByb3Bvc2FsVHlw",
-            "ZRI1ChFhY3RpdmVfc3RhcnRfdGltZRgHIAEoCzIaLmdvb2dsZS5wcm90b2J1",
-            "Zi5UaW1lc3RhbXASMwoPYWN0aXZlX2VuZF90aW1lGAggASgLMhouZ29vZ2xl",
-            "LnByb3RvYnVmLlRpbWVzdGFtcBI2ChJleGVjdXRlX3N0YXJ0X3RpbWUYCSAB",
-            "KAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjQKEGV4ZWN1dGVfZW5k",
-            "X3RpbWUYCiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEigKD3By",
-            "b3Bvc2FsX3N0YXR1cxgLIAEoDjIPLlByb3Bvc2FsU3RhdHVzEiYKDnByb3Bv",
-            "c2FsX3N0YWdlGAwgASgOMg4uUHJvcG9zYWxTdGFnZRIfCghwcm9wb3NlchgN",
-            "IAEoCzINLmFlbGYuQWRkcmVzcxIlCg5zY2hlbWVfYWRkcmVzcxgOIAEoCzIN",
-            "LmFlbGYuQWRkcmVzcxIoCgt0cmFuc2FjdGlvbhgPIAEoCzITLkV4ZWN1dGVU",
-            "cmFuc2FjdGlvbhIiCg52b3RlX3NjaGVtZV9pZBgQIAEoCzIKLmFlbGYuSGFz",
-            "aBIkChB2ZXRvX3Byb3Bvc2FsX2lkGBEgASgLMgouYWVsZi5IYXNoOgSguxgB",
-            "IqgBCg5Qcm9wb3NhbFZldG9lZBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhh",
-            "c2gSHwoLcHJvcG9zYWxfaWQYAiABKAsyCi5hZWxmLkhhc2gSJAoQdmV0b19w",
-            "cm9wb3NhbF9pZBgDIAEoCzIKLmFlbGYuSGFzaBItCgl2ZXRvX3RpbWUYBCAB",
-            "KAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wOgSguxgBIocBChBQcm9w",
-            "b3NhbEV4ZWN1dGVkEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIfCgtw",
-            "cm9wb3NhbF9pZBgCIAEoCzIKLmFlbGYuSGFzaBIwCgxleGVjdXRlX3RpbWUY",
-            "AyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wOgSguxgBItUBChhE",
-            "YW9Qcm9wb3NhbFRpbWVQZXJpb2RTZXQSGgoGZGFvX2lkGAEgASgLMgouYWVs",
-            "Zi5IYXNoEhoKEmFjdGl2ZV90aW1lX3BlcmlvZBgCIAEoAxIfChd2ZXRvX2Fj",
-            "dGl2ZV90aW1lX3BlcmlvZBgDIAEoAxIbChNwZW5kaW5nX3RpbWVfcGVyaW9k",
-            "GAQgASgDEhsKE2V4ZWN1dGVfdGltZV9wZXJpb2QYBSABKAMSIAoYdmV0b19l",
-            "eGVjdXRlX3RpbWVfcGVyaW9kGAYgASgDOgSguxgBKkgKE0dvdmVybmFuY2VN",
-            "ZWNoYW5pc20SDwoLVU5TUEVDSUZJRUQQABIOCgpSRUZFUkVORFVNEAESEAoM",
-            "SElHSF9DT1VOQ0lMEAIqQgoMUHJvcG9zYWxUeXBlEgoKBlVOVVNFRBAAEg4K",
-            "CkdPVkVSTkFOQ0UQARIMCghBRFZJU09SWRACEggKBFZFVE8QAyqkAQoOUHJv",
-            "cG9zYWxTdGF0dXMSCQoFRU1QVFkQABIQCgxQRU5ESU5HX1ZPVEUQARIMCghB",
-            "UFBST1ZFRBACEgwKCFJFSkVDVEVEEAMSDQoJQUJTVEFJTkVEEAQSEwoPQkVM",
-            "T1dfVEhSRVNIT0xEEAUSDgoKQ0hBTExFTkdFRBAGEgoKBlZFVE9FRBAHEgsK",
-            "B0VYUElSRUQQCBIMCghFWEVDVVRFRBAJKlAKDVByb3Bvc2FsU3RhZ2USCwoH",
-            "REVGQVVMVBAAEgoKBkFDVElWRRABEgsKB1BFTkRJTkcQAhILCgdFWEVDVVRF",
-            "EAMSDAoIRklOSVNIRUQQBDKMCwoSR292ZXJuYW5jZUNvbnRyYWN0EjgKCklu",
-            "aXRpYWxpemUSEC5Jbml0aWFsaXplSW5wdXQaFi5nb29nbGUucHJvdG9idWYu",
-            "RW1wdHkiABJBChNBZGRHb3Zlcm5hbmNlU2NoZW1lEhkuQWRkR292ZXJuYW5j",
-            "ZVNjaGVtZUlucHV0Gg0uYWVsZi5BZGRyZXNzIgASYgofVXBkYXRlR292ZXJu",
-            "YW5jZVNjaGVtZVRocmVzaG9sZBIlLlVwZGF0ZUdvdmVybmFuY2VTY2hlbWVU",
-            "aHJlc2hvbGRJbnB1dBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAElAKFlJl",
-            "bW92ZUdvdmVybmFuY2VTY2hlbWUSHC5SZW1vdmVHb3Zlcm5hbmNlU2NoZW1l",
-            "SW5wdXQaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABJIChJTZXRHb3Zlcm5h",
-            "bmNlVG9rZW4SGC5TZXRHb3Zlcm5hbmNlVG9rZW5JbnB1dBoWLmdvb2dsZS5w",
-            "cm90b2J1Zi5FbXB0eSIAEkQKIUdldERhb0dvdmVybmFuY2VTY2hlbWVBZGRy",
-            "ZXNzTGlzdBIKLmFlbGYuSGFzaBoMLkFkZHJlc3NMaXN0IgWIifcBARJGChpH",
-            "ZXREYW9Hb3Zlcm5hbmNlU2NoZW1lTGlzdBIKLmFlbGYuSGFzaBoVLkdvdmVy",
-            "bmFuY2VTY2hlbWVMaXN0IgWIifcBARI+ChNHZXRHb3Zlcm5hbmNlU2NoZW1l",
-            "Eg0uYWVsZi5BZGRyZXNzGhEuR292ZXJuYW5jZVNjaGVtZSIFiIn3AQESYAog",
-            "Q2FsY3VsYXRlR292ZXJuYW5jZVNjaGVtZUFkZHJlc3MSJi5DYWxjdWxhdGVH",
-            "b3Zlcm5hbmNlU2NoZW1lQWRkcmVzc0lucHV0Gg0uYWVsZi5BZGRyZXNzIgWI",
-            "ifcBARI0Cg5DcmVhdGVQcm9wb3NhbBIULkNyZWF0ZVByb3Bvc2FsSW5wdXQa",
-            "Ci5hZWxmLkhhc2giABI8ChJDcmVhdGVWZXRvUHJvcG9zYWwSGC5DcmVhdGVW",
-            "ZXRvUHJvcG9zYWxJbnB1dBoKLmFlbGYuSGFzaCIAEjQKDFZldG9Qcm9wb3Nh",
-            "bBIKLmFlbGYuSGFzaBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEjcKD0V4",
-            "ZWN1dGVQcm9wb3NhbBIKLmFlbGYuSGFzaBoWLmdvb2dsZS5wcm90b2J1Zi5F",
-            "bXB0eSIAEjUKDUNsZWFyUHJvcG9zYWwSCi5hZWxmLkhhc2gaFi5nb29nbGUu",
-            "cHJvdG9idWYuRW1wdHkiABJOChVTZXRQcm9wb3NhbFRpbWVQZXJpb2QSGy5T",
-            "ZXRQcm9wb3NhbFRpbWVQZXJpb2RJbnB1dBoWLmdvb2dsZS5wcm90b2J1Zi5F",
-            "bXB0eSIAEjkKD0dldFByb3Bvc2FsSW5mbxIKLmFlbGYuSGFzaBoTLlByb3Bv",
-            "c2FsSW5mb091dHB1dCIFiIn3AQESRQoYR2V0RGFvUHJvcG9zYWxUaW1lUGVy",
-            "aW9kEgouYWVsZi5IYXNoGhYuRGFvUHJvcG9zYWxUaW1lUGVyaW9kIgWIifcB",
-            "ARJBChlHZXRQcm9wb3NhbFNuYXBTaG90U2NoZW1lEgouYWVsZi5IYXNoGhEu",
-            "R292ZXJuYW5jZVNjaGVtZSIFiIn3AQESPQoRR2V0UHJvcG9zYWxTdGF0dXMS",
-            "Ci5hZWxmLkhhc2gaFS5Qcm9wb3NhbFN0YXR1c091dHB1dCIFiIn3AQEaW7LM",
-            "9gE4VG9tb3Jyb3dEQU8uQ29udHJhY3RzLkdvdmVybmFuY2UuR292ZXJuYW5j",
-            "ZUNvbnRyYWN0U3RhdGXKyvYBGVByb3RvYnVmL2Jhc2UvYWNzMTIucHJvdG9C",
-            "I6oCIFRvbW9ycm93REFPLkNvbnRyYWN0cy5Hb3Zlcm5hbmNlUAJiBnByb3Rv",
-            "Mw=="));
+            "GAIgASgLMg0uYWVsZi5BZGRyZXNzEjsKF3VwZGF0ZV9zY2hlbWVfdGhyZXNo",
+            "b2xkGAMgASgLMhouR292ZXJuYW5jZVNjaGVtZVRocmVzaG9sZDoEoLsYASJr",
+            "CiBHb3Zlcm5hbmNlU2NoZW1lVGhyZXNob2xkUmVtb3ZlZBIaCgZkYW9faWQY",
+            "ASABKAsyCi5hZWxmLkhhc2gSJQoOc2NoZW1lX2FkZHJlc3MYAiABKAsyDS5h",
+            "ZWxmLkFkZHJlc3M6BKC7GAEiUAoSR292ZXJuYW5jZVRva2VuU2V0EhoKBmRh",
+            "b19pZBgBIAEoCzIKLmFlbGYuSGFzaBIYChBnb3Zlcm5hbmNlX3Rva2VuGAIg",
+            "ASgJOgSguxgBIqsFCg9Qcm9wb3NhbENyZWF0ZWQSGgoGZGFvX2lkGAEgASgL",
+            "MgouYWVsZi5IYXNoEh8KC3Byb3Bvc2FsX2lkGAIgASgLMgouYWVsZi5IYXNo",
+            "EhYKDnByb3Bvc2FsX3RpdGxlGAMgASgJEhwKFHByb3Bvc2FsX2Rlc2NyaXB0",
+            "aW9uGAQgASgJEhEKCWZvcnVtX3VybBgFIAEoCRIkCg1wcm9wb3NhbF90eXBl",
+            "GAYgASgOMg0uUHJvcG9zYWxUeXBlEjUKEWFjdGl2ZV9zdGFydF90aW1lGAcg",
+            "ASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIzCg9hY3RpdmVfZW5k",
+            "X3RpbWUYCCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjYKEmV4",
+            "ZWN1dGVfc3RhcnRfdGltZRgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
+            "c3RhbXASNAoQZXhlY3V0ZV9lbmRfdGltZRgKIAEoCzIaLmdvb2dsZS5wcm90",
+            "b2J1Zi5UaW1lc3RhbXASKAoPcHJvcG9zYWxfc3RhdHVzGAsgASgOMg8uUHJv",
+            "cG9zYWxTdGF0dXMSJgoOcHJvcG9zYWxfc3RhZ2UYDCABKA4yDi5Qcm9wb3Nh",
+            "bFN0YWdlEh8KCHByb3Bvc2VyGA0gASgLMg0uYWVsZi5BZGRyZXNzEiUKDnNj",
+            "aGVtZV9hZGRyZXNzGA4gASgLMg0uYWVsZi5BZGRyZXNzEigKC3RyYW5zYWN0",
+            "aW9uGA8gASgLMhMuRXhlY3V0ZVRyYW5zYWN0aW9uEiIKDnZvdGVfc2NoZW1l",
+            "X2lkGBAgASgLMgouYWVsZi5IYXNoEiQKEHZldG9fcHJvcG9zYWxfaWQYESAB",
+            "KAsyCi5hZWxmLkhhc2g6BKC7GAEiqAEKDlByb3Bvc2FsVmV0b2VkEhoKBmRh",
+            "b19pZBgBIAEoCzIKLmFlbGYuSGFzaBIfCgtwcm9wb3NhbF9pZBgCIAEoCzIK",
+            "LmFlbGYuSGFzaBIkChB2ZXRvX3Byb3Bvc2FsX2lkGAMgASgLMgouYWVsZi5I",
+            "YXNoEi0KCXZldG9fdGltZRgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
+            "c3RhbXA6BKC7GAEihwEKEFByb3Bvc2FsRXhlY3V0ZWQSGgoGZGFvX2lkGAEg",
+            "ASgLMgouYWVsZi5IYXNoEh8KC3Byb3Bvc2FsX2lkGAIgASgLMgouYWVsZi5I",
+            "YXNoEjAKDGV4ZWN1dGVfdGltZRgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5U",
+            "aW1lc3RhbXA6BKC7GAEi1QEKGERhb1Byb3Bvc2FsVGltZVBlcmlvZFNldBIa",
+            "CgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSGgoSYWN0aXZlX3RpbWVfcGVy",
+            "aW9kGAIgASgDEh8KF3ZldG9fYWN0aXZlX3RpbWVfcGVyaW9kGAMgASgDEhsK",
+            "E3BlbmRpbmdfdGltZV9wZXJpb2QYBCABKAMSGwoTZXhlY3V0ZV90aW1lX3Bl",
+            "cmlvZBgFIAEoAxIgChh2ZXRvX2V4ZWN1dGVfdGltZV9wZXJpb2QYBiABKAM6",
+            "BKC7GAEqNwoTR292ZXJuYW5jZU1lY2hhbmlzbRIOCgpSRUZFUkVORFVNEAAS",
+            "EAoMSElHSF9DT1VOQ0lMEAEqQgoMUHJvcG9zYWxUeXBlEgoKBlVOVVNFRBAA",
+            "Eg4KCkdPVkVSTkFOQ0UQARIMCghBRFZJU09SWRACEggKBFZFVE8QAyqkAQoO",
+            "UHJvcG9zYWxTdGF0dXMSCQoFRU1QVFkQABIQCgxQRU5ESU5HX1ZPVEUQARIM",
+            "CghBUFBST1ZFRBACEgwKCFJFSkVDVEVEEAMSDQoJQUJTVEFJTkVEEAQSEwoP",
+            "QkVMT1dfVEhSRVNIT0xEEAUSDgoKQ0hBTExFTkdFRBAGEgoKBlZFVE9FRBAH",
+            "EgsKB0VYUElSRUQQCBIMCghFWEVDVVRFRBAJKlAKDVByb3Bvc2FsU3RhZ2US",
+            "CwoHREVGQVVMVBAAEgoKBkFDVElWRRABEgsKB1BFTkRJTkcQAhILCgdFWEVD",
+            "VVRFEAMSDAoIRklOSVNIRUQQBDKVCwoSR292ZXJuYW5jZUNvbnRyYWN0EjgK",
+            "CkluaXRpYWxpemUSEC5Jbml0aWFsaXplSW5wdXQaFi5nb29nbGUucHJvdG9i",
+            "dWYuRW1wdHkiABJBChNBZGRHb3Zlcm5hbmNlU2NoZW1lEhkuQWRkR292ZXJu",
+            "YW5jZVNjaGVtZUlucHV0Gg0uYWVsZi5BZGRyZXNzIgASYgofVXBkYXRlR292",
+            "ZXJuYW5jZVNjaGVtZVRocmVzaG9sZBIlLlVwZGF0ZUdvdmVybmFuY2VTY2hl",
+            "bWVUaHJlc2hvbGRJbnB1dBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAElAK",
+            "FlJlbW92ZUdvdmVybmFuY2VTY2hlbWUSHC5SZW1vdmVHb3Zlcm5hbmNlU2No",
+            "ZW1lSW5wdXQaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABJIChJTZXRHb3Zl",
+            "cm5hbmNlVG9rZW4SGC5TZXRHb3Zlcm5hbmNlVG9rZW5JbnB1dBoWLmdvb2ds",
+            "ZS5wcm90b2J1Zi5FbXB0eSIAEkQKIUdldERhb0dvdmVybmFuY2VTY2hlbWVB",
+            "ZGRyZXNzTGlzdBIKLmFlbGYuSGFzaBoMLkFkZHJlc3NMaXN0IgWIifcBARJG",
+            "ChpHZXREYW9Hb3Zlcm5hbmNlU2NoZW1lTGlzdBIKLmFlbGYuSGFzaBoVLkdv",
+            "dmVybmFuY2VTY2hlbWVMaXN0IgWIifcBARI+ChNHZXRHb3Zlcm5hbmNlU2No",
+            "ZW1lEg0uYWVsZi5BZGRyZXNzGhEuR292ZXJuYW5jZVNjaGVtZSIFiIn3AQES",
+            "YAogQ2FsY3VsYXRlR292ZXJuYW5jZVNjaGVtZUFkZHJlc3MSJi5DYWxjdWxh",
+            "dGVHb3Zlcm5hbmNlU2NoZW1lQWRkcmVzc0lucHV0Gg0uYWVsZi5BZGRyZXNz",
+            "IgWIifcBARI0Cg5DcmVhdGVQcm9wb3NhbBIULkNyZWF0ZVByb3Bvc2FsSW5w",
+            "dXQaCi5hZWxmLkhhc2giABI8ChJDcmVhdGVWZXRvUHJvcG9zYWwSGC5DcmVh",
+            "dGVWZXRvUHJvcG9zYWxJbnB1dBoKLmFlbGYuSGFzaCIAEjQKDFZldG9Qcm9w",
+            "b3NhbBIKLmFlbGYuSGFzaBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEjcK",
+            "D0V4ZWN1dGVQcm9wb3NhbBIKLmFlbGYuSGFzaBoWLmdvb2dsZS5wcm90b2J1",
+            "Zi5FbXB0eSIAEjUKDUNsZWFyUHJvcG9zYWwSCi5hZWxmLkhhc2gaFi5nb29n",
+            "bGUucHJvdG9idWYuRW1wdHkiABJOChVTZXRQcm9wb3NhbFRpbWVQZXJpb2QS",
+            "Gy5TZXRQcm9wb3NhbFRpbWVQZXJpb2RJbnB1dBoWLmdvb2dsZS5wcm90b2J1",
+            "Zi5FbXB0eSIAEjkKD0dldFByb3Bvc2FsSW5mbxIKLmFlbGYuSGFzaBoTLlBy",
+            "b3Bvc2FsSW5mb091dHB1dCIFiIn3AQESRQoYR2V0RGFvUHJvcG9zYWxUaW1l",
+            "UGVyaW9kEgouYWVsZi5IYXNoGhYuRGFvUHJvcG9zYWxUaW1lUGVyaW9kIgWI",
+            "ifcBARJKChlHZXRQcm9wb3NhbFNuYXBTaG90U2NoZW1lEgouYWVsZi5IYXNo",
+            "GhouR292ZXJuYW5jZVNjaGVtZVRocmVzaG9sZCIFiIn3AQESPQoRR2V0UHJv",
+            "cG9zYWxTdGF0dXMSCi5hZWxmLkhhc2gaFS5Qcm9wb3NhbFN0YXR1c091dHB1",
+            "dCIFiIn3AQEaW7LM9gE4VG9tb3Jyb3dEQU8uQ29udHJhY3RzLkdvdmVybmFu",
+            "Y2UuR292ZXJuYW5jZUNvbnRyYWN0U3RhdGXKyvYBGVByb3RvYnVmL2Jhc2Uv",
+            "YWNzMTIucHJvdG9CI6oCIFRvbW9ycm93REFPLkNvbnRyYWN0cy5Hb3Zlcm5h",
+            "bmNlUAJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::AElf.Types.CoreReflection.Descriptor, global::AElf.OptionsReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::AElf.Standards.ACS12.Acs12Reflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::TomorrowDAO.Contracts.Governance.GovernanceMechanism), typeof(global::TomorrowDAO.Contracts.Governance.ProposalType), typeof(global::TomorrowDAO.Contracts.Governance.ProposalStatus), typeof(global::TomorrowDAO.Contracts.Governance.ProposalStage), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -203,12 +204,12 @@ namespace TomorrowDAO.Contracts.Governance {
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Governance.GovernanceSchemeThreshold), global::TomorrowDAO.Contracts.Governance.GovernanceSchemeThreshold.Parser, new[]{ "MinimalRequiredThreshold", "MinimalVoteThreshold", "MinimalApproveThreshold", "MaximalRejectionThreshold", "MaximalAbstentionThreshold" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Governance.AddressList), global::TomorrowDAO.Contracts.Governance.AddressList.Parser, new[]{ "Value" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Governance.GovernanceSchemeHashAddressPair), global::TomorrowDAO.Contracts.Governance.GovernanceSchemeHashAddressPair.Parser, new[]{ "SchemeId", "SchemeAddress" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Governance.ProposalInfo), global::TomorrowDAO.Contracts.Governance.ProposalInfo.Parser, new[]{ "ProposalId", "ProposalBasicInfo", "ProposalType", "ProposalTime", "ProposalStatus", "ProposalStage", "Proposer", "Transaction", "VetoProposalId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Governance.ProposalInfo), global::TomorrowDAO.Contracts.Governance.ProposalInfo.Parser, new[]{ "ProposalId", "ProposalBasicInfo", "ProposalType", "ProposalTime", "ProposalStatus", "ProposalStage", "Proposer", "Transaction", "VetoProposalId", "ForumUrl" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Governance.ProposalBasicInfo), global::TomorrowDAO.Contracts.Governance.ProposalBasicInfo.Parser, new[]{ "DaoId", "ProposalTitle", "ProposalDescription", "ForumUrl", "SchemeAddress", "VoteSchemeId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Governance.ProposalTime), global::TomorrowDAO.Contracts.Governance.ProposalTime.Parser, new[]{ "ActiveStartTime", "ActiveEndTime", "ExecuteStartTime", "ExecuteEndTime" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Governance.ExecuteTransaction), global::TomorrowDAO.Contracts.Governance.ExecuteTransaction.Parser, new[]{ "ContractMethodName", "ToAddress", "Params" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Governance.DaoProposalTimePeriod), global::TomorrowDAO.Contracts.Governance.DaoProposalTimePeriod.Parser, new[]{ "ActiveTimePeriod", "VetoActiveTimePeriod", "PendingTimePeriod", "ExecuteTimePeriod", "VetoExecuteTimePeriod" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Governance.InitializeInput), global::TomorrowDAO.Contracts.Governance.InitializeInput.Parser, new[]{ "DaoContractAddress" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Governance.InitializeInput), global::TomorrowDAO.Contracts.Governance.InitializeInput.Parser, new[]{ "DaoContractAddress", "VoteContractAddress" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Governance.AddGovernanceSchemeInput), global::TomorrowDAO.Contracts.Governance.AddGovernanceSchemeInput.Parser, new[]{ "DaoId", "GovernanceMechanism", "SchemeThreshold", "GovernanceToken" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Governance.UpdateGovernanceSchemeThresholdInput), global::TomorrowDAO.Contracts.Governance.UpdateGovernanceSchemeThresholdInput.Parser, new[]{ "DaoId", "SchemeAddress", "SchemeThreshold" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Governance.RemoveGovernanceSchemeInput), global::TomorrowDAO.Contracts.Governance.RemoveGovernanceSchemeInput.Parser, new[]{ "DaoId", "SchemeAddress" }, null, null, null, null),
@@ -234,9 +235,8 @@ namespace TomorrowDAO.Contracts.Governance {
   }
   #region Enums
   public enum GovernanceMechanism {
-    [pbr::OriginalName("UNSPECIFIED")] Unspecified = 0,
-    [pbr::OriginalName("REFERENDUM")] Referendum = 1,
-    [pbr::OriginalName("HIGH_COUNCIL")] HighCouncil = 2,
+    [pbr::OriginalName("REFERENDUM")] Referendum = 0,
+    [pbr::OriginalName("HIGH_COUNCIL")] HighCouncil = 1,
   }
 
   public enum ProposalType {
@@ -369,7 +369,7 @@ namespace TomorrowDAO.Contracts.Governance {
 
     /// <summary>Field number for the "governance_mechanism" field.</summary>
     public const int GovernanceMechanismFieldNumber = 4;
-    private global::TomorrowDAO.Contracts.Governance.GovernanceMechanism governanceMechanism_ = global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified;
+    private global::TomorrowDAO.Contracts.Governance.GovernanceMechanism governanceMechanism_ = global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum;
     /// <summary>
     /// HighCouncil/Referendum
     /// </summary>
@@ -437,7 +437,7 @@ namespace TomorrowDAO.Contracts.Governance {
       if (daoId_ != null) hash ^= DaoId.GetHashCode();
       if (schemeId_ != null) hash ^= SchemeId.GetHashCode();
       if (schemeAddress_ != null) hash ^= SchemeAddress.GetHashCode();
-      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) hash ^= GovernanceMechanism.GetHashCode();
+      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) hash ^= GovernanceMechanism.GetHashCode();
       if (schemeThreshold_ != null) hash ^= SchemeThreshold.GetHashCode();
       if (GovernanceToken.Length != 0) hash ^= GovernanceToken.GetHashCode();
       if (_unknownFields != null) {
@@ -470,7 +470,7 @@ namespace TomorrowDAO.Contracts.Governance {
         output.WriteRawTag(26);
         output.WriteMessage(SchemeAddress);
       }
-      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) {
+      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) {
         output.WriteRawTag(32);
         output.WriteEnum((int) GovernanceMechanism);
       }
@@ -504,7 +504,7 @@ namespace TomorrowDAO.Contracts.Governance {
         output.WriteRawTag(26);
         output.WriteMessage(SchemeAddress);
       }
-      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) {
+      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) {
         output.WriteRawTag(32);
         output.WriteEnum((int) GovernanceMechanism);
       }
@@ -535,7 +535,7 @@ namespace TomorrowDAO.Contracts.Governance {
       if (schemeAddress_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(SchemeAddress);
       }
-      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) {
+      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) GovernanceMechanism);
       }
       if (schemeThreshold_ != null) {
@@ -574,7 +574,7 @@ namespace TomorrowDAO.Contracts.Governance {
         }
         SchemeAddress.MergeFrom(other.SchemeAddress);
       }
-      if (other.GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) {
+      if (other.GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) {
         GovernanceMechanism = other.GovernanceMechanism;
       }
       if (other.schemeThreshold_ != null) {
@@ -1687,6 +1687,7 @@ namespace TomorrowDAO.Contracts.Governance {
       proposer_ = other.proposer_ != null ? other.proposer_.Clone() : null;
       transaction_ = other.transaction_ != null ? other.transaction_.Clone() : null;
       vetoProposalId_ = other.vetoProposalId_ != null ? other.vetoProposalId_.Clone() : null;
+      forumUrl_ = other.forumUrl_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1807,6 +1808,18 @@ namespace TomorrowDAO.Contracts.Governance {
       }
     }
 
+    /// <summary>Field number for the "forum_url" field.</summary>
+    public const int ForumUrlFieldNumber = 10;
+    private string forumUrl_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ForumUrl {
+      get { return forumUrl_; }
+      set {
+        forumUrl_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1831,6 +1844,7 @@ namespace TomorrowDAO.Contracts.Governance {
       if (!object.Equals(Proposer, other.Proposer)) return false;
       if (!object.Equals(Transaction, other.Transaction)) return false;
       if (!object.Equals(VetoProposalId, other.VetoProposalId)) return false;
+      if (ForumUrl != other.ForumUrl) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1847,6 +1861,7 @@ namespace TomorrowDAO.Contracts.Governance {
       if (proposer_ != null) hash ^= Proposer.GetHashCode();
       if (transaction_ != null) hash ^= Transaction.GetHashCode();
       if (vetoProposalId_ != null) hash ^= VetoProposalId.GetHashCode();
+      if (ForumUrl.Length != 0) hash ^= ForumUrl.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1901,6 +1916,10 @@ namespace TomorrowDAO.Contracts.Governance {
         output.WriteRawTag(74);
         output.WriteMessage(VetoProposalId);
       }
+      if (ForumUrl.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(ForumUrl);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1947,6 +1966,10 @@ namespace TomorrowDAO.Contracts.Governance {
         output.WriteRawTag(74);
         output.WriteMessage(VetoProposalId);
       }
+      if (ForumUrl.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(ForumUrl);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1983,6 +2006,9 @@ namespace TomorrowDAO.Contracts.Governance {
       }
       if (vetoProposalId_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(VetoProposalId);
+      }
+      if (ForumUrl.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ForumUrl);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2040,6 +2066,9 @@ namespace TomorrowDAO.Contracts.Governance {
           VetoProposalId = new global::AElf.Types.Hash();
         }
         VetoProposalId.MergeFrom(other.VetoProposalId);
+      }
+      if (other.ForumUrl.Length != 0) {
+        ForumUrl = other.ForumUrl;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2110,6 +2139,10 @@ namespace TomorrowDAO.Contracts.Governance {
             input.ReadMessage(VetoProposalId);
             break;
           }
+          case 82: {
+            ForumUrl = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -2177,6 +2210,10 @@ namespace TomorrowDAO.Contracts.Governance {
               VetoProposalId = new global::AElf.Types.Hash();
             }
             input.ReadMessage(VetoProposalId);
+            break;
+          }
+          case 82: {
+            ForumUrl = input.ReadString();
             break;
           }
         }
@@ -3256,7 +3293,7 @@ namespace TomorrowDAO.Contracts.Governance {
     public const int ActiveTimePeriodFieldNumber = 1;
     private long activeTimePeriod_;
     /// <summary>
-    ///seconds
+    ///day
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3271,7 +3308,7 @@ namespace TomorrowDAO.Contracts.Governance {
     public const int VetoActiveTimePeriodFieldNumber = 2;
     private long vetoActiveTimePeriod_;
     /// <summary>
-    ///seconds
+    ///day
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3286,7 +3323,7 @@ namespace TomorrowDAO.Contracts.Governance {
     public const int PendingTimePeriodFieldNumber = 3;
     private long pendingTimePeriod_;
     /// <summary>
-    ///seconds
+    ///day
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3301,7 +3338,7 @@ namespace TomorrowDAO.Contracts.Governance {
     public const int ExecuteTimePeriodFieldNumber = 4;
     private long executeTimePeriod_;
     /// <summary>
-    ///seconds
+    ///day
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3316,7 +3353,7 @@ namespace TomorrowDAO.Contracts.Governance {
     public const int VetoExecuteTimePeriodFieldNumber = 5;
     private long vetoExecuteTimePeriod_;
     /// <summary>
-    ///seconds
+    ///day
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3594,6 +3631,7 @@ namespace TomorrowDAO.Contracts.Governance {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public InitializeInput(InitializeInput other) : this() {
       daoContractAddress_ = other.daoContractAddress_ != null ? other.daoContractAddress_.Clone() : null;
+      voteContractAddress_ = other.voteContractAddress_ != null ? other.voteContractAddress_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3615,6 +3653,18 @@ namespace TomorrowDAO.Contracts.Governance {
       }
     }
 
+    /// <summary>Field number for the "vote_contract_address" field.</summary>
+    public const int VoteContractAddressFieldNumber = 2;
+    private global::AElf.Types.Address voteContractAddress_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address VoteContractAddress {
+      get { return voteContractAddress_; }
+      set {
+        voteContractAddress_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3631,6 +3681,7 @@ namespace TomorrowDAO.Contracts.Governance {
         return true;
       }
       if (!object.Equals(DaoContractAddress, other.DaoContractAddress)) return false;
+      if (!object.Equals(VoteContractAddress, other.VoteContractAddress)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3639,6 +3690,7 @@ namespace TomorrowDAO.Contracts.Governance {
     public override int GetHashCode() {
       int hash = 1;
       if (daoContractAddress_ != null) hash ^= DaoContractAddress.GetHashCode();
+      if (voteContractAddress_ != null) hash ^= VoteContractAddress.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3661,6 +3713,10 @@ namespace TomorrowDAO.Contracts.Governance {
         output.WriteRawTag(10);
         output.WriteMessage(DaoContractAddress);
       }
+      if (voteContractAddress_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(VoteContractAddress);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3675,6 +3731,10 @@ namespace TomorrowDAO.Contracts.Governance {
         output.WriteRawTag(10);
         output.WriteMessage(DaoContractAddress);
       }
+      if (voteContractAddress_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(VoteContractAddress);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3687,6 +3747,9 @@ namespace TomorrowDAO.Contracts.Governance {
       int size = 0;
       if (daoContractAddress_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoContractAddress);
+      }
+      if (voteContractAddress_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(VoteContractAddress);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3705,6 +3768,12 @@ namespace TomorrowDAO.Contracts.Governance {
           DaoContractAddress = new global::AElf.Types.Address();
         }
         DaoContractAddress.MergeFrom(other.DaoContractAddress);
+      }
+      if (other.voteContractAddress_ != null) {
+        if (voteContractAddress_ == null) {
+          VoteContractAddress = new global::AElf.Types.Address();
+        }
+        VoteContractAddress.MergeFrom(other.VoteContractAddress);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3728,6 +3797,13 @@ namespace TomorrowDAO.Contracts.Governance {
             input.ReadMessage(DaoContractAddress);
             break;
           }
+          case 18: {
+            if (voteContractAddress_ == null) {
+              VoteContractAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(VoteContractAddress);
+            break;
+          }
         }
       }
     #endif
@@ -3748,6 +3824,13 @@ namespace TomorrowDAO.Contracts.Governance {
               DaoContractAddress = new global::AElf.Types.Address();
             }
             input.ReadMessage(DaoContractAddress);
+            break;
+          }
+          case 18: {
+            if (voteContractAddress_ == null) {
+              VoteContractAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(VoteContractAddress);
             break;
           }
         }
@@ -3818,7 +3901,7 @@ namespace TomorrowDAO.Contracts.Governance {
 
     /// <summary>Field number for the "governance_mechanism" field.</summary>
     public const int GovernanceMechanismFieldNumber = 2;
-    private global::TomorrowDAO.Contracts.Governance.GovernanceMechanism governanceMechanism_ = global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified;
+    private global::TomorrowDAO.Contracts.Governance.GovernanceMechanism governanceMechanism_ = global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::TomorrowDAO.Contracts.Governance.GovernanceMechanism GovernanceMechanism {
@@ -3879,7 +3962,7 @@ namespace TomorrowDAO.Contracts.Governance {
     public override int GetHashCode() {
       int hash = 1;
       if (daoId_ != null) hash ^= DaoId.GetHashCode();
-      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) hash ^= GovernanceMechanism.GetHashCode();
+      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) hash ^= GovernanceMechanism.GetHashCode();
       if (schemeThreshold_ != null) hash ^= SchemeThreshold.GetHashCode();
       if (GovernanceToken.Length != 0) hash ^= GovernanceToken.GetHashCode();
       if (_unknownFields != null) {
@@ -3904,7 +3987,7 @@ namespace TomorrowDAO.Contracts.Governance {
         output.WriteRawTag(10);
         output.WriteMessage(DaoId);
       }
-      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) {
+      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) {
         output.WriteRawTag(16);
         output.WriteEnum((int) GovernanceMechanism);
       }
@@ -3930,7 +4013,7 @@ namespace TomorrowDAO.Contracts.Governance {
         output.WriteRawTag(10);
         output.WriteMessage(DaoId);
       }
-      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) {
+      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) {
         output.WriteRawTag(16);
         output.WriteEnum((int) GovernanceMechanism);
       }
@@ -3955,7 +4038,7 @@ namespace TomorrowDAO.Contracts.Governance {
       if (daoId_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
       }
-      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) {
+      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) GovernanceMechanism);
       }
       if (schemeThreshold_ != null) {
@@ -3982,7 +4065,7 @@ namespace TomorrowDAO.Contracts.Governance {
         }
         DaoId.MergeFrom(other.DaoId);
       }
-      if (other.GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) {
+      if (other.GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) {
         GovernanceMechanism = other.GovernanceMechanism;
       }
       if (other.schemeThreshold_ != null) {
@@ -6966,7 +7049,7 @@ namespace TomorrowDAO.Contracts.Governance {
 
     /// <summary>Field number for the "governance_mechanism" field.</summary>
     public const int GovernanceMechanismFieldNumber = 2;
-    private global::TomorrowDAO.Contracts.Governance.GovernanceMechanism governanceMechanism_ = global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified;
+    private global::TomorrowDAO.Contracts.Governance.GovernanceMechanism governanceMechanism_ = global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::TomorrowDAO.Contracts.Governance.GovernanceMechanism GovernanceMechanism {
@@ -7001,7 +7084,7 @@ namespace TomorrowDAO.Contracts.Governance {
     public override int GetHashCode() {
       int hash = 1;
       if (daoId_ != null) hash ^= DaoId.GetHashCode();
-      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) hash ^= GovernanceMechanism.GetHashCode();
+      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) hash ^= GovernanceMechanism.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -7024,7 +7107,7 @@ namespace TomorrowDAO.Contracts.Governance {
         output.WriteRawTag(10);
         output.WriteMessage(DaoId);
       }
-      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) {
+      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) {
         output.WriteRawTag(16);
         output.WriteEnum((int) GovernanceMechanism);
       }
@@ -7042,7 +7125,7 @@ namespace TomorrowDAO.Contracts.Governance {
         output.WriteRawTag(10);
         output.WriteMessage(DaoId);
       }
-      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) {
+      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) {
         output.WriteRawTag(16);
         output.WriteEnum((int) GovernanceMechanism);
       }
@@ -7059,7 +7142,7 @@ namespace TomorrowDAO.Contracts.Governance {
       if (daoId_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
       }
-      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) {
+      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) GovernanceMechanism);
       }
       if (_unknownFields != null) {
@@ -7080,7 +7163,7 @@ namespace TomorrowDAO.Contracts.Governance {
         }
         DaoId.MergeFrom(other.DaoId);
       }
-      if (other.GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) {
+      if (other.GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) {
         GovernanceMechanism = other.GovernanceMechanism;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -7232,7 +7315,7 @@ namespace TomorrowDAO.Contracts.Governance {
 
     /// <summary>Field number for the "governance_mechanism" field.</summary>
     public const int GovernanceMechanismFieldNumber = 4;
-    private global::TomorrowDAO.Contracts.Governance.GovernanceMechanism governanceMechanism_ = global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified;
+    private global::TomorrowDAO.Contracts.Governance.GovernanceMechanism governanceMechanism_ = global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::TomorrowDAO.Contracts.Governance.GovernanceMechanism GovernanceMechanism {
@@ -7297,7 +7380,7 @@ namespace TomorrowDAO.Contracts.Governance {
       if (daoId_ != null) hash ^= DaoId.GetHashCode();
       if (schemeId_ != null) hash ^= SchemeId.GetHashCode();
       if (schemeAddress_ != null) hash ^= SchemeAddress.GetHashCode();
-      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) hash ^= GovernanceMechanism.GetHashCode();
+      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) hash ^= GovernanceMechanism.GetHashCode();
       if (schemeThreshold_ != null) hash ^= SchemeThreshold.GetHashCode();
       if (GovernanceToken.Length != 0) hash ^= GovernanceToken.GetHashCode();
       if (_unknownFields != null) {
@@ -7330,7 +7413,7 @@ namespace TomorrowDAO.Contracts.Governance {
         output.WriteRawTag(26);
         output.WriteMessage(SchemeAddress);
       }
-      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) {
+      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) {
         output.WriteRawTag(32);
         output.WriteEnum((int) GovernanceMechanism);
       }
@@ -7364,7 +7447,7 @@ namespace TomorrowDAO.Contracts.Governance {
         output.WriteRawTag(26);
         output.WriteMessage(SchemeAddress);
       }
-      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) {
+      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) {
         output.WriteRawTag(32);
         output.WriteEnum((int) GovernanceMechanism);
       }
@@ -7395,7 +7478,7 @@ namespace TomorrowDAO.Contracts.Governance {
       if (schemeAddress_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(SchemeAddress);
       }
-      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) {
+      if (GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) GovernanceMechanism);
       }
       if (schemeThreshold_ != null) {
@@ -7434,7 +7517,7 @@ namespace TomorrowDAO.Contracts.Governance {
         }
         SchemeAddress.MergeFrom(other.SchemeAddress);
       }
-      if (other.GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Unspecified) {
+      if (other.GovernanceMechanism != global::TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum) {
         GovernanceMechanism = other.GovernanceMechanism;
       }
       if (other.schemeThreshold_ != null) {

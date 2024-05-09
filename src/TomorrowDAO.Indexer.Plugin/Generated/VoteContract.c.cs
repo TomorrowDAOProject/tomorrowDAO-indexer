@@ -501,7 +501,7 @@ namespace TomorrowDAO.Contracts.Vote {
     }
     #endregion
 
-    /// <summary>Base class for the contract of VoteContract</summary>
+    // /// <summary>Base class for the contract of VoteContract</summary>
     // public abstract partial class VoteContractBase : AElf.Sdk.CSharp.CSharpSmartContract<TomorrowDAO.Contracts.Vote.VoteContractState>
     // {
     //   public virtual global::Google.Protobuf.WellKnownTypes.Empty Initialize(global::TomorrowDAO.Contracts.Vote.InitializeInput input)

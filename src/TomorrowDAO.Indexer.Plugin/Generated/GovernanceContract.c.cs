@@ -213,6 +213,7 @@ namespace TomorrowDAO.Contracts.Governance {
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.SetProposalTimePeriodInput> __Marshaller_SetProposalTimePeriodInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.SetProposalTimePeriodInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.ProposalInfoOutput> __Marshaller_ProposalInfoOutput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.ProposalInfoOutput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.DaoProposalTimePeriod> __Marshaller_DaoProposalTimePeriod = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.DaoProposalTimePeriod.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.GovernanceSchemeThreshold> __Marshaller_GovernanceSchemeThreshold = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.GovernanceSchemeThreshold.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.ProposalStatusOutput> __Marshaller_ProposalStatusOutput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.ProposalStatusOutput.Parser.ParseFrom);
     #endregion
 
@@ -336,12 +337,12 @@ namespace TomorrowDAO.Contracts.Governance {
         __Marshaller_aelf_Hash,
         __Marshaller_DaoProposalTimePeriod);
 
-    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.GovernanceScheme> __Method_GetProposalSnapShotScheme = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.GovernanceScheme>(
+    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.GovernanceSchemeThreshold> __Method_GetProposalSnapShotScheme = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.GovernanceSchemeThreshold>(
         aelf::MethodType.View,
         __ServiceName,
         "GetProposalSnapShotScheme",
         __Marshaller_aelf_Hash,
-        __Marshaller_GovernanceScheme);
+        __Marshaller_GovernanceSchemeThreshold);
 
     static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.ProposalStatusOutput> __Method_GetProposalStatus = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Governance.ProposalStatusOutput>(
         aelf::MethodType.View,
@@ -371,7 +372,7 @@ namespace TomorrowDAO.Contracts.Governance {
     }
     #endregion
 
-    /// <summary>Base class for the contract of GovernanceContract</summary>
+    // /// <summary>Base class for the contract of GovernanceContract</summary>
     // public abstract partial class GovernanceContractBase : AElf.Sdk.CSharp.CSharpSmartContract<TomorrowDAO.Contracts.Governance.GovernanceContractState>
     // {
     //   public virtual global::Google.Protobuf.WellKnownTypes.Empty Initialize(global::TomorrowDAO.Contracts.Governance.InitializeInput input)
@@ -459,7 +460,7 @@ namespace TomorrowDAO.Contracts.Governance {
     //     throw new global::System.NotImplementedException();
     //   }
     //
-    //   public virtual global::TomorrowDAO.Contracts.Governance.GovernanceScheme GetProposalSnapShotScheme(global::AElf.Types.Hash input)
+    //   public virtual global::TomorrowDAO.Contracts.Governance.GovernanceSchemeThreshold GetProposalSnapShotScheme(global::AElf.Types.Hash input)
     //   {
     //     throw new global::System.NotImplementedException();
     //   }
@@ -470,7 +471,7 @@ namespace TomorrowDAO.Contracts.Governance {
     //   }
     //
     // }
-
+    //
     // public static aelf::ServerServiceDefinition BindService(GovernanceContractBase serviceImpl)
     // {
     //   return aelf::ServerServiceDefinition.CreateBuilder()
