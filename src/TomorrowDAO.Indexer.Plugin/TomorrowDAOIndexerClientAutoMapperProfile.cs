@@ -180,6 +180,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => MapDateTime(source.EndTimestamp)))
             ;
         CreateMap<Voted, VoteRecordIndex>()
+            .ForMember(des => des.StartTime, opt
+                => opt.MapFrom(source => MapDateTime(source.StartTime)))
+            .ForMember(des => des.StartTime, opt
+                => opt.MapFrom(source => MapDateTime(source.EndTime)))
             .ForMember(des => des.VotingItemId, opt
                 => opt.MapFrom(source => MapHash(source.VotingItemId)))
             .ForMember(des => des.Voter, opt
