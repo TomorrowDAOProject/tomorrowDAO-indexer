@@ -2,8 +2,7 @@ namespace TomorrowDAO.Indexer.Plugin.Enums;
 
 public enum VoteOption
 {
-    Unspecified2 = 0,
-    Approved = 1,
-    Rejected = 2,
-    Abstained = 3
+    Approved = 0,
+    Rejected = 1,
+    Abstained = 2
 }
