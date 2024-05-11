@@ -2,6 +2,6 @@ namespace TomorrowDAO.Indexer.Plugin.Enums;
 
 public enum VoteMechanism
 {
-    UniqueVote = 0,
-    TokenBallot = 1
+    UNIQUE_VOTE = 0,
+    TOKEN_BALLOT = 1
 }
