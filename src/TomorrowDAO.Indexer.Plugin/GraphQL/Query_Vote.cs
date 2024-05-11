@@ -69,7 +69,7 @@ public partial class Query
         if (!string.IsNullOrWhiteSpace(input.ChainId))
         {
             mustQuery.Add(q => q.Term(i
-                => i.Field(f => f.ChainId).Value(input)));
+                => i.Field(f => f.ChainId).Value(input.ChainId)));
         }
 
         mustQuery.Add(q => q.Term(i
