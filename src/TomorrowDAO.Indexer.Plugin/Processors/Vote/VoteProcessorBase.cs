@@ -15,15 +15,17 @@ public abstract class VoteProcessorBase<TEvent> : AElfLogEventProcessorBase<TEve
     protected readonly IObjectMapper ObjectMapper;
     protected readonly ContractInfoOptions ContractInfoOptions;
     protected readonly IVoteProvider VoteProvider;
+    protected readonly IDAOProvider _daoProvider;
 
     protected VoteProcessorBase(ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> logger,
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
-        IVoteProvider voteProvider) : base(logger)
+        IVoteProvider voteProvider, IDAOProvider daoProvider) : base(logger)
     {
         Logger = logger;
         ObjectMapper = objectMapper;
         VoteProvider = voteProvider;
+        _daoProvider = daoProvider;
         ContractInfoOptions = contractInfoOptions.Value;
     }
 

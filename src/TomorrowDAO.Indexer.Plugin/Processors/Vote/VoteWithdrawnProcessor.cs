@@ -14,7 +14,8 @@ public class VoteWithdrawnProcessor : VoteProcessorBase<Withdrawn>
 {
     public VoteWithdrawnProcessor(ILogger<AElfLogEventProcessorBase<Withdrawn, LogEventInfo>> logger,
         IObjectMapper objectMapper, IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
-        IVoteProvider voteProvider) : base(logger, objectMapper, contractInfoOptions, voteProvider)
+        IVoteProvider voteProvider, IDAOProvider daoProvider) : base(logger, objectMapper, contractInfoOptions,
+        voteProvider, daoProvider)
     {
     }
 
@@ -30,7 +31,8 @@ public class VoteWithdrawnProcessor : VoteProcessorBase<Withdrawn>
             var withdrawnIndex = await VoteProvider.GetVoteWithdrawnAsync(chainId, id);
             if (withdrawnIndex != null)
             {
-                Logger.LogInformation("[VoteWithdrawn] VoteWithdrawnIndexDto already existed: Id={Id}, ChainId={ChainId}",
+                Logger.LogInformation(
+                    "[VoteWithdrawn] VoteWithdrawnIndexDto already existed: Id={Id}, ChainId={ChainId}",
                     id, chainId);
                 return;
             }

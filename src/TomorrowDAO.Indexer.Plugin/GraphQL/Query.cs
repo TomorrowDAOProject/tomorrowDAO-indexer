@@ -62,4 +62,37 @@ public partial class Query
             skip: input.SkipCount, limit: input.MaxResultCount);
         return objectMapper.Map<List<DAOIndex>, List<DAOInfoDto>>(result.Item2);
     }
+    
+    [Name("getDAOVoterRecord")]
+    public static async Task<List<DaoVoterRecordIndexDto>> GetDAOVoterRecordAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<DaoVoterRecordIndex, LogEventInfo> repository,
+        [FromServices] IObjectMapper objectMapper,
+        GetDAOVoterRecordInput input)
+    {
+        var mustQuery = new List<Func<QueryContainerDescriptor<DaoVoterRecordIndex>, QueryContainer>>();
+
+        if (!input.ChainId.IsNullOrWhiteSpace())
+        {
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId)));
+        }
+    
+        if (!input.DaoIds.IsNullOrEmpty())
+        {
+            mustQuery.Add(q => q.Terms(i
+                => i.Field(f => f.DaoId).Terms(input.DaoIds)));
+        }
+    
+        if (input.VoterAddressList.IsNullOrEmpty())
+        {
+            mustQuery.Add(q => q.Terms(i
+                => i.Field(f => f.VoterAddress).Terms(input.VoterAddressList)));
+        }
+    
+        QueryContainer Filter(QueryContainerDescriptor<DaoVoterRecordIndex> f) =>
+            f.Bool(b => b.Must(mustQuery));
+    
+        var result = await repository.GetSortListAsync(Filter);
+        return objectMapper.Map<List<DaoVoterRecordIndex>, List<DaoVoterRecordIndexDto>>(result.Item2);
+    }
 }

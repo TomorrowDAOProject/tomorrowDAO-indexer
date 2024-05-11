@@ -35,4 +35,6 @@ public class DAOIndex : AElfIndexerClientEntity<string>, IIndexBuild
     public long VetoExecuteTimePeriod { get; set; }
     public DateTime CreateTime { get; set; }
     public bool IsNetworkDAO { get; set; }
+    //voter address Count
+    public int VoterCount { get; set; }
 }

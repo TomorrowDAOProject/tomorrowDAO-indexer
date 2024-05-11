@@ -14,8 +14,8 @@ public class VotingItemRegisteredProcessor : VoteProcessorBase<VotingItemRegiste
 {
     public VotingItemRegisteredProcessor(ILogger<AElfLogEventProcessorBase<VotingItemRegistered, LogEventInfo>> logger,
         IObjectMapper objectMapper,
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IVoteProvider voteProvider)
-        : base(logger, objectMapper, contractInfoOptions, voteProvider)
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IVoteProvider voteProvider, IDAOProvider daoProvider)
+        : base(logger, objectMapper, contractInfoOptions, voteProvider, daoProvider)
     {
     }
 
@@ -30,9 +30,11 @@ public class VotingItemRegisteredProcessor : VoteProcessorBase<VotingItemRegiste
             var voteItemIndex = await VoteProvider.GetVoteItemAsync(chainId, votingItemId);
             if (voteItemIndex != null)
             {
-                Logger.LogInformation("[VotingItemRegistered] VoteItem already existed: Id={Id}, ChainId={ChainId}", votingItemId, chainId);
+                Logger.LogInformation("[VotingItemRegistered] VoteItem already existed: Id={Id}, ChainId={ChainId}",
+                    votingItemId, chainId);
                 return;
             }
+
             voteItemIndex = ObjectMapper.Map<VotingItemRegistered, VoteItemIndex>(eventValue);
             voteItemIndex.Id = votingItemId;
             voteItemIndex.CreateTime = context.BlockTime;

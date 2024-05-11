@@ -46,6 +46,12 @@ public partial class Query
             mustQuery.Add(q => q.Terms(i
                 => i.Field(f => f.VotingItemId).Terms(input.VotingItemIds)));
         }
+
+        if (!input.DaoIds.IsNullOrEmpty())
+        {
+            mustQuery.Add(q => q.Terms(i
+                => i.Field(f => f.DAOId).Terms(input.DaoIds)));
+        }
     
         QueryContainer Filter(QueryContainerDescriptor<VoteItemIndex> f) =>
             f.Bool(b => b.Must(mustQuery));

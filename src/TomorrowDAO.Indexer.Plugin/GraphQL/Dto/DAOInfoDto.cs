@@ -33,6 +33,7 @@ public class DAOInfoDto
     public long VetoExecuteTimePeriod { get; set; }
     public DateTime CreateTime { get; set; }
     public bool IsNetworkDAO { get; set; }
+    public int VoterCount { get; set; }
 }
 
 public class MetadataDto
