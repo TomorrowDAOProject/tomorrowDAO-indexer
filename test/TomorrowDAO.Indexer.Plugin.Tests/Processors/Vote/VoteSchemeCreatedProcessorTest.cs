@@ -15,7 +15,7 @@ public class VoteSchemeCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
         voteSchemeIndex.ShouldNotBeNull();
         voteSchemeIndex.VoteSchemeId.ShouldBe(VoteSchemeId);
         voteSchemeIndex.Id.ShouldBe(VoteSchemeId);
-        voteSchemeIndex.VoteMechanism.ShouldBe(VoteMechanism.UniqueVote);
+        voteSchemeIndex.VoteMechanism.ShouldBe(VoteMechanism.UNIQUE_VOTE);
         voteSchemeIndex.IsQuadratic.ShouldBe(true);
         voteSchemeIndex.IsLockToken.ShouldBe(true);
         

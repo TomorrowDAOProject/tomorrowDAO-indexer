@@ -110,8 +110,8 @@ public class VotedProcessor : VoteProcessorBase<Voted>
 
         var amount = voteRecordIndex.VoteMechanism switch
         {
-            Enums.VoteMechanism.TokenBallot => voteRecordIndex.Amount,
-            Enums.VoteMechanism.UniqueVote => 1,
+            Enums.VoteMechanism.TOKEN_BALLOT => voteRecordIndex.Amount,
+            Enums.VoteMechanism.UNIQUE_VOTE => 1,
             _ => 0
         };
 

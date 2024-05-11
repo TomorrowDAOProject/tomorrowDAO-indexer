@@ -198,6 +198,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => MapHash(source.VoteId)))
             .ForMember(des => des.DAOId, opt
                 => opt.MapFrom(source => MapHash(source.DaoId)));
+            ;
         CreateMap<VoteSchemeIndex, VoteSchemeIndexDto>();
         CreateMap<Withdrawn, VoteWithdrawnIndex>()
             .ForMember(des => des.DaoId,
