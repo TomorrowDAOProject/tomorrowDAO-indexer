@@ -77,4 +77,6 @@ public class ProposalBase : AElfIndexerClientEntity<string>
     public long ExecuteTimePeriod { get; set; }
     
     public long VetoExecuteTimePeriod { get; set; }
+    
+    public bool IsNetworkDAO { get; set; }
 }

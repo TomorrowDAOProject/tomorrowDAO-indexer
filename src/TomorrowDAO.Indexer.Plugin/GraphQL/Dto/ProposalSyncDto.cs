@@ -71,6 +71,8 @@ public class ProposalSyncDto
     public long ExecuteTimePeriod { get; set; }
     
     public long VetoExecuteTimePeriod { get; set; }
+    
+    public bool IsNetworkDAO { get; set; }
 }
 
 public class ExecuteTransactionDto
