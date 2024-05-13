@@ -79,7 +79,7 @@ public class VotedProcessor : VoteProcessorBase<Voted>
                 {
                     daoIndex.VoterCount += 1;
                     await _daoProvider.SaveIndexAsync(daoIndex, context);
-                    Logger.LogError("[Voted] update Dao Voter count: daoId={Id}, amount={amount}", voteRecordIndex.DAOId,
+                    Logger.LogInformation("[Voted] update Dao Voter count: daoId={Id}, amount={amount}", voteRecordIndex.DAOId,
                         daoIndex.VoterCount);
                 }
             }
