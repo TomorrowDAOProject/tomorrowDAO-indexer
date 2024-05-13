@@ -14,8 +14,8 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.Vote;
 public class VotedProcessor : VoteProcessorBase<Voted>
 {
     public VotedProcessor(ILogger<AElfLogEventProcessorBase<Voted, LogEventInfo>> logger, IObjectMapper objectMapper,
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IVoteProvider voteProvider)
-        : base(logger, objectMapper, contractInfoOptions, voteProvider)
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IVoteProvider voteProvider, IDAOProvider daoProvider)
+        : base(logger, objectMapper, contractInfoOptions, voteProvider, daoProvider)
     {
     }
 
@@ -38,9 +38,11 @@ public class VotedProcessor : VoteProcessorBase<Voted>
             voteRecordIndex = ObjectMapper.Map<Voted, VoteRecordIndex>(eventValue);
             voteRecordIndex.Id = voteId;
             await VoteProvider.SaveVoteRecordIndexAsync(voteRecordIndex, context);
-            
+
             await UpdateVoteItemIndexAsync(chainId, voteRecordIndex, context);
-            
+
+            await UpdateDaoVoterInfoAsync(chainId, voteRecordIndex, context);
+
             Logger.LogInformation("[Voted] FINISH: Id={Id}, ChainId={ChainId}", voteId, chainId);
         }
         catch (Exception e)
@@ -50,7 +52,52 @@ public class VotedProcessor : VoteProcessorBase<Voted>
         }
     }
 
-    private async Task UpdateVoteItemIndexAsync(string chainId, VoteRecordIndex voteRecordIndex, LogEventContext context)
+    private async Task UpdateDaoVoterInfoAsync(string chainId, VoteRecordIndex voteRecordIndex, LogEventContext context)
+    {
+        var id = IdGenerateHelper.GetId(chainId, voteRecordIndex.DAOId, voteRecordIndex.Voter);
+        try
+        {
+            Logger.LogInformation("[Voted] update DaoVoterRecord: Id={Id}", id);
+            var daoVoterRecord = await _daoProvider.GetDaoVoterRecordAsync(chainId, id);
+            if (daoVoterRecord == null)
+            {
+                daoVoterRecord = new DaoVoterRecordIndex
+                {
+                    Id = id,
+                    DaoId = voteRecordIndex.DAOId,
+                    VoterAddress = voteRecordIndex.Voter,
+                    Count = 1,
+                    ChainId = chainId
+                };
+                //update dao index
+                var daoIndex = await _daoProvider.GetDAOAsync(chainId, voteRecordIndex.DAOId);
+                if (daoIndex == null)
+                {
+                    Logger.LogError("[Voted] update DaoVoterRecord, Dao not found: daoId={Id}", voteRecordIndex.DAOId);
+                }
+                else
+                {
+                    daoIndex.VoterCount += 1;
+                    await _daoProvider.SaveIndexAsync(daoIndex, context);
+                    Logger.LogError("[Voted] update Dao Voter count: daoId={Id}, amount={amount}", voteRecordIndex.DAOId,
+                        daoIndex.VoterCount);
+                }
+            }
+            else
+            {
+                daoVoterRecord.Count += 1;
+            }
+
+            await _daoProvider.SaveDaoVoterRecordAsync(daoVoterRecord, context);
+        }
+        catch (Exception e)
+        {
+            Logger.LogError(e, "[Voted] update DaoVoterRecord error: Id={Id}", id);
+        }
+    }
+
+    private async Task UpdateVoteItemIndexAsync(string chainId, VoteRecordIndex voteRecordIndex,
+        LogEventContext context)
     {
         Logger.LogInformation("[Voted] update VoteItemIndex: Id={Id}", voteRecordIndex.VotingItemId);
         var voteItemIndex = await VoteProvider.GetVoteItemAsync(chainId, voteRecordIndex.VotingItemId);

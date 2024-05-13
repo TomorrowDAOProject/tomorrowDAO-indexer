@@ -14,8 +14,8 @@ public class VoteSchemeCreatedProcessor : VoteProcessorBase<VoteSchemeCreated>
 {
     public VoteSchemeCreatedProcessor(ILogger<AElfLogEventProcessorBase<VoteSchemeCreated, LogEventInfo>> logger,
         IObjectMapper objectMapper,
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IVoteProvider voteProvider)
-        : base(logger, objectMapper, contractInfoOptions, voteProvider)
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IVoteProvider voteProvider, IDAOProvider daoProvider)
+        : base(logger, objectMapper, contractInfoOptions, voteProvider, daoProvider)
     {
     }
 
@@ -30,9 +30,11 @@ public class VoteSchemeCreatedProcessor : VoteProcessorBase<VoteSchemeCreated>
             var voteSchemeIndex = await VoteProvider.GetVoteSchemeAsync(chainId, voteSchemeId);
             if (voteSchemeIndex != null)
             {
-                Logger.LogInformation("[VoteSchemeCreated] VoteScheme already existed: Id={Id}, ChainId={ChainId}", voteSchemeId, chainId);
+                Logger.LogInformation("[VoteSchemeCreated] VoteScheme already existed: Id={Id}, ChainId={ChainId}",
+                    voteSchemeId, chainId);
                 return;
             }
+
             voteSchemeIndex = ObjectMapper.Map<VoteSchemeCreated, VoteSchemeIndex>(eventValue);
             voteSchemeIndex.Id = voteSchemeId;
             voteSchemeIndex.CreateTime = context.BlockTime;

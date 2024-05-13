@@ -165,6 +165,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<LogEventContext, VoteWithdrawnIndex>();
         CreateMap<LogEventContext, ElectionHighCouncilConfigIndex>();
         CreateMap<LogEventContext, ElectionVotingItemIndex>();
+        CreateMap<LogEventContext, DaoVoterRecordIndex>();
         CreateMap<VoteSchemeCreated, VoteSchemeIndex>()
             .ForMember(des => des.VoteSchemeId, opt
                 => opt.MapFrom(source => MapHash(source.VoteSchemeId)));
@@ -211,11 +212,14 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<VoteWithdrawnIndex, VoteWithdrawnIndexDto>();
         CreateMap<TomorrowDAO.Contracts.Election.VotingItem, ElectionVotingItemIndex>()
             .ForMember(des => des.VotingItemId, opt => opt.MapFrom(source => MapHash(source.VotingItemId)))
-            .ForMember(des => des.RegisterTimestamp, opt => opt.MapFrom(source => MapDateTime(source.RegisterTimestamp)))
+            .ForMember(des => des.RegisterTimestamp,
+                opt => opt.MapFrom(source => MapDateTime(source.RegisterTimestamp)))
             .ForMember(des => des.StartTimestamp, opt => opt.MapFrom(source => MapDateTime(source.StartTimestamp)))
             .ForMember(des => des.EndTimestamp, opt => opt.MapFrom(source => MapDateTime(source.EndTimestamp)))
-            .ForMember(des => des.CurrentSnapshotStartTimestamp, opt => opt.MapFrom(source => MapDateTime(source.CurrentSnapshotStartTimestamp)))
+            .ForMember(des => des.CurrentSnapshotStartTimestamp,
+                opt => opt.MapFrom(source => MapDateTime(source.CurrentSnapshotStartTimestamp)))
             .ForMember(des => des.Sponsor, opt => opt.MapFrom(source => MapAddress(source.Sponsor)));
         CreateMap<TomorrowDAO.Contracts.Election.HighCouncilConfig, ElectionHighCouncilConfigIndex>();
+        CreateMap<DaoVoterRecordIndex, DaoVoterRecordIndexDto>();
     }
 }
