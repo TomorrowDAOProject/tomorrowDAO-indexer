@@ -15,7 +15,7 @@ public class VoteRecordIndex : AElfIndexerClientEntity<string>, IIndexBuild
     [Keyword] public string VotingItemId { get; set; }
     [Keyword] public string Voter { get; set; }
     [Keyword] public VoteMechanism VoteMechanism { get; set; }
-    public int Amount { get; set; }
+    public long Amount { get; set; }
     public VoteOption Option { get; set; }
     public DateTime VoteTimestamp { get; set; }
     [Keyword] public string VoteId { get; set; }

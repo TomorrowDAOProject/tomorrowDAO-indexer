@@ -24,13 +24,13 @@ public class VoteItemIndex : AElfIndexerClientEntity<string>, IIndexBuild
 
     public DateTime EndTime { get; set; }
 
-    public int ApprovedCount { get; set; }
+    public long ApprovedCount { get; set; }
 
-    public int RejectionCount { get; set; }
+    public long RejectionCount { get; set; }
 
-    public int AbstentionCount { get; set; }
+    public long AbstentionCount { get; set; }
 
-    public int VotesAmount { get; set; }
+    public long VotesAmount { get; set; }
 
     public HashSet<string> VoterSet { get; set; }
 
