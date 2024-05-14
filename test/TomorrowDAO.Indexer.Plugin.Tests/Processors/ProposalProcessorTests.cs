@@ -2,11 +2,19 @@ using AElf;
 using Shouldly;
 using TomorrowDAO.Indexer.Plugin.Enums;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.Processors;
 
 public class ProposalProcessorTests : TomorrowDAOIndexerPluginTestBase
 {
+    private readonly ITestOutputHelper _testOutputHelper;
+
+    public ProposalProcessorTests(ITestOutputHelper testOutputHelper)
+    {
+        _testOutputHelper = testOutputHelper;
+    }
+
     [Fact]
     public async Task ProposalCreated_Test()
     {
@@ -96,5 +104,19 @@ public class ProposalProcessorTests : TomorrowDAOIndexerPluginTestBase
         DAOIndex.PendingTimePeriod.ShouldBe(3);
         DAOIndex.ExecuteTimePeriod.ShouldBe(2);
         DAOIndex.VetoExecuteTimePeriod.ShouldBe(4);
+    }
+
+    [Fact]
+    public Task ExecuteTransactionParamTest()
+    {
+        var param = "506172616d73";
+        var byteString = ByteStringHelper.FromHexString(param);
+        _testOutputHelper.WriteLine(byteString.ToBase64());
+
+        var hex = byteString.ToHex();
+        var hex1 = byteString.ToByteArray().ToHex();
+        var base64 = byteString.ToBase64();
+
+        return Task.CompletedTask;
     }
 }

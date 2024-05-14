@@ -60,7 +60,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<TomorrowDAO.Contracts.Governance.ExecuteTransaction,
                 TomorrowDAO.Indexer.Plugin.Entities.ExecuteTransaction>()
             .ForMember(des => des.ToAddress, opt => opt.MapFrom(source => MapAddress(source.ToAddress)))
-            .ForMember(des => des.Params, opt => opt.MapFrom(source => MapByteString(source.Params)));
+            .ForMember(des => des.Params, opt => opt.MapFrom(source => MapByteStringToBase64(source.Params)));
 
         CreateMap<ProposalExecuted, ProposalIndex>();
         CreateMap<DAOIndex, ProposalIndex>();

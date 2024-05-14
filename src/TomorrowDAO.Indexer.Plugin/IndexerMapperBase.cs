@@ -38,6 +38,11 @@ public class IndexerMapperBase : Profile
         return byteString?.ToByteArray().ToHex();
     }
 
+    protected static string MapByteStringToBase64([CanBeNull] ByteString byteString)
+    {
+        return byteString?.ToBase64();
+    }
+
     protected static List<string> MapVotingItemIdList(VotingItemIdList votingItemIdList)
     {
         var list = new List<string>();
