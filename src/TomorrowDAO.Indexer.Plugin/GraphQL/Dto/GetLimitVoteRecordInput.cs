@@ -1,6 +1,6 @@
 namespace TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 
-public class GetVoteRecordInput
+public class GetLimitVoteRecordInput
 {
     public string ChainId { get; set; }
 
@@ -9,4 +9,6 @@ public class GetVoteRecordInput
     public string Voter { get; set; }
     
     public string Sorting { get; set; }
+    
+    public int Limit { get; set; }
 }
