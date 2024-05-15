@@ -7,7 +7,7 @@
         <Configuration>
           <Format>cobertura</Format>
           <Exclude>[xunit.*]*,[*Tests]*</Exclude> <!-- [Assembly-Filter]Type-Filter -->
-          <ExcludeByFile>**/test/**/*.cs,**/src/Ewell.Indexer.Plugin/Generated/*.cs,**/src/Ewell.Indexer.Plugin/Entities/*.cs,**/src/Ewell.Indexer.Plugin/enums/*.cs,**/src/Ewell.Indexer.Plugin/GraphQL/*.cs,**/src/Ewell.Indexer.Plugin/*.cs</ExcludeByFile>
+          <ExcludeByFile>**/test/**/*.cs,**/src/TomorrowDAO.Indexer.Plugin/Generated/*.cs,**/src/TomorrowDAO.Indexer.Plugin/Entities/*.cs,**/src/TomorrowDAO.Indexer.Plugin/enums/*.cs,**/src/TomorrowDAO.Indexer.Plugin/GraphQL/*.cs,**/src/TomorrowDAO.Indexer.Plugin/*.cs</ExcludeByFile>
           <ExcludeByAttribute>Obsolete,GeneratedCodeAttribute</ExcludeByAttribute>
           <SingleHit>false</SingleHit>
         </Configuration>
