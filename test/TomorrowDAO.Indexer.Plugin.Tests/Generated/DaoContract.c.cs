@@ -29,6 +29,7 @@ namespace TomorrowDAO.Contracts.DAO {
         DaoId = DaoId,
         Creator = Creator,
         ContractAddressList = ContractAddressList,
+        IsNetworkDao = IsNetworkDao,
       };
     }
   }
@@ -394,7 +395,7 @@ namespace TomorrowDAO.Contracts.DAO {
     //   }
     //
     // }
-
+    //
     // public static aelf::ServerServiceDefinition BindService(DAOContractBase serviceImpl)
     // {
     //   return aelf::ServerServiceDefinition.CreateBuilder()

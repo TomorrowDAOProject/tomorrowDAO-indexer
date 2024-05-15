@@ -34,104 +34,106 @@ namespace TomorrowDAO.Contracts.DAO {
             "MAoZdHJlYXN1cnlfY29udHJhY3RfYWRkcmVzcxgDIAEoCzINLmFlbGYuQWRk",
             "cmVzcxIwChllbGVjdGlvbl9jb250cmFjdF9hZGRyZXNzGAQgASgLMg0uYWVs",
             "Zi5BZGRyZXNzEjAKGXRpbWVsb2NrX2NvbnRyYWN0X2FkZHJlc3MYBSABKAsy",
-            "DS5hZWxmLkFkZHJlc3Mi8gEKDkNyZWF0ZURBT0lucHV0EhsKCG1ldGFkYXRh",
+            "DS5hZWxmLkFkZHJlc3MiigIKDkNyZWF0ZURBT0lucHV0EhsKCG1ldGFkYXRh",
             "GAEgASgLMgkuTWV0YWRhdGESGAoQZ292ZXJuYW5jZV90b2tlbhgCIAEoCRI/",
             "Chtnb3Zlcm5hbmNlX3NjaGVtZV90aHJlc2hvbGQYAyABKAsyGi5Hb3Zlcm5h",
             "bmNlU2NoZW1lVGhyZXNob2xkEi0KEmhpZ2hfY291bmNpbF9pbnB1dBgEIAEo",
             "CzIRLkhpZ2hDb3VuY2lsSW5wdXQSIwobaXNfdHJlYXN1cnlfY29udHJhY3Rf",
-            "bmVlZGVkGAUgASgIEhQKBWZpbGVzGAYgAygLMgUuRmlsZSKEAQoQSGlnaENv",
-            "dW5jaWxJbnB1dBIvChNoaWdoX2NvdW5jaWxfY29uZmlnGAEgASgLMhIuSGln",
-            "aENvdW5jaWxDb25maWcSPwobZ292ZXJuYW5jZV9zY2hlbWVfdGhyZXNob2xk",
-            "GAIgASgLMhouR292ZXJuYW5jZVNjaGVtZVRocmVzaG9sZCKlAQoITWV0YWRh",
-            "dGESDAoEbmFtZRgBIAEoCRIQCghsb2dvX3VybBgCIAEoCRITCgtkZXNjcmlw",
-            "dGlvbhgDIAEoCRIwCgxzb2NpYWxfbWVkaWEYBCADKAsyGi5NZXRhZGF0YS5T",
-            "b2NpYWxNZWRpYUVudHJ5GjIKEFNvY2lhbE1lZGlhRW50cnkSCwoDa2V5GAEg",
-            "ASgJEg0KBXZhbHVlGAIgASgJOgI4ASIfCg9Tb2NpYWxNZWRpYUxpc3QSDAoE",
-            "ZGF0YRgBIAMoCSLNAQoZR292ZXJuYW5jZVNjaGVtZVRocmVzaG9sZBIiChpt",
-            "aW5pbWFsX3JlcXVpcmVkX3RocmVzaG9sZBgBIAEoAxIeChZtaW5pbWFsX3Zv",
-            "dGVfdGhyZXNob2xkGAIgASgDEiEKGW1pbmltYWxfYXBwcm92ZV90aHJlc2hv",
-            "bGQYAyABKAMSIwobbWF4aW1hbF9yZWplY3Rpb25fdGhyZXNob2xkGAQgASgD",
-            "EiQKHG1heGltYWxfYWJzdGVudGlvbl90aHJlc2hvbGQYBSABKAMilQEKEUhp",
-            "Z2hDb3VuY2lsQ29uZmlnEiUKHW1heF9oaWdoX2NvdW5jaWxfbWVtYmVyX2Nv",
-            "dW50GAEgASgDEigKIG1heF9oaWdoX2NvdW5jaWxfY2FuZGlkYXRlX2NvdW50",
-            "GAIgASgDEhcKD2VsZWN0aW9uX3BlcmlvZBgDIAEoAxIWCg5zdGFraW5nX2Ft",
-            "b3VudBgEIAEoAyIuCgRGaWxlEgsKA2NpZBgBIAEoCRIMCgRuYW1lGAIgASgJ",
-            "EgsKA3VybBgDIAEoCSJxCghGaWxlSW5mbxITCgRmaWxlGAEgASgLMgUuRmls",
-            "ZRIvCgt1cGxvYWRfdGltZRgCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
-            "c3RhbXASHwoIdXBsb2FkZXIYAyABKAsyDS5hZWxmLkFkZHJlc3MibQoMRmls",
-            "ZUluZm9MaXN0EiUKBGRhdGEYASADKAsyFy5GaWxlSW5mb0xpc3QuRGF0YUVu",
-            "dHJ5GjYKCURhdGFFbnRyeRILCgNrZXkYASABKAkSGAoFdmFsdWUYAiABKAsy",
-            "CS5GaWxlSW5mbzoCOAEiWAoOUGVybWlzc2lvbkluZm8SHAoFd2hlcmUYASAB",
-            "KAsyDS5hZWxmLkFkZHJlc3MSGgoDd2hvGAIgASgLMg0uYWVsZi5BZGRyZXNz",
-            "EgwKBHdoYXQYAyABKAkirAEKB0RBT0luZm8SGgoGZGFvX2lkGAEgASgLMgou",
-            "YWVsZi5IYXNoEh4KB2NyZWF0b3IYAiABKAsyDS5hZWxmLkFkZHJlc3MSFgoO",
-            "c3Vic2lzdF9zdGF0dXMYAyABKAgSGAoQZ292ZXJuYW5jZV90b2tlbhgEIAEo",
-            "CRIzChVjb250cmFjdF9hZGRyZXNzX2xpc3QYBSABKAsyFC5Db250cmFjdEFk",
-            "ZHJlc3NMaXN0Io0CChNDb250cmFjdEFkZHJlc3NMaXN0EjIKG2dvdmVybmFu",
-            "Y2VfY29udHJhY3RfYWRkcmVzcxgBIAEoCzINLmFlbGYuQWRkcmVzcxIsChV2",
-            "b3RlX2NvbnRyYWN0X2FkZHJlc3MYAiABKAsyDS5hZWxmLkFkZHJlc3MSMAoZ",
-            "dHJlYXN1cnlfY29udHJhY3RfYWRkcmVzcxgDIAEoCzINLmFlbGYuQWRkcmVz",
-            "cxIwChllbGVjdGlvbl9jb250cmFjdF9hZGRyZXNzGAQgASgLMg0uYWVsZi5B",
-            "ZGRyZXNzEjAKGXRpbWVsb2NrX2NvbnRyYWN0X2FkZHJlc3MYBSABKAsyDS5h",
-            "ZWxmLkFkZHJlc3MiQwoVU2V0U3Vic2lzdFN0YXR1c0lucHV0EhoKBmRhb19p",
-            "ZBgBIAEoCzIKLmFlbGYuSGFzaBIOCgZzdGF0dXMYAiABKAgiYwoWRW5hYmxl",
-            "SGlnaENvdW5jaWxJbnB1dBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gS",
-            "LQoSaGlnaF9jb3VuY2lsX2lucHV0GAIgASgLMhEuSGlnaENvdW5jaWxJbnB1",
-            "dCJIChRVcGxvYWRGaWxlSW5mb3NJbnB1dBIaCgZkYW9faWQYASABKAsyCi5h",
-            "ZWxmLkhhc2gSFAoFZmlsZXMYAiADKAsyBS5GaWxlIkUKFFJlbW92ZUZpbGVJ",
-            "bmZvc0lucHV0EhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIRCglmaWxl",
-            "X2NpZHMYAiADKAkieAoSSGFzUGVybWlzc2lvbklucHV0EhoKBmRhb19pZBgB",
-            "IAEoCzIKLmFlbGYuSGFzaBIcCgV3aGVyZRgCIAEoCzINLmFlbGYuQWRkcmVz",
-            "cxIaCgN3aG8YAyABKAsyDS5hZWxmLkFkZHJlc3MSDAoEd2hhdBgEIAEoCSK6",
-            "AQoKREFPQ3JlYXRlZBIbCghtZXRhZGF0YRgBIAEoCzIJLk1ldGFkYXRhEhgK",
-            "EGdvdmVybmFuY2VfdG9rZW4YAiABKAkSGgoGZGFvX2lkGAMgASgLMgouYWVs",
-            "Zi5IYXNoEh4KB2NyZWF0b3IYBCABKAsyDS5hZWxmLkFkZHJlc3MSMwoVY29u",
-            "dHJhY3RfYWRkcmVzc19saXN0GAUgASgLMhQuQ29udHJhY3RBZGRyZXNzTGlz",
-            "dDoEoLsYASJEChBTdWJzaXN0U3RhdHVzU2V0EhoKBmRhb19pZBgBIAEoCzIK",
-            "LmFlbGYuSGFzaBIOCgZzdGF0dXMYAiABKAg6BKC7GAEikgEKEkhpZ2hDb3Vu",
-            "Y2lsRW5hYmxlZBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSLQoSaGln",
-            "aF9jb3VuY2lsX2lucHV0GAIgASgLMhEuSGlnaENvdW5jaWxJbnB1dBIrChRo",
-            "aWdoX2NvdW5jaWxfYWRkcmVzcxgDIAEoCzINLmFlbGYuQWRkcmVzczoEoLsY",
-            "ASI3ChNIaWdoQ291bmNpbERpc2FibGVkEhoKBmRhb19pZBgBIAEoCzIKLmFl",
-            "bGYuSGFzaDoEoLsYASJcChFGaWxlSW5mb3NVcGxvYWRlZBIaCgZkYW9faWQY",
-            "ASABKAsyCi5hZWxmLkhhc2gSJQoOdXBsb2FkZWRfZmlsZXMYAiABKAsyDS5G",
-            "aWxlSW5mb0xpc3Q6BKC7GAEiWgoQRmlsZUluZm9zUmVtb3ZlZBIaCgZkYW9f",
-            "aWQYASABKAsyCi5hZWxmLkhhc2gSJAoNcmVtb3ZlZF9maWxlcxgCIAEoCzIN",
-            "LkZpbGVJbmZvTGlzdDoEoLsYASoqCg5QZXJtaXNzaW9uVHlwZRILCgdERUZB",
-            "VUxUEAASCwoHQ1JFQVRPUhABMswJCgtEQU9Db250cmFjdBI4CgpJbml0aWFs",
-            "aXplEhAuSW5pdGlhbGl6ZUlucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5",
-            "IgASNgoJQ3JlYXRlREFPEg8uQ3JlYXRlREFPSW5wdXQaFi5nb29nbGUucHJv",
-            "dG9idWYuRW1wdHkiABJEChBTZXRTdWJzaXN0U3RhdHVzEhYuU2V0U3Vic2lz",
-            "dFN0YXR1c0lucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASKQoKR2V0",
-            "REFPSW5mbxIKLmFlbGYuSGFzaBoILkRBT0luZm8iBYiJ9wEBEkEKDkdldERB",
-            "T0lkQnlOYW1lEhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlGgouYWVs",
-            "Zi5IYXNoIgWIifcBARIrCgtHZXRNZXRhZGF0YRIKLmFlbGYuSGFzaBoJLk1l",
-            "dGFkYXRhIgWIifcBARJBChBHZXRTdWJzaXN0U3RhdHVzEgouYWVsZi5IYXNo",
-            "GhouZ29vZ2xlLnByb3RvYnVmLkJvb2xWYWx1ZSIFiIn3AQESRQoSR2V0R292",
-            "ZXJuYW5jZVRva2VuEgouYWVsZi5IYXNoGhwuZ29vZ2xlLnByb3RvYnVmLlN0",
-            "cmluZ1ZhbHVlIgWIifcBARJOChdHZXRJbml0aWFsaXplZENvbnRyYWN0cxIW",
-            "Lmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoULkNvbnRyYWN0QWRkcmVzc0xpc3Qi",
-            "BYiJ9wEBEjgKFEdldFJlZmVyZW5kdW1BZGRyZXNzEgouYWVsZi5IYXNoGg0u",
-            "YWVsZi5BZGRyZXNzIgWIifcBARI5ChVHZXRIaWdoQ291bmNpbEFkZHJlc3MS",
-            "Ci5hZWxmLkhhc2gaDS5hZWxmLkFkZHJlc3MiBYiJ9wEBEkYKEUVuYWJsZUhp",
-            "Z2hDb3VuY2lsEhcuRW5hYmxlSGlnaENvdW5jaWxJbnB1dBoWLmdvb2dsZS5w",
-            "cm90b2J1Zi5FbXB0eSIAEjoKEkRpc2FibGVIaWdoQ291bmNpbBIKLmFlbGYu",
-            "SGFzaBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEkUKFEdldEhpZ2hDb3Vu",
-            "Y2lsU3RhdHVzEgouYWVsZi5IYXNoGhouZ29vZ2xlLnByb3RvYnVmLkJvb2xW",
-            "YWx1ZSIFiIn3AQESQgoPVXBsb2FkRmlsZUluZm9zEhUuVXBsb2FkRmlsZUlu",
-            "Zm9zSW5wdXQaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABJCCg9SZW1vdmVG",
-            "aWxlSW5mb3MSFS5SZW1vdmVGaWxlSW5mb3NJbnB1dBoWLmdvb2dsZS5wcm90",
-            "b2J1Zi5FbXB0eSIAEjAKDEdldEZpbGVJbmZvcxIKLmFlbGYuSGFzaBoNLkZp",
-            "bGVJbmZvTGlzdCIFiIn3AQESRwoNSGFzUGVybWlzc2lvbhITLkhhc1Blcm1p",
-            "c3Npb25JbnB1dBoaLmdvb2dsZS5wcm90b2J1Zi5Cb29sVmFsdWUiBYiJ9wEB",
-            "Gk2yzPYBKlRvbW9ycm93REFPLkNvbnRyYWN0cy5EQU8uREFPQ29udHJhY3RT",
-            "dGF0ZcrK9gEZUHJvdG9idWYvYmFzZS9hY3MxMi5wcm90b0IcqgIZVG9tb3Jy",
-            "b3dEQU8uQ29udHJhY3RzLkRBT2IGcHJvdG8z"));
+            "bmVlZGVkGAUgASgIEhQKBWZpbGVzGAYgAygLMgUuRmlsZRIWCg5pc19uZXR3",
+            "b3JrX2RhbxgHIAEoCCKEAQoQSGlnaENvdW5jaWxJbnB1dBIvChNoaWdoX2Nv",
+            "dW5jaWxfY29uZmlnGAEgASgLMhIuSGlnaENvdW5jaWxDb25maWcSPwobZ292",
+            "ZXJuYW5jZV9zY2hlbWVfdGhyZXNob2xkGAIgASgLMhouR292ZXJuYW5jZVNj",
+            "aGVtZVRocmVzaG9sZCKlAQoITWV0YWRhdGESDAoEbmFtZRgBIAEoCRIQCghs",
+            "b2dvX3VybBgCIAEoCRITCgtkZXNjcmlwdGlvbhgDIAEoCRIwCgxzb2NpYWxf",
+            "bWVkaWEYBCADKAsyGi5NZXRhZGF0YS5Tb2NpYWxNZWRpYUVudHJ5GjIKEFNv",
+            "Y2lhbE1lZGlhRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4",
+            "ASIfCg9Tb2NpYWxNZWRpYUxpc3QSDAoEZGF0YRgBIAMoCSLNAQoZR292ZXJu",
+            "YW5jZVNjaGVtZVRocmVzaG9sZBIiChptaW5pbWFsX3JlcXVpcmVkX3RocmVz",
+            "aG9sZBgBIAEoAxIeChZtaW5pbWFsX3ZvdGVfdGhyZXNob2xkGAIgASgDEiEK",
+            "GW1pbmltYWxfYXBwcm92ZV90aHJlc2hvbGQYAyABKAMSIwobbWF4aW1hbF9y",
+            "ZWplY3Rpb25fdGhyZXNob2xkGAQgASgDEiQKHG1heGltYWxfYWJzdGVudGlv",
+            "bl90aHJlc2hvbGQYBSABKAMilQEKEUhpZ2hDb3VuY2lsQ29uZmlnEiUKHW1h",
+            "eF9oaWdoX2NvdW5jaWxfbWVtYmVyX2NvdW50GAEgASgDEigKIG1heF9oaWdo",
+            "X2NvdW5jaWxfY2FuZGlkYXRlX2NvdW50GAIgASgDEhcKD2VsZWN0aW9uX3Bl",
+            "cmlvZBgDIAEoAxIWCg5zdGFraW5nX2Ftb3VudBgEIAEoAyIuCgRGaWxlEgsK",
+            "A2NpZBgBIAEoCRIMCgRuYW1lGAIgASgJEgsKA3VybBgDIAEoCSJxCghGaWxl",
+            "SW5mbxITCgRmaWxlGAEgASgLMgUuRmlsZRIvCgt1cGxvYWRfdGltZRgCIAEo",
+            "CzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASHwoIdXBsb2FkZXIYAyAB",
+            "KAsyDS5hZWxmLkFkZHJlc3MibQoMRmlsZUluZm9MaXN0EiUKBGRhdGEYASAD",
+            "KAsyFy5GaWxlSW5mb0xpc3QuRGF0YUVudHJ5GjYKCURhdGFFbnRyeRILCgNr",
+            "ZXkYASABKAkSGAoFdmFsdWUYAiABKAsyCS5GaWxlSW5mbzoCOAEiWAoOUGVy",
+            "bWlzc2lvbkluZm8SHAoFd2hlcmUYASABKAsyDS5hZWxmLkFkZHJlc3MSGgoD",
+            "d2hvGAIgASgLMg0uYWVsZi5BZGRyZXNzEgwKBHdoYXQYAyABKAkixAEKB0RB",
+            "T0luZm8SGgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEh4KB2NyZWF0b3IY",
+            "AiABKAsyDS5hZWxmLkFkZHJlc3MSFgoOc3Vic2lzdF9zdGF0dXMYAyABKAgS",
+            "GAoQZ292ZXJuYW5jZV90b2tlbhgEIAEoCRIzChVjb250cmFjdF9hZGRyZXNz",
+            "X2xpc3QYBSABKAsyFC5Db250cmFjdEFkZHJlc3NMaXN0EhYKDmlzX25ldHdv",
+            "cmtfZGFvGAYgASgIIo0CChNDb250cmFjdEFkZHJlc3NMaXN0EjIKG2dvdmVy",
+            "bmFuY2VfY29udHJhY3RfYWRkcmVzcxgBIAEoCzINLmFlbGYuQWRkcmVzcxIs",
+            "ChV2b3RlX2NvbnRyYWN0X2FkZHJlc3MYAiABKAsyDS5hZWxmLkFkZHJlc3MS",
+            "MAoZdHJlYXN1cnlfY29udHJhY3RfYWRkcmVzcxgDIAEoCzINLmFlbGYuQWRk",
+            "cmVzcxIwChllbGVjdGlvbl9jb250cmFjdF9hZGRyZXNzGAQgASgLMg0uYWVs",
+            "Zi5BZGRyZXNzEjAKGXRpbWVsb2NrX2NvbnRyYWN0X2FkZHJlc3MYBSABKAsy",
+            "DS5hZWxmLkFkZHJlc3MiQwoVU2V0U3Vic2lzdFN0YXR1c0lucHV0EhoKBmRh",
+            "b19pZBgBIAEoCzIKLmFlbGYuSGFzaBIOCgZzdGF0dXMYAiABKAgiYwoWRW5h",
+            "YmxlSGlnaENvdW5jaWxJbnB1dBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhh",
+            "c2gSLQoSaGlnaF9jb3VuY2lsX2lucHV0GAIgASgLMhEuSGlnaENvdW5jaWxJ",
+            "bnB1dCJIChRVcGxvYWRGaWxlSW5mb3NJbnB1dBIaCgZkYW9faWQYASABKAsy",
+            "Ci5hZWxmLkhhc2gSFAoFZmlsZXMYAiADKAsyBS5GaWxlIkUKFFJlbW92ZUZp",
+            "bGVJbmZvc0lucHV0EhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIRCglm",
+            "aWxlX2NpZHMYAiADKAkieAoSSGFzUGVybWlzc2lvbklucHV0EhoKBmRhb19p",
+            "ZBgBIAEoCzIKLmFlbGYuSGFzaBIcCgV3aGVyZRgCIAEoCzINLmFlbGYuQWRk",
+            "cmVzcxIaCgN3aG8YAyABKAsyDS5hZWxmLkFkZHJlc3MSDAoEd2hhdBgEIAEo",
+            "CSLSAQoKREFPQ3JlYXRlZBIbCghtZXRhZGF0YRgBIAEoCzIJLk1ldGFkYXRh",
+            "EhgKEGdvdmVybmFuY2VfdG9rZW4YAiABKAkSGgoGZGFvX2lkGAMgASgLMgou",
+            "YWVsZi5IYXNoEh4KB2NyZWF0b3IYBCABKAsyDS5hZWxmLkFkZHJlc3MSMwoV",
+            "Y29udHJhY3RfYWRkcmVzc19saXN0GAUgASgLMhQuQ29udHJhY3RBZGRyZXNz",
+            "TGlzdBIWCg5pc19uZXR3b3JrX2RhbxgGIAEoCDoEoLsYASJEChBTdWJzaXN0",
+            "U3RhdHVzU2V0EhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIOCgZzdGF0",
+            "dXMYAiABKAg6BKC7GAEikgEKEkhpZ2hDb3VuY2lsRW5hYmxlZBIaCgZkYW9f",
+            "aWQYASABKAsyCi5hZWxmLkhhc2gSLQoSaGlnaF9jb3VuY2lsX2lucHV0GAIg",
+            "ASgLMhEuSGlnaENvdW5jaWxJbnB1dBIrChRoaWdoX2NvdW5jaWxfYWRkcmVz",
+            "cxgDIAEoCzINLmFlbGYuQWRkcmVzczoEoLsYASI3ChNIaWdoQ291bmNpbERp",
+            "c2FibGVkEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaDoEoLsYASJcChFG",
+            "aWxlSW5mb3NVcGxvYWRlZBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gS",
+            "JQoOdXBsb2FkZWRfZmlsZXMYAiABKAsyDS5GaWxlSW5mb0xpc3Q6BKC7GAEi",
+            "WgoQRmlsZUluZm9zUmVtb3ZlZBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhh",
+            "c2gSJAoNcmVtb3ZlZF9maWxlcxgCIAEoCzINLkZpbGVJbmZvTGlzdDoEoLsY",
+            "ASoqCg5QZXJtaXNzaW9uVHlwZRILCgdERUZBVUxUEAASCwoHQ1JFQVRPUhAB",
+            "MswJCgtEQU9Db250cmFjdBI4CgpJbml0aWFsaXplEhAuSW5pdGlhbGl6ZUlu",
+            "cHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASNgoJQ3JlYXRlREFPEg8u",
+            "Q3JlYXRlREFPSW5wdXQaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABJEChBT",
+            "ZXRTdWJzaXN0U3RhdHVzEhYuU2V0U3Vic2lzdFN0YXR1c0lucHV0GhYuZ29v",
+            "Z2xlLnByb3RvYnVmLkVtcHR5IgASKQoKR2V0REFPSW5mbxIKLmFlbGYuSGFz",
+            "aBoILkRBT0luZm8iBYiJ9wEBEkEKDkdldERBT0lkQnlOYW1lEhwuZ29vZ2xl",
+            "LnByb3RvYnVmLlN0cmluZ1ZhbHVlGgouYWVsZi5IYXNoIgWIifcBARIrCgtH",
+            "ZXRNZXRhZGF0YRIKLmFlbGYuSGFzaBoJLk1ldGFkYXRhIgWIifcBARJBChBH",
+            "ZXRTdWJzaXN0U3RhdHVzEgouYWVsZi5IYXNoGhouZ29vZ2xlLnByb3RvYnVm",
+            "LkJvb2xWYWx1ZSIFiIn3AQESRQoSR2V0R292ZXJuYW5jZVRva2VuEgouYWVs",
+            "Zi5IYXNoGhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlIgWIifcBARJO",
+            "ChdHZXRJbml0aWFsaXplZENvbnRyYWN0cxIWLmdvb2dsZS5wcm90b2J1Zi5F",
+            "bXB0eRoULkNvbnRyYWN0QWRkcmVzc0xpc3QiBYiJ9wEBEjgKFEdldFJlZmVy",
+            "ZW5kdW1BZGRyZXNzEgouYWVsZi5IYXNoGg0uYWVsZi5BZGRyZXNzIgWIifcB",
+            "ARI5ChVHZXRIaWdoQ291bmNpbEFkZHJlc3MSCi5hZWxmLkhhc2gaDS5hZWxm",
+            "LkFkZHJlc3MiBYiJ9wEBEkYKEUVuYWJsZUhpZ2hDb3VuY2lsEhcuRW5hYmxl",
+            "SGlnaENvdW5jaWxJbnB1dBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEjoK",
+            "EkRpc2FibGVIaWdoQ291bmNpbBIKLmFlbGYuSGFzaBoWLmdvb2dsZS5wcm90",
+            "b2J1Zi5FbXB0eSIAEkUKFEdldEhpZ2hDb3VuY2lsU3RhdHVzEgouYWVsZi5I",
+            "YXNoGhouZ29vZ2xlLnByb3RvYnVmLkJvb2xWYWx1ZSIFiIn3AQESQgoPVXBs",
+            "b2FkRmlsZUluZm9zEhUuVXBsb2FkRmlsZUluZm9zSW5wdXQaFi5nb29nbGUu",
+            "cHJvdG9idWYuRW1wdHkiABJCCg9SZW1vdmVGaWxlSW5mb3MSFS5SZW1vdmVG",
+            "aWxlSW5mb3NJbnB1dBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEjAKDEdl",
+            "dEZpbGVJbmZvcxIKLmFlbGYuSGFzaBoNLkZpbGVJbmZvTGlzdCIFiIn3AQES",
+            "RwoNSGFzUGVybWlzc2lvbhITLkhhc1Blcm1pc3Npb25JbnB1dBoaLmdvb2ds",
+            "ZS5wcm90b2J1Zi5Cb29sVmFsdWUiBYiJ9wEBGk2yzPYBKlRvbW9ycm93REFP",
+            "LkNvbnRyYWN0cy5EQU8uREFPQ29udHJhY3RTdGF0ZcrK9gEZUHJvdG9idWYv",
+            "YmFzZS9hY3MxMi5wcm90b0IcqgIZVG9tb3Jyb3dEQU8uQ29udHJhY3RzLkRB",
+            "T2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::AElf.Types.CoreReflection.Descriptor, global::AElf.OptionsReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::AElf.Standards.ACS12.Acs12Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::TomorrowDAO.Contracts.DAO.PermissionType), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.InitializeInput), global::TomorrowDAO.Contracts.DAO.InitializeInput.Parser, new[]{ "GovernanceContractAddress", "VoteContractAddress", "TreasuryContractAddress", "ElectionContractAddress", "TimelockContractAddress" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.CreateDAOInput), global::TomorrowDAO.Contracts.DAO.CreateDAOInput.Parser, new[]{ "Metadata", "GovernanceToken", "GovernanceSchemeThreshold", "HighCouncilInput", "IsTreasuryContractNeeded", "Files" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.CreateDAOInput), global::TomorrowDAO.Contracts.DAO.CreateDAOInput.Parser, new[]{ "Metadata", "GovernanceToken", "GovernanceSchemeThreshold", "HighCouncilInput", "IsTreasuryContractNeeded", "Files", "IsNetworkDao" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.HighCouncilInput), global::TomorrowDAO.Contracts.DAO.HighCouncilInput.Parser, new[]{ "HighCouncilConfig", "GovernanceSchemeThreshold" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.Metadata), global::TomorrowDAO.Contracts.DAO.Metadata.Parser, new[]{ "Name", "LogoUrl", "Description", "SocialMedia" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.SocialMediaList), global::TomorrowDAO.Contracts.DAO.SocialMediaList.Parser, new[]{ "Data" }, null, null, null, null),
@@ -141,14 +143,14 @@ namespace TomorrowDAO.Contracts.DAO {
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.FileInfo), global::TomorrowDAO.Contracts.DAO.FileInfo.Parser, new[]{ "File", "UploadTime", "Uploader" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.FileInfoList), global::TomorrowDAO.Contracts.DAO.FileInfoList.Parser, new[]{ "Data" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.PermissionInfo), global::TomorrowDAO.Contracts.DAO.PermissionInfo.Parser, new[]{ "Where", "Who", "What" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.DAOInfo), global::TomorrowDAO.Contracts.DAO.DAOInfo.Parser, new[]{ "DaoId", "Creator", "SubsistStatus", "GovernanceToken", "ContractAddressList" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.DAOInfo), global::TomorrowDAO.Contracts.DAO.DAOInfo.Parser, new[]{ "DaoId", "Creator", "SubsistStatus", "GovernanceToken", "ContractAddressList", "IsNetworkDao" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.ContractAddressList), global::TomorrowDAO.Contracts.DAO.ContractAddressList.Parser, new[]{ "GovernanceContractAddress", "VoteContractAddress", "TreasuryContractAddress", "ElectionContractAddress", "TimelockContractAddress" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.SetSubsistStatusInput), global::TomorrowDAO.Contracts.DAO.SetSubsistStatusInput.Parser, new[]{ "DaoId", "Status" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput), global::TomorrowDAO.Contracts.DAO.EnableHighCouncilInput.Parser, new[]{ "DaoId", "HighCouncilInput" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.UploadFileInfosInput), global::TomorrowDAO.Contracts.DAO.UploadFileInfosInput.Parser, new[]{ "DaoId", "Files" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.RemoveFileInfosInput), global::TomorrowDAO.Contracts.DAO.RemoveFileInfosInput.Parser, new[]{ "DaoId", "FileCids" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.HasPermissionInput), global::TomorrowDAO.Contracts.DAO.HasPermissionInput.Parser, new[]{ "DaoId", "Where", "Who", "What" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.DAOCreated), global::TomorrowDAO.Contracts.DAO.DAOCreated.Parser, new[]{ "Metadata", "GovernanceToken", "DaoId", "Creator", "ContractAddressList" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.DAOCreated), global::TomorrowDAO.Contracts.DAO.DAOCreated.Parser, new[]{ "Metadata", "GovernanceToken", "DaoId", "Creator", "ContractAddressList", "IsNetworkDao" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.SubsistStatusSet), global::TomorrowDAO.Contracts.DAO.SubsistStatusSet.Parser, new[]{ "DaoId", "Status" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.HighCouncilEnabled), global::TomorrowDAO.Contracts.DAO.HighCouncilEnabled.Parser, new[]{ "DaoId", "HighCouncilInput", "HighCouncilAddress" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.DAO.HighCouncilDisabled), global::TomorrowDAO.Contracts.DAO.HighCouncilDisabled.Parser, new[]{ "DaoId" }, null, null, null, null),
@@ -596,6 +598,7 @@ namespace TomorrowDAO.Contracts.DAO {
       highCouncilInput_ = other.highCouncilInput_ != null ? other.highCouncilInput_.Clone() : null;
       isTreasuryContractNeeded_ = other.isTreasuryContractNeeded_;
       files_ = other.files_.Clone();
+      isNetworkDao_ = other.isNetworkDao_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -688,6 +691,18 @@ namespace TomorrowDAO.Contracts.DAO {
       get { return files_; }
     }
 
+    /// <summary>Field number for the "is_network_dao" field.</summary>
+    public const int IsNetworkDaoFieldNumber = 7;
+    private bool isNetworkDao_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsNetworkDao {
+      get { return isNetworkDao_; }
+      set {
+        isNetworkDao_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -709,6 +724,7 @@ namespace TomorrowDAO.Contracts.DAO {
       if (!object.Equals(HighCouncilInput, other.HighCouncilInput)) return false;
       if (IsTreasuryContractNeeded != other.IsTreasuryContractNeeded) return false;
       if(!files_.Equals(other.files_)) return false;
+      if (IsNetworkDao != other.IsNetworkDao) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -722,6 +738,7 @@ namespace TomorrowDAO.Contracts.DAO {
       if (highCouncilInput_ != null) hash ^= HighCouncilInput.GetHashCode();
       if (IsTreasuryContractNeeded != false) hash ^= IsTreasuryContractNeeded.GetHashCode();
       hash ^= files_.GetHashCode();
+      if (IsNetworkDao != false) hash ^= IsNetworkDao.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -761,6 +778,10 @@ namespace TomorrowDAO.Contracts.DAO {
         output.WriteBool(IsTreasuryContractNeeded);
       }
       files_.WriteTo(output, _repeated_files_codec);
+      if (IsNetworkDao != false) {
+        output.WriteRawTag(56);
+        output.WriteBool(IsNetworkDao);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -792,6 +813,10 @@ namespace TomorrowDAO.Contracts.DAO {
         output.WriteBool(IsTreasuryContractNeeded);
       }
       files_.WriteTo(ref output, _repeated_files_codec);
+      if (IsNetworkDao != false) {
+        output.WriteRawTag(56);
+        output.WriteBool(IsNetworkDao);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -818,6 +843,9 @@ namespace TomorrowDAO.Contracts.DAO {
         size += 1 + 1;
       }
       size += files_.CalculateSize(_repeated_files_codec);
+      if (IsNetworkDao != false) {
+        size += 1 + 1;
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -855,6 +883,9 @@ namespace TomorrowDAO.Contracts.DAO {
         IsTreasuryContractNeeded = other.IsTreasuryContractNeeded;
       }
       files_.Add(other.files_);
+      if (other.IsNetworkDao != false) {
+        IsNetworkDao = other.IsNetworkDao;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -903,6 +934,10 @@ namespace TomorrowDAO.Contracts.DAO {
             files_.AddEntriesFrom(input, _repeated_files_codec);
             break;
           }
+          case 56: {
+            IsNetworkDao = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -949,6 +984,10 @@ namespace TomorrowDAO.Contracts.DAO {
           }
           case 50: {
             files_.AddEntriesFrom(ref input, _repeated_files_codec);
+            break;
+          }
+          case 56: {
+            IsNetworkDao = input.ReadBool();
             break;
           }
         }
@@ -3387,6 +3426,7 @@ namespace TomorrowDAO.Contracts.DAO {
       subsistStatus_ = other.subsistStatus_;
       governanceToken_ = other.governanceToken_;
       contractAddressList_ = other.contractAddressList_ != null ? other.contractAddressList_.Clone() : null;
+      isNetworkDao_ = other.isNetworkDao_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3456,6 +3496,18 @@ namespace TomorrowDAO.Contracts.DAO {
       }
     }
 
+    /// <summary>Field number for the "is_network_dao" field.</summary>
+    public const int IsNetworkDaoFieldNumber = 6;
+    private bool isNetworkDao_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsNetworkDao {
+      get { return isNetworkDao_; }
+      set {
+        isNetworkDao_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3476,6 +3528,7 @@ namespace TomorrowDAO.Contracts.DAO {
       if (SubsistStatus != other.SubsistStatus) return false;
       if (GovernanceToken != other.GovernanceToken) return false;
       if (!object.Equals(ContractAddressList, other.ContractAddressList)) return false;
+      if (IsNetworkDao != other.IsNetworkDao) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3488,6 +3541,7 @@ namespace TomorrowDAO.Contracts.DAO {
       if (SubsistStatus != false) hash ^= SubsistStatus.GetHashCode();
       if (GovernanceToken.Length != 0) hash ^= GovernanceToken.GetHashCode();
       if (contractAddressList_ != null) hash ^= ContractAddressList.GetHashCode();
+      if (IsNetworkDao != false) hash ^= IsNetworkDao.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3526,6 +3580,10 @@ namespace TomorrowDAO.Contracts.DAO {
         output.WriteRawTag(42);
         output.WriteMessage(ContractAddressList);
       }
+      if (IsNetworkDao != false) {
+        output.WriteRawTag(48);
+        output.WriteBool(IsNetworkDao);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3556,6 +3614,10 @@ namespace TomorrowDAO.Contracts.DAO {
         output.WriteRawTag(42);
         output.WriteMessage(ContractAddressList);
       }
+      if (IsNetworkDao != false) {
+        output.WriteRawTag(48);
+        output.WriteBool(IsNetworkDao);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3580,6 +3642,9 @@ namespace TomorrowDAO.Contracts.DAO {
       }
       if (contractAddressList_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(ContractAddressList);
+      }
+      if (IsNetworkDao != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3616,6 +3681,9 @@ namespace TomorrowDAO.Contracts.DAO {
           ContractAddressList = new global::TomorrowDAO.Contracts.DAO.ContractAddressList();
         }
         ContractAddressList.MergeFrom(other.ContractAddressList);
+      }
+      if (other.IsNetworkDao != false) {
+        IsNetworkDao = other.IsNetworkDao;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3661,6 +3729,10 @@ namespace TomorrowDAO.Contracts.DAO {
             input.ReadMessage(ContractAddressList);
             break;
           }
+          case 48: {
+            IsNetworkDao = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -3703,6 +3775,10 @@ namespace TomorrowDAO.Contracts.DAO {
               ContractAddressList = new global::TomorrowDAO.Contracts.DAO.ContractAddressList();
             }
             input.ReadMessage(ContractAddressList);
+            break;
+          }
+          case 48: {
+            IsNetworkDao = input.ReadBool();
             break;
           }
         }
@@ -5399,6 +5475,7 @@ namespace TomorrowDAO.Contracts.DAO {
       daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
       creator_ = other.creator_ != null ? other.creator_.Clone() : null;
       contractAddressList_ = other.contractAddressList_ != null ? other.contractAddressList_.Clone() : null;
+      isNetworkDao_ = other.isNetworkDao_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -5468,6 +5545,18 @@ namespace TomorrowDAO.Contracts.DAO {
       }
     }
 
+    /// <summary>Field number for the "is_network_dao" field.</summary>
+    public const int IsNetworkDaoFieldNumber = 6;
+    private bool isNetworkDao_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsNetworkDao {
+      get { return isNetworkDao_; }
+      set {
+        isNetworkDao_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -5488,6 +5577,7 @@ namespace TomorrowDAO.Contracts.DAO {
       if (!object.Equals(DaoId, other.DaoId)) return false;
       if (!object.Equals(Creator, other.Creator)) return false;
       if (!object.Equals(ContractAddressList, other.ContractAddressList)) return false;
+      if (IsNetworkDao != other.IsNetworkDao) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -5500,6 +5590,7 @@ namespace TomorrowDAO.Contracts.DAO {
       if (daoId_ != null) hash ^= DaoId.GetHashCode();
       if (creator_ != null) hash ^= Creator.GetHashCode();
       if (contractAddressList_ != null) hash ^= ContractAddressList.GetHashCode();
+      if (IsNetworkDao != false) hash ^= IsNetworkDao.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -5538,6 +5629,10 @@ namespace TomorrowDAO.Contracts.DAO {
         output.WriteRawTag(42);
         output.WriteMessage(ContractAddressList);
       }
+      if (IsNetworkDao != false) {
+        output.WriteRawTag(48);
+        output.WriteBool(IsNetworkDao);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5568,6 +5663,10 @@ namespace TomorrowDAO.Contracts.DAO {
         output.WriteRawTag(42);
         output.WriteMessage(ContractAddressList);
       }
+      if (IsNetworkDao != false) {
+        output.WriteRawTag(48);
+        output.WriteBool(IsNetworkDao);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -5592,6 +5691,9 @@ namespace TomorrowDAO.Contracts.DAO {
       }
       if (contractAddressList_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(ContractAddressList);
+      }
+      if (IsNetworkDao != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -5631,6 +5733,9 @@ namespace TomorrowDAO.Contracts.DAO {
           ContractAddressList = new global::TomorrowDAO.Contracts.DAO.ContractAddressList();
         }
         ContractAddressList.MergeFrom(other.ContractAddressList);
+      }
+      if (other.IsNetworkDao != false) {
+        IsNetworkDao = other.IsNetworkDao;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -5679,6 +5784,10 @@ namespace TomorrowDAO.Contracts.DAO {
             input.ReadMessage(ContractAddressList);
             break;
           }
+          case 48: {
+            IsNetworkDao = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -5724,6 +5833,10 @@ namespace TomorrowDAO.Contracts.DAO {
               ContractAddressList = new global::TomorrowDAO.Contracts.DAO.ContractAddressList();
             }
             input.ReadMessage(ContractAddressList);
+            break;
+          }
+          case 48: {
+            IsNetworkDao = input.ReadBool();
             break;
           }
         }
