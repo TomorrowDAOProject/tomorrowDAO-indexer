@@ -25,7 +25,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\TomorrowDAO.Indexer.Plugin\tomorrowDAO.Indexer.Plugin.csproj" />
+      <ProjectReference Include="..\..\src\TomorrowDAO.Indexer.Plugin\TomorrowDAO.Indexer.Plugin.csproj" />
       <ProjectReference Include="..\TomorrowDAO.Indexer.Orleans.TestBase\TomorrowDAO.Indexer.Orleans.TestBase.csproj" />
     </ItemGroup>
 
