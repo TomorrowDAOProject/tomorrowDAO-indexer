@@ -85,8 +85,8 @@ public partial class Query
         return objectMapper.Map<List<VoteWithdrawnIndex>, List<VoteWithdrawnIndexDto>>(await GetAllIndex(Filter, repository));
     }
     
-    [Name("getAllNonWithdrawVoteRecord")]
-    public static async Task<List<VoteRecordDto>> GetAllNonWithdrawVoteRecord(
+    [Name("getAllVoteRecord")]
+    public static async Task<List<VoteRecordDto>> GetAllVoteRecordAsync(
         [FromServices] IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo> repository,
         [FromServices] IObjectMapper objectMapper,
         GetAllVoteRecordInput input)
