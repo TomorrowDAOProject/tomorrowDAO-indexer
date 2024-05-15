@@ -41,25 +41,6 @@ public partial class Query
         return objectMapper.Map<List<ProposalIndex>, List<ProposalSyncDto>>(result.Item2);
     }
 
-    [Name("getVoteInfosMemory")]
-    public static async Task<List<VoteItemIndexDto>> GetVoteInfoMemoryAsync(
-        [FromServices] IAElfIndexerClientEntityRepository<VoteItemIndex, LogEventInfo> repository,
-        [FromServices] IObjectMapper objectMapper,
-        GetVoteInfoInput input)
-    {
-        if (input.VotingItemIds.IsNullOrEmpty())
-        {
-            return new List<VoteItemIndexDto>();
-        }
-    
-        var tasks = input.VotingItemIds
-            .Select(votingItemId => repository.GetFromBlockStateSetAsync(votingItemId, input.ChainId)).ToList();
-    
-        var results = await Task.WhenAll(tasks);
-        return results.Where(index => index != null).Select(objectMapper.Map<VoteItemIndex, VoteItemIndexDto>)
-            .ToList();
-    }
-
     [Name("getVoteRecord")]
     public static async Task<List<VoteRecordDto>> GetVoteRecordAsync(
         [FromServices] IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo> repository,
