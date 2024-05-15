@@ -41,30 +41,11 @@ public partial class Query
         return objectMapper.Map<List<ProposalIndex>, List<ProposalSyncDto>>(result.Item2);
     }
 
-    [Name("getVoteInfosMemory")]
-    public static async Task<List<VoteItemIndexDto>> GetVoteInfoMemoryAsync(
-        [FromServices] IAElfIndexerClientEntityRepository<VoteItemIndex, LogEventInfo> repository,
-        [FromServices] IObjectMapper objectMapper,
-        GetVoteInfoInput input)
-    {
-        if (input.VotingItemIds.IsNullOrEmpty())
-        {
-            return new List<VoteItemIndexDto>();
-        }
-    
-        var tasks = input.VotingItemIds
-            .Select(votingItemId => repository.GetFromBlockStateSetAsync(votingItemId, input.ChainId)).ToList();
-    
-        var results = await Task.WhenAll(tasks);
-        return results.Where(index => index != null).Select(objectMapper.Map<VoteItemIndex, VoteItemIndexDto>)
-            .ToList();
-    }
-
-    [Name("getVoteRecord")]
-    public static async Task<List<VoteRecordDto>> GetVoteRecordAsync(
+    [Name("getLimitVoteRecord")]
+    public static async Task<List<VoteRecordDto>> GetLimitVoteRecordAsync(
         [FromServices] IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo> repository,
         [FromServices] IObjectMapper objectMapper,
-        GetVoteRecordInput input)
+        GetLimitVoteRecordInput input)
     {
         var mustQuery = new List<Func<QueryContainerDescriptor<VoteRecordIndex>, QueryContainer>>();
         mustQuery.Add(q => q.Term(i
@@ -78,12 +59,17 @@ public partial class Query
             mustQuery.Add(q => q.Term(i
                 => i.Field(f => f.Voter).Value(input.Voter)));
         }
+
+        if (input.Limit == 0)
+        {
+            input.Limit = 1;
+        }
     
         QueryContainer Filter(QueryContainerDescriptor<VoteRecordIndex> f) =>
             f.Bool(b => b.Must(mustQuery));
     
         var sortDescriptor = GetVoteRecordSort(input.Sorting);
-        var result = await repository.GetSortListAsync(Filter, sortFunc: sortDescriptor);
+        var result = await repository.GetSortListAsync(Filter, sortFunc: sortDescriptor, limit: input.Limit);
         return objectMapper.Map<List<VoteRecordIndex>, List<VoteRecordDto>>(result.Item2);
     }
     
@@ -128,6 +114,43 @@ public partial class Query
                 break;
         }
         return _ => sortDescriptor;
+    }
+    
+    [Name("getPageVoteRecord")]
+    public static async Task<List<VoteRecordDto>> GetPageVoteRecordAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo> repository,
+        [FromServices] IObjectMapper objectMapper,
+        GetPageVoteRecordInput input)
+    {
+        var mustQuery = new List<Func<QueryContainerDescriptor<VoteRecordIndex>, QueryContainer>>
+        {
+            q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId)),
+            q => q.Term(i
+                => i.Field(f => f.DAOId).Value(input.DaoId)),
+            q => q.Term(i
+                => i.Field(f => f.Voter).Value(input.Voter)),
+        };
+
+        if (!input.VotingItemId.IsNullOrWhiteSpace())
+        {
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.VotingItemId).Value(input.VotingItemId)));
+        }
+
+        // if (input.VoteOption.IsNullOrWhiteSpace())
+        // {
+        //     mustQuery.Add(q => q.Term(i
+        //         => i.Field(f => f.Option).Value(input.VotingItemId)));
+        // }
+    
+        QueryContainer Filter(QueryContainerDescriptor<VoteRecordIndex> f) =>
+            f.Bool(b => b.Must(mustQuery));
+    
+        var result = await repository.GetSortListAsync(Filter, 
+            sortFunc: s => s.Descending(a => a.VoteTimestamp), 
+            limit: input.MaxResultCount, skip: input.SkipCount);
+        return objectMapper.Map<List<VoteRecordIndex>, List<VoteRecordDto>>(result.Item2);
     }
     
     [Name("getVoteSchemeInfo")]
