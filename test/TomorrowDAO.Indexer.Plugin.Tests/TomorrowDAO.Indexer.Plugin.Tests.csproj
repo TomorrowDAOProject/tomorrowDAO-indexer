@@ -21,8 +21,4 @@
       <ProjectReference Include="..\TomorrowDAO.Indexer.Orleans.TestBase\TomorrowDAO.Indexer.Orleans.TestBase.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <None Include="obj\project.assets.json" />
-    </ItemGroup>
-
 </Project>

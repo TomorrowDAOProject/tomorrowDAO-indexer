@@ -28,9 +28,4 @@
         <ProjectReference Include="..\..\src\TomorrowDAO.Indexer.Plugin\tomorrowDAO.Indexer.Plugin.csproj" />
         <ProjectReference Include="..\TomorrowDAO.Indexer.TestBase\TomorrowDAO.Indexer.TestBase.csproj" />
     </ItemGroup>
-
-    <ItemGroup>
-      <None Include="obj\project.assets.json" />
-    </ItemGroup>
-
 </Project>
