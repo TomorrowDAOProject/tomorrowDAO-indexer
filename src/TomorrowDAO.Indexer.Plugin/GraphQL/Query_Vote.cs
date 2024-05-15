@@ -89,7 +89,7 @@ public partial class Query
     public static async Task<List<VoteRecordDto>> GetAllNonWithdrawVoteRecord(
         [FromServices] IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo> repository,
         [FromServices] IObjectMapper objectMapper,
-        GetAllNonWithdrawVoteRecordInput input)
+        GetAllVoteRecordInput input)
     {
         var mustQuery = new List<Func<QueryContainerDescriptor<VoteRecordIndex>, QueryContainer>>
         {
@@ -98,16 +98,8 @@ public partial class Query
             q => q.Term(i 
             => i.Field(f => f.DAOId).Value(input.DAOId)),
             q => q.Term(i 
-                => i.Field(f => f.Voter).Value(input.Voter)),
-            q => q.Term(i 
-                => i.Field(f => f.VoteMechanism).Value(VoteMechanism.TOKEN_BALLOT))
+                => i.Field(f => f.Voter).Value(input.Voter))
         };
-
-        if (!input.WithdrawVotingItemIds.IsNullOrEmpty())
-        {
-            mustQuery.Add(q => !q.Terms(i 
-                => i.Field(f => f.VotingItemId).Terms(input.WithdrawVotingItemIds)));
-        }
     
         QueryContainer Filter(QueryContainerDescriptor<VoteRecordIndex> f) =>
             f.Bool(b => b.Must(mustQuery));
