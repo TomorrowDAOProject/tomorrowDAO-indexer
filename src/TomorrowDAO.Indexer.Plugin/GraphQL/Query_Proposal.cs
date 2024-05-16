@@ -137,12 +137,16 @@ public partial class Query
             mustQuery.Add(q => q.Term(i
                 => i.Field(f => f.VotingItemId).Value(input.VotingItemId)));
         }
-
-        // if (input.VoteOption.IsNullOrWhiteSpace())
-        // {
-        //     mustQuery.Add(q => q.Term(i
-        //         => i.Field(f => f.Option).Value(input.VotingItemId)));
-        // }
+        
+        if (!input.VoteOption.IsNullOrWhiteSpace())
+        {
+            if (!Enum.TryParse<VoteOption>(input.VoteOption, out var option))
+            {
+                return new List<VoteRecordDto>();
+            }
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.Option).Value(option)));
+        }
     
         QueryContainer Filter(QueryContainerDescriptor<VoteRecordIndex> f) =>
             f.Bool(b => b.Must(mustQuery));
