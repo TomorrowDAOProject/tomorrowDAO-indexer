@@ -47,13 +47,14 @@ public abstract class ProposalProcessorBase<TEvent> : AElfLogEventProcessorBase<
     }
 
     protected async void UpdateProposal(string proposalId, ProposalStatus proposalStatus,
-        ProposalStage proposalStage, LogEventContext context)
+        ProposalStage proposalStage, string vetoProposalId, string beVetoedProposalId, LogEventContext context)
     {
-        UpdateProposal(proposalId, proposalStatus, proposalStage, null, context);
+        UpdateProposal(proposalId, proposalStatus, proposalStage, null, vetoProposalId, beVetoedProposalId, context);
     }
 
     protected async void UpdateProposal(string proposalId, ProposalStatus proposalStatus, 
-        ProposalStage proposalStage, DateTime? executeTime, LogEventContext context)
+        ProposalStage proposalStage, DateTime? executeTime, string vetoProposalId, string beVetoedProposalId, 
+        LogEventContext context)
     {
         var proposalIndex = await ProposalRepository.GetFromBlockStateSetAsync(proposalId, context.ChainId);
         if (proposalIndex == null)
@@ -64,6 +65,14 @@ public abstract class ProposalProcessorBase<TEvent> : AElfLogEventProcessorBase<
         proposalIndex.ProposalStatus = proposalStatus;
         proposalIndex.ProposalStage = proposalStage;
         proposalIndex.ExecuteTime = executeTime;
+        if (!string.IsNullOrEmpty(vetoProposalId))
+        {
+            proposalIndex.VetoProposalId = vetoProposalId;
+        }
+        if (!string.IsNullOrEmpty(beVetoedProposalId))
+        {
+            proposalIndex.BeVetoedProposalId = beVetoedProposalId;
+        }
         await ProposalRepository.AddOrUpdateAsync(proposalIndex);
     }
 }

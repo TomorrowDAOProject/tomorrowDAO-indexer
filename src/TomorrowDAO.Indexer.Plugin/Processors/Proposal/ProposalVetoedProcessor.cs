@@ -31,8 +31,7 @@ public class ProposalVetoedProcessor : ProposalProcessorBase<ProposalVetoed>
         Logger.LogInformation("[ProposalVetoed] start proposalId:{proposalId} chainId:{chainId} vetoProposalId {vetoProposalId}", proposalId, chainId, vetoProposalId);
         try
         {
-            UpdateProposal(proposalId, ProposalStatus.Executed, ProposalStage.Finished, context.BlockTime, context);
-            UpdateProposal(vetoProposalId, ProposalStatus.Vetoed, ProposalStage.Finished, context);
+            UpdateProposal(vetoProposalId, ProposalStatus.Vetoed, ProposalStage.Finished, string.Empty, string.Empty, context);
             Logger.LogInformation("[ProposalVetoed] end proposalId:{proposalId} chainId:{chainId} vetoProposalId {vetoProposalId}", proposalId, chainId, vetoProposalId);
         }
         catch (Exception e)

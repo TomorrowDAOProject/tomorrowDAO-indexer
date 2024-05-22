@@ -31,7 +31,7 @@ public class ProposalExecutedProcessor : ProposalProcessorBase<ProposalExecuted>
             chainId);
         try
         {
-            UpdateProposal(proposalId, ProposalStatus.Executed, ProposalStage.Finished, eventValue.ExecuteTime?.ToDateTime(), context);
+            UpdateProposal(proposalId, ProposalStatus.Executed, ProposalStage.Finished, eventValue.ExecuteTime?.ToDateTime(), string.Empty, string.Empty, context);
             Logger.LogInformation("[ProposalExecuted] end proposalId:{proposalId} chainId:{chainId} ", proposalId, chainId);
         }
         catch (Exception e)

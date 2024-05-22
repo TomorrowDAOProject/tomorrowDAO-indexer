@@ -47,6 +47,7 @@ public class ProposalBase : AElfIndexerClientEntity<string>
     [Keyword] public string VoteSchemeId { get; set; }
     
     [Keyword] public string VetoProposalId { get; set; }
+    [Keyword] public string BeVetoedProposalId { get; set; }
 
     public DateTime DeployTime { get; set; }
 

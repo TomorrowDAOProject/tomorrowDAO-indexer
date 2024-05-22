@@ -42,6 +42,8 @@ public class ProposalSyncDto
     public string VoteSchemeId { get; set; }
     
     public string VetoProposalId { get; set; }
+    
+    public string BeVetoProposalId { get; set; }
 
     public DateTime DeployTime { get; set; }
 
