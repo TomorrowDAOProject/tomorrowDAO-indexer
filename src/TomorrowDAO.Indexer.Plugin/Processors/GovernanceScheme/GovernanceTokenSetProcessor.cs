@@ -38,26 +38,6 @@ public class GovernanceTokenSetProcessor : GovernanceSchemeProcessorBase<Governa
                 await DAOProvider.SaveIndexAsync(DAOIndex, context);
             }
             
-            var mustQuery = new List<Func<QueryContainerDescriptor<GovernanceSchemeIndex>, QueryContainer>>
-            {
-                q => q.Term(i
-                    => i.Field(f => f.ChainId).Value(chainId)),
-                q => q.Terms(i
-                    => i.Field(f => f.DAOId).Terms(DAOId))
-            };
-            QueryContainer Filter(QueryContainerDescriptor<GovernanceSchemeIndex> f) =>
-                f.Bool(b => b.Must(mustQuery));
-            
-            var (_, governanceSchemeIndexList) = await GovernanceSchemeRepository.GetListAsync(Filter);
-            if (!governanceSchemeIndexList.IsNullOrEmpty())
-            {
-                foreach (var governanceSchemeIndex in governanceSchemeIndexList)
-                {
-                    governanceSchemeIndex.GovernanceToken = governanceToken;
-                    await SaveIndexAsync(governanceSchemeIndex, context);
-                }
-            }
-            
             Logger.LogInformation("[GovernanceTokenSet] end DAOId {DAOId} governanceToken {governanceToken}", DAOId, governanceToken);
         }
         catch (Exception e)
