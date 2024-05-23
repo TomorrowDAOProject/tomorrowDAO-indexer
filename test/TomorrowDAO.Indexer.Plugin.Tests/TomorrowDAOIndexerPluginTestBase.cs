@@ -739,13 +739,13 @@ public abstract class
         }.ToLogEvent();
     }
 
-    protected LogEvent ProposalExecuted()
+    protected LogEvent ProposalExecuted(string proposalId = null)
     {
         return new ProposalExecuted
         {
             DaoId = HashHelper.ComputeFrom(Id1),
             ExecuteTime = new Timestamp(),
-            ProposalId = HashHelper.ComputeFrom(ProposalId)
+            ProposalId = HashHelper.ComputeFrom(proposalId??ProposalId)
         }.ToLogEvent();
     }
 
@@ -754,8 +754,8 @@ public abstract class
         return new ProposalVetoed
         {
             DaoId = HashHelper.ComputeFrom(Id1),
-            VetoProposalId = HashHelper.ComputeFrom(Id4),
-            ProposalId = HashHelper.ComputeFrom(ProposalId),
+            VetoProposalId = HashHelper.ComputeFrom(ProposalId),
+            ProposalId = HashHelper.ComputeFrom(Id4),
             VetoTime = new Timestamp()
         }.ToLogEvent();
     }

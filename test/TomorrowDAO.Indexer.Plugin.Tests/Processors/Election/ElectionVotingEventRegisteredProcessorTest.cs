@@ -12,7 +12,7 @@ public class ElectionVotingEventRegisteredProcessorTest : TomorrowDAOIndexerPlug
         var logEvent = ElectionVotingEventRegistered();
         await MockEventProcess(logEvent, ElectionVotingEventRegisteredProcessor);
 
-        var id = IdGenerateHelper.GetId(HashHelper.ComputeFrom(Id1), ChainAelf);
+        var id = IdGenerateHelper.GetId(HashHelper.ComputeFrom(Id1).ToHex(), ChainAelf);
         var votingItemIndex = await ElectionVotingItemRepository.GetFromBlockStateSetAsync(id, ChainAelf);
         votingItemIndex.ShouldNotBeNull();
         

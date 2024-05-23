@@ -16,8 +16,8 @@ public class VotingItemRegisteredProcessorTest : TomorrowDAOIndexerPluginTestBas
         voteSchemeIndex.VoteSchemeId.ShouldBe(VoteSchemeId);
         voteSchemeIndex.Id.ShouldBe(VoteSchemeId);
         voteSchemeIndex.VoteMechanism.ShouldBe(VoteMechanism.UNIQUE_VOTE);
-        voteSchemeIndex.IsQuadratic.ShouldBe(true);
-        voteSchemeIndex.IsLockToken.ShouldBe(true);
+        voteSchemeIndex.IsQuadratic.ShouldBe(false);
+        voteSchemeIndex.IsLockToken.ShouldBe(false);
         
         voteSchemeIndex = await VoteSchemeIndexRepository.GetFromBlockStateSetAsync(VoteSchemeId, ChainAelf);
         voteSchemeIndex.ShouldNotBeNull();
