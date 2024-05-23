@@ -7,10 +7,4 @@ namespace TomorrowDAO.Indexer.Orleans.TestBase;
 public abstract class TomorrowDAOIndexerOrleansTestBase<TStartupModule> : TomorrowDAOIndexerTestBase<TStartupModule>
     where TStartupModule : IAbpModule
 {
-    protected readonly TestCluster Cluster;
-
-    public TomorrowDAOIndexerOrleansTestBase()
-    {
-        Cluster = GetRequiredService<ClusterFixture>().Cluster;
-    }
 }

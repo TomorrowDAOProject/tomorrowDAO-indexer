@@ -30,7 +30,7 @@ using GovernanceSchemeThreshold = TomorrowDAO.Contracts.Governance.GovernanceSch
 namespace TomorrowDAO.Indexer.Plugin.Tests;
 
 public abstract class
-    TomorrowDAOIndexerPluginTestBase : TomorrowDaoIndexerOrleansTestBase<TomorrowDAOIndexerPluginTestModule>
+    TomorrowDAOIndexerPluginTestBase : TomorrowDAOIndexerOrleansTestBase<TomorrowDAOIndexerPluginTestModule>
 {
     private readonly IAElfIndexerClientInfoProvider _indexerClientInfoProvider;
     public IBlockStateSetProvider<LogEventInfo> BlockStateSetLogEventInfoProvider;
