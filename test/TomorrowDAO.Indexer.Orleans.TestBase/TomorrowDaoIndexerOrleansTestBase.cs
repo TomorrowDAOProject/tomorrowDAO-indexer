@@ -4,10 +4,7 @@ using Volo.Abp.Modularity;
 
 namespace TomorrowDAO.Indexer.Orleans.TestBase;
 
-public abstract class TomorrowDAOIndexerOrleansTestBase<TStartupModule> : TomorrowDAOIndexerTestBase<TStartupModule>
+public abstract class TomorrowDaoIndexerOrleansTestBase<TStartupModule> : TomorrowDAOIndexerTestBase<TStartupModule>
     where TStartupModule : IAbpModule
 {
-    public TomorrowDAOIndexerOrleansTestBase()
-    {
-    }
 }
