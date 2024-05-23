@@ -743,7 +743,7 @@ public abstract class
         {
             DaoId = HashHelper.ComputeFrom(Id1),
             ExecuteTime = new Timestamp(),
-            ProposalId = HashHelper.ComputeFrom(proposalId??ProposalId)
+            ProposalId = HashHelper.ComputeFrom(proposalId ?? ProposalId)
         }.ToLogEvent();
     }
 
