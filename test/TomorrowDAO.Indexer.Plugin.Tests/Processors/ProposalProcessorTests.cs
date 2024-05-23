@@ -76,18 +76,21 @@ public class ProposalProcessorTests : TomorrowDAOIndexerPluginTestBase
     [Fact]
     public async Task ProposalVetoed_Test()
     {
-        await MockEventProcess(ProposalCreated_Veto(), ProposalCreatedProcessor);
+        //ProposalId
         await MockEventProcess(ProposalCreated(), ProposalCreatedProcessor);
+        //Id4
+        await MockEventProcess(ProposalCreated_Veto(), ProposalCreatedProcessor);
+        await MockEventProcess(ProposalExecuted(Id4), ProposalExecutedProcessor);
         await MockEventProcess(ProposalVetoed(), ProposalVetoedProcessor);
         await MockEventProcess(ProposalExecuted(), ProposalExecutedProcessor);
         
         var proposalId = HashHelper.ComputeFrom(ProposalId).ToHex();
         var proposalIndex = await ProposalIndexRepository.GetFromBlockStateSetAsync(proposalId, ChainAelf);
-        proposalIndex.ProposalStatus.ShouldBe(ProposalStatus.Executed);
+        proposalIndex.ProposalStatus.ShouldBe(ProposalStatus.Vetoed);
         proposalIndex.ProposalStage.ShouldBe(ProposalStage.Finished);
         
         var vetoProposalIndex = await ProposalIndexRepository.GetFromBlockStateSetAsync(VetoProposalId, ChainAelf);
-        vetoProposalIndex.ProposalStatus.ShouldBe(ProposalStatus.Vetoed);
+        vetoProposalIndex.ProposalStatus.ShouldBe(ProposalStatus.Executed);
         vetoProposalIndex.ProposalStage.ShouldBe(ProposalStage.Finished);
     }
 
