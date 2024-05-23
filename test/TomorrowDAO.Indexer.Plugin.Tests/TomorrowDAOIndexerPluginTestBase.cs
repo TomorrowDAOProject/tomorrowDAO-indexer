@@ -599,8 +599,6 @@ public abstract class
     {
         return new ContractsVote.VoteSchemeCreated
         {
-            // IsLockToken = true,
-            // IsQuadratic = true,
             VoteMechanism = ContractsVote.VoteMechanism.UniqueVote,
             VoteSchemeId = HashHelper.ComputeFrom(Id3)
         }.ToLogEvent();

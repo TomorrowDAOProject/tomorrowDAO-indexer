@@ -79,6 +79,7 @@ public class ProposalProcessorTests : TomorrowDAOIndexerPluginTestBase
         await MockEventProcess(ProposalCreated_Veto(), ProposalCreatedProcessor);
         await MockEventProcess(ProposalCreated(), ProposalCreatedProcessor);
         await MockEventProcess(ProposalVetoed(), ProposalVetoedProcessor);
+        await MockEventProcess(ProposalExecuted(), ProposalExecutedProcessor);
         
         var proposalId = HashHelper.ComputeFrom(ProposalId).ToHex();
         var proposalIndex = await ProposalIndexRepository.GetFromBlockStateSetAsync(proposalId, ChainAelf);
