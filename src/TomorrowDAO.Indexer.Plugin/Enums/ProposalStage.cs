@@ -1,0 +1,10 @@
+namespace TomorrowDAO.Indexer.Plugin.Enums;
+
+public enum ProposalStage
+{
+    Default = 0,
+    Active = 1,
+    Pending = 2,
+    Execute = 3,
+    Finished = 4
+}

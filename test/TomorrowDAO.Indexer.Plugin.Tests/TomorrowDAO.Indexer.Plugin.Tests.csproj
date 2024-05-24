@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>TomorrowDAO.Indexer.Plugin.Tests</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+       <PackageReference Include="AElf.Client.Protobuf" Version="1.2.1" />
+       <PackageReference Include="coverlet.collector" Version="6.0.0">
+         <PrivateAssets>all</PrivateAssets>
+         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+       </PackageReference>
+       <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
+
+        <PackageReference Include="AElf.Indexing.Elasticsearch" Version="0.0.14" />
+        <PackageReference Include="AElfIndexer.Application" Version="1.0.0-28" />
+        <PackageReference Include="AElfIndexer.Client" Version="1.0.0-28" />
+        <PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
+        <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+        <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+        <PackageReference Include="GraphQL.Server.Transports.AspNetCore" Version="7.1.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\TomorrowDAO.Indexer.Plugin\TomorrowDAO.Indexer.Plugin.csproj" />
+      <ProjectReference Include="..\TomorrowDAO.Indexer.Orleans.TestBase\TomorrowDAO.Indexer.Orleans.TestBase.csproj" />
+    </ItemGroup>
+
+</Project>
