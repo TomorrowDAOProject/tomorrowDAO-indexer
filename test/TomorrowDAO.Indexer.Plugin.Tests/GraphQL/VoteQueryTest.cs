@@ -1,9 +1,11 @@
 using AElf;
 using AElf.CSharp.Core.Extension;
 using AElf.Types;
+using Google.Protobuf.WellKnownTypes;
 using Moq;
 using Shouldly;
 using TomorrowDAO.Contracts.Governance;
+using TomorrowDAO.Contracts.Vote;
 using TomorrowDAO.Indexer.Plugin.GraphQL;
 using TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 using Xunit;
@@ -35,4 +37,31 @@ public class VoteQueryTest : QueryTestBase
             });
         result.ShouldNotBeNull();
     }
+
+    [Fact]
+    public async Task GetVoteRecordCountAsyncTest()
+    {
+        await MockEventProcess(new Voted
+        {
+            VotingItemId = HashHelper.ComputeFrom("ss"),
+            Voter = Address.FromBase58(User),
+            Amount = 0,
+            VoteTimestamp = DateTime.UtcNow.AddMinutes(1).ToTimestamp(),
+            Option = VoteOption.Approved,
+            VoteId = HashHelper.ComputeFrom(Id1),
+            DaoId = HashHelper.ComputeFrom(Id1),
+            VoteMechanism = VoteMechanism.UniqueVote,
+            StartTime = DateTime.UtcNow.AddMinutes(1).ToTimestamp(),
+            EndTime = DateTime.UtcNow.AddMinutes(200).ToTimestamp()
+        }.ToLogEvent(), VoteVotedProcessor);
+
+        var count = await Query.GetVoteRecordCountAsync(VoteRecordIndexRepository, ObjectMapper, new GetVoteRecordCountInput
+        {
+            ChainId = ChainAelf,
+            StartTime = "2024-05-28 00:00:00",
+            EndTime = "2024-05-28 23:59:59"
+        });
+        count.ShouldBe(1);
+    }
+    
 }
