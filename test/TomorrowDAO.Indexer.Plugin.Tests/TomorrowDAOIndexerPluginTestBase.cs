@@ -55,6 +55,7 @@ public abstract class
         GovernanceSchemeRepository;
 
     protected readonly IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> ProposalIndexRepository;
+    protected readonly IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo> VoteRecordIndexRepository;
     protected readonly Vote.VoteSchemeCreatedProcessor VoteSchemeCreatedProcessor;
     protected readonly Vote.VotingItemRegisteredProcessor VotingItemRegisteredProcessor;
     protected readonly Vote.VoteWithdrawnProcessor VoteWithdrawnProcessor;
@@ -80,6 +81,7 @@ public abstract class
     protected readonly CandidateInfoUpdatedProcessor CandidateInfoUpdatedProcessor;
     protected readonly CandidateRemovedProcessor CandidateRemovedProcessor;
     protected readonly VotedProcessor VotedProcessor;
+    protected readonly Vote.VotedProcessor VoteVotedProcessor;
     protected readonly ElectionVotingEventRegisteredProcessor ElectionVotingEventRegisteredProcessor;
     protected readonly GovernanceSchemeAddedProcessor GovernanceSchemeAddedProcessor;
     protected readonly GovernanceSchemeThresholdRemovedProcessor GovernanceSchemeThresholdRemovedProcessor;
@@ -167,6 +169,7 @@ public abstract class
         GovernanceSchemeRepository =
             GetRequiredService<IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo>>();
         ProposalIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo>>();
+        VoteRecordIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo>>();
         FileInfosRemovedProcessor = GetRequiredService<FileInfosRemovedProcessor>();
         FileInfosUploadedProcessor = GetRequiredService<FileInfosUploadedProcessor>();
         HighCouncilDisabledProcessor = GetRequiredService<HighCouncilDisabledProcessor>();
@@ -192,6 +195,7 @@ public abstract class
         CandidateInfoUpdatedProcessor = GetRequiredService<CandidateInfoUpdatedProcessor>();
         CandidateRemovedProcessor = GetRequiredService<CandidateRemovedProcessor>();
         VotedProcessor = GetRequiredService<VotedProcessor>();
+        VoteVotedProcessor = GetRequiredService<Vote.VotedProcessor>();
         ElectionVotingEventRegisteredProcessor = GetRequiredService<ElectionVotingEventRegisteredProcessor>();
         GovernanceSchemeAddedProcessor = GetRequiredService<GovernanceSchemeAddedProcessor>();
         GovernanceSchemeThresholdRemovedProcessor = GetRequiredService<GovernanceSchemeThresholdRemovedProcessor>();
@@ -591,7 +595,9 @@ public abstract class
         {
             DaoId = HashHelper.ComputeFrom(Id1),
             CandidateAddress = Address.FromBase58(DAOCreator),
-            Amount = 100
+            Amount = 100,
+            EndTimestamp = null,
+            VoteId = HashHelper.ComputeFrom(Id2)
         }.ToLogEvent();
     }
 
@@ -617,6 +623,37 @@ public abstract class
             WithdrawAmount = 10,
             WithdrawTimestamp = new Timestamp(),
             VotingItemIdList = votingItemIdList
+        }.ToLogEvent();
+    }
+
+    protected LogEvent VoteVoted()
+    {
+        return new TomorrowDAO.Contracts.Vote.Voted
+        {
+            VotingItemId = HashHelper.ComputeFrom(Id2),
+            Voter = Address.FromBase58(User),
+            Amount = 100,
+            VoteTimestamp = DateTime.UtcNow.AddMinutes(1).ToTimestamp(),
+            Option = ContractsVote.VoteOption.Approved,
+            VoteId = HashHelper.ComputeFrom(Id3),
+            DaoId = HashHelper.ComputeFrom(Id1),
+            VoteMechanism = ContractsVote.VoteMechanism.TokenBallot,
+            StartTime = DateTime.UtcNow.AddMinutes(1).ToTimestamp(),
+            EndTime = DateTime.UtcNow.AddMinutes(200).ToTimestamp()
+        }.ToLogEvent();
+    }
+
+    protected LogEvent VotingItemRegistered()
+    {
+        return new ContractsVote.VotingItemRegistered
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            VotingItemId = HashHelper.ComputeFrom(Id2),
+            SchemeId = HashHelper.ComputeFrom(Id4),
+            AcceptedCurrency = Elf,
+            RegisterTimestamp = DateTime.UtcNow.AddMinutes(-10).ToTimestamp(),
+            StartTimestamp = DateTime.UtcNow.AddMinutes(-10).ToTimestamp(),
+            EndTimestamp = DateTime.UtcNow.AddMinutes(100).ToTimestamp()
         }.ToLogEvent();
     }
 

@@ -1,3 +1,4 @@
+using System.Globalization;
 using AElfIndexer.Client;
 using AElfIndexer.Client.Providers;
 using AElfIndexer.Grains;
@@ -63,6 +64,38 @@ public partial class Query
         return objectMapper.Map<List<DAOIndex>, List<DAOInfoDto>>(result.Item2);
     }
     
+    [Name("getDaoCount")]
+    public static async Task<long> GetDaoCountAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> repository,
+        [FromServices] IObjectMapper objectMapper,
+        GetDaoCountInput input)
+    {
+        var mustQuery = new List<Func<QueryContainerDescriptor<DAOIndex>, QueryContainer>>();
+
+        if (!input.ChainId.IsNullOrWhiteSpace())
+        {
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId)));
+        }
+        
+        if (!input.StartTime.IsNullOrWhiteSpace())
+        {
+            var dateTime = DateTime.ParseExact(input.StartTime, DateFormat, CultureInfo.InvariantCulture);
+            mustQuery.Add(q => q.DateRange(i => i.Field(f => f.CreateTime).GreaterThanOrEquals(dateTime)));
+        }
+
+        if (!input.EndTime.IsNullOrWhiteSpace())
+        {
+            var dateTime = DateTime.ParseExact(input.EndTime, DateFormat, CultureInfo.InvariantCulture);
+            mustQuery.Add(q => q.DateRange(i => i.Field(f => f.CreateTime).LessThanOrEquals(dateTime)));
+        }
+
+        QueryContainer Filter(QueryContainerDescriptor<DAOIndex> f) => f.Bool(b => b.Must(mustQuery));
+
+        var result = await repository.CountAsync(Filter);
+        return result?.Count ?? 0;
+    }
+    
     [Name("getDAOVoterRecord")]
     public static async Task<List<DaoVoterRecordIndexDto>> GetDAOVoterRecordAsync(
         [FromServices] IAElfIndexerClientEntityRepository<DaoVoterRecordIndex, LogEventInfo> repository,
@@ -94,5 +127,22 @@ public partial class Query
     
         var result = await repository.GetSortListAsync(Filter);
         return objectMapper.Map<List<DaoVoterRecordIndex>, List<DaoVoterRecordIndexDto>>(result.Item2);
+    }
+    
+    [Name("getDAOAmountRecord")]
+    public static async Task<long> GetDAOAmountRecordAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> repository,
+        [FromServices] IObjectMapper objectMapper,
+        GetDAOAmountRecordInput input)
+    {
+        var mustQuery = new List<Func<QueryContainerDescriptor<DAOIndex>, QueryContainer>>()
+        {
+            q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId))
+        };
+        QueryContainer Filter(QueryContainerDescriptor<DAOIndex> f) =>
+            f.Bool(b => b.Must(mustQuery));
+        var result = await GetAllIndex(Filter, repository);
+        return result.Aggregate(0L, (current, dao) => current + (dao.VoteAmount - dao.WithdrawAmount));
     }
 }

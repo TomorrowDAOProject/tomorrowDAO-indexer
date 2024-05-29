@@ -34,6 +34,8 @@ public class DAOInfoDto
     public DateTime CreateTime { get; set; }
     public bool IsNetworkDAO { get; set; }
     public int VoterCount { get; set; }
+    public long VoteAmount { get; set; }
+    public long WithdrawAmount { get; set; }
 }
 
 public class MetadataDto

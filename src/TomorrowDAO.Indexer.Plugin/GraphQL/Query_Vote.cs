@@ -1,3 +1,4 @@
+using System.Globalization;
 using AElf.Indexing.Elasticsearch;
 using AElfIndexer.Client;
 using AElfIndexer.Grains.State.Client;
@@ -105,6 +106,43 @@ public partial class Query
             f.Bool(b => b.Must(mustQuery));
 
         return objectMapper.Map<List<VoteRecordIndex>, List<VoteRecordDto>>(await GetAllIndex(Filter, repository));
+    }
+    
+    [Name("getVoteRecordCount")]
+    public static async Task<long> GetVoteRecordCountAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo> repository,
+        [FromServices] IObjectMapper objectMapper,
+        GetVoteRecordCountInput input)
+    {
+        var mustQuery = new List<Func<QueryContainerDescriptor<VoteRecordIndex>, QueryContainer>>();
+
+        if (!input.ChainId.IsNullOrWhiteSpace())
+        {
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId)));
+        }
+
+        if (!input.DaoId.IsNullOrWhiteSpace())
+        {
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.DAOId).Value(input.DaoId)));
+        }
+        if (!input.StartTime.IsNullOrWhiteSpace())
+        {
+            var dateTime = DateTime.ParseExact(input.StartTime, DateFormat, CultureInfo.InvariantCulture);
+            mustQuery.Add(q => q.DateRange(i => i.Field(f => f.VoteTimestamp).GreaterThanOrEquals(dateTime)));
+        }
+
+        if (!input.EndTime.IsNullOrWhiteSpace())
+        {
+            var dateTime = DateTime.ParseExact(input.EndTime, DateFormat, CultureInfo.InvariantCulture);
+            mustQuery.Add(q => q.DateRange(i => i.Field(f => f.VoteTimestamp).LessThanOrEquals(dateTime)));
+        }
+
+        QueryContainer Filter(QueryContainerDescriptor<VoteRecordIndex> f) => f.Bool(b => b.Must(mustQuery));
+
+        var result = await repository.CountAsync(Filter);
+        return result?.Count ?? 0;
     }
     
     private static async Task<List<T>> GetAllIndex<T>(Func<QueryContainerDescriptor<T>, QueryContainer> filter, 

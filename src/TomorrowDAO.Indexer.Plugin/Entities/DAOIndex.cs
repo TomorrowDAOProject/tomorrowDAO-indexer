@@ -37,4 +37,6 @@ public class DAOIndex : AElfIndexerClientEntity<string>, IIndexBuild
     public bool IsNetworkDAO { get; set; }
     //voter address Count
     public int VoterCount { get; set; }
+    public long VoteAmount { get; set; }
+    public long WithdrawAmount { get; set; }
 }
