@@ -43,6 +43,11 @@ public class VotedProcessor : VoteProcessorBase<Voted>
 
             await UpdateDaoVoterInfoAsync(chainId, voteRecordIndex, context);
 
+            if (eventValue.VoteMechanism == VoteMechanism.TokenBallot)
+            {
+                await UpdateDaoVoteAmountAsync(chainId, eventValue.DaoId.ToHex(), eventValue.Amount, context);
+            }
+
             Logger.LogInformation("[Voted] FINISH: Id={Id}, ChainId={ChainId}", voteId, chainId);
         }
         catch (Exception e)
@@ -93,6 +98,26 @@ public class VotedProcessor : VoteProcessorBase<Voted>
         catch (Exception e)
         {
             Logger.LogError(e, "[Voted] update DaoVoterRecord error: Id={Id}", id);
+        }
+    }
+    
+    private async Task UpdateDaoVoteAmountAsync(string chainId, string daoId, long amount, LogEventContext context)
+    {
+        try
+        {
+            Logger.LogInformation("[Voted] update DaoVoteAmount: daoId={Id}", daoId);
+            var daoIndex = await _daoProvider.GetDAOAsync(chainId, daoId);
+            if (daoIndex == null)
+            {
+                Logger.LogError("[Voted] update DaoVoteAmount error, Dao not found: daoId={Id}", daoId);
+            }
+
+            daoIndex!.VoteAmount = daoIndex.VoteAmount + amount;
+            await _daoProvider.SaveIndexAsync(daoIndex, context);
+        }
+        catch (Exception e)
+        {
+            Logger.LogError(e, "[Voted] update DaoVoteAmount error: Id={Id}", daoId);
         }
     }
 

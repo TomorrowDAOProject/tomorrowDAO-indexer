@@ -595,7 +595,9 @@ public abstract class
         {
             DaoId = HashHelper.ComputeFrom(Id1),
             CandidateAddress = Address.FromBase58(DAOCreator),
-            Amount = 100
+            Amount = 100,
+            EndTimestamp = null,
+            VoteId = HashHelper.ComputeFrom(Id2)
         }.ToLogEvent();
     }
 
@@ -621,6 +623,37 @@ public abstract class
             WithdrawAmount = 10,
             WithdrawTimestamp = new Timestamp(),
             VotingItemIdList = votingItemIdList
+        }.ToLogEvent();
+    }
+
+    protected LogEvent VoteVoted()
+    {
+        return new TomorrowDAO.Contracts.Vote.Voted
+        {
+            VotingItemId = HashHelper.ComputeFrom(Id2),
+            Voter = Address.FromBase58(User),
+            Amount = 100,
+            VoteTimestamp = DateTime.UtcNow.AddMinutes(1).ToTimestamp(),
+            Option = ContractsVote.VoteOption.Approved,
+            VoteId = HashHelper.ComputeFrom(Id3),
+            DaoId = HashHelper.ComputeFrom(Id1),
+            VoteMechanism = ContractsVote.VoteMechanism.TokenBallot,
+            StartTime = DateTime.UtcNow.AddMinutes(1).ToTimestamp(),
+            EndTime = DateTime.UtcNow.AddMinutes(200).ToTimestamp()
+        }.ToLogEvent();
+    }
+
+    protected LogEvent VotingItemRegistered()
+    {
+        return new ContractsVote.VotingItemRegistered
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            VotingItemId = HashHelper.ComputeFrom(Id2),
+            SchemeId = HashHelper.ComputeFrom(Id4),
+            AcceptedCurrency = Elf,
+            RegisterTimestamp = DateTime.UtcNow.AddMinutes(-10).ToTimestamp(),
+            StartTimestamp = DateTime.UtcNow.AddMinutes(-10).ToTimestamp(),
+            EndTimestamp = DateTime.UtcNow.AddMinutes(100).ToTimestamp()
         }.ToLogEvent();
     }
 

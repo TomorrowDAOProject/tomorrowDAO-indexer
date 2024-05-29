@@ -1,3 +1,4 @@
+using AElf;
 using Shouldly;
 using TomorrowDAO.Indexer.Plugin.GraphQL;
 using TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
@@ -57,6 +58,26 @@ public class QueryTest : QueryTestBase
             EndTime = "2024-05-28 23:59:59"
         });
         count.ShouldBe(1);
+    }
+    
+    [Fact]
+    public async Task HandleEventAsync_UpdateDaoAmount()
+    {
+        await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
+        await MockEventProcess(VotingItemRegistered(), VotingItemRegisteredProcessor);
+        await MockEventProcess(VoteVoted(), VoteVotedProcessor);
+        await MockEventProcess(VoteWithdrawn(), VoteWithdrawnProcessor);
         
+        var daoId = HashHelper.ComputeFrom(Id1).ToHex();
+        var daoIndex = await DAOIndexRepository.GetFromBlockStateSetAsync(daoId, ChainAelf);
+        daoIndex.ShouldNotBeNull();
+        daoIndex.VoteAmount.ShouldBe(100);
+        daoIndex.WithdrawAmount.ShouldBe(10);
+
+        var amount = await Query.GetDAOAmountRecordAsync(DAOIndexRepository, ObjectMapper, new GetDAOAmountRecordInput
+        {
+            ChainId = ChainAelf
+        });
+        amount.ShouldBe(90);
     }
 }
