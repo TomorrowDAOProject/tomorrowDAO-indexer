@@ -41,12 +41,36 @@ public class VoteWithdrawnProcessor : VoteProcessorBase<Withdrawn>
             withdrawnIndex.Id = id;
             withdrawnIndex.CreateTime = context.BlockTime;
             await VoteProvider.SaveVoteWithdrawnAsync(withdrawnIndex, context);
+            
+            await UpdateDaoVoteAmountAsync(chainId, eventValue.DaoId.ToHex(), eventValue.WithdrawAmount, context);
+
+            
             Logger.LogInformation("[VoteWithdrawn] FINISH: Id={Id}, ChainId={ChainId}", id, chainId);
         }
         catch (Exception e)
         {
             Logger.LogError(e, "[VoteWithdrawn] Exception Id={Id}, ChainId={ChainId}", id, chainId);
             throw;
+        }
+    }
+
+    private async Task UpdateDaoVoteAmountAsync(string chainId, string daoId, long amount, LogEventContext context)
+    {
+        try
+        {
+            Logger.LogInformation("[VoteWithdrawn] update DaoVoteAmount: daoId={Id}", daoId);
+            var daoIndex = await _daoProvider.GetDAOAsync(chainId, daoId);
+            if (daoIndex == null)
+            {
+                Logger.LogError("[VoteWithdrawn] update DaoVoteAmount error, Dao not found: daoId={Id}", daoId);
+            }
+
+            daoIndex!.WithdrawAmount = daoIndex.WithdrawAmount + amount;
+            await _daoProvider.SaveIndexAsync(daoIndex, context);
+        }
+        catch (Exception e)
+        {
+            Logger.LogError(e, "[VoteWithdrawn] update DaoVoteAmount error: Id={Id}", daoId);
         }
     }
 }
