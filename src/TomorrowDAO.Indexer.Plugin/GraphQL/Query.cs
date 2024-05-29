@@ -1,3 +1,4 @@
+using System.Globalization;
 using AElfIndexer.Client;
 using AElfIndexer.Client.Providers;
 using AElfIndexer.Grains;
@@ -61,6 +62,38 @@ public partial class Query
             sortFunc: s => s.Ascending(a => a.BlockHeight),
             skip: input.SkipCount, limit: input.MaxResultCount);
         return objectMapper.Map<List<DAOIndex>, List<DAOInfoDto>>(result.Item2);
+    }
+    
+    [Name("getDaoCount")]
+    public static async Task<long> GetDaoCountAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> repository,
+        [FromServices] IObjectMapper objectMapper,
+        GetDaoCountInput input)
+    {
+        var mustQuery = new List<Func<QueryContainerDescriptor<DAOIndex>, QueryContainer>>();
+
+        if (!input.ChainId.IsNullOrWhiteSpace())
+        {
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId)));
+        }
+        
+        if (!input.StartTime.IsNullOrWhiteSpace())
+        {
+            var dateTime = DateTime.ParseExact(input.StartTime, DateFormat, CultureInfo.InvariantCulture);
+            mustQuery.Add(q => q.DateRange(i => i.Field(f => f.CreateTime).GreaterThanOrEquals(dateTime)));
+        }
+
+        if (!input.EndTime.IsNullOrWhiteSpace())
+        {
+            var dateTime = DateTime.ParseExact(input.EndTime, DateFormat, CultureInfo.InvariantCulture);
+            mustQuery.Add(q => q.DateRange(i => i.Field(f => f.CreateTime).LessThanOrEquals(dateTime)));
+        }
+
+        QueryContainer Filter(QueryContainerDescriptor<DAOIndex> f) => f.Bool(b => b.Must(mustQuery));
+
+        var result = await repository.CountAsync(Filter);
+        return result?.Count ?? 0;
     }
     
     [Name("getDAOVoterRecord")]

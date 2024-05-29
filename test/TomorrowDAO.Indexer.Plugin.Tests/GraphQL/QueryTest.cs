@@ -44,4 +44,19 @@ public class QueryTest : QueryTestBase
         DAOInfoDto.Creator.ShouldBe(DAOCreator);
         DAOInfoDto.BlockHeight.ShouldBe(BlockHeight);
     }
+    
+    [Fact]
+    public async Task GetDaoCountAsync_Test()
+    {
+        await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
+
+        var count = await Query.GetDaoCountAsync(DAOIndexRepository, ObjectMapper, new GetDaoCountInput
+        {
+            ChainId = ChainAelf,
+            StartTime = "2024-05-28 00:00:00",
+            EndTime = "2024-05-28 23:59:59"
+        });
+        count.ShouldBe(1);
+        
+    }
 }

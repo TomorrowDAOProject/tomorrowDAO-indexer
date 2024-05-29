@@ -28,4 +28,23 @@ public class ProposalQueryTest : QueryTestBase
         // voteScheme.IsQuadratic.ShouldBe(true);
         // voteScheme.IsLockToken.ShouldBe(true);
     }
+    
+    [Fact]
+    public async Task GetProposalCountAsyncTest()
+    {
+        await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
+        await MockEventProcess(GovernanceSchemeAdded(), GovernanceSchemeAddedProcessor);
+        await MockEventProcess(DaoProposalTimePeriodSet(), DAOProposalTimePeriodSetProcessor);
+        await MockEventProcess(ProposalCreated_Veto(), ProposalCreatedProcessor);
+        await MockEventProcess(ProposalCreated(), ProposalCreatedProcessor);
+
+        var count = await Query.GetProposalCountAsync(ProposalIndexRepository, ObjectMapper, new GetProposalCountInput
+        {
+            ChainId = ChainAelf,
+            //DaoId = null,
+            StartTime = "2024-05-28 00:00:00",
+            EndTime = "2024-05-28 23:59:59"
+        });
+        count.ShouldBe(2);
+    }
 }
