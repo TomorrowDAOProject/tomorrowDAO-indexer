@@ -39,4 +39,13 @@ public class DAOIndex : AElfIndexerClientEntity<string>, IIndexBuild
     public int VoterCount { get; set; }
     public long VoteAmount { get; set; }
     public long WithdrawAmount { get; set; }
+    
+    public void OfPeriod()
+    {
+        ActiveTimePeriod = TomorrowDAOConst.MinActiveTimePeriod;
+        VetoActiveTimePeriod = TomorrowDAOConst.MinVetoActiveTimePeriod;
+        PendingTimePeriod = TomorrowDAOConst.MinPendingTimePeriod;
+        ExecuteTimePeriod = TomorrowDAOConst.MinExecuteTimePeriod;
+        VetoExecuteTimePeriod = TomorrowDAOConst.MinVetoExecuteTimePeriod;
+    }
 }

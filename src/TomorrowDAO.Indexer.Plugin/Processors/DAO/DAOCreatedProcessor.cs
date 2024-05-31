@@ -35,6 +35,7 @@ public class DAOCreatedProcessor : DAOProcessorBase<DAOCreated>
                 return;
             }
             DAOIndex = ObjectMapper.Map<DAOCreated, DAOIndex>(eventValue);
+            DAOIndex.OfPeriod();
             DAOIndex.CreateTime = context.BlockTime;
             DAOIndex.SubsistStatus = true;
             await DAOProvider.SaveIndexAsync(DAOIndex, context);

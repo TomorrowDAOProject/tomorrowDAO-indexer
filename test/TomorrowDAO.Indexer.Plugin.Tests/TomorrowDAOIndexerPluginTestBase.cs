@@ -60,6 +60,7 @@ public abstract class
     protected readonly Vote.VotingItemRegisteredProcessor VotingItemRegisteredProcessor;
     protected readonly Vote.VoteWithdrawnProcessor VoteWithdrawnProcessor;
     protected readonly DAOCreatedProcessor DAOCreatedProcessor;
+    protected readonly MetadataUpdatedProcessor MetadataUpdatedProcessor;
     protected readonly FileInfosRemovedProcessor FileInfosRemovedProcessor;
     protected readonly FileInfosUploadedProcessor FileInfosUploadedProcessor;
     protected readonly HighCouncilDisabledProcessor HighCouncilDisabledProcessor;
@@ -141,7 +142,16 @@ public abstract class
     protected readonly int MaxHighCouncilCandidateCount = 1;
     protected readonly int MaxHighCouncilMemberCount = 2;
     protected readonly int ElectionPeriod = 3;
-
+    public const int MinActiveTimePeriod = 7; // days
+    public const int MaxActiveTimePeriod = 15; // days
+    public const int MinPendingTimePeriod = 5; // days
+    public const int MaxPendingTimePeriod = 7; // days
+    public const int MinExecuteTimePeriod = 3; // days
+    public const int MaxExecuteTimePeriod = 5; // days
+    public const int MinVetoActiveTimePeriod = 3; // days
+    public const int MaxVetoActiveTimePeriod = 5; // days
+    public const int MinVetoExecuteTimePeriod = 1; // days
+    public const int MaxVetoExecuteTimePeriod = 3; // days
 
     public TomorrowDAOIndexerPluginTestBase()
     {
@@ -179,6 +189,7 @@ public abstract class
         VotingItemRegisteredProcessor = GetRequiredService<Vote.VotingItemRegisteredProcessor>();
         VoteWithdrawnProcessor = GetRequiredService<Vote.VoteWithdrawnProcessor>();
         DAOCreatedProcessor = GetRequiredService<DAOCreatedProcessor>();
+        MetadataUpdatedProcessor = GetRequiredService<MetadataUpdatedProcessor>();
         DonationReceivedProcessor = GetRequiredService<DonationReceivedProcessor>();
         TreasuryCreatedProcessor = GetRequiredService<TreasuryCreatedProcessor>();
         TreasuryTokenLockedProcessor = GetRequiredService<TreasuryTokenLockedProcessor>();
@@ -680,7 +691,8 @@ public abstract class
                 MinimalVoteThreshold = 12,
                 MinimalApproveThreshold = 50,
                 MaximalRejectionThreshold = 30,
-                MaximalAbstentionThreshold = 20
+                MaximalAbstentionThreshold = 20,
+                ProposalThreshold = 10
             },
             GovernanceToken = Elf,
             SchemeId = HashHelper.ComputeFrom(Id2),
@@ -719,7 +731,7 @@ public abstract class
         return new GovernanceTokenSet
         {
             DaoId = HashHelper.ComputeFrom(Id1),
-            GovernanceToken = Elf
+            GovernanceToken = "USDT"
         }.ToLogEvent();
     }
 
@@ -792,6 +804,21 @@ public abstract class
             VetoProposalId = HashHelper.ComputeFrom(ProposalId),
             ProposalId = HashHelper.ComputeFrom(Id4),
             VetoTime = new Timestamp()
+        }.ToLogEvent();
+    }
+
+    protected LogEvent MetadataUpdated()
+    {
+        return new MetadataUpdated
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Metadata = new Metadata
+            {
+                Name = "update",
+                LogoUrl = "update",
+                Description = "update",
+                SocialMedia = { ["update"] = "update" }
+            }
         }.ToLogEvent();
     }
 }

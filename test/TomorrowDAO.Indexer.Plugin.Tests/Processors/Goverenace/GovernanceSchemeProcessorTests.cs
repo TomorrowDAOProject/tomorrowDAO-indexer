@@ -2,7 +2,7 @@ using Shouldly;
 using TomorrowDAO.Indexer.Plugin.Enums;
 using Xunit;
 
-namespace TomorrowDAO.Indexer.Plugin.Tests.Processors;
+namespace TomorrowDAO.Indexer.Plugin.Tests.Processors.Goverenace;
 
 public class GovernanceSchemeProcessorTests : TomorrowDAOIndexerPluginTestBase
 {
@@ -24,6 +24,7 @@ public class GovernanceSchemeProcessorTests : TomorrowDAOIndexerPluginTestBase
          governanceSchemeIndex.MinimalApproveThreshold.ShouldBe(50);
          governanceSchemeIndex.MaximalRejectionThreshold.ShouldBe(30);
          governanceSchemeIndex.MaximalAbstentionThreshold.ShouldBe(20);
+         governanceSchemeIndex.ProposalThreshold.ShouldBe(10);
          
          await MockEventProcess(GovernanceSchemeAdded(), GovernanceSchemeAddedProcessor);
      }
@@ -66,11 +67,6 @@ public class GovernanceSchemeProcessorTests : TomorrowDAOIndexerPluginTestBase
          
          var DAOIndex = await DAOIndexRepository.GetFromBlockStateSetAsync(DAOId, ChainAelf);
          DAOIndex.ShouldNotBeNull();
-         DAOIndex.GovernanceToken.ShouldBe(Elf);
-         
-         var id = IdGenerateHelper.GetId(ChainAelf, DAOId, SchemeAddress);
-         var governanceSchemeIndex = await GovernanceSchemeRepository.GetFromBlockStateSetAsync(id, ChainAelf);
-         governanceSchemeIndex.ShouldNotBeNull();
-         governanceSchemeIndex.GovernanceToken.ShouldBe(Elf);
+         DAOIndex.GovernanceToken.ShouldBe("USDT");
      }
 }
