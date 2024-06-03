@@ -8,14 +8,12 @@ using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 using ExecuteTransaction = TomorrowDAO.Indexer.Plugin.Entities.ExecuteTransaction;
 using ExecuteTransactionContract = TomorrowDAO.Contracts.Governance.ExecuteTransaction;
-using HighCouncilConfigContract = TomorrowDAO.Contracts.DAO.HighCouncilConfig;
 using MetadataContract = TomorrowDAO.Contracts.DAO.Metadata;
 using MetadataIndexer = TomorrowDAO.Indexer.Plugin.Entities.Metadata;
 using FileInfoIndexer = TomorrowDAO.Indexer.Plugin.Entities.FileInfo;
 using FileInfoContract = TomorrowDAO.Contracts.DAO.FileInfo;
 using FileIndexer = TomorrowDAO.Indexer.Plugin.Entities.File;
 using FileContract = TomorrowDAO.Contracts.DAO.File;
-using GovernanceSchemeThreshold = TomorrowDAO.Indexer.Plugin.Entities.GovernanceSchemeThreshold;
 
 namespace TomorrowDAO.Indexer.Plugin;
 
@@ -221,5 +219,8 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.Sponsor, opt => opt.MapFrom(source => MapAddress(source.Sponsor)));
         CreateMap<TomorrowDAO.Contracts.Election.HighCouncilConfig, ElectionHighCouncilConfigIndex>();
         CreateMap<DaoVoterRecordIndex, DaoVoterRecordIndexDto>();
+        CreateMap<DAOIndex, GetDAOAmountRecordDto>()
+            .ForMember(des => des.Amount, opt => opt.MapFrom(source => source.VoteAmount - source.WithdrawAmount))
+            ;
     }
 }

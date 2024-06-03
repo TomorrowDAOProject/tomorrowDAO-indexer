@@ -74,10 +74,10 @@ public class QueryTest : QueryTestBase
         daoIndex.VoteAmount.ShouldBe(100);
         daoIndex.WithdrawAmount.ShouldBe(10);
 
-        var amount = await Query.GetDAOAmountRecordAsync(DAOIndexRepository, ObjectMapper, new GetDAOAmountRecordInput
+        var list = await Query.GetDAOAmountRecordAsync(DAOIndexRepository, ObjectMapper, new GetDAOAmountRecordInput
         {
             ChainId = ChainAelf
         });
-        amount.ShouldBe(90);
+        list.Sum(x => x.Amount).ShouldBe(90);
     }
 }
