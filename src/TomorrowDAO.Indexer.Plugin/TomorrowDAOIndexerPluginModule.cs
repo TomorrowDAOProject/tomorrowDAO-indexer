@@ -36,6 +36,7 @@ public class TomorrowDAOIndexerPluginModule : AElfIndexerClientPluginBaseModule<
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, PausedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, SubsistStatusSetProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, UnpausedProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, MetadataUpdatedProcessor>();
         // election
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, CandidateAddedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, CandidateAddressReplacedProcessor>();
