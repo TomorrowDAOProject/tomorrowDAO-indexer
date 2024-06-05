@@ -129,6 +129,25 @@ namespace TomorrowDAO.Contracts.DAO {
     }
   }
 
+  public partial class MetadataUpdated : aelf::IEvent<MetadataUpdated>
+  {
+    public global::System.Collections.Generic.IEnumerable<MetadataUpdated> GetIndexed()
+    {
+      return new List<MetadataUpdated>
+      {
+      };
+    }
+
+    public MetadataUpdated GetNonIndexed()
+    {
+      return new MetadataUpdated
+      {
+        DaoId = DaoId,
+        Metadata = Metadata,
+      };
+    }
+  }
+
   #endregion
   public static partial class DAOContractContainer
   {
@@ -151,6 +170,12 @@ namespace TomorrowDAO.Contracts.DAO {
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.RemoveFileInfosInput> __Marshaller_RemoveFileInfosInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.RemoveFileInfosInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.FileInfoList> __Marshaller_FileInfoList = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.FileInfoList.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.HasPermissionInput> __Marshaller_HasPermissionInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.HasPermissionInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.AddCreatorPermissionsInput> __Marshaller_AddCreatorPermissionsInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.AddCreatorPermissionsInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.UpdateMetadataInput> __Marshaller_UpdateMetadataInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.UpdateMetadataInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.UpdateGovernanceSchemeThresholdInput> __Marshaller_UpdateGovernanceSchemeThresholdInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.UpdateGovernanceSchemeThresholdInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.RemoveGovernanceSchemeInput> __Marshaller_RemoveGovernanceSchemeInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.RemoveGovernanceSchemeInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.SetGovernanceTokenInput> __Marshaller_SetGovernanceTokenInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.SetGovernanceTokenInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.SetProposalTimePeriodInput> __Marshaller_SetProposalTimePeriodInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.SetProposalTimePeriodInput.Parser.ParseFrom);
     #endregion
 
     #region Methods
@@ -280,6 +305,48 @@ namespace TomorrowDAO.Contracts.DAO {
         __Marshaller_HasPermissionInput,
         __Marshaller_google_protobuf_BoolValue);
 
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.AddCreatorPermissionsInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_AddCreatorPermissions = new aelf::Method<global::TomorrowDAO.Contracts.DAO.AddCreatorPermissionsInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "AddCreatorPermissions",
+        __Marshaller_AddCreatorPermissionsInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.UpdateMetadataInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateMetadata = new aelf::Method<global::TomorrowDAO.Contracts.DAO.UpdateMetadataInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "UpdateMetadata",
+        __Marshaller_UpdateMetadataInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.UpdateGovernanceSchemeThresholdInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateGovernanceSchemeThreshold = new aelf::Method<global::TomorrowDAO.Contracts.DAO.UpdateGovernanceSchemeThresholdInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "UpdateGovernanceSchemeThreshold",
+        __Marshaller_UpdateGovernanceSchemeThresholdInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.RemoveGovernanceSchemeInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_RemoveGovernanceScheme = new aelf::Method<global::TomorrowDAO.Contracts.DAO.RemoveGovernanceSchemeInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "RemoveGovernanceScheme",
+        __Marshaller_RemoveGovernanceSchemeInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.SetGovernanceTokenInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SetGovernanceToken = new aelf::Method<global::TomorrowDAO.Contracts.DAO.SetGovernanceTokenInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "SetGovernanceToken",
+        __Marshaller_SetGovernanceTokenInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.SetProposalTimePeriodInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SetProposalTimePeriod = new aelf::Method<global::TomorrowDAO.Contracts.DAO.SetProposalTimePeriodInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "SetProposalTimePeriod",
+        __Marshaller_SetProposalTimePeriodInput,
+        __Marshaller_google_protobuf_Empty);
+
     #endregion
 
     #region Descriptors
@@ -394,6 +461,36 @@ namespace TomorrowDAO.Contracts.DAO {
     //     throw new global::System.NotImplementedException();
     //   }
     //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty AddCreatorPermissions(global::TomorrowDAO.Contracts.DAO.AddCreatorPermissionsInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateMetadata(global::TomorrowDAO.Contracts.DAO.UpdateMetadataInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateGovernanceSchemeThreshold(global::TomorrowDAO.Contracts.DAO.UpdateGovernanceSchemeThresholdInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty RemoveGovernanceScheme(global::TomorrowDAO.Contracts.DAO.RemoveGovernanceSchemeInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty SetGovernanceToken(global::TomorrowDAO.Contracts.DAO.SetGovernanceTokenInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty SetProposalTimePeriod(global::TomorrowDAO.Contracts.DAO.SetProposalTimePeriodInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
     // }
     //
     // public static aelf::ServerServiceDefinition BindService(DAOContractBase serviceImpl)
@@ -417,7 +514,13 @@ namespace TomorrowDAO.Contracts.DAO {
     //       .AddMethod(__Method_UploadFileInfos, serviceImpl.UploadFileInfos)
     //       .AddMethod(__Method_RemoveFileInfos, serviceImpl.RemoveFileInfos)
     //       .AddMethod(__Method_GetFileInfos, serviceImpl.GetFileInfos)
-    //       .AddMethod(__Method_HasPermission, serviceImpl.HasPermission).Build();
+    //       .AddMethod(__Method_HasPermission, serviceImpl.HasPermission)
+    //       .AddMethod(__Method_AddCreatorPermissions, serviceImpl.AddCreatorPermissions)
+    //       .AddMethod(__Method_UpdateMetadata, serviceImpl.UpdateMetadata)
+    //       .AddMethod(__Method_UpdateGovernanceSchemeThreshold, serviceImpl.UpdateGovernanceSchemeThreshold)
+    //       .AddMethod(__Method_RemoveGovernanceScheme, serviceImpl.RemoveGovernanceScheme)
+    //       .AddMethod(__Method_SetGovernanceToken, serviceImpl.SetGovernanceToken)
+    //       .AddMethod(__Method_SetProposalTimePeriod, serviceImpl.SetProposalTimePeriod).Build();
     // }
 
   }

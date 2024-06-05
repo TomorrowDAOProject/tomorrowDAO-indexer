@@ -14,6 +14,8 @@ public class GovernanceSchemeThreshold : AElfIndexerClientEntity<string>
     
     public int MaximalAbstentionThreshold { get; set; }
     
+    public long ProposalThreshold { get; set; }
+    
     public void OfThreshold(TomorrowDAO.Contracts.Governance.GovernanceSchemeThreshold schemeThreshold)
     {
         MinimalRequiredThreshold = (int)schemeThreshold.MinimalRequiredThreshold;
@@ -21,5 +23,6 @@ public class GovernanceSchemeThreshold : AElfIndexerClientEntity<string>
         MinimalApproveThreshold = (int)schemeThreshold.MinimalApproveThreshold;
         MaximalRejectionThreshold = (int)schemeThreshold.MaximalRejectionThreshold;
         MaximalAbstentionThreshold = (int)schemeThreshold.MaximalAbstentionThreshold;
+        ProposalThreshold = schemeThreshold.ProposalThreshold;
     }
 }

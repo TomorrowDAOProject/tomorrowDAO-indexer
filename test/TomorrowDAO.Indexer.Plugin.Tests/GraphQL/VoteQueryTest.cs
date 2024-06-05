@@ -58,8 +58,8 @@ public class VoteQueryTest : QueryTestBase
         var count = await Query.GetVoteRecordCountAsync(VoteRecordIndexRepository, ObjectMapper, new GetVoteRecordCountInput
         {
             ChainId = ChainAelf,
-            StartTime = "2024-05-28 00:00:00",
-            EndTime = "2024-05-28 23:59:59"
+            // StartTime = "2024-05-28 00:00:00",
+            // EndTime = "2024-05-28 23:59:59"
         });
         count.ShouldBe(1);
     }
