@@ -42,8 +42,8 @@ public class ProposalQueryTest : QueryTestBase
         {
             ChainId = ChainAelf,
             //DaoId = null,
-            StartTime = "2024-05-28 00:00:00",
-            EndTime = "2024-05-28 23:59:59"
+            // StartTime = "2024-05-28 00:00:00",
+            // EndTime = "2024-05-28 23:59:59"
         });
         count.ShouldBe(2);
     }

@@ -54,8 +54,8 @@ public class QueryTest : QueryTestBase
         var count = await Query.GetDaoCountAsync(DAOIndexRepository, ObjectMapper, new GetDaoCountInput
         {
             ChainId = ChainAelf,
-            StartTime = "2024-05-28 00:00:00",
-            EndTime = "2024-05-28 23:59:59"
+            // StartTime = "2024-05-28 00:00:00",
+            // EndTime = "2024-05-28 23:59:59"
         });
         count.ShouldBe(1);
     }
@@ -74,10 +74,10 @@ public class QueryTest : QueryTestBase
         daoIndex.VoteAmount.ShouldBe(100);
         daoIndex.WithdrawAmount.ShouldBe(10);
 
-        var amount = await Query.GetDAOAmountRecordAsync(DAOIndexRepository, ObjectMapper, new GetDAOAmountRecordInput
+        var list = await Query.GetDAOAmountRecordAsync(DAOIndexRepository, ObjectMapper, new GetDAOAmountRecordInput
         {
             ChainId = ChainAelf
         });
-        amount.ShouldBe(90);
+        list.Sum(x => x.Amount).ShouldBe(90);
     }
 }

@@ -130,12 +130,12 @@ public partial class Query
     }
     
     [Name("getDAOAmountRecord")]
-    public static async Task<long> GetDAOAmountRecordAsync(
+    public static async Task<List<GetDAOAmountRecordDto>> GetDAOAmountRecordAsync(
         [FromServices] IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> repository,
         [FromServices] IObjectMapper objectMapper,
         GetDAOAmountRecordInput input)
     {
-        var mustQuery = new List<Func<QueryContainerDescriptor<DAOIndex>, QueryContainer>>()
+        var mustQuery = new List<Func<QueryContainerDescriptor<DAOIndex>, QueryContainer>>
         {
             q => q.Term(i
                 => i.Field(f => f.ChainId).Value(input.ChainId))
@@ -143,6 +143,6 @@ public partial class Query
         QueryContainer Filter(QueryContainerDescriptor<DAOIndex> f) =>
             f.Bool(b => b.Must(mustQuery));
         var result = await GetAllIndex(Filter, repository);
-        return result.Aggregate(0L, (current, dao) => current + (dao.VoteAmount - dao.WithdrawAmount));
+        return objectMapper.Map<List<DAOIndex>, List<GetDAOAmountRecordDto>>(result);
     }
 }

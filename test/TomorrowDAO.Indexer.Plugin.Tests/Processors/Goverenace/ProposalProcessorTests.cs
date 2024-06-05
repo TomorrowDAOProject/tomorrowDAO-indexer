@@ -4,7 +4,7 @@ using TomorrowDAO.Indexer.Plugin.Enums;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace TomorrowDAO.Indexer.Plugin.Tests.Processors;
+namespace TomorrowDAO.Indexer.Plugin.Tests.Processors.Goverenace;
 
 public class ProposalProcessorTests : TomorrowDAOIndexerPluginTestBase
 {
@@ -46,6 +46,7 @@ public class ProposalProcessorTests : TomorrowDAOIndexerPluginTestBase
         proposalIndex.MinimalApproveThreshold.ShouldBe(50);
         proposalIndex.MaximalRejectionThreshold.ShouldBe(30);
         proposalIndex.MaximalAbstentionThreshold.ShouldBe(20);
+        proposalIndex.ProposalThreshold.ShouldBe(10);
         proposalIndex.ActiveTimePeriod.ShouldBe(1);
         proposalIndex.VetoActiveTimePeriod.ShouldBe(5);
         proposalIndex.PendingTimePeriod.ShouldBe(3);

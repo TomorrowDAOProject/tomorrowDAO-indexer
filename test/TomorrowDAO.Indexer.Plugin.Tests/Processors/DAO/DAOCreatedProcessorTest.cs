@@ -34,6 +34,11 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
         DAOIndex.Id.ShouldBe(DAOId);
         DAOIndex.Creator.ShouldBe(DAOCreator);
         DAOIndex.BlockHeight.ShouldBe(BlockHeight);
+        DAOIndex.ActiveTimePeriod.ShouldBe(MinActiveTimePeriod);
+        DAOIndex.VetoActiveTimePeriod.ShouldBe(MinVetoActiveTimePeriod);
+        DAOIndex.PendingTimePeriod.ShouldBe(MinPendingTimePeriod);
+        DAOIndex.ExecuteTimePeriod.ShouldBe(MinExecuteTimePeriod);
+        DAOIndex.VetoExecuteTimePeriod.ShouldBe(MinVetoExecuteTimePeriod);
     }
 
     [Fact]
