@@ -28,7 +28,7 @@ public class TomorrowDAOIndexerOrleansTestBaseModule : AbpModule
                 }
             }
         }
-
+        
         context.Services.AddSingleton<ClusterFixture>(_fixture);
         context.Services.AddSingleton<IClusterClient>(sp => _fixture.Cluster.Client);
     }
