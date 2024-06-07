@@ -182,10 +182,11 @@ public partial class Query
         QueryContainer DAOFilter(QueryContainerDescriptor<DAOIndex> f) =>
             f.Bool(b => b.Must(daoMustQuery));
         var daoResult = await DAORepository.GetListAsync(DAOFilter);
+        var sortedResult = daoResult.Item2.OrderBy(x => daoIds.IndexOf(x.Id)).ToList();
         return new PageResultDto<DAOInfoDto>
         {
             TotalCount = participatedResult.Item1,
-            Data = objectMapper.Map<List<DAOIndex>, List<DAOInfoDto>>(daoResult.Item2)
+            Data = objectMapper.Map<List<DAOIndex>, List<DAOInfoDto>>(sortedResult)
         };
     }
 }
