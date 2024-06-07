@@ -18,8 +18,9 @@ public class ProposalVetoedProcessor : ProposalProcessorBase<ProposalVetoed>
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> proposalRepository,
+        IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo> latestParticipatedRepository,
         IGovernanceProvider governanceProvider, IDAOProvider DAOProvider) :
-        base(logger, objectMapper, contractInfoOptions, proposalRepository, governanceProvider, DAOProvider)
+        base(logger, objectMapper, contractInfoOptions, proposalRepository, latestParticipatedRepository, governanceProvider, DAOProvider)
     {
     }
 
