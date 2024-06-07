@@ -1,3 +1,4 @@
+using AElfIndexer.Client;
 using AElfIndexer.Client.Handlers;
 using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
@@ -13,9 +14,11 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.Vote;
 public class VoteWithdrawnProcessor : VoteProcessorBase<Withdrawn>
 {
     public VoteWithdrawnProcessor(ILogger<AElfLogEventProcessorBase<Withdrawn, LogEventInfo>> logger,
-        IObjectMapper objectMapper, IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
-        IVoteProvider voteProvider, IDAOProvider daoProvider) : base(logger, objectMapper, contractInfoOptions,
-        voteProvider, daoProvider)
+        IObjectMapper objectMapper, 
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, 
+        IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo> latestParticipatedRepository, 
+        IVoteProvider voteProvider, IDAOProvider daoProvider)
+        : base(logger, objectMapper, contractInfoOptions, latestParticipatedRepository, voteProvider, daoProvider)
     {
     }
 

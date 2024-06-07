@@ -18,6 +18,7 @@ public abstract class ProposalProcessorBase<TEvent> : AElfLogEventProcessorBase<
     protected readonly IObjectMapper ObjectMapper;
     protected readonly ContractInfoOptions ContractInfoOptions;
     protected readonly IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> ProposalRepository;
+    protected readonly IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo> LatestParticipatedRepository;
     protected readonly IGovernanceProvider GovernanceProvider;
     protected readonly IDAOProvider DAOProvider;
 
@@ -25,12 +26,14 @@ public abstract class ProposalProcessorBase<TEvent> : AElfLogEventProcessorBase<
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> proposalRepository, 
+        IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo> latestParticipatedRepository, 
         IGovernanceProvider governanceProvider, IDAOProvider DAOProvider) : base(logger)
     {
         Logger = logger;
         ObjectMapper = objectMapper;
         ContractInfoOptions = contractInfoOptions.Value;
         ProposalRepository = proposalRepository;
+        LatestParticipatedRepository = latestParticipatedRepository;
         GovernanceProvider = governanceProvider;
         this.DAOProvider = DAOProvider;
     }
@@ -44,6 +47,12 @@ public abstract class ProposalProcessorBase<TEvent> : AElfLogEventProcessorBase<
     {
         ObjectMapper.Map(context, index);
         await ProposalRepository.AddOrUpdateAsync(index);
+    }
+    
+    protected async Task SaveIndexAsync(LatestParticipatedIndex index, LogEventContext context)
+    {
+        ObjectMapper.Map(context, index);
+        await LatestParticipatedRepository.AddOrUpdateAsync(index);
     }
 
     protected async void UpdateProposal(string proposalId, ProposalStatus proposalStatus,

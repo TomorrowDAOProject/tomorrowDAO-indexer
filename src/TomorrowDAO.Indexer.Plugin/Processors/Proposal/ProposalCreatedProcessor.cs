@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TomorrowDAO.Contracts.Governance;
 using TomorrowDAO.Indexer.Plugin.Entities;
+using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 using ProposalStage = TomorrowDAO.Indexer.Plugin.Enums.ProposalStage;
@@ -17,9 +18,10 @@ public class ProposalCreatedProcessor : ProposalProcessorBase<ProposalCreated>
     public ProposalCreatedProcessor(ILogger<AElfLogEventProcessorBase<ProposalCreated, LogEventInfo>> logger,
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
-        IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> proposalRepository,
+        IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> proposalRepository, 
+        IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo> latestParticipatedRepository,
         IGovernanceProvider governanceProvider, IDAOProvider DAOProvider) :
-        base(logger, objectMapper, contractInfoOptions, proposalRepository, governanceProvider, DAOProvider)
+        base(logger, objectMapper, contractInfoOptions, proposalRepository, latestParticipatedRepository, governanceProvider, DAOProvider)
     {
     }
 
@@ -30,6 +32,7 @@ public class ProposalCreatedProcessor : ProposalProcessorBase<ProposalCreated>
         var DAOId = eventValue.DaoId?.ToHex();
         var schemeAddress = eventValue.SchemeAddress?.ToBase58();
         var vetoProposalId = eventValue.VetoProposalId?.ToHex();
+        var proposer = eventValue.Proposer?.ToBase58();
         Logger.LogInformation("[ProposalCreated] start proposalId:{proposalId} chainId:{chainId} ", proposalId, chainId);
         try
         {
@@ -59,6 +62,14 @@ public class ProposalCreatedProcessor : ProposalProcessorBase<ProposalCreated>
             {
                 UpdateProposal(vetoProposalId, ProposalStatus.Challenged, ProposalStage.Pending, string.Empty, proposalId, context);
             }
+
+            await SaveIndexAsync(new LatestParticipatedIndex
+            {
+                Id = IdGenerateHelper.GetId(chainId, proposer),
+                DAOId = DAOId, Address = proposer,
+                ParticipatedType = ParticipatedType.Proposed,
+                LatestParticipatedTime = context.BlockTime
+            }, context);
             Logger.LogInformation("[ProposalCreated] end proposalId:{proposalId} chainId:{chainId} ", proposalId, chainId);
         }
         catch (Exception e)
