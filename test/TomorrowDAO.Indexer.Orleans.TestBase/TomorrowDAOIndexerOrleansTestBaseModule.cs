@@ -17,7 +17,7 @@ public class TomorrowDAOIndexerOrleansTestBaseModule : AbpModule
     private ClusterFixture _fixture;
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-        if (this._fixture == null)
+        if (_fixture == null)
         {
             _fixture = new ClusterFixture();
         }
