@@ -46,7 +46,7 @@ public class ProposalCreatedProcessor : ProposalProcessorBase<ProposalCreated>
             { 
                 ObjectMapper.Map(governanceScheme, proposalIndex);
             }
-            var DAO = await DAOProvider.GetDAOAsync(chainId, DAOId);
+            var DAO = await DAOProvider.GetDaoAsync(chainId, DAOId);
             if (DAO != null)
             { 
                 ObjectMapper.Map(DAO, proposalIndex);

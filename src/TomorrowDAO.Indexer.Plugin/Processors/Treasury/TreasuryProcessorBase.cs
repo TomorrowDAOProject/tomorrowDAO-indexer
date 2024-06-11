@@ -66,7 +66,7 @@ public abstract class TreasuryProcessorBase<TEvent> : AElfLogEventProcessorBase<
                 treasuryFundIndex = new TreasuryFundIndex
                 {
                     Id = id,
-                    DAOId = DAOId,
+                    DaoId = DAOId,
                     Symbol = symbol,
                     AvailableFunds = InitialAvailableFunds,
                     LockedFunds = InitialLockedFunds,

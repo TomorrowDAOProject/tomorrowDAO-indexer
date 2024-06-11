@@ -75,7 +75,7 @@ public class VotedProcessor : VoteProcessorBase<Voted>
                     ChainId = chainId
                 };
                 //update dao index
-                var daoIndex = await _daoProvider.GetDAOAsync(chainId, voteRecordIndex.DAOId);
+                var daoIndex = await _daoProvider.GetDaoAsync(chainId, voteRecordIndex.DAOId);
                 if (daoIndex == null)
                 {
                     Logger.LogError("[Voted] update DaoVoterRecord, Dao not found: daoId={Id}", voteRecordIndex.DAOId);
@@ -106,7 +106,7 @@ public class VotedProcessor : VoteProcessorBase<Voted>
         try
         {
             Logger.LogInformation("[Voted] update DaoVoteAmount: daoId={Id}", daoId);
-            var daoIndex = await _daoProvider.GetDAOAsync(chainId, daoId);
+            var daoIndex = await _daoProvider.GetDaoAsync(chainId, daoId);
             if (daoIndex == null)
             {
                 Logger.LogError("[Voted] update DaoVoteAmount error, Dao not found: daoId={Id}", daoId);

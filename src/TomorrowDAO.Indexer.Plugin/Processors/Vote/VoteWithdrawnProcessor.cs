@@ -59,7 +59,7 @@ public class VoteWithdrawnProcessor : VoteProcessorBase<Withdrawn>
         try
         {
             Logger.LogInformation("[VoteWithdrawn] update DaoVoteAmount: daoId={Id}", daoId);
-            var daoIndex = await _daoProvider.GetDAOAsync(chainId, daoId);
+            var daoIndex = await _daoProvider.GetDaoAsync(chainId, daoId);
             if (daoIndex == null)
             {
                 Logger.LogError("[VoteWithdrawn] update DaoVoteAmount error, Dao not found: daoId={Id}", daoId);

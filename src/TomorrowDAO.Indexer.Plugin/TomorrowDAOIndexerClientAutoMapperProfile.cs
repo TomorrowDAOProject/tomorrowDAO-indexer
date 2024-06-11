@@ -66,6 +66,18 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<LogEventContext, DAOIndex>();
         CreateMap<LogEventContext, TreasuryFundIndex>();
         CreateMap<LogEventContext, TreasuryRecordIndex>();
+        CreateMap<TreasuryTransferred, TreasuryRecordIndex>()
+            .ForMember(des => des.DaoId, opt
+                => opt.MapFrom(source => MapHash(source.DaoId)))
+            .ForMember(des => des.TreasuryAddress, opt
+                => opt.MapFrom(source => MapAddress(source.TreasuryAddress)))
+            .ForMember(des => des.ToAddress, opt
+                => opt.MapFrom(source => MapAddress(source.Recipient)))
+            .ForMember(des => des.Executor, opt
+                => opt.MapFrom(source => MapAddress(source.Executor)))
+            .ForMember(des => des.ProposalId, opt
+                => opt.MapFrom(source => MapHash(source.ProposalId)))
+            ;
         CreateMap<LogEventContext, ElectionIndex>();
         CreateMap<DaoProposalTimePeriodSet, DAOIndex>();
         CreateMap<DAOCreated, DAOIndex>()
@@ -100,6 +112,8 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                     source.ContractAddressList == null
                         ? string.Empty
                         : MapAddress(source.ContractAddressList.TimelockContractAddress)))
+            .ForMember(des => des.TreasuryAccountAddress, opt 
+                => opt.MapFrom(source => MapAddress(source.TreasuryAddress)))
             ;
         CreateMap<FileInfoContract, FileInfoIndexer>()
             .ForMember(des => des.Uploader, opt
@@ -108,14 +122,6 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => MapDateTime(source.UploadTime)))
             ;
         CreateMap<FileContract, FileIndexer>();
-        CreateMap<Unpaused, DAOIndex>()
-            .ForMember(des => des.TreasuryPauseExecutor, opt
-                => opt.MapFrom(source => MapAddress(source.Account)))
-            ;
-        CreateMap<Paused, DAOIndex>()
-            .ForMember(des => des.TreasuryPauseExecutor, opt
-                => opt.MapFrom(source => MapAddress(source.Account)))
-            ;
         CreateMap<HighCouncilEnabled, DAOIndex>()
             .ForMember(des => des.HighCouncilAddress, opt
                 => opt.MapFrom(source => MapAddress(source.HighCouncilAddress)))
@@ -196,7 +202,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => MapHash(source.VoteId)))
             .ForMember(des => des.DAOId, opt
                 => opt.MapFrom(source => MapHash(source.DaoId)));
-            ;
+        ;
         CreateMap<VoteSchemeIndex, VoteSchemeIndexDto>();
         CreateMap<Withdrawn, VoteWithdrawnIndex>()
             .ForMember(des => des.DaoId,

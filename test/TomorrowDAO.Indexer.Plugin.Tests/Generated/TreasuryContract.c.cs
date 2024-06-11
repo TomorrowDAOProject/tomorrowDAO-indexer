@@ -26,213 +26,31 @@ namespace TomorrowDAO.Contracts.Treasury {
       {
         DaoId = DaoId,
         TreasuryAccountAddress = TreasuryAccountAddress,
-        SymbolList = SymbolList,
       };
     }
   }
 
-  public partial class SupportedStakingTokensAdded : aelf::IEvent<SupportedStakingTokensAdded>
+  public partial class TreasuryTransferred : aelf::IEvent<TreasuryTransferred>
   {
-    public global::System.Collections.Generic.IEnumerable<SupportedStakingTokensAdded> GetIndexed()
+    public global::System.Collections.Generic.IEnumerable<TreasuryTransferred> GetIndexed()
     {
-      return new List<SupportedStakingTokensAdded>
+      return new List<TreasuryTransferred>
       {
       };
     }
 
-    public SupportedStakingTokensAdded GetNonIndexed()
+    public TreasuryTransferred GetNonIndexed()
     {
-      return new SupportedStakingTokensAdded
+      return new TreasuryTransferred
       {
         DaoId = DaoId,
-        AddedTokens = AddedTokens,
-      };
-    }
-  }
-
-  public partial class SupportedStakingTokensRemoved : aelf::IEvent<SupportedStakingTokensRemoved>
-  {
-    public global::System.Collections.Generic.IEnumerable<SupportedStakingTokensRemoved> GetIndexed()
-    {
-      return new List<SupportedStakingTokensRemoved>
-      {
-      };
-    }
-
-    public SupportedStakingTokensRemoved GetNonIndexed()
-    {
-      return new SupportedStakingTokensRemoved
-      {
-        DaoId = DaoId,
-        RemovedTokens = RemovedTokens,
-      };
-    }
-  }
-
-  public partial class DonationReceived : aelf::IEvent<DonationReceived>
-  {
-    public global::System.Collections.Generic.IEnumerable<DonationReceived> GetIndexed()
-    {
-      return new List<DonationReceived>
-      {
-      };
-    }
-
-    public DonationReceived GetNonIndexed()
-    {
-      return new DonationReceived
-      {
-        DaoId = DaoId,
-        Amount = Amount,
-        Symbol = Symbol,
-        Donor = Donor,
-        DonationTime = DonationTime,
-      };
-    }
-  }
-
-  public partial class TokenStaked : aelf::IEvent<TokenStaked>
-  {
-    public global::System.Collections.Generic.IEnumerable<TokenStaked> GetIndexed()
-    {
-      return new List<TokenStaked>
-      {
-      };
-    }
-
-    public TokenStaked GetNonIndexed()
-    {
-      return new TokenStaked
-      {
-        DaoId = DaoId,
-        Amount = Amount,
-        Symbol = Symbol,
-        Account = Account,
-        StakedTime = StakedTime,
-      };
-    }
-  }
-
-  public partial class TreasuryTokenLocked : aelf::IEvent<TreasuryTokenLocked>
-  {
-    public global::System.Collections.Generic.IEnumerable<TreasuryTokenLocked> GetIndexed()
-    {
-      return new List<TreasuryTokenLocked>
-      {
-      };
-    }
-
-    public TreasuryTokenLocked GetNonIndexed()
-    {
-      return new TreasuryTokenLocked
-      {
-        DaoId = DaoId,
-        LockInfo = LockInfo,
-        Proposer = Proposer,
-      };
-    }
-  }
-
-  public partial class TreasuryTransferReleased : aelf::IEvent<TreasuryTransferReleased>
-  {
-    public global::System.Collections.Generic.IEnumerable<TreasuryTransferReleased> GetIndexed()
-    {
-      return new List<TreasuryTransferReleased>
-      {
-      };
-    }
-
-    public TreasuryTransferReleased GetNonIndexed()
-    {
-      return new TreasuryTransferReleased
-      {
-        DaoId = DaoId,
+        TreasuryAddress = TreasuryAddress,
         Amount = Amount,
         Symbol = Symbol,
         Recipient = Recipient,
         Memo = Memo,
+        Executor = Executor,
         ProposalId = ProposalId,
-        Executor = Executor,
-      };
-    }
-  }
-
-  public partial class TreasuryTokenUnlocked : aelf::IEvent<TreasuryTokenUnlocked>
-  {
-    public global::System.Collections.Generic.IEnumerable<TreasuryTokenUnlocked> GetIndexed()
-    {
-      return new List<TreasuryTokenUnlocked>
-      {
-      };
-    }
-
-    public TreasuryTokenUnlocked GetNonIndexed()
-    {
-      return new TreasuryTokenUnlocked
-      {
-        DaoId = DaoId,
-        LockInfo = LockInfo,
-        Executor = Executor,
-      };
-    }
-  }
-
-  public partial class Paused : aelf::IEvent<Paused>
-  {
-    public global::System.Collections.Generic.IEnumerable<Paused> GetIndexed()
-    {
-      return new List<Paused>
-      {
-      };
-    }
-
-    public Paused GetNonIndexed()
-    {
-      return new Paused
-      {
-        Account = Account,
-        DaoId = DaoId,
-      };
-    }
-  }
-
-  public partial class Unpaused : aelf::IEvent<Unpaused>
-  {
-    public global::System.Collections.Generic.IEnumerable<Unpaused> GetIndexed()
-    {
-      return new List<Unpaused>
-      {
-      };
-    }
-
-    public Unpaused GetNonIndexed()
-    {
-      return new Unpaused
-      {
-        Account = Account,
-        DaoId = DaoId,
-      };
-    }
-  }
-
-  public partial class EmergencyTransferred : aelf::IEvent<EmergencyTransferred>
-  {
-    public global::System.Collections.Generic.IEnumerable<EmergencyTransferred> GetIndexed()
-    {
-      return new List<EmergencyTransferred>
-      {
-      };
-    }
-
-    public EmergencyTransferred GetNonIndexed()
-    {
-      return new EmergencyTransferred
-      {
-        DaoId = DaoId,
-        Symbol = Symbol,
-        Amount = Amount,
-        Recipient = Recipient,
-        Account = Account,
       };
     }
   }
@@ -243,9 +61,58 @@ namespace TomorrowDAO.Contracts.Treasury {
     static readonly string __ServiceName = "TreasuryContract";
 
     #region Marshallers
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Treasury.InitializeInput> __Marshaller_InitializeInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Treasury.InitializeInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_google_protobuf_Empty = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Treasury.CreateTreasuryInput> __Marshaller_CreateTreasuryInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Treasury.CreateTreasuryInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Treasury.TransferInput> __Marshaller_TransferInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Treasury.TransferInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::AElf.Types.Hash> __Marshaller_aelf_Hash = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::AElf.Types.Hash.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::AElf.Types.Address> __Marshaller_aelf_Address = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::AElf.Types.Address.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Treasury.TreasuryInfo> __Marshaller_TreasuryInfo = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Treasury.TreasuryInfo.Parser.ParseFrom);
     #endregion
 
     #region Methods
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Treasury.InitializeInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_Initialize = new aelf::Method<global::TomorrowDAO.Contracts.Treasury.InitializeInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "Initialize",
+        __Marshaller_InitializeInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Treasury.CreateTreasuryInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_CreateTreasury = new aelf::Method<global::TomorrowDAO.Contracts.Treasury.CreateTreasuryInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "CreateTreasury",
+        __Marshaller_CreateTreasuryInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Treasury.TransferInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_Transfer = new aelf::Method<global::TomorrowDAO.Contracts.Treasury.TransferInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "Transfer",
+        __Marshaller_TransferInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::AElf.Types.Hash, global::AElf.Types.Address> __Method_GetTreasuryAccountAddress = new aelf::Method<global::AElf.Types.Hash, global::AElf.Types.Address>(
+        aelf::MethodType.View,
+        __ServiceName,
+        "GetTreasuryAccountAddress",
+        __Marshaller_aelf_Hash,
+        __Marshaller_aelf_Address);
+
+    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Treasury.TreasuryInfo> __Method_GetTreasuryInfo = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Treasury.TreasuryInfo>(
+        aelf::MethodType.View,
+        __ServiceName,
+        "GetTreasuryInfo",
+        __Marshaller_aelf_Hash,
+        __Marshaller_TreasuryInfo);
+
+    static readonly aelf::Method<global::AElf.Types.Address, global::AElf.Types.Hash> __Method_GetDAOIdByTreasuryAccountAddress = new aelf::Method<global::AElf.Types.Address, global::AElf.Types.Hash>(
+        aelf::MethodType.View,
+        __ServiceName,
+        "GetDAOIdByTreasuryAccountAddress",
+        __Marshaller_aelf_Address,
+        __Marshaller_aelf_Hash);
+
     #endregion
 
     #region Descriptors
@@ -270,12 +137,48 @@ namespace TomorrowDAO.Contracts.Treasury {
     /// <summary>Base class for the contract of TreasuryContract</summary>
     // public abstract partial class TreasuryContractBase : AElf.Sdk.CSharp.CSharpSmartContract<TomorrowDAO.Contracts.Treasury.TreasuryContractState>
     // {
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty Initialize(global::TomorrowDAO.Contracts.Treasury.InitializeInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty CreateTreasury(global::TomorrowDAO.Contracts.Treasury.CreateTreasuryInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty Transfer(global::TomorrowDAO.Contracts.Treasury.TransferInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::AElf.Types.Address GetTreasuryAccountAddress(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::TomorrowDAO.Contracts.Treasury.TreasuryInfo GetTreasuryInfo(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::AElf.Types.Hash GetDAOIdByTreasuryAccountAddress(global::AElf.Types.Address input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
     // }
     //
     // public static aelf::ServerServiceDefinition BindService(TreasuryContractBase serviceImpl)
     // {
     //   return aelf::ServerServiceDefinition.CreateBuilder()
-    //       .AddDescriptors(Descriptors).Build();
+    //       .AddDescriptors(Descriptors)
+    //       .AddMethod(__Method_Initialize, serviceImpl.Initialize)
+    //       .AddMethod(__Method_CreateTreasury, serviceImpl.CreateTreasury)
+    //       .AddMethod(__Method_Transfer, serviceImpl.Transfer)
+    //       .AddMethod(__Method_GetTreasuryAccountAddress, serviceImpl.GetTreasuryAccountAddress)
+    //       .AddMethod(__Method_GetTreasuryInfo, serviceImpl.GetTreasuryInfo)
+    //       .AddMethod(__Method_GetDAOIdByTreasuryAccountAddress, serviceImpl.GetDAOIdByTreasuryAccountAddress).Build();
     // }
 
   }

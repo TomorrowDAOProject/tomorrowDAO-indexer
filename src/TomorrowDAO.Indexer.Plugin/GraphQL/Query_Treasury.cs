@@ -10,11 +10,11 @@ namespace TomorrowDAO.Indexer.Plugin.GraphQL;
 
 public partial class Query
 {
-    [Name("getTreasuryFundListAsync")]
+    [Name("getTreasuryFundList")]
     public static async Task<List<TreasuryFundDto>> GetTreasuryFundListAsync(
         [FromServices] IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> repository,
         [FromServices] IObjectMapper objectMapper,
-        GetChainBlockHeightInput input)
+        GetTreasuryFundListInput input)
     {
         var mustQuery = new List<Func<QueryContainerDescriptor<TreasuryFundIndex>, QueryContainer>>();
         mustQuery.Add(q => q.Term(i
@@ -31,6 +31,24 @@ public partial class Query
             mustQuery.Add(q => q.Range(i
                 => i.Field(f => f.BlockHeight).LessThanOrEquals(input.EndBlockHeight)));
         }
+
+        if (!input.ChainId.IsNullOrWhiteSpace())
+        {
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId)));
+        }
+        
+        if (!input.DaoId.IsNullOrWhiteSpace())
+        {
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.DaoId).Value(input.DaoId)));
+        }
+        
+        if (!input.TreasuryAddress.IsNullOrWhiteSpace())
+        {
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.TreasuryAddress).Value(input.TreasuryAddress)));
+        }
     
         QueryContainer Filter(QueryContainerDescriptor<TreasuryFundIndex> f) =>
             f.Bool(b => b.Must(mustQuery));
@@ -40,11 +58,11 @@ public partial class Query
         return objectMapper.Map<List<TreasuryFundIndex>, List<TreasuryFundDto>>(result.Item2);
     }
     
-    [Name("getTreasuryRecordListAsync")]
+    [Name("getTreasuryRecordList")]
     public static async Task<List<TreasuryRecordDto>> GetTreasuryRecordListAsync(
         [FromServices] IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> repository,
         [FromServices] IObjectMapper objectMapper,
-        GetChainBlockHeightInput input)
+        GetTreasuryFundListInput input)
     {
         var mustQuery = new List<Func<QueryContainerDescriptor<TreasuryRecordIndex>, QueryContainer>>();
         mustQuery.Add(q => q.Term(i
@@ -61,6 +79,25 @@ public partial class Query
             mustQuery.Add(q => q.Range(i
                 => i.Field(f => f.BlockHeight).LessThanOrEquals(input.EndBlockHeight)));
         }
+        
+        if (!input.ChainId.IsNullOrWhiteSpace())
+        {
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId)));
+        }
+        
+        if (!input.DaoId.IsNullOrWhiteSpace())
+        {
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.DaoId).Value(input.DaoId)));
+        }
+        
+        if (!input.TreasuryAddress.IsNullOrWhiteSpace())
+        {
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.TreasuryAddress).Value(input.TreasuryAddress)));
+        }
+        
         QueryContainer Filter(QueryContainerDescriptor<TreasuryRecordIndex> f) =>
             f.Bool(b => b.Must(mustQuery));
     
