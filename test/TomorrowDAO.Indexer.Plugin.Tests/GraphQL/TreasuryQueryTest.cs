@@ -16,7 +16,7 @@ public class TreasuryQueryTest : QueryTestBase
         await MockEventProcess(TokenTransferred(), TransferredProcessor);
         await MockEventProcess(TreasuryTransferred(), TreasuryTransferredProcessor);
         
-        var treasuryFunds = await Query.GetTreasuryFundListAsync(TreasuryFundRepository, ObjectMapper, new GetTreasuryFundListInput
+        var(count, treasuryFunds) = await Query.GetTreasuryFundListAsync(TreasuryFundRepository, ObjectMapper, new GetTreasuryFundListInput
         {
             SkipCount = 0,
             ChainId = ChainAelf,
@@ -33,6 +33,7 @@ public class TreasuryQueryTest : QueryTestBase
         treasuryFundDto.Symbol.ShouldBe(Elf);
         treasuryFundDto.AvailableFunds.ShouldBe(99999999);
         treasuryFundDto.LockedFunds.ShouldBe(0);
+        count.ShouldBe(1);
     }
 
     [Fact]

@@ -7,6 +7,7 @@ using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using TomorrowDAO.Indexer.Plugin.Processors.Election;
 using TomorrowDAO.Indexer.Plugin.Processors.GovernanceScheme;
 using TomorrowDAO.Indexer.Plugin.Processors.Proposal;
+using TomorrowDAO.Indexer.Plugin.Processors.Token;
 using TomorrowDAO.Indexer.Plugin.Processors.Treasury;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
@@ -59,5 +60,5 @@ public class TomorrowDAOIndexerPluginModule : AElfIndexerClientPluginBaseModule<
     }
 
     protected override string ClientId => "AElfIndexer_TomorrowDAO";
-    protected override string Version => "d9bc43d9b8564650831711493d53acfa";
+    protected override string Version => "73c1e2f74ac748e08963c6593cab0cf5";
 }

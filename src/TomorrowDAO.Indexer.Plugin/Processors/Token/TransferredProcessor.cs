@@ -10,9 +10,9 @@ using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 
-namespace TomorrowDAO.Indexer.Plugin.Processors.Treasury;
+namespace TomorrowDAO.Indexer.Plugin.Processors.Token;
 
-public class TransferredProcessor : TreasuryProcessorBase<Transferred>
+public class TransferredProcessor : TokenProcessorBase<Transferred>
 {
     public TransferredProcessor(ILogger<AElfLogEventProcessorBase<Transferred, LogEventInfo>> logger,
         IObjectMapper objectMapper,
@@ -33,7 +33,7 @@ public class TransferredProcessor : TreasuryProcessorBase<Transferred>
             treasuryAddress, chainId, JsonConvert.SerializeObject(eventValue));
         try
         {
-            var daoIndex = await DAOProvider.GetDaoByTreasuryAddressAsync(chainId, treasuryAddress);
+            var daoIndex = await DaoProvider.GetDaoByTreasuryAddressAsync(chainId, treasuryAddress);
             if (daoIndex == null)
             {
                 Logger.LogInformation(

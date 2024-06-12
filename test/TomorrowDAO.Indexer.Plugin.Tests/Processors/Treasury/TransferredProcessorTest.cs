@@ -5,7 +5,7 @@ using Xunit;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.Processors.Treasury;
 
-public class DonationReceivedProcessorTest : TomorrowDAOIndexerPluginTestBase
+public class TransferredProcessorTest : TomorrowDAOIndexerPluginTestBase
 {
     [Fact]
     public async Task HandleEventAsync_Test()

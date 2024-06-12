@@ -11,4 +11,6 @@ public class ContractInfo
     public string ElectionContractAddress { get; set; }
     public string VoteContractAddress { get; set; }
     public string TreasuryContractAddress { get; set; }
+    
+    public string TokenContractAddress { get; set; }
 }

@@ -18,6 +18,7 @@ using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using TomorrowDAO.Indexer.Plugin.Processors.Election;
 using TomorrowDAO.Indexer.Plugin.Processors.GovernanceScheme;
 using TomorrowDAO.Indexer.Plugin.Processors.Proposal;
+using TomorrowDAO.Indexer.Plugin.Processors.Token;
 using TomorrowDAO.Indexer.Plugin.Processors.Treasury;
 using TomorrowDAO.Indexer.Plugin.Tests.Helper;
 using File = TomorrowDAO.Contracts.DAO.File;
