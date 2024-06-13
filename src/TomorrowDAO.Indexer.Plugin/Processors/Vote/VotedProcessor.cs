@@ -32,6 +32,7 @@ public class VotedProcessor : VoteProcessorBase<Voted>
                 Logger.LogError(
                     "[Voted] VoteId is null: Id={Id}, ChainId={ChainId}, TransactionId={TransactionId}, Event={Event}",
                     voteId, chainId, context.TransactionId, JsonConvert.SerializeObject(eventValue));
+                return;
             }
 
             var voteRecordIndex = await VoteProvider.GetVoteRecordAsync(chainId, voteId);
