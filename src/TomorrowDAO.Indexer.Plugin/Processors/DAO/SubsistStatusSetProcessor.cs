@@ -27,7 +27,7 @@ public class SubsistStatusSetProcessor : DAOProcessorBase<SubsistStatusSet>
             DAOId, chainId, subsistStatus);
         try
         {
-            var DAOIndex = await DAOProvider.GetDAOAsync(chainId, DAOId);
+            var DAOIndex = await DAOProvider.GetDaoAsync(chainId, DAOId);
             if (DAOIndex == null)
             {
                 Logger.LogInformation("[SubsistStatusSet] DAO not existed: Id={Id}, ChainId={ChainId}", DAOId, chainId);

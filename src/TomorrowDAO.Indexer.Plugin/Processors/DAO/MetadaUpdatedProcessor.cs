@@ -28,7 +28,7 @@ public class MetadataUpdatedProcessor : DAOProcessorBase<MetadataUpdated>
             DAOId, chainId, JsonConvert.SerializeObject(eventValue));
         try
         {
-            var DAOIndex = await DAOProvider.GetDAOAsync(chainId, DAOId);
+            var DAOIndex = await DAOProvider.GetDaoAsync(chainId, DAOId);
             if (DAOIndex == null)
             {
                 Logger.LogInformation("[MetadataUpdated] DAO not already existed: DAOId={Id}, ChainId={ChainId}", DAOId, chainId);

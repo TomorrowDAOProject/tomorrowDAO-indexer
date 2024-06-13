@@ -29,7 +29,7 @@ public class FileInfosUploadedProcessor : DAOProcessorBase<FileInfosUploaded>
             DAOId, chainId, JsonConvert.SerializeObject(eventValue));
         try
         {
-            var DAOIndex = await DAOProvider.GetDAOAsync(chainId, DAOId);
+            var DAOIndex = await DAOProvider.GetDaoAsync(chainId, DAOId);
             if (DAOIndex == null)
             {
                 Logger.LogInformation("[FileInfosUploaded] DAO not existed: Id={Id}, ChainId={ChainId}", 

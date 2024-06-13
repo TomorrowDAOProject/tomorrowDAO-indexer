@@ -7,6 +7,7 @@ using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using TomorrowDAO.Indexer.Plugin.Processors.Election;
 using TomorrowDAO.Indexer.Plugin.Processors.GovernanceScheme;
 using TomorrowDAO.Indexer.Plugin.Processors.Proposal;
+using TomorrowDAO.Indexer.Plugin.Processors.Token;
 using TomorrowDAO.Indexer.Plugin.Processors.Treasury;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
@@ -33,9 +34,7 @@ public class TomorrowDAOIndexerPluginModule : AElfIndexerClientPluginBaseModule<
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, FileInfosUploadedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, HighCouncilDisabledProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, HighCouncilEnabledProcessor>();
-        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, PausedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, SubsistStatusSetProcessor>();
-        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, UnpausedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, MetadataUpdatedProcessor>();
         // election
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, CandidateAddedProcessor>();
@@ -50,15 +49,9 @@ public class TomorrowDAOIndexerPluginModule : AElfIndexerClientPluginBaseModule<
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, GovernanceSchemeThresholdUpdatedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, GovernanceTokenSetProcessor>();
         // treasury
-        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, DonationReceivedProcessor>();
-        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, EmergencyTransferredProcessor>();
-        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, SupportedStakingTokensAddedProcessor>();
-        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, SupportedStakingTokensRemovedProcessor>();
-        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, TokenStakedProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, TransferredProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, TreasuryCreatedProcessor>();
-        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, TreasuryTokenLockedProcessor>();
-        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, TreasuryTokenUnlockedProcessor>();
-        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, TreasuryTransferReleasedProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, TreasuryTransferredProcessor>();
         // vote
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, Vote.VoteSchemeCreatedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, Vote.VotingItemRegisteredProcessor>();
@@ -67,5 +60,5 @@ public class TomorrowDAOIndexerPluginModule : AElfIndexerClientPluginBaseModule<
     }
 
     protected override string ClientId => "AElfIndexer_TomorrowDAO";
-    protected override string Version => "d9bc43d9b8564650831711493d53acfa";
+    protected override string Version => "73c1e2f74ac748e08963c6593cab0cf5";
 }

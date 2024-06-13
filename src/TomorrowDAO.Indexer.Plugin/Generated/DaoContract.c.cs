@@ -30,6 +30,7 @@ namespace TomorrowDAO.Contracts.DAO {
         Creator = Creator,
         ContractAddressList = ContractAddressList,
         IsNetworkDao = IsNetworkDao,
+        TreasuryAddress = TreasuryAddress,
       };
     }
   }
@@ -347,6 +348,20 @@ namespace TomorrowDAO.Contracts.DAO {
         __Marshaller_SetProposalTimePeriodInput,
         __Marshaller_google_protobuf_Empty);
 
+    static readonly aelf::Method<global::AElf.Types.Address, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SetTreasuryContractAddress = new aelf::Method<global::AElf.Types.Address, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "SetTreasuryContractAddress",
+        __Marshaller_aelf_Address,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::AElf.Types.Hash, global::AElf.Types.Address> __Method_GetTreasuryAddress = new aelf::Method<global::AElf.Types.Hash, global::AElf.Types.Address>(
+        aelf::MethodType.View,
+        __ServiceName,
+        "GetTreasuryAddress",
+        __Marshaller_aelf_Hash,
+        __Marshaller_aelf_Address);
+
     #endregion
 
     #region Descriptors
@@ -491,8 +506,18 @@ namespace TomorrowDAO.Contracts.DAO {
     //     throw new global::System.NotImplementedException();
     //   }
     //
-    // }
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty SetTreasuryContractAddress(global::AElf.Types.Address input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
     //
+    //   public virtual global::AElf.Types.Address GetTreasuryAddress(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    // }
+
     // public static aelf::ServerServiceDefinition BindService(DAOContractBase serviceImpl)
     // {
     //   return aelf::ServerServiceDefinition.CreateBuilder()
@@ -520,7 +545,9 @@ namespace TomorrowDAO.Contracts.DAO {
     //       .AddMethod(__Method_UpdateGovernanceSchemeThreshold, serviceImpl.UpdateGovernanceSchemeThreshold)
     //       .AddMethod(__Method_RemoveGovernanceScheme, serviceImpl.RemoveGovernanceScheme)
     //       .AddMethod(__Method_SetGovernanceToken, serviceImpl.SetGovernanceToken)
-    //       .AddMethod(__Method_SetProposalTimePeriod, serviceImpl.SetProposalTimePeriod).Build();
+    //       .AddMethod(__Method_SetProposalTimePeriod, serviceImpl.SetProposalTimePeriod)
+    //       .AddMethod(__Method_SetTreasuryContractAddress, serviceImpl.SetTreasuryContractAddress)
+    //       .AddMethod(__Method_GetTreasuryAddress, serviceImpl.GetTreasuryAddress).Build();
     // }
 
   }

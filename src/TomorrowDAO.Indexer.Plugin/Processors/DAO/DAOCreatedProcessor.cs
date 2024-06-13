@@ -28,7 +28,7 @@ public class DAOCreatedProcessor : DAOProcessorBase<DAOCreated>
             DAOId, chainId, JsonConvert.SerializeObject(eventValue));
         try
         {
-            var DAOIndex = await DAOProvider.GetDAOAsync(chainId, DAOId);
+            var DAOIndex = await DAOProvider.GetDaoAsync(chainId, DAOId);
             if (DAOIndex != null)
             {
                 Logger.LogInformation("[DAOCreated] DAO already existed: Id={Id}, ChainId={ChainId}", DAOId, chainId);

@@ -1,5 +1,5 @@
+using AElf;
 using Shouldly;
-using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAO.Indexer.Plugin.GraphQL;
 using TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 using Xunit;
@@ -13,21 +13,27 @@ public class TreasuryQueryTest : QueryTestBase
     {
         await MockEventProcess(MinInfoDAOCreated(), DAOCreatedProcessor);
         await MockEventProcess(TreasuryCreated(), TreasuryCreatedProcessor);
+        await MockEventProcess(TokenTransferred(), TransferredProcessor);
+        await MockEventProcess(TreasuryTransferred(), TreasuryTransferredProcessor);
         
-        // var treasuryFunds = await Query.GetTreasuryFundListAsync(TreasuryFundRepository, ObjectMapper, new GetChainBlockHeightInput
-        // {
-        //     ChainId = ChainAelf,
-        //     StartBlockHeight = BlockHeight,
-        //     EndBlockHeight = BlockHeight + 1,
-        //     MaxResultCount = 10
-        // });
-        // treasuryFunds.ShouldNotBeNull();
-        // treasuryFunds.Count.ShouldBe(1);
-        // var treasuryFundDto = treasuryFunds[0];
-        // treasuryFundDto.DAOId.ShouldBe(DAOId);
-        // treasuryFundDto.Symbol.ShouldBe(Elf);
-        // treasuryFundDto.AvailableFunds.ShouldBe(0);
-        // treasuryFundDto.LockedFunds.ShouldBe(0);
+        var(count, treasuryFunds) = await Query.GetTreasuryFundListAsync(TreasuryFundRepository, ObjectMapper, new GetTreasuryFundListInput
+        {
+            SkipCount = 0,
+            ChainId = ChainAelf,
+            StartBlockHeight = BlockHeight,
+            EndBlockHeight = BlockHeight + 1,
+            DaoId = HashHelper.ComputeFrom(Id1).ToHex(),
+            TreasuryAddress = null,
+            MaxResultCount = 10
+        });
+        treasuryFunds.ShouldNotBeNull();
+        treasuryFunds.Count.ShouldBe(1);
+        var treasuryFundDto = treasuryFunds[0];
+        treasuryFundDto.DaoId.ShouldBe(DAOId);
+        treasuryFundDto.Symbol.ShouldBe(Elf);
+        treasuryFundDto.AvailableFunds.ShouldBe(99999999);
+        treasuryFundDto.LockedFunds.ShouldBe(0);
+        count.ShouldBe(1);
     }
 
     [Fact]
@@ -35,7 +41,7 @@ public class TreasuryQueryTest : QueryTestBase
     {
         await MockEventProcess(MinInfoDAOCreated(), DAOCreatedProcessor);
         await MockEventProcess(TreasuryCreated(), TreasuryCreatedProcessor);
-        await MockEventProcess(DonationReceived(), DonationReceivedProcessor);
+        await MockEventProcess(TokenTransferred(), TransferredProcessor);
         
         // var treasuryRecords = await Query.GetTreasuryRecordListAsync(TreasuryRecordRepository, ObjectMapper, new GetChainBlockHeightInput
         // {
