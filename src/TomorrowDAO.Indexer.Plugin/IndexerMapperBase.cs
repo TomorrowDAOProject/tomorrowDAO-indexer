@@ -25,7 +25,12 @@ public class IndexerMapperBase : Profile
     
     protected static string MapAddress(AElf.Types.Address address)
     {
-        return address?.ToBase58();
+        if (address != null && address.Value.Any())
+        {
+            return address.ToBase58();
+        }
+
+        return string.Empty;
     }
     
     protected static DateTime? MapDateTime(Google.Protobuf.WellKnownTypes.Timestamp timestamp)
