@@ -43,6 +43,7 @@ public abstract class
     protected readonly IAElfIndexerClientEntityRepository<VoteItemIndex, LogEventInfo> VoteItemIndexRepository;
     protected readonly IAElfIndexerClientEntityRepository<VoteWithdrawnIndex, LogEventInfo> VoteWithdrawnRepository;
     protected readonly IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAOIndexRepository;
+    protected readonly IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo> LatestParticipatedIndexRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> TreasuryFundRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> TreasuryRecordRepository;
     protected readonly IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> ElectionRepository;
@@ -161,6 +162,8 @@ public abstract class
         VoteWithdrawnRepository =
             GetRequiredService<IAElfIndexerClientEntityRepository<VoteWithdrawnIndex, LogEventInfo>>();
         DAOIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo>>();
+        LatestParticipatedIndexRepository =
+            GetRequiredService<IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo>>();
         TreasuryFundRepository =
             GetRequiredService<IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo>>();
         TreasuryRecordRepository =

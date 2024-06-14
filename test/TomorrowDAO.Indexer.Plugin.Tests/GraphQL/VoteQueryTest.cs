@@ -12,7 +12,7 @@ using Xunit;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.GraphQL;
 
-public class VoteQueryTest : QueryTestBase
+public partial class QueryTest
 {
     private const string TransactionId = "c1e625d135171c766999274a00a7003abed24cfe59a7215aabf1472ef20a2da2";
 

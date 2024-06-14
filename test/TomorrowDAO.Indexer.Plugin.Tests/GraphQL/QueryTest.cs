@@ -6,7 +6,7 @@ using Xunit;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.GraphQL;
 
-public class QueryTest : QueryTestBase
+public partial class QueryTest : QueryTestBase
 {
     [Fact]
     public async Task GetDAOListAsync_Test()
@@ -79,5 +79,40 @@ public class QueryTest : QueryTestBase
             ChainId = ChainAelf
         });
         list.Sum(x => x.Amount).ShouldBe(90);
+    }
+
+    [Fact]
+    public async Task HandleEventAsync_GetMyParticipatedAsync()
+    {
+        await GetVoteRecordCountAsyncTest();
+        await GetProposalCountAsyncTest();
+
+        var proposerResult = await Query.GetMyParticipatedAsync(DAOIndexRepository, LatestParticipatedIndexRepository, ObjectMapper,
+            new GetParticipatedInput
+            {
+                ChainId = ChainAelf,
+                SkipCount = 0,
+                MaxResultCount = 10,
+                Address = DAOCreator
+            });
+        proposerResult.TotalCount.ShouldBe(1);
+        var proposerParticipatedList = proposerResult.Data;
+        proposerParticipatedList.Count.ShouldBe(1);
+        var proposerDao = proposerParticipatedList[0];
+        proposerDao.Id.ShouldBe(DAOId);
+        
+        var voteResult = await Query.GetMyParticipatedAsync(DAOIndexRepository, LatestParticipatedIndexRepository, ObjectMapper,
+            new GetParticipatedInput
+            {
+                ChainId = ChainAelf,
+                SkipCount = 0,
+                MaxResultCount = 10,
+                Address = User
+            });
+        voteResult.TotalCount.ShouldBe(1);
+        var voteParticipatedList = voteResult.Data;
+        voteParticipatedList.Count.ShouldBe(1);
+        var voteDao = voteParticipatedList[0];
+        voteDao.Id.ShouldBe(DAOId);
     }
 }

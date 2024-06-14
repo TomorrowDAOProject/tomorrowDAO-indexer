@@ -1,6 +1,7 @@
 using AElf;
 using Shouldly;
 using TomorrowDAO.Indexer.Orleans.TestBase;
+using TomorrowDAO.Indexer.Plugin.Enums;
 using Xunit;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.Processors.Vote;
@@ -21,5 +22,11 @@ public class VotedProcessorTest : TomorrowDAOIndexerPluginTestBase
         var daoIndex = await DAOIndexRepository.GetFromBlockStateSetAsync(daoId, ChainAelf);
         daoIndex.ShouldNotBeNull();
         daoIndex.VoteAmount.ShouldBe(100);
+
+        var latestParticipatedIndex = await LatestParticipatedIndexRepository.GetFromBlockStateSetAsync(IdGenerateHelper.GetId(ChainAelf, User), ChainAelf);
+        latestParticipatedIndex.ShouldNotBeNull();
+        latestParticipatedIndex.Address.ShouldBe(User);
+        latestParticipatedIndex.DAOId.ShouldBe(daoId);
+        latestParticipatedIndex.ParticipatedType.ShouldBe(ParticipatedType.Voted);
     }
 }

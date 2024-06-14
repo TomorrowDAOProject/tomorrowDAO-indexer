@@ -1,8 +1,10 @@
 using AElf.CSharp.Core;
+using AElfIndexer.Client;
 using AElfIndexer.Client.Handlers;
 using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 
@@ -16,14 +18,17 @@ public abstract class VoteProcessorBase<TEvent> : AElfLogEventProcessorBase<TEve
     protected readonly ContractInfoOptions ContractInfoOptions;
     protected readonly IVoteProvider VoteProvider;
     protected readonly IDAOProvider _daoProvider;
+    protected readonly IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo> LatestParticipatedRepository;
 
     protected VoteProcessorBase(ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> logger,
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
+        IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo> latestParticipatedRepository, 
         IVoteProvider voteProvider, IDAOProvider daoProvider) : base(logger)
     {
         Logger = logger;
         ObjectMapper = objectMapper;
+        LatestParticipatedRepository = latestParticipatedRepository;
         VoteProvider = voteProvider;
         _daoProvider = daoProvider;
         ContractInfoOptions = contractInfoOptions.Value;
@@ -32,5 +37,11 @@ public abstract class VoteProcessorBase<TEvent> : AElfLogEventProcessorBase<TEve
     public override string GetContractAddress(string chainId)
     {
         return ContractInfoOptions.ContractInfos[chainId].VoteContractAddress;
+    }
+    
+    protected async Task SaveIndexAsync(LatestParticipatedIndex index, LogEventContext context)
+    {
+        ObjectMapper.Map(context, index);
+        await LatestParticipatedRepository.AddOrUpdateAsync(index);
     }
 }
