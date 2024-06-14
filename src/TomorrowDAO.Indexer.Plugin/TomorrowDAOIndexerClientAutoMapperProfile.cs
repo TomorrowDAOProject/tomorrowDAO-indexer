@@ -26,6 +26,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<TreasuryFundIndex, TreasuryFundDto>();
         CreateMap<TreasuryRecordIndex, TreasuryRecordDto>();
         CreateMap<LogEventContext, ProposalIndex>();
+        CreateMap<LogEventContext, LatestParticipatedIndex>();
         CreateMap<GovernanceSchemeIndex, ProposalIndex>();
         CreateMap<ExecuteTransactionContract, ExecuteTransaction>();
         CreateMap<ExecuteTransaction, ExecuteTransactionDto>()

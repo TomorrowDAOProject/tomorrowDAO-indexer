@@ -1,3 +1,4 @@
+using AElfIndexer.Client;
 using AElfIndexer.Client.Handlers;
 using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
@@ -14,8 +15,10 @@ public class VoteSchemeCreatedProcessor : VoteProcessorBase<VoteSchemeCreated>
 {
     public VoteSchemeCreatedProcessor(ILogger<AElfLogEventProcessorBase<VoteSchemeCreated, LogEventInfo>> logger,
         IObjectMapper objectMapper,
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IVoteProvider voteProvider, IDAOProvider daoProvider)
-        : base(logger, objectMapper, contractInfoOptions, voteProvider, daoProvider)
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, 
+        IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo> latestParticipatedRepository, 
+        IVoteProvider voteProvider, IDAOProvider daoProvider)
+        : base(logger, objectMapper, contractInfoOptions, latestParticipatedRepository, voteProvider, daoProvider)
     {
     }
 

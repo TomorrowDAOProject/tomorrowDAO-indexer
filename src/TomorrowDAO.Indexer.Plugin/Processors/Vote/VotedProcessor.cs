@@ -1,3 +1,4 @@
+using AElfIndexer.Client;
 using AElfIndexer.Client.Handlers;
 using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
@@ -5,8 +6,10 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using TomorrowDAO.Contracts.Vote;
 using TomorrowDAO.Indexer.Plugin.Entities;
+using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
+using VoteMechanism = TomorrowDAO.Contracts.Vote.VoteMechanism;
 using VoteOption = TomorrowDAO.Indexer.Plugin.Enums.VoteOption;
 
 namespace TomorrowDAO.Indexer.Plugin.Processors.Vote;
@@ -14,8 +17,10 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.Vote;
 public class VotedProcessor : VoteProcessorBase<Voted>
 {
     public VotedProcessor(ILogger<AElfLogEventProcessorBase<Voted, LogEventInfo>> logger, IObjectMapper objectMapper,
-        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, IVoteProvider voteProvider, IDAOProvider daoProvider)
-        : base(logger, objectMapper, contractInfoOptions, voteProvider, daoProvider)
+        IOptionsSnapshot<ContractInfoOptions> contractInfoOptions, 
+        IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo> latestParticipatedRepository, 
+        IVoteProvider voteProvider, IDAOProvider daoProvider)
+        : base(logger, objectMapper, contractInfoOptions, latestParticipatedRepository, voteProvider, daoProvider)
     {
     }
 
@@ -23,6 +28,8 @@ public class VotedProcessor : VoteProcessorBase<Voted>
     {
         var voteId = eventValue.VoteId.ToHex();
         var chainId = context.ChainId;
+        var voter = eventValue.Voter?.ToBase58();
+        var DAOId = eventValue.DaoId?.ToHex();
         Logger.LogInformation("[Voted] START: Id={Id}, ChainId={ChainId}, Event={Event}",
             voteId, chainId, JsonConvert.SerializeObject(eventValue));
         try
@@ -48,6 +55,13 @@ public class VotedProcessor : VoteProcessorBase<Voted>
                 await UpdateDaoVoteAmountAsync(chainId, eventValue.DaoId.ToHex(), eventValue.Amount, context);
             }
 
+            await SaveIndexAsync(new LatestParticipatedIndex
+            {
+                Id = IdGenerateHelper.GetId(chainId, voter),
+                DAOId = DAOId, Address = voter,
+                ParticipatedType = ParticipatedType.Voted,
+                LatestParticipatedTime = context.BlockTime
+            }, context);
             Logger.LogInformation("[Voted] FINISH: Id={Id}, ChainId={ChainId}", voteId, chainId);
         }
         catch (Exception e)

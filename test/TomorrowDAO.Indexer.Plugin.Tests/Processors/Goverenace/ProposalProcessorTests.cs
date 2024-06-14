@@ -60,6 +60,12 @@ public class ProposalProcessorTests : TomorrowDAOIndexerPluginTestBase
         var vetoProposalIndex = await ProposalIndexRepository.GetFromBlockStateSetAsync(VetoProposalId, ChainAelf);
         vetoProposalIndex.ProposalStatus.ShouldBe(ProposalStatus.Challenged);
         vetoProposalIndex.ProposalStage.ShouldBe(ProposalStage.Pending);
+        
+        var latestParticipatedIndex = await LatestParticipatedIndexRepository.GetFromBlockStateSetAsync(IdGenerateHelper.GetId(ChainAelf, DAOCreator), ChainAelf);
+        latestParticipatedIndex.ShouldNotBeNull();
+        latestParticipatedIndex.Address.ShouldBe(DAOCreator);
+        latestParticipatedIndex.DAOId.ShouldBe(DAOId);
+        latestParticipatedIndex.ParticipatedType.ShouldBe(ParticipatedType.Proposed);
     }
     
     [Fact]
