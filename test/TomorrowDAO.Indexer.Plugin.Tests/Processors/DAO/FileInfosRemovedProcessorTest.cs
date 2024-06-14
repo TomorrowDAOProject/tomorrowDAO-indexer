@@ -2,10 +2,12 @@ using AElf;
 using AElf.CSharp.Core.Extension;
 using Shouldly;
 using TomorrowDAO.Contracts.DAO;
+using TomorrowDAO.Indexer.Orleans.TestBase;
 using Xunit;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.Processors.DAO;
 
+[CollectionDefinition(ClusterCollection.Name)]
 public class FileInfosRemovedProcessorTest : TomorrowDAOIndexerPluginTestBase
 {
     [Fact]

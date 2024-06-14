@@ -1,9 +1,11 @@
 using Shouldly;
+using TomorrowDAO.Indexer.Orleans.TestBase;
 using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using Xunit;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.Processors.DAO;
 
+[CollectionDefinition(ClusterCollection.Name)]
 public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
 {
     [Fact]
@@ -51,7 +53,7 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
         DAOIndex.Id.ShouldBe(DAOId);
         DAOIndex.SubsistStatus.ShouldBe(true);
         
-        DAOIndex.Creator.ShouldBeNull();
+        DAOIndex.Creator.ShouldBe(string.Empty);
         DAOIndex.FileInfoList.ShouldBeNull();
         // DAOIndex.HighCouncilConfig.ShouldBeNull();
     }

@@ -1,11 +1,13 @@
 using AElf;
 using Shouldly;
+using TomorrowDAO.Indexer.Orleans.TestBase;
 using TomorrowDAO.Indexer.Plugin.Enums;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.Processors.Goverenace;
 
+[CollectionDefinition(ClusterCollection.Name)]
 public class ProposalProcessorTests : TomorrowDAOIndexerPluginTestBase
 {
     private readonly ITestOutputHelper _testOutputHelper;
