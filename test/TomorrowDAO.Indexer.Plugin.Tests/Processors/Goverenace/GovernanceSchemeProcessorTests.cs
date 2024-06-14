@@ -1,9 +1,11 @@
 using Shouldly;
+using TomorrowDAO.Indexer.Orleans.TestBase;
 using TomorrowDAO.Indexer.Plugin.Enums;
 using Xunit;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.Processors.Goverenace;
 
+[CollectionDefinition(ClusterCollection.Name)]
 public class GovernanceSchemeProcessorTests : TomorrowDAOIndexerPluginTestBase
 {
      [Fact]

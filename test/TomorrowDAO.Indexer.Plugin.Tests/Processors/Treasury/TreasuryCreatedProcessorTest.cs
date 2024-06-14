@@ -1,8 +1,10 @@
 using Shouldly;
+using TomorrowDAO.Indexer.Orleans.TestBase;
 using Xunit;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.Processors.Treasury;
 
+[CollectionDefinition(ClusterCollection.Name)]
 public class TreasuryCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
 {
     [Fact]

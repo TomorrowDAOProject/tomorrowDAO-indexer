@@ -1,10 +1,12 @@
 using Newtonsoft.Json;
 using Shouldly;
+using TomorrowDAO.Indexer.Orleans.TestBase;
 using Xunit;
 using FileInfoIndexer = TomorrowDAO.Indexer.Plugin.Entities.FileInfo;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.Processors.DAO;
 
+[CollectionDefinition(ClusterCollection.Name)]
 public class FileInfosUploadedProcessorTest : TomorrowDAOIndexerPluginTestBase
 {
     [Fact]
