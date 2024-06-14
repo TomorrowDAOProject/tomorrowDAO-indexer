@@ -31,7 +31,7 @@ public class GovernanceTokenSetProcessor : GovernanceSchemeProcessorBase<Governa
         Logger.LogInformation("[GovernanceTokenSet] start DAOId {DAOId} governanceToken {governanceToken}", DAOId, governanceToken);
         try
         {
-            var DAOIndex = await DAOProvider.GetDAOAsync(chainId, DAOId);
+            var DAOIndex = await DAOProvider.GetDaoAsync(chainId, DAOId);
             if (DAOIndex != null)
             {
                 DAOIndex.GovernanceToken = governanceToken;

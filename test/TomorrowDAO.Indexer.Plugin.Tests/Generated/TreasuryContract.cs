@@ -28,78 +28,60 @@ namespace TomorrowDAO.Contracts.Treasury {
             "YWVsZi9jb3JlLnByb3RvGhJhZWxmL29wdGlvbnMucHJvdG8aG2dvb2dsZS9w",
             "cm90b2J1Zi9lbXB0eS5wcm90bxoeZ29vZ2xlL3Byb3RvYnVmL3dyYXBwZXJz",
             "LnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvGhlQcm90",
-            "b2J1Zi9iYXNlL2FjczEyLnByb3RvIhoKClN5bWJvbExpc3QSDAoEZGF0YRgB",
-            "IAMoCSJ5CghMb2NrSW5mbxIfCgtwcm9wb3NhbF9pZBgBIAEoCzIKLmFlbGYu",
-            "SGFzaBIOCgZzeW1ib2wYAiABKAkSDgoGYW1vdW50GAMgASgDEiwKCGxvY2tf",
-            "ZGRsGAQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCKGAQoPVHJl",
-            "YXN1cnlDcmVhdGVkEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIvChh0",
-            "cmVhc3VyeV9hY2NvdW50X2FkZHJlc3MYAiABKAsyDS5hZWxmLkFkZHJlc3MS",
-            "IAoLc3ltYm9sX2xpc3QYAyABKAsyCy5TeW1ib2xMaXN0OgSguxgBImIKG1N1",
-            "cHBvcnRlZFN0YWtpbmdUb2tlbnNBZGRlZBIaCgZkYW9faWQYASABKAsyCi5h",
-            "ZWxmLkhhc2gSIQoMYWRkZWRfdG9rZW5zGAIgASgLMgsuU3ltYm9sTGlzdDoE",
-            "oLsYASJmCh1TdXBwb3J0ZWRTdGFraW5nVG9rZW5zUmVtb3ZlZBIaCgZkYW9f",
-            "aWQYASABKAsyCi5hZWxmLkhhc2gSIwoOcmVtb3ZlZF90b2tlbnMYAiABKAsy",
-            "Cy5TeW1ib2xMaXN0OgSguxgBIqUBChBEb25hdGlvblJlY2VpdmVkEhoKBmRh",
-            "b19pZBgBIAEoCzIKLmFlbGYuSGFzaBIOCgZhbW91bnQYAiABKAMSDgoGc3lt",
-            "Ym9sGAMgASgJEhwKBWRvbm9yGAQgASgLMg0uYWVsZi5BZGRyZXNzEjEKDWRv",
-            "bmF0aW9uX3RpbWUYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1w",
-            "OgSguxgBIqABCgtUb2tlblN0YWtlZBIaCgZkYW9faWQYASABKAsyCi5hZWxm",
-            "Lkhhc2gSDgoGYW1vdW50GAIgASgDEg4KBnN5bWJvbBgDIAEoCRIeCgdhY2Nv",
-            "dW50GAQgASgLMg0uYWVsZi5BZGRyZXNzEi8KC3N0YWtlZF90aW1lGAUgASgL",
-            "MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcDoEoLsYASJ2ChNUcmVhc3Vy",
-            "eVRva2VuTG9ja2VkEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIcCgls",
-            "b2NrX2luZm8YAiABKAsyCS5Mb2NrSW5mbxIfCghwcm9wb3NlchgDIAEoCzIN",
-            "LmFlbGYuQWRkcmVzczoEoLsYASLOAQoYVHJlYXN1cnlUcmFuc2ZlclJlbGVh",
-            "c2VkEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIOCgZhbW91bnQYAiAB",
-            "KAMSDgoGc3ltYm9sGAMgASgJEiAKCXJlY2lwaWVudBgEIAEoCzINLmFlbGYu",
-            "QWRkcmVzcxIMCgRtZW1vGAUgASgJEh8KC3Byb3Bvc2FsX2lkGAYgASgLMgou",
-            "YWVsZi5IYXNoEh8KCGV4ZWN1dG9yGAcgASgLMg0uYWVsZi5BZGRyZXNzOgSg",
-            "uxgBIngKFVRyZWFzdXJ5VG9rZW5VbmxvY2tlZBIaCgZkYW9faWQYASABKAsy",
-            "Ci5hZWxmLkhhc2gSHAoJbG9ja19pbmZvGAIgASgLMgkuTG9ja0luZm8SHwoI",
-            "ZXhlY3V0b3IYAyABKAsyDS5hZWxmLkFkZHJlc3M6BKC7GAEiSgoGUGF1c2Vk",
-            "Eh4KB2FjY291bnQYASABKAsyDS5hZWxmLkFkZHJlc3MSGgoGZGFvX2lkGAIg",
-            "ASgLMgouYWVsZi5IYXNoOgSguxgBIkwKCFVucGF1c2VkEh4KB2FjY291bnQY",
-            "ASABKAsyDS5hZWxmLkFkZHJlc3MSGgoGZGFvX2lkGAIgASgLMgouYWVsZi5I",
-            "YXNoOgSguxgBIpoBChRFbWVyZ2VuY3lUcmFuc2ZlcnJlZBIaCgZkYW9faWQY",
-            "ASABKAsyCi5hZWxmLkhhc2gSDgoGc3ltYm9sGAIgASgJEg4KBmFtb3VudBgD",
-            "IAEoAxIgCglyZWNpcGllbnQYBCABKAsyDS5hZWxmLkFkZHJlc3MSHgoHYWNj",
-            "b3VudBgFIAEoCzINLmFlbGYuQWRkcmVzczoEoLsYATJrChBUcmVhc3VyeUNv",
-            "bnRyYWN0GleyzPYBNFRvbW9ycm93REFPLkNvbnRyYWN0cy5UcmVhc3VyeS5U",
-            "cmVhc3VyeUNvbnRyYWN0U3RhdGXKyvYBGVByb3RvYnVmL2Jhc2UvYWNzMTIu",
-            "cHJvdG9CIaoCHlRvbW9ycm93REFPLkNvbnRyYWN0cy5UcmVhc3VyeWIGcHJv",
-            "dG8z"));
+            "b2J1Zi9iYXNlL2FjczEyLnByb3RvInIKD0luaXRpYWxpemVJbnB1dBIrChRk",
+            "YW9fY29udHJhY3RfYWRkcmVzcxgBIAEoCzINLmFlbGYuQWRkcmVzcxIyChtn",
+            "b3Zlcm5hbmNlX2NvbnRyYWN0X2FkZHJlc3MYAiABKAsyDS5hZWxmLkFkZHJl",
+            "c3MiMQoTQ3JlYXRlVHJlYXN1cnlJbnB1dBIaCgZkYW9faWQYASABKAsyCi5h",
+            "ZWxmLkhhc2giNwoMVHJlYXN1cnlJbmZvEicKEHRyZWFzdXJ5X2FkZHJlc3MY",
+            "ASABKAsyDS5hZWxmLkFkZHJlc3MinAEKDVRyYW5zZmVySW5wdXQSGgoGZGFv",
+            "X2lkGAEgASgLMgouYWVsZi5IYXNoEg4KBmFtb3VudBgCIAEoAxIOCgZzeW1i",
+            "b2wYAyABKAkSIAoJcmVjaXBpZW50GAQgASgLMg0uYWVsZi5BZGRyZXNzEgwK",
+            "BG1lbW8YBSABKAkSHwoLcHJvcG9zYWxfaWQYBiABKAsyCi5hZWxmLkhhc2gi",
+            "ZAoPVHJlYXN1cnlDcmVhdGVkEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFz",
+            "aBIvChh0cmVhc3VyeV9hY2NvdW50X2FkZHJlc3MYAiABKAsyDS5hZWxmLkFk",
+            "ZHJlc3M6BKC7GAEi8gEKE1RyZWFzdXJ5VHJhbnNmZXJyZWQSGgoGZGFvX2lk",
+            "GAEgASgLMgouYWVsZi5IYXNoEicKEHRyZWFzdXJ5X2FkZHJlc3MYAiABKAsy",
+            "DS5hZWxmLkFkZHJlc3MSDgoGYW1vdW50GAMgASgDEg4KBnN5bWJvbBgEIAEo",
+            "CRIgCglyZWNpcGllbnQYBSABKAsyDS5hZWxmLkFkZHJlc3MSDAoEbWVtbxgG",
+            "IAEoCRIfCghleGVjdXRvchgHIAEoCzINLmFlbGYuQWRkcmVzcxIfCgtwcm9w",
+            "b3NhbF9pZBgIIAEoCzIKLmFlbGYuSGFzaDoEoLsYATLXAwoQVHJlYXN1cnlD",
+            "b250cmFjdBI4CgpJbml0aWFsaXplEhAuSW5pdGlhbGl6ZUlucHV0GhYuZ29v",
+            "Z2xlLnByb3RvYnVmLkVtcHR5IgASQAoOQ3JlYXRlVHJlYXN1cnkSFC5DcmVh",
+            "dGVUcmVhc3VyeUlucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASNAoI",
+            "VHJhbnNmZXISDi5UcmFuc2ZlcklucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVt",
+            "cHR5IgASPQoZR2V0VHJlYXN1cnlBY2NvdW50QWRkcmVzcxIKLmFlbGYuSGFz",
+            "aBoNLmFlbGYuQWRkcmVzcyIFiIn3AQESMwoPR2V0VHJlYXN1cnlJbmZvEgou",
+            "YWVsZi5IYXNoGg0uVHJlYXN1cnlJbmZvIgWIifcBARJECiBHZXREQU9JZEJ5",
+            "VHJlYXN1cnlBY2NvdW50QWRkcmVzcxINLmFlbGYuQWRkcmVzcxoKLmFlbGYu",
+            "SGFzaCIFiIn3AQEaV7LM9gE0VG9tb3Jyb3dEQU8uQ29udHJhY3RzLlRyZWFz",
+            "dXJ5LlRyZWFzdXJ5Q29udHJhY3RTdGF0ZcrK9gEZUHJvdG9idWYvYmFzZS9h",
+            "Y3MxMi5wcm90b0IhqgIeVG9tb3Jyb3dEQU8uQ29udHJhY3RzLlRyZWFzdXJ5",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::AElf.Types.CoreReflection.Descriptor, global::AElf.OptionsReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::AElf.Standards.ACS12.Acs12Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.SymbolList), global::TomorrowDAO.Contracts.Treasury.SymbolList.Parser, new[]{ "Data" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.LockInfo), global::TomorrowDAO.Contracts.Treasury.LockInfo.Parser, new[]{ "ProposalId", "Symbol", "Amount", "LockDdl" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.TreasuryCreated), global::TomorrowDAO.Contracts.Treasury.TreasuryCreated.Parser, new[]{ "DaoId", "TreasuryAccountAddress", "SymbolList" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.SupportedStakingTokensAdded), global::TomorrowDAO.Contracts.Treasury.SupportedStakingTokensAdded.Parser, new[]{ "DaoId", "AddedTokens" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.SupportedStakingTokensRemoved), global::TomorrowDAO.Contracts.Treasury.SupportedStakingTokensRemoved.Parser, new[]{ "DaoId", "RemovedTokens" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.DonationReceived), global::TomorrowDAO.Contracts.Treasury.DonationReceived.Parser, new[]{ "DaoId", "Amount", "Symbol", "Donor", "DonationTime" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.TokenStaked), global::TomorrowDAO.Contracts.Treasury.TokenStaked.Parser, new[]{ "DaoId", "Amount", "Symbol", "Account", "StakedTime" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.TreasuryTokenLocked), global::TomorrowDAO.Contracts.Treasury.TreasuryTokenLocked.Parser, new[]{ "DaoId", "LockInfo", "Proposer" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.TreasuryTransferReleased), global::TomorrowDAO.Contracts.Treasury.TreasuryTransferReleased.Parser, new[]{ "DaoId", "Amount", "Symbol", "Recipient", "Memo", "ProposalId", "Executor" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.TreasuryTokenUnlocked), global::TomorrowDAO.Contracts.Treasury.TreasuryTokenUnlocked.Parser, new[]{ "DaoId", "LockInfo", "Executor" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.Paused), global::TomorrowDAO.Contracts.Treasury.Paused.Parser, new[]{ "Account", "DaoId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.Unpaused), global::TomorrowDAO.Contracts.Treasury.Unpaused.Parser, new[]{ "Account", "DaoId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.EmergencyTransferred), global::TomorrowDAO.Contracts.Treasury.EmergencyTransferred.Parser, new[]{ "DaoId", "Symbol", "Amount", "Recipient", "Account" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.InitializeInput), global::TomorrowDAO.Contracts.Treasury.InitializeInput.Parser, new[]{ "DaoContractAddress", "GovernanceContractAddress" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.CreateTreasuryInput), global::TomorrowDAO.Contracts.Treasury.CreateTreasuryInput.Parser, new[]{ "DaoId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.TreasuryInfo), global::TomorrowDAO.Contracts.Treasury.TreasuryInfo.Parser, new[]{ "TreasuryAddress" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.TransferInput), global::TomorrowDAO.Contracts.Treasury.TransferInput.Parser, new[]{ "DaoId", "Amount", "Symbol", "Recipient", "Memo", "ProposalId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.TreasuryCreated), global::TomorrowDAO.Contracts.Treasury.TreasuryCreated.Parser, new[]{ "DaoId", "TreasuryAccountAddress" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Treasury.TreasuryTransferred), global::TomorrowDAO.Contracts.Treasury.TreasuryTransferred.Parser, new[]{ "DaoId", "TreasuryAddress", "Amount", "Symbol", "Recipient", "Memo", "Executor", "ProposalId" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  public sealed partial class SymbolList : pb::IMessage<SymbolList>
+  public sealed partial class InitializeInput : pb::IMessage<InitializeInput>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SymbolList> _parser = new pb::MessageParser<SymbolList>(() => new SymbolList());
+    private static readonly pb::MessageParser<InitializeInput> _parser = new pb::MessageParser<InitializeInput>(() => new InitializeInput());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SymbolList> Parser { get { return _parser; } }
+    public static pb::MessageParser<InitializeInput> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -115,7 +97,7 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SymbolList() {
+    public InitializeInput() {
       OnConstruction();
     }
 
@@ -123,44 +105,59 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SymbolList(SymbolList other) : this() {
-      data_ = other.data_.Clone();
+    public InitializeInput(InitializeInput other) : this() {
+      daoContractAddress_ = other.daoContractAddress_ != null ? other.daoContractAddress_.Clone() : null;
+      governanceContractAddress_ = other.governanceContractAddress_ != null ? other.governanceContractAddress_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SymbolList Clone() {
-      return new SymbolList(this);
+    public InitializeInput Clone() {
+      return new InitializeInput(this);
     }
 
-    /// <summary>Field number for the "data" field.</summary>
-    public const int DataFieldNumber = 1;
-    private static readonly pb::FieldCodec<string> _repeated_data_codec
-        = pb::FieldCodec.ForString(10);
-    private readonly pbc::RepeatedField<string> data_ = new pbc::RepeatedField<string>();
+    /// <summary>Field number for the "dao_contract_address" field.</summary>
+    public const int DaoContractAddressFieldNumber = 1;
+    private global::AElf.Types.Address daoContractAddress_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<string> Data {
-      get { return data_; }
+    public global::AElf.Types.Address DaoContractAddress {
+      get { return daoContractAddress_; }
+      set {
+        daoContractAddress_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "governance_contract_address" field.</summary>
+    public const int GovernanceContractAddressFieldNumber = 2;
+    private global::AElf.Types.Address governanceContractAddress_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address GovernanceContractAddress {
+      get { return governanceContractAddress_; }
+      set {
+        governanceContractAddress_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as SymbolList);
+      return Equals(other as InitializeInput);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SymbolList other) {
+    public bool Equals(InitializeInput other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!data_.Equals(other.data_)) return false;
+      if (!object.Equals(DaoContractAddress, other.DaoContractAddress)) return false;
+      if (!object.Equals(GovernanceContractAddress, other.GovernanceContractAddress)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -168,7 +165,8 @@ namespace TomorrowDAO.Contracts.Treasury {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= data_.GetHashCode();
+      if (daoContractAddress_ != null) hash ^= DaoContractAddress.GetHashCode();
+      if (governanceContractAddress_ != null) hash ^= GovernanceContractAddress.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -187,7 +185,14 @@ namespace TomorrowDAO.Contracts.Treasury {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      data_.WriteTo(output, _repeated_data_codec);
+      if (daoContractAddress_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoContractAddress);
+      }
+      if (governanceContractAddress_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(GovernanceContractAddress);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -198,7 +203,14 @@ namespace TomorrowDAO.Contracts.Treasury {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      data_.WriteTo(ref output, _repeated_data_codec);
+      if (daoContractAddress_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(DaoContractAddress);
+      }
+      if (governanceContractAddress_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(GovernanceContractAddress);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -209,7 +221,12 @@ namespace TomorrowDAO.Contracts.Treasury {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += data_.CalculateSize(_repeated_data_codec);
+      if (daoContractAddress_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoContractAddress);
+      }
+      if (governanceContractAddress_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(GovernanceContractAddress);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -218,11 +235,22 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SymbolList other) {
+    public void MergeFrom(InitializeInput other) {
       if (other == null) {
         return;
       }
-      data_.Add(other.data_);
+      if (other.daoContractAddress_ != null) {
+        if (daoContractAddress_ == null) {
+          DaoContractAddress = new global::AElf.Types.Address();
+        }
+        DaoContractAddress.MergeFrom(other.DaoContractAddress);
+      }
+      if (other.governanceContractAddress_ != null) {
+        if (governanceContractAddress_ == null) {
+          GovernanceContractAddress = new global::AElf.Types.Address();
+        }
+        GovernanceContractAddress.MergeFrom(other.GovernanceContractAddress);
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -239,7 +267,17 @@ namespace TomorrowDAO.Contracts.Treasury {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            data_.AddEntriesFrom(input, _repeated_data_codec);
+            if (daoContractAddress_ == null) {
+              DaoContractAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(DaoContractAddress);
+            break;
+          }
+          case 18: {
+            if (governanceContractAddress_ == null) {
+              GovernanceContractAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(GovernanceContractAddress);
             break;
           }
         }
@@ -258,7 +296,17 @@ namespace TomorrowDAO.Contracts.Treasury {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            data_.AddEntriesFrom(ref input, _repeated_data_codec);
+            if (daoContractAddress_ == null) {
+              DaoContractAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(DaoContractAddress);
+            break;
+          }
+          case 18: {
+            if (governanceContractAddress_ == null) {
+              GovernanceContractAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(GovernanceContractAddress);
             break;
           }
         }
@@ -268,16 +316,16 @@ namespace TomorrowDAO.Contracts.Treasury {
 
   }
 
-  public sealed partial class LockInfo : pb::IMessage<LockInfo>
+  public sealed partial class CreateTreasuryInput : pb::IMessage<CreateTreasuryInput>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<LockInfo> _parser = new pb::MessageParser<LockInfo>(() => new LockInfo());
+    private static readonly pb::MessageParser<CreateTreasuryInput> _parser = new pb::MessageParser<CreateTreasuryInput>(() => new CreateTreasuryInput());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<LockInfo> Parser { get { return _parser; } }
+    public static pb::MessageParser<CreateTreasuryInput> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -293,7 +341,7 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public LockInfo() {
+    public CreateTreasuryInput() {
       OnConstruction();
     }
 
@@ -301,87 +349,45 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public LockInfo(LockInfo other) : this() {
-      proposalId_ = other.proposalId_ != null ? other.proposalId_.Clone() : null;
-      symbol_ = other.symbol_;
-      amount_ = other.amount_;
-      lockDdl_ = other.lockDdl_ != null ? other.lockDdl_.Clone() : null;
+    public CreateTreasuryInput(CreateTreasuryInput other) : this() {
+      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public LockInfo Clone() {
-      return new LockInfo(this);
+    public CreateTreasuryInput Clone() {
+      return new CreateTreasuryInput(this);
     }
 
-    /// <summary>Field number for the "proposal_id" field.</summary>
-    public const int ProposalIdFieldNumber = 1;
-    private global::AElf.Types.Hash proposalId_;
+    /// <summary>Field number for the "dao_id" field.</summary>
+    public const int DaoIdFieldNumber = 1;
+    private global::AElf.Types.Hash daoId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Hash ProposalId {
-      get { return proposalId_; }
+    public global::AElf.Types.Hash DaoId {
+      get { return daoId_; }
       set {
-        proposalId_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "symbol" field.</summary>
-    public const int SymbolFieldNumber = 2;
-    private string symbol_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Symbol {
-      get { return symbol_; }
-      set {
-        symbol_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "amount" field.</summary>
-    public const int AmountFieldNumber = 3;
-    private long amount_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long Amount {
-      get { return amount_; }
-      set {
-        amount_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "lock_ddl" field.</summary>
-    public const int LockDdlFieldNumber = 4;
-    private global::Google.Protobuf.WellKnownTypes.Timestamp lockDdl_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Timestamp LockDdl {
-      get { return lockDdl_; }
-      set {
-        lockDdl_ = value;
+        daoId_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as LockInfo);
+      return Equals(other as CreateTreasuryInput);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(LockInfo other) {
+    public bool Equals(CreateTreasuryInput other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(ProposalId, other.ProposalId)) return false;
-      if (Symbol != other.Symbol) return false;
-      if (Amount != other.Amount) return false;
-      if (!object.Equals(LockDdl, other.LockDdl)) return false;
+      if (!object.Equals(DaoId, other.DaoId)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -389,10 +395,7 @@ namespace TomorrowDAO.Contracts.Treasury {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (proposalId_ != null) hash ^= ProposalId.GetHashCode();
-      if (Symbol.Length != 0) hash ^= Symbol.GetHashCode();
-      if (Amount != 0L) hash ^= Amount.GetHashCode();
-      if (lockDdl_ != null) hash ^= LockDdl.GetHashCode();
+      if (daoId_ != null) hash ^= DaoId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -411,21 +414,9 @@ namespace TomorrowDAO.Contracts.Treasury {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (proposalId_ != null) {
+      if (daoId_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(ProposalId);
-      }
-      if (Symbol.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Symbol);
-      }
-      if (Amount != 0L) {
-        output.WriteRawTag(24);
-        output.WriteInt64(Amount);
-      }
-      if (lockDdl_ != null) {
-        output.WriteRawTag(34);
-        output.WriteMessage(LockDdl);
+        output.WriteMessage(DaoId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -437,21 +428,9 @@ namespace TomorrowDAO.Contracts.Treasury {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (proposalId_ != null) {
+      if (daoId_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(ProposalId);
-      }
-      if (Symbol.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Symbol);
-      }
-      if (Amount != 0L) {
-        output.WriteRawTag(24);
-        output.WriteInt64(Amount);
-      }
-      if (lockDdl_ != null) {
-        output.WriteRawTag(34);
-        output.WriteMessage(LockDdl);
+        output.WriteMessage(DaoId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -463,17 +442,8 @@ namespace TomorrowDAO.Contracts.Treasury {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (proposalId_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ProposalId);
-      }
-      if (Symbol.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Symbol);
-      }
-      if (Amount != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Amount);
-      }
-      if (lockDdl_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(LockDdl);
+      if (daoId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -483,27 +453,15 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(LockInfo other) {
+    public void MergeFrom(CreateTreasuryInput other) {
       if (other == null) {
         return;
       }
-      if (other.proposalId_ != null) {
-        if (proposalId_ == null) {
-          ProposalId = new global::AElf.Types.Hash();
+      if (other.daoId_ != null) {
+        if (daoId_ == null) {
+          DaoId = new global::AElf.Types.Hash();
         }
-        ProposalId.MergeFrom(other.ProposalId);
-      }
-      if (other.Symbol.Length != 0) {
-        Symbol = other.Symbol;
-      }
-      if (other.Amount != 0L) {
-        Amount = other.Amount;
-      }
-      if (other.lockDdl_ != null) {
-        if (lockDdl_ == null) {
-          LockDdl = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-        }
-        LockDdl.MergeFrom(other.LockDdl);
+        DaoId.MergeFrom(other.DaoId);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -521,25 +479,10 @@ namespace TomorrowDAO.Contracts.Treasury {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            if (proposalId_ == null) {
-              ProposalId = new global::AElf.Types.Hash();
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
             }
-            input.ReadMessage(ProposalId);
-            break;
-          }
-          case 18: {
-            Symbol = input.ReadString();
-            break;
-          }
-          case 24: {
-            Amount = input.ReadInt64();
-            break;
-          }
-          case 34: {
-            if (lockDdl_ == null) {
-              LockDdl = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(LockDdl);
+            input.ReadMessage(DaoId);
             break;
           }
         }
@@ -558,25 +501,10 @@ namespace TomorrowDAO.Contracts.Treasury {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            if (proposalId_ == null) {
-              ProposalId = new global::AElf.Types.Hash();
+            if (daoId_ == null) {
+              DaoId = new global::AElf.Types.Hash();
             }
-            input.ReadMessage(ProposalId);
-            break;
-          }
-          case 18: {
-            Symbol = input.ReadString();
-            break;
-          }
-          case 24: {
-            Amount = input.ReadInt64();
-            break;
-          }
-          case 34: {
-            if (lockDdl_ == null) {
-              LockDdl = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(LockDdl);
+            input.ReadMessage(DaoId);
             break;
           }
         }
@@ -586,19 +514,16 @@ namespace TomorrowDAO.Contracts.Treasury {
 
   }
 
-  /// <summary>
-  /// log event
-  /// </summary>
-  public sealed partial class TreasuryCreated : pb::IMessage<TreasuryCreated>
+  public sealed partial class TreasuryInfo : pb::IMessage<TreasuryInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<TreasuryCreated> _parser = new pb::MessageParser<TreasuryCreated>(() => new TreasuryCreated());
+    private static readonly pb::MessageParser<TreasuryInfo> _parser = new pb::MessageParser<TreasuryInfo>(() => new TreasuryInfo());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<TreasuryCreated> Parser { get { return _parser; } }
+    public static pb::MessageParser<TreasuryInfo> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -614,7 +539,7 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TreasuryCreated() {
+    public TreasuryInfo() {
       OnConstruction();
     }
 
@@ -622,73 +547,45 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TreasuryCreated(TreasuryCreated other) : this() {
-      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
-      treasuryAccountAddress_ = other.treasuryAccountAddress_ != null ? other.treasuryAccountAddress_.Clone() : null;
-      symbolList_ = other.symbolList_ != null ? other.symbolList_.Clone() : null;
+    public TreasuryInfo(TreasuryInfo other) : this() {
+      treasuryAddress_ = other.treasuryAddress_ != null ? other.treasuryAddress_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TreasuryCreated Clone() {
-      return new TreasuryCreated(this);
+    public TreasuryInfo Clone() {
+      return new TreasuryInfo(this);
     }
 
-    /// <summary>Field number for the "dao_id" field.</summary>
-    public const int DaoIdFieldNumber = 1;
-    private global::AElf.Types.Hash daoId_;
+    /// <summary>Field number for the "treasury_address" field.</summary>
+    public const int TreasuryAddressFieldNumber = 1;
+    private global::AElf.Types.Address treasuryAddress_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Hash DaoId {
-      get { return daoId_; }
+    public global::AElf.Types.Address TreasuryAddress {
+      get { return treasuryAddress_; }
       set {
-        daoId_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "treasury_account_address" field.</summary>
-    public const int TreasuryAccountAddressFieldNumber = 2;
-    private global::AElf.Types.Address treasuryAccountAddress_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Address TreasuryAccountAddress {
-      get { return treasuryAccountAddress_; }
-      set {
-        treasuryAccountAddress_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "symbol_list" field.</summary>
-    public const int SymbolListFieldNumber = 3;
-    private global::TomorrowDAO.Contracts.Treasury.SymbolList symbolList_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::TomorrowDAO.Contracts.Treasury.SymbolList SymbolList {
-      get { return symbolList_; }
-      set {
-        symbolList_ = value;
+        treasuryAddress_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as TreasuryCreated);
+      return Equals(other as TreasuryInfo);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(TreasuryCreated other) {
+    public bool Equals(TreasuryInfo other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(DaoId, other.DaoId)) return false;
-      if (!object.Equals(TreasuryAccountAddress, other.TreasuryAccountAddress)) return false;
-      if (!object.Equals(SymbolList, other.SymbolList)) return false;
+      if (!object.Equals(TreasuryAddress, other.TreasuryAddress)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -696,9 +593,7 @@ namespace TomorrowDAO.Contracts.Treasury {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (daoId_ != null) hash ^= DaoId.GetHashCode();
-      if (treasuryAccountAddress_ != null) hash ^= TreasuryAccountAddress.GetHashCode();
-      if (symbolList_ != null) hash ^= SymbolList.GetHashCode();
+      if (treasuryAddress_ != null) hash ^= TreasuryAddress.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -717,17 +612,9 @@ namespace TomorrowDAO.Contracts.Treasury {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (daoId_ != null) {
+      if (treasuryAddress_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(DaoId);
-      }
-      if (treasuryAccountAddress_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(TreasuryAccountAddress);
-      }
-      if (symbolList_ != null) {
-        output.WriteRawTag(26);
-        output.WriteMessage(SymbolList);
+        output.WriteMessage(TreasuryAddress);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -739,17 +626,9 @@ namespace TomorrowDAO.Contracts.Treasury {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (daoId_ != null) {
+      if (treasuryAddress_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(DaoId);
-      }
-      if (treasuryAccountAddress_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(TreasuryAccountAddress);
-      }
-      if (symbolList_ != null) {
-        output.WriteRawTag(26);
-        output.WriteMessage(SymbolList);
+        output.WriteMessage(TreasuryAddress);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -761,14 +640,8 @@ namespace TomorrowDAO.Contracts.Treasury {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (daoId_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
-      }
-      if (treasuryAccountAddress_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TreasuryAccountAddress);
-      }
-      if (symbolList_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SymbolList);
+      if (treasuryAddress_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TreasuryAddress);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -778,27 +651,15 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(TreasuryCreated other) {
+    public void MergeFrom(TreasuryInfo other) {
       if (other == null) {
         return;
       }
-      if (other.daoId_ != null) {
-        if (daoId_ == null) {
-          DaoId = new global::AElf.Types.Hash();
+      if (other.treasuryAddress_ != null) {
+        if (treasuryAddress_ == null) {
+          TreasuryAddress = new global::AElf.Types.Address();
         }
-        DaoId.MergeFrom(other.DaoId);
-      }
-      if (other.treasuryAccountAddress_ != null) {
-        if (treasuryAccountAddress_ == null) {
-          TreasuryAccountAddress = new global::AElf.Types.Address();
-        }
-        TreasuryAccountAddress.MergeFrom(other.TreasuryAccountAddress);
-      }
-      if (other.symbolList_ != null) {
-        if (symbolList_ == null) {
-          SymbolList = new global::TomorrowDAO.Contracts.Treasury.SymbolList();
-        }
-        SymbolList.MergeFrom(other.SymbolList);
+        TreasuryAddress.MergeFrom(other.TreasuryAddress);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -816,24 +677,10 @@ namespace TomorrowDAO.Contracts.Treasury {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            if (daoId_ == null) {
-              DaoId = new global::AElf.Types.Hash();
+            if (treasuryAddress_ == null) {
+              TreasuryAddress = new global::AElf.Types.Address();
             }
-            input.ReadMessage(DaoId);
-            break;
-          }
-          case 18: {
-            if (treasuryAccountAddress_ == null) {
-              TreasuryAccountAddress = new global::AElf.Types.Address();
-            }
-            input.ReadMessage(TreasuryAccountAddress);
-            break;
-          }
-          case 26: {
-            if (symbolList_ == null) {
-              SymbolList = new global::TomorrowDAO.Contracts.Treasury.SymbolList();
-            }
-            input.ReadMessage(SymbolList);
+            input.ReadMessage(TreasuryAddress);
             break;
           }
         }
@@ -852,24 +699,10 @@ namespace TomorrowDAO.Contracts.Treasury {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            if (daoId_ == null) {
-              DaoId = new global::AElf.Types.Hash();
+            if (treasuryAddress_ == null) {
+              TreasuryAddress = new global::AElf.Types.Address();
             }
-            input.ReadMessage(DaoId);
-            break;
-          }
-          case 18: {
-            if (treasuryAccountAddress_ == null) {
-              TreasuryAccountAddress = new global::AElf.Types.Address();
-            }
-            input.ReadMessage(TreasuryAccountAddress);
-            break;
-          }
-          case 26: {
-            if (symbolList_ == null) {
-              SymbolList = new global::TomorrowDAO.Contracts.Treasury.SymbolList();
-            }
-            input.ReadMessage(SymbolList);
+            input.ReadMessage(TreasuryAddress);
             break;
           }
         }
@@ -879,16 +712,16 @@ namespace TomorrowDAO.Contracts.Treasury {
 
   }
 
-  public sealed partial class SupportedStakingTokensAdded : pb::IMessage<SupportedStakingTokensAdded>
+  public sealed partial class TransferInput : pb::IMessage<TransferInput>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SupportedStakingTokensAdded> _parser = new pb::MessageParser<SupportedStakingTokensAdded>(() => new SupportedStakingTokensAdded());
+    private static readonly pb::MessageParser<TransferInput> _parser = new pb::MessageParser<TransferInput>(() => new TransferInput());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SupportedStakingTokensAdded> Parser { get { return _parser; } }
+    public static pb::MessageParser<TransferInput> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -904,7 +737,7 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SupportedStakingTokensAdded() {
+    public TransferInput() {
       OnConstruction();
     }
 
@@ -912,1530 +745,20 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SupportedStakingTokensAdded(SupportedStakingTokensAdded other) : this() {
-      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
-      addedTokens_ = other.addedTokens_ != null ? other.addedTokens_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SupportedStakingTokensAdded Clone() {
-      return new SupportedStakingTokensAdded(this);
-    }
-
-    /// <summary>Field number for the "dao_id" field.</summary>
-    public const int DaoIdFieldNumber = 1;
-    private global::AElf.Types.Hash daoId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Hash DaoId {
-      get { return daoId_; }
-      set {
-        daoId_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "added_tokens" field.</summary>
-    public const int AddedTokensFieldNumber = 2;
-    private global::TomorrowDAO.Contracts.Treasury.SymbolList addedTokens_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::TomorrowDAO.Contracts.Treasury.SymbolList AddedTokens {
-      get { return addedTokens_; }
-      set {
-        addedTokens_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as SupportedStakingTokensAdded);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SupportedStakingTokensAdded other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(DaoId, other.DaoId)) return false;
-      if (!object.Equals(AddedTokens, other.AddedTokens)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (daoId_ != null) hash ^= DaoId.GetHashCode();
-      if (addedTokens_ != null) hash ^= AddedTokens.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (daoId_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(DaoId);
-      }
-      if (addedTokens_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(AddedTokens);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (daoId_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(DaoId);
-      }
-      if (addedTokens_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(AddedTokens);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (daoId_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
-      }
-      if (addedTokens_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(AddedTokens);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SupportedStakingTokensAdded other) {
-      if (other == null) {
-        return;
-      }
-      if (other.daoId_ != null) {
-        if (daoId_ == null) {
-          DaoId = new global::AElf.Types.Hash();
-        }
-        DaoId.MergeFrom(other.DaoId);
-      }
-      if (other.addedTokens_ != null) {
-        if (addedTokens_ == null) {
-          AddedTokens = new global::TomorrowDAO.Contracts.Treasury.SymbolList();
-        }
-        AddedTokens.MergeFrom(other.AddedTokens);
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            if (daoId_ == null) {
-              DaoId = new global::AElf.Types.Hash();
-            }
-            input.ReadMessage(DaoId);
-            break;
-          }
-          case 18: {
-            if (addedTokens_ == null) {
-              AddedTokens = new global::TomorrowDAO.Contracts.Treasury.SymbolList();
-            }
-            input.ReadMessage(AddedTokens);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            if (daoId_ == null) {
-              DaoId = new global::AElf.Types.Hash();
-            }
-            input.ReadMessage(DaoId);
-            break;
-          }
-          case 18: {
-            if (addedTokens_ == null) {
-              AddedTokens = new global::TomorrowDAO.Contracts.Treasury.SymbolList();
-            }
-            input.ReadMessage(AddedTokens);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class SupportedStakingTokensRemoved : pb::IMessage<SupportedStakingTokensRemoved>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<SupportedStakingTokensRemoved> _parser = new pb::MessageParser<SupportedStakingTokensRemoved>(() => new SupportedStakingTokensRemoved());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SupportedStakingTokensRemoved> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Treasury.TreasuryContractReflection.Descriptor.MessageTypes[4]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SupportedStakingTokensRemoved() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SupportedStakingTokensRemoved(SupportedStakingTokensRemoved other) : this() {
-      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
-      removedTokens_ = other.removedTokens_ != null ? other.removedTokens_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SupportedStakingTokensRemoved Clone() {
-      return new SupportedStakingTokensRemoved(this);
-    }
-
-    /// <summary>Field number for the "dao_id" field.</summary>
-    public const int DaoIdFieldNumber = 1;
-    private global::AElf.Types.Hash daoId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Hash DaoId {
-      get { return daoId_; }
-      set {
-        daoId_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "removed_tokens" field.</summary>
-    public const int RemovedTokensFieldNumber = 2;
-    private global::TomorrowDAO.Contracts.Treasury.SymbolList removedTokens_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::TomorrowDAO.Contracts.Treasury.SymbolList RemovedTokens {
-      get { return removedTokens_; }
-      set {
-        removedTokens_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as SupportedStakingTokensRemoved);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SupportedStakingTokensRemoved other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(DaoId, other.DaoId)) return false;
-      if (!object.Equals(RemovedTokens, other.RemovedTokens)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (daoId_ != null) hash ^= DaoId.GetHashCode();
-      if (removedTokens_ != null) hash ^= RemovedTokens.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (daoId_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(DaoId);
-      }
-      if (removedTokens_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(RemovedTokens);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (daoId_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(DaoId);
-      }
-      if (removedTokens_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(RemovedTokens);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (daoId_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
-      }
-      if (removedTokens_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RemovedTokens);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SupportedStakingTokensRemoved other) {
-      if (other == null) {
-        return;
-      }
-      if (other.daoId_ != null) {
-        if (daoId_ == null) {
-          DaoId = new global::AElf.Types.Hash();
-        }
-        DaoId.MergeFrom(other.DaoId);
-      }
-      if (other.removedTokens_ != null) {
-        if (removedTokens_ == null) {
-          RemovedTokens = new global::TomorrowDAO.Contracts.Treasury.SymbolList();
-        }
-        RemovedTokens.MergeFrom(other.RemovedTokens);
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            if (daoId_ == null) {
-              DaoId = new global::AElf.Types.Hash();
-            }
-            input.ReadMessage(DaoId);
-            break;
-          }
-          case 18: {
-            if (removedTokens_ == null) {
-              RemovedTokens = new global::TomorrowDAO.Contracts.Treasury.SymbolList();
-            }
-            input.ReadMessage(RemovedTokens);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            if (daoId_ == null) {
-              DaoId = new global::AElf.Types.Hash();
-            }
-            input.ReadMessage(DaoId);
-            break;
-          }
-          case 18: {
-            if (removedTokens_ == null) {
-              RemovedTokens = new global::TomorrowDAO.Contracts.Treasury.SymbolList();
-            }
-            input.ReadMessage(RemovedTokens);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class DonationReceived : pb::IMessage<DonationReceived>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<DonationReceived> _parser = new pb::MessageParser<DonationReceived>(() => new DonationReceived());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<DonationReceived> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Treasury.TreasuryContractReflection.Descriptor.MessageTypes[5]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DonationReceived() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DonationReceived(DonationReceived other) : this() {
-      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
-      amount_ = other.amount_;
-      symbol_ = other.symbol_;
-      donor_ = other.donor_ != null ? other.donor_.Clone() : null;
-      donationTime_ = other.donationTime_ != null ? other.donationTime_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public DonationReceived Clone() {
-      return new DonationReceived(this);
-    }
-
-    /// <summary>Field number for the "dao_id" field.</summary>
-    public const int DaoIdFieldNumber = 1;
-    private global::AElf.Types.Hash daoId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Hash DaoId {
-      get { return daoId_; }
-      set {
-        daoId_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "amount" field.</summary>
-    public const int AmountFieldNumber = 2;
-    private long amount_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long Amount {
-      get { return amount_; }
-      set {
-        amount_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "symbol" field.</summary>
-    public const int SymbolFieldNumber = 3;
-    private string symbol_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Symbol {
-      get { return symbol_; }
-      set {
-        symbol_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "donor" field.</summary>
-    public const int DonorFieldNumber = 4;
-    private global::AElf.Types.Address donor_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Address Donor {
-      get { return donor_; }
-      set {
-        donor_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "donation_time" field.</summary>
-    public const int DonationTimeFieldNumber = 5;
-    private global::Google.Protobuf.WellKnownTypes.Timestamp donationTime_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Timestamp DonationTime {
-      get { return donationTime_; }
-      set {
-        donationTime_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as DonationReceived);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(DonationReceived other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(DaoId, other.DaoId)) return false;
-      if (Amount != other.Amount) return false;
-      if (Symbol != other.Symbol) return false;
-      if (!object.Equals(Donor, other.Donor)) return false;
-      if (!object.Equals(DonationTime, other.DonationTime)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (daoId_ != null) hash ^= DaoId.GetHashCode();
-      if (Amount != 0L) hash ^= Amount.GetHashCode();
-      if (Symbol.Length != 0) hash ^= Symbol.GetHashCode();
-      if (donor_ != null) hash ^= Donor.GetHashCode();
-      if (donationTime_ != null) hash ^= DonationTime.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (daoId_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(DaoId);
-      }
-      if (Amount != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(Amount);
-      }
-      if (Symbol.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Symbol);
-      }
-      if (donor_ != null) {
-        output.WriteRawTag(34);
-        output.WriteMessage(Donor);
-      }
-      if (donationTime_ != null) {
-        output.WriteRawTag(42);
-        output.WriteMessage(DonationTime);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (daoId_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(DaoId);
-      }
-      if (Amount != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(Amount);
-      }
-      if (Symbol.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Symbol);
-      }
-      if (donor_ != null) {
-        output.WriteRawTag(34);
-        output.WriteMessage(Donor);
-      }
-      if (donationTime_ != null) {
-        output.WriteRawTag(42);
-        output.WriteMessage(DonationTime);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (daoId_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
-      }
-      if (Amount != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Amount);
-      }
-      if (Symbol.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Symbol);
-      }
-      if (donor_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Donor);
-      }
-      if (donationTime_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DonationTime);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(DonationReceived other) {
-      if (other == null) {
-        return;
-      }
-      if (other.daoId_ != null) {
-        if (daoId_ == null) {
-          DaoId = new global::AElf.Types.Hash();
-        }
-        DaoId.MergeFrom(other.DaoId);
-      }
-      if (other.Amount != 0L) {
-        Amount = other.Amount;
-      }
-      if (other.Symbol.Length != 0) {
-        Symbol = other.Symbol;
-      }
-      if (other.donor_ != null) {
-        if (donor_ == null) {
-          Donor = new global::AElf.Types.Address();
-        }
-        Donor.MergeFrom(other.Donor);
-      }
-      if (other.donationTime_ != null) {
-        if (donationTime_ == null) {
-          DonationTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-        }
-        DonationTime.MergeFrom(other.DonationTime);
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            if (daoId_ == null) {
-              DaoId = new global::AElf.Types.Hash();
-            }
-            input.ReadMessage(DaoId);
-            break;
-          }
-          case 16: {
-            Amount = input.ReadInt64();
-            break;
-          }
-          case 26: {
-            Symbol = input.ReadString();
-            break;
-          }
-          case 34: {
-            if (donor_ == null) {
-              Donor = new global::AElf.Types.Address();
-            }
-            input.ReadMessage(Donor);
-            break;
-          }
-          case 42: {
-            if (donationTime_ == null) {
-              DonationTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(DonationTime);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            if (daoId_ == null) {
-              DaoId = new global::AElf.Types.Hash();
-            }
-            input.ReadMessage(DaoId);
-            break;
-          }
-          case 16: {
-            Amount = input.ReadInt64();
-            break;
-          }
-          case 26: {
-            Symbol = input.ReadString();
-            break;
-          }
-          case 34: {
-            if (donor_ == null) {
-              Donor = new global::AElf.Types.Address();
-            }
-            input.ReadMessage(Donor);
-            break;
-          }
-          case 42: {
-            if (donationTime_ == null) {
-              DonationTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(DonationTime);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class TokenStaked : pb::IMessage<TokenStaked>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<TokenStaked> _parser = new pb::MessageParser<TokenStaked>(() => new TokenStaked());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<TokenStaked> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Treasury.TreasuryContractReflection.Descriptor.MessageTypes[6]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TokenStaked() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TokenStaked(TokenStaked other) : this() {
-      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
-      amount_ = other.amount_;
-      symbol_ = other.symbol_;
-      account_ = other.account_ != null ? other.account_.Clone() : null;
-      stakedTime_ = other.stakedTime_ != null ? other.stakedTime_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TokenStaked Clone() {
-      return new TokenStaked(this);
-    }
-
-    /// <summary>Field number for the "dao_id" field.</summary>
-    public const int DaoIdFieldNumber = 1;
-    private global::AElf.Types.Hash daoId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Hash DaoId {
-      get { return daoId_; }
-      set {
-        daoId_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "amount" field.</summary>
-    public const int AmountFieldNumber = 2;
-    private long amount_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long Amount {
-      get { return amount_; }
-      set {
-        amount_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "symbol" field.</summary>
-    public const int SymbolFieldNumber = 3;
-    private string symbol_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Symbol {
-      get { return symbol_; }
-      set {
-        symbol_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "account" field.</summary>
-    public const int AccountFieldNumber = 4;
-    private global::AElf.Types.Address account_;
-    /// <summary>
-    /// sender address
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Address Account {
-      get { return account_; }
-      set {
-        account_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "staked_time" field.</summary>
-    public const int StakedTimeFieldNumber = 5;
-    private global::Google.Protobuf.WellKnownTypes.Timestamp stakedTime_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Google.Protobuf.WellKnownTypes.Timestamp StakedTime {
-      get { return stakedTime_; }
-      set {
-        stakedTime_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as TokenStaked);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(TokenStaked other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(DaoId, other.DaoId)) return false;
-      if (Amount != other.Amount) return false;
-      if (Symbol != other.Symbol) return false;
-      if (!object.Equals(Account, other.Account)) return false;
-      if (!object.Equals(StakedTime, other.StakedTime)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (daoId_ != null) hash ^= DaoId.GetHashCode();
-      if (Amount != 0L) hash ^= Amount.GetHashCode();
-      if (Symbol.Length != 0) hash ^= Symbol.GetHashCode();
-      if (account_ != null) hash ^= Account.GetHashCode();
-      if (stakedTime_ != null) hash ^= StakedTime.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (daoId_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(DaoId);
-      }
-      if (Amount != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(Amount);
-      }
-      if (Symbol.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Symbol);
-      }
-      if (account_ != null) {
-        output.WriteRawTag(34);
-        output.WriteMessage(Account);
-      }
-      if (stakedTime_ != null) {
-        output.WriteRawTag(42);
-        output.WriteMessage(StakedTime);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (daoId_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(DaoId);
-      }
-      if (Amount != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(Amount);
-      }
-      if (Symbol.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Symbol);
-      }
-      if (account_ != null) {
-        output.WriteRawTag(34);
-        output.WriteMessage(Account);
-      }
-      if (stakedTime_ != null) {
-        output.WriteRawTag(42);
-        output.WriteMessage(StakedTime);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (daoId_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
-      }
-      if (Amount != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Amount);
-      }
-      if (Symbol.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Symbol);
-      }
-      if (account_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Account);
-      }
-      if (stakedTime_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(StakedTime);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(TokenStaked other) {
-      if (other == null) {
-        return;
-      }
-      if (other.daoId_ != null) {
-        if (daoId_ == null) {
-          DaoId = new global::AElf.Types.Hash();
-        }
-        DaoId.MergeFrom(other.DaoId);
-      }
-      if (other.Amount != 0L) {
-        Amount = other.Amount;
-      }
-      if (other.Symbol.Length != 0) {
-        Symbol = other.Symbol;
-      }
-      if (other.account_ != null) {
-        if (account_ == null) {
-          Account = new global::AElf.Types.Address();
-        }
-        Account.MergeFrom(other.Account);
-      }
-      if (other.stakedTime_ != null) {
-        if (stakedTime_ == null) {
-          StakedTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-        }
-        StakedTime.MergeFrom(other.StakedTime);
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            if (daoId_ == null) {
-              DaoId = new global::AElf.Types.Hash();
-            }
-            input.ReadMessage(DaoId);
-            break;
-          }
-          case 16: {
-            Amount = input.ReadInt64();
-            break;
-          }
-          case 26: {
-            Symbol = input.ReadString();
-            break;
-          }
-          case 34: {
-            if (account_ == null) {
-              Account = new global::AElf.Types.Address();
-            }
-            input.ReadMessage(Account);
-            break;
-          }
-          case 42: {
-            if (stakedTime_ == null) {
-              StakedTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(StakedTime);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            if (daoId_ == null) {
-              DaoId = new global::AElf.Types.Hash();
-            }
-            input.ReadMessage(DaoId);
-            break;
-          }
-          case 16: {
-            Amount = input.ReadInt64();
-            break;
-          }
-          case 26: {
-            Symbol = input.ReadString();
-            break;
-          }
-          case 34: {
-            if (account_ == null) {
-              Account = new global::AElf.Types.Address();
-            }
-            input.ReadMessage(Account);
-            break;
-          }
-          case 42: {
-            if (stakedTime_ == null) {
-              StakedTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
-            }
-            input.ReadMessage(StakedTime);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class TreasuryTokenLocked : pb::IMessage<TreasuryTokenLocked>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<TreasuryTokenLocked> _parser = new pb::MessageParser<TreasuryTokenLocked>(() => new TreasuryTokenLocked());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<TreasuryTokenLocked> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Treasury.TreasuryContractReflection.Descriptor.MessageTypes[7]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TreasuryTokenLocked() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TreasuryTokenLocked(TreasuryTokenLocked other) : this() {
-      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
-      lockInfo_ = other.lockInfo_ != null ? other.lockInfo_.Clone() : null;
-      proposer_ = other.proposer_ != null ? other.proposer_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TreasuryTokenLocked Clone() {
-      return new TreasuryTokenLocked(this);
-    }
-
-    /// <summary>Field number for the "dao_id" field.</summary>
-    public const int DaoIdFieldNumber = 1;
-    private global::AElf.Types.Hash daoId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Hash DaoId {
-      get { return daoId_; }
-      set {
-        daoId_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "lock_info" field.</summary>
-    public const int LockInfoFieldNumber = 2;
-    private global::TomorrowDAO.Contracts.Treasury.LockInfo lockInfo_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::TomorrowDAO.Contracts.Treasury.LockInfo LockInfo {
-      get { return lockInfo_; }
-      set {
-        lockInfo_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "proposer" field.</summary>
-    public const int ProposerFieldNumber = 3;
-    private global::AElf.Types.Address proposer_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Address Proposer {
-      get { return proposer_; }
-      set {
-        proposer_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as TreasuryTokenLocked);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(TreasuryTokenLocked other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(DaoId, other.DaoId)) return false;
-      if (!object.Equals(LockInfo, other.LockInfo)) return false;
-      if (!object.Equals(Proposer, other.Proposer)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (daoId_ != null) hash ^= DaoId.GetHashCode();
-      if (lockInfo_ != null) hash ^= LockInfo.GetHashCode();
-      if (proposer_ != null) hash ^= Proposer.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (daoId_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(DaoId);
-      }
-      if (lockInfo_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(LockInfo);
-      }
-      if (proposer_ != null) {
-        output.WriteRawTag(26);
-        output.WriteMessage(Proposer);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (daoId_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(DaoId);
-      }
-      if (lockInfo_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(LockInfo);
-      }
-      if (proposer_ != null) {
-        output.WriteRawTag(26);
-        output.WriteMessage(Proposer);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (daoId_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
-      }
-      if (lockInfo_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(LockInfo);
-      }
-      if (proposer_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Proposer);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(TreasuryTokenLocked other) {
-      if (other == null) {
-        return;
-      }
-      if (other.daoId_ != null) {
-        if (daoId_ == null) {
-          DaoId = new global::AElf.Types.Hash();
-        }
-        DaoId.MergeFrom(other.DaoId);
-      }
-      if (other.lockInfo_ != null) {
-        if (lockInfo_ == null) {
-          LockInfo = new global::TomorrowDAO.Contracts.Treasury.LockInfo();
-        }
-        LockInfo.MergeFrom(other.LockInfo);
-      }
-      if (other.proposer_ != null) {
-        if (proposer_ == null) {
-          Proposer = new global::AElf.Types.Address();
-        }
-        Proposer.MergeFrom(other.Proposer);
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            if (daoId_ == null) {
-              DaoId = new global::AElf.Types.Hash();
-            }
-            input.ReadMessage(DaoId);
-            break;
-          }
-          case 18: {
-            if (lockInfo_ == null) {
-              LockInfo = new global::TomorrowDAO.Contracts.Treasury.LockInfo();
-            }
-            input.ReadMessage(LockInfo);
-            break;
-          }
-          case 26: {
-            if (proposer_ == null) {
-              Proposer = new global::AElf.Types.Address();
-            }
-            input.ReadMessage(Proposer);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            if (daoId_ == null) {
-              DaoId = new global::AElf.Types.Hash();
-            }
-            input.ReadMessage(DaoId);
-            break;
-          }
-          case 18: {
-            if (lockInfo_ == null) {
-              LockInfo = new global::TomorrowDAO.Contracts.Treasury.LockInfo();
-            }
-            input.ReadMessage(LockInfo);
-            break;
-          }
-          case 26: {
-            if (proposer_ == null) {
-              Proposer = new global::AElf.Types.Address();
-            }
-            input.ReadMessage(Proposer);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class TreasuryTransferReleased : pb::IMessage<TreasuryTransferReleased>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<TreasuryTransferReleased> _parser = new pb::MessageParser<TreasuryTransferReleased>(() => new TreasuryTransferReleased());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<TreasuryTransferReleased> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Treasury.TreasuryContractReflection.Descriptor.MessageTypes[8]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TreasuryTransferReleased() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TreasuryTransferReleased(TreasuryTransferReleased other) : this() {
+    public TransferInput(TransferInput other) : this() {
       daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
       amount_ = other.amount_;
       symbol_ = other.symbol_;
       recipient_ = other.recipient_ != null ? other.recipient_.Clone() : null;
       memo_ = other.memo_;
       proposalId_ = other.proposalId_ != null ? other.proposalId_.Clone() : null;
-      executor_ = other.executor_ != null ? other.executor_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TreasuryTransferReleased Clone() {
-      return new TreasuryTransferReleased(this);
+    public TransferInput Clone() {
+      return new TransferInput(this);
     }
 
     /// <summary>Field number for the "dao_id" field.</summary>
@@ -2510,27 +833,15 @@ namespace TomorrowDAO.Contracts.Treasury {
       }
     }
 
-    /// <summary>Field number for the "executor" field.</summary>
-    public const int ExecutorFieldNumber = 7;
-    private global::AElf.Types.Address executor_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Address Executor {
-      get { return executor_; }
-      set {
-        executor_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as TreasuryTransferReleased);
+      return Equals(other as TransferInput);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(TreasuryTransferReleased other) {
+    public bool Equals(TransferInput other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -2543,7 +854,6 @@ namespace TomorrowDAO.Contracts.Treasury {
       if (!object.Equals(Recipient, other.Recipient)) return false;
       if (Memo != other.Memo) return false;
       if (!object.Equals(ProposalId, other.ProposalId)) return false;
-      if (!object.Equals(Executor, other.Executor)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2557,7 +867,6 @@ namespace TomorrowDAO.Contracts.Treasury {
       if (recipient_ != null) hash ^= Recipient.GetHashCode();
       if (Memo.Length != 0) hash ^= Memo.GetHashCode();
       if (proposalId_ != null) hash ^= ProposalId.GetHashCode();
-      if (executor_ != null) hash ^= Executor.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2600,10 +909,6 @@ namespace TomorrowDAO.Contracts.Treasury {
         output.WriteRawTag(50);
         output.WriteMessage(ProposalId);
       }
-      if (executor_ != null) {
-        output.WriteRawTag(58);
-        output.WriteMessage(Executor);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2638,10 +943,6 @@ namespace TomorrowDAO.Contracts.Treasury {
         output.WriteRawTag(50);
         output.WriteMessage(ProposalId);
       }
-      if (executor_ != null) {
-        output.WriteRawTag(58);
-        output.WriteMessage(Executor);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2670,9 +971,6 @@ namespace TomorrowDAO.Contracts.Treasury {
       if (proposalId_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(ProposalId);
       }
-      if (executor_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Executor);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -2681,7 +979,7 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(TreasuryTransferReleased other) {
+    public void MergeFrom(TransferInput other) {
       if (other == null) {
         return;
       }
@@ -2712,12 +1010,6 @@ namespace TomorrowDAO.Contracts.Treasury {
         }
         ProposalId.MergeFrom(other.ProposalId);
       }
-      if (other.executor_ != null) {
-        if (executor_ == null) {
-          Executor = new global::AElf.Types.Address();
-        }
-        Executor.MergeFrom(other.Executor);
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2764,13 +1056,6 @@ namespace TomorrowDAO.Contracts.Treasury {
               ProposalId = new global::AElf.Types.Hash();
             }
             input.ReadMessage(ProposalId);
-            break;
-          }
-          case 58: {
-            if (executor_ == null) {
-              Executor = new global::AElf.Types.Address();
-            }
-            input.ReadMessage(Executor);
             break;
           }
         }
@@ -2821,13 +1106,6 @@ namespace TomorrowDAO.Contracts.Treasury {
             input.ReadMessage(ProposalId);
             break;
           }
-          case 58: {
-            if (executor_ == null) {
-              Executor = new global::AElf.Types.Address();
-            }
-            input.ReadMessage(Executor);
-            break;
-          }
         }
       }
     }
@@ -2835,21 +1113,21 @@ namespace TomorrowDAO.Contracts.Treasury {
 
   }
 
-  public sealed partial class TreasuryTokenUnlocked : pb::IMessage<TreasuryTokenUnlocked>
+  public sealed partial class TreasuryCreated : pb::IMessage<TreasuryCreated>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<TreasuryTokenUnlocked> _parser = new pb::MessageParser<TreasuryTokenUnlocked>(() => new TreasuryTokenUnlocked());
+    private static readonly pb::MessageParser<TreasuryCreated> _parser = new pb::MessageParser<TreasuryCreated>(() => new TreasuryCreated());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<TreasuryTokenUnlocked> Parser { get { return _parser; } }
+    public static pb::MessageParser<TreasuryCreated> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Treasury.TreasuryContractReflection.Descriptor.MessageTypes[9]; }
+      get { return global::TomorrowDAO.Contracts.Treasury.TreasuryContractReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2860,7 +1138,7 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TreasuryTokenUnlocked() {
+    public TreasuryCreated() {
       OnConstruction();
     }
 
@@ -2868,17 +1146,16 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TreasuryTokenUnlocked(TreasuryTokenUnlocked other) : this() {
+    public TreasuryCreated(TreasuryCreated other) : this() {
       daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
-      lockInfo_ = other.lockInfo_ != null ? other.lockInfo_.Clone() : null;
-      executor_ = other.executor_ != null ? other.executor_.Clone() : null;
+      treasuryAccountAddress_ = other.treasuryAccountAddress_ != null ? other.treasuryAccountAddress_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TreasuryTokenUnlocked Clone() {
-      return new TreasuryTokenUnlocked(this);
+    public TreasuryCreated Clone() {
+      return new TreasuryCreated(this);
     }
 
     /// <summary>Field number for the "dao_id" field.</summary>
@@ -2893,39 +1170,27 @@ namespace TomorrowDAO.Contracts.Treasury {
       }
     }
 
-    /// <summary>Field number for the "lock_info" field.</summary>
-    public const int LockInfoFieldNumber = 2;
-    private global::TomorrowDAO.Contracts.Treasury.LockInfo lockInfo_;
+    /// <summary>Field number for the "treasury_account_address" field.</summary>
+    public const int TreasuryAccountAddressFieldNumber = 2;
+    private global::AElf.Types.Address treasuryAccountAddress_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::TomorrowDAO.Contracts.Treasury.LockInfo LockInfo {
-      get { return lockInfo_; }
+    public global::AElf.Types.Address TreasuryAccountAddress {
+      get { return treasuryAccountAddress_; }
       set {
-        lockInfo_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "executor" field.</summary>
-    public const int ExecutorFieldNumber = 3;
-    private global::AElf.Types.Address executor_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Address Executor {
-      get { return executor_; }
-      set {
-        executor_ = value;
+        treasuryAccountAddress_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as TreasuryTokenUnlocked);
+      return Equals(other as TreasuryCreated);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(TreasuryTokenUnlocked other) {
+    public bool Equals(TreasuryCreated other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -2933,8 +1198,7 @@ namespace TomorrowDAO.Contracts.Treasury {
         return true;
       }
       if (!object.Equals(DaoId, other.DaoId)) return false;
-      if (!object.Equals(LockInfo, other.LockInfo)) return false;
-      if (!object.Equals(Executor, other.Executor)) return false;
+      if (!object.Equals(TreasuryAccountAddress, other.TreasuryAccountAddress)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2943,8 +1207,7 @@ namespace TomorrowDAO.Contracts.Treasury {
     public override int GetHashCode() {
       int hash = 1;
       if (daoId_ != null) hash ^= DaoId.GetHashCode();
-      if (lockInfo_ != null) hash ^= LockInfo.GetHashCode();
-      if (executor_ != null) hash ^= Executor.GetHashCode();
+      if (treasuryAccountAddress_ != null) hash ^= TreasuryAccountAddress.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2967,13 +1230,9 @@ namespace TomorrowDAO.Contracts.Treasury {
         output.WriteRawTag(10);
         output.WriteMessage(DaoId);
       }
-      if (lockInfo_ != null) {
+      if (treasuryAccountAddress_ != null) {
         output.WriteRawTag(18);
-        output.WriteMessage(LockInfo);
-      }
-      if (executor_ != null) {
-        output.WriteRawTag(26);
-        output.WriteMessage(Executor);
+        output.WriteMessage(TreasuryAccountAddress);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2989,13 +1248,9 @@ namespace TomorrowDAO.Contracts.Treasury {
         output.WriteRawTag(10);
         output.WriteMessage(DaoId);
       }
-      if (lockInfo_ != null) {
+      if (treasuryAccountAddress_ != null) {
         output.WriteRawTag(18);
-        output.WriteMessage(LockInfo);
-      }
-      if (executor_ != null) {
-        output.WriteRawTag(26);
-        output.WriteMessage(Executor);
+        output.WriteMessage(TreasuryAccountAddress);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -3010,11 +1265,8 @@ namespace TomorrowDAO.Contracts.Treasury {
       if (daoId_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
       }
-      if (lockInfo_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(LockInfo);
-      }
-      if (executor_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Executor);
+      if (treasuryAccountAddress_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TreasuryAccountAddress);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3024,7 +1276,7 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(TreasuryTokenUnlocked other) {
+    public void MergeFrom(TreasuryCreated other) {
       if (other == null) {
         return;
       }
@@ -3034,17 +1286,11 @@ namespace TomorrowDAO.Contracts.Treasury {
         }
         DaoId.MergeFrom(other.DaoId);
       }
-      if (other.lockInfo_ != null) {
-        if (lockInfo_ == null) {
-          LockInfo = new global::TomorrowDAO.Contracts.Treasury.LockInfo();
+      if (other.treasuryAccountAddress_ != null) {
+        if (treasuryAccountAddress_ == null) {
+          TreasuryAccountAddress = new global::AElf.Types.Address();
         }
-        LockInfo.MergeFrom(other.LockInfo);
-      }
-      if (other.executor_ != null) {
-        if (executor_ == null) {
-          Executor = new global::AElf.Types.Address();
-        }
-        Executor.MergeFrom(other.Executor);
+        TreasuryAccountAddress.MergeFrom(other.TreasuryAccountAddress);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3069,17 +1315,10 @@ namespace TomorrowDAO.Contracts.Treasury {
             break;
           }
           case 18: {
-            if (lockInfo_ == null) {
-              LockInfo = new global::TomorrowDAO.Contracts.Treasury.LockInfo();
+            if (treasuryAccountAddress_ == null) {
+              TreasuryAccountAddress = new global::AElf.Types.Address();
             }
-            input.ReadMessage(LockInfo);
-            break;
-          }
-          case 26: {
-            if (executor_ == null) {
-              Executor = new global::AElf.Types.Address();
-            }
-            input.ReadMessage(Executor);
+            input.ReadMessage(TreasuryAccountAddress);
             break;
           }
         }
@@ -3105,17 +1344,10 @@ namespace TomorrowDAO.Contracts.Treasury {
             break;
           }
           case 18: {
-            if (lockInfo_ == null) {
-              LockInfo = new global::TomorrowDAO.Contracts.Treasury.LockInfo();
+            if (treasuryAccountAddress_ == null) {
+              TreasuryAccountAddress = new global::AElf.Types.Address();
             }
-            input.ReadMessage(LockInfo);
-            break;
-          }
-          case 26: {
-            if (executor_ == null) {
-              Executor = new global::AElf.Types.Address();
-            }
-            input.ReadMessage(Executor);
+            input.ReadMessage(TreasuryAccountAddress);
             break;
           }
         }
@@ -3125,21 +1357,21 @@ namespace TomorrowDAO.Contracts.Treasury {
 
   }
 
-  public sealed partial class Paused : pb::IMessage<Paused>
+  public sealed partial class TreasuryTransferred : pb::IMessage<TreasuryTransferred>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<Paused> _parser = new pb::MessageParser<Paused>(() => new Paused());
+    private static readonly pb::MessageParser<TreasuryTransferred> _parser = new pb::MessageParser<TreasuryTransferred>(() => new TreasuryTransferred());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<Paused> Parser { get { return _parser; } }
+    public static pb::MessageParser<TreasuryTransferred> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Treasury.TreasuryContractReflection.Descriptor.MessageTypes[10]; }
+      get { return global::TomorrowDAO.Contracts.Treasury.TreasuryContractReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3150,7 +1382,7 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Paused() {
+    public TreasuryTransferred() {
       OnConstruction();
     }
 
@@ -3158,513 +1390,22 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Paused(Paused other) : this() {
-      account_ = other.account_ != null ? other.account_.Clone() : null;
+    public TreasuryTransferred(TreasuryTransferred other) : this() {
       daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Paused Clone() {
-      return new Paused(this);
-    }
-
-    /// <summary>Field number for the "account" field.</summary>
-    public const int AccountFieldNumber = 1;
-    private global::AElf.Types.Address account_;
-    /// <summary>
-    /// sender address
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Address Account {
-      get { return account_; }
-      set {
-        account_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "dao_id" field.</summary>
-    public const int DaoIdFieldNumber = 2;
-    private global::AElf.Types.Hash daoId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Hash DaoId {
-      get { return daoId_; }
-      set {
-        daoId_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as Paused);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(Paused other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(Account, other.Account)) return false;
-      if (!object.Equals(DaoId, other.DaoId)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (account_ != null) hash ^= Account.GetHashCode();
-      if (daoId_ != null) hash ^= DaoId.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (account_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Account);
-      }
-      if (daoId_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(DaoId);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (account_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Account);
-      }
-      if (daoId_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(DaoId);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (account_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Account);
-      }
-      if (daoId_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(Paused other) {
-      if (other == null) {
-        return;
-      }
-      if (other.account_ != null) {
-        if (account_ == null) {
-          Account = new global::AElf.Types.Address();
-        }
-        Account.MergeFrom(other.Account);
-      }
-      if (other.daoId_ != null) {
-        if (daoId_ == null) {
-          DaoId = new global::AElf.Types.Hash();
-        }
-        DaoId.MergeFrom(other.DaoId);
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            if (account_ == null) {
-              Account = new global::AElf.Types.Address();
-            }
-            input.ReadMessage(Account);
-            break;
-          }
-          case 18: {
-            if (daoId_ == null) {
-              DaoId = new global::AElf.Types.Hash();
-            }
-            input.ReadMessage(DaoId);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            if (account_ == null) {
-              Account = new global::AElf.Types.Address();
-            }
-            input.ReadMessage(Account);
-            break;
-          }
-          case 18: {
-            if (daoId_ == null) {
-              DaoId = new global::AElf.Types.Hash();
-            }
-            input.ReadMessage(DaoId);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class Unpaused : pb::IMessage<Unpaused>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<Unpaused> _parser = new pb::MessageParser<Unpaused>(() => new Unpaused());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<Unpaused> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Treasury.TreasuryContractReflection.Descriptor.MessageTypes[11]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Unpaused() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Unpaused(Unpaused other) : this() {
-      account_ = other.account_ != null ? other.account_.Clone() : null;
-      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Unpaused Clone() {
-      return new Unpaused(this);
-    }
-
-    /// <summary>Field number for the "account" field.</summary>
-    public const int AccountFieldNumber = 1;
-    private global::AElf.Types.Address account_;
-    /// <summary>
-    /// sender address
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Address Account {
-      get { return account_; }
-      set {
-        account_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "dao_id" field.</summary>
-    public const int DaoIdFieldNumber = 2;
-    private global::AElf.Types.Hash daoId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Hash DaoId {
-      get { return daoId_; }
-      set {
-        daoId_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as Unpaused);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(Unpaused other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(Account, other.Account)) return false;
-      if (!object.Equals(DaoId, other.DaoId)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (account_ != null) hash ^= Account.GetHashCode();
-      if (daoId_ != null) hash ^= DaoId.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (account_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Account);
-      }
-      if (daoId_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(DaoId);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (account_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Account);
-      }
-      if (daoId_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(DaoId);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (account_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Account);
-      }
-      if (daoId_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(Unpaused other) {
-      if (other == null) {
-        return;
-      }
-      if (other.account_ != null) {
-        if (account_ == null) {
-          Account = new global::AElf.Types.Address();
-        }
-        Account.MergeFrom(other.Account);
-      }
-      if (other.daoId_ != null) {
-        if (daoId_ == null) {
-          DaoId = new global::AElf.Types.Hash();
-        }
-        DaoId.MergeFrom(other.DaoId);
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            if (account_ == null) {
-              Account = new global::AElf.Types.Address();
-            }
-            input.ReadMessage(Account);
-            break;
-          }
-          case 18: {
-            if (daoId_ == null) {
-              DaoId = new global::AElf.Types.Hash();
-            }
-            input.ReadMessage(DaoId);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            if (account_ == null) {
-              Account = new global::AElf.Types.Address();
-            }
-            input.ReadMessage(Account);
-            break;
-          }
-          case 18: {
-            if (daoId_ == null) {
-              DaoId = new global::AElf.Types.Hash();
-            }
-            input.ReadMessage(DaoId);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class EmergencyTransferred : pb::IMessage<EmergencyTransferred>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<EmergencyTransferred> _parser = new pb::MessageParser<EmergencyTransferred>(() => new EmergencyTransferred());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<EmergencyTransferred> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Treasury.TreasuryContractReflection.Descriptor.MessageTypes[12]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public EmergencyTransferred() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public EmergencyTransferred(EmergencyTransferred other) : this() {
-      daoId_ = other.daoId_ != null ? other.daoId_.Clone() : null;
-      symbol_ = other.symbol_;
+      treasuryAddress_ = other.treasuryAddress_ != null ? other.treasuryAddress_.Clone() : null;
       amount_ = other.amount_;
+      symbol_ = other.symbol_;
       recipient_ = other.recipient_ != null ? other.recipient_.Clone() : null;
-      account_ = other.account_ != null ? other.account_.Clone() : null;
+      memo_ = other.memo_;
+      executor_ = other.executor_ != null ? other.executor_.Clone() : null;
+      proposalId_ = other.proposalId_ != null ? other.proposalId_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public EmergencyTransferred Clone() {
-      return new EmergencyTransferred(this);
+    public TreasuryTransferred Clone() {
+      return new TreasuryTransferred(this);
     }
 
     /// <summary>Field number for the "dao_id" field.</summary>
@@ -3679,15 +1420,15 @@ namespace TomorrowDAO.Contracts.Treasury {
       }
     }
 
-    /// <summary>Field number for the "symbol" field.</summary>
-    public const int SymbolFieldNumber = 2;
-    private string symbol_ = "";
+    /// <summary>Field number for the "treasury_address" field.</summary>
+    public const int TreasuryAddressFieldNumber = 2;
+    private global::AElf.Types.Address treasuryAddress_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Symbol {
-      get { return symbol_; }
+    public global::AElf.Types.Address TreasuryAddress {
+      get { return treasuryAddress_; }
       set {
-        symbol_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        treasuryAddress_ = value;
       }
     }
 
@@ -3703,8 +1444,20 @@ namespace TomorrowDAO.Contracts.Treasury {
       }
     }
 
+    /// <summary>Field number for the "symbol" field.</summary>
+    public const int SymbolFieldNumber = 4;
+    private string symbol_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Symbol {
+      get { return symbol_; }
+      set {
+        symbol_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "recipient" field.</summary>
-    public const int RecipientFieldNumber = 4;
+    public const int RecipientFieldNumber = 5;
     private global::AElf.Types.Address recipient_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3715,30 +1468,51 @@ namespace TomorrowDAO.Contracts.Treasury {
       }
     }
 
-    /// <summary>Field number for the "account" field.</summary>
-    public const int AccountFieldNumber = 5;
-    private global::AElf.Types.Address account_;
-    /// <summary>
-    /// sender address
-    /// </summary>
+    /// <summary>Field number for the "memo" field.</summary>
+    public const int MemoFieldNumber = 6;
+    private string memo_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::AElf.Types.Address Account {
-      get { return account_; }
+    public string Memo {
+      get { return memo_; }
       set {
-        account_ = value;
+        memo_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "executor" field.</summary>
+    public const int ExecutorFieldNumber = 7;
+    private global::AElf.Types.Address executor_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Address Executor {
+      get { return executor_; }
+      set {
+        executor_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "proposal_id" field.</summary>
+    public const int ProposalIdFieldNumber = 8;
+    private global::AElf.Types.Hash proposalId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::AElf.Types.Hash ProposalId {
+      get { return proposalId_; }
+      set {
+        proposalId_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as EmergencyTransferred);
+      return Equals(other as TreasuryTransferred);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(EmergencyTransferred other) {
+    public bool Equals(TreasuryTransferred other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -3746,10 +1520,13 @@ namespace TomorrowDAO.Contracts.Treasury {
         return true;
       }
       if (!object.Equals(DaoId, other.DaoId)) return false;
-      if (Symbol != other.Symbol) return false;
+      if (!object.Equals(TreasuryAddress, other.TreasuryAddress)) return false;
       if (Amount != other.Amount) return false;
+      if (Symbol != other.Symbol) return false;
       if (!object.Equals(Recipient, other.Recipient)) return false;
-      if (!object.Equals(Account, other.Account)) return false;
+      if (Memo != other.Memo) return false;
+      if (!object.Equals(Executor, other.Executor)) return false;
+      if (!object.Equals(ProposalId, other.ProposalId)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3758,10 +1535,13 @@ namespace TomorrowDAO.Contracts.Treasury {
     public override int GetHashCode() {
       int hash = 1;
       if (daoId_ != null) hash ^= DaoId.GetHashCode();
-      if (Symbol.Length != 0) hash ^= Symbol.GetHashCode();
+      if (treasuryAddress_ != null) hash ^= TreasuryAddress.GetHashCode();
       if (Amount != 0L) hash ^= Amount.GetHashCode();
+      if (Symbol.Length != 0) hash ^= Symbol.GetHashCode();
       if (recipient_ != null) hash ^= Recipient.GetHashCode();
-      if (account_ != null) hash ^= Account.GetHashCode();
+      if (Memo.Length != 0) hash ^= Memo.GetHashCode();
+      if (executor_ != null) hash ^= Executor.GetHashCode();
+      if (proposalId_ != null) hash ^= ProposalId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3784,21 +1564,33 @@ namespace TomorrowDAO.Contracts.Treasury {
         output.WriteRawTag(10);
         output.WriteMessage(DaoId);
       }
-      if (Symbol.Length != 0) {
+      if (treasuryAddress_ != null) {
         output.WriteRawTag(18);
-        output.WriteString(Symbol);
+        output.WriteMessage(TreasuryAddress);
       }
       if (Amount != 0L) {
         output.WriteRawTag(24);
         output.WriteInt64(Amount);
       }
-      if (recipient_ != null) {
+      if (Symbol.Length != 0) {
         output.WriteRawTag(34);
+        output.WriteString(Symbol);
+      }
+      if (recipient_ != null) {
+        output.WriteRawTag(42);
         output.WriteMessage(Recipient);
       }
-      if (account_ != null) {
-        output.WriteRawTag(42);
-        output.WriteMessage(Account);
+      if (Memo.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(Memo);
+      }
+      if (executor_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Executor);
+      }
+      if (proposalId_ != null) {
+        output.WriteRawTag(66);
+        output.WriteMessage(ProposalId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -3814,21 +1606,33 @@ namespace TomorrowDAO.Contracts.Treasury {
         output.WriteRawTag(10);
         output.WriteMessage(DaoId);
       }
-      if (Symbol.Length != 0) {
+      if (treasuryAddress_ != null) {
         output.WriteRawTag(18);
-        output.WriteString(Symbol);
+        output.WriteMessage(TreasuryAddress);
       }
       if (Amount != 0L) {
         output.WriteRawTag(24);
         output.WriteInt64(Amount);
       }
-      if (recipient_ != null) {
+      if (Symbol.Length != 0) {
         output.WriteRawTag(34);
+        output.WriteString(Symbol);
+      }
+      if (recipient_ != null) {
+        output.WriteRawTag(42);
         output.WriteMessage(Recipient);
       }
-      if (account_ != null) {
-        output.WriteRawTag(42);
-        output.WriteMessage(Account);
+      if (Memo.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(Memo);
+      }
+      if (executor_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Executor);
+      }
+      if (proposalId_ != null) {
+        output.WriteRawTag(66);
+        output.WriteMessage(ProposalId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -3843,17 +1647,26 @@ namespace TomorrowDAO.Contracts.Treasury {
       if (daoId_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(DaoId);
       }
-      if (Symbol.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Symbol);
+      if (treasuryAddress_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TreasuryAddress);
       }
       if (Amount != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Amount);
       }
+      if (Symbol.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Symbol);
+      }
       if (recipient_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Recipient);
       }
-      if (account_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Account);
+      if (Memo.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Memo);
+      }
+      if (executor_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Executor);
+      }
+      if (proposalId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ProposalId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3863,7 +1676,7 @@ namespace TomorrowDAO.Contracts.Treasury {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(EmergencyTransferred other) {
+    public void MergeFrom(TreasuryTransferred other) {
       if (other == null) {
         return;
       }
@@ -3873,11 +1686,17 @@ namespace TomorrowDAO.Contracts.Treasury {
         }
         DaoId.MergeFrom(other.DaoId);
       }
-      if (other.Symbol.Length != 0) {
-        Symbol = other.Symbol;
+      if (other.treasuryAddress_ != null) {
+        if (treasuryAddress_ == null) {
+          TreasuryAddress = new global::AElf.Types.Address();
+        }
+        TreasuryAddress.MergeFrom(other.TreasuryAddress);
       }
       if (other.Amount != 0L) {
         Amount = other.Amount;
+      }
+      if (other.Symbol.Length != 0) {
+        Symbol = other.Symbol;
       }
       if (other.recipient_ != null) {
         if (recipient_ == null) {
@@ -3885,11 +1704,20 @@ namespace TomorrowDAO.Contracts.Treasury {
         }
         Recipient.MergeFrom(other.Recipient);
       }
-      if (other.account_ != null) {
-        if (account_ == null) {
-          Account = new global::AElf.Types.Address();
+      if (other.Memo.Length != 0) {
+        Memo = other.Memo;
+      }
+      if (other.executor_ != null) {
+        if (executor_ == null) {
+          Executor = new global::AElf.Types.Address();
         }
-        Account.MergeFrom(other.Account);
+        Executor.MergeFrom(other.Executor);
+      }
+      if (other.proposalId_ != null) {
+        if (proposalId_ == null) {
+          ProposalId = new global::AElf.Types.Hash();
+        }
+        ProposalId.MergeFrom(other.ProposalId);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3914,7 +1742,10 @@ namespace TomorrowDAO.Contracts.Treasury {
             break;
           }
           case 18: {
-            Symbol = input.ReadString();
+            if (treasuryAddress_ == null) {
+              TreasuryAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(TreasuryAddress);
             break;
           }
           case 24: {
@@ -3922,17 +1753,32 @@ namespace TomorrowDAO.Contracts.Treasury {
             break;
           }
           case 34: {
+            Symbol = input.ReadString();
+            break;
+          }
+          case 42: {
             if (recipient_ == null) {
               Recipient = new global::AElf.Types.Address();
             }
             input.ReadMessage(Recipient);
             break;
           }
-          case 42: {
-            if (account_ == null) {
-              Account = new global::AElf.Types.Address();
+          case 50: {
+            Memo = input.ReadString();
+            break;
+          }
+          case 58: {
+            if (executor_ == null) {
+              Executor = new global::AElf.Types.Address();
             }
-            input.ReadMessage(Account);
+            input.ReadMessage(Executor);
+            break;
+          }
+          case 66: {
+            if (proposalId_ == null) {
+              ProposalId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(ProposalId);
             break;
           }
         }
@@ -3958,7 +1804,10 @@ namespace TomorrowDAO.Contracts.Treasury {
             break;
           }
           case 18: {
-            Symbol = input.ReadString();
+            if (treasuryAddress_ == null) {
+              TreasuryAddress = new global::AElf.Types.Address();
+            }
+            input.ReadMessage(TreasuryAddress);
             break;
           }
           case 24: {
@@ -3966,17 +1815,32 @@ namespace TomorrowDAO.Contracts.Treasury {
             break;
           }
           case 34: {
+            Symbol = input.ReadString();
+            break;
+          }
+          case 42: {
             if (recipient_ == null) {
               Recipient = new global::AElf.Types.Address();
             }
             input.ReadMessage(Recipient);
             break;
           }
-          case 42: {
-            if (account_ == null) {
-              Account = new global::AElf.Types.Address();
+          case 50: {
+            Memo = input.ReadString();
+            break;
+          }
+          case 58: {
+            if (executor_ == null) {
+              Executor = new global::AElf.Types.Address();
             }
-            input.ReadMessage(Account);
+            input.ReadMessage(Executor);
+            break;
+          }
+          case 66: {
+            if (proposalId_ == null) {
+              ProposalId = new global::AElf.Types.Hash();
+            }
+            input.ReadMessage(ProposalId);
             break;
           }
         }

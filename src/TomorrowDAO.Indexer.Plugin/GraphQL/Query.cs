@@ -145,4 +145,48 @@ public partial class Query
         var result = await GetAllIndex(Filter, repository);
         return objectMapper.Map<List<DAOIndex>, List<GetDAOAmountRecordDto>>(result);
     }
+
+    [Name("getMyParticipated")]
+    public static async Task<PageResultDto<DAOInfoDto>> GetMyParticipatedAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAORepository,
+        [FromServices] IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo> participatedRepository,
+        [FromServices] IObjectMapper objectMapper,
+        GetParticipatedInput input)
+    {
+        var participatedMustQuery = new List<Func<QueryContainerDescriptor<LatestParticipatedIndex>, QueryContainer>>
+        {
+            q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId)),
+            q => q.Term(i
+                => i.Field(f => f.Address).Value(input.Address))
+        };
+        QueryContainer ParticipatedFilter(QueryContainerDescriptor<LatestParticipatedIndex> f) =>
+            f.Bool(b => b.Must(participatedMustQuery));
+
+        var participatedResult = await participatedRepository.GetSortListAsync(ParticipatedFilter,
+            sortFunc: s => s.Descending(a => a.LatestParticipatedTime),
+            limit: input.MaxResultCount, skip: input.SkipCount);
+        if (participatedResult.Item1 == 0)
+        {
+            return new PageResultDto<DAOInfoDto>(0, new List<DAOInfoDto>());
+        }
+
+        var daoIds = participatedResult.Item2.Select(x => x.DAOId).ToList();
+        var daoMustQuery = new List<Func<QueryContainerDescriptor<DAOIndex>, QueryContainer>>
+        {
+            q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId)),
+            q => q.Terms(i
+                => i.Field(f => f.Id).Terms(daoIds))
+        };
+        QueryContainer DAOFilter(QueryContainerDescriptor<DAOIndex> f) =>
+            f.Bool(b => b.Must(daoMustQuery));
+        var daoResult = await DAORepository.GetListAsync(DAOFilter);
+        var sortedResult = daoResult.Item2.OrderBy(x => daoIds.IndexOf(x.Id)).ToList();
+        return new PageResultDto<DAOInfoDto>
+        {
+            TotalCount = participatedResult.Item1,
+            Data = objectMapper.Map<List<DAOIndex>, List<DAOInfoDto>>(sortedResult)
+        };
+    }
 }

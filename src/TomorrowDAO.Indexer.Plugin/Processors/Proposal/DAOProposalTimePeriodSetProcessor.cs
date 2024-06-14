@@ -16,8 +16,9 @@ public class DAOProposalTimePeriodSetProcessor : ProposalProcessorBase<DaoPropos
         IObjectMapper objectMapper,
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> proposalRepository,
+        IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo> latestParticipatedRepository,
         IGovernanceProvider governanceProvider, IDAOProvider DAOProvider) :
-        base(logger, objectMapper, contractInfoOptions, proposalRepository, governanceProvider, DAOProvider)
+        base(logger, objectMapper, contractInfoOptions, proposalRepository, latestParticipatedRepository, governanceProvider, DAOProvider)
     {
     }
 
@@ -28,7 +29,7 @@ public class DAOProposalTimePeriodSetProcessor : ProposalProcessorBase<DaoPropos
         Logger.LogInformation("[DaoProposalTimePeriodSet] start DAOId:{DAOId} chainId:{chainId} ", DAOId, chainId);
         try
         {
-            var DAOIndex = await DAOProvider.GetDAOAsync(chainId, DAOId);
+            var DAOIndex = await DAOProvider.GetDaoAsync(chainId, DAOId);
             if (DAOIndex == null)
             {
                 Logger.LogInformation("[DaoProposalTimePeriodSet] DAO not existed DAOId:{DAOId} chainId:{chainId} ", DAOId, chainId);

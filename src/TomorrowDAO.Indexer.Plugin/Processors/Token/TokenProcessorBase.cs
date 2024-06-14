@@ -8,19 +8,19 @@ using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 
-namespace TomorrowDAO.Indexer.Plugin.Processors.Treasury;
+namespace TomorrowDAO.Indexer.Plugin.Processors.Token;
 
-public abstract class TreasuryProcessorBase<TEvent> : AElfLogEventProcessorBase<TEvent, LogEventInfo>
-    where TEvent : IEvent<TEvent>,new()
+public abstract class TokenProcessorBase<TEvent> : AElfLogEventProcessorBase<TEvent, LogEventInfo>
+    where TEvent : IEvent<TEvent>, new()
 {
     protected readonly ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> Logger;
     protected readonly IObjectMapper ObjectMapper;
     protected readonly ContractInfoOptions ContractInfoOptions;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> TreasuryFundRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> TreasuryRecordRepository;
-    protected readonly IDAOProvider DAOProvider;
+    protected readonly IDAOProvider DaoProvider;
 
-    protected TreasuryProcessorBase(ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> logger,
+    protected TokenProcessorBase(ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> logger,
         IObjectMapper objectMapper, IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> treasuryFundRepository,
         IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> treasuryRecordRepository,
@@ -30,13 +30,13 @@ public abstract class TreasuryProcessorBase<TEvent> : AElfLogEventProcessorBase<
         ObjectMapper = objectMapper;
         TreasuryFundRepository = treasuryFundRepository;
         TreasuryRecordRepository = treasuryRecordRepository;
-        this.DAOProvider = DAOProvider;
+        DaoProvider = DAOProvider;
         ContractInfoOptions = contractInfoOptions.Value;
     }
 
     public override string GetContractAddress(string chainId)
     {
-        return ContractInfoOptions.ContractInfos[chainId].TreasuryContractAddress;
+        return ContractInfoOptions.ContractInfos[chainId].TokenContractAddress;
     }
 
     protected async Task SaveIndexAsync(TreasuryFundIndex index, LogEventContext context)
@@ -44,7 +44,7 @@ public abstract class TreasuryProcessorBase<TEvent> : AElfLogEventProcessorBase<
         ObjectMapper.Map(context, index);
         await TreasuryFundRepository.AddOrUpdateAsync(index);
     }
-    
+
     protected async Task SaveIndexAsync(TreasuryRecordIndex index, LogEventContext context)
     {
         ObjectMapper.Map(context, index);

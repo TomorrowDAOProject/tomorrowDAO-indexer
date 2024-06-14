@@ -1,11 +1,13 @@
 using AElf;
 using Shouldly;
+using TomorrowDAO.Indexer.Orleans.TestBase;
 using TomorrowDAO.Indexer.Plugin.Enums;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.Processors.Goverenace;
 
+[CollectionDefinition(ClusterCollection.Name)]
 public class ProposalProcessorTests : TomorrowDAOIndexerPluginTestBase
 {
     private readonly ITestOutputHelper _testOutputHelper;
@@ -60,6 +62,12 @@ public class ProposalProcessorTests : TomorrowDAOIndexerPluginTestBase
         var vetoProposalIndex = await ProposalIndexRepository.GetFromBlockStateSetAsync(VetoProposalId, ChainAelf);
         vetoProposalIndex.ProposalStatus.ShouldBe(ProposalStatus.Challenged);
         vetoProposalIndex.ProposalStage.ShouldBe(ProposalStage.Pending);
+        
+        var latestParticipatedIndex = await LatestParticipatedIndexRepository.GetFromBlockStateSetAsync(IdGenerateHelper.GetId(ChainAelf, DAOCreator), ChainAelf);
+        latestParticipatedIndex.ShouldNotBeNull();
+        latestParticipatedIndex.Address.ShouldBe(DAOCreator);
+        latestParticipatedIndex.DAOId.ShouldBe(DAOId);
+        latestParticipatedIndex.ParticipatedType.ShouldBe(ParticipatedType.Proposed);
     }
     
     [Fact]

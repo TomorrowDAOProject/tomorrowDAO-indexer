@@ -6,7 +6,7 @@ using Xunit;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.GraphQL;
 
-public class ProposalQueryTest : QueryTestBase
+public partial class QueryTest
 {
     [Fact]
     public async Task GetElectionListAsync_Test()

@@ -2,6 +2,7 @@ using AElfIndexer.Client;
 using AElfIndexer.Client.Handlers;
 using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
+using Nest;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.ObjectMapping;
@@ -10,7 +11,9 @@ namespace TomorrowDAO.Indexer.Plugin.Processors.Provider;
 
 public interface IDAOProvider
 {
-    Task<DAOIndex> GetDAOAsync(string chainId, string DAOId);
+    Task<DAOIndex> GetDaoAsync(string chainId, string daoId);
+
+    Task<DAOIndex> GetDaoByTreasuryAddressAsync(string chainId, string treasuryAddress);
 
     Task<DaoVoterRecordIndex> GetDaoVoterRecordAsync(string chainId, string id);
 
@@ -37,7 +40,7 @@ public class DAOProvider : IDAOProvider, ISingletonDependency
         _daoVoterRecordRepository = daoVoterRecordRepository;
     }
 
-    public async Task<DAOIndex> GetDAOAsync(string chainId, string DAOId)
+    public async Task<DAOIndex> GetDaoAsync(string chainId, string DAOId)
     {
         var DAOIndex = await _daoRepository.GetFromBlockStateSetAsync(DAOId, chainId);
         if (DAOIndex != null)
@@ -46,6 +49,28 @@ public class DAOProvider : IDAOProvider, ISingletonDependency
         }
 
         _logger.LogInformation("DAOIndex with id {id} chainId {chainId} not existed.", DAOId, chainId);
+        return null;
+    }
+
+    public async Task<DAOIndex> GetDaoByTreasuryAddressAsync(string chainId, string treasuryAddress)
+    {
+        var mustQuery = new List<Func<QueryContainerDescriptor<DAOIndex>, QueryContainer>>();
+        mustQuery.Add(q => q.Term(i
+            => i.Field(f => f.ChainId).Value(chainId)));
+        mustQuery.Add(q => q.Term(i
+            => i.Field(f => f.TreasuryAccountAddress).Value(treasuryAddress)));
+
+        QueryContainer Filter(QueryContainerDescriptor<DAOIndex> f) =>
+            f.Bool(b => b.Must(mustQuery));
+
+        var daoIndex = await _daoRepository.GetAsync(Filter);
+        if (daoIndex != null)
+        {
+            return daoIndex;
+        }
+
+        _logger.LogInformation("DAOIndex with treasuryAddress {treasuryAddress} chainId {chainId} not existed.",
+            treasuryAddress, chainId);
         return null;
     }
 
