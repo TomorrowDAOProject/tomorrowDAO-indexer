@@ -1,5 +1,6 @@
 using AElf;
 using Shouldly;
+using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAO.Indexer.Plugin.GraphQL;
 using TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 using Xunit;
@@ -37,13 +38,13 @@ public partial class QueryTest : QueryTestBase
         DAOInfoDto.GovernanceContractAddress.ShouldBe(GovernanceContractAddress);
         DAOInfoDto.TimelockContractAddress.ShouldBe(TimelockContractAddress);
         
-        // DAOInfoDto.HighCouncilConfig.ShouldBeNull();
         DAOInfoDto.FileInfoList.ShouldBeNull();
         DAOInfoDto.IsTreasuryContractNeeded.ShouldBe(false);
         DAOInfoDto.SubsistStatus.ShouldBe(true);
         DAOInfoDto.Id.ShouldBe(DAOId);
         DAOInfoDto.Creator.ShouldBe(DAOCreator);
         DAOInfoDto.BlockHeight.ShouldBe(BlockHeight);
+        DAOInfoDto.GovernanceMechanism.ShouldBe(GovernanceMechanism.Organization);
     }
     
     [Fact]

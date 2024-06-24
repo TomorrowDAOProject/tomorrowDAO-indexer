@@ -8,6 +8,8 @@ using AElfIndexer.Client.Providers;
 using AElfIndexer.Grains;
 using AElfIndexer.Grains.State.Client;
 using Google.Protobuf.WellKnownTypes;
+using Newtonsoft.Json;
+using Shouldly;
 using TomorrowDAO.Contracts.DAO;
 using TomorrowDAO.Contracts.Election;
 using TomorrowDAO.Contracts.Governance;
@@ -21,13 +23,16 @@ using TomorrowDAO.Indexer.Plugin.Processors.Proposal;
 using TomorrowDAO.Indexer.Plugin.Processors.Token;
 using TomorrowDAO.Indexer.Plugin.Processors.Treasury;
 using TomorrowDAO.Indexer.Plugin.Tests.Helper;
+using AddressList = TomorrowDAO.Contracts.DAO.AddressList;
 using File = TomorrowDAO.Contracts.DAO.File;
 using FileInfo = TomorrowDAO.Contracts.DAO.FileInfo;
 using Metadata = TomorrowDAO.Contracts.DAO.Metadata;
 using Vote = TomorrowDAO.Indexer.Plugin.Processors.Vote;
 using ContractsVote = TomorrowDAO.Contracts.Vote;
 using ExecuteTransaction = TomorrowDAO.Contracts.Governance.ExecuteTransaction;
+using GovernanceMechanism = TomorrowDAO.Contracts.Governance.GovernanceMechanism;
 using GovernanceSchemeThreshold = TomorrowDAO.Contracts.Governance.GovernanceSchemeThreshold;
+using FileInfoIndexer = TomorrowDAO.Indexer.Plugin.Entities.FileInfo;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests;
 
@@ -43,6 +48,7 @@ public abstract class
     protected readonly IAElfIndexerClientEntityRepository<VoteItemIndex, LogEventInfo> VoteItemIndexRepository;
     protected readonly IAElfIndexerClientEntityRepository<VoteWithdrawnIndex, LogEventInfo> VoteWithdrawnRepository;
     protected readonly IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAOIndexRepository;
+    protected readonly IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> organizationIndexRepository;
     protected readonly IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo> LatestParticipatedIndexRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> TreasuryFundRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> TreasuryRecordRepository;
@@ -66,6 +72,8 @@ public abstract class
     protected readonly MetadataUpdatedProcessor MetadataUpdatedProcessor;
     protected readonly FileInfosRemovedProcessor FileInfosRemovedProcessor;
     protected readonly FileInfosUploadedProcessor FileInfosUploadedProcessor;
+    protected readonly MemberAddedProcessor MemberAddedProcessor;
+    protected readonly MemberRemovedProcessor MemberRemovedProcessor;
     protected readonly HighCouncilDisabledProcessor HighCouncilDisabledProcessor;
     protected readonly HighCouncilEnabledProcessor HighCouncilEnabledProcessor;
     protected readonly SubsistStatusSetProcessor SubsistStatusSetProcessor;
@@ -162,6 +170,7 @@ public abstract class
         VoteWithdrawnRepository =
             GetRequiredService<IAElfIndexerClientEntityRepository<VoteWithdrawnIndex, LogEventInfo>>();
         DAOIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo>>();
+        organizationIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo>>();
         LatestParticipatedIndexRepository =
             GetRequiredService<IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo>>();
         TreasuryFundRepository =
@@ -180,6 +189,8 @@ public abstract class
             GetRequiredService<IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo>>();
         FileInfosRemovedProcessor = GetRequiredService<FileInfosRemovedProcessor>();
         FileInfosUploadedProcessor = GetRequiredService<FileInfosUploadedProcessor>();
+        MemberAddedProcessor = GetRequiredService<MemberAddedProcessor>();
+        MemberRemovedProcessor = GetRequiredService<MemberRemovedProcessor>();
         HighCouncilDisabledProcessor = GetRequiredService<HighCouncilDisabledProcessor>();
         HighCouncilEnabledProcessor = GetRequiredService<HighCouncilEnabledProcessor>();
         SubsistStatusSetProcessor = GetRequiredService<SubsistStatusSetProcessor>();
@@ -317,6 +328,18 @@ public abstract class
         // step4 save data after logic
         await BlockStateSetSaveDataAsync<LogEventInfo>(blockStateSetKey);
     }
+    
+    protected async Task CheckFileInfo()
+    {
+        var DAOIndex = await DAOIndexRepository.GetFromBlockStateSetAsync(DAOId, ChainAelf);
+        DAOIndex.ShouldNotBeNull();
+        var fileInfoListString = DAOIndex.FileInfoList;
+        fileInfoListString.ShouldNotBeNull();
+        var fileList = JsonConvert.DeserializeObject<List<FileInfoIndexer>>(fileInfoListString);
+        fileList.ShouldNotBeNull();
+        fileList.Count.ShouldBe(1);
+        fileList[0].Uploader.ShouldBe(DAOCreator);
+    }
 
     protected LogEvent MaxInfoDAOCreated()
     {
@@ -339,7 +362,8 @@ public abstract class
                 ElectionContractAddress = Address.FromBase58(ElectionContractAddress),
                 GovernanceContractAddress = Address.FromBase58(GovernanceContractAddress),
                 TimelockContractAddress = Address.FromBase58(TimelockContractAddress)
-            }
+            },
+            GovernanceMechanism = Contracts.DAO.GovernanceMechanism.Organization
         }.ToLogEvent();
     }
 
@@ -709,6 +733,30 @@ public abstract class
                 LogoUrl = "update",
                 Description = "update",
                 SocialMedia = { ["update"] = "update" }
+            }
+        }.ToLogEvent();
+    }
+
+    protected LogEvent MemberAdded()
+    {
+        return new MemberAdded
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            AddMembers = new AddressList
+            {
+                Value = { Address.FromBase58(User), Address.FromBase58(Creator) }
+            }
+        }.ToLogEvent();
+    }
+    
+    protected LogEvent MemberRemoved()
+    {
+        return new MemberRemoved
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            RemoveMembers = new AddressList
+            {
+                Value = { Address.FromBase58(User), Address.FromBase58(DAOCreator), Address.FromBase58(Creator) }
             }
         }.ToLogEvent();
     }
