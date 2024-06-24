@@ -22,7 +22,7 @@ public class DAOCreatedProcessor : DAOProcessorBase<DAOCreated>
 
     protected override async Task HandleEventAsync(DAOCreated eventValue, LogEventContext context)
     {
-        var DAOId = eventValue.DaoId.ToHex();
+        var DAOId = eventValue.DaoId?.ToHex();
         var chainId = context.ChainId;
         Logger.LogInformation("[DAOCreated] START: Id={Id}, ChainId={ChainId}, Event={Event}",
             DAOId, chainId, JsonConvert.SerializeObject(eventValue));
@@ -32,9 +32,12 @@ public class DAOCreatedProcessor : DAOProcessorBase<DAOCreated>
             if (DAOIndex != null)
             {
                 Logger.LogInformation("[DAOCreated] DAO already existed: Id={Id}, ChainId={ChainId}", DAOId, chainId);
-                return;
+                DAOIndex = ObjectMapper.Map(eventValue, DAOIndex);
             }
-            DAOIndex = ObjectMapper.Map<DAOCreated, DAOIndex>(eventValue);
+            else
+            {
+                DAOIndex = ObjectMapper.Map<DAOCreated, DAOIndex>(eventValue);
+            }
             DAOIndex.OfPeriod();
             DAOIndex.CreateTime = context.BlockTime;
             DAOIndex.SubsistStatus = true;

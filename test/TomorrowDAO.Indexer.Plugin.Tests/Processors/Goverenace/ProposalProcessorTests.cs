@@ -42,7 +42,7 @@ public class ProposalProcessorTests : TomorrowDAOIndexerPluginTestBase
         proposalIndex.SchemeAddress.ShouldBe(SchemeAddress);
         proposalIndex.VoteSchemeId.ShouldBe(VoteSchemeId);
         proposalIndex.VetoProposalId.ShouldBe(VetoProposalId);
-        proposalIndex.GovernanceMechanism.ShouldBe(GovernanceMechanism.Referendum);
+        proposalIndex.GovernanceMechanism.ShouldBe(GovernanceMechanism.Organization);
         proposalIndex.MinimalRequiredThreshold.ShouldBe(10);
         proposalIndex.MinimalVoteThreshold.ShouldBe(12);
         proposalIndex.MinimalApproveThreshold.ShouldBe(50);

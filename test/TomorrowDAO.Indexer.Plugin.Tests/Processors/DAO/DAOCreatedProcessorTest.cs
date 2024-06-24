@@ -1,5 +1,6 @@
 using Shouldly;
 using TomorrowDAO.Indexer.Orleans.TestBase;
+using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using Xunit;
 
@@ -8,6 +9,15 @@ namespace TomorrowDAO.Indexer.Plugin.Tests.Processors.DAO;
 [CollectionDefinition(ClusterCollection.Name)]
 public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
 {
+    [Fact]
+    public async Task HandleEventAsync_AfterFileInfoUploaded_Test()
+    {
+        await MockEventProcess(FileInfosUploaded(), FileInfosUploadedProcessor);
+        await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
+        
+        await CheckFileInfo();
+    }
+
     [Fact]
     public async Task HandleEventAsync_MaxInfo_Test()
     {
@@ -29,7 +39,6 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
         DAOIndex.GovernanceContractAddress.ShouldBe(GovernanceContractAddress);
         DAOIndex.TimelockContractAddress.ShouldBe(TimelockContractAddress);
 
-        // DAOIndex.HighCouncilConfig.ShouldBeNull();
         DAOIndex.FileInfoList.ShouldBeNull();
         DAOIndex.IsTreasuryContractNeeded.ShouldBe(false);
         DAOIndex.SubsistStatus.ShouldBe(true);
@@ -41,6 +50,7 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
         DAOIndex.PendingTimePeriod.ShouldBe(MinPendingTimePeriod);
         DAOIndex.ExecuteTimePeriod.ShouldBe(MinExecuteTimePeriod);
         DAOIndex.VetoExecuteTimePeriod.ShouldBe(MinVetoExecuteTimePeriod);
+        DAOIndex.GovernanceMechanism.ShouldBe(GovernanceMechanism.Organization);
     }
 
     [Fact]
@@ -55,18 +65,6 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerPluginTestBase
         
         DAOIndex.Creator.ShouldBe(string.Empty);
         DAOIndex.FileInfoList.ShouldBeNull();
-        // DAOIndex.HighCouncilConfig.ShouldBeNull();
-    }
-
-    [Fact]
-    public async Task HandleEventAsync_Duplicate_Test()
-    {
-        await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
-        await MockEventProcess(MinInfoDAOCreated(), DAOCreatedProcessor);
-        
-        var DAOIndex = await DAOIndexRepository.GetFromBlockStateSetAsync(DAOId, ChainAelf);
-        DAOIndex.ShouldNotBeNull();
-        DAOIndex.Creator.ShouldBe(DAOCreator);
     }
 
     [Fact]

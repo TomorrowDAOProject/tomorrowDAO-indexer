@@ -1,6 +1,9 @@
 using AElf.Indexing.Elasticsearch;
 using AElfIndexer.Client;
 using Nest;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using TomorrowDAO.Indexer.Plugin.Enums;
 
 namespace TomorrowDAO.Indexer.Plugin.Entities;
 
@@ -41,7 +44,9 @@ public class DAOIndex : AElfIndexerClientEntity<string>, IIndexBuild
     public int VoterCount { get; set; }
     public long VoteAmount { get; set; }
     public long WithdrawAmount { get; set; }
-
+    
+    [JsonConverter(typeof(StringEnumConverter))]
+    public GovernanceMechanism GovernanceMechanism { get; set; }
     public void OfPeriod()
     {
         ActiveTimePeriod = TomorrowDAOConst.MinActiveTimePeriod;

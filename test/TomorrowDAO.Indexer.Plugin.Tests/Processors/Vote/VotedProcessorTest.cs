@@ -1,6 +1,5 @@
 using AElf;
 using Shouldly;
-using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAO.Indexer.Orleans.TestBase;
 using Xunit;
 

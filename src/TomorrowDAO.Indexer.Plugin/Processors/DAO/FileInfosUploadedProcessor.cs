@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using TomorrowDAO.Contracts.DAO;
+using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 using FileInfoIndexer = TomorrowDAO.Indexer.Plugin.Entities.FileInfo;
@@ -29,26 +30,27 @@ public class FileInfosUploadedProcessor : DAOProcessorBase<FileInfosUploaded>
             DAOId, chainId, JsonConvert.SerializeObject(eventValue));
         try
         {
+            var uploadedFiles = eventValue.UploadedFiles;
+            if (uploadedFiles == null)
+            {
+                Logger.LogInformation("[FileInfosUploaded] no files to upload: Id={Id}, ChainId={ChainId}", DAOId, chainId);
+                return;
+            }
+
             var DAOIndex = await DAOProvider.GetDaoAsync(chainId, DAOId);
             if (DAOIndex == null)
             {
                 Logger.LogInformation("[FileInfosUploaded] DAO not existed: Id={Id}, ChainId={ChainId}", 
                     DAOId, chainId);
-                return;
+                DAOIndex = ObjectMapper.Map<FileInfosUploaded, DAOIndex>(eventValue);
             }
-
-            var uploadedFiles = eventValue.UploadedFiles;
-            if (uploadedFiles != null)
-            {
-                var currentFileInfo = JsonConvert.DeserializeObject<List<FileInfoIndexer>>(DAOIndex.FileInfoList?? string.Empty) 
-                                      ?? new List<FileInfoIndexer>();
-                var currentFileIds = currentFileInfo.Select(x => x.File.Cid).ToList();
-                var toAdd = ObjectMapper.Map<List<FileInfoContract>, List<FileInfoIndexer>>(uploadedFiles.Data.Values
-                    .ToList()).Where(x => !currentFileIds.Contains(x.File.Cid)).ToList();
-                DAOIndex.FileInfoList = JsonConvert.SerializeObject(currentFileInfo.Union(toAdd));
-                await DAOProvider.SaveIndexAsync(DAOIndex, context);
-                Logger.LogInformation("[FileInfosUploaded] UPLOADED: Id={Id}, ChainId={ChainId}", DAOId, chainId);
-            }
+            var currentFileInfo = JsonConvert.DeserializeObject<List<FileInfoIndexer>>(DAOIndex.FileInfoList?? string.Empty) 
+                                  ?? new List<FileInfoIndexer>();
+            var currentFileIds = currentFileInfo.Select(x => x.File.Cid).ToList();
+            var toAdd = ObjectMapper.Map<List<FileInfoContract>, List<FileInfoIndexer>>(uploadedFiles.Data.Values
+                .ToList()).Where(x => !currentFileIds.Contains(x.File.Cid)).ToList();
+            DAOIndex.FileInfoList = JsonConvert.SerializeObject(currentFileInfo.Union(toAdd));
+            await DAOProvider.SaveIndexAsync(DAOIndex, context);
             Logger.LogInformation("[FileInfosUploaded] FINISH: Id={Id}, ChainId={ChainId}", DAOId, chainId);
         }
         catch (Exception e)

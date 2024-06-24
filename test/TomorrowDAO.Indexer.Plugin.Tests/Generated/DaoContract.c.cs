@@ -31,6 +31,7 @@ namespace TomorrowDAO.Contracts.DAO {
         ContractAddressList = ContractAddressList,
         IsNetworkDao = IsNetworkDao,
         TreasuryAddress = TreasuryAddress,
+        GovernanceMechanism = GovernanceMechanism,
       };
     }
   }
@@ -149,6 +150,44 @@ namespace TomorrowDAO.Contracts.DAO {
     }
   }
 
+  public partial class MemberAdded : aelf::IEvent<MemberAdded>
+  {
+    public global::System.Collections.Generic.IEnumerable<MemberAdded> GetIndexed()
+    {
+      return new List<MemberAdded>
+      {
+      };
+    }
+
+    public MemberAdded GetNonIndexed()
+    {
+      return new MemberAdded
+      {
+        DaoId = DaoId,
+        AddMembers = AddMembers,
+      };
+    }
+  }
+
+  public partial class MemberRemoved : aelf::IEvent<MemberRemoved>
+  {
+    public global::System.Collections.Generic.IEnumerable<MemberRemoved> GetIndexed()
+    {
+      return new List<MemberRemoved>
+      {
+      };
+    }
+
+    public MemberRemoved GetNonIndexed()
+    {
+      return new MemberRemoved
+      {
+        DaoId = DaoId,
+        RemoveMembers = RemoveMembers,
+      };
+    }
+  }
+
   #endregion
   public static partial class DAOContractContainer
   {
@@ -177,6 +216,10 @@ namespace TomorrowDAO.Contracts.DAO {
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.RemoveGovernanceSchemeInput> __Marshaller_RemoveGovernanceSchemeInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.RemoveGovernanceSchemeInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.SetGovernanceTokenInput> __Marshaller_SetGovernanceTokenInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.SetGovernanceTokenInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.SetProposalTimePeriodInput> __Marshaller_SetProposalTimePeriodInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.SetProposalTimePeriodInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.AddMemberInput> __Marshaller_AddMemberInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.AddMemberInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.RemoveMemberInput> __Marshaller_RemoveMemberInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.RemoveMemberInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.DAO.GetIsMemberInput> __Marshaller_GetIsMemberInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.DAO.GetIsMemberInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::Google.Protobuf.WellKnownTypes.Int64Value> __Marshaller_google_protobuf_Int64Value = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Int64Value.Parser.ParseFrom);
     #endregion
 
     #region Methods
@@ -362,6 +405,34 @@ namespace TomorrowDAO.Contracts.DAO {
         __Marshaller_aelf_Hash,
         __Marshaller_aelf_Address);
 
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.AddMemberInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_AddMember = new aelf::Method<global::TomorrowDAO.Contracts.DAO.AddMemberInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "AddMember",
+        __Marshaller_AddMemberInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.RemoveMemberInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_RemoveMember = new aelf::Method<global::TomorrowDAO.Contracts.DAO.RemoveMemberInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "RemoveMember",
+        __Marshaller_RemoveMemberInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.DAO.GetIsMemberInput, global::Google.Protobuf.WellKnownTypes.BoolValue> __Method_GetIsMember = new aelf::Method<global::TomorrowDAO.Contracts.DAO.GetIsMemberInput, global::Google.Protobuf.WellKnownTypes.BoolValue>(
+        aelf::MethodType.View,
+        __ServiceName,
+        "GetIsMember",
+        __Marshaller_GetIsMemberInput,
+        __Marshaller_google_protobuf_BoolValue);
+
+    static readonly aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Int64Value> __Method_GetMemberCount = new aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Int64Value>(
+        aelf::MethodType.View,
+        __ServiceName,
+        "GetMemberCount",
+        __Marshaller_aelf_Hash,
+        __Marshaller_google_protobuf_Int64Value);
+
     #endregion
 
     #region Descriptors
@@ -516,8 +587,28 @@ namespace TomorrowDAO.Contracts.DAO {
     //     throw new global::System.NotImplementedException();
     //   }
     //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty AddMember(global::TomorrowDAO.Contracts.DAO.AddMemberInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty RemoveMember(global::TomorrowDAO.Contracts.DAO.RemoveMemberInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.BoolValue GetIsMember(global::TomorrowDAO.Contracts.DAO.GetIsMemberInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Int64Value GetMemberCount(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
     // }
-
+    //
     // public static aelf::ServerServiceDefinition BindService(DAOContractBase serviceImpl)
     // {
     //   return aelf::ServerServiceDefinition.CreateBuilder()
@@ -547,7 +638,11 @@ namespace TomorrowDAO.Contracts.DAO {
     //       .AddMethod(__Method_SetGovernanceToken, serviceImpl.SetGovernanceToken)
     //       .AddMethod(__Method_SetProposalTimePeriod, serviceImpl.SetProposalTimePeriod)
     //       .AddMethod(__Method_SetTreasuryContractAddress, serviceImpl.SetTreasuryContractAddress)
-    //       .AddMethod(__Method_GetTreasuryAddress, serviceImpl.GetTreasuryAddress).Build();
+    //       .AddMethod(__Method_GetTreasuryAddress, serviceImpl.GetTreasuryAddress)
+    //       .AddMethod(__Method_AddMember, serviceImpl.AddMember)
+    //       .AddMethod(__Method_RemoveMember, serviceImpl.RemoveMember)
+    //       .AddMethod(__Method_GetIsMember, serviceImpl.GetIsMember)
+    //       .AddMethod(__Method_GetMemberCount, serviceImpl.GetMemberCount).Build();
     // }
 
   }
