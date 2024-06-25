@@ -1,6 +1,6 @@
 namespace TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 
-public class GetIsMemberInput
+public class GetMemberInput
 {
     public string ChainId { get; set; }
     public string DAOId { get; set; }

@@ -25,14 +25,15 @@ public class OrganizationQueryTest : QueryTestBase
     }
 
     [Fact]
-    public async Task GetIsMemberAsync_Test()
+    public async Task GetMemberAsync_Test()
     {
         await MockEventProcess(MemberAdded(), MemberAddedProcessor);
 
-        var isMember= await Query.GetIsMemberAsync(organizationIndexRepository, new GetIsMemberInput
+        var member= await Query.GetMemberAsync(organizationIndexRepository, ObjectMapper , new GetMemberInput
         {
             ChainId = ChainAelf, DAOId = DAOId, Address = User
         });
-        isMember.ShouldBe(true);
+        member.ShouldNotBeNull();
+        member.Address.ShouldBe(User);
     }
 }
