@@ -35,7 +35,7 @@ public class HighCouncilAddedProcessor : ElectionProcessorBase<HighCouncilAdded>
             var highCouncilConfigId = IdGenerateHelper.GetId(daoId, chainId);
 
             var highCouncilConfigIndex =
-                await _electionProvider.GetHighCouncilConfigIndexAsync(highCouncilConfigId, chainId);
+                await ElectionProvider.GetHighCouncilConfigIndexAsync(highCouncilConfigId, chainId);
             if (highCouncilConfigIndex == null)
             {
                 Logger.LogInformation(
@@ -56,7 +56,7 @@ public class HighCouncilAddedProcessor : ElectionProcessorBase<HighCouncilAdded>
                 highCouncilConfigIndex.InitialHighCouncilMembers.AddRange(addressList);
             }
 
-            await _electionProvider.SaveHighCouncilConfigIndexAsync(highCouncilConfigIndex, context);
+            await ElectionProvider.SaveHighCouncilConfigIndexAsync(highCouncilConfigIndex, context);
             Logger.LogInformation(
                 "[HighCouncilAdded] Update ElectionHighCouncilConfigIndex FINISH: Id={Id}, ChainId={ChainId}",
                 highCouncilConfigId,

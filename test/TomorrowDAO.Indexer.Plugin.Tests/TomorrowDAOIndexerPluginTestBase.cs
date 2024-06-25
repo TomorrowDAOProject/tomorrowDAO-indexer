@@ -48,12 +48,18 @@ public abstract class
     protected readonly IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> TreasuryFundRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> TreasuryRecordRepository;
     protected readonly IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> ElectionRepository;
+
     protected readonly IAElfIndexerClientEntityRepository<ElectionHighCouncilConfigIndex, LogEventInfo>
         ElectionHighCouncilConfigRepository;
+
     protected readonly IAElfIndexerClientEntityRepository<ElectionVotingItemIndex, LogEventInfo>
         ElectionVotingItemRepository;
+
     protected readonly IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo>
         GovernanceSchemeRepository;
+
+    protected readonly IAElfIndexerClientEntityRepository<ElectionCandidateElectedIndex, LogEventInfo>
+        CandidateElectedRepository;
 
     protected readonly IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> ProposalIndexRepository;
     protected readonly IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo> VoteRecordIndexRepository;
@@ -79,6 +85,7 @@ public abstract class
     protected readonly ElectionVotingEventRegisteredProcessor ElectionVotingEventRegisteredProcessor;
     protected readonly HighCouncilAddedProcessor HighCouncilAddedProcessor;
     protected readonly HighCouncilRemovedProcessor HighCouncilRemovedProcessor;
+    protected readonly CandidateElectedProcessor CandidateElectedProcessor;
     protected readonly GovernanceSchemeAddedProcessor GovernanceSchemeAddedProcessor;
     protected readonly GovernanceSchemeThresholdRemovedProcessor GovernanceSchemeThresholdRemovedProcessor;
     protected readonly GovernanceSchemeThresholdUpdatedProcessor GovernanceSchemeThresholdUpdatedProcessor;
@@ -175,6 +182,8 @@ public abstract class
             GetRequiredService<IAElfIndexerClientEntityRepository<ElectionVotingItemIndex, LogEventInfo>>();
         GovernanceSchemeRepository =
             GetRequiredService<IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo>>();
+        CandidateElectedRepository =
+            GetRequiredService<IAElfIndexerClientEntityRepository<ElectionCandidateElectedIndex, LogEventInfo>>();
         ProposalIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo>>();
         VoteRecordIndexRepository =
             GetRequiredService<IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo>>();
@@ -200,6 +209,7 @@ public abstract class
         ElectionVotingEventRegisteredProcessor = GetRequiredService<ElectionVotingEventRegisteredProcessor>();
         HighCouncilAddedProcessor = GetRequiredService<HighCouncilAddedProcessor>();
         HighCouncilRemovedProcessor = GetRequiredService<HighCouncilRemovedProcessor>();
+        CandidateElectedProcessor = GetRequiredService<CandidateElectedProcessor>();
         GovernanceSchemeAddedProcessor = GetRequiredService<GovernanceSchemeAddedProcessor>();
         GovernanceSchemeThresholdRemovedProcessor = GetRequiredService<GovernanceSchemeThresholdRemovedProcessor>();
         GovernanceSchemeThresholdUpdatedProcessor = GetRequiredService<GovernanceSchemeThresholdUpdatedProcessor>();
@@ -407,7 +417,7 @@ public abstract class
             Memo = "Test",
         }.ToLogEvent();
     }
-    
+
     protected LogEvent TreasuryTransferred()
     {
         return new TreasuryTransferred
@@ -463,26 +473,25 @@ public abstract class
             }
         }.ToLogEvent();
     }
-    
+
     protected LogEvent HighCouncilAdded()
     {
         return new HighCouncilAdded
         {
             DaoId = HashHelper.ComputeFrom(Id1),
-            AddHighCouncils = new AddressList
+            AddHighCouncils = new Contracts.Election.AddressList
             {
-                Value = { Address.FromBase58(Creator), Address.FromBase58(User)}
+                Value = { Address.FromBase58(Creator), Address.FromBase58(User) }
             }
-
         }.ToLogEvent();
     }
-    
+
     protected LogEvent HighCouncilRemoved()
     {
         return new HighCouncilRemoved
         {
             DaoId = HashHelper.ComputeFrom(Id1),
-            RemoveHighCouncils = new AddressList
+            RemoveHighCouncils = new Contracts.Election.AddressList
             {
                 Value =
                 {
@@ -490,6 +499,16 @@ public abstract class
                     Address.FromBase58(User)
                 }
             }
+        }.ToLogEvent();
+    }
+
+    protected LogEvent CandidateElected()
+    {
+        return new CandidateElected
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            PreTermNumber = 1,
+            NewNumber = 2
         }.ToLogEvent();
     }
 

@@ -35,7 +35,7 @@ public class HighCouncilRemovedProcessor : ElectionProcessorBase<HighCouncilRemo
             var highCouncilConfigId = IdGenerateHelper.GetId(daoId, chainId);
 
             var highCouncilConfigIndex =
-                await _electionProvider.GetHighCouncilConfigIndexAsync(highCouncilConfigId, chainId);
+                await ElectionProvider.GetHighCouncilConfigIndexAsync(highCouncilConfigId, chainId);
             if (highCouncilConfigIndex == null)
             {
                 Logger.LogError(
@@ -48,7 +48,7 @@ public class HighCouncilRemovedProcessor : ElectionProcessorBase<HighCouncilRemo
                 daoId, chainId);
             highCouncilConfigIndex.InitialHighCouncilMembers.RemoveAll(item => addressList.Contains(item));
 
-            await _electionProvider.SaveHighCouncilConfigIndexAsync(highCouncilConfigIndex, context);
+            await ElectionProvider.SaveHighCouncilConfigIndexAsync(highCouncilConfigIndex, context);
             Logger.LogInformation(
                 "[HighCouncilRemoved] Update ElectionHighCouncilConfigIndex FINISH: Id={Id}, ChainId={ChainId}",
                 highCouncilConfigId, chainId);

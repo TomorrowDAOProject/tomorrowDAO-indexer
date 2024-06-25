@@ -37,4 +37,6 @@ public class GetElectionVotingItemIndexInput
     public string DaoId { get; set; }
     public int SkipCount { get; set; } = 0;
     public int MaxResultCount { get; set; } = 10;
+    public long StartBlockHeight { get; set; }
+    public long EndBlockHeight { get; set; }
 }
