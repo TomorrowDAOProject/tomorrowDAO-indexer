@@ -23,4 +23,16 @@ public class OrganizationQueryTest : QueryTestBase
         addresses.ShouldContain(User);
         addresses.ShouldContain(DAOCreator);
     }
+
+    [Fact]
+    public async Task GetIsMemberAsync_Test()
+    {
+        await MockEventProcess(MemberAdded(), MemberAddedProcessor);
+
+        var isMember= await Query.GetIsMemberAsync(organizationIndexRepository, new GetIsMemberInput
+        {
+            ChainId = ChainAelf, DAOId = DAOId, Address = User
+        });
+        isMember.ShouldBe(true);
+    }
 }

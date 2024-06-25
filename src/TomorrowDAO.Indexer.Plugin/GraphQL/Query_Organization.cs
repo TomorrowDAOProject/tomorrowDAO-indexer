@@ -36,4 +36,24 @@ public partial class Query
             Data = objectMapper.Map<List<OrganizationIndex>, List<MemberDto>>(result.Item2)
         };
     }
+    
+    [Name("getIsMemberAsync")]
+    public static async Task<bool> GetIsMemberAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> repository,
+        GetIsMemberInput input)
+    {
+        var mustQuery = new List<Func<QueryContainerDescriptor<OrganizationIndex>, QueryContainer>>
+        {
+            q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId)),
+            q => q.Term(i
+                => i.Field(f => f.DAOId).Value(input.DAOId)),
+            q => q.Term(i
+                => i.Field(f => f.Address).Value(input.Address))
+        };
+        QueryContainer Filter(QueryContainerDescriptor<OrganizationIndex> f) =>
+            f.Bool(b => b.Must(mustQuery));
+        var result = await repository.CountAsync(Filter);
+        return result.Count > 0;
+    }
 }
