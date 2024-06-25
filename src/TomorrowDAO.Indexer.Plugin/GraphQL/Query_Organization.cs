@@ -11,7 +11,7 @@ namespace TomorrowDAO.Indexer.Plugin.GraphQL;
 public partial class Query
 {
     [Name("getMemberListAsync")]
-    public static async Task<MemberListPageResultDto> GetMemberListAsync(
+    public static async Task<PageResultDto<MemberDto>> GetMemberListAsync(
         [FromServices] IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> repository,
         [FromServices] IObjectMapper objectMapper,
         GetMemberListInput input)
@@ -30,10 +30,10 @@ public partial class Query
         var result = await repository.GetSortListAsync(Filter,
             sortFunc: s => s.Ascending(a => a.CreateTime),
             skip: input.SkipCount, limit: input.MaxResultCount);
-        return new MemberListPageResultDto
+        return new PageResultDto<MemberDto>
         {
             TotalCount = result.Item1,
-            DataList = objectMapper.Map<List<OrganizationIndex>, List<MemberDto>>(result.Item2)
+            Data = objectMapper.Map<List<OrganizationIndex>, List<MemberDto>>(result.Item2)
         };
     }
 }

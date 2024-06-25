@@ -17,7 +17,7 @@ public class OrganizationQueryTest : QueryTestBase
             ChainId = ChainAelf, DAOId = DAOId, SkipCount = 0, MaxResultCount = 10
         });
         result.TotalCount.ShouldBe(2);
-        var list = result.DataList;
+        var list = result.Data;
         list.Count.ShouldBe(2);
         var addresses = string.Join(",", list.Select(x => x.Address));
         addresses.ShouldContain(User);
