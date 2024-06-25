@@ -27,9 +27,10 @@ public class MemberAddedProcessor : DAOProcessorBase<MemberAdded>
         try
         {
             var addMembers = eventValue.AddMembers;
-            if (addMembers == null)
+            if (addMembers == null || addMembers.Value.Count == 0)
             {
                 Logger.LogInformation("[MemberAdded] no member to add: DAOId={Id}, ChainId={ChainId}", DAOId, chainId);
+                return;
             }
             foreach (var member in addMembers!.Value)
             {

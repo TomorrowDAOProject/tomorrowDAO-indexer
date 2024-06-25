@@ -10,32 +10,32 @@ namespace TomorrowDAO.Indexer.Plugin.GraphQL;
 
 public partial class Query
 {
-    [Name("getMemberListAsync")]
-    public static async Task<PageResultDto<MemberDto>> GetMemberListAsync(
-        [FromServices] IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> repository,
-        [FromServices] IObjectMapper objectMapper,
-        GetMemberListInput input)
-    {
-        var mustQuery = new List<Func<QueryContainerDescriptor<OrganizationIndex>, QueryContainer>>
-        {
-            q => q.Term(i
-                => i.Field(f => f.ChainId).Value(input.ChainId)),
-            q => q.Term(i
-                => i.Field(f => f.DAOId).Value(input.DAOId))
-        };
-    
-        QueryContainer Filter(QueryContainerDescriptor<OrganizationIndex> f) =>
-            f.Bool(b => b.Must(mustQuery));
-    
-        var result = await repository.GetSortListAsync(Filter,
-            sortFunc: s => s.Ascending(a => a.CreateTime),
-            skip: input.SkipCount, limit: input.MaxResultCount);
-        return new PageResultDto<MemberDto>
-        {
-            TotalCount = result.Item1,
-            Data = objectMapper.Map<List<OrganizationIndex>, List<MemberDto>>(result.Item2)
-        };
-    }
+    // [Name("getMemberListAsync")]
+    // public static async Task<PageResultDto<MemberDto>> GetMemberListAsync(
+    //     [FromServices] IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> repository,
+    //     [FromServices] IObjectMapper objectMapper,
+    //     GetMemberListInput input)
+    // {
+    //     var mustQuery = new List<Func<QueryContainerDescriptor<OrganizationIndex>, QueryContainer>>
+    //     {
+    //         q => q.Term(i
+    //             => i.Field(f => f.ChainId).Value(input.ChainId)),
+    //         q => q.Term(i
+    //             => i.Field(f => f.DAOId).Value(input.DAOId))
+    //     };
+    //
+    //     QueryContainer Filter(QueryContainerDescriptor<OrganizationIndex> f) =>
+    //         f.Bool(b => b.Must(mustQuery));
+    //
+    //     var result = await repository.GetSortListAsync(Filter,
+    //         sortFunc: s => s.Ascending(a => a.CreateTime),
+    //         skip: input.SkipCount, limit: input.MaxResultCount);
+    //     return new PageResultDto<MemberDto>
+    //     {
+    //         TotalCount = result.Item1,
+    //         Data = objectMapper.Map<List<OrganizationIndex>, List<MemberDto>>(result.Item2)
+    //     };
+    // }
     
     [Name("getMemberAsync")]
     public static async Task<MemberDto> GetMemberAsync(
