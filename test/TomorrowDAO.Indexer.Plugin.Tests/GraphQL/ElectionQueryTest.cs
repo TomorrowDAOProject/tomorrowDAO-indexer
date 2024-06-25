@@ -1,3 +1,4 @@
+using AElf;
 using Shouldly;
 using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAO.Indexer.Plugin.GraphQL;
@@ -9,10 +10,57 @@ namespace TomorrowDAO.Indexer.Plugin.Tests.GraphQL;
 public class ElectionQueryTest : QueryTestBase
 {
     [Fact]
+    public async Task GetElectionHighCouncilConfigAsync_Test()
+    {
+        var daoId = HashHelper.ComputeFrom(Id1);
+
+        var logEvent = HighCouncilAdded();
+        await MockEventProcess(logEvent, HighCouncilAddedProcessor);
+
+        var result = await Query.GetElectionHighCouncilConfigAsync(ElectionHighCouncilConfigRepository, ObjectMapper,
+            new GetElectionHighCouncilListInput
+            {
+                ChainId = ChainAelf,
+                DaoId = daoId.ToHex(),
+                SkipCount = 0,
+                MaxResultCount = 10
+            });
+        result.ShouldNotBeNull();
+        result.Count.ShouldBe(1);
+        result.Data.ShouldNotBeNull();
+        result.Data.FirstOrDefault().ShouldNotBeNull();
+        result.Data.FirstOrDefault()!.InitialHighCouncilMembers.Count.ShouldBe(2);
+    }
+
+    [Fact]
+    public async Task GetElectionVotingItemIndexAsync_Test()
+    {
+        var daoId = HashHelper.ComputeFrom(Id1);
+
+        var logEvent = ElectionVotingEventRegistered();
+        await MockEventProcess(logEvent, ElectionVotingEventRegisteredProcessor);
+
+        var result = await Query.GetElectionVotingItemIndexAsync(ElectionVotingItemRepository, ObjectMapper,
+            new GetElectionHighCouncilListInput
+            {
+                ChainId = ChainAelf,
+                DaoId = daoId.ToHex(),
+                SkipCount = 0,
+                MaxResultCount = 10
+            });
+        result.ShouldNotBeNull();
+        result.Count.ShouldBe(1);
+        result.Data.ShouldNotBeNull();
+        result.Data.FirstOrDefault().ShouldNotBeNull();
+        result.Data.FirstOrDefault()!.DaoId.ShouldBe(daoId.ToHex());
+    }
+
+
+    [Fact]
     public async Task GetElectionListAsync_Test()
     {
         await MockEventProcess(CandidateAdded(), CandidateAddedProcessor);
-        
+
         // var elections = await Query.GetElectionListAsync(ElectionRepository, ObjectMapper, new GetChainBlockHeightInput
         // {
         //     ChainId = ChainAelf,
@@ -34,7 +82,7 @@ public class ElectionQueryTest : QueryTestBase
     public async Task GetHighCouncilListAsync_Test()
     {
         await MockEventProcess(CandidateAdded(), CandidateAddedProcessor);
-        
+
         // var elections = await Query.GetHighCouncilListAsync(ElectionRepository, ObjectMapper, new GetHighCouncilListInput
         // {
         //     DAOId = DAOId,

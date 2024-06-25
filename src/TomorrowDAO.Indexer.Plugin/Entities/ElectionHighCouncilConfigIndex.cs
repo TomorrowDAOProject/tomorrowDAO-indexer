@@ -15,4 +15,5 @@ public class ElectionHighCouncilConfigIndex : AElfIndexerClientEntity<string>, I
     public bool IsRequireHighCouncilForExecution { get; set; }
     [Keyword] public string GovernanceToken { get; set; }
     public long StakeThreshold { get; set; }
+    public List<string> InitialHighCouncilMembers { get; set; } = new List<string>();
 }

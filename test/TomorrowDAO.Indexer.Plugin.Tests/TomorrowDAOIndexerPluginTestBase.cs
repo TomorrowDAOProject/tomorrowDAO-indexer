@@ -53,13 +53,10 @@ public abstract class
     protected readonly IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> TreasuryFundRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> TreasuryRecordRepository;
     protected readonly IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> ElectionRepository;
-
     protected readonly IAElfIndexerClientEntityRepository<ElectionHighCouncilConfigIndex, LogEventInfo>
         ElectionHighCouncilConfigRepository;
-
     protected readonly IAElfIndexerClientEntityRepository<ElectionVotingItemIndex, LogEventInfo>
         ElectionVotingItemRepository;
-
     protected readonly IAElfIndexerClientEntityRepository<GovernanceSchemeIndex, LogEventInfo>
         GovernanceSchemeRepository;
 
@@ -87,6 +84,8 @@ public abstract class
     protected readonly VotedProcessor VotedProcessor;
     protected readonly Vote.VotedProcessor VoteVotedProcessor;
     protected readonly ElectionVotingEventRegisteredProcessor ElectionVotingEventRegisteredProcessor;
+    protected readonly HighCouncilAddedProcessor HighCouncilAddedProcessor;
+    protected readonly HighCouncilRemovedProcessor HighCouncilRemovedProcessor;
     protected readonly GovernanceSchemeAddedProcessor GovernanceSchemeAddedProcessor;
     protected readonly GovernanceSchemeThresholdRemovedProcessor GovernanceSchemeThresholdRemovedProcessor;
     protected readonly GovernanceSchemeThresholdUpdatedProcessor GovernanceSchemeThresholdUpdatedProcessor;
@@ -209,6 +208,8 @@ public abstract class
         VotedProcessor = GetRequiredService<VotedProcessor>();
         VoteVotedProcessor = GetRequiredService<Vote.VotedProcessor>();
         ElectionVotingEventRegisteredProcessor = GetRequiredService<ElectionVotingEventRegisteredProcessor>();
+        HighCouncilAddedProcessor = GetRequiredService<HighCouncilAddedProcessor>();
+        HighCouncilRemovedProcessor = GetRequiredService<HighCouncilRemovedProcessor>();
         GovernanceSchemeAddedProcessor = GetRequiredService<GovernanceSchemeAddedProcessor>();
         GovernanceSchemeThresholdRemovedProcessor = GetRequiredService<GovernanceSchemeThresholdRemovedProcessor>();
         GovernanceSchemeThresholdUpdatedProcessor = GetRequiredService<GovernanceSchemeThresholdUpdatedProcessor>();
@@ -482,6 +483,35 @@ public abstract class
                 Sponsor = Address.FromBase58(DAOCreator),
                 IsQuadratic = false,
                 TicketCost = 0
+            }
+        }.ToLogEvent();
+    }
+    
+    protected LogEvent HighCouncilAdded()
+    {
+        return new HighCouncilAdded
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            AddHighCouncils = new AddressList
+            {
+                Value = { Address.FromBase58(Creator), Address.FromBase58(User)}
+            }
+
+        }.ToLogEvent();
+    }
+    
+    protected LogEvent HighCouncilRemoved()
+    {
+        return new HighCouncilRemoved
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            RemoveHighCouncils = new AddressList
+            {
+                Value =
+                {
+                    Address.FromBase58(OrganizationAddress),
+                    Address.FromBase58(User)
+                }
             }
         }.ToLogEvent();
     }
