@@ -135,6 +135,8 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.StakingAmount, opt
                 => opt.MapFrom(source => source.HighCouncilInput.HighCouncilConfig.StakingAmount))
             ;
+        CreateMap<ElectionHighCouncilConfigIndex, ElectionHighCouncilConfig>();
+        CreateMap<ElectionVotingItemIndex, ElectionVotingItem>();
         CreateMap<LogEventContext, GovernanceSchemeIndex>();
         CreateMap<GovernanceSchemeAdded, GovernanceSchemeIndex>()
             .ForMember(des => des.SchemeId, opt

@@ -3,6 +3,7 @@ using AElfIndexer.Client.Handlers;
 using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using TomorrowDAO.Contracts.Election;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
@@ -47,14 +48,17 @@ public class ElectionVotingEventRegisteredProcessor : ElectionProcessorBase<Elec
     {
         try
         {
+            Logger.LogInformation(
+                "[ElectionVotingEventRegistered] Update ElectionVotingItemIndex: DaoId={Id}, ChainId={ChainId}",
+                daoId, chainId);
             var votingItemId = IdGenerateHelper.GetId(daoId, chainId);
 
             var votingItemIndex = await _electionProvider.GetVotingItemIndexAsync(votingItemId, chainId);
             if (votingItemIndex != null)
             {
                 Logger.LogInformation(
-                    "[ElectionVotingItemIndex] candidate not existed: DaoId={Id}, ChainId={ChainId}", daoId,
-                    chainId);
+                    "[ElectionVotingEventRegistered] ElectionVotingItemIndex existed: DaoId={Id}, ChainId={ChainId}",
+                    daoId, chainId);
                 return;
             }
 
@@ -63,14 +67,14 @@ public class ElectionVotingEventRegisteredProcessor : ElectionProcessorBase<Elec
             votingItemIndex.DaoId = daoId;
             await _electionProvider.SaveVotingItemIndexAsync(votingItemIndex, context);
             Logger.LogInformation(
-                "[ElectionVotingItemIndex] FINISH: Id={Id}, ChainId={ChainId}", votingItemId,
-                chainId);
+                "[ElectionVotingEventRegistered] Update ElectionVotingItemIndex FINISH: Id={Id}, ChainId={ChainId}",
+                votingItemId, chainId);
         }
         catch (Exception e)
         {
             Logger.LogError(e,
-                "[ElectionVotingItemIndex] Exception DaoId={DAOId}, ChainId={ChainId}, Candidate={candidate}", daoId,
-                chainId);
+                "[ElectionVotingEventRegistered] Update ElectionVotingItemIndex error: DaoId={DAOId}, ChainId={ChainId}, VotingItem={VotingItem}",
+                daoId, chainId, JsonConvert.SerializeObject(eventValue));
             throw;
         }
     }
@@ -80,32 +84,45 @@ public class ElectionVotingEventRegisteredProcessor : ElectionProcessorBase<Elec
     {
         try
         {
+            Logger.LogInformation(
+                "[ElectionVotingEventRegistered] Update ElectionHighCouncilConfigIndex: DaoId={Id}, ChainId={ChainId}",
+                daoId,
+                chainId);
             var highCouncilConfigId = IdGenerateHelper.GetId(daoId, chainId);
 
             var highCouncilConfigIndex =
                 await _electionProvider.GetHighCouncilConfigIndexAsync(highCouncilConfigId, chainId);
-            if (highCouncilConfigIndex != null)
+            if (highCouncilConfigIndex == null)
             {
                 Logger.LogInformation(
-                    "[ElectionHighCouncilConfigIndex] candidate not existed: DaoId={Id}, ChainId={ChainId}", daoId,
+                    "[ElectionVotingEventRegistered] ElectionHighCouncilConfigIndex not existed: DaoId={Id}, ChainId={ChainId}",
+                    daoId,
                     chainId);
-                return;
+                highCouncilConfigIndex =
+                    ObjectMapper.Map<HighCouncilConfig, ElectionHighCouncilConfigIndex>(eventValue);
+                highCouncilConfigIndex.Id = highCouncilConfigId;
+                highCouncilConfigIndex.DaoId = daoId;
+            }
+            else
+            {
+                Logger.LogInformation(
+                    "[ElectionVotingEventRegistered] ElectionHighCouncilConfigIndex existed: DaoId={Id}, ChainId={ChainId}",
+                    daoId,
+                    chainId);
+                ObjectMapper.Map(eventValue, highCouncilConfigIndex);
             }
 
-            highCouncilConfigIndex = ObjectMapper.Map<HighCouncilConfig, ElectionHighCouncilConfigIndex>(eventValue);
-            highCouncilConfigIndex.Id = highCouncilConfigId;
-            highCouncilConfigIndex.DaoId = daoId;
             await _electionProvider.SaveHighCouncilConfigIndexAsync(highCouncilConfigIndex, context);
             Logger.LogInformation(
-                "[ElectionHighCouncilConfigIndex] FINISH: Id={Id}, ChainId={ChainId}", highCouncilConfigId,
+                "[ElectionVotingEventRegistered] Update ElectionHighCouncilConfigIndex FINISH: Id={Id}, ChainId={ChainId}",
+                highCouncilConfigId,
                 chainId);
         }
         catch (Exception e)
         {
             Logger.LogError(e,
-                "[ElectionHighCouncilConfigIndex] Exception DaoId={DAOId}, ChainId={ChainId}, Candidate={candidate}",
-                daoId,
-                chainId);
+                "[ElectionVotingEventRegistered] Update ElectionHighCouncilConfigIndex error: DaoId={DAOId}, ChainId={ChainId}, HighCouncilConfig={Config}",
+                daoId, chainId, JsonConvert.SerializeObject(eventValue));
             throw;
         }
     }
