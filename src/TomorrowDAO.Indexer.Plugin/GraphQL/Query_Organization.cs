@@ -37,10 +37,11 @@ public partial class Query
         };
     }
     
-    [Name("getIsMemberAsync")]
-    public static async Task<bool> GetIsMemberAsync(
+    [Name("getMemberAsync")]
+    public static async Task<MemberDto> GetMemberAsync(
         [FromServices] IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> repository,
-        GetIsMemberInput input)
+        [FromServices] IObjectMapper objectMapper,
+        GetMemberInput input)
     {
         var mustQuery = new List<Func<QueryContainerDescriptor<OrganizationIndex>, QueryContainer>>
         {
@@ -53,7 +54,7 @@ public partial class Query
         };
         QueryContainer Filter(QueryContainerDescriptor<OrganizationIndex> f) =>
             f.Bool(b => b.Must(mustQuery));
-        var result = await repository.CountAsync(Filter);
-        return result.Count > 0;
+        var result = await repository.GetAsync(Filter);
+        return result != null ? objectMapper.Map<OrganizationIndex, MemberDto>(result) : new MemberDto();
     }
 }
