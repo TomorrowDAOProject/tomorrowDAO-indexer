@@ -2,8 +2,8 @@ namespace TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 
 public class ElectionHighCouncilConfigDto
 {
-    public long Count { get; set; }
-    public List<ElectionHighCouncilConfig> Data { get; set; }
+    public long TotalCount { get; set; }
+    public List<ElectionHighCouncilConfig> Items { get; set; }
 }
 
 public class ElectionHighCouncilConfig
