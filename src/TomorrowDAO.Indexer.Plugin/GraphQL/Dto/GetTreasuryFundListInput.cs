@@ -5,5 +5,5 @@ public class GetTreasuryFundListInput : GetChainBlockHeightInput
     public string DaoId { get; set; }
     public string TreasuryAddress { get; set; }
 
-    public ISet<string> Symbols { get; set; }
+    public List<string> Symbols { get; set; }
 }

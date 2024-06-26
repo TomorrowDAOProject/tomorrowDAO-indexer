@@ -89,10 +89,12 @@ public partial class Query
                 => i.Field(f => f.TreasuryAddress).Value(input.TreasuryAddress)));
         }
 
-        if (!input.Symbols.IsNullOrEmpty())
+        var symbols = input.Symbols;
+        if (!symbols.IsNullOrEmpty())
         {
+            var symbolsSet = new HashSet<string>(symbols);
             mustQuery.Add(q => q.Terms(i
-                => i.Field(f => f.Symbol).Terms(input.Symbols)));
+                => i.Field(f => f.Symbol).Terms(symbolsSet)));
         }
 
         QueryContainer Filter(QueryContainerDescriptor<TreasuryFundIndex> f) =>
