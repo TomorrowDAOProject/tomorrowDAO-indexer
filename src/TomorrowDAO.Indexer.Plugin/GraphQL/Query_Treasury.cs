@@ -10,6 +10,45 @@ namespace TomorrowDAO.Indexer.Plugin.GraphQL;
 
 public partial class Query
 {
+    [Name("getTreasuryFundByFundList")]
+    public static async Task<List<TreasuryFundSumDto>> GetTreasuryFundByFundListAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> repository,
+        GetTreasuryFundInput input)
+    {
+        var mustQuery = new List<Func<QueryContainerDescriptor<TreasuryFundIndex>, QueryContainer>>
+        {
+            q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId))
+        };
+        QueryContainer Filter(QueryContainerDescriptor<TreasuryFundIndex> f) =>
+            f.Bool(b => b.Must(mustQuery));
+
+        return (await GetAllIndex(Filter, repository))
+            .GroupBy(fund => fund.Symbol)
+            .Select(group => new TreasuryFundSumDto
+            {
+                Symbol = group.Key, ChainId = input.ChainId,
+                AvailableFunds = group.Sum(fund => fund.AvailableFunds)
+            }).ToList();
+    }
+
+    [Name("getTreasuryFund")]
+    public static async Task<List<TreasuryFundSumDto>> GetTreasuryFundAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<TreasuryFundSumIndex, LogEventInfo> repository,
+        [FromServices] IObjectMapper objectMapper,
+        GetTreasuryFundInput input)
+    {
+        var mustQuery = new List<Func<QueryContainerDescriptor<TreasuryFundSumIndex>, QueryContainer>>
+        {
+            q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId))
+        };
+        QueryContainer Filter(QueryContainerDescriptor<TreasuryFundSumIndex> f) =>
+            f.Bool(b => b.Must(mustQuery));
+
+        return objectMapper.Map<List<TreasuryFundSumIndex>, List<TreasuryFundSumDto>>(await GetAllIndex(Filter, repository));
+    }
+    
     [Name("getTreasuryFundList")]
     public static async Task<Tuple<long, List<TreasuryFundDto>>> GetTreasuryFundListAsync(
         [FromServices] IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> repository,

@@ -32,6 +32,10 @@ public class TreasuryTransferredProcessorTest : TomorrowDAOIndexerPluginTestBase
         treasuryRecordIndex.TreasuryAddress.ShouldBe(TreasuryAccountAddress);
         treasuryRecordIndex.ToAddress.ShouldBe(DAOCreator);
         treasuryRecordIndex.TreasuryRecordType.ShouldBe(TreasuryRecordType.Transfer);
+        
+        var fundSumId = IdGenerateHelper.GetId(ChainAelf, Elf);
+        var fundSumIndex = await TreasuryFundSumRepository.GetFromBlockStateSetAsync(fundSumId, ChainAelf);
+        fundSumIndex.AvailableFunds.ShouldBe(99999999L);
     }
     
     [Fact]
