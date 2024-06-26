@@ -1,23 +1,19 @@
 namespace TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 
-public class ElectionHighCouncilConfigDto
+public class ElectionCandidateElectedDto
 {
     public long Count { get; set; }
-    public List<ElectionHighCouncilConfig> Data { get; set; }
+    public List<ElectionCandidateElected> Data { get; set; }
 }
 
-public class ElectionHighCouncilConfig
+public class ElectionCandidateElected
 {
     public string Id { get; set; }
     public string DaoId { get; set; }
-    public long MaxHighCouncilMemberCount { get; set; }
-    public long MaxHighCouncilCandidateCount { get; set; }
-    public long ElectionPeriod { get; set; }
-    public bool IsRequireHighCouncilForExecution { get; set; }
-    public string GovernanceToken { get; set; }
-    public long StakeThreshold { get; set; }
-    public List<string> InitialHighCouncilMembers { get; set; } = new List<string>();
-
+    public long PreTermNumber { get; set; }
+    public long NewNumber { get; set; }
+    public DateTime CandidateElectedTime { get; set; }
+    
     public string ChainId { get; set; }
     public string BlockHash { get; set; }
     public long BlockHeight { get; set; }
@@ -25,7 +21,7 @@ public class ElectionHighCouncilConfig
     public bool IsDeleted { get; set; }
 }
 
-public class GetElectionHighCouncilListInput
+public class GetElectionCandidateElectedInput
 {
     public string ChainId { get; set; }
     public string DaoId { get; set; }

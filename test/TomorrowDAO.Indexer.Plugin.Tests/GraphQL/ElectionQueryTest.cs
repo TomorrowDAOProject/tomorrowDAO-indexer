@@ -41,7 +41,7 @@ public class ElectionQueryTest : QueryTestBase
         await MockEventProcess(logEvent, ElectionVotingEventRegisteredProcessor);
 
         var result = await Query.GetElectionVotingItemIndexAsync(ElectionVotingItemRepository, ObjectMapper,
-            new GetElectionHighCouncilListInput
+            new GetElectionVotingItemIndexInput
             {
                 ChainId = ChainAelf,
                 DaoId = daoId.ToHex(),
@@ -53,6 +53,30 @@ public class ElectionQueryTest : QueryTestBase
         result.Data.ShouldNotBeNull();
         result.Data.FirstOrDefault().ShouldNotBeNull();
         result.Data.FirstOrDefault()!.DaoId.ShouldBe(daoId.ToHex());
+    }
+    
+    [Fact]
+    
+    public async Task GetElectionCandidateElectedAsync_Test()
+    {
+        var daoId = HashHelper.ComputeFrom(Id1);
+        var termNumber = 1L;
+        
+        await MockEventProcess(CandidateElected(), CandidateElectedProcessor);
+
+        var result = await Query.GetElectionCandidateElectedAsync(CandidateElectedRepository, ObjectMapper,
+            new GetElectionCandidateElectedInput()
+            {
+                ChainId = ChainAelf,
+                DaoId = daoId.ToHex(),
+                SkipCount = 0,
+                MaxResultCount = 10
+            });
+        result.ShouldNotBeNull();
+        result.Count.ShouldBe(1);
+        result.Data.ShouldNotBeNull();
+        result.Data.FirstOrDefault().ShouldNotBeNull();
+        result.Data.FirstOrDefault()!.PreTermNumber.ShouldBe(termNumber);
     }
 
 

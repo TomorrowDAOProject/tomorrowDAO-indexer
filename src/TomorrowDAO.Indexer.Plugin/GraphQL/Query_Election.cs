@@ -18,6 +18,18 @@ public partial class Query
         GetElectionHighCouncilListInput input)
     {
         var mustQuery = new List<Func<QueryContainerDescriptor<ElectionHighCouncilConfigIndex>, QueryContainer>>();
+        
+        if (input.StartBlockHeight > 0)
+        {
+            mustQuery.Add(q => q.Range(i
+                => i.Field(f => f.BlockHeight).GreaterThanOrEquals(input.StartBlockHeight)));
+        }
+
+        if (input.EndBlockHeight > 0)
+        {
+            mustQuery.Add(q => q.Range(i
+                => i.Field(f => f.BlockHeight).LessThanOrEquals(input.EndBlockHeight)));
+        }
 
         if (!input.ChainId.IsNullOrWhiteSpace())
         {
@@ -44,14 +56,26 @@ public partial class Query
         };
     }
     
-    [Name("getElectionVotingItemIndex")]
+    [Name("getElectionVotingItem")]
     public static async Task<ElectionVotingItemDto> GetElectionVotingItemIndexAsync(
         [FromServices] IAElfIndexerClientEntityRepository<ElectionVotingItemIndex, LogEventInfo> repository,
         [FromServices] IObjectMapper objectMapper,
-        GetElectionHighCouncilListInput input)
+        GetElectionVotingItemIndexInput input)
     {
         var mustQuery = new List<Func<QueryContainerDescriptor<ElectionVotingItemIndex>, QueryContainer>>();
 
+        if (input.StartBlockHeight > 0)
+        {
+            mustQuery.Add(q => q.Range(i
+                => i.Field(f => f.BlockHeight).GreaterThanOrEquals(input.StartBlockHeight)));
+        }
+
+        if (input.EndBlockHeight > 0)
+        {
+            mustQuery.Add(q => q.Range(i
+                => i.Field(f => f.BlockHeight).LessThanOrEquals(input.EndBlockHeight)));
+        }
+        
         if (!input.ChainId.IsNullOrWhiteSpace())
         {
             mustQuery.Add(q => q.Term(i
@@ -74,6 +98,51 @@ public partial class Query
         {
             Count = result.Item1,
             Data = objectMapper.Map<List<ElectionVotingItemIndex>, List<ElectionVotingItem>>(result.Item2)
+        };
+    }
+    
+    [Name("getElectionCandidateElected")]
+    public static async Task<ElectionCandidateElectedDto> GetElectionCandidateElectedAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<ElectionCandidateElectedIndex, LogEventInfo> repository,
+        [FromServices] IObjectMapper objectMapper,
+        GetElectionCandidateElectedInput input)
+    {
+        var mustQuery = new List<Func<QueryContainerDescriptor<ElectionCandidateElectedIndex>, QueryContainer>>();
+
+        if (input.StartBlockHeight > 0)
+        {
+            mustQuery.Add(q => q.Range(i
+                => i.Field(f => f.BlockHeight).GreaterThanOrEquals(input.StartBlockHeight)));
+        }
+
+        if (input.EndBlockHeight > 0)
+        {
+            mustQuery.Add(q => q.Range(i
+                => i.Field(f => f.BlockHeight).LessThanOrEquals(input.EndBlockHeight)));
+        }
+        
+        if (!input.ChainId.IsNullOrWhiteSpace())
+        {
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId)));
+        }
+
+        if (!input.DaoId.IsNullOrWhiteSpace())
+        {
+            mustQuery.Add(q => q.Term(i
+                => i.Field(f => f.DaoId).Value(input.DaoId)));
+        }
+        
+        QueryContainer Filter(QueryContainerDescriptor<ElectionCandidateElectedIndex> f) =>
+            f.Bool(b => b.Must(mustQuery));
+
+        var result = await repository.GetListAsync(Filter, skip: input.SkipCount, limit: input.MaxResultCount,
+            sortType: SortOrder.Ascending, sortExp: o => o.BlockHeight);
+
+        return new ElectionCandidateElectedDto()
+        {
+            Count = result.Item1,
+            Data = objectMapper.Map<List<ElectionCandidateElectedIndex>, List<ElectionCandidateElected>>(result.Item2)
         };
     }
 

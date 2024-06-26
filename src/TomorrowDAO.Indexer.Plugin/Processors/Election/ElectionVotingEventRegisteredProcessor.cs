@@ -53,7 +53,7 @@ public class ElectionVotingEventRegisteredProcessor : ElectionProcessorBase<Elec
                 daoId, chainId);
             var votingItemId = IdGenerateHelper.GetId(daoId, chainId);
 
-            var votingItemIndex = await _electionProvider.GetVotingItemIndexAsync(votingItemId, chainId);
+            var votingItemIndex = await ElectionProvider.GetVotingItemIndexAsync(votingItemId, chainId);
             if (votingItemIndex != null)
             {
                 Logger.LogInformation(
@@ -65,7 +65,7 @@ public class ElectionVotingEventRegisteredProcessor : ElectionProcessorBase<Elec
             votingItemIndex = ObjectMapper.Map<VotingItem, ElectionVotingItemIndex>(eventValue);
             votingItemIndex.Id = votingItemId;
             votingItemIndex.DaoId = daoId;
-            await _electionProvider.SaveVotingItemIndexAsync(votingItemIndex, context);
+            await ElectionProvider.SaveVotingItemIndexAsync(votingItemIndex, context);
             Logger.LogInformation(
                 "[ElectionVotingEventRegistered] Update ElectionVotingItemIndex FINISH: Id={Id}, ChainId={ChainId}",
                 votingItemId, chainId);
@@ -91,7 +91,7 @@ public class ElectionVotingEventRegisteredProcessor : ElectionProcessorBase<Elec
             var highCouncilConfigId = IdGenerateHelper.GetId(daoId, chainId);
 
             var highCouncilConfigIndex =
-                await _electionProvider.GetHighCouncilConfigIndexAsync(highCouncilConfigId, chainId);
+                await ElectionProvider.GetHighCouncilConfigIndexAsync(highCouncilConfigId, chainId);
             if (highCouncilConfigIndex == null)
             {
                 Logger.LogInformation(
@@ -112,7 +112,7 @@ public class ElectionVotingEventRegisteredProcessor : ElectionProcessorBase<Elec
                 ObjectMapper.Map(eventValue, highCouncilConfigIndex);
             }
 
-            await _electionProvider.SaveHighCouncilConfigIndexAsync(highCouncilConfigIndex, context);
+            await ElectionProvider.SaveHighCouncilConfigIndexAsync(highCouncilConfigIndex, context);
             Logger.LogInformation(
                 "[ElectionVotingEventRegistered] Update ElectionHighCouncilConfigIndex FINISH: Id={Id}, ChainId={ChainId}",
                 highCouncilConfigId,
