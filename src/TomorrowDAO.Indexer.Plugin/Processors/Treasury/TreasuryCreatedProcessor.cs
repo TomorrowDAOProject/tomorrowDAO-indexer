@@ -18,8 +18,8 @@ public class TreasuryCreatedProcessor : TreasuryProcessorBase<TreasuryCreated>
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> treasuryFundRepository,
         IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> treasuryRecordRepository,
-        IDAOProvider DAOProvider)
-        : base(logger, objectMapper, contractInfoOptions, treasuryFundRepository, treasuryRecordRepository, DAOProvider)
+        IDAOProvider DAOProvider, ITreasuryProvider TreasuryProvider)
+        : base(logger, objectMapper, contractInfoOptions, treasuryFundRepository, treasuryRecordRepository, DAOProvider, TreasuryProvider)
     {
     }
 

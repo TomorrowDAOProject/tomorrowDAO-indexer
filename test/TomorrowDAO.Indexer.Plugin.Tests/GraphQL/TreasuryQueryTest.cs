@@ -9,6 +9,30 @@ namespace TomorrowDAO.Indexer.Plugin.Tests.GraphQL;
 public class TreasuryQueryTest : QueryTestBase
 {
     [Fact]
+    public async Task GetTreasuryFundAsync_Test()
+    {
+        await MockEventProcess(MinInfoDAOCreated(), DAOCreatedProcessor);
+        await MockEventProcess(TreasuryCreated(), TreasuryCreatedProcessor);
+        await MockEventProcess(TokenTransferred(), TransferredProcessor);
+
+        var list1 = await Query.GetTreasuryFundAsync(TreasuryFundSumRepository, ObjectMapper,
+            new GetTreasuryFundInput { ChainId = ChainAelf });
+        var list2 = await Query.GetTreasuryFundByFundListAsync(TreasuryFundRepository, new GetTreasuryFundInput { ChainId = ChainAelf });
+        CheckTreasuryFund(list1);
+        CheckTreasuryFund(list2);
+    }
+
+    private void CheckTreasuryFund(List<TreasuryFundSumDto> list)
+    {
+        list.ShouldNotBeNull();
+        list.Count.ShouldBe(1);
+        var fundSum = list[0];
+        fundSum.ShouldNotBeNull();
+        fundSum.Symbol.ShouldBe(Elf);
+        fundSum.AvailableFunds.ShouldBe(100000000);
+    }
+
+    [Fact]
     public async Task GetTreasuryFundListAsync_Test()
     {
         await MockEventProcess(MinInfoDAOCreated(), DAOCreatedProcessor);
