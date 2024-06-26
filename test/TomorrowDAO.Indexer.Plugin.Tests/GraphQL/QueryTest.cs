@@ -67,6 +67,8 @@ public partial class QueryTest : QueryTestBase
         await MockEventProcess(VotingItemRegistered(), VotingItemRegisteredProcessor);
         await MockEventProcess(VoteVoted(), VoteVotedProcessor);
         await MockEventProcess(VoteWithdrawn(), VoteWithdrawnProcessor);
+        await MockEventProcess(TreasuryCreated(), TreasuryCreatedProcessor);
+        await MockEventProcess(TokenTransferred(), TransferredProcessor);
         
         var daoId = HashHelper.ComputeFrom(Id1).ToHex();
         var daoIndex = await DAOIndexRepository.GetFromBlockStateSetAsync(daoId, ChainAelf);
@@ -74,11 +76,11 @@ public partial class QueryTest : QueryTestBase
         daoIndex.VoteAmount.ShouldBe(100);
         daoIndex.WithdrawAmount.ShouldBe(10);
 
-        var list = await Query.GetDAOAmountRecordAsync(DAOIndexRepository, ObjectMapper, new GetDAOAmountRecordInput
+        var list = await Query.GetDAOAmountRecordAsync(DAOIndexRepository, TreasuryFundRepository, ObjectMapper, new GetDAOAmountRecordInput
         {
             ChainId = ChainAelf
         });
-        list.Sum(x => x.Amount).ShouldBe(90);
+        list.Sum(x => x.Amount).ShouldBe(100000090);
     }
 
     [Fact]

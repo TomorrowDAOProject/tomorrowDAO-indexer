@@ -67,7 +67,12 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<LogEventContext, DAOIndex>();
         CreateMap<LogEventContext, TreasuryFundIndex>();
         CreateMap<LogEventContext, TreasuryFundSumIndex>();
-        CreateMap<TreasuryFundSumIndex, TreasuryFundSumDto>();
+        CreateMap<TreasuryFundSumIndex, GetDAOAmountRecordDto>()
+            .ForMember(des => des.GovernanceToken, opt
+                => opt.MapFrom(source => source.Symbol))
+            .ForMember(des => des.Amount, opt
+                => opt.MapFrom(source => source.AvailableFunds))
+            ;
         CreateMap<LogEventContext, TreasuryRecordIndex>();
         CreateMap<TreasuryTransferred, TreasuryRecordIndex>()
             .ForMember(des => des.DaoId, opt
