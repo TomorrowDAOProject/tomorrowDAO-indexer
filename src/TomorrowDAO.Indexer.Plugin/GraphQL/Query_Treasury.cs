@@ -11,7 +11,7 @@ namespace TomorrowDAO.Indexer.Plugin.GraphQL;
 public partial class Query
 {
     [Name("getTreasuryFundByFundList")]
-    public static async Task<List<TreasuryFundSumDto>> GetTreasuryFundByFundListAsync(
+    public static async Task<List<GetDAOAmountRecordDto>> GetTreasuryFundByFundListAsync(
         [FromServices] IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> repository,
         GetTreasuryFundInput input)
     {
@@ -25,15 +25,15 @@ public partial class Query
 
         return (await GetAllIndex(Filter, repository))
             .GroupBy(fund => fund.Symbol)
-            .Select(group => new TreasuryFundSumDto
+            .Select(group => new GetDAOAmountRecordDto
             {
-                Symbol = group.Key, ChainId = input.ChainId,
-                AvailableFunds = group.Sum(fund => fund.AvailableFunds)
+                GovernanceToken = group.Key,
+                Amount = group.Sum(fund => fund.AvailableFunds)
             }).ToList();
     }
 
     [Name("getTreasuryFund")]
-    public static async Task<List<TreasuryFundSumDto>> GetTreasuryFundAsync(
+    public static async Task<List<GetDAOAmountRecordDto>> GetTreasuryFundAsync(
         [FromServices] IAElfIndexerClientEntityRepository<TreasuryFundSumIndex, LogEventInfo> repository,
         [FromServices] IObjectMapper objectMapper,
         GetTreasuryFundInput input)
@@ -46,7 +46,7 @@ public partial class Query
         QueryContainer Filter(QueryContainerDescriptor<TreasuryFundSumIndex> f) =>
             f.Bool(b => b.Must(mustQuery));
 
-        return objectMapper.Map<List<TreasuryFundSumIndex>, List<TreasuryFundSumDto>>(await GetAllIndex(Filter, repository));
+        return objectMapper.Map<List<TreasuryFundSumIndex>, List<GetDAOAmountRecordDto>>(await GetAllIndex(Filter, repository));
     }
     
     [Name("getTreasuryFundList")]

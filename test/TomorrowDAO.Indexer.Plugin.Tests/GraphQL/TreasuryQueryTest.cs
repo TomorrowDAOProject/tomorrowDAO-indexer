@@ -22,14 +22,14 @@ public class TreasuryQueryTest : QueryTestBase
         CheckTreasuryFund(list2);
     }
 
-    private void CheckTreasuryFund(List<TreasuryFundSumDto> list)
+    private void CheckTreasuryFund(List<GetDAOAmountRecordDto> list)
     {
         list.ShouldNotBeNull();
         list.Count.ShouldBe(1);
         var fundSum = list[0];
         fundSum.ShouldNotBeNull();
-        fundSum.Symbol.ShouldBe(Elf);
-        fundSum.AvailableFunds.ShouldBe(100000000);
+        fundSum.GovernanceToken.ShouldBe(Elf);
+        fundSum.Amount.ShouldBe(100000000);
     }
 
     [Fact]
