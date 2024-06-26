@@ -11,7 +11,7 @@ namespace TomorrowDAO.Indexer.Plugin.GraphQL;
 public partial class Query
 {
     [Name("getMemberList")]
-    public static async Task<MemberListPageResultDto> GetMemberList(
+    public static async Task<MemberListPageResultDto> GetMemberListAsync(
         [FromServices] IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> repository,
         [FromServices] IObjectMapper objectMapper,
         GetMemberListInput input)
@@ -37,7 +37,7 @@ public partial class Query
         };
     }
     
-    [Name("getMemberAsync")]
+    [Name("getMember")]
     public static async Task<MemberDto> GetMemberAsync(
         [FromServices] IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> repository,
         [FromServices] IObjectMapper objectMapper,
