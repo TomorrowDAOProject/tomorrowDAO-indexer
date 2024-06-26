@@ -26,10 +26,10 @@ public class ElectionQueryTest : QueryTestBase
                 MaxResultCount = 10
             });
         result.ShouldNotBeNull();
-        result.Count.ShouldBe(1);
-        result.Data.ShouldNotBeNull();
-        result.Data.FirstOrDefault().ShouldNotBeNull();
-        result.Data.FirstOrDefault()!.InitialHighCouncilMembers.Count.ShouldBe(2);
+        result.TotalCount.ShouldBe(1);
+        result.Items.ShouldNotBeNull();
+        result.Items.FirstOrDefault().ShouldNotBeNull();
+        result.Items.FirstOrDefault()!.InitialHighCouncilMembers.Count.ShouldBe(2);
     }
 
     [Fact]
@@ -49,10 +49,10 @@ public class ElectionQueryTest : QueryTestBase
                 MaxResultCount = 10
             });
         result.ShouldNotBeNull();
-        result.Count.ShouldBe(1);
-        result.Data.ShouldNotBeNull();
-        result.Data.FirstOrDefault().ShouldNotBeNull();
-        result.Data.FirstOrDefault()!.DaoId.ShouldBe(daoId.ToHex());
+        result.TotalCount.ShouldBe(1);
+        result.Items.ShouldNotBeNull();
+        result.Items.FirstOrDefault().ShouldNotBeNull();
+        result.Items.FirstOrDefault()!.DaoId.ShouldBe(daoId.ToHex());
     }
     
     [Fact]
@@ -73,10 +73,10 @@ public class ElectionQueryTest : QueryTestBase
                 MaxResultCount = 10
             });
         result.ShouldNotBeNull();
-        result.Count.ShouldBe(1);
-        result.Data.ShouldNotBeNull();
-        result.Data.FirstOrDefault().ShouldNotBeNull();
-        result.Data.FirstOrDefault()!.PreTermNumber.ShouldBe(termNumber);
+        result.TotalCount.ShouldBe(1);
+        result.Items.ShouldNotBeNull();
+        result.Items.FirstOrDefault().ShouldNotBeNull();
+        result.Items.FirstOrDefault()!.PreTermNumber.ShouldBe(termNumber);
     }
 
 
