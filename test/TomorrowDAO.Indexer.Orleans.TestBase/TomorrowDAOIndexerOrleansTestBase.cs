@@ -7,4 +7,5 @@ namespace TomorrowDAO.Indexer.Orleans.TestBase;
 public abstract class TomorrowDAOIndexerOrleansTestBase<TStartupModule> : TomorrowDAOIndexerTestBase<TStartupModule>
     where TStartupModule : IAbpModule
 {
+    
 }
