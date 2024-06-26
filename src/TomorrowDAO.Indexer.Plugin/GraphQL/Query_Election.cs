@@ -51,8 +51,8 @@ public partial class Query
 
         return new ElectionHighCouncilConfigDto
         {
-            Count = result.Item1,
-            Data = objectMapper.Map<List<ElectionHighCouncilConfigIndex>, List<ElectionHighCouncilConfig>>(result.Item2)
+            TotalCount = result.Item1,
+            Items = objectMapper.Map<List<ElectionHighCouncilConfigIndex>, List<ElectionHighCouncilConfig>>(result.Item2)
         };
     }
     
@@ -96,8 +96,8 @@ public partial class Query
 
         return new ElectionVotingItemDto()
         {
-            Count = result.Item1,
-            Data = objectMapper.Map<List<ElectionVotingItemIndex>, List<ElectionVotingItem>>(result.Item2)
+            TotalCount = result.Item1,
+            Items = objectMapper.Map<List<ElectionVotingItemIndex>, List<ElectionVotingItem>>(result.Item2)
         };
     }
     
@@ -141,8 +141,8 @@ public partial class Query
 
         return new ElectionCandidateElectedDto()
         {
-            Count = result.Item1,
-            Data = objectMapper.Map<List<ElectionCandidateElectedIndex>, List<ElectionCandidateElected>>(result.Item2)
+            TotalCount = result.Item1,
+            Items = objectMapper.Map<List<ElectionCandidateElectedIndex>, List<ElectionCandidateElected>>(result.Item2)
         };
     }
 
