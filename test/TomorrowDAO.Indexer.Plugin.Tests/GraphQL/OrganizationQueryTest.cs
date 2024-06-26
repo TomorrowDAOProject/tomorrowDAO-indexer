@@ -12,7 +12,7 @@ public class OrganizationQueryTest : QueryTestBase
     {
         await MockEventProcess(MemberAdded(), MemberAddedProcessor);
     
-        var result = await Query.GetMemberList(organizationIndexRepository, ObjectMapper, new GetMemberListInput
+        var result = await Query.GetMemberListAsync(organizationIndexRepository, ObjectMapper, new GetMemberListInput
         {
             ChainId = ChainAelf, DAOId = DAOId, SkipCount = 0, MaxResultCount = 10
         });
