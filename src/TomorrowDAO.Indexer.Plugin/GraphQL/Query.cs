@@ -132,6 +132,7 @@ public partial class Query
     [Name("getDAOAmountRecord")]
     public static async Task<List<GetDAOAmountRecordDto>> GetDAOAmountRecordAsync(
         [FromServices] IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> repository,
+        [FromServices] IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> treasuryFundrepository,
         [FromServices] IObjectMapper objectMapper,
         GetDAOAmountRecordInput input)
     {
@@ -143,7 +144,16 @@ public partial class Query
         QueryContainer Filter(QueryContainerDescriptor<DAOIndex> f) =>
             f.Bool(b => b.Must(mustQuery));
         var result = await GetAllIndex(Filter, repository);
-        return objectMapper.Map<List<DAOIndex>, List<GetDAOAmountRecordDto>>(result);
+        var treasuryFunds = await GetTreasuryFundByFundListAsync(treasuryFundrepository, 
+            new GetTreasuryFundInput { ChainId = input.ChainId });
+        var voteFunds = objectMapper.Map<List<DAOIndex>, List<GetDAOAmountRecordDto>>(result);
+        treasuryFunds.AddRange(voteFunds);
+        return treasuryFunds.GroupBy(fund => fund.GovernanceToken)
+            .Select(group => new GetDAOAmountRecordDto
+            {
+                GovernanceToken = group.Key,
+                Amount = group.Sum(fund => fund.Amount)
+            }).ToList();
     }
 
     [Name("getMyParticipated")]
