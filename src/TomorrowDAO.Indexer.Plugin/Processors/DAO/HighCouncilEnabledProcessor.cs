@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using TomorrowDAO.Contracts.DAO;
+using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 
@@ -31,10 +32,12 @@ public class HighCouncilEnabledProcessor : DAOProcessorBase<HighCouncilEnabled>
             if (DAOIndex == null)
             {
                 Logger.LogInformation("[HighCouncilEnabled] DAO not existed: Id={Id}, ChainId={ChainId}", DAOId, chainId);
-                return;
+                DAOIndex = ObjectMapper.Map<HighCouncilEnabled, DAOIndex>(eventValue);
             }
-            ObjectMapper.Map(eventValue, DAOIndex);
-            DAOIndex.IsHighCouncilEnabled = true;
+            else
+            {
+                ObjectMapper.Map(eventValue, DAOIndex);
+            }
             await DAOProvider.SaveIndexAsync(DAOIndex, context);
             Logger.LogInformation("[HighCouncilEnabled] FINISH: Id={Id}, ChainId={ChainId}", DAOId, chainId);
         }
