@@ -1,5 +1,6 @@
 using AElf;
 using Shouldly;
+using TomorrowDAO.Indexer.Orleans.TestBase;
 using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAO.Indexer.Plugin.GraphQL;
 using TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
@@ -7,6 +8,7 @@ using Xunit;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.GraphQL;
 
+[CollectionDefinition(ClusterCollection.Name)]
 public partial class QueryTest : QueryTestBase
 {
     [Fact]

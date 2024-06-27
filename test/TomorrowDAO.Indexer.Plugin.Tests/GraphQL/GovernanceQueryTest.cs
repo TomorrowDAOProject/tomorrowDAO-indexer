@@ -4,12 +4,14 @@ using AElf.Types;
 using Moq;
 using Shouldly;
 using TomorrowDAO.Contracts.Governance;
+using TomorrowDAO.Indexer.Orleans.TestBase;
 using TomorrowDAO.Indexer.Plugin.GraphQL;
 using TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 using Xunit;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.GraphQL;
 
+[CollectionDefinition(ClusterCollection.Name)]
 public class GovernanceQueryTest : QueryTestBase
 {
     [Fact]
