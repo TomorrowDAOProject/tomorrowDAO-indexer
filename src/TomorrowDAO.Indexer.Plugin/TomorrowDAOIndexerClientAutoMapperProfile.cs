@@ -129,6 +129,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             ;
         CreateMap<FileContract, FileIndexer>();
         CreateMap<HighCouncilEnabled, DAOIndex>()
+            .ForMember(des => des.Id, opt
+                => opt.MapFrom(source => MapHash(source.DaoId)))
+            .ForMember(des => des.IsHighCouncilEnabled, opt
+                => opt.MapFrom(source => true))
             .ForMember(des => des.HighCouncilAddress, opt
                 => opt.MapFrom(source => MapAddress(source.HighCouncilAddress)))
             .ForMember(des => des.MaxHighCouncilMemberCount, opt
