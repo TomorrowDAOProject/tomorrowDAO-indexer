@@ -48,16 +48,38 @@ public partial class Query
 
         return objectMapper.Map<List<TreasuryFundSumIndex>, List<GetDAOAmountRecordDto>>(await GetAllIndex(Filter, repository));
     }
-    
+
+    [Name("getAllTreasuryFundList")]
+    public static async Task<Tuple<long, List<TreasuryFundDto>>> GetAllTreasuryFundListAsync(
+        [FromServices] IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> repository,
+        [FromServices] IObjectMapper objectMapper,
+        GetAllTreasuryFundListInput input)
+    {
+        var mustQuery = new List<Func<QueryContainerDescriptor<TreasuryFundIndex>, QueryContainer>>
+        {
+            q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId)),
+            q => q.Term(i
+                => i.Field(f => f.DaoId).Value(input.DaoId))
+        };
+        QueryContainer Filter(QueryContainerDescriptor<TreasuryFundIndex> f) =>
+            f.Bool(b => b.Must(mustQuery));
+
+        var allFunds = objectMapper.Map<List<TreasuryFundIndex>, List<TreasuryFundDto>>(await GetAllIndex(Filter, repository));
+        return new Tuple<long, List<TreasuryFundDto>>(allFunds.Count, allFunds);
+    }
+
     [Name("getTreasuryFundList")]
     public static async Task<Tuple<long, List<TreasuryFundDto>>> GetTreasuryFundListAsync(
         [FromServices] IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> repository,
         [FromServices] IObjectMapper objectMapper,
         GetTreasuryFundListInput input)
     {
-        var mustQuery = new List<Func<QueryContainerDescriptor<TreasuryFundIndex>, QueryContainer>>();
-        mustQuery.Add(q => q.Term(i
-            => i.Field(f => f.ChainId).Value(input.ChainId)));
+        var mustQuery = new List<Func<QueryContainerDescriptor<TreasuryFundIndex>, QueryContainer>>
+        {
+            q => q.Term(i
+                => i.Field(f => f.ChainId).Value(input.ChainId))
+        };
 
         if (input.StartBlockHeight > 0)
         {
