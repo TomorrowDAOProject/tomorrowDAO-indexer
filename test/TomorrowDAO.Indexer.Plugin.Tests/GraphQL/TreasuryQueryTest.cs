@@ -33,6 +33,27 @@ public class TreasuryQueryTest : QueryTestBase
     }
 
     [Fact]
+    public async Task GetAllTreasuryFundListAsync_Test()
+    {
+        await MockEventProcess(MinInfoDAOCreated(), DAOCreatedProcessor);
+        await MockEventProcess(TreasuryCreated(), TreasuryCreatedProcessor);
+        await MockEventProcess(TokenTransferred(), TransferredProcessor);
+        
+        var(count, treasuryFunds) = await Query.GetAllTreasuryFundListAsync(TreasuryFundRepository, ObjectMapper, new GetAllTreasuryFundListInput
+        {
+            ChainId = ChainAelf, DaoId = HashHelper.ComputeFrom(Id1).ToHex()
+        });
+        treasuryFunds.ShouldNotBeNull();
+        treasuryFunds.Count.ShouldBe(1);
+        var treasuryFundDto = treasuryFunds[0];
+        treasuryFundDto.DaoId.ShouldBe(DAOId);
+        treasuryFundDto.Symbol.ShouldBe(Elf);
+        treasuryFundDto.AvailableFunds.ShouldBe(100000000);
+        treasuryFundDto.LockedFunds.ShouldBe(0);
+        count.ShouldBe(1);
+    }
+
+    [Fact]
     public async Task GetTreasuryFundListAsync_Test()
     {
         await MockEventProcess(MinInfoDAOCreated(), DAOCreatedProcessor);
