@@ -19,7 +19,6 @@ public class ClusterFixture : IDisposable, ISingletonDependency
         builder.AddSiloBuilderConfigurator<TestSiloConfigurations>();
         // builder.AddClientBuilderConfigurator<TestClientBuilderConfigurator>();
         Cluster = builder.Build();
-        Cluster.Deploy();
         var retryCount = 30;
         while (true)
         {
