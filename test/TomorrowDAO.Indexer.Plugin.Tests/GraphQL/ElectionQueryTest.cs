@@ -1,7 +1,3 @@
-using Shouldly;
-using TomorrowDAO.Indexer.Plugin.Enums;
-using TomorrowDAO.Indexer.Plugin.GraphQL;
-using TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 using Xunit;
 
 namespace TomorrowDAO.Indexer.Plugin.Tests.GraphQL;
