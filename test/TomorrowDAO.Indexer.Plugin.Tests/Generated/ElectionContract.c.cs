@@ -67,6 +67,7 @@ namespace TomorrowDAO.Contracts.Election {
         Candidate = Candidate,
         Sponsor = Sponsor,
         Amount = Amount,
+        CandidateAdmin = CandidateAdmin,
       };
     }
   }
@@ -247,6 +248,44 @@ namespace TomorrowDAO.Contracts.Election {
     }
   }
 
+  public partial class HighCouncilAdded : aelf::IEvent<HighCouncilAdded>
+  {
+    public global::System.Collections.Generic.IEnumerable<HighCouncilAdded> GetIndexed()
+    {
+      return new List<HighCouncilAdded>
+      {
+      };
+    }
+
+    public HighCouncilAdded GetNonIndexed()
+    {
+      return new HighCouncilAdded
+      {
+        DaoId = DaoId,
+        AddHighCouncils = AddHighCouncils,
+      };
+    }
+  }
+
+  public partial class HighCouncilRemoved : aelf::IEvent<HighCouncilRemoved>
+  {
+    public global::System.Collections.Generic.IEnumerable<HighCouncilRemoved> GetIndexed()
+    {
+      return new List<HighCouncilRemoved>
+      {
+      };
+    }
+
+    public HighCouncilRemoved GetNonIndexed()
+    {
+      return new HighCouncilRemoved
+      {
+        DaoId = DaoId,
+        RemoveHighCouncils = RemoveHighCouncils,
+      };
+    }
+  }
+
   #endregion
   public static partial class ElectionContractContainer
   {
@@ -257,6 +296,8 @@ namespace TomorrowDAO.Contracts.Election {
     static readonly aelf::Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_google_protobuf_Empty = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.SetHighCouncilConfigInput> __Marshaller_SetHighCouncilConfigInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.SetHighCouncilConfigInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.RegisterElectionVotingEventInput> __Marshaller_RegisterElectionVotingEventInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.RegisterElectionVotingEventInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.AddHighCouncilInput> __Marshaller_AddHighCouncilInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.AddHighCouncilInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.RemoveHighCouncilInput> __Marshaller_RemoveHighCouncilInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.RemoveHighCouncilInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.AnnounceElectionInput> __Marshaller_AnnounceElectionInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.AnnounceElectionInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.AnnounceElectionForInput> __Marshaller_AnnounceElectionForInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.AnnounceElectionForInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.QuitElectionInput> __Marshaller_QuitElectionInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.QuitElectionInput.Parser.ParseFrom);
@@ -264,6 +305,11 @@ namespace TomorrowDAO.Contracts.Election {
     static readonly aelf::Marshaller<global::AElf.Types.Hash> __Marshaller_aelf_Hash = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::AElf.Types.Hash.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.TakeElectionSnapshotInput> __Marshaller_TakeElectionSnapshotInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.TakeElectionSnapshotInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.SetCandidateAdminInput> __Marshaller_SetCandidateAdminInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.SetCandidateAdminInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.ChangeVotingOptionInput> __Marshaller_ChangeVotingOptionInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.ChangeVotingOptionInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.UpdateCandidateInformationInput> __Marshaller_UpdateCandidateInformationInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.UpdateCandidateInformationInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.UpdateMultipleCandidateInformationInput> __Marshaller_UpdateMultipleCandidateInformationInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.UpdateMultipleCandidateInformationInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.ReplaceCandidatePubkeyInput> __Marshaller_ReplaceCandidatePubkeyInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.ReplaceCandidatePubkeyInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.RemoveEvilNodeInput> __Marshaller_RemoveEvilNodeInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.RemoveEvilNodeInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.AddressList> __Marshaller_AddressList = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.AddressList.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.GetCandidateInformationInput> __Marshaller_GetCandidateInformationInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.GetCandidateInformationInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.CandidateInformation> __Marshaller_CandidateInformation = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.CandidateInformation.Parser.ParseFrom);
@@ -278,14 +324,6 @@ namespace TomorrowDAO.Contracts.Election {
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.TermSnapshot> __Marshaller_TermSnapshot = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.TermSnapshot.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.GetElectionResultInput> __Marshaller_GetElectionResultInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.GetElectionResultInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.ElectionResult> __Marshaller_ElectionResult = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.ElectionResult.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.ChangeVotingOptionInput> __Marshaller_ChangeVotingOptionInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.ChangeVotingOptionInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.UpdateCandidateInformationInput> __Marshaller_UpdateCandidateInformationInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.UpdateCandidateInformationInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.UpdateMultipleCandidateInformationInput> __Marshaller_UpdateMultipleCandidateInformationInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.UpdateMultipleCandidateInformationInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.ReplaceCandidatePubkeyInput> __Marshaller_ReplaceCandidatePubkeyInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.ReplaceCandidatePubkeyInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.RemoveEvilNodeInput> __Marshaller_RemoveEvilNodeInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.RemoveEvilNodeInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.SetEmergencyInput> __Marshaller_SetEmergencyInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.SetEmergencyInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Election.DataCenterRankingList> __Marshaller_DataCenterRankingList = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Election.DataCenterRankingList.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::AElf.Types.Address> __Marshaller_aelf_Address = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::AElf.Types.Address.Parser.ParseFrom);
     #endregion
 
     #region Methods
@@ -308,6 +346,20 @@ namespace TomorrowDAO.Contracts.Election {
         __ServiceName,
         "RegisterElectionVotingEvent",
         __Marshaller_RegisterElectionVotingEventInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Election.AddHighCouncilInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_AddHighCouncil = new aelf::Method<global::TomorrowDAO.Contracts.Election.AddHighCouncilInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "AddHighCouncil",
+        __Marshaller_AddHighCouncilInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Election.RemoveHighCouncilInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_RemoveHighCouncil = new aelf::Method<global::TomorrowDAO.Contracts.Election.RemoveHighCouncilInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "RemoveHighCouncil",
+        __Marshaller_RemoveHighCouncilInput,
         __Marshaller_google_protobuf_Empty);
 
     static readonly aelf::Method<global::TomorrowDAO.Contracts.Election.AnnounceElectionInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_AnnounceElection = new aelf::Method<global::TomorrowDAO.Contracts.Election.AnnounceElectionInput, global::Google.Protobuf.WellKnownTypes.Empty>(
@@ -356,6 +408,48 @@ namespace TomorrowDAO.Contracts.Election {
         aelf::MethodType.Action,
         __ServiceName,
         "Withdraw",
+        __Marshaller_aelf_Hash,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Election.ChangeVotingOptionInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_ChangeVotingOption = new aelf::Method<global::TomorrowDAO.Contracts.Election.ChangeVotingOptionInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "ChangeVotingOption",
+        __Marshaller_ChangeVotingOptionInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Election.UpdateCandidateInformationInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateCandidateInformation = new aelf::Method<global::TomorrowDAO.Contracts.Election.UpdateCandidateInformationInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "UpdateCandidateInformation",
+        __Marshaller_UpdateCandidateInformationInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Election.UpdateMultipleCandidateInformationInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateMultipleCandidateInformation = new aelf::Method<global::TomorrowDAO.Contracts.Election.UpdateMultipleCandidateInformationInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "UpdateMultipleCandidateInformation",
+        __Marshaller_UpdateMultipleCandidateInformationInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Election.ReplaceCandidatePubkeyInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_ReplaceCandidateAddress = new aelf::Method<global::TomorrowDAO.Contracts.Election.ReplaceCandidatePubkeyInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "ReplaceCandidateAddress",
+        __Marshaller_ReplaceCandidatePubkeyInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Election.RemoveEvilNodeInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_RemoveEvilNode = new aelf::Method<global::TomorrowDAO.Contracts.Election.RemoveEvilNodeInput, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "RemoveEvilNode",
+        __Marshaller_RemoveEvilNodeInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty> __Method_EnableElection = new aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "EnableElection",
         __Marshaller_aelf_Hash,
         __Marshaller_google_protobuf_Empty);
 
@@ -429,68 +523,19 @@ namespace TomorrowDAO.Contracts.Election {
         __Marshaller_GetElectionResultInput,
         __Marshaller_ElectionResult);
 
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Election.ChangeVotingOptionInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_ChangeVotingOption = new aelf::Method<global::TomorrowDAO.Contracts.Election.ChangeVotingOptionInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "ChangeVotingOption",
-        __Marshaller_ChangeVotingOptionInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Election.UpdateCandidateInformationInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateCandidateInformation = new aelf::Method<global::TomorrowDAO.Contracts.Election.UpdateCandidateInformationInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "UpdateCandidateInformation",
-        __Marshaller_UpdateCandidateInformationInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Election.UpdateMultipleCandidateInformationInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateMultipleCandidateInformation = new aelf::Method<global::TomorrowDAO.Contracts.Election.UpdateMultipleCandidateInformationInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "UpdateMultipleCandidateInformation",
-        __Marshaller_UpdateMultipleCandidateInformationInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Election.ReplaceCandidatePubkeyInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_ReplaceCandidateAddress = new aelf::Method<global::TomorrowDAO.Contracts.Election.ReplaceCandidatePubkeyInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "ReplaceCandidateAddress",
-        __Marshaller_ReplaceCandidatePubkeyInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Election.RemoveEvilNodeInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_RemoveEvilNode = new aelf::Method<global::TomorrowDAO.Contracts.Election.RemoveEvilNodeInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "RemoveEvilNode",
-        __Marshaller_RemoveEvilNodeInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty> __Method_EnableElection = new aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "EnableElection",
-        __Marshaller_aelf_Hash,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Election.SetEmergencyInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SetEmergency = new aelf::Method<global::TomorrowDAO.Contracts.Election.SetEmergencyInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "SetEmergency",
-        __Marshaller_SetEmergencyInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Election.DataCenterRankingList> __Method_GetDataCenterRankingList = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Election.DataCenterRankingList>(
+    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Election.AddressList> __Method_GetInitialHighCouncilMembers = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Election.AddressList>(
         aelf::MethodType.View,
         __ServiceName,
-        "GetDataCenterRankingList",
+        "GetInitialHighCouncilMembers",
         __Marshaller_aelf_Hash,
-        __Marshaller_DataCenterRankingList);
+        __Marshaller_AddressList);
 
-    static readonly aelf::Method<global::AElf.Types.Hash, global::AElf.Types.Address> __Method_GetEmergency = new aelf::Method<global::AElf.Types.Hash, global::AElf.Types.Address>(
+    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Election.AddressList> __Method_GetHighCouncilMembers = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Election.AddressList>(
         aelf::MethodType.View,
         __ServiceName,
-        "GetEmergency",
+        "GetHighCouncilMembers",
         __Marshaller_aelf_Hash,
-        __Marshaller_aelf_Address);
+        __Marshaller_AddressList);
 
     #endregion
 
@@ -531,6 +576,16 @@ namespace TomorrowDAO.Contracts.Election {
     //     throw new global::System.NotImplementedException();
     //   }
     //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty AddHighCouncil(global::TomorrowDAO.Contracts.Election.AddHighCouncilInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty RemoveHighCouncil(global::TomorrowDAO.Contracts.Election.RemoveHighCouncilInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
     //   public virtual global::Google.Protobuf.WellKnownTypes.Empty AnnounceElection(global::TomorrowDAO.Contracts.Election.AnnounceElectionInput input)
     //   {
     //     throw new global::System.NotImplementedException();
@@ -562,6 +617,36 @@ namespace TomorrowDAO.Contracts.Election {
     //   }
     //
     //   public virtual global::Google.Protobuf.WellKnownTypes.Empty Withdraw(global::AElf.Types.Hash input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty ChangeVotingOption(global::TomorrowDAO.Contracts.Election.ChangeVotingOptionInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateCandidateInformation(global::TomorrowDAO.Contracts.Election.UpdateCandidateInformationInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateMultipleCandidateInformation(global::TomorrowDAO.Contracts.Election.UpdateMultipleCandidateInformationInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty ReplaceCandidateAddress(global::TomorrowDAO.Contracts.Election.ReplaceCandidatePubkeyInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty RemoveEvilNode(global::TomorrowDAO.Contracts.Election.RemoveEvilNodeInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty EnableElection(global::AElf.Types.Hash input)
     //   {
     //     throw new global::System.NotImplementedException();
     //   }
@@ -616,47 +701,12 @@ namespace TomorrowDAO.Contracts.Election {
     //     throw new global::System.NotImplementedException();
     //   }
     //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty ChangeVotingOption(global::TomorrowDAO.Contracts.Election.ChangeVotingOptionInput input)
+    //   public virtual global::TomorrowDAO.Contracts.Election.AddressList GetInitialHighCouncilMembers(global::AElf.Types.Hash input)
     //   {
     //     throw new global::System.NotImplementedException();
     //   }
     //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateCandidateInformation(global::TomorrowDAO.Contracts.Election.UpdateCandidateInformationInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty UpdateMultipleCandidateInformation(global::TomorrowDAO.Contracts.Election.UpdateMultipleCandidateInformationInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty ReplaceCandidateAddress(global::TomorrowDAO.Contracts.Election.ReplaceCandidatePubkeyInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty RemoveEvilNode(global::TomorrowDAO.Contracts.Election.RemoveEvilNodeInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty EnableElection(global::AElf.Types.Hash input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty SetEmergency(global::TomorrowDAO.Contracts.Election.SetEmergencyInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::TomorrowDAO.Contracts.Election.DataCenterRankingList GetDataCenterRankingList(global::AElf.Types.Hash input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::AElf.Types.Address GetEmergency(global::AElf.Types.Hash input)
+    //   public virtual global::TomorrowDAO.Contracts.Election.AddressList GetHighCouncilMembers(global::AElf.Types.Hash input)
     //   {
     //     throw new global::System.NotImplementedException();
     //   }
@@ -670,6 +720,8 @@ namespace TomorrowDAO.Contracts.Election {
     //       .AddMethod(__Method_Initialize, serviceImpl.Initialize)
     //       .AddMethod(__Method_SetHighCouncilConfig, serviceImpl.SetHighCouncilConfig)
     //       .AddMethod(__Method_RegisterElectionVotingEvent, serviceImpl.RegisterElectionVotingEvent)
+    //       .AddMethod(__Method_AddHighCouncil, serviceImpl.AddHighCouncil)
+    //       .AddMethod(__Method_RemoveHighCouncil, serviceImpl.RemoveHighCouncil)
     //       .AddMethod(__Method_AnnounceElection, serviceImpl.AnnounceElection)
     //       .AddMethod(__Method_AnnounceElectionFor, serviceImpl.AnnounceElectionFor)
     //       .AddMethod(__Method_QuitElection, serviceImpl.QuitElection)
@@ -677,6 +729,12 @@ namespace TomorrowDAO.Contracts.Election {
     //       .AddMethod(__Method_TakeSnapshot, serviceImpl.TakeSnapshot)
     //       .AddMethod(__Method_SetCandidateAdmin, serviceImpl.SetCandidateAdmin)
     //       .AddMethod(__Method_Withdraw, serviceImpl.Withdraw)
+    //       .AddMethod(__Method_ChangeVotingOption, serviceImpl.ChangeVotingOption)
+    //       .AddMethod(__Method_UpdateCandidateInformation, serviceImpl.UpdateCandidateInformation)
+    //       .AddMethod(__Method_UpdateMultipleCandidateInformation, serviceImpl.UpdateMultipleCandidateInformation)
+    //       .AddMethod(__Method_ReplaceCandidateAddress, serviceImpl.ReplaceCandidateAddress)
+    //       .AddMethod(__Method_RemoveEvilNode, serviceImpl.RemoveEvilNode)
+    //       .AddMethod(__Method_EnableElection, serviceImpl.EnableElection)
     //       .AddMethod(__Method_GetCandidates, serviceImpl.GetCandidates)
     //       .AddMethod(__Method_GetVotedCandidates, serviceImpl.GetVotedCandidates)
     //       .AddMethod(__Method_GetVictories, serviceImpl.GetVictories)
@@ -687,15 +745,8 @@ namespace TomorrowDAO.Contracts.Election {
     //       .AddMethod(__Method_GetElectorVote, serviceImpl.GetElectorVote)
     //       .AddMethod(__Method_GetTermSnapshot, serviceImpl.GetTermSnapshot)
     //       .AddMethod(__Method_GetElectionResult, serviceImpl.GetElectionResult)
-    //       .AddMethod(__Method_ChangeVotingOption, serviceImpl.ChangeVotingOption)
-    //       .AddMethod(__Method_UpdateCandidateInformation, serviceImpl.UpdateCandidateInformation)
-    //       .AddMethod(__Method_UpdateMultipleCandidateInformation, serviceImpl.UpdateMultipleCandidateInformation)
-    //       .AddMethod(__Method_ReplaceCandidateAddress, serviceImpl.ReplaceCandidateAddress)
-    //       .AddMethod(__Method_RemoveEvilNode, serviceImpl.RemoveEvilNode)
-    //       .AddMethod(__Method_EnableElection, serviceImpl.EnableElection)
-    //       .AddMethod(__Method_SetEmergency, serviceImpl.SetEmergency)
-    //       .AddMethod(__Method_GetDataCenterRankingList, serviceImpl.GetDataCenterRankingList)
-    //       .AddMethod(__Method_GetEmergency, serviceImpl.GetEmergency).Build();
+    //       .AddMethod(__Method_GetInitialHighCouncilMembers, serviceImpl.GetInitialHighCouncilMembers)
+    //       .AddMethod(__Method_GetHighCouncilMembers, serviceImpl.GetHighCouncilMembers).Build();
     // }
 
   }

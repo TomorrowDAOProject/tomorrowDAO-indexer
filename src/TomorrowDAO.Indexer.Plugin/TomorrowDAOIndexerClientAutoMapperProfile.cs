@@ -1,6 +1,7 @@
 using AElf;
 using AElfIndexer.Client.Handlers;
 using TomorrowDAO.Contracts.DAO;
+using TomorrowDAO.Contracts.Election;
 using TomorrowDAO.Contracts.Governance;
 using TomorrowDAO.Contracts.Treasury;
 using TomorrowDAO.Contracts.Vote;
@@ -14,6 +15,7 @@ using FileInfoIndexer = TomorrowDAO.Indexer.Plugin.Entities.FileInfo;
 using FileInfoContract = TomorrowDAO.Contracts.DAO.FileInfo;
 using FileIndexer = TomorrowDAO.Indexer.Plugin.Entities.File;
 using FileContract = TomorrowDAO.Contracts.DAO.File;
+using Voted = TomorrowDAO.Contracts.Vote.Voted;
 
 namespace TomorrowDAO.Indexer.Plugin;
 
@@ -151,7 +153,14 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.StakingAmount, opt
                 => opt.MapFrom(source => source.HighCouncilInput.HighCouncilConfig.StakingAmount))
             ;
+        CreateMap<ElectionHighCouncilConfigIndex, ElectionHighCouncilConfig>();
+        CreateMap<ElectionVotingItemIndex, ElectionVotingItem>();
         CreateMap<LogEventContext, GovernanceSchemeIndex>();
+        CreateMap<ElectionCandidateElectedIndex, ElectionCandidateElected>();
+        CreateMap<CandidateElected, ElectionCandidateElectedIndex>()
+            .ForMember(des => des.DaoId, opt
+                => opt.MapFrom(source => MapHash(source.DaoId)));
+        CreateMap<LogEventContext, ElectionCandidateElectedIndex>();
         CreateMap<GovernanceSchemeAdded, GovernanceSchemeIndex>()
             .ForMember(des => des.SchemeId, opt
                 => opt.MapFrom(source => MapHash(source.SchemeId)))

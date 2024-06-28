@@ -2,6 +2,7 @@ using AElfIndexer.Client;
 using AElfIndexer.Client.Handlers;
 using AElfIndexer.Grains.State.Client;
 using Microsoft.Extensions.Logging;
+using TomorrowDAO.Contracts.Election;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.ObjectMapping;
@@ -12,10 +13,14 @@ public interface IElectionProvider
 {
     Task<ElectionVotingItemIndex> GetVotingItemIndexAsync(string id, string chainId);
     Task<ElectionHighCouncilConfigIndex> GetHighCouncilConfigIndexAsync(string id, string chainId);
+    Task<ElectionCandidateElectedIndex> GetCandidateElectedIndexAsync(string id, string chainId);
     Task SaveIndexAsync(ElectionIndex index, LogEventContext context);
-
     Task SaveVotingItemIndexAsync(ElectionVotingItemIndex votingItemIndex, LogEventContext context);
-    Task SaveHighCouncilConfigIndexAsync(ElectionHighCouncilConfigIndex highCouncilConfigIndex, LogEventContext context);
+
+    Task SaveHighCouncilConfigIndexAsync(ElectionHighCouncilConfigIndex highCouncilConfigIndex,
+        LogEventContext context);
+
+    Task SaveCandidateElectedIndexAsync(ElectionCandidateElectedIndex candidateElectedIndex, LogEventContext context);
 }
 
 public class ElectionProvider : IElectionProvider, ISingletonDependency
@@ -23,6 +28,9 @@ public class ElectionProvider : IElectionProvider, ISingletonDependency
     private readonly ILogger<VoteProvider> _logger;
     private readonly IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> _electionRepository;
     private readonly IAElfIndexerClientEntityRepository<ElectionVotingItemIndex, LogEventInfo> _votingItemRepository;
+
+    private readonly IAElfIndexerClientEntityRepository<ElectionCandidateElectedIndex, LogEventInfo>
+        _candidateElectedRepository;
 
     private readonly IAElfIndexerClientEntityRepository<ElectionHighCouncilConfigIndex, LogEventInfo>
         _highCouncilConfigRepository;
@@ -33,13 +41,15 @@ public class ElectionProvider : IElectionProvider, ISingletonDependency
         IObjectMapper objectMapper,
         IAElfIndexerClientEntityRepository<ElectionVotingItemIndex, LogEventInfo> votingItemRepository,
         IAElfIndexerClientEntityRepository<ElectionHighCouncilConfigIndex, LogEventInfo> highCouncilConfigRepository,
-        ILogger<VoteProvider> logger)
+        ILogger<VoteProvider> logger,
+        IAElfIndexerClientEntityRepository<ElectionCandidateElectedIndex, LogEventInfo> candidateElectedRepository)
     {
         _electionRepository = electionRepository;
         _objectMapper = objectMapper;
         _votingItemRepository = votingItemRepository;
         _highCouncilConfigRepository = highCouncilConfigRepository;
         _logger = logger;
+        _candidateElectedRepository = candidateElectedRepository;
     }
 
     public async Task<ElectionVotingItemIndex> GetVotingItemIndexAsync(string id, string chainId)
@@ -62,7 +72,20 @@ public class ElectionProvider : IElectionProvider, ISingletonDependency
             return highCouncilConfig;
         }
 
-        _logger.LogInformation("ElectionHighCouncilConfigIndex with id {id} chainId {chainId} not existed.", id, chainId);
+        _logger.LogInformation("ElectionHighCouncilConfigIndex with id {id} chainId {chainId} not existed.", id,
+            chainId);
+        return null;
+    }
+
+    public async Task<ElectionCandidateElectedIndex> GetCandidateElectedIndexAsync(string id, string chainId)
+    {
+        var electionCandidateElectedIndex = await _candidateElectedRepository.GetFromBlockStateSetAsync(id, chainId);
+        if (electionCandidateElectedIndex != null)
+        {
+            return electionCandidateElectedIndex;
+        }
+
+        _logger.LogInformation("electionCandidateElectedIndex with id {id} chainId {chainId} not existed.", id, chainId);
         return null;
     }
 
@@ -78,9 +101,17 @@ public class ElectionProvider : IElectionProvider, ISingletonDependency
         await _votingItemRepository.AddOrUpdateAsync(votingItemIndex);
     }
 
-    public async Task SaveHighCouncilConfigIndexAsync(ElectionHighCouncilConfigIndex highCouncilConfigIndex, LogEventContext context)
+    public async Task SaveHighCouncilConfigIndexAsync(ElectionHighCouncilConfigIndex highCouncilConfigIndex,
+        LogEventContext context)
     {
         _objectMapper.Map(context, highCouncilConfigIndex);
         await _highCouncilConfigRepository.AddOrUpdateAsync(highCouncilConfigIndex);
+    }
+
+    public async Task SaveCandidateElectedIndexAsync(ElectionCandidateElectedIndex candidateElectedIndex,
+        LogEventContext context)
+    {
+        _objectMapper.Map(context, candidateElectedIndex);
+        await _candidateElectedRepository.AddOrUpdateAsync(candidateElectedIndex);
     }
 }
