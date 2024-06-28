@@ -19,18 +19,20 @@ public abstract class TreasuryProcessorBase<TEvent> : AElfLogEventProcessorBase<
     protected readonly IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> TreasuryFundRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> TreasuryRecordRepository;
     protected readonly IDAOProvider DAOProvider;
+    protected readonly ITreasuryProvider TreasuryProvider;
 
     protected TreasuryProcessorBase(ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> logger,
         IObjectMapper objectMapper, IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> treasuryFundRepository,
         IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> treasuryRecordRepository,
-        IDAOProvider DAOProvider) : base(logger)
+        IDAOProvider DAOProvider, ITreasuryProvider treasuryProvider) : base(logger)
     {
         Logger = logger;
         ObjectMapper = objectMapper;
         TreasuryFundRepository = treasuryFundRepository;
         TreasuryRecordRepository = treasuryRecordRepository;
         this.DAOProvider = DAOProvider;
+        TreasuryProvider = treasuryProvider;
         ContractInfoOptions = contractInfoOptions.Value;
     }
 

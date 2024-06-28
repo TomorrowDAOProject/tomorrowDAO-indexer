@@ -1,5 +1,6 @@
 using AElf;
 using Shouldly;
+using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAO.Indexer.Plugin.GraphQL;
 using TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 using Xunit;
@@ -37,13 +38,13 @@ public partial class QueryTest : QueryTestBase
         DAOInfoDto.GovernanceContractAddress.ShouldBe(GovernanceContractAddress);
         DAOInfoDto.TimelockContractAddress.ShouldBe(TimelockContractAddress);
         
-        // DAOInfoDto.HighCouncilConfig.ShouldBeNull();
         DAOInfoDto.FileInfoList.ShouldBeNull();
         DAOInfoDto.IsTreasuryContractNeeded.ShouldBe(false);
         DAOInfoDto.SubsistStatus.ShouldBe(true);
         DAOInfoDto.Id.ShouldBe(DAOId);
         DAOInfoDto.Creator.ShouldBe(DAOCreator);
         DAOInfoDto.BlockHeight.ShouldBe(BlockHeight);
+        DAOInfoDto.GovernanceMechanism.ShouldBe(GovernanceMechanism.Organization);
     }
     
     [Fact]
@@ -67,6 +68,8 @@ public partial class QueryTest : QueryTestBase
         await MockEventProcess(VotingItemRegistered(), VotingItemRegisteredProcessor);
         await MockEventProcess(VoteVoted(), VoteVotedProcessor);
         await MockEventProcess(VoteWithdrawn(), VoteWithdrawnProcessor);
+        await MockEventProcess(TreasuryCreated(), TreasuryCreatedProcessor);
+        await MockEventProcess(TokenTransferred(), TransferredProcessor);
         
         var daoId = HashHelper.ComputeFrom(Id1).ToHex();
         var daoIndex = await DAOIndexRepository.GetFromBlockStateSetAsync(daoId, ChainAelf);
@@ -74,11 +77,11 @@ public partial class QueryTest : QueryTestBase
         daoIndex.VoteAmount.ShouldBe(100);
         daoIndex.WithdrawAmount.ShouldBe(10);
 
-        var list = await Query.GetDAOAmountRecordAsync(DAOIndexRepository, ObjectMapper, new GetDAOAmountRecordInput
+        var list = await Query.GetDAOAmountRecordAsync(DAOIndexRepository, TreasuryFundRepository, ObjectMapper, new GetDAOAmountRecordInput
         {
             ChainId = ChainAelf
         });
-        list.Sum(x => x.Amount).ShouldBe(90);
+        list.Sum(x => x.Amount).ShouldBe(100000090);
     }
 
     [Fact]

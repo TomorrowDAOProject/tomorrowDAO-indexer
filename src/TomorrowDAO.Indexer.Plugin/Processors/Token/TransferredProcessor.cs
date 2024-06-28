@@ -19,8 +19,8 @@ public class TransferredProcessor : TokenProcessorBase<Transferred>
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> treasuryFundRepository,
         IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> treasuryRecordRepository,
-        IDAOProvider DAOProvider)
-        : base(logger, objectMapper, contractInfoOptions, treasuryFundRepository, treasuryRecordRepository, DAOProvider)
+        IDAOProvider DAOProvider, ITreasuryProvider TreasuryProvider)
+        : base(logger, objectMapper, contractInfoOptions, treasuryFundRepository, treasuryRecordRepository, DAOProvider, TreasuryProvider)
     {
     }
 
@@ -46,6 +46,7 @@ public class TransferredProcessor : TokenProcessorBase<Transferred>
             var symbol = eventValue.Symbol;
 
             await CreateOrUpdateTreasuryFundIndex(chainId, daoId, symbol, eventValue, context);
+            await TreasuryProvider.TreasuryStatistic(chainId, symbol, eventValue.Amount, context);
 
             var executor = eventValue.From?.ToBase58();
             await SaveIndexAsync(new TreasuryRecordIndex
