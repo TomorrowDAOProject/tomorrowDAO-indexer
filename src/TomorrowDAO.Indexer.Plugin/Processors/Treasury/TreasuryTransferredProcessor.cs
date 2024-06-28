@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 using TomorrowDAO.Contracts.Treasury;
 using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Enums;
-using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using TomorrowDAO.Indexer.Plugin.Processors.Provider;
 using Volo.Abp.ObjectMapping;
 
@@ -20,8 +19,8 @@ public class TreasuryTransferredProcessor : TreasuryProcessorBase<TreasuryTransf
         IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
         IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> treasuryFundRepository,
         IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> treasuryRecordRepository,
-        IDAOProvider DAOProvider)
-        : base(logger, objectMapper, contractInfoOptions, treasuryFundRepository, treasuryRecordRepository, DAOProvider)
+        IDAOProvider DAOProvider, ITreasuryProvider TreasuryProvider)
+        : base(logger, objectMapper, contractInfoOptions, treasuryFundRepository, treasuryRecordRepository, DAOProvider, TreasuryProvider)
     {
     }
 
@@ -60,6 +59,7 @@ public class TreasuryTransferredProcessor : TreasuryProcessorBase<TreasuryTransf
                 CreateTime = context.BlockTime,
                 Memo = eventValue.Memo
             }, context);
+            await TreasuryProvider.TreasuryStatistic(chainId, symbol, -eventValue.Amount, context);
             Logger.LogInformation("[TreasuryTransferReleased] FINISH: Id={Id}, ChainId={ChainId}", DAOId, chainId);
         }
         catch (Exception e)

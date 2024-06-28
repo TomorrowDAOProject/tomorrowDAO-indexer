@@ -1,3 +1,5 @@
+using TomorrowDAO.Indexer.Plugin.Enums;
+
 namespace TomorrowDAO.Indexer.Plugin.GraphQL.Dto;
 
 public class DAOInfoDto
@@ -36,6 +38,7 @@ public class DAOInfoDto
     public int VoterCount { get; set; }
     public long VoteAmount { get; set; }
     public long WithdrawAmount { get; set; }
+    public GovernanceMechanism GovernanceMechanism { get; set; }
 }
 
 public class MetadataDto

@@ -18,6 +18,8 @@ public interface IDAOProvider
     Task<DaoVoterRecordIndex> GetDaoVoterRecordAsync(string chainId, string id);
 
     Task SaveIndexAsync(DAOIndex index, LogEventContext context);
+    Task SaveIndexAsync(OrganizationIndex index, LogEventContext context);
+    Task DeleteMemberAsync(string chainId, string id);
 
     Task SaveDaoVoterRecordAsync(DaoVoterRecordIndex daoVoterRecordIndex, LogEventContext context);
 }
@@ -26,11 +28,13 @@ public class DAOProvider : IDAOProvider, ISingletonDependency
 {
     private readonly ILogger<DAOProvider> _logger;
     private readonly IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> _daoRepository;
+    private readonly IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> _organizationRepository;
     private readonly IAElfIndexerClientEntityRepository<DaoVoterRecordIndex, LogEventInfo> _daoVoterRecordRepository;
     private readonly IObjectMapper _objectMapper;
 
     public DAOProvider(ILogger<DAOProvider> logger,
         IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> daoRepository,
+        IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> organizationRepository,
         IObjectMapper objectMapper,
         IAElfIndexerClientEntityRepository<DaoVoterRecordIndex, LogEventInfo> daoVoterRecordRepository)
     {
@@ -38,6 +42,7 @@ public class DAOProvider : IDAOProvider, ISingletonDependency
         _daoRepository = daoRepository;
         _objectMapper = objectMapper;
         _daoVoterRecordRepository = daoVoterRecordRepository;
+        _organizationRepository = organizationRepository;
     }
 
     public async Task<DAOIndex> GetDaoAsync(string chainId, string DAOId)
@@ -84,6 +89,21 @@ public class DAOProvider : IDAOProvider, ISingletonDependency
     {
         _objectMapper.Map(context, index);
         await _daoRepository.AddOrUpdateAsync(index);
+    }
+
+    public async Task SaveIndexAsync(OrganizationIndex index, LogEventContext context)
+    {
+        _objectMapper.Map(context, index);
+        await _organizationRepository.AddOrUpdateAsync(index);
+    }
+
+    public async Task DeleteMemberAsync(string chainId, string id)
+    {
+        var index = await _organizationRepository.GetFromBlockStateSetAsync(id, chainId);
+        if (index != null)
+        {
+            await _organizationRepository.DeleteAsync(index);
+        }
     }
 
     public async Task SaveDaoVoterRecordAsync(DaoVoterRecordIndex daoVoterRecordIndex, LogEventContext context)

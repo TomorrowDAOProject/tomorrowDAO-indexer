@@ -18,7 +18,7 @@ public abstract class ElectionProcessorBase<TEvent> : AElfLogEventProcessorBase<
     protected readonly IObjectMapper ObjectMapper;
     protected readonly ContractInfoOptions ContractInfoOptions;
     protected readonly IAElfIndexerClientEntityRepository<ElectionIndex, LogEventInfo> ElectionRepository;
-    protected readonly IElectionProvider _electionProvider;
+    protected readonly IElectionProvider ElectionProvider;
 
     protected ElectionProcessorBase(ILogger<AElfLogEventProcessorBase<TEvent, LogEventInfo>> logger,
         IObjectMapper objectMapper, IOptionsSnapshot<ContractInfoOptions> contractInfoOptions,
@@ -28,7 +28,7 @@ public abstract class ElectionProcessorBase<TEvent> : AElfLogEventProcessorBase<
         Logger = logger;
         ObjectMapper = objectMapper;
         ElectionRepository = electionRepository;
-        _electionProvider = electionProvider;
+        ElectionProvider = electionProvider;
         ContractInfoOptions = contractInfoOptions.Value;
     }
 
