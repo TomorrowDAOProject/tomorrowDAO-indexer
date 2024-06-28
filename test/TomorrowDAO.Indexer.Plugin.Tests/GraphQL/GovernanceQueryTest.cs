@@ -1,7 +1,6 @@
 using AElf;
 using AElf.CSharp.Core.Extension;
 using AElf.Types;
-using Moq;
 using Shouldly;
 using TomorrowDAO.Contracts.Governance;
 using TomorrowDAO.Indexer.Plugin.GraphQL;

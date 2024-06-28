@@ -36,6 +36,8 @@ public class TomorrowDAOIndexerPluginModule : AElfIndexerClientPluginBaseModule<
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, HighCouncilEnabledProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, SubsistStatusSetProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, MetadataUpdatedProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, MemberAddedProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, MemberRemovedProcessor>();
         // election
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, CandidateAddedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, CandidateAddressReplacedProcessor>();
@@ -64,5 +66,5 @@ public class TomorrowDAOIndexerPluginModule : AElfIndexerClientPluginBaseModule<
     }
 
     protected override string ClientId => "AElfIndexer_TomorrowDAO";
-    protected override string Version => "73c1e2f74ac748e08963c6593cab0cf5";
+    protected override string Version => "5bb9074e8b0f45c0adca41d8bcd542ea";
 }

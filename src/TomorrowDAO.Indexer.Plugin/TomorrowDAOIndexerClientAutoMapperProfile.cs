@@ -68,6 +68,13 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<ProposalIndex, ProposalSyncDto>();
         CreateMap<LogEventContext, DAOIndex>();
         CreateMap<LogEventContext, TreasuryFundIndex>();
+        CreateMap<LogEventContext, TreasuryFundSumIndex>();
+        CreateMap<TreasuryFundSumIndex, GetDAOAmountRecordDto>()
+            .ForMember(des => des.GovernanceToken, opt
+                => opt.MapFrom(source => source.Symbol))
+            .ForMember(des => des.Amount, opt
+                => opt.MapFrom(source => source.AvailableFunds))
+            ;
         CreateMap<LogEventContext, TreasuryRecordIndex>();
         CreateMap<TreasuryTransferred, TreasuryRecordIndex>()
             .ForMember(des => des.DaoId, opt
@@ -83,6 +90,11 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             ;
         CreateMap<LogEventContext, ElectionIndex>();
         CreateMap<DaoProposalTimePeriodSet, DAOIndex>();
+        CreateMap<OrganizationIndex, MemberDto>();
+        CreateMap<LogEventContext, OrganizationIndex>();
+        CreateMap<FileInfosUploaded, DAOIndex>()
+            .ForMember(des => des.Id, opt
+                => opt.MapFrom(source => MapHash(source.DaoId)));
         CreateMap<DAOCreated, DAOIndex>()
             .ForMember(des => des.IsNetworkDAO, opt
                 => opt.MapFrom(source => source.IsNetworkDao))
@@ -126,6 +138,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             ;
         CreateMap<FileContract, FileIndexer>();
         CreateMap<HighCouncilEnabled, DAOIndex>()
+            .ForMember(des => des.Id, opt
+                => opt.MapFrom(source => MapHash(source.DaoId)))
+            .ForMember(des => des.IsHighCouncilEnabled, opt
+                => opt.MapFrom(source => true))
             .ForMember(des => des.HighCouncilAddress, opt
                 => opt.MapFrom(source => MapAddress(source.HighCouncilAddress)))
             .ForMember(des => des.MaxHighCouncilMemberCount, opt
