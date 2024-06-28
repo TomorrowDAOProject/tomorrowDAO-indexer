@@ -88,6 +88,11 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             ;
         CreateMap<LogEventContext, ElectionIndex>();
         CreateMap<DaoProposalTimePeriodSet, DAOIndex>();
+        CreateMap<OrganizationIndex, MemberDto>();
+        CreateMap<LogEventContext, OrganizationIndex>();
+        CreateMap<FileInfosUploaded, DAOIndex>()
+            .ForMember(des => des.Id, opt
+                => opt.MapFrom(source => MapHash(source.DaoId)));
         CreateMap<DAOCreated, DAOIndex>()
             .ForMember(des => des.IsNetworkDAO, opt
                 => opt.MapFrom(source => source.IsNetworkDao))
@@ -131,6 +136,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             ;
         CreateMap<FileContract, FileIndexer>();
         CreateMap<HighCouncilEnabled, DAOIndex>()
+            .ForMember(des => des.Id, opt
+                => opt.MapFrom(source => MapHash(source.DaoId)))
+            .ForMember(des => des.IsHighCouncilEnabled, opt
+                => opt.MapFrom(source => true))
             .ForMember(des => des.HighCouncilAddress, opt
                 => opt.MapFrom(source => MapAddress(source.HighCouncilAddress)))
             .ForMember(des => des.MaxHighCouncilMemberCount, opt
