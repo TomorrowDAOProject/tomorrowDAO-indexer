@@ -13,12 +13,28 @@ namespace TomorrowDAOIndexer;
 
 public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDAOIndexerTestModule>
 {
-    protected readonly DAOCreatedProcessor _DAOCreatedProcessor;
-    protected readonly IReadOnlyRepository<DAOIndex> _DAORepository;
-    protected readonly IObjectMapper _objectMapper;
-    
-    // protected readonly long BlockHeight = 120;
-    // protected readonly string ChainAelf = "tDVV";
+    // processor
+    protected readonly DAOCreatedProcessor DAOCreatedProcessor;
+    // repository
+    protected readonly IReadOnlyRepository<VoteSchemeIndex> VoteSchemeIndexRepository;
+    protected readonly IReadOnlyRepository<VoteItemIndex> VoteItemIndexRepository;
+    protected readonly IReadOnlyRepository<VoteWithdrawnIndex> VoteWithdrawnRepository;
+    protected readonly IReadOnlyRepository<DAOIndex> DAOIndexRepository;
+    protected readonly IReadOnlyRepository<OrganizationIndex> organizationIndexRepository;
+    protected readonly IReadOnlyRepository<LatestParticipatedIndex> LatestParticipatedIndexRepository;
+    protected readonly IReadOnlyRepository<TreasuryFundIndex> TreasuryFundRepository;
+    protected readonly IReadOnlyRepository<TreasuryFundSumIndex> TreasuryFundSumRepository;
+    protected readonly IReadOnlyRepository<TreasuryRecordIndex> TreasuryRecordRepository;
+    protected readonly IReadOnlyRepository<ElectionIndex> ElectionRepository;
+    protected readonly IReadOnlyRepository<ElectionHighCouncilConfigIndex> ElectionHighCouncilConfigRepository;
+    protected readonly IReadOnlyRepository<ElectionVotingItemIndex> ElectionVotingItemRepository;
+    protected readonly IReadOnlyRepository<GovernanceSchemeIndex> GovernanceSchemeRepository;
+    protected readonly IReadOnlyRepository<ElectionCandidateElectedIndex> CandidateElectedRepository;
+    protected readonly IReadOnlyRepository<ProposalIndex> ProposalIndexRepository;
+    protected readonly IReadOnlyRepository<VoteRecordIndex> VoteRecordIndexRepository;
+    // mapper
+    protected readonly IObjectMapper ObjectMapper;
+    // param
     protected static readonly string Id1 = "123";
     protected static readonly string Id2 = "456";
     protected static readonly string Id3 = "789";
@@ -79,9 +95,9 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     
     public TomorrowDAOIndexerTestBase()
     {
-        _DAOCreatedProcessor = GetRequiredService<DAOCreatedProcessor>();
-        _DAORepository = GetRequiredService<IReadOnlyRepository<DAOIndex>>();
-        _objectMapper = GetRequiredService<IObjectMapper>();
+        DAOCreatedProcessor = GetRequiredService<DAOCreatedProcessor>();
+        DAOIndexRepository = GetRequiredService<IReadOnlyRepository<DAOIndex>>();
+        ObjectMapper = GetRequiredService<IObjectMapper>();
     }
 
     protected async Task MockEventProcess<TEvent>(TEvent logEvent, LogEventProcessorBase<TEvent> processor) where TEvent : IEvent<TEvent>, new()

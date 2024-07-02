@@ -1,6 +1,6 @@
 using TomorrowDAO.Indexer.Plugin.Enums;
 
-namespace TomorrowDAOIndexer.Dto;
+namespace TomorrowDAOIndexer.GraphQL.Dto;
 
 public class DAOInfoDto
 {

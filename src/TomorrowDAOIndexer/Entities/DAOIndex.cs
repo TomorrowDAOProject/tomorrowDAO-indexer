@@ -9,6 +9,7 @@ namespace TomorrowDAOIndexer.Entities;
 public class DAOIndex : AeFinderEntity, IAeFinderEntity
 {
     [Keyword] public override string Id { get; set; }
+    public long BlockHeight { get; set; }
     [Keyword] public string Creator { get; set; }
     [Keyword] public string Name { get; set; }
     [Keyword] public string LogoUrl { get; set; }
@@ -57,15 +58,4 @@ public class DAOIndex : AeFinderEntity, IAeFinderEntity
         ExecuteTimePeriod = TomorrowDAOConst.MinExecuteTimePeriod;
         VetoExecuteTimePeriod = TomorrowDAOConst.MinVetoExecuteTimePeriod;
     }
-}
-
-public class Metadata
-{
-    [Keyword] public string Name { get; set; }
-    
-    [Keyword] public string LogoUrl { get; set; }
-    
-    [Keyword] public string Description { get; set; }
-    
-    [Keyword] public string SocialMedia { get; set; }
 }

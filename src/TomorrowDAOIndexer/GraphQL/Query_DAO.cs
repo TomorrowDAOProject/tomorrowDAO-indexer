@@ -1,9 +1,9 @@
 using AeFinder.Sdk;
 using GraphQL;
-using TomorrowDAOIndexer.Dto;
 using TomorrowDAOIndexer.Entities;
-using TomorrowDAOIndexer.GraphQL.Input;
+using TomorrowDAOIndexer.GraphQL.Dto;
 using Volo.Abp.ObjectMapping;
+using GetChainBlockHeightInput = TomorrowDAOIndexer.GraphQL.Input.GetChainBlockHeightInput;
 
 namespace TomorrowDAOIndexer.GraphQL;
 
@@ -18,16 +18,15 @@ public partial class Query
         var queryable = await repository.GetQueryableAsync();
         if (input.StartBlockHeight > 0)
         {
-            queryable = queryable.Where(a => a.Metadata.Block.BlockHeight >= input.StartBlockHeight);
+            queryable = queryable.Where(a => a.BlockHeight >= input.StartBlockHeight);
         }
         if (input.EndBlockHeight > 0)
         {
-            queryable = queryable.Where(a => a.Metadata.Block.BlockHeight <= input.EndBlockHeight);
+            queryable = queryable.Where(a => a.BlockHeight <= input.EndBlockHeight);
         }
         queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
             .Skip(input.SkipCount).Take(input.MaxResultCount)
-            .OrderBy(a => a.Metadata.Block.BlockHeight) ;
-        
+            .OrderBy(a => a.BlockHeight) ;
         var accounts= queryable.ToList();
         return objectMapper.Map<List<DAOIndex>, List<DAOInfoDto>>(accounts);
     }

@@ -27,8 +27,7 @@ public class DAOCreatedProcessor : DAOProcessorBase<DAOCreated>
                 DAOIndex = ObjectMapper.Map<DAOCreated, DAOIndex>(logEvent);
             }
             DAOIndex.OfPeriod();
-            DAOIndex.CreateTime = context.Block.BlockTime;
-            DAOIndex.SubsistStatus = true;
+            ObjectMapper.Map(context, DAOIndex);
             await SaveEntityAsync(DAOIndex);
             Logger.LogInformation("[DAOCreated] FINISH: Id={Id}, ChainId={ChainId}", DAOId, chainId);
         }

@@ -7,11 +7,11 @@ namespace TomorrowDAOIndexer.Processors.DAO;
 public class DAOCreatedProcessorTest: TomorrowDAOIndexerTestBase
 {
     [Fact]
-    public async Task Test()
+    public async Task HandleEventAsync_MaxInfo_Test()
     {
-        await MockEventProcess(MaxInfoDAOCreated(), _DAOCreatedProcessor);
+        await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
 
-        var queryable = await _DAORepository.GetQueryableAsync();
+        var queryable = await DAOIndexRepository.GetQueryableAsync();
         var DAOIndex = queryable.Single(a => a.Metadata.ChainId == ChainId);
         DAOIndex.ShouldNotBeNull();
         
@@ -23,6 +23,7 @@ public class DAOCreatedProcessorTest: TomorrowDAOIndexerTestBase
         block.ShouldNotBeNull();
         block.BlockHeight.ShouldBe(BlockHeight);
         
+        DAOIndex.BlockHeight.ShouldBe(BlockHeight);
         DAOIndex.Name.ShouldBe(DAOName);
         DAOIndex.LogoUrl.ShouldBe(DAOLogoUrl);
         DAOIndex.Description.ShouldBe(DAODescription);

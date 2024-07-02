@@ -1,16 +1,30 @@
+using AeFinder.Sdk.Processor;
 using TomorrowDAO.Contracts.DAO;
-using TomorrowDAOIndexer.Dto;
 using TomorrowDAOIndexer.Entities;
+using TomorrowDAOIndexer.GraphQL.Dto;
 
 namespace TomorrowDAOIndexer;
 
-public class TomorrowDAOIndexerProfile : IndexerMapperBase
+public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
 {
-   public TomorrowDAOIndexerProfile()
+   public TomorrowDAOIndexerClientAutoMapperProfile()
     {
         // DAO
-        CreateMap<DAOIndex, DAOInfoDto>();
+        CreateMap<DAOIndex, DAOInfoDto>()
+            .ForMember(des => des.ChainId, opt
+                => opt.MapFrom(source => source.Metadata.ChainId))
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.BlockHeight))
+            ;
+        CreateMap<LogEventContext, DAOIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            .ForMember(des => des.CreateTime, opt
+                => opt.MapFrom(source => source.Block.BlockTime))
+            ;
         CreateMap<DAOCreated, DAOIndex>()
+            .ForMember(des => des.SubsistStatus, opt
+                => opt.MapFrom(source => true))
             .ForMember(des => des.LogoUrl, opt
                 => opt.MapFrom(source => source.Metadata.LogoUrl))
             .ForMember(des => des.Name, opt
