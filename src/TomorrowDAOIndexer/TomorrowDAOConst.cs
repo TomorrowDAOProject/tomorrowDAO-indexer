@@ -36,4 +36,6 @@ public class TomorrowDAOConst
     public const string VoteContractAddressMainNetSideChain = "2A8h4hLynLt86RxqvpNY43x6Js8CYhgyuAzj7sDGQ2ecP77Zgp";
     public const string ElectionContractAddressMainNetSideChain = "QWMSafkNs3oydr7EqktZ7kR2cE8j9c8qAbKymds5FLQZXcPiD";
     public const string TreasuryContractAddressMainNetSideChain = "TUeLJxSYY37kGbK8jf7NcLZ43g8k2DgQufgvzYjnsUzQsoCas";
+    
+    public const string DateFormat = "yyyy-MM-dd HH:mm:ss";
 }
