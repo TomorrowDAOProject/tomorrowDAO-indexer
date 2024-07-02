@@ -1,5 +1,5 @@
 using Shouldly;
-using TomorrowDAOIndexer.GraphQL;
+using TomorrowDAO.Indexer.Plugin.Enums;
 using Xunit;
 
 namespace TomorrowDAOIndexer.Processors.DAO;
@@ -10,8 +10,39 @@ public class DAOCreatedProcessorTest: TomorrowDAOIndexerTestBase
     public async Task Test()
     {
         await MockEventProcess(MaxInfoDAOCreated(), _DAOCreatedProcessor);
+
+        var queryable = await _DAORepository.GetQueryableAsync();
+        var DAOIndex = queryable.Single(a => a.Metadata.ChainId == ChainId);
+        DAOIndex.ShouldNotBeNull();
         
-        var entities = await Query.DAOIndex(_repository, _objectMapper, new GetDaoListInput { ChainId = ChainId });
-        entities.Count.ShouldBe(1);
+        var metadata = DAOIndex.Metadata;
+        metadata.ShouldNotBeNull();
+        metadata.ChainId.ShouldBe(ChainId);
+
+        var block = metadata.Block;
+        block.ShouldNotBeNull();
+        block.BlockHeight.ShouldBe(BlockHeight);
+        
+        DAOIndex.Name.ShouldBe(DAOName);
+        DAOIndex.LogoUrl.ShouldBe(DAOLogoUrl);
+        DAOIndex.Description.ShouldBe(DAODescription);
+        DAOIndex.SocialMedia.ShouldBe(DAOSocialMedia);
+        DAOIndex.GovernanceToken.ShouldBe(Elf);
+        DAOIndex.TreasuryContractAddress.ShouldBe(TreasuryContractAddress);
+        DAOIndex.VoteContractAddress.ShouldBe(VoteContractAddress);
+        DAOIndex.ElectionContractAddress.ShouldBe(ElectionContractAddress);
+        DAOIndex.GovernanceContractAddress.ShouldBe(GovernanceContractAddress);
+        DAOIndex.TimelockContractAddress.ShouldBe(TimelockContractAddress);
+        DAOIndex.FileInfoList.ShouldBeNull();
+        DAOIndex.IsTreasuryContractNeeded.ShouldBe(false);
+        DAOIndex.SubsistStatus.ShouldBe(true);
+        DAOIndex.Id.ShouldBe(DAOId);
+        DAOIndex.Creator.ShouldBe(DAOCreator);
+        DAOIndex.ActiveTimePeriod.ShouldBe(MinActiveTimePeriod);
+        DAOIndex.VetoActiveTimePeriod.ShouldBe(MinVetoActiveTimePeriod);
+        DAOIndex.PendingTimePeriod.ShouldBe(MinPendingTimePeriod);
+        DAOIndex.ExecuteTimePeriod.ShouldBe(MinExecuteTimePeriod);
+        DAOIndex.VetoExecuteTimePeriod.ShouldBe(MinVetoExecuteTimePeriod);
+        DAOIndex.GovernanceMechanism.ShouldBe(GovernanceMechanism.Organization);
     }
 }

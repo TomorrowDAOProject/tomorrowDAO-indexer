@@ -14,11 +14,11 @@ namespace TomorrowDAOIndexer;
 public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDAOIndexerTestModule>
 {
     protected readonly DAOCreatedProcessor _DAOCreatedProcessor;
-    protected readonly IReadOnlyRepository<DAOIndex> _repository;
+    protected readonly IReadOnlyRepository<DAOIndex> _DAORepository;
     protected readonly IObjectMapper _objectMapper;
     
-    protected readonly long BlockHeight = 120;
-    protected readonly string ChainAelf = "tDVV";
+    // protected readonly long BlockHeight = 120;
+    // protected readonly string ChainAelf = "tDVV";
     protected static readonly string Id1 = "123";
     protected static readonly string Id2 = "456";
     protected static readonly string Id3 = "789";
@@ -80,7 +80,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     public TomorrowDAOIndexerTestBase()
     {
         _DAOCreatedProcessor = GetRequiredService<DAOCreatedProcessor>();
-        _repository = GetRequiredService<IReadOnlyRepository<DAOIndex>>();
+        _DAORepository = GetRequiredService<IReadOnlyRepository<DAOIndex>>();
         _objectMapper = GetRequiredService<IObjectMapper>();
     }
 
