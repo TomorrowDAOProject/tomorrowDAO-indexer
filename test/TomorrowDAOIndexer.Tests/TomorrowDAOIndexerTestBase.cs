@@ -2,12 +2,25 @@ using AeFinder.App.TestBase;
 using AeFinder.Sdk;
 using AeFinder.Sdk.Processor;
 using AElf;
+using AElf.Contracts.MultiToken;
 using AElf.CSharp.Core;
 using AElf.Types;
+using Google.Protobuf.WellKnownTypes;
+using Newtonsoft.Json;
+using Shouldly;
 using TomorrowDAO.Contracts.DAO;
+using TomorrowDAO.Contracts.Election;
+using TomorrowDAO.Contracts.Governance;
+using TomorrowDAO.Contracts.Treasury;
+using TomorrowDAO.Contracts.Vote;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.Processors.DAO;
 using Volo.Abp.ObjectMapping;
+using GovernanceMechanism = TomorrowDAO.Contracts.DAO.GovernanceMechanism;
+using FileInfoIndexer = TomorrowDAOIndexer.Entities.FileInfo;
+using Voted = TomorrowDAO.Contracts.Election.Voted;
+using VotingItem = TomorrowDAO.Contracts.Election.VotingItem;
+using AddressListDAO = TomorrowDAO.Contracts.DAO.AddressList;
 
 namespace TomorrowDAOIndexer;
 
@@ -96,6 +109,22 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     public TomorrowDAOIndexerTestBase()
     {
         DAOCreatedProcessor = GetRequiredService<DAOCreatedProcessor>();
+        VoteSchemeIndexRepository = GetRequiredService<IReadOnlyRepository<VoteSchemeIndex>>();
+        VoteItemIndexRepository = GetRequiredService<IReadOnlyRepository<VoteItemIndex>>();
+        VoteWithdrawnRepository = GetRequiredService<IReadOnlyRepository<VoteWithdrawnIndex>>();
+        DAOIndexRepository = GetRequiredService<IReadOnlyRepository<DAOIndex>>();
+        organizationIndexRepository = GetRequiredService<IReadOnlyRepository<OrganizationIndex>>();
+        LatestParticipatedIndexRepository = GetRequiredService<IReadOnlyRepository<LatestParticipatedIndex>>();
+        TreasuryFundRepository = GetRequiredService<IReadOnlyRepository<TreasuryFundIndex>>();
+        TreasuryFundSumRepository = GetRequiredService<IReadOnlyRepository<TreasuryFundSumIndex>>();
+        TreasuryRecordRepository = GetRequiredService<IReadOnlyRepository<TreasuryRecordIndex>>();
+        ElectionRepository = GetRequiredService<IReadOnlyRepository<ElectionIndex>>();
+        ElectionHighCouncilConfigRepository = GetRequiredService<IReadOnlyRepository<ElectionHighCouncilConfigIndex>>();
+        ElectionVotingItemRepository = GetRequiredService<IReadOnlyRepository<ElectionVotingItemIndex>>();
+        GovernanceSchemeRepository = GetRequiredService<IReadOnlyRepository<GovernanceSchemeIndex>>();
+        CandidateElectedRepository = GetRequiredService<IReadOnlyRepository<ElectionCandidateElectedIndex>>();
+        ProposalIndexRepository = GetRequiredService<IReadOnlyRepository<ProposalIndex>>();
+        VoteRecordIndexRepository = GetRequiredService<IReadOnlyRepository<VoteRecordIndex>>();
         DAOIndexRepository = GetRequiredService<IReadOnlyRepository<DAOIndex>>();
         ObjectMapper = GetRequiredService<IObjectMapper>();
     }
@@ -104,8 +133,19 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     {
         await processor.ProcessAsync(logEvent, GenerateLogEventContext(logEvent));
     }
-    
-    
+    protected async Task CheckFileInfo()
+    {
+        var queryable = await DAOIndexRepository.GetQueryableAsync();
+        var DAOIndex = queryable.Single(a => a.Metadata.ChainId == ChainId);
+        DAOIndex.ShouldNotBeNull();
+        var fileInfoListString = DAOIndex.FileInfoList;
+        fileInfoListString.ShouldNotBeNull();
+        var fileList = JsonConvert.DeserializeObject<List<FileInfoIndexer>>(fileInfoListString);
+        fileList.ShouldNotBeNull();
+        fileList.Count.ShouldBe(1);
+        fileList[0].Uploader.ShouldBe(DAOCreator);
+    }
+
     protected DAOCreated MaxInfoDAOCreated() 
     {
         return new DAOCreated
@@ -129,6 +169,438 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
                 TimelockContractAddress = Address.FromBase58(TimelockContractAddress)
             },
             GovernanceMechanism = GovernanceMechanism.Organization
+        };
+    }
+
+    protected DAOCreated MinInfoDAOCreated()
+    {
+        return new DAOCreated
+        {
+            DaoId = HashHelper.ComputeFrom(Id1)
+        };
+    }
+
+    protected FileInfosRemoved FileInfosRemoved()
+    {
+        return new FileInfosRemoved
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            RemovedFiles = GetFileInfoList()
+        };
+    }
+
+    protected FileInfosUploaded FileInfosUploaded()
+    {
+        return new FileInfosUploaded
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            UploadedFiles = GetFileInfoList()
+        };
+    }
+
+    protected FileInfoList GetFileInfoList()
+    {
+        return new FileInfoList
+        {
+            Data =
+            {
+                [FileCid] = new TomorrowDAO.Contracts.DAO.FileInfo
+                {
+                    File = new TomorrowDAO.Contracts.DAO.File { Cid = FileCid, Name = FileName, Url = FileUrl },
+                    UploadTime = new Timestamp(),
+                    Uploader = Address.FromBase58(DAOCreator)
+                }
+            }
+        };
+    }
+
+    protected TreasuryCreated TreasuryCreated()
+    {
+        return new TreasuryCreated
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            TreasuryAccountAddress = Address.FromBase58(TreasuryAccountAddress)
+        };
+    }
+
+    protected Transferred TokenTransferred()
+    {
+        return new Transferred
+        {
+            From = Address.FromBase58(ExecuteAddress),
+            To = Address.FromBase58(TreasuryAccountAddress),
+            Symbol = Elf,
+            Amount = 100000000,
+            Memo = "Test",
+        };
+    }
+
+    protected TreasuryTransferred TreasuryTransferred()
+    {
+        return new TreasuryTransferred
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            TreasuryAddress = Address.FromBase58(TreasuryAccountAddress),
+            Amount = 1L,
+            Recipient = Address.FromBase58(DAOCreator),
+            Memo = "Test",
+            Executor = Address.FromBase58(ExecuteAddress),
+            ProposalId = HashHelper.ComputeFrom(Id2),
+            Symbol = Elf
+        };
+    }
+
+    protected CandidateAdded CandidateAdded()
+    {
+        return new CandidateAdded
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Candidate = Address.FromBase58(DAOCreator)
+        };
+    }
+
+    protected ElectionVotingEventRegistered ElectionVotingEventRegistered()
+    {
+        return new ElectionVotingEventRegistered
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Config = new TomorrowDAO.Contracts.Election.HighCouncilConfig
+            {
+                MaxHighCouncilMemberCount = 100,
+                MaxHighCouncilCandidateCount = 200,
+                ElectionPeriod = 100,
+                IsRequireHighCouncilForExecution = false,
+                GovernanceToken = "ELF",
+                StakeThreshold = 10000
+            },
+            VotingItem = new VotingItem
+            {
+                VotingItemId = HashHelper.ComputeFrom(Id1),
+                AcceptedCurrency = "ELF",
+                IsLockToken = true,
+                CurrentSnapshotNumber = 1,
+                TotalSnapshotNumber = long.MaxValue,
+                RegisterTimestamp = new Timestamp(),
+                StartTimestamp = new Timestamp(),
+                EndTimestamp = new Timestamp(),
+                CurrentSnapshotStartTimestamp = new Timestamp(),
+                Sponsor = Address.FromBase58(DAOCreator),
+                IsQuadratic = false,
+                TicketCost = 0
+            }
+        };
+    }
+
+    protected HighCouncilAdded HighCouncilAdded()
+    {
+        return new HighCouncilAdded
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            AddHighCouncils = new TomorrowDAO.Contracts.Election.AddressList
+            {
+                Value = { Address.FromBase58(Creator), Address.FromBase58(User) }
+            }
+        };
+    }
+
+    protected HighCouncilRemoved HighCouncilRemoved()
+    {
+        return new HighCouncilRemoved
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            RemoveHighCouncils = new TomorrowDAO.Contracts.Election.AddressList
+            {
+                Value =
+                {
+                    Address.FromBase58(OrganizationAddress),
+                    Address.FromBase58(User)
+                }
+            }
+        };
+    }
+
+    protected CandidateElected CandidateElected()
+    {
+        return new CandidateElected
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            PreTermNumber = 1,
+            NewNumber = 2
+        };
+    }
+
+    protected CandidateAddressReplaced CandidateAddressReplaced()
+    {
+        return new CandidateAddressReplaced
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            NewAddress = Address.FromBase58(User),
+            OldAddress = Address.FromBase58(Creator)
+        };
+    }
+
+    protected CandidateInfoUpdated CandidateInfoUpdated()
+    {
+        return new CandidateInfoUpdated
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            CandidateAddress = Address.FromBase58(DAOCreator),
+            IsEvilNode = true
+        };
+    }
+
+    protected CandidateRemoved CandidateRemoved()
+    {
+        return new CandidateRemoved
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Candidate = Address.FromBase58(DAOCreator)
+        };
+    }
+
+    protected Voted Voted()
+    {
+        return new Voted
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            CandidateAddress = Address.FromBase58(DAOCreator),
+            Amount = 100,
+            EndTimestamp = null,
+            VoteId = HashHelper.ComputeFrom(Id2)
+        };
+    }
+
+    protected VoteSchemeCreated VoteSchemeCreated_UniqueVote()
+    {
+        return new VoteSchemeCreated
+        {
+            VoteMechanism = VoteMechanism.UniqueVote,
+            VoteSchemeId = HashHelper.ComputeFrom(Id3)
+        };
+    }
+
+    protected Withdrawn VoteWithdrawn()
+    {
+        var votingItemIdList = new VotingItemIdList
+        {
+            Value = { HashHelper.ComputeFrom(VetoProposalId) }
+        };
+        return new Withdrawn
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Withdrawer = Address.FromBase58(User),
+            WithdrawAmount = 10,
+            WithdrawTimestamp = new Timestamp(),
+            VotingItemIdList = votingItemIdList
+        };
+    }
+
+    protected TomorrowDAO.Contracts.Vote.Voted VoteVoted()
+    {
+        return new TomorrowDAO.Contracts.Vote.Voted
+        {
+            VotingItemId = HashHelper.ComputeFrom(Id2),
+            Voter = Address.FromBase58(User),
+            Amount = 100,
+            VoteTimestamp = DateTime.UtcNow.AddMinutes(1).ToTimestamp(),
+            Option = VoteOption.Approved,
+            VoteId = HashHelper.ComputeFrom(Id3),
+            DaoId = HashHelper.ComputeFrom(Id1),
+            VoteMechanism = VoteMechanism.TokenBallot,
+            StartTime = DateTime.UtcNow.AddMinutes(1).ToTimestamp(),
+            EndTime = DateTime.UtcNow.AddMinutes(200).ToTimestamp()
+        };
+    }
+
+    protected VotingItemRegistered VotingItemRegistered()
+    {
+        return new VotingItemRegistered
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            VotingItemId = HashHelper.ComputeFrom(Id2),
+            SchemeId = HashHelper.ComputeFrom(Id4),
+            AcceptedCurrency = Elf,
+            RegisterTimestamp = DateTime.UtcNow.AddMinutes(-10).ToTimestamp(),
+            StartTimestamp = DateTime.UtcNow.AddMinutes(-10).ToTimestamp(),
+            EndTimestamp = DateTime.UtcNow.AddMinutes(100).ToTimestamp()
+        };
+    }
+
+    protected VoteSchemeCreated VoteSchemeCreated_TokenBallot()
+    {
+        return new VoteSchemeCreated
+        {
+            // IsLockToken = true,
+            // IsQuadratic = true,
+            VoteMechanism = VoteMechanism.TokenBallot,
+            VoteSchemeId = HashHelper.ComputeFrom(Id1)
+        };
+    }
+
+    protected GovernanceSchemeAdded GovernanceSchemeAdded()
+    {
+        return new GovernanceSchemeAdded
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            GovernanceMechanism = TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum,
+            SchemeThreshold = new TomorrowDAO.Contracts.Governance.GovernanceSchemeThreshold
+            {
+                MinimalRequiredThreshold = 10,
+                MinimalVoteThreshold = 12,
+                MinimalApproveThreshold = 50,
+                MaximalRejectionThreshold = 30,
+                MaximalAbstentionThreshold = 20,
+                ProposalThreshold = 10
+            },
+            GovernanceToken = Elf,
+            SchemeId = HashHelper.ComputeFrom(Id2),
+            SchemeAddress = Address.FromBase58(SchemeAddress)
+        };
+    }
+
+    protected GovernanceSchemeThresholdRemoved GovernanceSchemeThresholdRemoved()
+    {
+        return new GovernanceSchemeThresholdRemoved
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            SchemeAddress = Address.FromBase58(SchemeAddress)
+        };
+    }
+
+    protected GovernanceSchemeThresholdUpdated GovernanceSchemeThresholdUpdated()
+    {
+        return new GovernanceSchemeThresholdUpdated
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            UpdateSchemeThreshold = new TomorrowDAO.Contracts.Governance.GovernanceSchemeThreshold
+            {
+                MinimalRequiredThreshold = 1,
+                MinimalVoteThreshold = 1,
+                MinimalApproveThreshold = 1,
+                MaximalRejectionThreshold = 1,
+                MaximalAbstentionThreshold = 1
+            },
+            SchemeAddress = Address.FromBase58(SchemeAddress)
+        };
+    }
+
+    protected GovernanceTokenSet GovernanceTokenSet()
+    {
+        return new GovernanceTokenSet
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            GovernanceToken = "USDT"
+        };
+    }
+
+    protected ProposalCreated ProposalCreated()
+    {
+        return new ProposalCreated
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            ProposalId = HashHelper.ComputeFrom(ProposalId),
+            ProposalTitle = ProposalTitle,
+            ForumUrl = ForumUrl,
+            ProposalDescription = ProposalDescription,
+            ProposalType = ProposalType.Advisory,
+            ActiveStartTime = new Timestamp(),
+            ActiveEndTime = new Timestamp(),
+            ExecuteStartTime = new Timestamp(),
+            ExecuteEndTime = new Timestamp(),
+            ProposalStatus = ProposalStatus.Empty,
+            ProposalStage = ProposalStage.Active,
+            Proposer = Address.FromBase58(DAOCreator),
+            SchemeAddress = Address.FromBase58(SchemeAddress),
+            Transaction = new TomorrowDAO.Contracts.Governance.ExecuteTransaction
+            {
+                ContractMethodName = "ContractMethodName",
+                ToAddress = Address.FromBase58(ExecuteAddress),
+                Params = ByteStringHelper.FromHexString("0102030405")
+            },
+            VoteSchemeId = HashHelper.ComputeFrom(Id3),
+            VetoProposalId = HashHelper.ComputeFrom(Id4)
+        };
+    }
+
+    protected ProposalCreated ProposalCreated_Veto()
+    {
+        return new ProposalCreated
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            ProposalId = HashHelper.ComputeFrom(Id4)
+        };
+    }
+
+    protected DaoProposalTimePeriodSet DaoProposalTimePeriodSet()
+    {
+        return new DaoProposalTimePeriodSet
+        {
+            ActiveTimePeriod = 1L,
+            DaoId = HashHelper.ComputeFrom(Id1),
+            ExecuteTimePeriod = 2L,
+            PendingTimePeriod = 3L,
+            VetoExecuteTimePeriod = 4L,
+            VetoActiveTimePeriod = 5L
+        };
+    }
+
+    protected ProposalExecuted ProposalExecuted(string proposalId = null)
+    {
+        return new ProposalExecuted
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            ExecuteTime = new Timestamp(),
+            ProposalId = HashHelper.ComputeFrom(proposalId ?? ProposalId)
+        };
+    }
+
+    protected ProposalVetoed ProposalVetoed()
+    {
+        return new ProposalVetoed
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            VetoProposalId = HashHelper.ComputeFrom(ProposalId),
+            ProposalId = HashHelper.ComputeFrom(Id4),
+            VetoTime = new Timestamp()
+        };
+    }
+
+    protected MetadataUpdated MetadataUpdated()
+    {
+        return new MetadataUpdated
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Metadata = new TomorrowDAO.Contracts.DAO.Metadata
+            {
+                Name = "update",
+                LogoUrl = "update",
+                Description = "update",
+                SocialMedia = { ["update"] = "update" }
+            }
+        };
+    }
+
+    protected MemberAdded MemberAdded()
+    {
+        return new MemberAdded
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            AddMembers = new AddressListDAO
+            {
+                Value = { Address.FromBase58(User), Address.FromBase58(Creator) }
+            }
+        };
+    }
+    
+    protected MemberRemoved MemberRemoved()
+    {
+        return new MemberRemoved
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            RemoveMembers = new AddressListDAO
+            {
+                Value = { Address.FromBase58(User), Address.FromBase58(DAOCreator), Address.FromBase58(Creator) }
+            }
         };
     }
 }
