@@ -31,7 +31,6 @@ public class DAOQueryTest : TomorrowDAOIndexerTestBase
         DAOInfoDto.ElectionContractAddress.ShouldBe(ElectionContractAddress);
         DAOInfoDto.GovernanceContractAddress.ShouldBe(GovernanceContractAddress);
         DAOInfoDto.TimelockContractAddress.ShouldBe(TimelockContractAddress);
-        DAOInfoDto.FileInfoList.ShouldBeNull();
         DAOInfoDto.IsTreasuryContractNeeded.ShouldBe(false);
         DAOInfoDto.SubsistStatus.ShouldBe(true);
         DAOInfoDto.Id.ShouldBe(DAOId);
@@ -39,5 +38,6 @@ public class DAOQueryTest : TomorrowDAOIndexerTestBase
         DAOInfoDto.BlockHeight.ShouldBe(BlockHeight);
         DAOInfoDto.GovernanceMechanism.ShouldBe(GovernanceMechanism.Organization);
         DAOInfoDto.ChainId.ShouldBe(ChainId);
+        DAOInfoDto.FileInfoList.ShouldBeNull();
     }
 }

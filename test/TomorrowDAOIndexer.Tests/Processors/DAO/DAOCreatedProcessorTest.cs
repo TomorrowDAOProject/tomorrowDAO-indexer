@@ -34,7 +34,6 @@ public class DAOCreatedProcessorTest: TomorrowDAOIndexerTestBase
         DAOIndex.ElectionContractAddress.ShouldBe(ElectionContractAddress);
         DAOIndex.GovernanceContractAddress.ShouldBe(GovernanceContractAddress);
         DAOIndex.TimelockContractAddress.ShouldBe(TimelockContractAddress);
-        DAOIndex.FileInfoList.ShouldBeNull();
         DAOIndex.IsTreasuryContractNeeded.ShouldBe(false);
         DAOIndex.SubsistStatus.ShouldBe(true);
         DAOIndex.Id.ShouldBe(DAOId);
@@ -45,5 +44,6 @@ public class DAOCreatedProcessorTest: TomorrowDAOIndexerTestBase
         DAOIndex.ExecuteTimePeriod.ShouldBe(MinExecuteTimePeriod);
         DAOIndex.VetoExecuteTimePeriod.ShouldBe(MinVetoExecuteTimePeriod);
         DAOIndex.GovernanceMechanism.ShouldBe(GovernanceMechanism.Organization);
+        DAOIndex.FileInfoList.ShouldBeNull();
     }
 }
