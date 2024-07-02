@@ -4,15 +4,24 @@ using Xunit;
 
 namespace TomorrowDAOIndexer.Processors.DAO;
 
-public class DAOCreatedProcessorTest: TomorrowDAOIndexerTestBase
+public class DAOCreatedProcessorTest : TomorrowDAOIndexerTestBase
 {
+    [Fact]
+    public async Task HandleEventAsync_AfterFileInfoUploaded_Test()
+    {
+        await MockEventProcess(FileInfosUploaded(), FileInfosUploadedProcessor);
+        await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
+        
+        var DAOIndex = await GetIndexById(DAOId, DAOIndexRepository);
+        await CheckFileInfo(DAOIndex);
+    }
+    
     [Fact]
     public async Task HandleEventAsync_MaxInfo_Test()
     {
         await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
 
-        var queryable = await DAOIndexRepository.GetQueryableAsync();
-        var DAOIndex = queryable.Single(a => a.Metadata.ChainId == ChainId);
+        var DAOIndex = await GetIndexById(DAOId, DAOIndexRepository);
         DAOIndex.ShouldNotBeNull();
         
         var metadata = DAOIndex.Metadata;
@@ -45,5 +54,26 @@ public class DAOCreatedProcessorTest: TomorrowDAOIndexerTestBase
         DAOIndex.VetoExecuteTimePeriod.ShouldBe(MinVetoExecuteTimePeriod);
         DAOIndex.GovernanceMechanism.ShouldBe(GovernanceMechanism.Organization);
         DAOIndex.FileInfoList.ShouldBeNull();
+    }
+    
+    [Fact]
+    public async Task HandleEventAsync_MinInfo_Test()
+    {
+        await MockEventProcess(MinInfoDAOCreated(), DAOCreatedProcessor);
+        
+        var DAOIndex = await GetIndexById(DAOId, DAOIndexRepository);
+        DAOIndex.ShouldNotBeNull();
+        DAOIndex.Id.ShouldBe(DAOId);
+        DAOIndex.SubsistStatus.ShouldBe(true);
+        
+        DAOIndex.Creator.ShouldBe(string.Empty);
+        DAOIndex.FileInfoList.ShouldBeNull();
+    }
+
+    [Fact]
+    public async Task GetContractAddress_Test()
+    {
+        var contractAddress = DAOCreatedProcessor.GetContractAddress(TomorrowDAOConst.TestNetSideChainId);
+        contractAddress.ShouldBe(TomorrowDAOConst.DAOContractAddressTestNetSideChain);
     }
 }

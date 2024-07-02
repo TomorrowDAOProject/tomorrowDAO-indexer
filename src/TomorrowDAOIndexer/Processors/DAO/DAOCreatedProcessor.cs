@@ -27,8 +27,7 @@ public class DAOCreatedProcessor : DAOProcessorBase<DAOCreated>
                 DAOIndex = ObjectMapper.Map<DAOCreated, DAOIndex>(logEvent);
             }
             DAOIndex.OfPeriod();
-            ObjectMapper.Map(context, DAOIndex);
-            await SaveEntityAsync(DAOIndex);
+            await SaveEntityAsync(DAOIndex, context);
             Logger.LogInformation("[DAOCreated] FINISH: Id={Id}, ChainId={ChainId}", DAOId, chainId);
         }
         catch (Exception e)

@@ -43,11 +43,3 @@ public class DAOInfoDto
     public long WithdrawAmount { get; set; }
     public GovernanceMechanism GovernanceMechanism { get; set; }
 }
-
-public class MetadataDto
-{
-    public string Name { get; set; }
-    public string LogoUrl { get; set; }
-    public string Description { get; set; }
-    public string SocialMedia { get; set; }
-}

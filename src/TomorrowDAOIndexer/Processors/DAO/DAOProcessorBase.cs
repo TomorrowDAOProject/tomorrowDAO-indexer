@@ -1,10 +1,9 @@
-using AeFinder.Sdk.Processor;
 using AElf.CSharp.Core;
 using Volo.Abp.ObjectMapping;
 
 namespace TomorrowDAOIndexer.Processors.DAO;
 
-public abstract class DAOProcessorBase<TEvent> : LogEventProcessorBase<TEvent> where TEvent : IEvent<TEvent>, new()
+public abstract class DAOProcessorBase<TEvent> : ProcessorBase<TEvent> where TEvent : IEvent<TEvent>, new()
 {
     protected IObjectMapper ObjectMapper => LazyServiceProvider.LazyGetRequiredService<IObjectMapper>();
     
@@ -12,8 +11,8 @@ public abstract class DAOProcessorBase<TEvent> : LogEventProcessorBase<TEvent> w
     {
         return chainId switch
         {
-            "tDVW" => "RRF7deQbmicUh6CZ1R2y7U9M8n2eHPyCgXVHwiSkmNETLbL4D",
-            "tDVV" => "2izSidAeMiZ6tmD7FKmnoWbygjFSmH5nko3cGJ9EtbfC44BycC",
+            TomorrowDAOConst.TestNetSideChainId => TomorrowDAOConst.DAOContractAddressTestNetSideChain,
+            TomorrowDAOConst.MainNetSideChainId => TomorrowDAOConst.DAOContractAddressMainNetSideChain,
             _ => throw new Exception("Unknown chain id")
         };
     }

@@ -8,8 +8,6 @@ using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.GraphQL.Dto;
 using ExecuteTransaction = TomorrowDAOIndexer.Entities.ExecuteTransaction;
 using ExecuteTransactionContract = TomorrowDAO.Contracts.Governance.ExecuteTransaction;
-using MetadataContract = TomorrowDAO.Contracts.DAO.Metadata;
-using MetadataIndexer = TomorrowDAOIndexer.Entities.Metadata;
 using FileInfoIndexer = TomorrowDAOIndexer.Entities.FileInfo;
 using FileInfoContract = TomorrowDAO.Contracts.DAO.FileInfo;
 using FileIndexer = TomorrowDAOIndexer.Entities.File;
@@ -33,6 +31,17 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => source.Block.BlockHeight))
             .ForMember(des => des.CreateTime, opt
                 => opt.MapFrom(source => source.Block.BlockTime))
+            ;
+        CreateMap<MetadataUpdated, DAOIndex>()
+            .ForMember(des => des.Metadata, opt => opt.Ignore())
+            .ForMember(des => des.Name, opt
+                => opt.MapFrom(source => source.Metadata.Name))
+            .ForMember(des => des.LogoUrl, opt
+                => opt.MapFrom(source => source.Metadata.LogoUrl))
+            .ForMember(des => des.Description, opt
+                => opt.MapFrom(source => source.Metadata.Description))
+            .ForMember(des => des.SocialMedia, opt
+                => opt.MapFrom(source => source.Metadata.SocialMedia))
             ;
         CreateMap<DAOCreated, DAOIndex>()
             .ForMember(des => des.SubsistStatus, opt
@@ -148,7 +157,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<LogEventContext, ElectionIndex>();
         CreateMap<DaoProposalTimePeriodSet, DAOIndex>();
         CreateMap<OrganizationIndex, MemberDto>();
-        CreateMap<LogEventContext, OrganizationIndex>();
+        CreateMap<LogEventContext, OrganizationIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            ;
         CreateMap<FileInfosUploaded, DAOIndex>()
             .ForMember(des => des.Id, opt
                 => opt.MapFrom(source => MapHash(source.DaoId)));
@@ -220,8 +232,6 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.VoteTime, opt
                 => opt.MapFrom(source => source.VoteTimestamp))
             ;
-        CreateMap<MetadataContract, MetadataIndexer>();
-        CreateMap<MetadataIndexer, MetadataDto>();
         CreateMap<LogEventContext, VoteSchemeIndex>();
         CreateMap<LogEventContext, VoteItemIndex>();
         CreateMap<LogEventContext, VoteRecordIndex>();

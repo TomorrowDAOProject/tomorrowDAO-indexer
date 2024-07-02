@@ -1,5 +1,6 @@
 using AeFinder.App.TestBase;
 using AeFinder.Sdk;
+using AeFinder.Sdk.Entities;
 using AeFinder.Sdk.Processor;
 using AElf;
 using AElf.Contracts.MultiToken;
@@ -27,7 +28,39 @@ namespace TomorrowDAOIndexer;
 public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDAOIndexerTestModule>
 {
     // processor
+    // protected readonly Vote.VoteSchemeCreatedProcessor VoteSchemeCreatedProcessor;
+    // protected readonly Vote.VotingItemRegisteredProcessor VotingItemRegisteredProcessor;
+    // protected readonly Vote.VoteWithdrawnProcessor VoteWithdrawnProcessor;
     protected readonly DAOCreatedProcessor DAOCreatedProcessor;
+    protected readonly MetadataUpdatedProcessor MetadataUpdatedProcessor;
+    protected readonly FileInfosRemovedProcessor FileInfosRemovedProcessor;
+    protected readonly FileInfosUploadedProcessor FileInfosUploadedProcessor;
+    protected readonly MemberAddedProcessor MemberAddedProcessor;
+    protected readonly MemberRemovedProcessor MemberRemovedProcessor;
+    protected readonly HighCouncilDisabledProcessor HighCouncilDisabledProcessor;
+    protected readonly HighCouncilEnabledProcessor HighCouncilEnabledProcessor;
+    protected readonly SubsistStatusSetProcessor SubsistStatusSetProcessor;
+    // protected readonly TransferredProcessor TransferredProcessor;
+    // protected readonly TreasuryCreatedProcessor TreasuryCreatedProcessor;
+    // protected readonly TreasuryTransferredProcessor TreasuryTransferredProcessor;
+    // protected readonly CandidateAddedProcessor CandidateAddedProcessor;
+    // protected readonly CandidateAddressReplacedProcessor CandidateAddressReplacedProcessor;
+    // protected readonly CandidateInfoUpdatedProcessor CandidateInfoUpdatedProcessor;
+    // protected readonly CandidateRemovedProcessor CandidateRemovedProcessor;
+    // protected readonly VotedProcessor VotedProcessor;
+    // protected readonly Vote.VotedProcessor VoteVotedProcessor;
+    // protected readonly ElectionVotingEventRegisteredProcessor ElectionVotingEventRegisteredProcessor;
+    // protected readonly HighCouncilAddedProcessor HighCouncilAddedProcessor;
+    // protected readonly HighCouncilRemovedProcessor HighCouncilRemovedProcessor;
+    // protected readonly CandidateElectedProcessor CandidateElectedProcessor;
+    // protected readonly GovernanceSchemeAddedProcessor GovernanceSchemeAddedProcessor;
+    // protected readonly GovernanceSchemeThresholdRemovedProcessor GovernanceSchemeThresholdRemovedProcessor;
+    // protected readonly GovernanceSchemeThresholdUpdatedProcessor GovernanceSchemeThresholdUpdatedProcessor;
+    // protected readonly GovernanceTokenSetProcessor GovernanceTokenSetProcessor;
+    // protected readonly ProposalCreatedProcessor ProposalCreatedProcessor;
+    // protected readonly DAOProposalTimePeriodSetProcessor DAOProposalTimePeriodSetProcessor;
+    // protected readonly ProposalExecutedProcessor ProposalExecutedProcessor;
+    // protected readonly ProposalVetoedProcessor ProposalVetoedProcessor;
     // repository
     protected readonly IReadOnlyRepository<VoteSchemeIndex> VoteSchemeIndexRepository;
     protected readonly IReadOnlyRepository<VoteItemIndex> VoteItemIndexRepository;
@@ -108,7 +141,40 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     
     public TomorrowDAOIndexerTestBase()
     {
+        FileInfosRemovedProcessor = GetRequiredService<FileInfosRemovedProcessor>();
+        FileInfosUploadedProcessor = GetRequiredService<FileInfosUploadedProcessor>();
+        MemberAddedProcessor = GetRequiredService<MemberAddedProcessor>();
+        MemberRemovedProcessor = GetRequiredService<MemberRemovedProcessor>();
+        HighCouncilDisabledProcessor = GetRequiredService<HighCouncilDisabledProcessor>();
+        HighCouncilEnabledProcessor = GetRequiredService<HighCouncilEnabledProcessor>();
+        SubsistStatusSetProcessor = GetRequiredService<SubsistStatusSetProcessor>();
+        // VoteSchemeCreatedProcessor = GetRequiredService<Vote.VoteSchemeCreatedProcessor>();
+        // VotingItemRegisteredProcessor = GetRequiredService<Vote.VotingItemRegisteredProcessor>();
+        // VoteWithdrawnProcessor = GetRequiredService<Vote.VoteWithdrawnProcessor>();
         DAOCreatedProcessor = GetRequiredService<DAOCreatedProcessor>();
+        MetadataUpdatedProcessor = GetRequiredService<MetadataUpdatedProcessor>();
+        // TransferredProcessor = GetRequiredService<TransferredProcessor>();
+        // TreasuryCreatedProcessor = GetRequiredService<TreasuryCreatedProcessor>();
+        // TreasuryTransferredProcessor = GetRequiredService<TreasuryTransferredProcessor>();
+        // CandidateAddedProcessor = GetRequiredService<CandidateAddedProcessor>();
+        // CandidateAddressReplacedProcessor = GetRequiredService<CandidateAddressReplacedProcessor>();
+        // CandidateInfoUpdatedProcessor = GetRequiredService<CandidateInfoUpdatedProcessor>();
+        // CandidateRemovedProcessor = GetRequiredService<CandidateRemovedProcessor>();
+        // VotedProcessor = GetRequiredService<VotedProcessor>();
+        // VoteVotedProcessor = GetRequiredService<Vote.VotedProcessor>();
+        // ElectionVotingEventRegisteredProcessor = GetRequiredService<ElectionVotingEventRegisteredProcessor>();
+        // HighCouncilAddedProcessor = GetRequiredService<HighCouncilAddedProcessor>();
+        // HighCouncilRemovedProcessor = GetRequiredService<HighCouncilRemovedProcessor>();
+        // CandidateElectedProcessor = GetRequiredService<CandidateElectedProcessor>();
+        // GovernanceSchemeAddedProcessor = GetRequiredService<GovernanceSchemeAddedProcessor>();
+        // GovernanceSchemeThresholdRemovedProcessor = GetRequiredService<GovernanceSchemeThresholdRemovedProcessor>();
+        // GovernanceSchemeThresholdUpdatedProcessor = GetRequiredService<GovernanceSchemeThresholdUpdatedProcessor>();
+        // GovernanceTokenSetProcessor = GetRequiredService<GovernanceTokenSetProcessor>();
+        // ProposalCreatedProcessor = GetRequiredService<ProposalCreatedProcessor>();
+        // DAOProposalTimePeriodSetProcessor = GetRequiredService<DAOProposalTimePeriodSetProcessor>();
+        // ProposalExecutedProcessor = GetRequiredService<ProposalExecutedProcessor>();
+        // ProposalVetoedProcessor = GetRequiredService<ProposalVetoedProcessor>();
+        
         VoteSchemeIndexRepository = GetRequiredService<IReadOnlyRepository<VoteSchemeIndex>>();
         VoteItemIndexRepository = GetRequiredService<IReadOnlyRepository<VoteItemIndex>>();
         VoteWithdrawnRepository = GetRequiredService<IReadOnlyRepository<VoteWithdrawnIndex>>();
@@ -133,17 +199,22 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     {
         await processor.ProcessAsync(logEvent, GenerateLogEventContext(logEvent));
     }
-    protected async Task CheckFileInfo()
+    
+    protected async Task CheckFileInfo(DAOIndex index)
     {
-        var queryable = await DAOIndexRepository.GetQueryableAsync();
-        var DAOIndex = queryable.Single(a => a.Metadata.ChainId == ChainId);
-        DAOIndex.ShouldNotBeNull();
-        var fileInfoListString = DAOIndex.FileInfoList;
+        index.ShouldNotBeNull();
+        var fileInfoListString = index.FileInfoList;
         fileInfoListString.ShouldNotBeNull();
         var fileList = JsonConvert.DeserializeObject<List<FileInfoIndexer>>(fileInfoListString);
         fileList.ShouldNotBeNull();
         fileList.Count.ShouldBe(1);
         fileList[0].Uploader.ShouldBe(DAOCreator);
+    }
+
+    protected static async Task<TEntity> GetIndexById<TEntity>(string id, IReadOnlyRepository<TEntity> repository) where TEntity : AeFinderEntity
+    {
+        var queryable = await repository.GetQueryableAsync();
+        return queryable.SingleOrDefault(a => a.Id == id);
     }
 
     protected DAOCreated MaxInfoDAOCreated() 

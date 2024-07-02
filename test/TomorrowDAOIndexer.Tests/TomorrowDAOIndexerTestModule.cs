@@ -17,5 +17,13 @@ public class TomorrowDAOIndexerTestModule : AbpModule
         
         // DAO
         context.Services.AddSingleton<DAOCreatedProcessor>();
+        context.Services.AddTransient<FileInfosRemovedProcessor>();
+        context.Services.AddTransient<FileInfosUploadedProcessor>();
+        context.Services.AddTransient<HighCouncilDisabledProcessor>();
+        context.Services.AddTransient<HighCouncilEnabledProcessor>();
+        context.Services.AddTransient<SubsistStatusSetProcessor>();
+        context.Services.AddTransient<MetadataUpdatedProcessor>();
+        context.Services.AddTransient<MemberAddedProcessor>();
+        context.Services.AddTransient<MemberRemovedProcessor>();
     }
 }

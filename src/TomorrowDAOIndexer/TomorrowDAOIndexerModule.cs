@@ -17,5 +17,13 @@ public class TomorrowDAOIndexerModule: AbpModule
         
         // DAO
         context.Services.AddTransient<ILogEventProcessor, DAOCreatedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, FileInfosRemovedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, FileInfosUploadedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, HighCouncilDisabledProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, HighCouncilEnabledProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, SubsistStatusSetProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, MetadataUpdatedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, MemberAddedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, MemberRemovedProcessor>();
     }
 }
