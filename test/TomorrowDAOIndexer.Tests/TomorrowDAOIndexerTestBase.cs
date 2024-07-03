@@ -7,6 +7,7 @@ using AElf.Contracts.MultiToken;
 using AElf.CSharp.Core;
 using AElf.Types;
 using Google.Protobuf.WellKnownTypes;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Shouldly;
 using TomorrowDAO.Contracts.DAO;
@@ -17,6 +18,8 @@ using TomorrowDAO.Contracts.Vote;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.Processors.DAO;
 using TomorrowDAOIndexer.Processors.GovernanceScheme;
+using TomorrowDAOIndexer.Processors.Proposal;
+using Volo.Abp.DependencyInjection;
 using Volo.Abp.ObjectMapping;
 using GovernanceMechanism = TomorrowDAO.Contracts.DAO.GovernanceMechanism;
 using FileInfoIndexer = TomorrowDAOIndexer.Entities.FileInfo;
@@ -28,6 +31,7 @@ namespace TomorrowDAOIndexer;
 
 public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDAOIndexerTestModule>
 {
+    protected readonly IAbpLazyServiceProvider LazyServiceProvider;
     // processor
     // protected readonly Vote.VoteSchemeCreatedProcessor VoteSchemeCreatedProcessor;
     // protected readonly Vote.VotingItemRegisteredProcessor VotingItemRegisteredProcessor;
@@ -58,10 +62,10 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     protected readonly GovernanceSchemeThresholdRemovedProcessor GovernanceSchemeThresholdRemovedProcessor;
     protected readonly GovernanceSchemeThresholdUpdatedProcessor GovernanceSchemeThresholdUpdatedProcessor;
     protected readonly GovernanceTokenSetProcessor GovernanceTokenSetProcessor;
-    // protected readonly ProposalCreatedProcessor ProposalCreatedProcessor;
-    // protected readonly DAOProposalTimePeriodSetProcessor DAOProposalTimePeriodSetProcessor;
-    // protected readonly ProposalExecutedProcessor ProposalExecutedProcessor;
-    // protected readonly ProposalVetoedProcessor ProposalVetoedProcessor;
+    protected readonly ProposalCreatedProcessor ProposalCreatedProcessor;
+    protected readonly DAOProposalTimePeriodSetProcessor DAOProposalTimePeriodSetProcessor;
+    protected readonly ProposalExecutedProcessor ProposalExecutedProcessor;
+    protected readonly ProposalVetoedProcessor ProposalVetoedProcessor;
     // repository
     protected readonly IReadOnlyRepository<VoteSchemeIndex> VoteSchemeIndexRepository;
     protected readonly IReadOnlyRepository<VoteItemIndex> VoteItemIndexRepository;
@@ -142,6 +146,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     
     public TomorrowDAOIndexerTestBase()
     {
+        LazyServiceProvider = GetRequiredService<IAbpLazyServiceProvider>();
         FileInfosRemovedProcessor = GetRequiredService<FileInfosRemovedProcessor>();
         FileInfosUploadedProcessor = GetRequiredService<FileInfosUploadedProcessor>();
         MemberAddedProcessor = GetRequiredService<MemberAddedProcessor>();
@@ -171,10 +176,10 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         GovernanceSchemeThresholdRemovedProcessor = GetRequiredService<GovernanceSchemeThresholdRemovedProcessor>();
         GovernanceSchemeThresholdUpdatedProcessor = GetRequiredService<GovernanceSchemeThresholdUpdatedProcessor>();
         GovernanceTokenSetProcessor = GetRequiredService<GovernanceTokenSetProcessor>();
-        // ProposalCreatedProcessor = GetRequiredService<ProposalCreatedProcessor>();
-        // DAOProposalTimePeriodSetProcessor = GetRequiredService<DAOProposalTimePeriodSetProcessor>();
-        // ProposalExecutedProcessor = GetRequiredService<ProposalExecutedProcessor>();
-        // ProposalVetoedProcessor = GetRequiredService<ProposalVetoedProcessor>();
+        ProposalCreatedProcessor = GetRequiredService<ProposalCreatedProcessor>();
+        DAOProposalTimePeriodSetProcessor = GetRequiredService<DAOProposalTimePeriodSetProcessor>();
+        ProposalExecutedProcessor = GetRequiredService<ProposalExecutedProcessor>();
+        ProposalVetoedProcessor = GetRequiredService<ProposalVetoedProcessor>();
         
         VoteSchemeIndexRepository = GetRequiredService<IReadOnlyRepository<VoteSchemeIndex>>();
         VoteItemIndexRepository = GetRequiredService<IReadOnlyRepository<VoteItemIndex>>();
@@ -212,10 +217,9 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         fileList[0].Uploader.ShouldBe(DAOCreator);
     }
 
-    protected static async Task<TEntity> GetIndexById<TEntity>(string id, IReadOnlyRepository<TEntity> repository) where TEntity : AeFinderEntity
+    protected async Task<TEntity> GetIndexById<TEntity>(string id) where TEntity : AeFinderEntity
     {
-        var queryable = await repository.GetQueryableAsync();
-        return queryable.SingleOrDefault(a => a.Id == id);
+        return await LazyServiceProvider.GetRequiredService<IRepository<TEntity>>().GetAsync(id);
     }
 
     protected DAOCreated MaxInfoDAOCreated() 

@@ -1,9 +1,10 @@
 using AElf;
 using Shouldly;
 using TomorrowDAO.Contracts.DAO;
+using TomorrowDAOIndexer.Entities;
 using Xunit;
 
-namespace TomorrowDAOIndexer;
+namespace TomorrowDAOIndexer.Processors.DAO;
 
 public class FileInfosRemovedProcessorTest : TomorrowDAOIndexerTestBase
 {
@@ -13,7 +14,7 @@ public class FileInfosRemovedProcessorTest : TomorrowDAOIndexerTestBase
         await MockEventProcess(MinInfoDAOCreated(), DAOCreatedProcessor);
         await MockEventProcess(FileInfosRemoved(), FileInfosRemovedProcessor);
         
-        var DAOIndex = await GetIndexById(DAOId, DAOIndexRepository);
+        var DAOIndex = await GetIndexById<DAOIndex>(DAOId);
         DAOIndex.ShouldNotBeNull();
         DAOIndex.FileInfoList.ShouldBe("[]");
     }
@@ -23,7 +24,7 @@ public class FileInfosRemovedProcessorTest : TomorrowDAOIndexerTestBase
     {
         await MockEventProcess(FileInfosRemoved(), FileInfosRemovedProcessor);
         
-        var DAOIndex = await GetIndexById(DAOId, DAOIndexRepository);
+        var DAOIndex = await GetIndexById<DAOIndex>(DAOId);
         DAOIndex.ShouldBeNull();
     }
     
@@ -33,7 +34,7 @@ public class FileInfosRemovedProcessorTest : TomorrowDAOIndexerTestBase
         await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
         await MockEventProcess(new FileInfosRemoved { DaoId = HashHelper.ComputeFrom(Id1) }, FileInfosRemovedProcessor);
         
-        var DAOIndex = await GetIndexById(DAOId, DAOIndexRepository);
+        var DAOIndex = await GetIndexById<DAOIndex>(DAOId);
         DAOIndex.ShouldNotBeNull();
     }
 }

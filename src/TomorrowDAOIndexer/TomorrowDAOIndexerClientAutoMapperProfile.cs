@@ -94,7 +94,8 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<ElectionIndex, ElectionDto>();
         CreateMap<TreasuryFundIndex, TreasuryFundDto>();
         CreateMap<TreasuryRecordIndex, TreasuryRecordDto>();
-        CreateMap<LogEventContext, ProposalIndex>();
+        CreateMap<LogEventContext, ProposalIndex>()
+            .ForMember(des => des.Transaction, opt => opt.Ignore());
         CreateMap<LogEventContext, LatestParticipatedIndex>();
         CreateMap<GovernanceSchemeIndex, ProposalIndex>();
         CreateMap<ExecuteTransactionContract, ExecuteTransaction>();

@@ -1,6 +1,7 @@
 using AElf;
 using Shouldly;
 using TomorrowDAO.Contracts.DAO;
+using TomorrowDAOIndexer.Entities;
 using Xunit;
 
 namespace TomorrowDAOIndexer.Processors.DAO;
@@ -15,7 +16,7 @@ public class SubsistStatusSetProcessorTest : TomorrowDAOIndexerTestBase
             DaoId = HashHelper.ComputeFrom(Id1)
         }, SubsistStatusSetProcessor);
         
-        var DAOIndex = await GetIndexById(DAOId, DAOIndexRepository);
+        var DAOIndex = await GetIndexById<DAOIndex>(DAOId);
         DAOIndex.ShouldBeNull();
     }
     
@@ -29,7 +30,7 @@ public class SubsistStatusSetProcessorTest : TomorrowDAOIndexerTestBase
             Status = false
         }, SubsistStatusSetProcessor);
         
-        var DAOIndex = await GetIndexById(DAOId, DAOIndexRepository);
+        var DAOIndex = await GetIndexById<DAOIndex>(DAOId);
         DAOIndex.ShouldNotBeNull();
         DAOIndex.SubsistStatus.ShouldBe(false);
     }

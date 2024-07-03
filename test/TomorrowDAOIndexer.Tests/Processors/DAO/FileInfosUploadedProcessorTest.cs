@@ -1,3 +1,4 @@
+using TomorrowDAOIndexer.Entities;
 using Xunit;
 
 namespace TomorrowDAOIndexer.Processors.DAO;
@@ -9,7 +10,7 @@ public class FileInfosUploadedProcessorTest : TomorrowDAOIndexerTestBase
     {
         await MockEventProcess(FileInfosUploaded(), FileInfosUploadedProcessor);
         
-        var DAOIndex = await GetIndexById(DAOId, DAOIndexRepository);
+        var DAOIndex = await GetIndexById<DAOIndex>(DAOId);
         await CheckFileInfo(DAOIndex);
     }
 
@@ -19,7 +20,7 @@ public class FileInfosUploadedProcessorTest : TomorrowDAOIndexerTestBase
         await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
         await MockEventProcess(FileInfosUploaded(), FileInfosUploadedProcessor);
         
-        var DAOIndex = await GetIndexById(DAOId, DAOIndexRepository);
+        var DAOIndex = await GetIndexById<DAOIndex>(DAOId);
         await CheckFileInfo(DAOIndex);
     }
     
@@ -30,7 +31,7 @@ public class FileInfosUploadedProcessorTest : TomorrowDAOIndexerTestBase
         await MockEventProcess(FileInfosUploaded(), FileInfosUploadedProcessor);
         await MockEventProcess(FileInfosUploaded(), FileInfosUploadedProcessor);
 
-        var DAOIndex = await GetIndexById(DAOId, DAOIndexRepository);
+        var DAOIndex = await GetIndexById<DAOIndex>(DAOId);
         await CheckFileInfo(DAOIndex);
     }
 }

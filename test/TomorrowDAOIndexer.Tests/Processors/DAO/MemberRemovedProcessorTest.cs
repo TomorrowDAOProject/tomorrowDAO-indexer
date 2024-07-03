@@ -1,5 +1,6 @@
 using Shouldly;
 using TomorrowDAO.Indexer.Plugin;
+using TomorrowDAOIndexer.Entities;
 using Xunit;
 
 namespace TomorrowDAOIndexer.Processors.DAO;
@@ -18,7 +19,7 @@ public class MemberRemovedProcessorTest : TomorrowDAOIndexerTestBase
 
     private async Task CheckMemberNotExists(string address)
     {
-        var organizationIndex = await GetIndexById(IdGenerateHelper.GetId(ChainId, DAOId, address), organizationIndexRepository);
+        var organizationIndex = await GetIndexById<OrganizationIndex>(IdGenerateHelper.GetId(ChainId, DAOId, address));
         organizationIndex.ShouldBeNull();
     }
 }

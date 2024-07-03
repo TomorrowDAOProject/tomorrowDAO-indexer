@@ -1,6 +1,7 @@
 using Shouldly;
 using TomorrowDAO.Indexer.Plugin;
 using TomorrowDAO.Indexer.Plugin.Enums;
+using TomorrowDAOIndexer.Entities;
 using Xunit;
 
 namespace TomorrowDAOIndexer.Processors.GovernanceScheme;
@@ -12,7 +13,7 @@ public class GovernanceSchemeAddedProcessorTest : TomorrowDAOIndexerTestBase
     {
         var id = IdGenerateHelper.GetId(ChainId, DAOId, SchemeAddress);
         await MockEventProcess(GovernanceSchemeAdded(), GovernanceSchemeAddedProcessor);
-        var governanceSchemeIndex = await GetIndexById(id, GovernanceSchemeRepository);
+        var governanceSchemeIndex = await GetIndexById<GovernanceSchemeIndex>(id);
         governanceSchemeIndex.ShouldNotBeNull();
         governanceSchemeIndex.Id.ShouldBe(id);
         governanceSchemeIndex.DAOId.ShouldBe(DAOId);

@@ -2,7 +2,9 @@ using AElf;
 using AElf.Types;
 using Shouldly;
 using TomorrowDAO.Contracts.DAO;
+using TomorrowDAOIndexer.Entities;
 using Xunit;
+using GovernanceSchemeThreshold = TomorrowDAO.Contracts.DAO.GovernanceSchemeThreshold;
 
 namespace TomorrowDAOIndexer.Processors.DAO;
 
@@ -25,7 +27,7 @@ public class HighCouncilEnabledProcessorTest : TomorrowDAOIndexerTestBase
 
     private async Task CheckParam()
     {
-        var DAOIndex = await GetIndexById(DAOId, DAOIndexRepository);
+        var DAOIndex = await GetIndexById<DAOIndex>(DAOId);
         DAOIndex.ShouldNotBeNull();
         DAOIndex.IsHighCouncilEnabled.ShouldBe(true);
         DAOIndex.HighCouncilAddress.ShouldBe(Creator);

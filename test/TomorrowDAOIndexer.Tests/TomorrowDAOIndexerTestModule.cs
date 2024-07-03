@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using TomorrowDAOIndexer.Processors;
 using TomorrowDAOIndexer.Processors.DAO;
 using TomorrowDAOIndexer.Processors.GovernanceScheme;
+using TomorrowDAOIndexer.Processors.Proposal;
 using Volo.Abp.Modularity;
 
 namespace TomorrowDAOIndexer;
@@ -32,5 +33,11 @@ public class TomorrowDAOIndexerTestModule : AbpModule
         context.Services.AddTransient<GovernanceSchemeThresholdRemovedProcessor>();
         context.Services.AddTransient<GovernanceSchemeThresholdUpdatedProcessor>();
         context.Services.AddTransient<GovernanceTokenSetProcessor>();
+        
+        // proposal
+        context.Services.AddSingleton<ProposalCreatedProcessor>();
+        context.Services.AddTransient<ProposalExecutedProcessor>();
+        context.Services.AddTransient<ProposalVetoedProcessor>();
+        context.Services.AddTransient<DAOProposalTimePeriodSetProcessor>();
     }
 }
