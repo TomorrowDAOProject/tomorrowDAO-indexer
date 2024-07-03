@@ -2,6 +2,7 @@ using AeFinder.App.TestBase;
 using Microsoft.Extensions.DependencyInjection;
 using TomorrowDAOIndexer.Processors;
 using TomorrowDAOIndexer.Processors.DAO;
+using TomorrowDAOIndexer.Processors.GovernanceScheme;
 using Volo.Abp.Modularity;
 
 namespace TomorrowDAOIndexer;
@@ -25,5 +26,11 @@ public class TomorrowDAOIndexerTestModule : AbpModule
         context.Services.AddTransient<MetadataUpdatedProcessor>();
         context.Services.AddTransient<MemberAddedProcessor>();
         context.Services.AddTransient<MemberRemovedProcessor>();
+        
+        // GovernanceScheme
+        context.Services.AddSingleton<GovernanceSchemeAddedProcessor>();
+        context.Services.AddTransient<GovernanceSchemeThresholdRemovedProcessor>();
+        context.Services.AddTransient<GovernanceSchemeThresholdUpdatedProcessor>();
+        context.Services.AddTransient<GovernanceTokenSetProcessor>();
     }
 }

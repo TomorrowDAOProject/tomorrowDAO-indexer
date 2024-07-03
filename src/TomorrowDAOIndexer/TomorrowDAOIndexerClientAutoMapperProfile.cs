@@ -207,6 +207,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.DaoId, opt
                 => opt.MapFrom(source => MapHash(source.DaoId)));
         CreateMap<LogEventContext, ElectionCandidateElectedIndex>();
+        CreateMap<LogEventContext, GovernanceSchemeIndex>()
+            .ForMember(des => des.CreateTime, opt
+                => opt.MapFrom(source => source.Block.BlockTime))
+            ;
         CreateMap<GovernanceSchemeAdded, GovernanceSchemeIndex>()
             .ForMember(des => des.SchemeId, opt
                 => opt.MapFrom(source => MapHash(source.SchemeId)))

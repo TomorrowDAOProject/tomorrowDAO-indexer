@@ -1,8 +1,6 @@
-using AeFinder.Sdk.Entities;
-
 namespace TomorrowDAOIndexer.Entities;
 
-public class GovernanceSchemeThreshold : AeFinderEntity, IAeFinderEntity
+public class GovernanceSchemeThreshold
 {
     public long MinimalRequiredThreshold { get; set; }
     
