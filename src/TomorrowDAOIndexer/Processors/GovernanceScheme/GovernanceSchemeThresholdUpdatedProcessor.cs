@@ -6,7 +6,7 @@ using TomorrowDAOIndexer.Entities;
 
 namespace TomorrowDAOIndexer.Processors.GovernanceScheme;
 
-public class GovernanceSchemeThresholdUpdatedProcessor : GovernanceSchemeProcessorBase<GovernanceSchemeThresholdUpdated>
+public class GovernanceSchemeThresholdUpdatedProcessor : GovernanceProcessorBase<GovernanceSchemeThresholdUpdated>
 {
     public override async Task ProcessAsync(GovernanceSchemeThresholdUpdated logEvent, LogEventContext context)
     {

@@ -6,7 +6,7 @@ using TomorrowDAOIndexer.Entities;
 
 namespace TomorrowDAOIndexer.Processors.GovernanceScheme;
 
-public class GovernanceSchemeAddedProcessor : GovernanceSchemeProcessorBase<GovernanceSchemeAdded>
+public class GovernanceSchemeAddedProcessor : GovernanceProcessorBase<GovernanceSchemeAdded>
 { 
     public override async Task ProcessAsync(GovernanceSchemeAdded logEvent, LogEventContext context)
     {

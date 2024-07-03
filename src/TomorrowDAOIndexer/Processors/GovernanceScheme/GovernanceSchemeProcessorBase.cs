@@ -2,7 +2,7 @@ using AElf.CSharp.Core;
 
 namespace TomorrowDAOIndexer.Processors.GovernanceScheme;
 
-public abstract class GovernanceSchemeProcessorBase<TEvent> : ProcessorBase<TEvent> where TEvent : IEvent<TEvent>, new()
+public abstract class GovernanceProcessorBase<TEvent> : ProcessorBase<TEvent> where TEvent : IEvent<TEvent>, new()
 {
     public override string GetContractAddress(string chainId)
     {

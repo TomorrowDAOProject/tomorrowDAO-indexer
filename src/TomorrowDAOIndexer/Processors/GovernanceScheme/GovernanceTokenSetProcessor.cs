@@ -5,7 +5,7 @@ using TomorrowDAOIndexer.Entities;
 
 namespace TomorrowDAOIndexer.Processors.GovernanceScheme;
 
-public class GovernanceTokenSetProcessor : GovernanceSchemeProcessorBase<GovernanceTokenSet>
+public class GovernanceTokenSetProcessor : GovernanceProcessorBase<GovernanceTokenSet>
 {
     public override async Task ProcessAsync(GovernanceTokenSet logEvent, LogEventContext context)
     {
