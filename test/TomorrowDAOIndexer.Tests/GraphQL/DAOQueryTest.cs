@@ -40,4 +40,78 @@ public class DAOQueryTest : TomorrowDAOIndexerTestBase
         DAOInfoDto.ChainId.ShouldBe(ChainId);
         DAOInfoDto.FileInfoList.ShouldBeNull();
     }
+
+    [Fact]
+    public async Task GetDaoCountAsync_Test()
+    {
+        await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
+
+        var count = await Query.GetDaoCountAsync(DAOIndexRepository, new GetDaoCountInput
+        {
+            ChainId = ChainId,
+            // StartTime = "2024-05-28 00:00:00",
+            // EndTime = "2024-05-28 23:59:59"
+        });
+        count.ShouldBe(1);
+    }
+    
+    // todo treasury
+    // [Fact]
+    // public async Task GetDAOAmountRecordAsync_Test()
+    // {
+    //     await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
+    //     await MockEventProcess(VotingItemRegistered(), VotingItemRegisteredProcessor);
+    //     await MockEventProcess(VoteVoted(), VoteVotedProcessor);
+    //     await MockEventProcess(VoteWithdrawn(), VoteWithdrawnProcessor);
+    //     await MockEventProcess(TreasuryCreated(), TreasuryCreatedProcessor);
+    //     await MockEventProcess(TokenTransferred(), TransferredProcessor);
+    //     
+    //     var daoId = HashHelper.ComputeFrom(Id1).ToHex();
+    //     var daoIndex = await GetIndexById<DAOIndex>(daoId);
+    //     daoIndex.ShouldNotBeNull();
+    //     daoIndex.VoteAmount.ShouldBe(100);
+    //     daoIndex.WithdrawAmount.ShouldBe(10);
+    //
+    //     var list = await Query.GetDAOAmountRecordAsync(DAOIndexRepository, TreasuryFundRepository, ObjectMapper, new GetDAOAmountRecordInput
+    //     {
+    //         ChainId = ChainId
+    //     });
+    //     list.Sum(x => x.Amount).ShouldBe(100000090);
+    // }
+    
+    // todo vote & proposal
+    // [Fact]
+    // public async Task HandleEventAsync_GetMyParticipatedAsync()
+    // {
+    //     await GetVoteRecordCountAsyncTest();
+    //     await GetProposalCountAsyncTest();
+    //
+    //     var proposerResult = await Query.GetMyParticipatedAsync(DAOIndexRepository, LatestParticipatedIndexRepository, ObjectMapper,
+    //         new GetParticipatedInput
+    //         {
+    //             ChainId = ChainId,
+    //             SkipCount = 0,
+    //             MaxResultCount = 10,
+    //             Address = DAOCreator
+    //         });
+    //     proposerResult.TotalCount.ShouldBe(1);
+    //     var proposerParticipatedList = proposerResult.Data;
+    //     proposerParticipatedList.Count.ShouldBe(1);
+    //     var proposerDao = proposerParticipatedList[0];
+    //     proposerDao.Id.ShouldBe(DAOId);
+    //     
+    //     var voteResult = await Query.GetMyParticipatedAsync(DAOIndexRepository, LatestParticipatedIndexRepository, ObjectMapper,
+    //         new GetParticipatedInput
+    //         {
+    //             ChainId = ChainId,
+    //             SkipCount = 0,
+    //             MaxResultCount = 10,
+    //             Address = User
+    //         });
+    //     voteResult.TotalCount.ShouldBe(1);
+    //     var voteParticipatedList = voteResult.Data;
+    //     voteParticipatedList.Count.ShouldBe(1);
+    //     var voteDao = voteParticipatedList[0];
+    //     voteDao.Id.ShouldBe(DAOId);
+    // }
 }
