@@ -1,6 +1,7 @@
 using AElf;
 using Shouldly;
 using TomorrowDAO.Contracts.DAO;
+using TomorrowDAOIndexer.Entities;
 using Xunit;
 
 namespace TomorrowDAOIndexer.Processors.DAO;
@@ -15,7 +16,7 @@ public class HighCouncilDisabledProcessorTest : TomorrowDAOIndexerTestBase
             DaoId = HashHelper.ComputeFrom(Id1)
         }, HighCouncilDisabledProcessor);
         
-        var DAOIndex = await GetIndexById(DAOId, DAOIndexRepository);
+        var DAOIndex = await GetIndexById<DAOIndex>(DAOId);
         DAOIndex.ShouldBeNull();
     }
     
@@ -28,7 +29,7 @@ public class HighCouncilDisabledProcessorTest : TomorrowDAOIndexerTestBase
             DaoId = HashHelper.ComputeFrom(Id1)
         }, HighCouncilDisabledProcessor);
         
-        var DAOIndex = await GetIndexById(DAOId, DAOIndexRepository);
+        var DAOIndex = await GetIndexById<DAOIndex>(DAOId);
         DAOIndex.ShouldNotBeNull();
         DAOIndex.IsHighCouncilEnabled.ShouldBe(false);
     }

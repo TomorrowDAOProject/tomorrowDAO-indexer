@@ -1,5 +1,6 @@
 using Shouldly;
 using TomorrowDAO.Indexer.Plugin.Enums;
+using TomorrowDAOIndexer.Entities;
 using Xunit;
 
 namespace TomorrowDAOIndexer.Processors.DAO;
@@ -12,7 +13,7 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerTestBase
         await MockEventProcess(FileInfosUploaded(), FileInfosUploadedProcessor);
         await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
         
-        var DAOIndex = await GetIndexById(DAOId, DAOIndexRepository);
+        var DAOIndex = await GetIndexById<DAOIndex>(DAOId);
         await CheckFileInfo(DAOIndex);
     }
     
@@ -21,7 +22,7 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerTestBase
     {
         await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
 
-        var DAOIndex = await GetIndexById(DAOId, DAOIndexRepository);
+        var DAOIndex = await GetIndexById<DAOIndex>(DAOId);
         DAOIndex.ShouldNotBeNull();
         
         var metadata = DAOIndex.Metadata;
@@ -61,7 +62,7 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerTestBase
     {
         await MockEventProcess(MinInfoDAOCreated(), DAOCreatedProcessor);
         
-        var DAOIndex = await GetIndexById(DAOId, DAOIndexRepository);
+        var DAOIndex = await GetIndexById<DAOIndex>(DAOId);
         DAOIndex.ShouldNotBeNull();
         DAOIndex.Id.ShouldBe(DAOId);
         DAOIndex.SubsistStatus.ShouldBe(true);

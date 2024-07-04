@@ -2,7 +2,7 @@ using AeFinder.Sdk.Entities;
 
 namespace TomorrowDAOIndexer.Entities;
 
-public class GovernanceSchemeThreshold : AeFinderEntity, IAeFinderEntity
+public class GovernanceSchemeThreshold : AeFinderEntity
 {
     public long MinimalRequiredThreshold { get; set; }
     

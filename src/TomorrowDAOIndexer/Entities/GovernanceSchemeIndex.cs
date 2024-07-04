@@ -1,9 +1,10 @@
+using AeFinder.Sdk.Entities;
 using Nest;
 using TomorrowDAO.Indexer.Plugin.Enums;
 
 namespace TomorrowDAOIndexer.Entities;
 
-public class GovernanceSchemeIndex : GovernanceSchemeThreshold
+public class GovernanceSchemeIndex : GovernanceSchemeThreshold, IAeFinderEntity
 {
     [Keyword] public override string Id { get; set; }
     [PropertyName("DAOId")]

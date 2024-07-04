@@ -3,6 +3,8 @@ using GraphQL.Types;
 using Microsoft.Extensions.DependencyInjection;
 using TomorrowDAOIndexer.GraphQL;
 using TomorrowDAOIndexer.Processors.DAO;
+using TomorrowDAOIndexer.Processors.GovernanceScheme;
+using TomorrowDAOIndexer.Processors.Proposal;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 
@@ -25,5 +27,17 @@ public class TomorrowDAOIndexerModule: AbpModule
         context.Services.AddTransient<ILogEventProcessor, MetadataUpdatedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, MemberAddedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, MemberRemovedProcessor>();
+        
+        // GovernanceScheme
+        context.Services.AddSingleton<ILogEventProcessor, GovernanceSchemeAddedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, GovernanceSchemeThresholdRemovedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, GovernanceSchemeThresholdUpdatedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, GovernanceTokenSetProcessor>();
+        
+        // proposal
+        context.Services.AddSingleton<ILogEventProcessor, ProposalCreatedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, ProposalExecutedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, ProposalVetoedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, DAOProposalTimePeriodSetProcessor>();
     }
 }
