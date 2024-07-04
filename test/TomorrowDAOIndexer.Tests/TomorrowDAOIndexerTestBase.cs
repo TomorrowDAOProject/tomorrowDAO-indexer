@@ -27,6 +27,7 @@ using FileInfoIndexer = TomorrowDAOIndexer.Entities.FileInfo;
 using Voted = TomorrowDAO.Contracts.Election.Voted;
 using VotingItem = TomorrowDAO.Contracts.Election.VotingItem;
 using AddressListDAO = TomorrowDAO.Contracts.DAO.AddressList;
+using Vote = TomorrowDAOIndexer.Processors.Vote;
 
 namespace TomorrowDAOIndexer;
 
@@ -34,9 +35,9 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
 {
     protected readonly IAbpLazyServiceProvider LazyServiceProvider;
     // processor
-    // protected readonly Vote.VoteSchemeCreatedProcessor VoteSchemeCreatedProcessor;
-    // protected readonly Vote.VotingItemRegisteredProcessor VotingItemRegisteredProcessor;
-    // protected readonly Vote.VoteWithdrawnProcessor VoteWithdrawnProcessor;
+    protected readonly Vote.VoteSchemeCreatedProcessor VoteSchemeCreatedProcessor;
+    protected readonly Vote.VotingItemRegisteredProcessor VotingItemRegisteredProcessor;
+    protected readonly Vote.VoteWithdrawnProcessor VoteWithdrawnProcessor;
     protected readonly DAOCreatedProcessor DAOCreatedProcessor;
     protected readonly MetadataUpdatedProcessor MetadataUpdatedProcessor;
     protected readonly FileInfosRemovedProcessor FileInfosRemovedProcessor;
@@ -54,7 +55,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     protected readonly CandidateInfoUpdatedProcessor CandidateInfoUpdatedProcessor;
     protected readonly CandidateRemovedProcessor CandidateRemovedProcessor;
     protected readonly VotedProcessor VotedProcessor;
-    // protected readonly Vote.VotedProcessor VoteVotedProcessor;
+    protected readonly Vote.VotedProcessor VoteVotedProcessor;
     protected readonly ElectionVotingEventRegisteredProcessor ElectionVotingEventRegisteredProcessor;
     protected readonly HighCouncilAddedProcessor HighCouncilAddedProcessor;
     protected readonly HighCouncilRemovedProcessor HighCouncilRemovedProcessor;
@@ -155,9 +156,9 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         HighCouncilDisabledProcessor = GetRequiredService<HighCouncilDisabledProcessor>();
         HighCouncilEnabledProcessor = GetRequiredService<HighCouncilEnabledProcessor>();
         SubsistStatusSetProcessor = GetRequiredService<SubsistStatusSetProcessor>();
-        // VoteSchemeCreatedProcessor = GetRequiredService<Vote.VoteSchemeCreatedProcessor>();
-        // VotingItemRegisteredProcessor = GetRequiredService<Vote.VotingItemRegisteredProcessor>();
-        // VoteWithdrawnProcessor = GetRequiredService<Vote.VoteWithdrawnProcessor>();
+        VoteSchemeCreatedProcessor = GetRequiredService<Vote.VoteSchemeCreatedProcessor>();
+        VotingItemRegisteredProcessor = GetRequiredService<Vote.VotingItemRegisteredProcessor>();
+        VoteWithdrawnProcessor = GetRequiredService<Vote.VoteWithdrawnProcessor>();
         DAOCreatedProcessor = GetRequiredService<DAOCreatedProcessor>();
         MetadataUpdatedProcessor = GetRequiredService<MetadataUpdatedProcessor>();
         // TransferredProcessor = GetRequiredService<TransferredProcessor>();
@@ -168,7 +169,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         CandidateInfoUpdatedProcessor = GetRequiredService<CandidateInfoUpdatedProcessor>();
         CandidateRemovedProcessor = GetRequiredService<CandidateRemovedProcessor>();
         VotedProcessor = GetRequiredService<VotedProcessor>();
-        // VoteVotedProcessor = GetRequiredService<Vote.VotedProcessor>();
+        VoteVotedProcessor = GetRequiredService<Vote.VotedProcessor>();
         ElectionVotingEventRegisteredProcessor = GetRequiredService<ElectionVotingEventRegisteredProcessor>();
         HighCouncilAddedProcessor = GetRequiredService<HighCouncilAddedProcessor>();
         HighCouncilRemovedProcessor = GetRequiredService<HighCouncilRemovedProcessor>();

@@ -4,6 +4,7 @@ using TomorrowDAOIndexer.Processors;
 using TomorrowDAOIndexer.Processors.DAO;
 using TomorrowDAOIndexer.Processors.GovernanceScheme;
 using TomorrowDAOIndexer.Processors.Proposal;
+using TomorrowDAOIndexer.Processors.Vote;
 using Volo.Abp.Modularity;
 
 namespace TomorrowDAOIndexer;
@@ -39,5 +40,11 @@ public class TomorrowDAOIndexerTestModule : AbpModule
         context.Services.AddTransient<ProposalExecutedProcessor>();
         context.Services.AddTransient<ProposalVetoedProcessor>();
         context.Services.AddTransient<DAOProposalTimePeriodSetProcessor>();
+        
+        // vote
+        context.Services.AddSingleton<VoteSchemeCreatedProcessor>();
+        context.Services.AddSingleton<VotingItemRegisteredProcessor>();
+        context.Services.AddSingleton<VotedProcessor>();
+        context.Services.AddSingleton<VoteWithdrawnProcessor>();
     }
 }
