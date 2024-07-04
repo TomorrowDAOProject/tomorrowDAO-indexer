@@ -1,6 +1,7 @@
 using AElf;
 using Shouldly;
 using TomorrowDAO.Indexer.Plugin;
+using TomorrowDAOIndexer.Entities;
 using Xunit;
 
 namespace TomorrowDAOIndexer.Processors.Election;
@@ -14,11 +15,11 @@ public class ElectionVotingEventRegisteredProcessorTest : TomorrowDAOIndexerTest
         await MockEventProcess(logEvent, ElectionVotingEventRegisteredProcessor);
 
         var id = IdGenerateHelper.GetId(HashHelper.ComputeFrom(Id1).ToHex(), ChainId);
-        var votingItemIndex = await GetIndexById(id, ElectionVotingItemRepository);
+        var votingItemIndex = await GetIndexById<ElectionIndex>(id);
         votingItemIndex.ShouldNotBeNull();
         
         
-        var highCouncilConfigIndex = await GetIndexById(id, ElectionHighCouncilConfigRepository);
+        var highCouncilConfigIndex = await GetIndexById<ElectionIndex>(id);
         highCouncilConfigIndex.ShouldNotBeNull();
     }
 }
