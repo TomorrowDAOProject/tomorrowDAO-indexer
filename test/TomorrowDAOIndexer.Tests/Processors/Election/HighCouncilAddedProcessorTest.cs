@@ -16,7 +16,7 @@ public class HighCouncilAddedProcessorTest : TomorrowDAOIndexerTestBase
 
         var daoId = HashHelper.ComputeFrom(Id1);
         var id = IdGenerateHelper.GetId(daoId.ToHex(), ChainId);
-        ElectionHighCouncilConfigIndex highCouncilConfig = await GetIndexById(id, ElectionHighCouncilConfigRepository);
+        ElectionHighCouncilConfigIndex highCouncilConfig = await GetIndexById<ElectionHighCouncilConfigIndex>(id);
         
         highCouncilConfig.ShouldNotBeNull();
         highCouncilConfig.InitialHighCouncilMembers.ShouldNotBeNull();
@@ -33,7 +33,7 @@ public class HighCouncilAddedProcessorTest : TomorrowDAOIndexerTestBase
         var logEvent = ElectionVotingEventRegistered();
         await MockEventProcess(logEvent, ElectionVotingEventRegisteredProcessor);
 
-        ElectionHighCouncilConfigIndex highCouncilConfig = await GetIndexById(id, ElectionHighCouncilConfigRepository);
+        ElectionHighCouncilConfigIndex highCouncilConfig = await GetIndexById<ElectionHighCouncilConfigIndex>(id);
         
         highCouncilConfig.ShouldNotBeNull();
         highCouncilConfig.InitialHighCouncilMembers.ShouldNotBeNull();
@@ -41,7 +41,7 @@ public class HighCouncilAddedProcessorTest : TomorrowDAOIndexerTestBase
         
         var highCouncilAdded = HighCouncilAdded();
         await MockEventProcess(highCouncilAdded, HighCouncilAddedProcessor);
-        highCouncilConfig = await GetIndexById(id, ElectionHighCouncilConfigRepository);
+        highCouncilConfig = await GetIndexById<ElectionHighCouncilConfigIndex>(id);
         
         highCouncilConfig.ShouldNotBeNull();
         highCouncilConfig.InitialHighCouncilMembers.ShouldNotBeNull();
