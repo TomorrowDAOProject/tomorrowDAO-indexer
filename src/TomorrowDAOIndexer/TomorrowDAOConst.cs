@@ -30,12 +30,14 @@ public class TomorrowDAOConst
     public const string VoteContractAddressTestNetSideChain = "2LpoLYNPAnjiBUozyYwcfaeekxRFehjt6hDR78VKgk47UwkvAv";
     public const string ElectionContractAddressTestNetSideChain = "2akycoQt8nYSQbarup4tTJYxQ4SzdKbwBfBCcCF9yqWYtMXt9j";
     public const string TreasuryContractAddressTestNetSideChain = "3FdTVXDuBMVAsXJ598aTm3GifQQey5ahFsonjhanTLs4qnukT";
+    public const string TokenContractAddressTestNetSideChain = "ASh2Wt7nSEmYqnGxPPzp4pnVDU4uhj1XW9Se5VeZcX2UDdyjx";
     
     public const string DAOContractAddressMainNetSideChain = "2izSidAeMiZ6tmD7FKmnoWbygjFSmH5nko3cGJ9EtbfC44BycC";
     public const string GovernanceContractAddressMainNetSideChain = "2tCM3oV6dTCmwFxSiFGPEVhGngdMwBV741wi156vj8kmqfp6da";
     public const string VoteContractAddressMainNetSideChain = "2A8h4hLynLt86RxqvpNY43x6Js8CYhgyuAzj7sDGQ2ecP77Zgp";
     public const string ElectionContractAddressMainNetSideChain = "QWMSafkNs3oydr7EqktZ7kR2cE8j9c8qAbKymds5FLQZXcPiD";
     public const string TreasuryContractAddressMainNetSideChain = "TUeLJxSYY37kGbK8jf7NcLZ43g8k2DgQufgvzYjnsUzQsoCas";
+    public const string TokenContractAddressMainNetSideChain = "7RzVGiuVWkvL4VfVHdZfQF2Tri3sgLe9U991bohHFfSRZXuGX";
     
     public const string DateFormat = "yyyy-MM-dd HH:mm:ss";
 }
