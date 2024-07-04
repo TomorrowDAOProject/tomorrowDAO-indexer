@@ -1,4 +1,4 @@
-namespace TomorrowDAO.Indexer.Plugin;
+namespace TomorrowDAOIndexer;
 
 public class IdGenerateHelper
 {
