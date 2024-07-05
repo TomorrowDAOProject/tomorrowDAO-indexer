@@ -3,11 +3,15 @@ using GraphQL.Types;
 using Microsoft.Extensions.DependencyInjection;
 using TomorrowDAOIndexer.GraphQL;
 using TomorrowDAOIndexer.Processors.DAO;
+using TomorrowDAOIndexer.Processors.Election;
 using TomorrowDAOIndexer.Processors.GovernanceScheme;
 using TomorrowDAOIndexer.Processors.Proposal;
+using TomorrowDAOIndexer.Processors.Token;
+using TomorrowDAOIndexer.Processors.Treasury;
 using TomorrowDAOIndexer.Processors.Vote;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
+using VotedProcessor = TomorrowDAOIndexer.Processors.Vote.VotedProcessor;
 
 namespace TomorrowDAOIndexer;
 
@@ -30,21 +34,37 @@ public class TomorrowDAOIndexerModule: AbpModule
         context.Services.AddTransient<ILogEventProcessor, MemberRemovedProcessor>();
         
         // GovernanceScheme
-        context.Services.AddSingleton<ILogEventProcessor, GovernanceSchemeAddedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, GovernanceSchemeAddedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, GovernanceSchemeThresholdRemovedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, GovernanceSchemeThresholdUpdatedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, GovernanceTokenSetProcessor>();
         
         // proposal
-        context.Services.AddSingleton<ILogEventProcessor, ProposalCreatedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, ProposalCreatedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, ProposalExecutedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, ProposalVetoedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, DAOProposalTimePeriodSetProcessor>();
         
         // vote
-        context.Services.AddSingleton<ILogEventProcessor, VoteSchemeCreatedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, VoteSchemeCreatedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, VotingItemRegisteredProcessor>();
         context.Services.AddTransient<ILogEventProcessor, VotedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, VoteWithdrawnProcessor>();
+        
+        //Election
+        context.Services.AddTransient<ILogEventProcessor, CandidateAddedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, CandidateAddressReplacedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, CandidateInfoUpdatedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, CandidateRemovedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, TomorrowDAOIndexer.Processors.Election.VotedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, ElectionVotingEventRegisteredProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, HighCouncilAddedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, HighCouncilRemovedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, CandidateElectedProcessor>();
+        
+        // treasury
+        context.Services.AddSingleton<ILogEventProcessor, TransferredProcessor>();
+        context.Services.AddSingleton<ILogEventProcessor, TreasuryCreatedProcessor>();
+        context.Services.AddSingleton<ILogEventProcessor, TreasuryTransferredProcessor>();
     }
 }

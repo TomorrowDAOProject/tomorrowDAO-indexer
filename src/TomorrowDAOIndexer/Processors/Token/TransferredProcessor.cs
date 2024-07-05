@@ -8,7 +8,7 @@ using Volo.Abp.DependencyInjection;
 
 namespace TomorrowDAOIndexer.Processors.Token;
 
-public class TransferredProcessor : TokenProcessorBase<Transferred>, ISingletonDependency
+public class TransferredProcessor : TokenProcessorBase<Transferred>
 {
     public override async Task ProcessAsync(Transferred logEvent, LogEventContext context)
     {

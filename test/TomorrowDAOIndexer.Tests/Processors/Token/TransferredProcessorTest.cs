@@ -13,7 +13,10 @@ public class TransferredProcessorTest : TomorrowDAOIndexerTestBase
     {
         await MockEventProcess(MinInfoDAOCreated(), DAOCreatedProcessor);
         await MockEventProcess(TreasuryCreated(), TreasuryCreatedProcessor);
-        await MockEventProcess(TokenTransferred(), TransferredProcessor);
+        //await MockEventProcess(TokenTransferred(), TransferredProcessor);
+
+        var LogEvent = TokenTransferred();
+        await TransferredProcessor.ProcessAsync(GenerateLogEventContext(LogEvent));
 
         var treasuryFundId = IdGenerateHelper.GetId(ChainId, DAOId, Elf);
         var treasuryFundIndex = await GetIndexById<TreasuryFundIndex>(treasuryFundId);
@@ -37,6 +40,7 @@ public class TransferredProcessorTest : TomorrowDAOIndexerTestBase
     [Fact]
     public async Task HandleEventAsync_TreasuryFundNotExist_Test()
     {
-        await MockEventProcess<>(TokenTransferred(), TransferredProcessor);
+        var LogEvent = TokenTransferred();
+        await TransferredProcessor.ProcessAsync(GenerateLogEventContext(LogEvent));
     }
 }

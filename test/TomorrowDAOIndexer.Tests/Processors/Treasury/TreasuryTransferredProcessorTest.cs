@@ -12,15 +12,19 @@ public class TreasuryTransferredProcessorTest : TomorrowDAOIndexerTestBase
     {
         await MockEventProcess(MinInfoDAOCreated(), DAOCreatedProcessor);
         await MockEventProcess(TreasuryCreated(), TreasuryCreatedProcessor);
-        await MockEventProcess(TokenTransferred(), TransferredProcessor);
+        //await MockEventProcess(TokenTransferred(), TransferredProcessor);
+        var logEvent = TokenTransferred();
+        await TransferredProcessor.ProcessAsync(GenerateLogEventContext(logEvent));
         await MockEventProcess(TreasuryTransferred(), TreasuryTransferredProcessor);
+        
+        
 
         var treasuryFundId = IdGenerateHelper.GetId(ChainId, DAOId, Elf);
         var treasuryFundIndex = await GetIndexById<TreasuryFundIndex>(treasuryFundId);
         treasuryFundIndex.ShouldNotBeNull();
         treasuryFundIndex.AvailableFunds.ShouldBe(99999999L);
         var treasuryRecordId = IdGenerateHelper.GetId(ChainId,
-            "c1e625d135171c766999274a00a7003abed24cfe59a7215aabf1472ef20a2da2", ExecuteAddress,
+            "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce", ExecuteAddress,
             TreasuryRecordType.Transfer);
         var treasuryRecordIndex = await GetIndexById<TreasuryRecordIndex>(treasuryRecordId);
         treasuryRecordIndex.ShouldNotBeNull();

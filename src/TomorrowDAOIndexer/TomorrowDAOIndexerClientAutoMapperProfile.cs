@@ -136,6 +136,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<ProposalIndex, ProposalSyncDto>();
         CreateMap<LogEventContext, TreasuryFundIndex>();
         CreateMap<LogEventContext, TreasuryFundSumIndex>();
+        CreateMap<LogEventContext, TreasuryCreateIndex>();
         CreateMap<TreasuryFundSumIndex, GetDAOAmountRecordDto>()
             .ForMember(des => des.GovernanceToken, opt
                 => opt.MapFrom(source => source.Symbol))
