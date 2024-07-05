@@ -56,6 +56,7 @@ public class ProposalCreatedProcessorTest : TomorrowDAOIndexerTestBase
         proposalIndex.PendingTimePeriod.ShouldBe(3);
         proposalIndex.ExecuteTimePeriod.ShouldBe(2);
         proposalIndex.VetoExecuteTimePeriod.ShouldBe(4);
+        proposalIndex.BlockHeight.ShouldBe(100);
         var transaction = proposalIndex.Transaction;
         transaction.ShouldNotBeNull();
         transaction.ContractMethodName.ShouldBe("ContractMethodName");

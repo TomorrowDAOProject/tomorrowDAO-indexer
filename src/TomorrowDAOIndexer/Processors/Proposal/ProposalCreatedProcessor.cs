@@ -43,7 +43,7 @@ public class ProposalCreatedProcessor : GovernanceProcessorBase<ProposalCreated>
             }
             proposalIndex.DeployTime = context.Block.BlockTime;
             proposalIndex.Id = proposalId;
-            await SaveEntityAsync(proposalIndex);
+            await SaveEntityAsync(proposalIndex, context);
 
             if (vetoProposalId != null)
             {
