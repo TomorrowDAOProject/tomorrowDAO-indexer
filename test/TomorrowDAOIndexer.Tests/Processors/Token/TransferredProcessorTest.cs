@@ -21,6 +21,7 @@ public class TransferredProcessorTest : TomorrowDAOIndexerTestBase
         var treasuryFundIndex = await GetIndexById<TreasuryFundIndex>(treasuryFundId);
         treasuryFundIndex.ShouldNotBeNull();
         treasuryFundIndex.AvailableFunds.ShouldBe(100000000);
+        treasuryFundIndex.BlockHeight.ShouldBe(100);
         var treasuryRecordId = IdGenerateHelper.GetId(ChainId,
             TransactionId, ExecuteAddress,
             TreasuryRecordType.Deposit);
@@ -34,6 +35,7 @@ public class TransferredProcessorTest : TomorrowDAOIndexerTestBase
         treasuryRecordIndex.FromAddress.ShouldBe(ExecuteAddress);
         treasuryRecordIndex.ToAddress.ShouldBe(TreasuryAccountAddress);
         treasuryRecordIndex.TreasuryRecordType.ShouldBe(TreasuryRecordType.Deposit);
+        treasuryRecordIndex.BlockHeight.ShouldBe(100);
     }
 
     [Fact]

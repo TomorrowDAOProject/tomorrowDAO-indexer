@@ -37,6 +37,7 @@ public class TreasuryTransferredProcessorTest : TomorrowDAOIndexerTestBase
         treasuryRecordIndex.TreasuryAddress.ShouldBe(TreasuryAccountAddress);
         treasuryRecordIndex.ToAddress.ShouldBe(DAOCreator);
         treasuryRecordIndex.TreasuryRecordType.ShouldBe(TreasuryRecordType.Transfer);
+        treasuryRecordIndex.BlockHeight.ShouldBe(100);
 
         var fundSumId = IdGenerateHelper.GetId(ChainId, Elf);
         var fundSumIndex = await GetIndexById<TreasuryFundSumIndex>(fundSumId);

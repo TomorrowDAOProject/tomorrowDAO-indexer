@@ -7,6 +7,7 @@ namespace TomorrowDAOIndexer.Entities;
 public class TreasuryRecordIndex : AeFinderEntity, IAeFinderEntity
 {
     [Keyword] public override string Id { get; set; }
+    public long BlockHeight { get; set; }
     [Keyword] public string DaoId { get; set; }
     [Keyword] public string TreasuryAddress { get; set; }
     public long Amount { get; set; }

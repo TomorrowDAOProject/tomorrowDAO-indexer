@@ -137,7 +137,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<ProposalExecuted, ProposalIndex>();
         CreateMap<DAOIndex, ProposalIndex>();
         CreateMap<ProposalIndex, ProposalSyncDto>();
-        CreateMap<LogEventContext, TreasuryFundIndex>();
+        CreateMap<LogEventContext, TreasuryFundIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            ;
         CreateMap<LogEventContext, TreasuryFundSumIndex>();
         CreateMap<LogEventContext, TreasuryCreateIndex>();
         CreateMap<TreasuryFundSumIndex, GetDAOAmountRecordDto>()
@@ -146,7 +149,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.Amount, opt
                 => opt.MapFrom(source => source.AvailableFunds))
             ;
-        CreateMap<LogEventContext, TreasuryRecordIndex>();
+        CreateMap<LogEventContext, TreasuryRecordIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            ;
         CreateMap<TreasuryTransferred, TreasuryRecordIndex>()
             .ForMember(des => des.DaoId, opt
                 => opt.MapFrom(source => MapHash(source.DaoId)))
