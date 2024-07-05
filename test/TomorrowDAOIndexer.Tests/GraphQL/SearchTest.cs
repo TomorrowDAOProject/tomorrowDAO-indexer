@@ -11,8 +11,8 @@ public class SearchTest : TomorrowDAOIndexerTestBase
         await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
         
         var queryable = await DAOIndexRepository.GetQueryableAsync();
-        // queryable = QueryHelper.AddEqualFilter(queryable, "Metadata.ChainId", "AELF");
-        queryable = QueryHelper.AddEqualFilter(queryable, "Metadata.Block.BlockHeight", "100");
+        queryable = QueryHelper.AddEqualFilter(queryable, "Metadata.ChainId", "AELF");
+        // queryable = QueryHelper.AddEqualFilter(queryable, "Metadata.Block.BlockHeight", "100");
         var daoIndex = queryable.SingleOrDefault();
         daoIndex.ShouldNotBeNull();
     }

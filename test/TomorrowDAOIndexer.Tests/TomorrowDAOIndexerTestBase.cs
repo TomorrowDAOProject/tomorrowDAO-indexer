@@ -35,6 +35,7 @@ namespace TomorrowDAOIndexer;
 
 public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDAOIndexerTestModule>
 {
+    protected const string TransactionId = "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce";
     protected readonly IAbpLazyServiceProvider LazyServiceProvider;
     // processor
     protected readonly Vote.VoteSchemeCreatedProcessor VoteSchemeCreatedProcessor;

@@ -22,7 +22,7 @@ public class TransferredProcessorTest : TomorrowDAOIndexerTestBase
         treasuryFundIndex.ShouldNotBeNull();
         treasuryFundIndex.AvailableFunds.ShouldBe(100000000);
         var treasuryRecordId = IdGenerateHelper.GetId(ChainId,
-            "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce", ExecuteAddress,
+            TransactionId, ExecuteAddress,
             TreasuryRecordType.Deposit);
         var treasuryRecordIndex = await GetIndexById<TreasuryRecordIndex>(treasuryRecordId);
         treasuryRecordIndex.ShouldNotBeNull();

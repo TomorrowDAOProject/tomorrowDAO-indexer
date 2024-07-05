@@ -1,7 +1,7 @@
 using System.Globalization;
 using AeFinder.Sdk;
 using GraphQL;
-using Nest;
+using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.GraphQL.Dto;
 using TomorrowDAOIndexer.GraphQL.Input;
@@ -97,5 +97,81 @@ public partial class Query
             queryable = queryable.Where(a => a.VoteTimestamp <= dateTime);
         }
         return queryable.Count();
+    }
+    
+    [Name("getLimitVoteRecord")]
+    public static async Task<List<VoteRecordDto>> GetLimitVoteRecordAsync(
+        [FromServices] IReadOnlyRepository<VoteRecordIndex> repository,
+        [FromServices] IObjectMapper objectMapper, GetLimitVoteRecordInput input)
+    {
+        var queryable = await repository.GetQueryableAsync();
+        queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
+            .Where(a => a.VotingItemId == input.VotingItemId);
+
+        if (!input.Voter.IsNullOrWhiteSpace())
+        {
+            queryable = queryable.Where(a => a.Voter == input.Voter);
+        }
+
+        if (input.Limit == 0)
+        {
+            input.Limit = 1;
+        }
+
+        List<VoteRecordIndex> result;
+        if (input.Sorting.IsNullOrEmpty())
+        {
+            result = queryable.Skip(0).Take(input.Limit)
+                .OrderByDescending(a => a.VoteTimestamp).ToList();
+        }
+        else
+        {
+            result = queryable.Skip(0).Take(input.Limit)
+                .OrderByDescending(a => a.Amount).ToList();
+        }
+
+        return objectMapper.Map<List<VoteRecordIndex>, List<VoteRecordDto>>(result);
+    }
+    
+    [Name("getPageVoteRecord")]
+    public static async Task<List<VoteRecordDto>> GetPageVoteRecordAsync(
+        [FromServices] IReadOnlyRepository<VoteRecordIndex> repository,
+        [FromServices] IObjectMapper objectMapper,
+        GetPageVoteRecordInput input)
+    {
+        var queryable = await repository.GetQueryableAsync();
+        queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
+            .Where(a => a.DAOId == input.DaoId)
+            .Where(a => a.Voter == input.Voter);
+
+        if (!input.VotingItemId.IsNullOrWhiteSpace())
+        {
+            queryable = queryable.Where(a => a.VotingItemId == input.VotingItemId);
+        }
+
+        if (!input.VoteOption.IsNullOrWhiteSpace())
+        {
+            if (!Enum.TryParse<VoteOption>(input.VoteOption, out var option))
+            {
+                return new List<VoteRecordDto>();
+            }
+            queryable = queryable.Where(a => a.Option == option);
+        }
+        
+        var result = queryable
+            .Skip(input.SkipCount).Take(input.MaxResultCount)
+            .OrderByDescending(a => a.VoteTimestamp).ToList();
+        
+        return objectMapper.Map<List<VoteRecordIndex>, List<VoteRecordDto>>(result);
+    }
+    
+    [Name("getVoteSchemeInfo")]
+    public static async Task<List<VoteSchemeInfoDto>> GetVoteSchemeInfoAsync(
+        [FromServices] IReadOnlyRepository<VoteSchemeIndex> repository,
+        [FromServices] IObjectMapper objectMapper, GetVoteSchemeInput input)
+    {
+        var queryable = await repository.GetQueryableAsync();
+        queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId);
+        return objectMapper.Map<List<VoteSchemeIndex>, List<VoteSchemeInfoDto>>(queryable.ToList());
     }
 }
