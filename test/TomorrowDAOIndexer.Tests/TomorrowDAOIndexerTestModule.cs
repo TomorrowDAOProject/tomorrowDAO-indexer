@@ -20,26 +20,26 @@ public class TomorrowDAOIndexerTestModule : AbpModule
         
         // DAO
         context.Services.AddSingleton<DAOCreatedProcessor>();
-        context.Services.AddTransient<FileInfosRemovedProcessor>();
-        context.Services.AddTransient<FileInfosUploadedProcessor>();
-        context.Services.AddTransient<HighCouncilDisabledProcessor>();
-        context.Services.AddTransient<HighCouncilEnabledProcessor>();
-        context.Services.AddTransient<SubsistStatusSetProcessor>();
-        context.Services.AddTransient<MetadataUpdatedProcessor>();
-        context.Services.AddTransient<MemberAddedProcessor>();
-        context.Services.AddTransient<MemberRemovedProcessor>();
+        context.Services.AddSingleton<FileInfosRemovedProcessor>();
+        context.Services.AddSingleton<FileInfosUploadedProcessor>();
+        context.Services.AddSingleton<HighCouncilDisabledProcessor>();
+        context.Services.AddSingleton<HighCouncilEnabledProcessor>();
+        context.Services.AddSingleton<SubsistStatusSetProcessor>();
+        context.Services.AddSingleton<MetadataUpdatedProcessor>();
+        context.Services.AddSingleton<MemberAddedProcessor>();
+        context.Services.AddSingleton<MemberRemovedProcessor>();
         
         // GovernanceScheme
         context.Services.AddSingleton<GovernanceSchemeAddedProcessor>();
-        context.Services.AddTransient<GovernanceSchemeThresholdRemovedProcessor>();
-        context.Services.AddTransient<GovernanceSchemeThresholdUpdatedProcessor>();
-        context.Services.AddTransient<GovernanceTokenSetProcessor>();
+        context.Services.AddSingleton<GovernanceSchemeThresholdRemovedProcessor>();
+        context.Services.AddSingleton<GovernanceSchemeThresholdUpdatedProcessor>();
+        context.Services.AddSingleton<GovernanceTokenSetProcessor>();
         
         // proposal
         context.Services.AddSingleton<ProposalCreatedProcessor>();
-        context.Services.AddTransient<ProposalExecutedProcessor>();
-        context.Services.AddTransient<ProposalVetoedProcessor>();
-        context.Services.AddTransient<DAOProposalTimePeriodSetProcessor>();
+        context.Services.AddSingleton<ProposalExecutedProcessor>();
+        context.Services.AddSingleton<ProposalVetoedProcessor>();
+        context.Services.AddSingleton<DAOProposalTimePeriodSetProcessor>();
         
         // vote
         context.Services.AddSingleton<VoteSchemeCreatedProcessor>();

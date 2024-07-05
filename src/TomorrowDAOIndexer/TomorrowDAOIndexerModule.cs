@@ -30,19 +30,19 @@ public class TomorrowDAOIndexerModule: AbpModule
         context.Services.AddTransient<ILogEventProcessor, MemberRemovedProcessor>();
         
         // GovernanceScheme
-        context.Services.AddSingleton<ILogEventProcessor, GovernanceSchemeAddedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, GovernanceSchemeAddedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, GovernanceSchemeThresholdRemovedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, GovernanceSchemeThresholdUpdatedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, GovernanceTokenSetProcessor>();
         
         // proposal
-        context.Services.AddSingleton<ILogEventProcessor, ProposalCreatedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, ProposalCreatedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, ProposalExecutedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, ProposalVetoedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, DAOProposalTimePeriodSetProcessor>();
         
         // vote
-        context.Services.AddSingleton<ILogEventProcessor, VoteSchemeCreatedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, VoteSchemeCreatedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, VotingItemRegisteredProcessor>();
         context.Services.AddTransient<ILogEventProcessor, VotedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, VoteWithdrawnProcessor>();
