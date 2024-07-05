@@ -9,7 +9,7 @@ using Volo.Abp.DependencyInjection;
 
 namespace TomorrowDAOIndexer.Processors.Election;
 
-public class CandidateAddressReplacedProcessor : ElectionProcessorBase<CandidateAddressReplaced>, ISingletonDependency
+public class CandidateAddressReplacedProcessor : ElectionProcessorBase<CandidateAddressReplaced>
 {
     public override async Task ProcessAsync(CandidateAddressReplaced logEvent, LogEventContext context)
     {

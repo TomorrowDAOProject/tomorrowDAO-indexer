@@ -8,7 +8,7 @@ using Volo.Abp.DependencyInjection;
 
 namespace TomorrowDAOIndexer.Processors.Treasury;
 
-public class TreasuryTransferredProcessor : TreasuryProcessorBase<TreasuryTransferred>, ISingletonDependency
+public class TreasuryTransferredProcessor : TreasuryProcessorBase<TreasuryTransferred>
 {
     public override async Task ProcessAsync(TreasuryTransferred logEvent, LogEventContext context)
     {
