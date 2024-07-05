@@ -1,4 +1,3 @@
-using AElf.Contracts.MultiToken;
 using Shouldly;
 using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAOIndexer.Entities;
@@ -23,7 +22,7 @@ public class TransferredProcessorTest : TomorrowDAOIndexerTestBase
         treasuryFundIndex.ShouldNotBeNull();
         treasuryFundIndex.AvailableFunds.ShouldBe(100000000);
         var treasuryRecordId = IdGenerateHelper.GetId(ChainId,
-            "c1e625d135171c766999274a00a7003abed24cfe59a7215aabf1472ef20a2da2", ExecuteAddress,
+            "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce", ExecuteAddress,
             TreasuryRecordType.Deposit);
         var treasuryRecordIndex = await GetIndexById<TreasuryRecordIndex>(treasuryRecordId);
         treasuryRecordIndex.ShouldNotBeNull();

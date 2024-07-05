@@ -1,11 +1,13 @@
 using AeFinder.App.TestBase;
 using Microsoft.Extensions.DependencyInjection;
-using TomorrowDAOIndexer.Processors;
 using TomorrowDAOIndexer.Processors.DAO;
 using TomorrowDAOIndexer.Processors.GovernanceScheme;
 using TomorrowDAOIndexer.Processors.Proposal;
+using TomorrowDAOIndexer.Processors.Token;
+using TomorrowDAOIndexer.Processors.Treasury;
 using TomorrowDAOIndexer.Processors.Vote;
 using Volo.Abp.Modularity;
+using Election = TomorrowDAOIndexer.Processors.Election;
 
 namespace TomorrowDAOIndexer;
 
@@ -46,5 +48,21 @@ public class TomorrowDAOIndexerTestModule : AbpModule
         context.Services.AddSingleton<VotingItemRegisteredProcessor>();
         context.Services.AddSingleton<VotedProcessor>();
         context.Services.AddSingleton<VoteWithdrawnProcessor>();
+        
+        // treasury
+        context.Services.AddSingleton<TransferredProcessor>();
+        context.Services.AddSingleton<TreasuryCreatedProcessor>();
+        context.Services.AddSingleton<TreasuryTransferredProcessor>();
+        
+        // election
+        context.Services.AddSingleton<Election.CandidateAddedProcessor>();
+        context.Services.AddSingleton<Election.CandidateAddressReplacedProcessor>();
+        context.Services.AddSingleton<Election.CandidateInfoUpdatedProcessor>();
+        context.Services.AddSingleton<Election.CandidateRemovedProcessor>();
+        context.Services.AddSingleton<Election.VotedProcessor>();
+        context.Services.AddSingleton<Election.ElectionVotingEventRegisteredProcessor>();
+        context.Services.AddSingleton<Election.HighCouncilAddedProcessor>();
+        context.Services.AddSingleton<Election.HighCouncilRemovedProcessor>();
+        context.Services.AddSingleton<Election.CandidateElectedProcessor>();
     }
 }

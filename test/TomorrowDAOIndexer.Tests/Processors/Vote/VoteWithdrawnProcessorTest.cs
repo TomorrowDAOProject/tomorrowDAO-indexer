@@ -8,7 +8,7 @@ namespace TomorrowDAOIndexer.Processors.Vote;
 
 public class VoteWithdrawnProcessorTest : TomorrowDAOIndexerTestBase
 {
-    private const string TransactionId = "c1e625d135171c766999274a00a7003abed24cfe59a7215aabf1472ef20a2da2";
+    private const string TransactionId = "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce";
     
     [Fact]
     public async Task HandleEventAsync_Test()
