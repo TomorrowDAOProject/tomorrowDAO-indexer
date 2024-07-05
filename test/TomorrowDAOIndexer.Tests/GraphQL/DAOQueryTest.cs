@@ -1,11 +1,13 @@
+using AElf;
 using Shouldly;
 using TomorrowDAO.Indexer.Plugin.Enums;
+using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.GraphQL.Input;
 using Xunit;
 
 namespace TomorrowDAOIndexer.GraphQL;
 
-public class DAOQueryTest : TomorrowDAOIndexerTestBase
+public partial class QueryTest : TomorrowDAOIndexerTestBase
 {
     [Fact]
     public async Task GetDAOListAsync_Test()
@@ -54,64 +56,63 @@ public class DAOQueryTest : TomorrowDAOIndexerTestBase
         });
         count.ShouldBe(1);
     }
+
+    [Fact]
+    public async Task GetDAOAmountRecordAsync_Test()
+    {
+        await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
+        await MockEventProcess(VotingItemRegistered(), VotingItemRegisteredProcessor);
+        await MockEventProcess(VoteVoted(), VoteVotedProcessor);
+        await MockEventProcess(VoteWithdrawn(), VoteWithdrawnProcessor);
+        await MockEventProcess(TreasuryCreated(), TreasuryCreatedProcessor);
+        // await MockEventProcess(TokenTransferred(), TransferredProcessor);
+        await TransferredProcessor.ProcessAsync(GenerateLogEventContext(TokenTransferred()));
+        
+        var daoId = HashHelper.ComputeFrom(Id1).ToHex();
+        var daoIndex = await GetIndexById<DAOIndex>(daoId);
+        daoIndex.ShouldNotBeNull();
+        daoIndex.VoteAmount.ShouldBe(100);
+        daoIndex.WithdrawAmount.ShouldBe(10);
     
-    // todo treasury
-    // [Fact]
-    // public async Task GetDAOAmountRecordAsync_Test()
-    // {
-    //     await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
-    //     await MockEventProcess(VotingItemRegistered(), VotingItemRegisteredProcessor);
-    //     await MockEventProcess(VoteVoted(), VoteVotedProcessor);
-    //     await MockEventProcess(VoteWithdrawn(), VoteWithdrawnProcessor);
-    //     await MockEventProcess(TreasuryCreated(), TreasuryCreatedProcessor);
-    //     await MockEventProcess(TokenTransferred(), TransferredProcessor);
-    //     
-    //     var daoId = HashHelper.ComputeFrom(Id1).ToHex();
-    //     var daoIndex = await GetIndexById<DAOIndex>(daoId);
-    //     daoIndex.ShouldNotBeNull();
-    //     daoIndex.VoteAmount.ShouldBe(100);
-    //     daoIndex.WithdrawAmount.ShouldBe(10);
-    //
-    //     var list = await Query.GetDAOAmountRecordAsync(DAOIndexRepository, TreasuryFundRepository, ObjectMapper, new GetDAOAmountRecordInput
-    //     {
-    //         ChainId = ChainId
-    //     });
-    //     list.Sum(x => x.Amount).ShouldBe(100000090);
-    // }
+        var list = await Query.GetDAOAmountRecordAsync(DAOIndexRepository, TreasuryFundRepository, ObjectMapper, new GetDAOAmountRecordInput
+        {
+            ChainId = ChainId
+        });
+        list.Sum(x => x.Amount).ShouldBe(100000090);
+    }
     
-    // todo vote & proposal
-    // [Fact]
-    // public async Task HandleEventAsync_GetMyParticipatedAsync()
-    // {
-    //     await GetVoteRecordCountAsyncTest();
-    //     await GetProposalCountAsyncTest();
-    //
-    //     var proposerResult = await Query.GetMyParticipatedAsync(DAOIndexRepository, LatestParticipatedIndexRepository, ObjectMapper,
-    //         new GetParticipatedInput
-    //         {
-    //             ChainId = ChainId,
-    //             SkipCount = 0,
-    //             MaxResultCount = 10,
-    //             Address = DAOCreator
-    //         });
-    //     proposerResult.TotalCount.ShouldBe(1);
-    //     var proposerParticipatedList = proposerResult.Data;
-    //     proposerParticipatedList.Count.ShouldBe(1);
-    //     var proposerDao = proposerParticipatedList[0];
-    //     proposerDao.Id.ShouldBe(DAOId);
-    //     
-    //     var voteResult = await Query.GetMyParticipatedAsync(DAOIndexRepository, LatestParticipatedIndexRepository, ObjectMapper,
-    //         new GetParticipatedInput
-    //         {
-    //             ChainId = ChainId,
-    //             SkipCount = 0,
-    //             MaxResultCount = 10,
-    //             Address = User
-    //         });
-    //     voteResult.TotalCount.ShouldBe(1);
-    //     var voteParticipatedList = voteResult.Data;
-    //     voteParticipatedList.Count.ShouldBe(1);
-    //     var voteDao = voteParticipatedList[0];
-    //     voteDao.Id.ShouldBe(DAOId);
-    // }
+    [Fact]
+    public async Task HandleEventAsync_GetMyParticipatedAsync()
+    {
+        await GetVoteRecordCountAsyncTest();
+        await GetProposalCountAsyncTest();
+    
+        var proposerResult = await Query.GetMyParticipatedAsync(DAOIndexRepository, LatestParticipatedIndexRepository, ObjectMapper,
+            new GetParticipatedInput
+            {
+                ChainId = ChainId,
+                SkipCount = 0,
+                MaxResultCount = 10,
+                Address = DAOCreator
+            });
+        proposerResult.TotalCount.ShouldBe(1);
+        var proposerParticipatedList = proposerResult.Data;
+        proposerParticipatedList.Count.ShouldBe(1);
+        var proposerDao = proposerParticipatedList[0];
+        proposerDao.Id.ShouldBe(DAOId);
+        
+        var voteResult = await Query.GetMyParticipatedAsync(DAOIndexRepository, LatestParticipatedIndexRepository, ObjectMapper,
+            new GetParticipatedInput
+            {
+                ChainId = ChainId,
+                SkipCount = 0,
+                MaxResultCount = 10,
+                Address = User
+            });
+        voteResult.TotalCount.ShouldBe(1);
+        var voteParticipatedList = voteResult.Data;
+        voteParticipatedList.Count.ShouldBe(1);
+        var voteDao = voteParticipatedList[0];
+        voteDao.Id.ShouldBe(DAOId);
+    }
 }

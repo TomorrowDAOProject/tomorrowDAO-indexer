@@ -3,7 +3,7 @@ using Xunit;
 
 namespace TomorrowDAOIndexer.GraphQL;
 
-public class SearchTest : TomorrowDAOIndexerTestBase
+public partial class QueryTest
 {
     [Fact]
     public async Task Test_1()

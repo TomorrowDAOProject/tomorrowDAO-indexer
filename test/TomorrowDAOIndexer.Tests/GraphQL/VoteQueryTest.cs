@@ -9,7 +9,7 @@ using Xunit;
 
 namespace TomorrowDAOIndexer.GraphQL;
 
-public class VoteQueryTest : TomorrowDAOIndexerTestBase
+public partial class QueryTest
 {
     [Fact]
     public async Task GetVoterWithdrawnIndexAsync_Test()

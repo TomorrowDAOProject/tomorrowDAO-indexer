@@ -6,7 +6,7 @@ using Xunit;
 
 namespace TomorrowDAOIndexer.GraphQL;
 
-public class TreasuryQueryTest : TomorrowDAOIndexerTestBase
+public partial class QueryTest
 {
     [Fact]
     public async Task GetTreasuryFundAsync_Test()

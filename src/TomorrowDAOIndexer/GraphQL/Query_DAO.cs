@@ -91,10 +91,8 @@ public partial class Query
         var queryable = await repository.GetQueryableAsync();
         queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId);
         var result= queryable.ToList();
-        // todo treasuryFunds
-        // var treasuryFunds = await GetTreasuryFundByFundListAsync(treasuryFundrepository, 
-        //     new GetTreasuryFundInput { ChainId = input.ChainId });
-        var treasuryFunds = new List<GetDAOAmountRecordDto>();
+        var treasuryFunds = await GetTreasuryFundByFundListAsync(treasuryFundrepository, 
+        new GetTreasuryFundInput { ChainId = input.ChainId });
         var voteFunds = objectMapper.Map<List<DAOIndex>, List<GetDAOAmountRecordDto>>(result);
         treasuryFunds.AddRange(voteFunds);
         return treasuryFunds.GroupBy(fund => fund.GovernanceToken)
@@ -105,6 +103,7 @@ public partial class Query
             }).ToList();
     }
 
+    // todo how to translate terms??
     [Name("getMyParticipated")]
     public static async Task<PageResultDto<DAOInfoDto>> GetMyParticipatedAsync(
         [FromServices] IReadOnlyRepository<DAOIndex> DAORepository,
@@ -126,14 +125,22 @@ public partial class Query
 
         var daoIds = participatedResult.Select(x => x.DAOId).ToList();
         var daoQueryable = await DAORepository.GetQueryableAsync();
-        daoQueryable = daoQueryable.Where(a => a.Metadata.ChainId == input.ChainId)
-            .Where(a => daoIds.Contains(a.Id));
-        var daoResult = daoQueryable.ToList();
-        var sortedResult = daoResult.OrderBy(x => daoIds.IndexOf(x.Id)).ToList();
+        var daoResult = new List<DAOIndex>();
+        foreach (var daoId in daoIds)
+        {
+            daoQueryable = daoQueryable.Where(a => a.Metadata.ChainId == input.ChainId)
+                .Where(a => a.Id == daoId);
+            var daoIndex = daoQueryable.SingleOrDefault();
+            if (daoIndex != null)
+            {
+                daoResult!.AddFirst(daoQueryable.SingleOrDefault());
+            }
+        }
+        
         return new PageResultDto<DAOInfoDto>
         {
             TotalCount = participatedCount,
-            Data = objectMapper.Map<List<DAOIndex>, List<DAOInfoDto>>(sortedResult)
+            Data = objectMapper.Map<List<DAOIndex>, List<DAOInfoDto>>(daoResult)
         };
     }
 }

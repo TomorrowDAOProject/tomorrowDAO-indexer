@@ -21,7 +21,7 @@ public class IndexerMapperBase : Profile
     }
     protected static string MapHash(Hash hash)
     {
-        return hash.ToHex() ?? string.Empty;
+        return hash?.ToHex() ?? string.Empty;
     }
     
     protected static string MapAddress(Address? address)

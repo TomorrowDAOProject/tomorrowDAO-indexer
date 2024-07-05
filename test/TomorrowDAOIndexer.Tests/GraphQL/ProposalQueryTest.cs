@@ -4,7 +4,7 @@ using Xunit;
 
 namespace TomorrowDAOIndexer.GraphQL;
 
-public class ProposalQueryTest : TomorrowDAOIndexerTestBase
+public partial class QueryTest
 {
     [Fact]
     public async Task GetElectionListAsync_Test()
