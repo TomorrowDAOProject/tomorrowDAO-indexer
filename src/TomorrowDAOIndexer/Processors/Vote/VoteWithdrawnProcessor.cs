@@ -32,9 +32,7 @@ public class VoteWithdrawnProcessor : VoteProcessorBase<Withdrawn>
             withdrawnIndex.CreateTime = context.Block.BlockTime;
             await SaveEntityAsync(withdrawnIndex, context);
             
-            await UpdateDaoVoteAmountAsync(logEvent.DaoId.ToHex(), dao => dao.WithdrawAmount += logEvent.WithdrawAmount, context);
-
-            
+            await UpdateDaoVoteAmountAsync(logEvent.DaoId.ToHex(), true, logEvent.WithdrawAmount, context);
             Logger.LogInformation("[VoteWithdrawn] FINISH: Id={Id}, ChainId={ChainId}", id, chainId);
         }
         catch (Exception e)

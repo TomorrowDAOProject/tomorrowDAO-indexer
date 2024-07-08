@@ -48,7 +48,7 @@ public class VotedProcessor : VoteProcessorBase<Voted>
 
             if (logEvent.VoteMechanism == VoteMechanism.TokenBallot)
             {
-                await UpdateDaoVoteAmountAsync(DAOId, dao => dao.VoteAmount += logEvent.Amount, context);
+                await UpdateDaoVoteAmountAsync(DAOId, false, logEvent.Amount, context);
             }
 
             await SaveEntityAsync(new LatestParticipatedIndex
