@@ -99,7 +99,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Block.BlockHeight))
             ;
-        CreateMap<LogEventContext, LatestParticipatedIndex>();
+        CreateMap<LogEventContext, LatestParticipatedIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            ;
         CreateMap<GovernanceSchemeIndex, ProposalIndex>();
         CreateMap<ExecuteTransactionContract, ExecuteTransaction>();
         CreateMap<ExecuteTransaction, ExecuteTransactionDto>()
@@ -141,8 +144,14 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Block.BlockHeight))
             ;
-        CreateMap<LogEventContext, TreasuryFundSumIndex>();
-        CreateMap<LogEventContext, TreasuryCreateIndex>();
+        CreateMap<LogEventContext, TreasuryFundSumIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            ;
+        CreateMap<LogEventContext, TreasuryCreateIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            ;
         CreateMap<TreasuryFundSumIndex, GetDAOAmountRecordDto>()
             .ForMember(des => des.GovernanceToken, opt
                 => opt.MapFrom(source => source.Symbol))
@@ -165,7 +174,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.ProposalId, opt
                 => opt.MapFrom(source => MapHash(source.ProposalId)))
             ;
-        CreateMap<LogEventContext, ElectionIndex>();
+        CreateMap<LogEventContext, ElectionIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            ;
         CreateMap<DaoProposalTimePeriodSet, DAOIndex>();
         CreateMap<OrganizationIndex, MemberDto>()
             .ForMember(des => des.ChainId, opt
@@ -220,10 +232,15 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<CandidateElected, ElectionCandidateElectedIndex>()
             .ForMember(des => des.DaoId, opt
                 => opt.MapFrom(source => MapHash(source.DaoId)));
-        CreateMap<LogEventContext, ElectionCandidateElectedIndex>();
+        CreateMap<LogEventContext, ElectionCandidateElectedIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            ;
         CreateMap<LogEventContext, GovernanceSchemeIndex>()
             .ForMember(des => des.CreateTime, opt
                 => opt.MapFrom(source => source.Block.BlockTime))
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
             ;
         CreateMap<GovernanceSchemeAdded, GovernanceSchemeIndex>()
             .ForMember(des => des.SchemeId, opt
@@ -250,13 +267,34 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.VoteTime, opt
                 => opt.MapFrom(source => source.VoteTimestamp))
             ;
-        CreateMap<LogEventContext, VoteSchemeIndex>();
-        CreateMap<LogEventContext, VoteItemIndex>();
-        CreateMap<LogEventContext, VoteRecordIndex>();
-        CreateMap<LogEventContext, VoteWithdrawnIndex>();
-        CreateMap<LogEventContext, ElectionHighCouncilConfigIndex>();
-        CreateMap<LogEventContext, ElectionVotingItemIndex>();
-        CreateMap<LogEventContext, DaoVoterRecordIndex>();
+        CreateMap<LogEventContext, VoteSchemeIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            ;
+        CreateMap<LogEventContext, VoteItemIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            ;
+        CreateMap<LogEventContext, VoteRecordIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            ;
+        CreateMap<LogEventContext, VoteWithdrawnIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            ;
+        CreateMap<LogEventContext, ElectionHighCouncilConfigIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight));
+            ;
+        CreateMap<LogEventContext, ElectionVotingItemIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            ;
+        CreateMap<LogEventContext, DaoVoterRecordIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight));
+            ;
         CreateMap<VoteSchemeCreated, VoteSchemeIndex>()
             .ForMember(des => des.VoteSchemeId, opt
                 => opt.MapFrom(source => MapHash(source.VoteSchemeId)));
@@ -312,7 +350,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.Sponsor, opt => opt.MapFrom(source => MapAddress(source.Sponsor)));
         CreateMap<TomorrowDAO.Contracts.Election.HighCouncilConfig, ElectionHighCouncilConfigIndex>();
         CreateMap<DaoVoterRecordIndex, DaoVoterRecordIndexDto>();
-        CreateMap<LogEventContext, NetworkDaoProposalIndex>();
+        CreateMap<LogEventContext, NetworkDaoProposalIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            ;
         CreateMap<NetworkDaoProposalIndex, NetworkDaoProposal>();
         CreateMap<AElf.Standards.ACS3.ProposalCreated, NetworkDaoProposalIndex>()
             .ForMember(des => des.ProposalId, opt => opt.MapFrom(source => MapHash(source.ProposalId)))

@@ -9,6 +9,7 @@ namespace TomorrowDAOIndexer.Entities;
 public class VoteSchemeIndex : AeFinderEntity, IAeFinderEntity
 {
     [Keyword] public override string Id { get; set; }
+    public long BlockHeight { get; set; }
     [Keyword] public string VoteSchemeId { get; set; }
     [JsonConverter(typeof(StringEnumConverter))]
     [Keyword] public VoteMechanism VoteMechanism { get; set; }

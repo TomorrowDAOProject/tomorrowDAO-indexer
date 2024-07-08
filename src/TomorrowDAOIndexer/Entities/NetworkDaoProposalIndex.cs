@@ -7,6 +7,7 @@ namespace TomorrowDAOIndexer.Entities;
 public class NetworkDaoProposalIndex : AeFinderEntity, IAeFinderEntity
 {
     [Keyword] public string ProposalId { get; set; }
+    public long BlockHeight { get; set; }
 
     [Keyword] public string OrganizationAddress { get; set; }
 

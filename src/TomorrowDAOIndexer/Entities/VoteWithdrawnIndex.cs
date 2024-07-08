@@ -6,6 +6,7 @@ namespace TomorrowDAOIndexer.Entities;
 public class VoteWithdrawnIndex : AeFinderEntity, IAeFinderEntity
 {
     [Keyword] public override string Id { get; set; }
+    public long BlockHeight { get; set; }
     [Keyword] public string DaoId { get; set; }
     [Keyword] public string Voter { get; set; }
     public long WithdrawAmount { get; set; }

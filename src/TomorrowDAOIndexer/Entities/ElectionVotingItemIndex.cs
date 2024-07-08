@@ -6,6 +6,7 @@ namespace TomorrowDAOIndexer.Entities;
 public class ElectionVotingItemIndex : AeFinderEntity, IAeFinderEntity
 {
     [Keyword] public override string Id { get; set; }
+    public long BlockHeight { get; set; }
     [Keyword] public string DaoId { get; set; }
     [Keyword] public string VotingItemId { get; set; }
     public string AcceptedCurrency { get; set; }

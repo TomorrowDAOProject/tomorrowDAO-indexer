@@ -8,6 +8,7 @@ public class VoteRecordIndex : AeFinderEntity, IAeFinderEntity
 {
     
     [Keyword] public string TransactionId { get; set; }
+    public long BlockHeight { get; set; }
     [Keyword] public override string Id { get; set; }
     [Keyword] public string DAOId { get; set; }
     // The voting activity id.(proposal id)

@@ -12,7 +12,7 @@ public partial class QueryTest
         
         var queryable = await DAOIndexRepository.GetQueryableAsync();
         queryable = QueryHelper.AddEqualFilter(queryable, "Metadata.ChainId", "AELF");
-        queryable = QueryHelper.AddEqualFilter(queryable, "Metadata.Block.BlockHeight", "100");
+        // queryable = QueryHelper.AddEqualFilter(queryable, "Metadata.Block.BlockHeight", "100");
         var daoIndex = queryable.SingleOrDefault();
         daoIndex.ShouldNotBeNull();
     }

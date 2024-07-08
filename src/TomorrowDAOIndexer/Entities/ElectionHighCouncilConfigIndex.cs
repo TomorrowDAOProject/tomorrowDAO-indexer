@@ -6,6 +6,7 @@ namespace TomorrowDAOIndexer.Entities;
 public class ElectionHighCouncilConfigIndex : AeFinderEntity, IAeFinderEntity
 {
     [Keyword] public override string Id { get; set; }
+    public long BlockHeight { get; set; }
     [Keyword] public string DaoId { get; set; }
     public long MaxHighCouncilMemberCount { get; set; }
     public long MaxHighCouncilCandidateCount { get; set; }

@@ -9,6 +9,7 @@ namespace TomorrowDAOIndexer.Entities;
 public class ElectionIndex : AeFinderEntity, IAeFinderEntity
 {
     [Keyword] public override string Id { get; set; }
+    public long BlockHeight { get; set; }
     // [PropertyName("DAOId")]
     [Keyword] public string DAOId { get; set; }
     public long TermNumber { get; set; }
