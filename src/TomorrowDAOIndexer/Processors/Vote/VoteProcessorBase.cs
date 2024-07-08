@@ -18,7 +18,7 @@ public abstract class VoteProcessorBase<TEvent> : ProcessorBase<TEvent> where TE
         };
     }
     
-    protected async Task UpdateDaoVoteAmountAsync(string daoId, bool isWithdraw, long deltaAmount, LogEventContext context)
+    protected async Task UpdateDaoVoteAmountAsync(string daoId, Action<DAOIndex> updateAction, LogEventContext context)
     {
         try
         {
@@ -29,14 +29,7 @@ public abstract class VoteProcessorBase<TEvent> : ProcessorBase<TEvent> where TE
                 Logger.LogError("[VoteWithdrawn] update DaoVoteAmount error, Dao not found: daoId={Id}", daoId);
             }
 
-            if (isWithdraw)
-            {
-                
-            }
-            else
-            {
-                daoIndex.VoteAmount += deltaAmount;
-            }
+            updateAction(daoIndex!);
 
             await SaveEntityAsync(daoIndex!, context);
         }

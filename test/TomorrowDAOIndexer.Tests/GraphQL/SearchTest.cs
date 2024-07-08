@@ -8,13 +8,13 @@ public partial class QueryTest
     [Fact]
     public async Task Test_1()
     {
-        // await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
+        await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
         
-        // var queryable = await DAOIndexRepository.GetQueryableAsync();
-        // queryable = QueryHelper.AddEqualFilter(queryable, "Metadata.ChainId", "AELF");
-        // queryable = QueryHelper.AddEqualFilter(queryable, "Metadata.Block.BlockHeight", "100");
-        // var daoIndex = queryable.SingleOrDefault();
-        // daoIndex.ShouldNotBeNull();
+        var queryable = await DAOIndexRepository.GetQueryableAsync();
+        queryable = QueryHelper.AddEqualFilter(queryable, "Metadata.ChainId", "AELF");
+        queryable = QueryHelper.AddEqualFilter(queryable, "Metadata.Block.BlockHeight", "100");
+        var daoIndex = queryable.SingleOrDefault();
+        daoIndex.ShouldNotBeNull();
     }
     
     [Fact]
