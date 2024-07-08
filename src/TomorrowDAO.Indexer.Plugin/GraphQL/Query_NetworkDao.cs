@@ -37,7 +37,7 @@ public partial class Query
                 => i.Field(f => f.ChainId).Value(input.ChainId)));
         }
 
-        if (input.ProposalType != 0)
+        if (input.ProposalType != NetworkDaoProposalType.All)
         {
             mustQuery.Add(q => q.Term(i
                 => i.Field(f => f.ProposalType).Value(input.ProposalType)));

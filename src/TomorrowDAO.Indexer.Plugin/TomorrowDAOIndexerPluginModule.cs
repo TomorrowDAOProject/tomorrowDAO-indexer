@@ -74,5 +74,5 @@ public class TomorrowDAOIndexerPluginModule : AElfIndexerClientPluginBaseModule<
     }
 
     protected override string ClientId => "AElfIndexer_TomorrowDAO";
-    protected override string Version => "5bb9074e8b0f45c0adca41d8bcd542ea";
+    protected override string Version => "3e9cf90e9cbc4010b3e84163ede19851";
 }
