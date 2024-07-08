@@ -2,11 +2,9 @@ using AeFinder.Sdk.Logging;
 using AeFinder.Sdk.Processor;
 using Newtonsoft.Json;
 using TomorrowDAO.Contracts.Vote;
-using TomorrowDAO.Indexer.Plugin;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.Enums;
 using VoteMechanism = TomorrowDAO.Contracts.Vote.VoteMechanism;
-using VoteOption = TomorrowDAO.Indexer.Plugin.Enums.VoteOption;
 
 namespace TomorrowDAOIndexer.Processors.Vote;
 
@@ -14,7 +12,7 @@ public class VotedProcessor : VoteProcessorBase<Voted>
 {
     public override async Task ProcessAsync(Voted logEvent, LogEventContext context)
     {
-        var voteId = logEvent.VoteId?.ToHex();
+        var voteId = logEvent.VoteId?.ToHex() ?? string.Empty;
         var chainId = context.ChainId;
         var voter = logEvent.Voter?.ToBase58();
         var DAOId = logEvent.DaoId?.ToHex();
