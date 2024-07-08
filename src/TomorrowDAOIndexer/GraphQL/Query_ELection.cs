@@ -1,6 +1,5 @@
 using AeFinder.Sdk;
 using GraphQL;
-using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.GraphQL.Dto;
 using TomorrowDAOIndexer.GraphQL.Input;
@@ -136,25 +135,16 @@ public partial class Query
     }
 
     // todo server change
+    // TryParse change
     [Name("getHighCouncilListAsync")]
     public static async Task<ElectionListPageResultDto> GetHighCouncilListAsync(
         [FromServices] IReadOnlyRepository<ElectionIndex> repository,
-        [FromServices] IObjectMapper objectMapper,
-        GetHighCouncilListInput input)
+        [FromServices] IObjectMapper objectMapper, GetHighCouncilListInput input)
     {
-        if (!Enum.TryParse(input.HighCouncilType, out HighCouncilType highCouncilType))
-        {
-            return new ElectionListPageResultDto
-            {
-                TotalCount = 0,
-                DataList = new List<ElectionDto>()
-            };
-        }
-
         var queryable = await repository.GetQueryableAsync();
         queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
                 .Where(a => a.TermNumber == input.TermNumber)
-                .Where(a => a.HighCouncilType == highCouncilType);
+                .Where(a => a.HighCouncilType == input.HighCouncilType);
         if (!string.IsNullOrEmpty(input.DAOId))
         {
             queryable = queryable.Where(a => a.DAOId == input.DAOId);

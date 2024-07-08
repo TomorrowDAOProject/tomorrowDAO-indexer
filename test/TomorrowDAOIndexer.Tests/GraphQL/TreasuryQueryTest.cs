@@ -40,18 +40,18 @@ public partial class QueryTest
         await MockEventProcess(TreasuryCreated(), TreasuryCreatedProcessor);
         await TransferredProcessor.ProcessAsync(GenerateLogEventContext(TokenTransferred()));
         
-        var(count, treasuryFunds) = await Query.GetAllTreasuryFundListAsync(TreasuryFundRepository, ObjectMapper, new GetAllTreasuryFundListInput
+        var result = await Query.GetAllTreasuryFundListAsync(TreasuryFundRepository, ObjectMapper, new GetAllTreasuryFundListInput
         {
             ChainId = ChainId, DaoId = HashHelper.ComputeFrom(Id1).ToHex()
         });
-        treasuryFunds.ShouldNotBeNull();
-        treasuryFunds.Count.ShouldBe(1);
-        var treasuryFundDto = treasuryFunds[0];
+        result.ShouldNotBeNull();
+        result.TotalCount.ShouldBe(1);
+        var treasuryFundDtoList = result.Data;
+        var treasuryFundDto = treasuryFundDtoList[0];
         treasuryFundDto.DaoId.ShouldBe(DAOId);
         treasuryFundDto.Symbol.ShouldBe(Elf);
         treasuryFundDto.AvailableFunds.ShouldBe(100000000);
         treasuryFundDto.LockedFunds.ShouldBe(0);
-        count.ShouldBe(1);
     }
 
     [Fact]
@@ -62,24 +62,24 @@ public partial class QueryTest
         await TransferredProcessor.ProcessAsync(GenerateLogEventContext(TokenTransferred()));
         await MockEventProcess(TreasuryTransferred(), TreasuryTransferredProcessor);
         
-        var(count, treasuryFunds) = await Query.GetTreasuryFundListAsync(TreasuryFundRepository, ObjectMapper, new GetTreasuryFundListInput
+        var result = await Query.GetTreasuryFundListAsync(TreasuryFundRepository, ObjectMapper, new GetTreasuryFundListInput
         {
             SkipCount = 0,
             ChainId = ChainId,
             StartBlockHeight = BlockHeight,
             EndBlockHeight = BlockHeight + 1,
             DaoId = HashHelper.ComputeFrom(Id1).ToHex(),
-            TreasuryAddress = null,
+            // TreasuryAddress = null,
             MaxResultCount = 10
         });
-        treasuryFunds.ShouldNotBeNull();
-        treasuryFunds.Count.ShouldBe(1);
+        result.ShouldNotBeNull();
+        result.TotalCount.ShouldBe(1);
+        var treasuryFunds = result.Data;
         var treasuryFundDto = treasuryFunds[0];
         treasuryFundDto.DaoId.ShouldBe(DAOId);
         treasuryFundDto.Symbol.ShouldBe(Elf);
         treasuryFundDto.AvailableFunds.ShouldBe(99999999);
         treasuryFundDto.LockedFunds.ShouldBe(0);
-        count.ShouldBe(1);
     }
 
     [Fact]

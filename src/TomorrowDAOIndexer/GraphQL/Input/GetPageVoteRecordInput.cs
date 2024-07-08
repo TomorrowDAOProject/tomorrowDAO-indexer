@@ -1,3 +1,5 @@
+using TomorrowDAO.Indexer.Plugin.Enums;
+
 namespace TomorrowDAOIndexer.GraphQL.Input;
 
 public class GetPageVoteRecordInput
@@ -14,5 +16,5 @@ public class GetPageVoteRecordInput
     
     public int MaxResultCount { get; set; }
     
-    public string VoteOption { get; set; }
+    public VoteOption VoteOption { get; set; }
 }

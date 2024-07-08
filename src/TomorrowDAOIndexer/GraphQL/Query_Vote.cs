@@ -2,7 +2,6 @@ using System.Globalization;
 using System.Linq.Expressions;
 using AeFinder.Sdk;
 using GraphQL;
-using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.GraphQL.Dto;
 using TomorrowDAOIndexer.GraphQL.Input;
@@ -139,29 +138,21 @@ public partial class Query
     }
     
     // todo server change
+    // TryParse change
     [Name("getPageVoteRecord")]
     public static async Task<List<VoteRecordDto>> GetPageVoteRecordAsync(
         [FromServices] IReadOnlyRepository<VoteRecordIndex> repository,
-        [FromServices] IObjectMapper objectMapper,
-        GetPageVoteRecordInput input)
+        [FromServices] IObjectMapper objectMapper, GetPageVoteRecordInput input)
     {
         var queryable = await repository.GetQueryableAsync();
         queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
             .Where(a => a.DAOId == input.DaoId)
-            .Where(a => a.Voter == input.Voter);
+            .Where(a => a.Voter == input.Voter)
+            .Where(a => a.Option == input.VoteOption);
 
         if (!input.VotingItemId.IsNullOrWhiteSpace())
         {
             queryable = queryable.Where(a => a.VotingItemId == input.VotingItemId);
-        }
-
-        if (!input.VoteOption.IsNullOrWhiteSpace())
-        {
-            if (!Enum.TryParse<VoteOption>(input.VoteOption, out var option))
-            {
-                return new List<VoteRecordDto>();
-            }
-            queryable = queryable.Where(a => a.Option == option);
         }
         
         var result = queryable
