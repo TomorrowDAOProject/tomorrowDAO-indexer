@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Linq.Expressions;
 using AeFinder.Sdk;
 using GraphQL;
 using TomorrowDAO.Indexer.Plugin.Enums;
@@ -36,11 +37,15 @@ public partial class Query
         }
         if (!input.VotingItemIds.IsNullOrEmpty())
         {
-            queryable = queryable.Where(a => input.VotingItemIds.Contains(a.VotingItemId));
+            queryable = queryable.Where(
+                input.VotingItemIds.Select(votingItemId => (Expression<Func<VoteItemIndex, bool>>)(o => o.VotingItemId == votingItemId))
+                    .Aggregate((prev, next) => prev.Or(next)));
         }
         if (!input.DaoIds.IsNullOrEmpty())
         {
-            queryable = queryable.Where(a => input.DaoIds.Contains(a.DAOId));
+            queryable = queryable.Where(
+                input.DaoIds.Select(daoId => (Expression<Func<VoteItemIndex, bool>>)(o => o.DAOId == daoId))
+                    .Aggregate((prev, next) => prev.Or(next)));
         }
         return objectMapper.Map<List<VoteItemIndex>, List<VoteItemIndexDto>>(queryable.ToList());
     }

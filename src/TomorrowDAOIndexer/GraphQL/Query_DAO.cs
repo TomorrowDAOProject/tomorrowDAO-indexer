@@ -1,4 +1,6 @@
 using System.Globalization;
+using System.Linq.Dynamic.Core;
+using System.Linq.Expressions;
 using AeFinder.Sdk;
 using GraphQL;
 using TomorrowDAOIndexer.Entities;
@@ -70,12 +72,16 @@ public partial class Query
     
         if (!input.DaoIds.IsNullOrEmpty())
         {
-            queryable = queryable.Where(a => input.DaoIds.Contains(a.DaoId));
+            queryable = queryable.Where(
+                input.DaoIds.Select(daoId => (Expression<Func<DaoVoterRecordIndex, bool>>)(o => o.DaoId == daoId))
+                    .Aggregate((prev, next) => prev.Or(next)));
         }
     
         if (input.VoterAddressList.IsNullOrEmpty())
         {
-            queryable = queryable.Where(a => input.VoterAddressList.Contains(a.VoterAddress));
+            queryable = queryable.Where(
+                input.VoterAddressList.Select(address => (Expression<Func<DaoVoterRecordIndex, bool>>)(o => o.VoterAddress == address))
+                    .Aggregate((prev, next) => prev.Or(next)));
         }
 
         return objectMapper.Map<List<DaoVoterRecordIndex>, List<DaoVoterRecordIndexDto>>(queryable.ToList());
@@ -103,7 +109,6 @@ public partial class Query
             }).ToList();
     }
 
-    // todo how to translate terms??
     [Name("getMyParticipated")]
     public static async Task<PageResultDto<DAOInfoDto>> GetMyParticipatedAsync(
         [FromServices] IReadOnlyRepository<DAOIndex> DAORepository,
@@ -125,17 +130,10 @@ public partial class Query
 
         var daoIds = participatedResult.Select(x => x.DAOId).ToList();
         var daoQueryable = await DAORepository.GetQueryableAsync();
-        var daoResult = new List<DAOIndex>();
-        foreach (var daoId in daoIds)
-        {
-            daoQueryable = daoQueryable.Where(a => a.Metadata.ChainId == input.ChainId)
-                .Where(a => a.Id == daoId);
-            var daoIndex = daoQueryable.SingleOrDefault();
-            if (daoIndex != null)
-            {
-                daoResult!.AddFirst(daoQueryable.SingleOrDefault());
-            }
-        }
+        daoQueryable = daoQueryable.Where(
+            daoIds.Select(daoId => (Expression<Func<DAOIndex, bool>>)(o => o.Id == daoId))
+            .Aggregate((prev, next) => prev.Or(next)));
+        var daoResult = daoQueryable.ToList();
         
         return new PageResultDto<DAOInfoDto>
         {

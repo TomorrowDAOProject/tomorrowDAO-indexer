@@ -1,3 +1,5 @@
+using System.Linq.Dynamic.Core;
+using System.Linq.Expressions;
 using AeFinder.Sdk;
 using GraphQL;
 using TomorrowDAOIndexer.Entities;
@@ -77,8 +79,9 @@ public partial class Query
         var symbols = input.Symbols;
         if (!symbols.IsNullOrEmpty())
         {
-            var symbolsSet = new HashSet<string>(symbols);
-            queryable = queryable.Where(a => symbolsSet.Contains(a.Symbol));
+            queryable = queryable.Where(
+                new HashSet<string>(symbols).Select(symbol => (Expression<Func<TreasuryFundIndex, bool>>)(o => o.Symbol == symbol))
+                    .Aggregate((prev, next) => prev.Or(next)));
         }
 
         var count = queryable.Count();
