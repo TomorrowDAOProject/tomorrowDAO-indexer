@@ -138,6 +138,7 @@ public partial class Query
         return objectMapper.Map<List<VoteRecordIndex>, List<VoteRecordDto>>(result);
     }
     
+    // todo server change
     [Name("getPageVoteRecord")]
     public static async Task<List<VoteRecordDto>> GetPageVoteRecordAsync(
         [FromServices] IReadOnlyRepository<VoteRecordIndex> repository,

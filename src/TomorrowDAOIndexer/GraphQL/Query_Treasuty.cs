@@ -36,6 +36,7 @@ public partial class Query
         return objectMapper.Map<List<TreasuryFundSumIndex>, List<GetDAOAmountRecordDto>>(queryable.ToList());
     }
     
+    // todo server change
     [Name("getAllTreasuryFundList")]
     public static async Task<Tuple<long, List<TreasuryFundDto>>> GetAllTreasuryFundListAsync(
         [FromServices] IReadOnlyRepository<TreasuryFundIndex> repository,
@@ -49,6 +50,7 @@ public partial class Query
         return new Tuple<long, List<TreasuryFundDto>>(allFunds.Count, allFunds);
     }
     
+    // todo server change
     [Name("getTreasuryFundList")]
     public static async Task<Tuple<long, List<TreasuryFundDto>>> GetTreasuryFundListAsync(
         [FromServices] IReadOnlyRepository<TreasuryFundIndex> repository,

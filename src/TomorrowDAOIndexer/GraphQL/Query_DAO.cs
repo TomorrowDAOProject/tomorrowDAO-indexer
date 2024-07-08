@@ -12,6 +12,7 @@ namespace TomorrowDAOIndexer.GraphQL;
 
 public partial class Query
 {
+    // todo server change
     [Name("getDAOList")]
     public static async Task<List<DAOInfoDto>> GetDAOListAsync(
         [FromServices] IReadOnlyRepository<DAOIndex> repository,

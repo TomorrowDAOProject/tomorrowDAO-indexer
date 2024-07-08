@@ -135,6 +135,7 @@ public partial class Query
         return objectMapper.Map<List<ElectionIndex>, List<ElectionDto>>(result);
     }
 
+    // todo server change
     [Name("getHighCouncilListAsync")]
     public static async Task<ElectionListPageResultDto> GetHighCouncilListAsync(
         [FromServices] IReadOnlyRepository<ElectionIndex> repository,
