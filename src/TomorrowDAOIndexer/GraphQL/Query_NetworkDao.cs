@@ -1,6 +1,5 @@
 using System.Linq.Expressions;
 using GraphQL;
-using Nest;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.GraphQL.Dto;
 using Volo.Abp.Domain.Repositories;
