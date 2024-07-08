@@ -84,7 +84,7 @@ public partial class QueryTest : TomorrowDAOIndexerTestBase
     [Fact]
     public async Task HandleEventAsync_GetMyParticipatedAsync()
     {
-        await GetVoteRecordCountAsyncTest();
+        await GetVoteRecordCountAsync_Test();
         await GetProposalCountAsyncTest();
     
         var proposerResult = await Query.GetMyParticipatedAsync(DAOIndexRepository, LatestParticipatedIndexRepository, ObjectMapper,

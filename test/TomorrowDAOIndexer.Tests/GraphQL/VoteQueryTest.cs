@@ -6,6 +6,7 @@ using TomorrowDAO.Contracts.Vote;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.GraphQL.Input;
 using Xunit;
+using VoteOption = TomorrowDAO.Indexer.Plugin.Enums.VoteOption;
 
 namespace TomorrowDAOIndexer.GraphQL;
 
@@ -31,21 +32,9 @@ public partial class QueryTest
     }
     
     [Fact]
-    public async Task GetVoteRecordCountAsyncTest()
+    public async Task GetVoteRecordCountAsync_Test()
     {
-        await MockEventProcess(new Voted
-        {
-            VotingItemId = HashHelper.ComputeFrom("ss"),
-            Voter = Address.FromBase58(User),
-            Amount = 0,
-            VoteTimestamp = DateTime.UtcNow.AddMinutes(1).ToTimestamp(),
-            Option = VoteOption.Approved,
-            VoteId = HashHelper.ComputeFrom(Id1),
-            DaoId = HashHelper.ComputeFrom(Id1),
-            VoteMechanism = VoteMechanism.UniqueVote,
-            StartTime = DateTime.UtcNow.AddMinutes(1).ToTimestamp(),
-            EndTime = DateTime.UtcNow.AddMinutes(200).ToTimestamp()
-        }, VoteVotedProcessor);
+        await MockEventProcess(VoteVoted(), VoteVotedProcessor);
 
         var count = await Query.GetVoteRecordCountAsync(VoteRecordIndexRepository, ObjectMapper, new GetVoteRecordCountInput
         {
@@ -54,5 +43,29 @@ public partial class QueryTest
             // EndTime = "2024-05-28 23:59:59"
         });
         count.ShouldBe(1);
+    }
+
+    [Fact]
+    public async Task GetPageVoteRecordAsync_Test()
+    {
+        await MockEventProcess(VoteVoted(), VoteVotedProcessor);
+
+        var result = await Query.GetPageVoteRecordAsync(VoteRecordIndexRepository, ObjectMapper, new GetPageVoteRecordInput
+        {
+            ChainId = ChainId, DaoId = DAOId, Voter = User, MaxResultCount = 10, SkipCount = 0,
+            VoteOption = VoteOption.Approved
+        });
+        result.ShouldNotBeNull();
+        result.Count.ShouldBe(1);
+        var voteRecord = result[0];
+        voteRecord.Voter.ShouldBe(User);
+        
+        result = await Query.GetPageVoteRecordAsync(VoteRecordIndexRepository, ObjectMapper, new GetPageVoteRecordInput
+        {
+            ChainId = ChainId, DaoId = DAOId, Voter = User, MaxResultCount = 10, SkipCount = 0,
+            VoteOption = VoteOption.Abstained
+        });
+        result.ShouldNotBeNull();
+        result.Count.ShouldBe(0);
     }
 }
