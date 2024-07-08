@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using GraphQL;
 using Nest;
 using TomorrowDAOIndexer.Entities;
@@ -15,41 +16,29 @@ public partial class Query
         [FromServices] IObjectMapper objectMapper,
         GetNetworkDaoProposalsInput input)
     {
-        var mustQuery = new List<Func<QueryContainerDescriptor<NetworkDaoProposalIndex>, QueryContainer>>();
-        
+        var queryable = await repository.GetQueryableAsync();
         if (input.StartBlockHeight > 0)
         {
-            mustQuery.Add(q => q.Range(i
-                => i.Field(f => f.Metadata.Block.BlockHeight).GreaterThanOrEquals(input.StartBlockHeight)));
+            queryable = queryable.Where(a => a.BlockHeight >= input.StartBlockHeight);
         }
-
         if (input.EndBlockHeight > 0)
         {
-            mustQuery.Add(q => q.Range(i
-                => i.Field(f => f.Metadata.Block.BlockHeight).LessThanOrEquals(input.EndBlockHeight)));
+            queryable = queryable.Where(a => a.BlockHeight <= input.EndBlockHeight);
         }
-
         if (!input.ChainId.IsNullOrWhiteSpace())
         {
-            mustQuery.Add(q => q.Term(i
-                => i.Field(f => f.Metadata.ChainId).Value(input.ChainId)));
+            queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId);
         }
-
         if (input.ProposalType != 0)
         {
-            mustQuery.Add(q => q.Term(i
-                => i.Field(f => f.ProposalType).Value(input.ProposalType)));
+            queryable = queryable.Where(a => a.ProposalType == input.ProposalType);
         }
-
         if (!input.ProposalIds.IsNullOrEmpty())
         {
-            mustQuery.Add(q => q.Terms(i
-                => i.Field(f => f.ProposalId).Terms(input.ProposalIds)));
+            queryable = queryable.Where(
+                input.ProposalIds.Select(proposalId => (Expression<Func<NetworkDaoProposalIndex, bool>>)(o => o.ProposalId == proposalId))
+                    .Aggregate((prev, next) => prev.Or(next)));
         }
-        
-        QueryContainer Filter(QueryContainerDescriptor<NetworkDaoProposalIndex> f) =>
-            f.Bool(b => b.Must(mustQuery));
-
         // var result = await repository.GetListAsync(Filter, skip: input.SkipCount, limit: input.MaxResultCount,
         //     sortType: SortOrder.Ascending, sortExp: o => o.BlockHeight);
         //
@@ -58,10 +47,13 @@ public partial class Query
         //     TotalCount = result.Item1,
         //     Items = objectMapper.Map<List<NetworkDaoProposalIndex>, List<NetworkDaoProposal>>(result.Item2)
         // };
+        var count = queryable.Count();
+        queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
+            .OrderBy(a => a.BlockHeight);
         return new NetworkDaoProposalsDto
         {
-            TotalCount = 0,
-            Items = new List<NetworkDaoProposal>()
+            TotalCount = count,
+            Items = objectMapper.Map<List<NetworkDaoProposalIndex>, List<NetworkDaoProposal>>(queryable.ToList())
         };
     }
 }
