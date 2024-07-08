@@ -17,13 +17,13 @@ public abstract class GovernanceProcessorBase<TEvent> : ProcessorBase<TEvent> wh
         };
     }
     
-    protected void UpdateProposal(string proposalId, ProposalStatus proposalStatus,
+    protected async Task UpdateProposal(string proposalId, ProposalStatus proposalStatus,
         ProposalStage proposalStage, string vetoProposalId, string beVetoedProposalId, LogEventContext context)
     {
-        UpdateProposal(proposalId, proposalStatus, proposalStage, null, vetoProposalId, beVetoedProposalId, context);
+        await UpdateProposal(proposalId, proposalStatus, proposalStage, null, vetoProposalId, beVetoedProposalId, context);
     }
 
-    protected async void UpdateProposal(string proposalId, ProposalStatus proposalStatus, 
+    protected async Task UpdateProposal(string proposalId, ProposalStatus proposalStatus, 
         ProposalStage proposalStage, DateTime? executeTime, string vetoProposalId, string beVetoedProposalId, 
         LogEventContext context)
     {

@@ -21,12 +21,12 @@ public class ProposalExecutedProcessor : GovernanceProcessorBase<ProposalExecute
             chainId);
         try
         {
-            UpdateProposal(proposalId, ProposalStatus.Executed, ProposalStage.Finished, logEvent.ExecuteTime?.ToDateTime(), string.Empty, string.Empty, context);
+            await UpdateProposal(proposalId, ProposalStatus.Executed, ProposalStage.Finished, logEvent.ExecuteTime?.ToDateTime(), string.Empty, string.Empty, context);
             Logger.LogInformation("[ProposalExecuted] end proposalId:{proposalId} chainId:{chainId} ", proposalId, chainId);
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            Logger.LogError(e, "[ProposalExecuted] Exception proposalId:{proposalId} chainId:{chainId}", proposalId, chainId);
             throw;
         }
     }
