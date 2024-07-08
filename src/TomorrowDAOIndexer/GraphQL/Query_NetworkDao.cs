@@ -1,8 +1,8 @@
 using System.Linq.Expressions;
+using AeFinder.Sdk;
 using GraphQL;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.GraphQL.Dto;
-using Volo.Abp.Domain.Repositories;
 using Volo.Abp.ObjectMapping;
 
 namespace TomorrowDAOIndexer.GraphQL;
