@@ -19,14 +19,19 @@ public class IndexerMapperBase : Profile
     {
         return JsonConvert.SerializeObject(obj);
     }
-    protected static string MapHash(Hash hash)
+    protected static string MapHash(AElf.Types.Hash hash)
     {
         return hash?.ToHex() ?? string.Empty;
     }
     
-    protected static string MapAddress(Address? address)
+    protected static string MapAddress(AElf.Types.Address address)
     {
-        return address?.ToBase58() ??  string.Empty;
+        if (address != null && address.Value.Any())
+        {
+            return address.ToBase58();
+        }
+
+        return string.Empty;
     }
     
     protected static DateTime? MapDateTime(Google.Protobuf.WellKnownTypes.Timestamp timestamp)
