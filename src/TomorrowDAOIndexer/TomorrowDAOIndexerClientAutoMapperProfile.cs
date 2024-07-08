@@ -167,7 +167,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             ;
         CreateMap<LogEventContext, ElectionIndex>();
         CreateMap<DaoProposalTimePeriodSet, DAOIndex>();
-        CreateMap<OrganizationIndex, MemberDto>();
+        CreateMap<OrganizationIndex, MemberDto>()
+            .ForMember(des => des.ChainId, opt
+                => opt.MapFrom(source => source.Metadata.ChainId))
+            ;
         CreateMap<LogEventContext, OrganizationIndex>()
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Block.BlockHeight))

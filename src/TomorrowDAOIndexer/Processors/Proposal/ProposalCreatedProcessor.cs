@@ -47,7 +47,7 @@ public class ProposalCreatedProcessor : GovernanceProcessorBase<ProposalCreated>
 
             if (vetoProposalId != null)
             {
-                UpdateProposal(vetoProposalId, ProposalStatus.Challenged, ProposalStage.Pending, string.Empty, proposalId, context);
+                await UpdateProposal(vetoProposalId, ProposalStatus.Challenged, ProposalStage.Pending, string.Empty, proposalId, context);
             }
 
             await SaveEntityAsync(new LatestParticipatedIndex

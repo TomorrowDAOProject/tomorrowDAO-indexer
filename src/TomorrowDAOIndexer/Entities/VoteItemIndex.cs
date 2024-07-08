@@ -7,7 +7,8 @@ public class VoteItemIndex : AeFinderEntity, IAeFinderEntity
 {
     [Keyword] public override string Id { get; set; }
 
-    [PropertyName("DAOId")] [Keyword] public string DAOId { get; set; }
+    // [PropertyName("DAOId")] 
+    [Keyword] public string DAOId { get; set; }
     [Keyword] public string Executer { get; set; }
 
     // The voting activity id.(proposal id)

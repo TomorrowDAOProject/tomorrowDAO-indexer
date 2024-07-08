@@ -24,7 +24,7 @@ public partial class QueryTest
         
         var queryable = await DAOIndexRepository.GetQueryableAsync();
         queryable = queryable.Where(x => x.Metadata.ChainId == "AELF");
-        // queryable = queryable.Where(x => x.Metadata.Block.BlockHeight == 100);
+        queryable = queryable.Where(x => x.Id == DAOId);
         var daoIndex = queryable.SingleOrDefault();
         daoIndex.ShouldNotBeNull();
     }

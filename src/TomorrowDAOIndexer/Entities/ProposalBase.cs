@@ -11,7 +11,7 @@ public class ProposalBase : AeFinderEntity
     [Keyword] public override string Id { get; set; }
     
     public long BlockHeight { get; set; }
-    [PropertyName("DAOId")]
+    // [PropertyName("DAOId")]
     [Keyword] public string DAOId { get; set; }
 
     [Keyword] public string ProposalId { get; set; }
