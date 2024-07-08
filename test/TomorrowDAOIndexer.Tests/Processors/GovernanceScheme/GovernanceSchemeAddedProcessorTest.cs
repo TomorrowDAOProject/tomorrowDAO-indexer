@@ -1,5 +1,4 @@
 using Shouldly;
-using TomorrowDAO.Indexer.Plugin;
 using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAOIndexer.Entities;
 using Xunit;

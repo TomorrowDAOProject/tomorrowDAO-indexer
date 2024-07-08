@@ -14,8 +14,8 @@ public class TransferredProcessorTest : TomorrowDAOIndexerTestBase
         await MockEventProcess(TreasuryCreated(), TreasuryCreatedProcessor);
         //await MockEventProcess(TokenTransferred(), TransferredProcessor);
 
-        var LogEvent = TokenTransferred();
-        await TransferredProcessor.ProcessAsync(GenerateLogEventContext(LogEvent));
+        var logEvent = TokenTransferred();
+        await TransferredProcessor.ProcessAsync(GenerateLogEventContext(logEvent));
 
         var treasuryFundId = IdGenerateHelper.GetId(ChainId, DAOId, Elf);
         var treasuryFundIndex = await GetIndexById<TreasuryFundIndex>(treasuryFundId);

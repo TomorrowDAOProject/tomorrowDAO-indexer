@@ -5,6 +5,9 @@ using TomorrowDAOIndexer.GraphQL;
 using TomorrowDAOIndexer.Processors.DAO;
 using TomorrowDAOIndexer.Processors.Election;
 using TomorrowDAOIndexer.Processors.GovernanceScheme;
+using TomorrowDAOIndexer.Processors.NetworkDao.Association;
+using TomorrowDAOIndexer.Processors.NetworkDao.Parliament;
+using TomorrowDAOIndexer.Processors.NetworkDao.Referendum;
 using TomorrowDAOIndexer.Processors.Proposal;
 using TomorrowDAOIndexer.Processors.Token;
 using TomorrowDAOIndexer.Processors.Treasury;
@@ -63,8 +66,13 @@ public class TomorrowDAOIndexerModule: AbpModule
         context.Services.AddTransient<ILogEventProcessor, CandidateElectedProcessor>();
         
         // treasury
-        context.Services.AddSingleton<ILogEventProcessor, TransferredProcessor>();
-        context.Services.AddSingleton<ILogEventProcessor, TreasuryCreatedProcessor>();
-        context.Services.AddSingleton<ILogEventProcessor, TreasuryTransferredProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, TransferredProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, TreasuryCreatedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, TreasuryTransferredProcessor>();
+        
+        //Network DAO
+        context.Services.AddTransient<ILogEventProcessor, AssociationProposalCreatedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, ReferendumProposalCreatedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, ParliamentProposalCreatedProcessor>();
     }
 }

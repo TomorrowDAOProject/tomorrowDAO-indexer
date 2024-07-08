@@ -309,6 +309,11 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.Sponsor, opt => opt.MapFrom(source => MapAddress(source.Sponsor)));
         CreateMap<TomorrowDAO.Contracts.Election.HighCouncilConfig, ElectionHighCouncilConfigIndex>();
         CreateMap<DaoVoterRecordIndex, DaoVoterRecordIndexDto>();
+        CreateMap<LogEventContext, NetworkDaoProposalIndex>();
+        CreateMap<NetworkDaoProposalIndex, NetworkDaoProposal>();
+        CreateMap<AElf.Standards.ACS3.ProposalCreated, NetworkDaoProposalIndex>()
+            .ForMember(des => des.ProposalId, opt => opt.MapFrom(source => MapHash(source.ProposalId)))
+            .ForMember(des => des.OrganizationAddress, opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)));
         CreateMap<DAOIndex, GetDAOAmountRecordDto>()
             .ForMember(des => des.Amount, opt => opt.MapFrom(source => source.VoteAmount - source.WithdrawAmount))
             ;

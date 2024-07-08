@@ -2,6 +2,9 @@ using AeFinder.App.TestBase;
 using Microsoft.Extensions.DependencyInjection;
 using TomorrowDAOIndexer.Processors.DAO;
 using TomorrowDAOIndexer.Processors.GovernanceScheme;
+using TomorrowDAOIndexer.Processors.NetworkDao.Association;
+using TomorrowDAOIndexer.Processors.NetworkDao.Parliament;
+using TomorrowDAOIndexer.Processors.NetworkDao.Referendum;
 using TomorrowDAOIndexer.Processors.Proposal;
 using TomorrowDAOIndexer.Processors.Token;
 using TomorrowDAOIndexer.Processors.Treasury;
@@ -64,5 +67,10 @@ public class TomorrowDAOIndexerTestModule : AbpModule
         context.Services.AddSingleton<Election.HighCouncilAddedProcessor>();
         context.Services.AddSingleton<Election.HighCouncilRemovedProcessor>();
         context.Services.AddSingleton<Election.CandidateElectedProcessor>();
+        
+        //Network DAO
+        context.Services.AddSingleton<AssociationProposalCreatedProcessor>();
+        context.Services.AddSingleton<ReferendumProposalCreatedProcessor>();
+        context.Services.AddSingleton<ParliamentProposalCreatedProcessor>();
     }
 }
