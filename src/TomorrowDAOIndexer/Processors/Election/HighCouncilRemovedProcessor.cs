@@ -15,12 +15,12 @@ public class HighCouncilRemovedProcessor : ElectionProcessorBase<HighCouncilRemo
         Logger.LogInformation("[HighCouncilRemoved] START: DaoId={Id}, ChainId={ChainId}", daoId, chainId);
         try
         {
-            var addressList = new List<string>();
-            foreach (var address in logEvent.RemoveHighCouncils.Value)
-            {
-                addressList.Add(address.ToBase58());
-            }
-            // var addressList = logEvent.RemoveHighCouncils.Value.Select(address => address.ToBase58()).ToList();
+            // var addressList = new List<string>();
+            // foreach (var address in logEvent.RemoveHighCouncils.Value)
+            // {
+            //     addressList.Add(address.ToBase58());
+            // }
+            var addressList = logEvent.RemoveHighCouncils.Value.Select(address => address.ToBase58()).ToList();
             var highCouncilConfigId = IdGenerateHelper.GetId(daoId, chainId);
             var highCouncilConfigIndex = await GetEntityAsync<ElectionHighCouncilConfigIndex>(highCouncilConfigId);
             if (highCouncilConfigIndex == null)
