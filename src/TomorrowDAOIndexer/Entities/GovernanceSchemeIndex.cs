@@ -7,7 +7,7 @@ namespace TomorrowDAOIndexer.Entities;
 public class GovernanceSchemeIndex : GovernanceSchemeThreshold, IAeFinderEntity
 {
     [Keyword] public override string Id { get; set; }
-    [PropertyName("DAOId")]
+    // [PropertyName("DAOId")]
     [Keyword] public string DAOId { get; set; }
     [Keyword] public string SchemeId { get; set; }
     [Keyword] public string SchemeAddress { get; set; }
