@@ -1,4 +1,4 @@
-namespace TomorrowDAO.Indexer.Plugin.Enums;
+namespace TomorrowDAOIndexer.Enums;
 
 public enum TreasuryRecordType
 {

@@ -1,4 +1,4 @@
-using TomorrowDAO.Indexer.Plugin.Enums;
+using TomorrowDAOIndexer.Enums;
 
 namespace TomorrowDAOIndexer.GraphQL.Dto;
 

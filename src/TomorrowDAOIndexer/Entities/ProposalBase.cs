@@ -3,6 +3,7 @@ using Nest;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using TomorrowDAO.Indexer.Plugin.Enums;
+using TomorrowDAOIndexer.Enums;
 
 namespace TomorrowDAOIndexer.Entities;
 

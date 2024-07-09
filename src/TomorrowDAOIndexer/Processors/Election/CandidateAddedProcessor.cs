@@ -1,10 +1,8 @@
 using AeFinder.Sdk.Logging;
 using AeFinder.Sdk.Processor;
 using TomorrowDAO.Contracts.Election;
-using TomorrowDAO.Indexer.Plugin;
-using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAOIndexer.Entities;
-using Volo.Abp.DependencyInjection;
+using TomorrowDAOIndexer.Enums;
 
 namespace TomorrowDAOIndexer.Processors.Election;
 

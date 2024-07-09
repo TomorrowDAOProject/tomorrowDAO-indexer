@@ -2,6 +2,7 @@ using AeFinder.Sdk.Processor;
 using AElf.CSharp.Core;
 using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAOIndexer.Entities;
+using TomorrowDAOIndexer.Enums;
 
 namespace TomorrowDAOIndexer.Processors.GovernanceScheme;
 

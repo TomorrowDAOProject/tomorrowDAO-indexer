@@ -1,4 +1,4 @@
-using TomorrowDAO.Indexer.Plugin.Enums;
+using TomorrowDAOIndexer.Enums;
 
 namespace TomorrowDAOIndexer.GraphQL.Input;
 
@@ -10,5 +10,4 @@ public class GetHighCouncilListInput
     public HighCouncilType HighCouncilType { get; set; }
     public int SkipCount { get; set; }
     public int MaxResultCount { get; set; } 
-    public string Sorting { get; set; } 
 }

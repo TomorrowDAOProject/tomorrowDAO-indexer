@@ -2,9 +2,8 @@ using AeFinder.Sdk.Logging;
 using AeFinder.Sdk.Processor;
 using Newtonsoft.Json;
 using TomorrowDAO.Contracts.Treasury;
-using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAOIndexer.Entities;
-using Volo.Abp.DependencyInjection;
+using TomorrowDAOIndexer.Enums;
 
 namespace TomorrowDAOIndexer.Processors.Treasury;
 

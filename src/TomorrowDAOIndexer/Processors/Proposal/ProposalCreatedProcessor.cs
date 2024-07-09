@@ -1,12 +1,11 @@
 using AeFinder.Sdk.Logging;
 using AeFinder.Sdk.Processor;
 using TomorrowDAO.Contracts.Governance;
-using TomorrowDAO.Indexer.Plugin;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.Enums;
 using TomorrowDAOIndexer.Processors.GovernanceScheme;
 using ProposalStage = TomorrowDAO.Indexer.Plugin.Enums.ProposalStage;
-using ProposalStatus = TomorrowDAO.Indexer.Plugin.Enums.ProposalStatus;
+using ProposalStatus = TomorrowDAOIndexer.Enums.ProposalStatus;
 
 namespace TomorrowDAOIndexer.Processors.Proposal;
 

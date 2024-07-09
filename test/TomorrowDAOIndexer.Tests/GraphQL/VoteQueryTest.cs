@@ -1,12 +1,9 @@
-using AElf;
 using AElf.Types;
-using Google.Protobuf.WellKnownTypes;
 using Shouldly;
-using TomorrowDAO.Contracts.Vote;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.GraphQL.Input;
 using Xunit;
-using VoteOption = TomorrowDAO.Indexer.Plugin.Enums.VoteOption;
+using VoteOption = TomorrowDAOIndexer.Enums.VoteOption;
 
 namespace TomorrowDAOIndexer.GraphQL;
 

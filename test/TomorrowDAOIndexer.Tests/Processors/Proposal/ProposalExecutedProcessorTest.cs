@@ -2,6 +2,7 @@ using AElf;
 using Shouldly;
 using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAOIndexer.Entities;
+using TomorrowDAOIndexer.Enums;
 using Xunit;
 
 namespace TomorrowDAOIndexer.Processors.Proposal;

@@ -2,8 +2,8 @@ using AeFinder.Sdk.Logging;
 using AeFinder.Sdk.Processor;
 using AElf.Contracts.MultiToken;
 using Newtonsoft.Json;
-using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAOIndexer.Entities;
+using TomorrowDAOIndexer.Enums;
 
 namespace TomorrowDAOIndexer.Processors.Token;
 

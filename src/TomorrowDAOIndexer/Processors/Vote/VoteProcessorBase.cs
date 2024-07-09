@@ -1,8 +1,8 @@
 using AeFinder.Sdk.Logging;
 using AeFinder.Sdk.Processor;
 using AElf.CSharp.Core;
-using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAOIndexer.Entities;
+using TomorrowDAOIndexer.Enums;
 
 namespace TomorrowDAOIndexer.Processors.Vote;
 
@@ -53,8 +53,8 @@ public abstract class VoteProcessorBase<TEvent> : ProcessorBase<TEvent> where TE
 
         var amount = voteRecordIndex.VoteMechanism switch
         {
-            TomorrowDAO.Indexer.Plugin.Enums.VoteMechanism.TOKEN_BALLOT => voteRecordIndex.Amount,
-            TomorrowDAO.Indexer.Plugin.Enums.VoteMechanism.UNIQUE_VOTE => 1,
+            VoteMechanism.TOKEN_BALLOT => voteRecordIndex.Amount,
+            VoteMechanism.UNIQUE_VOTE => 1,
             _ => 0
         };
 
