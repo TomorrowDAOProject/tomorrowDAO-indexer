@@ -16,8 +16,11 @@ public partial class Query
         GetMemberListInput input)
     {
         var queryable = await repository.GetQueryableAsync();
-        queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
-            .Where(a => a.DAOId == input.DAOId);
+        queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId);
+        if (!input.DAOId.IsNullOrWhiteSpace())
+        {
+            queryable = queryable.Where(a => a.DAOId == input.DAOId);
+        }    
         var count = queryable.Count();
         queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
             .OrderBy(a => a.CreateTime);
