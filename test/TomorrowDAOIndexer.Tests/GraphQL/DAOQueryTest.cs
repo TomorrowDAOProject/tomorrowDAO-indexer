@@ -48,13 +48,13 @@ public partial class QueryTest : TomorrowDAOIndexerTestBase
     {
         await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
 
-        var count = await Query.GetDaoCountAsync(DAOIndexRepository, new GetDaoCountInput
+        var result = await Query.GetDaoCountAsync(DAOIndexRepository, new GetDaoCountInput
         {
             ChainId = ChainId,
             // StartTime = "2024-05-28 00:00:00",
             // EndTime = "2024-05-28 23:59:59"
         });
-        count.ShouldBe(1);
+        result.Count.ShouldBe(1);
     }
 
     [Fact]

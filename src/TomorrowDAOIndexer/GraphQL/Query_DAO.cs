@@ -6,7 +6,6 @@ using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.GraphQL.Dto;
 using TomorrowDAOIndexer.GraphQL.Input;
 using Volo.Abp.ObjectMapping;
-using GetChainBlockHeightInput = TomorrowDAOIndexer.GraphQL.Input.GetChainBlockHeightInput;
 
 namespace TomorrowDAOIndexer.GraphQL;
 
@@ -35,7 +34,7 @@ public partial class Query
     }
     
     [Name("getDaoCount")]
-    public static async Task<long> GetDaoCountAsync([FromServices] IReadOnlyRepository<DAOIndex> repository, GetDaoCountInput input)
+    public static async Task<DaoCountDto> GetDaoCountAsync([FromServices] IReadOnlyRepository<DAOIndex> repository, GetDaoCountInput input)
     {
         var queryable = await repository.GetQueryableAsync();
         if (!input.ChainId.IsNullOrWhiteSpace())
@@ -48,14 +47,17 @@ public partial class Query
             var dateTime = DateTime.ParseExact(input.StartTime, TomorrowDAOConst.DateFormat, CultureInfo.InvariantCulture);
             queryable = queryable.Where(a => a.CreateTime >= dateTime);
         }
-
+    
         if (!input.EndTime.IsNullOrWhiteSpace())
         {
             var dateTime = DateTime.ParseExact(input.EndTime, TomorrowDAOConst.DateFormat, CultureInfo.InvariantCulture);
             queryable = queryable.Where(a => a.CreateTime <= dateTime);
         }
-        
-        return queryable.Count();
+
+        return new DaoCountDto
+        {
+            Count = queryable.Count()
+        };
     }
     
     [Name("getDAOVoterRecord")]
@@ -64,26 +66,22 @@ public partial class Query
         [FromServices] IObjectMapper objectMapper, GetDAOVoterRecordInput input)
     {
         var queryable = await repository.GetQueryableAsync();
-
+    
         if (!input.ChainId.IsNullOrWhiteSpace())
         {
             queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId);
         }
     
-        if (!input.DaoIds.IsNullOrEmpty())
+        if (!input.DaoId.IsNullOrEmpty())
         {
-            queryable = queryable.Where(
-                input.DaoIds.Select(daoId => (Expression<Func<DaoVoterRecordIndex, bool>>)(o => o.DaoId == daoId))
-                    .Aggregate((prev, next) => prev.Or(next)));
+            queryable = queryable.Where(a => a.DaoId == input.DaoId);
         }
     
-        if (input.VoterAddressList.IsNullOrEmpty())
+        if (!input.VoterAddress.IsNullOrEmpty())
         {
-            queryable = queryable.Where(
-                input.VoterAddressList.Select(address => (Expression<Func<DaoVoterRecordIndex, bool>>)(o => o.VoterAddress == address))
-                    .Aggregate((prev, next) => prev.Or(next)));
+            queryable = queryable.Where(a => a.VoterAddress == input.VoterAddress);
         }
-
+    
         return objectMapper.Map<List<DaoVoterRecordIndex>, List<DaoVoterRecordIndexDto>>(queryable.ToList());
     }
     
@@ -108,7 +106,7 @@ public partial class Query
                 Amount = group.Sum(fund => fund.Amount)
             }).ToList();
     }
-
+    
     [Name("getMyParticipated")]
     public static async Task<PageResultDto<DAOInfoDto>> GetMyParticipatedAsync(
         [FromServices] IReadOnlyRepository<DAOIndex> DAORepository,
@@ -119,7 +117,7 @@ public partial class Query
         queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
             .Where(a => a.Address == input.Address);
         var participatedCount = queryable.Count();
-
+    
         queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
             .OrderByDescending(a => a.LatestParticipatedTime);
         var participatedResult = queryable.ToList();
@@ -127,7 +125,7 @@ public partial class Query
         {
             return new PageResultDto<DAOInfoDto>(participatedCount, new List<DAOInfoDto>());
         }
-
+    
         var daoIds = participatedResult.Select(x => x.DAOId).ToList();
         var daoQueryable = await DAORepository.GetQueryableAsync();
         daoQueryable = daoQueryable.Where(

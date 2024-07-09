@@ -349,7 +349,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 opt => opt.MapFrom(source => MapDateTime(source.CurrentSnapshotStartTimestamp)))
             .ForMember(des => des.Sponsor, opt => opt.MapFrom(source => MapAddress(source.Sponsor)));
         CreateMap<TomorrowDAO.Contracts.Election.HighCouncilConfig, ElectionHighCouncilConfigIndex>();
-        CreateMap<DaoVoterRecordIndex, DaoVoterRecordIndexDto>();
+        CreateMap<DaoVoterRecordIndex, DaoVoterRecordIndexDto>()
+            .ForMember(des => des.ChainId,
+                opt => opt.MapFrom(source => source.Metadata.ChainId))
+            ;
         CreateMap<LogEventContext, NetworkDaoProposalIndex>()
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Block.BlockHeight))
