@@ -33,13 +33,13 @@ public partial class QueryTest
     {
         await MockEventProcess(VoteVoted(), VoteVotedProcessor);
 
-        var count = await Query.GetVoteRecordCountAsync(VoteRecordIndexRepository, ObjectMapper, new GetVoteRecordCountInput
+        var result = await Query.GetVoteRecordCountAsync(VoteRecordIndexRepository, new GetVoteRecordCountInput
         {
             ChainId = ChainId,
             // StartTime = "2024-05-28 00:00:00",
             // EndTime = "2024-05-28 23:59:59"
         });
-        count.ShouldBe(1);
+        result.Count.ShouldBe(1);
     }
 
     [Fact]

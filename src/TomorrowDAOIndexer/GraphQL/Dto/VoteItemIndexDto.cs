@@ -13,14 +13,14 @@ public class VoteItemIndexDto : BlockInfoDto
 
     public string AcceptedCurrency { get; set; }
 
-    public int ApprovedCount { get; set; }
+    public long ApprovedCount { get; set; }
 
-    public int RejectionCount { get; set; }
+    public long RejectionCount { get; set; }
 
-    public int AbstentionCount { get; set; }
+    public long AbstentionCount { get; set; }
 
-    public int VotesAmount { get; set; }
-    public int VoterCount { get; set; }
+    public long VotesAmount { get; set; }
+    public long VoterCount { get; set; }
     
     public DateTime RegisterTime { get; set; }
 

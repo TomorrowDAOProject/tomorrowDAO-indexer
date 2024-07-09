@@ -24,6 +24,8 @@ public partial class Query
         return objectMapper.Map<List<VoteSchemeIndex>, List<VoteSchemeIndexDto>>(queryable.ToList());
     }
     
+    // todo server change
+    // dto int to long
     [Name("getVoteItems")]
     public static async Task<List<VoteItemIndexDto>> GetVoteItemIndexAsync(
         [FromServices] IReadOnlyRepository<VoteItemIndex> repository,
@@ -38,12 +40,6 @@ public partial class Query
         {
             queryable = queryable.Where(
                 input.VotingItemIds.Select(votingItemId => (Expression<Func<VoteItemIndex, bool>>)(o => o.VotingItemId == votingItemId))
-                    .Aggregate((prev, next) => prev.Or(next)));
-        }
-        if (!input.DaoIds.IsNullOrEmpty())
-        {
-            queryable = queryable.Where(
-                input.DaoIds.Select(daoId => (Expression<Func<VoteItemIndex, bool>>)(o => o.DAOId == daoId))
                     .Aggregate((prev, next) => prev.Or(next)));
         }
         return objectMapper.Map<List<VoteItemIndex>, List<VoteItemIndexDto>>(queryable.ToList());
@@ -77,9 +73,8 @@ public partial class Query
     }
     
     [Name("getVoteRecordCount")]
-    public static async Task<long> GetVoteRecordCountAsync(
-        [FromServices] IReadOnlyRepository<VoteRecordIndex> repository,
-        [FromServices] IObjectMapper objectMapper, GetVoteRecordCountInput input)
+    public static async Task<GetVoteRecordCountDto> GetVoteRecordCountAsync(
+        [FromServices] IReadOnlyRepository<VoteRecordIndex> repository, GetVoteRecordCountInput input)
     {
         var queryable = await repository.GetQueryableAsync();
         if (!input.ChainId.IsNullOrWhiteSpace())
@@ -100,7 +95,8 @@ public partial class Query
             var dateTime = DateTime.ParseExact(input.EndTime, TomorrowDAOConst.DateFormat, CultureInfo.InvariantCulture);
             queryable = queryable.Where(a => a.VoteTimestamp <= dateTime);
         }
-        return queryable.Count();
+
+        return new GetVoteRecordCountDto { Count = queryable.Count() };
     }
     
     [Name("getLimitVoteRecord")]
@@ -111,17 +107,17 @@ public partial class Query
         var queryable = await repository.GetQueryableAsync();
         queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
             .Where(a => a.VotingItemId == input.VotingItemId);
-
+    
         if (!input.Voter.IsNullOrWhiteSpace())
         {
             queryable = queryable.Where(a => a.Voter == input.Voter);
         }
-
+    
         if (input.Limit == 0)
         {
             input.Limit = 1;
         }
-
+    
         List<VoteRecordIndex> result;
         if (input.Sorting.IsNullOrEmpty())
         {
@@ -133,7 +129,7 @@ public partial class Query
             result = queryable.Skip(0).Take(input.Limit)
                 .OrderByDescending(a => a.Amount).ToList();
         }
-
+    
         return objectMapper.Map<List<VoteRecordIndex>, List<VoteRecordDto>>(result);
     }
     
@@ -146,10 +142,12 @@ public partial class Query
     {
         var queryable = await repository.GetQueryableAsync();
         queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
-            .Where(a => a.DAOId == input.DaoId)
             .Where(a => a.Voter == input.Voter)
             .Where(a => a.Option == input.VoteOption);
-
+        if (!input.DaoId.IsNullOrWhiteSpace())
+        {
+            queryable = queryable.Where(a => a.DAOId == input.DaoId);
+        }
         if (!input.VotingItemId.IsNullOrWhiteSpace())
         {
             queryable = queryable.Where(a => a.VotingItemId == input.VotingItemId);
