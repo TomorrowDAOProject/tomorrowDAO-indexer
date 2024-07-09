@@ -132,14 +132,15 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.VetoProposalId, opt
                 => opt.MapFrom(source => MapHash(source.VetoProposalId)))
             ;
-        CreateMap<TomorrowDAO.Contracts.Governance.ExecuteTransaction,
-                TomorrowDAOIndexer.Entities.ExecuteTransaction>()
+        CreateMap<TomorrowDAO.Contracts.Governance.ExecuteTransaction, ExecuteTransaction>()
             .ForMember(des => des.ToAddress, opt => opt.MapFrom(source => MapAddress(source.ToAddress)))
             .ForMember(des => des.Params, opt => opt.MapFrom(source => MapByteStringToBase64(source.Params)));
 
         CreateMap<ProposalExecuted, ProposalIndex>();
         CreateMap<DAOIndex, ProposalIndex>();
-        CreateMap<ProposalIndex, ProposalSyncDto>();
+        CreateMap<ProposalIndex, ProposalSyncDto>()
+            .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
+            ;
         CreateMap<LogEventContext, TreasuryFundIndex>()
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Block.BlockHeight))

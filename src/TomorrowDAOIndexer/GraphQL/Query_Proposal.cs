@@ -32,9 +32,8 @@ public partial class Query
     }
     
     [Name("getProposalCount")]
-    public static async Task<long> GetProposalCountAsync(
+    public static async Task<ProposalCountDto> GetProposalCountAsync(
         [FromServices] IReadOnlyRepository<ProposalIndex> repository,
-        [FromServices] IObjectMapper objectMapper,
         GetProposalCountInput input)
     {
         var queryable = await repository.GetQueryableAsync();
@@ -56,6 +55,10 @@ public partial class Query
             var dateTime = DateTime.ParseExact(input.EndTime, TomorrowDAOConst.DateFormat, CultureInfo.InvariantCulture);
             queryable = queryable.Where(a => a.DeployTime <= dateTime);
         }
-        return queryable.Count();
+
+        return new ProposalCountDto
+        {
+            Count = queryable.Count()
+        };
     }
 }

@@ -35,13 +35,13 @@ public partial class QueryTest
         await MockEventProcess(DaoProposalTimePeriodSet(), DAOProposalTimePeriodSetProcessor);
         await MockEventProcess(ProposalCreated_Veto(), ProposalCreatedProcessor);
         await MockEventProcess(ProposalCreated(), ProposalCreatedProcessor);
-        var count = await Query.GetProposalCountAsync(ProposalIndexRepository, ObjectMapper, new GetProposalCountInput
+        var result = await Query.GetProposalCountAsync(ProposalIndexRepository, new GetProposalCountInput
         {
             ChainId = ChainId,
             //DaoId = null,
             // StartTime = "2024-05-28 00:00:00",
             // EndTime = "2024-05-28 23:59:59"
         });
-        count.ShouldBe(2);
+        result.Count.ShouldBe(2);
     }
 }
