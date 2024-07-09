@@ -13,21 +13,16 @@ public class TransferredProcessor : TokenProcessorBase<Transferred>
     {
         var treasuryAddress = logEvent.To.ToBase58();
         var chainId = context.ChainId;
-
-        Logger.LogInformation("[Transferred] START: to={treasuryAddress}, ChainId={ChainId}, Event={Event}",
-            treasuryAddress, chainId, JsonConvert.SerializeObject(logEvent));
         try
         {
             var treasuryCreateIndexId = IdGenerateHelper.GetId(chainId, treasuryAddress);
             var treasuryCreateIndex = await GetEntityAsync<TreasuryCreateIndex>(treasuryCreateIndexId);
             if (treasuryCreateIndex == null)
             {
-                Logger.LogInformation(
-                    "[Transferred] to address is not treasury address, to ={treasuryAddress}, ChainId={ChainId}",
-                    treasuryAddress, chainId);
                 return;
             }
-
+            Logger.LogInformation("[Transferred] START: to={treasuryAddress}, ChainId={ChainId}, Event={Event}",
+                treasuryAddress, chainId, JsonConvert.SerializeObject(logEvent));
             var daoId = treasuryCreateIndex.DaoId;
             var symbol = logEvent.Symbol;
 
