@@ -21,6 +21,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
    public TomorrowDAOIndexerClientAutoMapperProfile()
     {
         CreateMap<DAOIndex, DAOInfoDto>()
+            .ForPath(dest => dest.Metadata.Name, opt => opt.MapFrom(src => src.Name))
+            .ForPath(dest => dest.Metadata.LogoUrl, opt => opt.MapFrom(src => src.LogoUrl))
+            .ForPath(dest => dest.Metadata.Description, opt => opt.MapFrom(src => src.Description))
+            .ForPath(dest => dest.Metadata.SocialMedia, opt => opt.MapFrom(src => src.SocialMedia))
             .ForMember(des => des.ChainId, opt
                 => opt.MapFrom(source => source.Metadata.ChainId))
             .ForMember(des => des.BlockHeight, opt

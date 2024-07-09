@@ -8,10 +8,7 @@ public class DAOInfoDto
     public string ChainId { get; set; }
     public long BlockHeight { get; set; }
     public string Creator { get; set; }
-    public string Name { get; set; }
-    public string LogoUrl { get; set; }
-    public string Description { get; set; }
-    public string SocialMedia { get; set; }
+    public MetadataDto Metadata { get; set; }
     public string GovernanceToken { get; set; }
     public bool IsHighCouncilEnabled { get; set; }
     public string HighCouncilAddress { get; set; }
@@ -42,4 +39,12 @@ public class DAOInfoDto
     public long VoteAmount { get; set; }
     public long WithdrawAmount { get; set; }
     public GovernanceMechanism GovernanceMechanism { get; set; }
+}
+
+public class MetadataDto
+{
+    public string Name { get; set; }
+    public string LogoUrl { get; set; }
+    public string Description { get; set; }
+    public string SocialMedia { get; set; }
 }

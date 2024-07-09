@@ -23,10 +23,10 @@ public partial class QueryTest : TomorrowDAOIndexerTestBase
         DAOs.Count.ShouldBe(1);
         var DAOInfoDto = DAOs[0];
        
-        DAOInfoDto.Name.ShouldBe(DAOName);
-        DAOInfoDto.LogoUrl.ShouldBe(DAOLogoUrl);
-        DAOInfoDto.Description.ShouldBe(DAODescription);
-        DAOInfoDto.SocialMedia.ShouldBe(DAOSocialMedia);
+        DAOInfoDto.Metadata.Name.ShouldBe(DAOName);
+        DAOInfoDto.Metadata.LogoUrl.ShouldBe(DAOLogoUrl);
+        DAOInfoDto.Metadata.Description.ShouldBe(DAODescription);
+        DAOInfoDto.Metadata.SocialMedia.ShouldBe(DAOSocialMedia);
         DAOInfoDto.GovernanceToken.ShouldBe(Elf);
         DAOInfoDto.TreasuryContractAddress.ShouldBe(TreasuryContractAddress);
         DAOInfoDto.VoteContractAddress.ShouldBe(VoteContractAddress);
