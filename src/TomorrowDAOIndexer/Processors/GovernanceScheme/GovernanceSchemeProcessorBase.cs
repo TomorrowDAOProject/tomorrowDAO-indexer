@@ -13,7 +13,7 @@ public abstract class GovernanceProcessorBase<TEvent> : ProcessorBase<TEvent> wh
         {
             TomorrowDAOConst.TestNetSideChainId => TomorrowDAOConst.GovernanceContractAddressTestNetSideChain,
             TomorrowDAOConst.MainNetSideChainId => TomorrowDAOConst.GovernanceContractAddressMainNetSideChain,
-            _ => throw new Exception("Unknown chain id")
+            _ => string.Empty
         };
     }
     

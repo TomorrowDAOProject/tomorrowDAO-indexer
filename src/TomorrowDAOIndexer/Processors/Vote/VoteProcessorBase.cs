@@ -14,7 +14,7 @@ public abstract class VoteProcessorBase<TEvent> : ProcessorBase<TEvent> where TE
         {
             TomorrowDAOConst.TestNetSideChainId => TomorrowDAOConst.VoteContractAddressTestNetSideChain,
             TomorrowDAOConst.MainNetSideChainId => TomorrowDAOConst.VoteContractAddressMainNetSideChain,
-            _ => throw new Exception("Unknown chain id")
+            _ => string.Empty
         };
     }
     

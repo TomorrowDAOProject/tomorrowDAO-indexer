@@ -11,7 +11,7 @@ public abstract class TokenProcessorBase<TEvent> : StatisticProcessorBase<TEvent
         {
             TomorrowDAOConst.TestNetSideChainId => TomorrowDAOConst.TokenContractAddressTestNetSideChain,
             TomorrowDAOConst.MainNetSideChainId => TomorrowDAOConst.TokenContractAddressMainNetSideChain,
-            _ => throw new Exception("Unknown chain id")
+            _ => string.Empty
         };
     }
 }

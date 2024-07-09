@@ -11,7 +11,7 @@ public abstract class TreasuryProcessorBase<TEvent> : StatisticProcessorBase<TEv
         {
             TomorrowDAOConst.TestNetSideChainId => TomorrowDAOConst.TreasuryContractAddressTestNetSideChain,
             TomorrowDAOConst.MainNetSideChainId => TomorrowDAOConst.TreasuryContractAddressMainNetSideChain,
-            _ => throw new Exception("Unknown chain id")
+            _ => string.Empty
         };
     }
 }

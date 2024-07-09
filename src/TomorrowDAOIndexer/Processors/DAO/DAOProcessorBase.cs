@@ -10,7 +10,7 @@ public abstract class DAOProcessorBase<TEvent> : ProcessorBase<TEvent> where TEv
         {
             TomorrowDAOConst.TestNetSideChainId => TomorrowDAOConst.DAOContractAddressTestNetSideChain,
             TomorrowDAOConst.MainNetSideChainId => TomorrowDAOConst.DAOContractAddressMainNetSideChain,
-            _ => throw new Exception("Unknown chain id")
+            _ => string.Empty
         };
     }
 }

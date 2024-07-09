@@ -12,7 +12,7 @@ public abstract class ElectionProcessorBase<TEvent> : ProcessorBase<TEvent> wher
         {
             TomorrowDAOConst.TestNetSideChainId => TomorrowDAOConst.ElectionContractAddressTestNetSideChain,
             TomorrowDAOConst.MainNetSideChainId => TomorrowDAOConst.ElectionContractAddressMainNetSideChain,
-            _ => throw new Exception("Unknown chain id")
+            _ => string.Empty
         };
     }
 }
