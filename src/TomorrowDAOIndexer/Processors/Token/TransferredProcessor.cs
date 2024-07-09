@@ -35,7 +35,7 @@ public class TransferredProcessor : TokenProcessorBase<Transferred>
             await CreateOrUpdateTreasuryFundIndex(chainId, daoId, symbol, logEvent, context);
             await TreasuryStatistic(chainId, symbol, logEvent.Amount, context);
 
-            var executor = logEvent.From?.ToBase58();
+            var executor = logEvent.From?.ToBase58() ?? string.Empty;
             await SaveEntityAsync(new TreasuryRecordIndex
             {
                 Id = IdGenerateHelper.GetId(chainId, context.Transaction.TransactionId, executor,
@@ -43,7 +43,7 @@ public class TransferredProcessor : TokenProcessorBase<Transferred>
                 DaoId = daoId,
                 TreasuryAddress = treasuryAddress,
                 Executor = executor,
-                FromAddress = logEvent.From?.ToBase58(),
+                FromAddress = logEvent.From?.ToBase58() ?? string.Empty,
                 ToAddress = treasuryAddress,
                 Amount = logEvent.Amount,
                 Symbol = symbol,
@@ -67,20 +67,13 @@ public class TransferredProcessor : TokenProcessorBase<Transferred>
         Transferred eventValue, LogEventContext context)
     {
         var id = IdGenerateHelper.GetId(chainId, daoId, symbol);
-        var treasuryFundIndex = await GetEntityAsync<TreasuryFundIndex>(id);
-        if (treasuryFundIndex == null)
+        var treasuryFundIndex = await GetEntityAsync<TreasuryFundIndex>(id) ?? new TreasuryFundIndex
         {
-            Logger.LogInformation(
-                "[Transferred] TreasuryFund not support symbol: Id={Id}, ChainId={ChainId}, Symbol={Symbol}",
-                daoId, chainId, symbol);
-            treasuryFundIndex = new TreasuryFundIndex
-            {
-                Id = id,
-                DaoId = daoId,
-                TreasuryAddress = eventValue.To?.ToBase58(),
-                Symbol = symbol
-            };
-        }
+            Id = id,
+            DaoId = daoId,
+            TreasuryAddress = eventValue.To?.ToBase58() ?? string.Empty,
+            Symbol = symbol
+        };
 
         treasuryFundIndex.AvailableFunds += eventValue.Amount;
         await SaveEntityAsync(treasuryFundIndex, context);
