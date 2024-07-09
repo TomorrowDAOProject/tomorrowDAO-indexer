@@ -3,6 +3,7 @@ using System.Linq.Expressions;
 using AeFinder.Sdk;
 using GraphQL;
 using TomorrowDAOIndexer.Entities;
+using TomorrowDAOIndexer.Enums;
 using TomorrowDAOIndexer.GraphQL.Dto;
 using TomorrowDAOIndexer.GraphQL.Input;
 using Volo.Abp.ObjectMapping;
@@ -132,9 +133,7 @@ public partial class Query
     
         return objectMapper.Map<List<VoteRecordIndex>, List<VoteRecordDto>>(result);
     }
-    
-    // todo server change
-    // TryParse change
+
     [Name("getPageVoteRecord")]
     public static async Task<List<VoteRecordDto>> GetPageVoteRecordAsync(
         [FromServices] IReadOnlyRepository<VoteRecordIndex> repository,
@@ -142,8 +141,18 @@ public partial class Query
     {
         var queryable = await repository.GetQueryableAsync();
         queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
-            .Where(a => a.Voter == input.Voter)
-            .Where(a => a.Option == input.VoteOption);
+            .Where(a => a.Voter == input.Voter);
+        var stringVoteOption = input.VoteOption;
+        if (!stringVoteOption.IsNullOrWhiteSpace())
+        {
+            queryable = stringVoteOption switch
+            {
+                "Approved" => queryable.Where(a => a.Option == VoteOption.Approved),
+                "Rejected" => queryable.Where(a => a.Option == VoteOption.Rejected),
+                "Abstained" => queryable.Where(a => a.Option == VoteOption.Abstained),
+                _ => queryable
+            };
+        }
         if (!input.DaoId.IsNullOrWhiteSpace())
         {
             queryable = queryable.Where(a => a.DAOId == input.DaoId);

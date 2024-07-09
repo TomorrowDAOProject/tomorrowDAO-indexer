@@ -1,6 +1,7 @@
 using AeFinder.Sdk;
 using GraphQL;
 using TomorrowDAOIndexer.Entities;
+using TomorrowDAOIndexer.Enums;
 using TomorrowDAOIndexer.GraphQL.Dto;
 using TomorrowDAOIndexer.GraphQL.Input;
 using Volo.Abp.ObjectMapping;
@@ -134,17 +135,26 @@ public partial class Query
         return objectMapper.Map<List<ElectionIndex>, List<ElectionDto>>(result);
     }
 
-    // todo server change
-    // TryParse change
     [Name("getHighCouncilListAsync")]
     public static async Task<ElectionListPageResultDto> GetHighCouncilListAsync(
         [FromServices] IReadOnlyRepository<ElectionIndex> repository,
         [FromServices] IObjectMapper objectMapper, GetHighCouncilListInput input)
     {
         var queryable = await repository.GetQueryableAsync();
+        var stringHighCouncilType = input.HighCouncilType;
         queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
-                .Where(a => a.TermNumber == input.TermNumber)
-                .Where(a => a.HighCouncilType == input.HighCouncilType);
+                .Where(a => a.TermNumber == input.TermNumber);
+        if (!string.IsNullOrEmpty(stringHighCouncilType))
+        {
+            queryable = stringHighCouncilType switch
+            {
+                "Member" => queryable.Where(a => a.HighCouncilType == HighCouncilType.Member),
+                "Candidate" => queryable.Where(a => a.HighCouncilType == HighCouncilType.Candidate),
+                "BlackList" => queryable.Where(a => a.HighCouncilType == HighCouncilType.BlackList),
+                _ => queryable
+            };
+            queryable = queryable.Where(a => a.DAOId == input.DAOId);
+        }
         if (!string.IsNullOrEmpty(input.DAOId))
         {
             queryable = queryable.Where(a => a.DAOId == input.DAOId);

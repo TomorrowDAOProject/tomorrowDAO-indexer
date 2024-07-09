@@ -3,7 +3,6 @@ using Shouldly;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.GraphQL.Input;
 using Xunit;
-using VoteOption = TomorrowDAOIndexer.Enums.VoteOption;
 
 namespace TomorrowDAOIndexer.GraphQL;
 
@@ -50,7 +49,7 @@ public partial class QueryTest
         var result = await Query.GetPageVoteRecordAsync(VoteRecordIndexRepository, ObjectMapper, new GetPageVoteRecordInput
         {
             ChainId = ChainId, DaoId = DAOId, Voter = User, MaxResultCount = 10, SkipCount = 0,
-            VoteOption = VoteOption.Approved
+            VoteOption = "Approved"
         });
         result.ShouldNotBeNull();
         result.Count.ShouldBe(1);
@@ -60,7 +59,7 @@ public partial class QueryTest
         result = await Query.GetPageVoteRecordAsync(VoteRecordIndexRepository, ObjectMapper, new GetPageVoteRecordInput
         {
             ChainId = ChainId, DaoId = DAOId, Voter = User, MaxResultCount = 10, SkipCount = 0,
-            VoteOption = VoteOption.Abstained
+            VoteOption = "Abstained"
         });
         result.ShouldNotBeNull();
         result.Count.ShouldBe(0);

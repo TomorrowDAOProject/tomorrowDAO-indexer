@@ -16,5 +16,5 @@ public class GetPageVoteRecordInput
     
     public int MaxResultCount { get; set; }
     
-    public VoteOption VoteOption { get; set; }
+    public string VoteOption { get; set; }
 }
