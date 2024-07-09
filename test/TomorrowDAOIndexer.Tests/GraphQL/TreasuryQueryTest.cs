@@ -45,8 +45,8 @@ public partial class QueryTest
             ChainId = ChainId, DaoId = HashHelper.ComputeFrom(Id1).ToHex()
         });
         result.ShouldNotBeNull();
-        result.TotalCount.ShouldBe(1);
-        var treasuryFundDtoList = result.Data;
+        result.Item1.ShouldBe(1);
+        var treasuryFundDtoList = result.Item2;
         var treasuryFundDto = treasuryFundDtoList[0];
         treasuryFundDto.DaoId.ShouldBe(DAOId);
         treasuryFundDto.Symbol.ShouldBe(Elf);
@@ -73,8 +73,8 @@ public partial class QueryTest
             MaxResultCount = 10
         });
         result.ShouldNotBeNull();
-        result.TotalCount.ShouldBe(1);
-        var treasuryFunds = result.Data;
+        result.Item1.ShouldBe(1);
+        var treasuryFunds = result.Item2;
         var treasuryFundDto = treasuryFunds[0];
         treasuryFundDto.DaoId.ShouldBe(DAOId);
         treasuryFundDto.Symbol.ShouldBe(Elf);
