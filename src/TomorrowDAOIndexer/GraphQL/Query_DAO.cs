@@ -28,8 +28,15 @@ public partial class Query
         queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
             .Skip(input.SkipCount).Take(input.MaxResultCount)
             .OrderBy(a => a.BlockHeight);
-        var accounts= queryable.ToList();
-        return objectMapper.Map<List<DAOIndex>, List<DAOInfoDto>>(accounts);
+        var daoIndexList= queryable.ToList();
+        var result = new List<DAOInfoDto>();
+        foreach (var daoIndex in daoIndexList)
+        {
+            var daoInfoDto = objectMapper.Map<DAOIndex, DAOInfoDto>(daoIndex);
+            daoInfoDto.Metadata = objectMapper.Map<DAOIndex, MetadataDto>(daoIndex);
+            result.Add(daoInfoDto);
+        }
+        return result;
     }
     
     [Name("getDaoCount")]
