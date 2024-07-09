@@ -4,7 +4,6 @@ using AElf.Contracts.MultiToken;
 using Newtonsoft.Json;
 using TomorrowDAO.Indexer.Plugin.Enums;
 using TomorrowDAOIndexer.Entities;
-using Volo.Abp.DependencyInjection;
 
 namespace TomorrowDAOIndexer.Processors.Token;
 
@@ -77,7 +76,5 @@ public class TransferredProcessor : TokenProcessorBase<Transferred>
 
         treasuryFundIndex.AvailableFunds += eventValue.Amount;
         await SaveEntityAsync(treasuryFundIndex, context);
-        Logger.LogInformation(
-            "[Transferred] TreasuryFund FINISH: Id={Id}, ChainId={ChainId}, Symbol={Symbol}", daoId, chainId, symbol);
     }
 }
