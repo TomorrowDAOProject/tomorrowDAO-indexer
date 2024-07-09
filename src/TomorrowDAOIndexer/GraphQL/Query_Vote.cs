@@ -24,9 +24,7 @@ public partial class Query
         }
         return objectMapper.Map<List<VoteSchemeIndex>, List<VoteSchemeIndexDto>>(queryable.ToList());
     }
-    
-    // todo server change
-    // dto int to long
+
     [Name("getVoteItems")]
     public static async Task<List<VoteItemIndexDto>> GetVoteItemIndexAsync(
         [FromServices] IReadOnlyRepository<VoteItemIndex> repository,
