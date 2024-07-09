@@ -1,5 +1,3 @@
-using TomorrowDAOIndexer.Enums;
-
 namespace TomorrowDAOIndexer.GraphQL.Input;
 
 public class GetPageVoteRecordInput
