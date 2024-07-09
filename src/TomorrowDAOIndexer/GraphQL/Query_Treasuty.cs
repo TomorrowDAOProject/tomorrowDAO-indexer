@@ -38,7 +38,7 @@ public partial class Query
     // todo server change
     // Tuple change
     [Name("getAllTreasuryFundList")]
-    public static async Task<PageResultDto<TreasuryFundDto>> GetAllTreasuryFundListAsync(
+    public static async Task<GetAllTreasuryFundResultDto> GetAllTreasuryFundListAsync(
         [FromServices] IReadOnlyRepository<TreasuryFundIndex> repository,
         [FromServices] IObjectMapper objectMapper, GetAllTreasuryFundListInput input)
     {
@@ -47,7 +47,7 @@ public partial class Query
             .Where(a => a.DaoId == input.DaoId);
         
         var allFunds = objectMapper.Map<List<TreasuryFundIndex>, List<TreasuryFundDto>>(queryable.ToList());
-        return new PageResultDto<TreasuryFundDto>
+        return new GetAllTreasuryFundResultDto
         {
             TotalCount = allFunds.Count,
             Data = allFunds
@@ -57,7 +57,7 @@ public partial class Query
     // todo server change
     // Tuple change
     [Name("getTreasuryFundList")]
-    public static async Task<PageResultDto<TreasuryFundDto>> GetTreasuryFundListAsync(
+    public static async Task<GetTreasuryFundListResultDto> GetTreasuryFundListAsync(
         [FromServices] IReadOnlyRepository<TreasuryFundIndex> repository,
         [FromServices] IObjectMapper objectMapper, GetTreasuryFundListInput input)
     {
@@ -95,7 +95,7 @@ public partial class Query
         queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
             .OrderBy(a => a.AvailableFunds);
 
-        return new PageResultDto<TreasuryFundDto>
+        return new GetTreasuryFundListResultDto
         {
             TotalCount = count,
             Data = objectMapper.Map<List<TreasuryFundIndex>, List<TreasuryFundDto>>(queryable.ToList())
