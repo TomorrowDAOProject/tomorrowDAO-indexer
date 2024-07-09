@@ -35,7 +35,6 @@ public partial class Query
         return objectMapper.Map<List<TreasuryFundSumIndex>, List<GetDAOAmountRecordDto>>(queryable.ToList());
     }
     
-    // todo server change
     // Tuple change
     [Name("getAllTreasuryFundList")]
     public static async Task<GetAllTreasuryFundResultDto> GetAllTreasuryFundListAsync(
@@ -54,7 +53,6 @@ public partial class Query
         };
     }
     
-    // todo server change
     // Tuple change
     [Name("getTreasuryFundList")]
     public static async Task<GetTreasuryFundListResultDto> GetTreasuryFundListAsync(
