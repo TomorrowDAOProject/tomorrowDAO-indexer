@@ -19,11 +19,15 @@ using TomorrowDAO.Indexer.Plugin.Entities;
 using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using TomorrowDAO.Indexer.Plugin.Processors.Election;
 using TomorrowDAO.Indexer.Plugin.Processors.GovernanceScheme;
+using TomorrowDAO.Indexer.Plugin.Processors.NetworkDao.Association;
+using TomorrowDAO.Indexer.Plugin.Processors.NetworkDao.Parliament;
+using TomorrowDAO.Indexer.Plugin.Processors.NetworkDao.Referendum;
 using TomorrowDAO.Indexer.Plugin.Processors.Proposal;
 using TomorrowDAO.Indexer.Plugin.Processors.Token;
 using TomorrowDAO.Indexer.Plugin.Processors.Treasury;
 using TomorrowDAO.Indexer.Plugin.Tests.Helper;
 using AddressList = TomorrowDAO.Contracts.DAO.AddressList;
+using AddressListDAO = TomorrowDAO.Contracts.DAO.AddressList;
 using File = TomorrowDAO.Contracts.DAO.File;
 using FileInfo = TomorrowDAO.Contracts.DAO.FileInfo;
 using Metadata = TomorrowDAO.Contracts.DAO.Metadata;
@@ -49,7 +53,10 @@ public abstract class
     protected readonly IAElfIndexerClientEntityRepository<VoteWithdrawnIndex, LogEventInfo> VoteWithdrawnRepository;
     protected readonly IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo> DAOIndexRepository;
     protected readonly IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo> organizationIndexRepository;
-    protected readonly IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo> LatestParticipatedIndexRepository;
+
+    protected readonly IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo>
+        LatestParticipatedIndexRepository;
+
     protected readonly IAElfIndexerClientEntityRepository<TreasuryFundIndex, LogEventInfo> TreasuryFundRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryFundSumIndex, LogEventInfo> TreasuryFundSumRepository;
     protected readonly IAElfIndexerClientEntityRepository<TreasuryRecordIndex, LogEventInfo> TreasuryRecordRepository;
@@ -69,6 +76,10 @@ public abstract class
 
     protected readonly IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo> ProposalIndexRepository;
     protected readonly IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo> VoteRecordIndexRepository;
+
+    protected readonly IAElfIndexerClientEntityRepository<NetworkDaoProposalIndex, LogEventInfo>
+        NetworkDaoProposalRepository;
+
     protected readonly Vote.VoteSchemeCreatedProcessor VoteSchemeCreatedProcessor;
     protected readonly Vote.VotingItemRegisteredProcessor VotingItemRegisteredProcessor;
     protected readonly Vote.VoteWithdrawnProcessor VoteWithdrawnProcessor;
@@ -102,6 +113,9 @@ public abstract class
     protected readonly DAOProposalTimePeriodSetProcessor DAOProposalTimePeriodSetProcessor;
     protected readonly ProposalExecutedProcessor ProposalExecutedProcessor;
     protected readonly ProposalVetoedProcessor ProposalVetoedProcessor;
+    protected readonly ParliamentProposalCreatedProcessor ParliamentProposalCreatedProcessor;
+    protected readonly AssociationProposalCreatedProcessor AssociationProposalCreatedProcessor;
+    protected readonly ReferendumProposalCreatedProcessor ReferendumProposalCreatedProcessor;
 
     protected readonly long BlockHeight = 120;
     protected readonly string ChainAelf = "tDVV";
@@ -177,7 +191,8 @@ public abstract class
         VoteWithdrawnRepository =
             GetRequiredService<IAElfIndexerClientEntityRepository<VoteWithdrawnIndex, LogEventInfo>>();
         DAOIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<DAOIndex, LogEventInfo>>();
-        organizationIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo>>();
+        organizationIndexRepository =
+            GetRequiredService<IAElfIndexerClientEntityRepository<OrganizationIndex, LogEventInfo>>();
         LatestParticipatedIndexRepository =
             GetRequiredService<IAElfIndexerClientEntityRepository<LatestParticipatedIndex, LogEventInfo>>();
         TreasuryFundRepository =
@@ -198,6 +213,8 @@ public abstract class
         ProposalIndexRepository = GetRequiredService<IAElfIndexerClientEntityRepository<ProposalIndex, LogEventInfo>>();
         VoteRecordIndexRepository =
             GetRequiredService<IAElfIndexerClientEntityRepository<VoteRecordIndex, LogEventInfo>>();
+        NetworkDaoProposalRepository =
+            GetRequiredService<IAElfIndexerClientEntityRepository<NetworkDaoProposalIndex, LogEventInfo>>();
         FileInfosRemovedProcessor = GetRequiredService<FileInfosRemovedProcessor>();
         FileInfosUploadedProcessor = GetRequiredService<FileInfosUploadedProcessor>();
         MemberAddedProcessor = GetRequiredService<MemberAddedProcessor>();
@@ -231,6 +248,9 @@ public abstract class
         DAOProposalTimePeriodSetProcessor = GetRequiredService<DAOProposalTimePeriodSetProcessor>();
         ProposalExecutedProcessor = GetRequiredService<ProposalExecutedProcessor>();
         ProposalVetoedProcessor = GetRequiredService<ProposalVetoedProcessor>();
+        ParliamentProposalCreatedProcessor = GetRequiredService<ParliamentProposalCreatedProcessor>();
+        AssociationProposalCreatedProcessor = GetRequiredService<AssociationProposalCreatedProcessor>();
+        ReferendumProposalCreatedProcessor = GetRequiredService<ReferendumProposalCreatedProcessor>();
     }
 
     protected async Task<string> InitializeBlockStateSetAsync(BlockStateSet<LogEventInfo> blockStateSet, string chainId)
@@ -342,7 +362,7 @@ public abstract class
         // step4 save data after logic
         await BlockStateSetSaveDataAsync<LogEventInfo>(blockStateSetKey);
     }
-    
+
     protected async Task CheckFileInfo()
     {
         var DAOIndex = await DAOIndexRepository.GetFromBlockStateSetAsync(DAOId, ChainAelf);
@@ -794,22 +814,33 @@ public abstract class
         return new MemberAdded
         {
             DaoId = HashHelper.ComputeFrom(Id1),
-            AddMembers = new AddressList
+            AddMembers = new AddressListDAO
             {
                 Value = { Address.FromBase58(User), Address.FromBase58(Creator) }
             }
         }.ToLogEvent();
     }
-    
+
     protected LogEvent MemberRemoved()
     {
         return new MemberRemoved
         {
             DaoId = HashHelper.ComputeFrom(Id1),
-            RemoveMembers = new AddressList
+            RemoveMembers = new AddressListDAO
             {
                 Value = { Address.FromBase58(User), Address.FromBase58(DAOCreator), Address.FromBase58(Creator) }
             }
+        }.ToLogEvent();
+    }
+
+    protected LogEvent NetworkDaoProposalCreate(string proposalId = null)
+    {
+        return new AElf.Standards.ACS3.ProposalCreated
+        {
+            ProposalId = HashHelper.ComputeFrom(proposalId ?? ProposalId),
+            OrganizationAddress = Address.FromBase58(DAOCreator),
+            Title = "Title",
+            Description = "Description"
         }.ToLogEvent();
     }
 }

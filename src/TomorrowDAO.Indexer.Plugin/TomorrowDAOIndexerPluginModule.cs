@@ -6,6 +6,9 @@ using TomorrowDAO.Indexer.Plugin.GraphQL;
 using TomorrowDAO.Indexer.Plugin.Processors.DAO;
 using TomorrowDAO.Indexer.Plugin.Processors.Election;
 using TomorrowDAO.Indexer.Plugin.Processors.GovernanceScheme;
+using TomorrowDAO.Indexer.Plugin.Processors.NetworkDao.Association;
+using TomorrowDAO.Indexer.Plugin.Processors.NetworkDao.Parliament;
+using TomorrowDAO.Indexer.Plugin.Processors.NetworkDao.Referendum;
 using TomorrowDAO.Indexer.Plugin.Processors.Proposal;
 using TomorrowDAO.Indexer.Plugin.Processors.Token;
 using TomorrowDAO.Indexer.Plugin.Processors.Treasury;
@@ -63,8 +66,13 @@ public class TomorrowDAOIndexerPluginModule : AElfIndexerClientPluginBaseModule<
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, Vote.VotingItemRegisteredProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, Vote.VotedProcessor>();
         serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, Vote.VoteWithdrawnProcessor>();
+        
+        //Network DAO
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, AssociationProposalCreatedProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, ReferendumProposalCreatedProcessor>();
+        serviceCollection.AddSingleton<IAElfLogEventProcessor<LogEventInfo>, ParliamentProposalCreatedProcessor>();
     }
 
     protected override string ClientId => "AElfIndexer_TomorrowDAO";
-    protected override string Version => "5bb9074e8b0f45c0adca41d8bcd542ea";
+    protected override string Version => "3e9cf90e9cbc4010b3e84163ede19851";
 }
