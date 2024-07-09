@@ -49,8 +49,8 @@ public partial class Query
         var allFunds = objectMapper.Map<List<TreasuryFundIndex>, List<TreasuryFundDto>>(queryable.ToList());
         return new GetAllTreasuryFundResultDto
         {
-            TotalCount = allFunds.Count,
-            Data = allFunds
+            Item1 = allFunds.Count,
+            Item2 = allFunds
         };
     }
     
@@ -97,8 +97,8 @@ public partial class Query
 
         return new GetTreasuryFundListResultDto
         {
-            TotalCount = count,
-            Data = objectMapper.Map<List<TreasuryFundIndex>, List<TreasuryFundDto>>(queryable.ToList())
+            Item1 = count,
+            Item2 = objectMapper.Map<List<TreasuryFundIndex>, List<TreasuryFundDto>>(queryable.ToList())
         };
     }
     
