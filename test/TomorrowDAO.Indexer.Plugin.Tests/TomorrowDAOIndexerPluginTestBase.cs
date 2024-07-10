@@ -666,12 +666,12 @@ public abstract class
         }.ToLogEvent();
     }
 
-    protected LogEvent GovernanceSchemeAdded()
+    protected LogEvent GovernanceSchemeAdded(GovernanceMechanism governanceMechanism = GovernanceMechanism.Referendum)
     {
         return new GovernanceSchemeAdded
         {
             DaoId = HashHelper.ComputeFrom(Id1),
-            GovernanceMechanism = GovernanceMechanism.Referendum,
+            GovernanceMechanism = governanceMechanism,
             SchemeThreshold = new GovernanceSchemeThreshold
             {
                 MinimalRequiredThreshold = 10,
