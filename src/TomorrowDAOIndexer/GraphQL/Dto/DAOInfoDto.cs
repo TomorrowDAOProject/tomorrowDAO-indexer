@@ -11,13 +11,13 @@ public class DAOInfoDto
     public MetadataDto Metadata { get; set; }
     public string GovernanceToken { get; set; }
     public bool IsHighCouncilEnabled { get; set; }
-    public string HighCouncilAddress { get; set; }
+    public string? HighCouncilAddress { get; set; }
     public long MaxHighCouncilMemberCount { get; set; }
     public long MaxHighCouncilCandidateCount { get; set; }
     public long ElectionPeriod { get; set; }
     public long StakingAmount { get; set; }
     public long HighCouncilTermNumber { get; set; }
-    public string FileInfoList { get; set; }
+    public string? FileInfoList { get; set; }
     public bool IsTreasuryContractNeeded { get; set; }
     public bool SubsistStatus { get; set; }
     public string TreasuryContractAddress { get; set; }

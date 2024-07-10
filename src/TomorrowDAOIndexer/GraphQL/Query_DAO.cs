@@ -138,11 +138,18 @@ public partial class Query
             daoIds.Select(daoId => (Expression<Func<DAOIndex, bool>>)(o => o.Id == daoId))
             .Aggregate((prev, next) => prev.Or(next)));
         var daoResult = daoQueryable.ToList();
-        
+
+        var result = new List<DAOInfoDto>();
+        foreach (var daoIndex in daoResult)
+        {
+            var daoInfoDto = objectMapper.Map<DAOIndex, DAOInfoDto>(daoIndex);
+            daoInfoDto.Metadata = objectMapper.Map<DAOIndex, MetadataDto>(daoIndex);
+            result.Add(daoInfoDto);
+        }
         return new PageResultDto<DAOInfoDto>
         {
             TotalCount = participatedCount,
-            Data = objectMapper.Map<List<DAOIndex>, List<DAOInfoDto>>(daoResult)
+            Data = result
         };
     }
 }
