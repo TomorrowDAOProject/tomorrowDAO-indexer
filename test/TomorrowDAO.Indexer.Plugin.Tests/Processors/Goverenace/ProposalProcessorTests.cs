@@ -21,7 +21,7 @@ public class ProposalProcessorTests : TomorrowDAOIndexerPluginTestBase
     public async Task ProposalCreated_Test()
     {
         await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
-        await MockEventProcess(GovernanceSchemeAdded(), GovernanceSchemeAddedProcessor);
+        await MockEventProcess(GovernanceSchemeAdded(Contracts.Governance.GovernanceMechanism.HighCouncil), GovernanceSchemeAddedProcessor);
         await MockEventProcess(DaoProposalTimePeriodSet(), DAOProposalTimePeriodSetProcessor);
         await MockEventProcess(ProposalCreated_Veto(), ProposalCreatedProcessor);
         await MockEventProcess(ProposalCreated(), ProposalCreatedProcessor);
@@ -42,7 +42,7 @@ public class ProposalProcessorTests : TomorrowDAOIndexerPluginTestBase
         proposalIndex.SchemeAddress.ShouldBe(SchemeAddress);
         proposalIndex.VoteSchemeId.ShouldBe(VoteSchemeId);
         proposalIndex.VetoProposalId.ShouldBe(VetoProposalId);
-        proposalIndex.GovernanceMechanism.ShouldBe(GovernanceMechanism.Organization);
+        proposalIndex.GovernanceMechanism.ShouldBe(GovernanceMechanism.HighCouncil);
         proposalIndex.MinimalRequiredThreshold.ShouldBe(10);
         proposalIndex.MinimalVoteThreshold.ShouldBe(12);
         proposalIndex.MinimalApproveThreshold.ShouldBe(50);

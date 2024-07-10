@@ -44,16 +44,19 @@ public class ProposalCreatedProcessor : ProposalProcessorBase<ProposalCreated>
             }
 
             proposalIndex = ObjectMapper.Map<ProposalCreated, ProposalIndex>(eventValue);
-            var governanceScheme = await GovernanceProvider.GetGovernanceSchemeAsync(chainId, IdGenerateHelper.GetId(chainId, DAOId, schemeAddress));
-            if (governanceScheme != null)
-            { 
-                ObjectMapper.Map(governanceScheme, proposalIndex);
-            }
+            
             var DAO = await DAOProvider.GetDaoAsync(chainId, DAOId);
             if (DAO != null)
             { 
                 ObjectMapper.Map(DAO, proposalIndex);
             }
+            
+            var governanceScheme = await GovernanceProvider.GetGovernanceSchemeAsync(chainId, IdGenerateHelper.GetId(chainId, DAOId, schemeAddress));
+            if (governanceScheme != null)
+            { 
+                ObjectMapper.Map(governanceScheme, proposalIndex);
+            }
+
             proposalIndex.DeployTime = context.BlockTime;
             proposalIndex.Id = proposalId;
             await SaveIndexAsync(proposalIndex, context);
