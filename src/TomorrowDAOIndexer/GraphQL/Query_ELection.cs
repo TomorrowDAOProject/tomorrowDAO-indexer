@@ -56,7 +56,7 @@ public partial class Query
         }
         if (input.EndBlockHeight > 0)
         {
-            queryable = queryable.Where(a => a.BlockHeight <= input.StartBlockHeight);
+            queryable = queryable.Where(a => a.BlockHeight <= input.EndBlockHeight);
         }
         if (!input.ChainId.IsNullOrWhiteSpace())
         {
@@ -90,7 +90,7 @@ public partial class Query
         }
         if (input.EndBlockHeight > 0)
         {
-            queryable = queryable.Where(a => a.BlockHeight <= input.StartBlockHeight);
+            queryable = queryable.Where(a => a.BlockHeight <= input.EndBlockHeight);
         }
         if (!input.ChainId.IsNullOrWhiteSpace())
         {
@@ -125,7 +125,7 @@ public partial class Query
         }
         if (input.EndBlockHeight > 0)
         {
-            queryable = queryable.Where(a => a.BlockHeight <= input.StartBlockHeight);
+            queryable = queryable.Where(a => a.BlockHeight <= input.EndBlockHeight);
         }
         queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
             .Skip(input.SkipCount).Take(input.MaxResultCount)
