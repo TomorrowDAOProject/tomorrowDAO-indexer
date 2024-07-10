@@ -36,17 +36,17 @@ public class ProposalSyncDto
     
     public string SchemeAddress { get; set; }
     
-    public ExecuteTransactionDto Transaction { get; set; }
+    public ExecuteTransactionDto? Transaction { get; set; }
     
     public string VoteSchemeId { get; set; }
     
     public string VetoProposalId { get; set; }
     
-    public string BeVetoProposalId { get; set; }
+    public string? BeVetoProposalId { get; set; }
 
     public DateTime DeployTime { get; set; }
 
-    public DateTime ExecuteTime { get; set; }   
+    public DateTime? ExecuteTime { get; set; }   
     
     public int GovernanceMechanism { get; set; }
     
