@@ -94,8 +94,13 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         
         CreateMap<VoteSchemeIndex, VoteSchemeInfoDto>();
         CreateMap<ElectionIndex, ElectionDto>();
-        CreateMap<TreasuryFundIndex, TreasuryFundDto>();
-        CreateMap<TreasuryRecordIndex, TreasuryRecordDto>();
+        CreateMap<TreasuryFundIndex, TreasuryFundDto>()
+            .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
+            .ForMember(des => des.BlockHeight, opt => opt.MapFrom(source => source.Metadata.Block.BlockHeight));
+        
+        CreateMap<TreasuryRecordIndex, TreasuryRecordDto>()
+            .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
+            .ForMember(des => des.BlockHeight, opt => opt.MapFrom(source => source.Metadata.Block.BlockHeight));
         CreateMap<LogEventContext, ProposalIndex>()
             .ForMember(des => des.Transaction, opt => opt.Ignore())
             .ForMember(des => des.BlockHeight, opt

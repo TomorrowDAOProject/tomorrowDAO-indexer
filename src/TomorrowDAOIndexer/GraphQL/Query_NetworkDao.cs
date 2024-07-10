@@ -2,6 +2,7 @@ using System.Linq.Expressions;
 using AeFinder.Sdk;
 using GraphQL;
 using TomorrowDAOIndexer.Entities;
+using TomorrowDAOIndexer.Enums;
 using TomorrowDAOIndexer.GraphQL.Dto;
 using Volo.Abp.ObjectMapping;
 
@@ -28,7 +29,7 @@ public partial class Query
         {
             queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId);
         }
-        if (input.ProposalType != 0)
+        if (input.ProposalType != NetworkDaoProposalType.All)
         {
             queryable = queryable.Where(a => a.ProposalType == input.ProposalType);
         }

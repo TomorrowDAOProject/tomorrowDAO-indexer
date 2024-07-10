@@ -6,7 +6,7 @@ public class GetChainBlockHeightInput
     
     public int MaxResultCount { get; set; } 
     
-    public string ChainId { get; set; }
+    public string? ChainId { get; set; }
     
     public long StartBlockHeight { get; set; }
     

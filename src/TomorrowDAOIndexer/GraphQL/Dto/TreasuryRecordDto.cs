@@ -10,10 +10,10 @@ public class TreasuryRecordDto
     public long Amount { get; set; }
     public string Symbol { get; set; }
     public string Executor { get; set; }
-    public string FromAddress { get; set; }
-    public string ToAddress { get; set; }
-    public string Memo { get; set; }
+    public string? FromAddress { get; set; }
+    public string? ToAddress { get; set; }
+    public string? Memo { get; set; }
     public int TreasuryRecordType { get; set; }
     public DateTime CreateTime { get; set; }
-    public string ProposalId { get; set; }
+    public string? ProposalId { get; set; }
 }
