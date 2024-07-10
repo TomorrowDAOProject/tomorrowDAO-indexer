@@ -18,7 +18,7 @@ namespace TomorrowDAOIndexer;
 
 public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
 {
-   public TomorrowDAOIndexerClientAutoMapperProfile()
+    public TomorrowDAOIndexerClientAutoMapperProfile()
     {
         CreateMap<DAOIndex, DAOInfoDto>()
             .ForMember(des => des.Metadata, opt => opt.Ignore())
@@ -88,16 +88,16 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                     source.ContractAddressList == null
                         ? string.Empty
                         : MapAddress(source.ContractAddressList.TimelockContractAddress)))
-            .ForMember(des => des.TreasuryAccountAddress, opt 
+            .ForMember(des => des.TreasuryAccountAddress, opt
                 => opt.MapFrom(source => MapAddress(source.TreasuryAddress)))
             ;
-        
+
         CreateMap<VoteSchemeIndex, VoteSchemeInfoDto>();
         CreateMap<ElectionIndex, ElectionDto>();
         CreateMap<TreasuryFundIndex, TreasuryFundDto>()
             .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
             .ForMember(des => des.BlockHeight, opt => opt.MapFrom(source => source.Metadata.Block.BlockHeight));
-        
+
         CreateMap<TreasuryRecordIndex, TreasuryRecordDto>()
             .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
             .ForMember(des => des.BlockHeight, opt => opt.MapFrom(source => source.Metadata.Block.BlockHeight));
@@ -198,7 +198,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<FileInfosUploaded, DAOIndex>()
             .ForMember(des => des.Id, opt
                 => opt.MapFrom(source => MapHash(source.DaoId)));
-        
+
         CreateMap<FileInfoContract, FileInfoIndexer>()
             .ForMember(des => des.Uploader, opt
                 => opt.MapFrom(source => MapAddress(source.Uploader)))
@@ -226,16 +226,16 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<ElectionVotingItemIndex, ElectionVotingItem>();
         CreateMap<GovernanceSchemeIndex, GovernanceSchemeIndexDto>()
             .ForMember(des => des.MinimalRequiredThreshold,
-                opt => opt.MapFrom(source => (int)source.MinimalRequiredThreshold))
+                opt => opt.MapFrom(source => source.MinimalRequiredThreshold))
             .ForMember(des => des.MinimalVoteThreshold,
-                opt => opt.MapFrom(source => (int)source.MinimalVoteThreshold))
+                opt => opt.MapFrom(source => source.MinimalVoteThreshold))
             .ForMember(des => des.MinimalApproveThreshold,
-                opt => opt.MapFrom(source => (int)source.MinimalApproveThreshold))
+                opt => opt.MapFrom(source => source.MinimalApproveThreshold))
             .ForMember(des => des.MaximalRejectionThreshold,
-                opt => opt.MapFrom(source => (int)source.MaximalRejectionThreshold))
+                opt => opt.MapFrom(source => source.MaximalRejectionThreshold))
             .ForMember(des => des.MaximalAbstentionThreshold,
-                opt => opt.MapFrom(source => (int)source.MaximalAbstentionThreshold))
-            ;
+                opt => opt.MapFrom(source => source.MaximalAbstentionThreshold))
+            .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId));
         CreateMap<ElectionCandidateElectedIndex, ElectionCandidateElected>();
         CreateMap<CandidateElected, ElectionCandidateElectedIndex>()
             .ForMember(des => des.DaoId, opt
@@ -267,7 +267,6 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 opt => opt.MapFrom(source => source.SchemeThreshold.MaximalRejectionThreshold))
             .ForMember(des => des.MaximalAbstentionThreshold,
                 opt => opt.MapFrom(source => source.SchemeThreshold.MaximalAbstentionThreshold));
-        CreateMap<GovernanceSchemeIndex, GovernanceSchemeIndexDto>();
         CreateMap<VoteItemIndex, VoteItemIndexDto>()
             .ForMember(des => des.VoterCount, opt
                 => opt.MapFrom(source => source.VoterCount));
@@ -294,7 +293,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<LogEventContext, ElectionHighCouncilConfigIndex>()
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Block.BlockHeight));
-            ;
+        ;
         CreateMap<LogEventContext, ElectionVotingItemIndex>()
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Block.BlockHeight))
@@ -302,7 +301,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<LogEventContext, DaoVoterRecordIndex>()
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Block.BlockHeight));
-            ;
+        ;
         CreateMap<VoteSchemeCreated, VoteSchemeIndex>()
             .ForMember(des => des.VoteSchemeId, opt
                 => opt.MapFrom(source => MapHash(source.VoteSchemeId)));
@@ -373,7 +372,8 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.IsDeleted, opt => opt.MapFrom(source => source.Metadata.IsDeleted));
         CreateMap<AElf.Standards.ACS3.ProposalCreated, NetworkDaoProposalIndex>()
             .ForMember(des => des.ProposalId, opt => opt.MapFrom(source => MapHash(source.ProposalId)))
-            .ForMember(des => des.OrganizationAddress, opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)));
+            .ForMember(des => des.OrganizationAddress,
+                opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)));
         CreateMap<DAOIndex, GetDAOAmountRecordDto>()
             .ForMember(des => des.Amount, opt => opt.MapFrom(source => source.VoteAmount - source.WithdrawAmount))
             ;

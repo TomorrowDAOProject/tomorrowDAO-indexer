@@ -15,8 +15,16 @@ public partial class Query
         [FromServices] IObjectMapper objectMapper, GovernanceSchemeIndexInput input)
     {
         var queryable = await repository.GetQueryableAsync();
-        queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
-            .Where(a => a.DAOId == input.DAOId);
+        if (!input.ChainId.IsNullOrWhiteSpace())
+        {
+            queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId);
+        }
+
+        if (!input.DAOId.IsNullOrWhiteSpace())
+        {
+            queryable = queryable.Where(a => a.DAOId == input.DAOId);
+        }
+        
         return objectMapper.Map<List<GovernanceSchemeIndex>, List<GovernanceSchemeIndexDto>>(queryable.ToList());
     }
 }
