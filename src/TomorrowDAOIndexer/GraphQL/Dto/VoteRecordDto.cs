@@ -8,7 +8,7 @@ public class VoteRecordDto
     
     public int Amount { get; set; }
     
-    public string TransactionId { get; set; }
+    public string? TransactionId { get; set; }
     public VoteMechanism VoteMechanism { get; set; }
     
     // Approve/reject/abstain     
