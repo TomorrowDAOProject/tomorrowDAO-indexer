@@ -365,7 +365,12 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Block.BlockHeight))
             ;
-        CreateMap<NetworkDaoProposalIndex, NetworkDaoProposal>();
+        CreateMap<NetworkDaoProposalIndex, NetworkDaoProposal>()
+            .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
+            .ForMember(des => des.BlockHash, opt => opt.MapFrom(source => source.Metadata.Block.BlockHash))
+            .ForMember(des => des.BlockHeight, opt => opt.MapFrom(source => source.Metadata.Block.BlockHeight))
+            .ForMember(des => des.BlockTime, opt => opt.MapFrom(source => source.Metadata.Block.BlockTime))
+            .ForMember(des => des.IsDeleted, opt => opt.MapFrom(source => source.Metadata.IsDeleted));
         CreateMap<AElf.Standards.ACS3.ProposalCreated, NetworkDaoProposalIndex>()
             .ForMember(des => des.ProposalId, opt => opt.MapFrom(source => MapHash(source.ProposalId)))
             .ForMember(des => des.OrganizationAddress, opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)));

@@ -39,14 +39,6 @@ public partial class Query
                 input.ProposalIds.Select(proposalId => (Expression<Func<NetworkDaoProposalIndex, bool>>)(o => o.ProposalId == proposalId))
                     .Aggregate((prev, next) => prev.Or(next)));
         }
-        // var result = await repository.GetListAsync(Filter, skip: input.SkipCount, limit: input.MaxResultCount,
-        //     sortType: SortOrder.Ascending, sortExp: o => o.BlockHeight);
-        //
-        // return new NetworkDaoProposalsDto
-        // {
-        //     TotalCount = result.Item1,
-        //     Items = objectMapper.Map<List<NetworkDaoProposalIndex>, List<NetworkDaoProposal>>(result.Item2)
-        // };
         var count = queryable.Count();
         queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
             .OrderBy(a => a.BlockHeight);
