@@ -6,7 +6,7 @@ public class ElectionHighCouncilConfigDto
     public List<ElectionHighCouncilConfig> Items { get; set; }
 }
 
-public class ElectionHighCouncilConfig
+public class ElectionHighCouncilConfig : BlockInfoDto
 {
     public string Id { get; set; }
     public string DaoId { get; set; }
@@ -17,12 +17,6 @@ public class ElectionHighCouncilConfig
     public string GovernanceToken { get; set; }
     public long StakeThreshold { get; set; }
     public List<string> InitialHighCouncilMembers { get; set; } = new List<string>();
-
-    public string ChainId { get; set; }
-    public string BlockHash { get; set; }
-    public long BlockHeight { get; set; }
-    public string PreviousBlockHash { get; set; }
-    public bool IsDeleted { get; set; }
 }
 
 public class GetElectionHighCouncilListInput

@@ -6,7 +6,7 @@ public class ElectionVotingItemDto
     public List<ElectionVotingItem> Items { get; set; }
 }
 
-public class ElectionVotingItem
+public class ElectionVotingItem : BlockInfoDto
 {
     public string Id { get; set; }
     public string DaoId { get; set; }
@@ -23,12 +23,6 @@ public class ElectionVotingItem
     public string Sponsor { get; set; }
     public bool IsQuadratic { get; set; }
     public long TicketCost { get; set; }
-
-    public string ChainId { get; set; }
-    public string BlockHash { get; set; }
-    public long BlockHeight { get; set; }
-    public string PreviousBlockHash { get; set; }
-    public bool IsDeleted { get; set; }
 }
 
 public class GetElectionVotingItemIndexInput
