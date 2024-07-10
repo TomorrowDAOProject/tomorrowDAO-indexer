@@ -5,7 +5,7 @@ public class VoteItemIndexDto : BlockInfoDto
     // The voting activity id.(proposal id/customize)
     public string VotingItemId { get; set; }
     
-    public string Executer { get; set; }
+    public string? Executer { get; set; }
 
     public string VoteSchemeId { get; set; }
 

@@ -294,6 +294,8 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<VoteRecordIndex, VoteRecordDto>()
             .ForMember(des => des.VoteTime, opt
                 => opt.MapFrom(source => source.VoteTimestamp))
+            .ForMember(des => des.TransactionId, opt
+                => opt.MapFrom(source => source.TransactionId))
             ;
         CreateMap<LogEventContext, VoteSchemeIndex>()
             .ForMember(des => des.BlockHeight, opt
@@ -306,6 +308,8 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<LogEventContext, VoteRecordIndex>()
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Block.BlockHeight))
+            .ForMember(des => des.TransactionId, opt
+                => opt.MapFrom(source => source.Transaction.TransactionId))
             ;
         CreateMap<LogEventContext, VoteWithdrawnIndex>()
             .ForMember(des => des.BlockHeight, opt
@@ -356,7 +360,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.DAOId, opt
                 => opt.MapFrom(source => MapHash(source.DaoId)));
         ;
-        CreateMap<VoteSchemeIndex, VoteSchemeIndexDto>();
+        CreateMap<VoteSchemeIndex, VoteSchemeIndexDto>()
+            .ForMember(des => des.ChainId, opt
+                => opt.MapFrom(source => source.Metadata.ChainId));
+            ;
         CreateMap<Withdrawn, VoteWithdrawnIndex>()
             .ForMember(des => des.DaoId,
                 opt => opt.MapFrom(source => MapHash(source.DaoId)))
