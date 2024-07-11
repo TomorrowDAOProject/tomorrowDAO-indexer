@@ -14,7 +14,7 @@ public class ElectionHighCouncilConfig : BlockInfoDto
     public long MaxHighCouncilCandidateCount { get; set; }
     public long ElectionPeriod { get; set; }
     public bool IsRequireHighCouncilForExecution { get; set; }
-    public string GovernanceToken { get; set; }
+    public string? GovernanceToken { get; set; }
     public long StakeThreshold { get; set; }
     public List<string> InitialHighCouncilMembers { get; set; } = new List<string>();
 }
