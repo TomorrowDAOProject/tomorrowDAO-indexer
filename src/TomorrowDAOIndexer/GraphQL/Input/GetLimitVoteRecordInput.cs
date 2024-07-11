@@ -6,7 +6,7 @@ public class GetLimitVoteRecordInput
 
     public string VotingItemId { get; set; }
     
-    public string Voter { get; set; }
+    public string? Voter { get; set; }
     
     public string? Sorting { get; set; }
     
