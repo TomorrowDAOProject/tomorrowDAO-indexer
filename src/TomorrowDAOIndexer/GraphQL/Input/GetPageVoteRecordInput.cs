@@ -8,11 +8,11 @@ public class GetPageVoteRecordInput
     
     public string Voter { get; set; }
 
-    public string VotingItemId { get; set; }
+    public string? VotingItemId { get; set; }
     
     public int SkipCount { get; set; }
     
     public int MaxResultCount { get; set; }
     
-    public string VoteOption { get; set; }
+    public string? VoteOption { get; set; }
 }

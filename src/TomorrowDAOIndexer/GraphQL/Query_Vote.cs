@@ -138,8 +138,11 @@ public partial class Query
         [FromServices] IObjectMapper objectMapper, GetPageVoteRecordInput input)
     {
         var queryable = await repository.GetQueryableAsync();
-        queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
-            .Where(a => a.Voter == input.Voter);
+        queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId);
+        if (!input.DaoId.IsNullOrWhiteSpace())
+        {
+            queryable = queryable.Where(a => a.Voter == input.Voter);
+        }
         var stringVoteOption = input.VoteOption;
         if (!stringVoteOption.IsNullOrWhiteSpace())
         {
