@@ -8,7 +8,7 @@ public class GetLimitVoteRecordInput
     
     public string Voter { get; set; }
     
-    public string Sorting { get; set; }
+    public string? Sorting { get; set; }
     
     public int Limit { get; set; }
 }
