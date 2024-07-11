@@ -528,12 +528,14 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         };
     }
 
-    protected GovernanceSchemeAdded GovernanceSchemeAdded()
+    protected GovernanceSchemeAdded GovernanceSchemeAdded(
+        TomorrowDAO.Contracts.Governance.GovernanceMechanism governanceMechanism 
+            = TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum)
     {
         return new GovernanceSchemeAdded
         {
             DaoId = HashHelper.ComputeFrom(Id1),
-            GovernanceMechanism = TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum,
+            GovernanceMechanism = governanceMechanism,
             SchemeThreshold = new TomorrowDAO.Contracts.Governance.GovernanceSchemeThreshold
             {
                 MinimalRequiredThreshold = 10,

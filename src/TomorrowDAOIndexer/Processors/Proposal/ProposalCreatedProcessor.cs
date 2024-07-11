@@ -30,15 +30,15 @@ public class ProposalCreatedProcessor : GovernanceProcessorBase<ProposalCreated>
             }
 
             proposalIndex = ObjectMapper.Map<ProposalCreated, ProposalIndex>(logEvent);
-            var governanceScheme = await GetEntityAsync<GovernanceSchemeIndex>(IdGenerateHelper.GetId(chainId, DAOId, schemeAddress));
-            if (governanceScheme != null)
-            { 
-                ObjectMapper.Map(governanceScheme, proposalIndex);
-            }
             var DAO = await GetEntityAsync<DAOIndex>(DAOId);
             if (DAO != null)
             { 
                 ObjectMapper.Map(DAO, proposalIndex);
+            }
+            var governanceScheme = await GetEntityAsync<GovernanceSchemeIndex>(IdGenerateHelper.GetId(chainId, DAOId, schemeAddress));
+            if (governanceScheme != null)
+            { 
+                ObjectMapper.Map(governanceScheme, proposalIndex);
             }
             proposalIndex.DeployTime = context.Block.BlockTime;
             proposalIndex.Id = proposalId;
