@@ -84,7 +84,20 @@ public partial class QueryTest
             });
         result.ShouldNotBeNull();
     }
-    
+
+    [Fact]
+    public async Task GetAllVoteRecordAsync_Test()
+    {
+        await MockEventProcess(VoteVoted(), VoteVotedProcessor);
+        
+        var result = await Query.GetAllVoteRecordAsync(VoteRecordIndexRepository, ObjectMapper, new GetAllVoteRecordInput()
+        {
+            ChainId = ChainId, DAOId = DAOId, Voter = User
+        });
+        result.ShouldNotBeNull();
+        result.Count.ShouldBe(1);
+    }
+
     [Fact]
     public async Task GetVoteRecordCountAsync_Test()
     {
@@ -97,6 +110,19 @@ public partial class QueryTest
             // EndTime = "2024-05-28 23:59:59"
         });
         result.Count.ShouldBe(1);
+    }
+
+    [Fact]
+    public async Task GetLimitVoteRecordAsync_Test()
+    {
+        await MockEventProcess(VoteVoted(), VoteVotedProcessor);
+
+        var result = await Query.GetLimitVoteRecordAsync(VoteRecordIndexRepository, ObjectMapper, new GetLimitVoteRecordInput
+        {
+            ChainId = ChainId, Voter = User, Sorting = string.Empty, VotingItemId = HashHelper.ComputeFrom(Id2).ToHex(),
+            Limit = 0
+        });
+        result.ShouldNotBeNull();
     }
 
     [Fact]
