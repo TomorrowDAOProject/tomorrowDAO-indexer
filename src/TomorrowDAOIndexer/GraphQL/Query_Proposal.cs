@@ -45,16 +45,16 @@ public partial class Query
         {
             queryable = queryable.Where(a => a.DAOId == input.DaoId);
         }
-        if (!input.StartTime.IsNullOrWhiteSpace())
-        {
-            var dateTime = DateTime.ParseExact(input.StartTime, TomorrowDAOConst.DateFormat, CultureInfo.InvariantCulture);
-            queryable = queryable.Where(a => a.DeployTime >= dateTime);
-        }
-        if (!input.EndTime.IsNullOrWhiteSpace())
-        {
-            var dateTime = DateTime.ParseExact(input.EndTime, TomorrowDAOConst.DateFormat, CultureInfo.InvariantCulture);
-            queryable = queryable.Where(a => a.DeployTime <= dateTime);
-        }
+        // if (!input.StartTime.IsNullOrWhiteSpace())
+        // {
+        //     var dateTime = DateTime.ParseExact(input.StartTime, TomorrowDAOConst.DateFormat, CultureInfo.InvariantCulture);
+        //     queryable = queryable.Where(a => a.DeployTime >= dateTime);
+        // }
+        // if (!input.EndTime.IsNullOrWhiteSpace())
+        // {
+        //     var dateTime = DateTime.ParseExact(input.EndTime, TomorrowDAOConst.DateFormat, CultureInfo.InvariantCulture);
+        //     queryable = queryable.Where(a => a.DeployTime <= dateTime);
+        // }
 
         return new ProposalCountDto
         {

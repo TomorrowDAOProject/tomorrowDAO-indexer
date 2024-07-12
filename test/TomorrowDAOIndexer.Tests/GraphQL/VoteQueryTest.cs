@@ -10,7 +10,7 @@ namespace TomorrowDAOIndexer.GraphQL;
 public partial class QueryTest
 {
     [Fact]
-    public async Task GetElectionListAsync_Test()
+    public async Task GetVoteSchemeInfoAsync_Test()
     {
         await MockEventProcess(VoteSchemeCreated_UniqueVote(), VoteSchemeCreatedProcessor);
         await MockEventProcess(VoteSchemeCreated_TokenBallot(), VoteSchemeCreatedProcessor);
