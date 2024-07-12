@@ -48,17 +48,17 @@ public partial class Query
             queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId);
         }
         
-        if (!input.StartTime.IsNullOrWhiteSpace())
-        {
-            var dateTime = DateTime.ParseExact(input.StartTime, TomorrowDAOConst.DateFormat, CultureInfo.InvariantCulture);
-            queryable = queryable.Where(a => a.CreateTime >= dateTime);
-        }
-    
-        if (!input.EndTime.IsNullOrWhiteSpace())
-        {
-            var dateTime = DateTime.ParseExact(input.EndTime, TomorrowDAOConst.DateFormat, CultureInfo.InvariantCulture);
-            queryable = queryable.Where(a => a.CreateTime <= dateTime);
-        }
+        // if (!input.StartTime.IsNullOrWhiteSpace())
+        // {
+        //     var dateTime = DateTime.ParseExact(input.StartTime, TomorrowDAOConst.DateFormat, CultureInfo.InvariantCulture);
+        //     queryable = queryable.Where(a => a.CreateTime >= dateTime);
+        // }
+        //
+        // if (!input.EndTime.IsNullOrWhiteSpace())
+        // {
+        //     var dateTime = DateTime.ParseExact(input.EndTime, TomorrowDAOConst.DateFormat, CultureInfo.InvariantCulture);
+        //     queryable = queryable.Where(a => a.CreateTime <= dateTime);
+        // }
 
         return new DaoCountDto
         {
