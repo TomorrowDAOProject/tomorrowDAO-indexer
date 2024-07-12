@@ -1,3 +1,4 @@
+using AElf;
 using Shouldly;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.Enums;
@@ -10,15 +11,12 @@ public class VotingItemRegisteredProcessorTest : TomorrowDAOIndexerTestBase
     [Fact]
     public async Task HandleEventAsync_Test()
     {
-        await MockEventProcess(VoteSchemeCreated_UniqueVote(), VoteSchemeCreatedProcessor);
+        await MockEventProcess(VotingItemRegistered(), VotingItemRegisteredProcessor);
         
-        var voteSchemeIndex = await GetIndexById<VoteSchemeIndex>(VoteSchemeId);
-        voteSchemeIndex.ShouldNotBeNull();
-        voteSchemeIndex.VoteSchemeId.ShouldBe(VoteSchemeId);
-        voteSchemeIndex.Id.ShouldBe(VoteSchemeId);
-        voteSchemeIndex.VoteMechanism.ShouldBe(VoteMechanism.UNIQUE_VOTE);
-        
-        voteSchemeIndex = await GetIndexById<VoteSchemeIndex>(VoteSchemeId);
-        voteSchemeIndex.ShouldNotBeNull();
+        var voteItemIndex = await GetIndexById<VoteItemIndex>(HashHelper.ComputeFrom(Id2).ToHex());
+        voteItemIndex.ShouldNotBeNull();
+        voteItemIndex.VoteSchemeId.ShouldBe(HashHelper.ComputeFrom(Id4).ToHex());
+        voteItemIndex.Id.ShouldBe(HashHelper.ComputeFrom(Id2).ToHex());
+        voteItemIndex.VotingItemId.ShouldBe(HashHelper.ComputeFrom(Id2).ToHex());
     }
 }

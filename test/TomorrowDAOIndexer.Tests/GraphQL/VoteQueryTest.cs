@@ -1,3 +1,4 @@
+using AElf;
 using AElf.Types;
 using Shouldly;
 using TomorrowDAOIndexer.Entities;
@@ -9,6 +10,42 @@ namespace TomorrowDAOIndexer.GraphQL;
 
 public partial class QueryTest
 {
+    [Fact]
+    public async Task GetVoteSchemesAsync_Test()
+    {
+        await MockEventProcess(VoteSchemeCreated_UniqueVote(), VoteSchemeCreatedProcessor);
+        await MockEventProcess(VoteSchemeCreated_TokenBallot(), VoteSchemeCreatedProcessor);
+        
+        var voteSchemes = await Query.GetVoteSchemesAsync(VoteSchemeIndexRepository, ObjectMapper, new GetVoteSchemeInput
+        {
+            ChainId = ChainId
+        });
+        voteSchemes.ShouldNotBeNull();
+        voteSchemes.Count.ShouldBe(2);
+        var voteScheme = voteSchemes[0];
+        voteScheme.ChainId.ShouldBe(ChainId);
+        voteScheme.VoteMechanism.ShouldBe(0);
+        voteScheme.VoteSchemeId.ShouldBe(VoteSchemeId);
+        voteScheme.IsQuadratic.ShouldBe(false);
+        voteScheme.IsLockToken.ShouldBe(false);
+    }
+
+    [Fact]
+    public async Task GetVoteItemIndexAsync_Test()
+    {
+        await MockEventProcess(VoteSchemeCreated_UniqueVote(), VoteSchemeCreatedProcessor);
+        await MockEventProcess(VotingItemRegistered(), VotingItemRegisteredProcessor);
+
+        var result = await Query.GetVoteItemIndexAsync(VoteItemIndexRepository, ObjectMapper, new GetVoteInfoInput
+        {
+            ChainId = ChainId, VotingItemIds = new List<string>{HashHelper.ComputeFrom(Id2).ToHex()}
+        });
+        result.ShouldNotBeNull();
+        result.Count.ShouldBe(1);
+        var voteItemIndex = result[0];
+        voteItemIndex.VotingItemId.ShouldBe(HashHelper.ComputeFrom(Id2).ToHex());
+    }
+
     [Fact]
     public async Task GetVoteSchemeInfoAsync_Test()
     {
