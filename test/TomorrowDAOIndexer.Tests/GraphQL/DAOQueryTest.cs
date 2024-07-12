@@ -68,8 +68,7 @@ public partial class QueryTest : TomorrowDAOIndexerTestBase
         // await MockEventProcess(TokenTransferred(), TransferredProcessor);
         await TransferredProcessor.ProcessAsync(GenerateLogEventContext(TokenTransferred()));
         
-        var daoId = HashHelper.ComputeFrom(Id1).ToHex();
-        var daoIndex = await GetIndexById<DAOIndex>(daoId);
+        var daoIndex = await GetIndexById<DAOIndex>(DAOId);
         daoIndex.ShouldNotBeNull();
         daoIndex.VoteAmount.ShouldBe(100);
         daoIndex.WithdrawAmount.ShouldBe(10);
@@ -80,9 +79,28 @@ public partial class QueryTest : TomorrowDAOIndexerTestBase
         });
         list.Sum(x => x.Amount).ShouldBe(100000090);
     }
-    
+
     [Fact]
-    public async Task HandleEventAsync_GetMyParticipatedAsync()
+    public async Task GetDAOVoterRecordAsync_Test()
+    {
+        await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
+        await MockEventProcess(VotingItemRegistered(), VotingItemRegisteredProcessor);
+        await MockEventProcess(VoteVoted(), VoteVotedProcessor);
+
+        var result = await Query.GetDAOVoterRecordAsync(DaoVoterRecordIndexRepository, ObjectMapper, new GetDAOVoterRecordInput
+        {
+            ChainId = ChainId, DaoId = DAOId, VoterAddress = User
+        });
+        result.ShouldNotBeNull();
+        result.Count.ShouldBe(1);
+        var daoVoterRecordIndex = result[0];
+        daoVoterRecordIndex.Count.ShouldBe(1);
+        daoVoterRecordIndex.VoterAddress.ShouldBe(User);
+        daoVoterRecordIndex.DaoId.ShouldBe(DAOId);
+    }
+
+    [Fact]
+    public async Task GetMyParticipatedAsync_Test()
     {
         await GetVoteRecordCountAsync_Test();
         await GetProposalCountAsyncTest();
