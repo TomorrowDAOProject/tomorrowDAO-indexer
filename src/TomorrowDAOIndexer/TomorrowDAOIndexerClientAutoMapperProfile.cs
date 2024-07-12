@@ -92,7 +92,9 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => MapAddress(source.TreasuryAddress)))
             ;
 
-        CreateMap<VoteSchemeIndex, VoteSchemeInfoDto>();
+        CreateMap<VoteSchemeIndex, VoteSchemeInfoDto>()
+            .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
+            ;
         CreateMap<ElectionIndex, ElectionDto>()
             .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
             .ForMember(des => des.BlockHeight, opt => opt.MapFrom(source => source.Metadata.Block.BlockHeight));

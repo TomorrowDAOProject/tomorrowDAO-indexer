@@ -1,6 +1,7 @@
 using AElf.Types;
 using Shouldly;
 using TomorrowDAOIndexer.Entities;
+using TomorrowDAOIndexer.Enums;
 using TomorrowDAOIndexer.GraphQL.Input;
 using Xunit;
 
@@ -8,6 +9,26 @@ namespace TomorrowDAOIndexer.GraphQL;
 
 public partial class QueryTest
 {
+    [Fact]
+    public async Task GetElectionListAsync_Test()
+    {
+        await MockEventProcess(VoteSchemeCreated_UniqueVote(), VoteSchemeCreatedProcessor);
+        await MockEventProcess(VoteSchemeCreated_TokenBallot(), VoteSchemeCreatedProcessor);
+        
+        var voteSchemes = await Query.GetVoteSchemeInfoAsync(VoteSchemeIndexRepository, ObjectMapper, new GetVoteSchemeInput
+        {
+            ChainId = ChainId
+        });
+        voteSchemes.ShouldNotBeNull();
+        voteSchemes.Count.ShouldBe(2);
+        var voteScheme = voteSchemes[0];
+        voteScheme.ChainId.ShouldBe(ChainId);
+        voteScheme.VoteMechanism.ShouldBe(VoteMechanism.UNIQUE_VOTE);
+        voteScheme.VoteSchemeId.ShouldBe(VoteSchemeId);
+        voteScheme.IsQuadratic.ShouldBe(false);
+        voteScheme.IsLockToken.ShouldBe(false);
+    }
+    
     [Fact]
     public async Task GetVoterWithdrawnIndexAsync_Test()
     {
