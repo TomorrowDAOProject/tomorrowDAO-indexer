@@ -363,9 +363,11 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => MapHash(source.DaoId)));
         ;
         CreateMap<VoteSchemeIndex, VoteSchemeIndexDto>()
-            .ForMember(des => des.ChainId, opt
-                => opt.MapFrom(source => source.Metadata.ChainId));
-            ;
+            .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
+            .ForMember(des => des.BlockHash, opt => opt.MapFrom(source => source.Metadata.Block.BlockHash))
+            .ForMember(des => des.BlockHeight, opt => opt.MapFrom(source => source.Metadata.Block.BlockHeight))
+            .ForMember(des => des.BlockTime, opt => opt.MapFrom(source => source.Metadata.Block.BlockTime))
+            .ForMember(des => des.IsDeleted, opt => opt.MapFrom(source => source.Metadata.IsDeleted));
         CreateMap<Withdrawn, VoteWithdrawnIndex>()
             .ForMember(des => des.DaoId,
                 opt => opt.MapFrom(source => MapHash(source.DaoId)))
