@@ -71,6 +71,11 @@ public class ProposalCreatedProcessorTest : TomorrowDAOIndexerTestBase
         latestParticipatedIndex.Address.ShouldBe(DAOCreator);
         latestParticipatedIndex.DAOId.ShouldBe(DAOId);
         latestParticipatedIndex.ParticipatedType.ShouldBe(ParticipatedType.Proposed);
+
+        var daoId = HashHelper.ComputeFrom(Id1).ToHex();
+        var daoIndex = await GetIndexById<DAOIndex>(daoId);
+        daoIndex.ShouldNotBeNull();
+        daoIndex.ProposalCount.ShouldBe(2);
     }
     
     [Fact]

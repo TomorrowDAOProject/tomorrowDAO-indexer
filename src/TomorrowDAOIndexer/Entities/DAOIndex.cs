@@ -43,13 +43,16 @@ public class DAOIndex : AeFinderEntity, IAeFinderEntity
 
     public bool IsNetworkDAO { get; set; }
 
+    public int ProposalCount { get; set; }
+
     //voter address Count
     public int VoterCount { get; set; }
     public long VoteAmount { get; set; }
     public long WithdrawAmount { get; set; }
-    
+
     [JsonConverter(typeof(StringEnumConverter))]
     public GovernanceMechanism GovernanceMechanism { get; set; }
+
     public void OfPeriod()
     {
         ActiveTimePeriod = TomorrowDAOConst.MinActiveTimePeriod;
