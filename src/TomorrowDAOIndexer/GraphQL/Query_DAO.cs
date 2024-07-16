@@ -94,14 +94,14 @@ public partial class Query
     [Name("getDAOAmountRecord")]
     public static async Task<List<GetDAOAmountRecordDto>> GetDAOAmountRecordAsync(
         [FromServices] IReadOnlyRepository<DAOIndex> repository,
-        [FromServices] IReadOnlyRepository<TreasuryFundIndex> treasuryFundrepository,
+        [FromServices] IReadOnlyRepository<TreasuryFundSumIndex> treasuryFundrepository,
         [FromServices] IObjectMapper objectMapper,
         GetDAOAmountRecordInput input)
     {
         var queryable = await repository.GetQueryableAsync();
         queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId);
         var result= queryable.ToList();
-        var treasuryFunds = await GetTreasuryFundByFundListAsync(treasuryFundrepository, 
+        var treasuryFunds = await GetTreasuryFundAsync(treasuryFundrepository, objectMapper,
         new GetTreasuryFundInput { ChainId = input.ChainId });
         var voteFunds = objectMapper.Map<List<DAOIndex>, List<GetDAOAmountRecordDto>>(result);
         treasuryFunds.AddRange(voteFunds);
