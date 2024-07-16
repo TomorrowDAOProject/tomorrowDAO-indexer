@@ -12,6 +12,49 @@ namespace TomorrowDAOIndexer.GraphQL;
 
 public partial class Query
 {
+    
+    [Name("getVoteRecordList")]
+    public static async Task<List<VoteRecordDto>> GetVoteRecordListAsync(
+        [FromServices] IReadOnlyRepository<VoteRecordIndex> repository,
+        [FromServices] IObjectMapper objectMapper, GetChainBlockHeightInput input)
+    {
+        var queryable = await repository.GetQueryableAsync();
+        if (input.StartBlockHeight > 0)
+        {
+            queryable = queryable.Where(a => a.BlockHeight >= input.StartBlockHeight);
+        }
+        if (input.EndBlockHeight > 0)
+        {
+            queryable = queryable.Where(a => a.BlockHeight <= input.EndBlockHeight);
+        }
+        queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
+            .Skip(input.SkipCount).Take(input.MaxResultCount)
+            .OrderBy(a => a.BlockHeight);
+        var result= queryable.ToList();
+        return objectMapper.Map<List<VoteRecordIndex>, List<VoteRecordDto>>(result);
+    }
+    
+    [Name("GetVoteWithdrawnList")]
+    public static async Task<List<VoteWithdrawnIndexDto>> GetVoteWithdrawnListAsync(
+        [FromServices] IReadOnlyRepository<VoteWithdrawnIndex> repository,
+        [FromServices] IObjectMapper objectMapper, GetChainBlockHeightInput input)
+    {
+        var queryable = await repository.GetQueryableAsync();
+        if (input.StartBlockHeight > 0)
+        {
+            queryable = queryable.Where(a => a.BlockHeight >= input.StartBlockHeight);
+        }
+        if (input.EndBlockHeight > 0)
+        {
+            queryable = queryable.Where(a => a.BlockHeight <= input.EndBlockHeight);
+        }
+        queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
+            .Skip(input.SkipCount).Take(input.MaxResultCount)
+            .OrderBy(a => a.BlockHeight);
+        var result= queryable.ToList();
+        return objectMapper.Map<List<VoteWithdrawnIndex>, List<VoteWithdrawnIndexDto>>(result);
+    }
+    
     [Name("getVoteSchemes")]
     public static async Task<List<VoteSchemeIndexDto>> GetVoteSchemesAsync(
         [FromServices] IReadOnlyRepository<VoteSchemeIndex> repository,

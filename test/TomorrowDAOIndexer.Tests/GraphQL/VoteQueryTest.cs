@@ -11,6 +11,32 @@ namespace TomorrowDAOIndexer.GraphQL;
 public partial class QueryTest
 {
     [Fact]
+    public async Task GetVoteRecordListAsync_Test()
+    {
+        await MockEventProcess(VoteVoted(), VoteVotedProcessor);
+        
+        var result = await Query.GetVoteRecordListAsync(VoteRecordIndexRepository, ObjectMapper, new GetChainBlockHeightInput
+        {
+            ChainId = ChainId, SkipCount = 0, MaxResultCount = 10, StartBlockHeight = BlockHeight, EndBlockHeight = BlockHeight + 1
+        });
+        result.ShouldNotBeNull();
+        result.Count.ShouldBe(1);
+    }
+
+    [Fact]
+    public async Task GetVoteWithdrawnListAsync_Test()
+    {
+        await MockEventProcess(VoteWithdrawn(), VoteWithdrawnProcessor);
+        
+        var result = await Query.GetVoteWithdrawnListAsync(VoteWithdrawnRepository, ObjectMapper, new GetChainBlockHeightInput
+            {
+                ChainId = ChainId, SkipCount = 0, MaxResultCount = 10, StartBlockHeight = BlockHeight, EndBlockHeight = BlockHeight + 1
+            });
+        result.ShouldNotBeNull();
+        result.Count.ShouldBe(1);
+    }
+
+    [Fact]
     public async Task GetVoteSchemesAsync_Test()
     {
         await MockEventProcess(VoteSchemeCreated_UniqueVote(), VoteSchemeCreatedProcessor);
