@@ -298,6 +298,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => source.VoteTimestamp))
             .ForMember(des => des.TransactionId, opt
                 => opt.MapFrom(source => source.TransactionId))
+            .ForMember(des => des.ChainId, opt
+                => opt.MapFrom(source => source.Metadata.ChainId))
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Metadata.Block.BlockHeight))
             ;
         CreateMap<LogEventContext, VoteSchemeIndex>()
             .ForMember(des => des.BlockHeight, opt
