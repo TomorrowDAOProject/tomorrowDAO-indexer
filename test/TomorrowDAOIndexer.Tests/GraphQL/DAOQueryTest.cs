@@ -73,7 +73,7 @@ public partial class QueryTest : TomorrowDAOIndexerTestBase
         daoIndex.VoteAmount.ShouldBe(100);
         daoIndex.WithdrawAmount.ShouldBe(10);
     
-        var list = await Query.GetDAOAmountRecordAsync(DAOIndexRepository, TreasuryFundRepository, ObjectMapper, new GetDAOAmountRecordInput
+        var list = await Query.GetDAOAmountRecordAsync(DAOIndexRepository, TreasuryFundSumRepository, ObjectMapper, new GetDAOAmountRecordInput
         {
             ChainId = ChainId
         });
