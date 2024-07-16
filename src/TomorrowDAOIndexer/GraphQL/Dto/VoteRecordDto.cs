@@ -12,7 +12,7 @@ public class VoteRecordDto
     public string VotingItemId { get; set; }
     public string Voter { get; set; }
     public VoteMechanism VoteMechanism { get; set; }
-    public int Amount { get; set; }
+    public long Amount { get; set; }
     public VoteOption Option { get; set; }
     public DateTime VoteTime { get; set; }
     public DateTime StartTime { get; set; }
