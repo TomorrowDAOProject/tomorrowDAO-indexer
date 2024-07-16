@@ -22,7 +22,7 @@ public class VotedProcessor : VoteProcessorBase<Voted>
         {
             if (voteId.IsNullOrWhiteSpace())
             {
-                Logger.LogError(
+                Logger.LogInformation(
                     "[Voted] VoteId is null: Id={Id}, ChainId={ChainId}, TransactionId={TransactionId}, Event={Event}",
                     voteId, chainId, context.Transaction.TransactionId, JsonConvert.SerializeObject(logEvent));
                 return;

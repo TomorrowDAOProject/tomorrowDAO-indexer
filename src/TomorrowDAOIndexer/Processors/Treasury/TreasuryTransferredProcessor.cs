@@ -22,7 +22,7 @@ public class TreasuryTransferredProcessor : TreasuryProcessorBase<TreasuryTransf
             var treasuryFundIndex = await GetEntityAsync<TreasuryFundIndex>(id);
             if (treasuryFundIndex == null)
             {
-                Logger.LogError(
+                Logger.LogInformation(
                     "[TreasuryTransferReleased] TreasuryFund not exist, Id={Id}, ChainId={ChainId}, Symbol={Symbol}",
                     id, chainId, symbol);
                 return;
@@ -31,7 +31,7 @@ public class TreasuryTransferredProcessor : TreasuryProcessorBase<TreasuryTransf
             {
                 treasuryFundIndex.AvailableFunds -= logEvent.Amount;
                 await SaveEntityAsync(treasuryFundIndex, context);
-                Logger.LogError(
+                Logger.LogInformation(
                     "[TreasuryTransferReleased] TreasuryFund Updated, Id={Id}, AvailableFunds={AvailableFunds}, Symbol={Symbol}",
                     id, treasuryFundIndex.AvailableFunds.ToString(), symbol);
             }
