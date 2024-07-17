@@ -10,4 +10,5 @@ public class DaoVoterRecordIndex : AeFinderEntity, IAeFinderEntity
     [Keyword] public string DaoId { get; set; }
     [Keyword] public string VoterAddress { get; set; }
     public int Count { get; set; }
+    public long Amount { get; set; }
 }

@@ -79,13 +79,13 @@ public class VotedProcessor : VoteProcessorBase<Voted>
                     Id = id,
                     DaoId = voteRecordIndex.DAOId,
                     VoterAddress = voteRecordIndex.Voter,
-                    Count = 1
+                    Count = 1, Amount = voteRecordIndex.Amount
                 };
                 //update dao index
                 var daoIndex = await GetEntityAsync<DAOIndex>(voteRecordIndex.DAOId);
                 if (daoIndex == null)
                 {
-                    Logger.LogError("[Voted] update DaoVoterRecord, Dao not found: daoId={Id}", voteRecordIndex.DAOId);
+                    Logger.LogInformation("[Voted] update DaoVoterRecord, Dao not found: daoId={Id}", voteRecordIndex.DAOId);
                 }
                 else
                 {
@@ -98,6 +98,7 @@ public class VotedProcessor : VoteProcessorBase<Voted>
             else
             {
                 daoVoterRecord.Count += 1;
+                daoVoterRecord.Amount += voteRecordIndex.Amount;
             }
 
             await SaveEntityAsync(daoVoterRecord, context);

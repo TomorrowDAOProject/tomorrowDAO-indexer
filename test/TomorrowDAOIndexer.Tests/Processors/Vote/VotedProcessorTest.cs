@@ -31,5 +31,10 @@ public class VotedProcessorTest : TomorrowDAOIndexerTestBase
         latestParticipatedIndex.Address.ShouldBe(User);
         latestParticipatedIndex.DAOId.ShouldBe(daoId);
         latestParticipatedIndex.ParticipatedType.ShouldBe(ParticipatedType.Voted);
+
+        var daoVoterRecordIndex = await GetIndexById<DaoVoterRecordIndex>(IdGenerateHelper.GetId(ChainId, daoId, User));
+        daoVoterRecordIndex.ShouldNotBeNull();
+        daoVoterRecordIndex.Count.ShouldBe(1);
+        daoVoterRecordIndex.Amount.ShouldBe(100);
     }
 }
