@@ -95,6 +95,7 @@ public partial class QueryTest : TomorrowDAOIndexerTestBase
         result.Count.ShouldBe(1);
         var daoVoterRecordIndex = result[0];
         daoVoterRecordIndex.Count.ShouldBe(1);
+        daoVoterRecordIndex.Amount.ShouldBe(100);
         daoVoterRecordIndex.VoterAddress.ShouldBe(User);
         daoVoterRecordIndex.DaoId.ShouldBe(DAOId);
     }
