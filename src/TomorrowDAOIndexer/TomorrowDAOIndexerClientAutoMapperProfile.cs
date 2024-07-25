@@ -381,7 +381,10 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 opt => opt.MapFrom(source => MapDateTime(source.WithdrawTimestamp)))
             .ForMember(des => des.VotingItemIdList,
                 opt => opt.MapFrom(source => MapVotingItemIdList(source.VotingItemIdList)));
-        CreateMap<VoteWithdrawnIndex, VoteWithdrawnIndexDto>();
+        CreateMap<VoteWithdrawnIndex, VoteWithdrawnIndexDto>()
+            .ForMember(des => des.BlockHeight,
+                opt => opt.MapFrom(source => source.BlockHeight))
+            ;
         CreateMap<TomorrowDAO.Contracts.Election.VotingItem, ElectionVotingItemIndex>()
             .ForMember(des => des.VotingItemId, opt => opt.MapFrom(source => MapHash(source.VotingItemId)))
             .ForMember(des => des.RegisterTimestamp,

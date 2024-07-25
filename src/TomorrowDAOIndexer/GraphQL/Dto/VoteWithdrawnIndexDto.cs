@@ -4,6 +4,7 @@ namespace TomorrowDAOIndexer.GraphQL.Dto;
 public class VoteWithdrawnIndexDto
 {
     public string Id { get; set; }
+    public long BlockHeight { get; set; }
     public string DaoId { get; set; }
     public string Voter { get; set; }
     public long WithdrawAmount { get; set; }
