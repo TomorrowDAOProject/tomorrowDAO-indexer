@@ -121,7 +121,8 @@ public partial class Query
     {
         var queryable = await participatedRepository.GetQueryableAsync();
         queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
-            .Where(a => a.Address == input.Address);
+            .Where(a => a.Address == input.Address)
+            .Where(a => a.NewData == true);
         var participatedCount = queryable.Count();
     
         queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
