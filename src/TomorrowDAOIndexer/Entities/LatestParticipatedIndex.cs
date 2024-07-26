@@ -16,4 +16,5 @@ public class LatestParticipatedIndex : AeFinderEntity, IAeFinderEntity
     [JsonConverter(typeof(StringEnumConverter))]
     public ParticipatedType ParticipatedType { get; set; }
     public DateTime LatestParticipatedTime { get; set; }
+    public bool NewData { get; set; }
 }
