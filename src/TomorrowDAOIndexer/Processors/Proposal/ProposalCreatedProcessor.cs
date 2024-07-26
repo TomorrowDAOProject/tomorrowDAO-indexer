@@ -51,10 +51,11 @@ public class ProposalCreatedProcessor : GovernanceProcessorBase<ProposalCreated>
 
             await SaveEntityAsync(new LatestParticipatedIndex
             {
-                Id = IdGenerateHelper.GetId(chainId, proposer),
+                Id = IdGenerateHelper.GetId(chainId, DAOId, proposer),
                 DAOId = DAOId, Address = proposer,
                 ParticipatedType = ParticipatedType.Proposed,
-                LatestParticipatedTime = context.Block.BlockTime
+                LatestParticipatedTime = context.Block.BlockTime,
+                NewData = true
             }, context);
             Logger.LogInformation("[ProposalCreated] end proposalId:{proposalId} chainId:{chainId} ", proposalId, chainId);
         }
