@@ -51,10 +51,11 @@ public class VotedProcessor : VoteProcessorBase<Voted>
 
             await SaveEntityAsync(new LatestParticipatedIndex
             {
-                Id = IdGenerateHelper.GetId(chainId, voter),
+                Id = IdGenerateHelper.GetId(chainId, DAOId, voter),
                 DAOId = DAOId, Address = voter,
                 ParticipatedType = ParticipatedType.Voted,
-                LatestParticipatedTime = context.Block.BlockTime
+                LatestParticipatedTime = context.Block.BlockTime,
+                NewData = true
             }, context);
             Logger.LogInformation("[Voted] FINISH: Id={Id}, ChainId={ChainId}", voteId, chainId);
         }

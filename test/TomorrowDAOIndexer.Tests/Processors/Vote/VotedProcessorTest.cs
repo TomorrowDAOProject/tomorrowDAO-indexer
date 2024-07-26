@@ -26,7 +26,7 @@ public class VotedProcessorTest : TomorrowDAOIndexerTestBase
         voteItemIndex.ShouldNotBeNull();
         voteItemIndex.TransactionId.ShouldBe("4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce");
         
-        var latestParticipatedIndex = await GetIndexById<LatestParticipatedIndex>(IdGenerateHelper.GetId(ChainId, User));
+        var latestParticipatedIndex = await GetIndexById<LatestParticipatedIndex>(IdGenerateHelper.GetId(ChainId, daoId, User));
         latestParticipatedIndex.ShouldNotBeNull();
         latestParticipatedIndex.Address.ShouldBe(User);
         latestParticipatedIndex.DAOId.ShouldBe(daoId);

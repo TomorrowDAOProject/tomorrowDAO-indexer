@@ -66,7 +66,7 @@ public class ProposalCreatedProcessorTest : TomorrowDAOIndexerTestBase
         vetoProposalIndex.ProposalStatus.ShouldBe(ProposalStatus.Challenged);
         vetoProposalIndex.ProposalStage.ShouldBe(ProposalStage.Pending);
         
-        var latestParticipatedIndex = await GetIndexById<LatestParticipatedIndex>(IdGenerateHelper.GetId(ChainId, DAOCreator));
+        var latestParticipatedIndex = await GetIndexById<LatestParticipatedIndex>(IdGenerateHelper.GetId(ChainId, DAOId, DAOCreator));
         latestParticipatedIndex.ShouldNotBeNull();
         latestParticipatedIndex.Address.ShouldBe(DAOCreator);
         latestParticipatedIndex.DAOId.ShouldBe(DAOId);
