@@ -1,16 +1,12 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C3022ECE-9FC4-4F50-8EDB-85532F6ADC8B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BCA05EEC-6025-4CE7-8428-3E469E7BB9DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TomorrowDAO.Indexer.Plugin.Tests", "test\TomorrowDAO.Indexer.Plugin.Tests\TomorrowDAO.Indexer.Plugin.Tests.csproj", "{EB0CD4A6-0CAD-477C-BF36-A6BD9F60A8F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TomorrowDAOIndexer", "src\TomorrowDAOIndexer\TomorrowDAOIndexer.csproj", "{64080E60-BEEC-4CC7-8B54-773CF2A73182}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TomorrowDAO.Indexer.TestBase", "test\TomorrowDAO.Indexer.TestBase\TomorrowDAO.Indexer.TestBase.csproj", "{94041826-D607-4F2C-9D3A-755A356AB3CE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TomorrowDAO.Indexer.Orleans.TestBase", "test\TomorrowDAO.Indexer.Orleans.TestBase\TomorrowDAO.Indexer.Orleans.TestBase.csproj", "{26294795-BAE2-45BC-A522-2A41E7510CEA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TomorrowDAO.Indexer.Plugin", "src\TomorrowDAO.Indexer.Plugin\TomorrowDAO.Indexer.Plugin.csproj", "{4D11FA44-C981-4EB6-B2D5-00A42DC8CD38}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TomorrowDAOIndexer.Tests", "test\TomorrowDAOIndexer.Tests\TomorrowDAOIndexer.Tests.csproj", "{E2CA9096-9398-447A-8CC8-34C8E59C7FC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,27 +14,17 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{EB0CD4A6-0CAD-477C-BF36-A6BD9F60A8F8} = {BCA05EEC-6025-4CE7-8428-3E469E7BB9DA}
-		{94041826-D607-4F2C-9D3A-755A356AB3CE} = {BCA05EEC-6025-4CE7-8428-3E469E7BB9DA}
-		{26294795-BAE2-45BC-A522-2A41E7510CEA} = {BCA05EEC-6025-4CE7-8428-3E469E7BB9DA}
-		{4D11FA44-C981-4EB6-B2D5-00A42DC8CD38} = {C3022ECE-9FC4-4F50-8EDB-85532F6ADC8B}
+		{64080E60-BEEC-4CC7-8B54-773CF2A73182} = {C3022ECE-9FC4-4F50-8EDB-85532F6ADC8B}
+		{E2CA9096-9398-447A-8CC8-34C8E59C7FC6} = {BCA05EEC-6025-4CE7-8428-3E469E7BB9DA}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EB0CD4A6-0CAD-477C-BF36-A6BD9F60A8F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB0CD4A6-0CAD-477C-BF36-A6BD9F60A8F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB0CD4A6-0CAD-477C-BF36-A6BD9F60A8F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB0CD4A6-0CAD-477C-BF36-A6BD9F60A8F8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{94041826-D607-4F2C-9D3A-755A356AB3CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{94041826-D607-4F2C-9D3A-755A356AB3CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{94041826-D607-4F2C-9D3A-755A356AB3CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{94041826-D607-4F2C-9D3A-755A356AB3CE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{26294795-BAE2-45BC-A522-2A41E7510CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26294795-BAE2-45BC-A522-2A41E7510CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26294795-BAE2-45BC-A522-2A41E7510CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26294795-BAE2-45BC-A522-2A41E7510CEA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4D11FA44-C981-4EB6-B2D5-00A42DC8CD38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D11FA44-C981-4EB6-B2D5-00A42DC8CD38}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D11FA44-C981-4EB6-B2D5-00A42DC8CD38}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4D11FA44-C981-4EB6-B2D5-00A42DC8CD38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64080E60-BEEC-4CC7-8B54-773CF2A73182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64080E60-BEEC-4CC7-8B54-773CF2A73182}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64080E60-BEEC-4CC7-8B54-773CF2A73182}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64080E60-BEEC-4CC7-8B54-773CF2A73182}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2CA9096-9398-447A-8CC8-34C8E59C7FC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2CA9096-9398-447A-8CC8-34C8E59C7FC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2CA9096-9398-447A-8CC8-34C8E59C7FC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2CA9096-9398-447A-8CC8-34C8E59C7FC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
