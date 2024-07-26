@@ -43,7 +43,9 @@ public partial class Query
     {
         var queryable = await repository.GetQueryableAsync();
         queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId)
-            .Where(a => a.DaoId == input.DaoId);
+            .Where(a => a.DaoId == input.DaoId)
+            .Where(a => a.AvailableFunds > 0)
+            ;
         
         var allFunds = objectMapper.Map<List<TreasuryFundIndex>, List<TreasuryFundDto>>(queryable.ToList());
         return new GetAllTreasuryFundResultDto
