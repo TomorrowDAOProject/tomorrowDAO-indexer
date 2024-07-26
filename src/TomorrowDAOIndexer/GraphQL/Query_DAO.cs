@@ -147,10 +147,12 @@ public partial class Query
             daoInfoDto.Metadata = objectMapper.Map<DAOIndex, MetadataDto>(daoIndex);
             result.Add(daoInfoDto);
         }
+
+        var sortedResult = daoIds.Select(daoId => result.FirstOrDefault(x => x.Id == daoId)).ToList();
         return new PageResultDto<DAOInfoDto>
         {
             TotalCount = participatedCount,
-            Data = result
+            Data = sortedResult
         };
     }
 }
