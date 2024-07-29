@@ -1,6 +1,7 @@
 using AeFinder.Sdk.Logging;
 using AeFinder.Sdk.Processor;
 using AElf.CSharp.Core;
+using Newtonsoft.Json;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.Enums;
 
@@ -78,6 +79,8 @@ public abstract class VoteProcessorBase<TEvent> : ProcessorBase<TEvent> where TE
 
         voterSet.Add(voteRecordIndex.VoteId);
 
+        Logger.LogInformation("[Voted] UpdateVoteItemIndexAsyncBegin: voteItemIndex={voteItemIndex}", JsonConvert.SerializeObject(voteItemIndex));
         await SaveEntityAsync(voteItemIndex, context);
+        Logger.LogInformation("[Voted] UpdateVoteItemIndexAsyncEnd: voteItemIndex={voteItemIndex}", JsonConvert.SerializeObject(voteItemIndex));
     }
 }

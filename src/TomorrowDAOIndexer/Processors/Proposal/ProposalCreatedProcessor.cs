@@ -28,21 +28,20 @@ public class ProposalCreatedProcessor : GovernanceProcessorBase<ProposalCreated>
             {
                 Logger.LogInformation("[ProposalCreated] proposalIndex with id {id} chainId {chainId} has existed.",
                     proposalId, chainId);
+                Logger.LogInformation("[ProposalCreated] proposalIndex with id {id} chainId {chainId} has existed.", proposalId, chainId);
                 return;
             }
 
             proposalIndex = ObjectMapper.Map<ProposalCreated, ProposalIndex>(logEvent);
             var DAO = await GetEntityAsync<DAOIndex>(DAOId);
             if (DAO != null)
-            {
+            { 
                 ObjectMapper.Map(DAO, proposalIndex);
                 await UpdateDaoProposalCountAsync(DAO, context);
             }
-
-            var governanceScheme =
-                await GetEntityAsync<GovernanceSchemeIndex>(IdGenerateHelper.GetId(chainId, DAOId, schemeAddress));
+            var governanceScheme = await GetEntityAsync<GovernanceSchemeIndex>(IdGenerateHelper.GetId(chainId, DAOId, schemeAddress));
             if (governanceScheme != null)
-            {
+            { 
                 ObjectMapper.Map(governanceScheme, proposalIndex);
             }
 
@@ -52,8 +51,7 @@ public class ProposalCreatedProcessor : GovernanceProcessorBase<ProposalCreated>
 
             if (vetoProposalId != null)
             {
-                await UpdateProposal(vetoProposalId, ProposalStatus.Challenged, ProposalStage.Pending, string.Empty,
-                    proposalId, context);
+                await UpdateProposal(vetoProposalId, ProposalStatus.Challenged, ProposalStage.Pending, string.Empty, proposalId, context);
             }
 
             await SaveEntityAsync(new LatestParticipatedIndex
@@ -64,13 +62,11 @@ public class ProposalCreatedProcessor : GovernanceProcessorBase<ProposalCreated>
                 LatestParticipatedTime = context.Block.BlockTime,
                 NewData = true
             }, context);
-            Logger.LogInformation("[ProposalCreated] end proposalId:{proposalId} chainId:{chainId} ", proposalId,
-                chainId);
+            Logger.LogInformation("[ProposalCreated] end proposalId:{proposalId} chainId:{chainId} ", proposalId, chainId);
         }
         catch (Exception e)
         {
-            Logger.LogError(e, "[ProposalCreated] Exception proposalId:{proposalId} chainId:{chainId} ", proposalId,
-                chainId);
+            Logger.LogError(e, "[ProposalCreated] Exception proposalId:{proposalId} chainId:{chainId} ", proposalId, chainId);
             throw;
         }
     }
