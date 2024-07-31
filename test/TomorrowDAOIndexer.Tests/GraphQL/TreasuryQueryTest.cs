@@ -104,8 +104,8 @@ public partial class QueryTest
             MaxResultCount = 10
         });
         treasuryRecords.ShouldNotBeNull();
-        treasuryRecords.Count.ShouldBe(1);
-        var treasuryRecordDto = treasuryRecords[0];
+        treasuryRecords.Item1.ShouldBe(1);
+        var treasuryRecordDto = treasuryRecords.Item2[0];
         treasuryRecordDto.DaoId.ShouldBe(DAOId);
         treasuryRecordDto.Amount.ShouldBe(100000000);
         treasuryRecordDto.Symbol.ShouldBe(Elf);
