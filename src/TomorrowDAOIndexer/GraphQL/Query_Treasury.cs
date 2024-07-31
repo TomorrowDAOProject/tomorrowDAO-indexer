@@ -105,7 +105,7 @@ public partial class Query
     [Name("getTreasuryRecordList")]
     public static async Task<List<TreasuryRecordDto>> GetTreasuryRecordListAsync(
         [FromServices] IReadOnlyRepository<TreasuryRecordIndex> repository,
-        [FromServices] IObjectMapper objectMapper, GetTreasuryFundListInput input)
+        [FromServices] IObjectMapper objectMapper, GetTreasuryRecordListInput input)
     {
         var queryable = await repository.GetQueryableAsync();
         if (input.StartBlockHeight > 0)
@@ -127,6 +127,17 @@ public partial class Query
         if (!input.TreasuryAddress.IsNullOrWhiteSpace())
         {
             queryable = queryable.Where(a => a.TreasuryAddress == input.TreasuryAddress);
+        }
+        if (!input.FromAddress.IsNullOrWhiteSpace())
+        {
+            queryable = queryable.Where(a => a.FromAddress == input.FromAddress);
+        }
+        var symbols = input.Symbols;
+        if (!symbols.IsNullOrEmpty())
+        {
+            queryable = queryable.Where(
+                new HashSet<string>(symbols).Select(symbol => (Expression<Func<TreasuryRecordIndex, bool>>)(o => o.Symbol == symbol))
+                    .Aggregate((prev, next) => prev.Or(next)));
         }
         queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
             .OrderByDescending(a => a.BlockHeight);
