@@ -103,9 +103,9 @@ public partial class Query
     }
     
     [Name("getTreasuryRecordList")]
-    public static async Task<List<TreasuryRecordDto>> GetTreasuryRecordListAsync(
+    public static async Task<GetTreasuryRecordListResultDto> GetTreasuryRecordListAsync(
         [FromServices] IReadOnlyRepository<TreasuryRecordIndex> repository,
-        [FromServices] IObjectMapper objectMapper, GetTreasuryFundListInput input)
+        [FromServices] IObjectMapper objectMapper, GetTreasuryRecordListInput input)
     {
         var queryable = await repository.GetQueryableAsync();
         if (input.StartBlockHeight > 0)
@@ -128,8 +128,26 @@ public partial class Query
         {
             queryable = queryable.Where(a => a.TreasuryAddress == input.TreasuryAddress);
         }
+        if (!input.FromAddress.IsNullOrWhiteSpace())
+        {
+            queryable = queryable.Where(a => a.FromAddress == input.FromAddress);
+        }
+        var symbols = input.Symbols;
+        if (!symbols.IsNullOrEmpty())
+        {
+            queryable = queryable.Where(
+                new HashSet<string>(symbols).Select(symbol => (Expression<Func<TreasuryRecordIndex, bool>>)(o => o.Symbol == symbol))
+                    .Aggregate((prev, next) => prev.Or(next)));
+        }
+        
+        var count = queryable.Count();
         queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
             .OrderByDescending(a => a.BlockHeight);
-        return objectMapper.Map<List<TreasuryRecordIndex>, List<TreasuryRecordDto>>(queryable.ToList());
+        
+        return new GetTreasuryRecordListResultDto
+        {
+            Item1 = count,
+            Item2 = objectMapper.Map<List<TreasuryRecordIndex>, List<TreasuryRecordDto>>(queryable.ToList())
+        };
     }
 }
