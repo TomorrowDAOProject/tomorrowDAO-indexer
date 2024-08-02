@@ -1,5 +1,11 @@
 namespace TomorrowDAOIndexer.GraphQL.Dto;
 
+public class GetTreasuryRecordListResultDto
+{
+    public List<TreasuryRecordDto> Item2 { get; set; }
+    public long Item1 { get; set; }
+}
+
 public class TreasuryRecordDto
 {
     public string Id { get; set; }

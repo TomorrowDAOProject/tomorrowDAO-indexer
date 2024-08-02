@@ -1,5 +1,6 @@
 using AElf;
 using Shouldly;
+using TomorrowDAOIndexer.Enums;
 using TomorrowDAOIndexer.GraphQL.Dto;
 using TomorrowDAOIndexer.GraphQL.Input;
 using Xunit;
@@ -88,23 +89,29 @@ public partial class QueryTest
         await MockEventProcess(MinInfoDAOCreated(), DAOCreatedProcessor);
         await MockEventProcess(TreasuryCreated(), TreasuryCreatedProcessor);
         await TransferredProcessor.ProcessAsync(GenerateLogEventContext(TokenTransferred()));
-        
-        // var treasuryRecords = await Query.GetTreasuryRecordListAsync(TreasuryRecordRepository, ObjectMapper, new GetChainBlockHeightInput
-        // {
-        //     ChainId = ChainAelf,
-        //     StartBlockHeight = BlockHeight,
-        //     EndBlockHeight = BlockHeight + 1,
-        //     MaxResultCount = 10
-        // });
-        // treasuryRecords.ShouldNotBeNull();
-        // treasuryRecords.Count.ShouldBe(1);
-        // var treasuryRecordDto = treasuryRecords[0];
-        // treasuryRecordDto.DAOId.ShouldBe(DAOId);
-        // treasuryRecordDto.Amount.ShouldBe(1L);
-        // treasuryRecordDto.Symbol.ShouldBe(Elf);
-        // treasuryRecordDto.Executor.ShouldBe(DAOCreator);
-        // treasuryRecordDto.FromAddress.ShouldBe(DAOCreator);
-        // treasuryRecordDto.ToAddress.ShouldBe(TreasuryAccountAddress);
-        // treasuryRecordDto.TreasuryRecordType.ShouldBe(TreasuryRecordType.Donate);
+
+        var daoId = HashHelper.ComputeFrom(Id1).ToHex();
+        var treasuryRecords = await Query.GetTreasuryRecordListAsync(TreasuryRecordRepository, ObjectMapper, new GetTreasuryRecordListInput
+        {
+            SkipCount = 0,
+            ChainId = ChainId,
+            StartBlockHeight = 0,
+            EndBlockHeight = 0,
+            DaoId = daoId,
+            TreasuryAddress = TreasuryAccountAddress,
+            FromAddress = ExecuteAddress,
+            Symbols = new List<string>(){Elf},
+            MaxResultCount = 10
+        });
+        treasuryRecords.ShouldNotBeNull();
+        treasuryRecords.Item1.ShouldBe(1);
+        var treasuryRecordDto = treasuryRecords.Item2[0];
+        treasuryRecordDto.DaoId.ShouldBe(DAOId);
+        treasuryRecordDto.Amount.ShouldBe(100000000);
+        treasuryRecordDto.Symbol.ShouldBe(Elf);
+        treasuryRecordDto.Executor.ShouldBe(ExecuteAddress);
+        treasuryRecordDto.FromAddress.ShouldBe(ExecuteAddress);
+        treasuryRecordDto.ToAddress.ShouldBe(TreasuryAccountAddress);
+        treasuryRecordDto.TreasuryRecordType.ShouldBe((int)TreasuryRecordType.Deposit);
     }
 }
