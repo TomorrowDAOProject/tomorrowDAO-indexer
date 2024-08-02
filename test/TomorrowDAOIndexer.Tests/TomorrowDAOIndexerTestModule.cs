@@ -23,7 +23,7 @@ public class TomorrowDAOIndexerTestModule : AbpModule
     {
         Configure<AeFinderAppEntityOptions>(options => { options.AddTypes<TomorrowDAOIndexerModule>(); });
         
-        //  DAO
+        // DAO
         context.Services.AddSingleton<DAOCreatedProcessor>();
         context.Services.AddSingleton<FileInfosRemovedProcessor>();
         context.Services.AddSingleton<FileInfosUploadedProcessor>();
