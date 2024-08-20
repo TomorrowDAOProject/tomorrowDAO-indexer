@@ -24,5 +24,5 @@ public class VoteRecordIndex : AeFinderEntity, IAeFinderEntity
     public bool IsWithdraw { get; set; }
     public DateTime StartTime { get; set; }
     public DateTime EndTime { get; set; }
-    public string Memo { get; set; }
+    [Keyword] public string Memo { get; set; }
 }
