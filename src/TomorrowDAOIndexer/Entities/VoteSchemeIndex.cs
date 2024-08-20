@@ -17,4 +17,7 @@ public class VoteSchemeIndex : AeFinderEntity, IAeFinderEntity
     public bool IsQuadratic { get; set; }
     public long TicketCost { get; set; }
     public DateTime CreateTime { get; set; }
+    public bool WithoutLockToken { get; set; }
+    [JsonConverter(typeof(StringEnumConverter))]
+    public VoteStrategy VoteStrategy { get; set; }
 }

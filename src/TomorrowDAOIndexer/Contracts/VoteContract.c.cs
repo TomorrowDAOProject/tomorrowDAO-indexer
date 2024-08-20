@@ -26,6 +26,8 @@ namespace TomorrowDAO.Contracts.Vote {
       {
         VoteSchemeId = VoteSchemeId,
         VoteMechanism = VoteMechanism,
+        WithoutLockToken = WithoutLockToken,
+        VoteStrategy = VoteStrategy,
       };
     }
   }
@@ -77,6 +79,7 @@ namespace TomorrowDAO.Contracts.Vote {
         VoteMechanism = VoteMechanism,
         StartTime = StartTime,
         EndTime = EndTime,
+        Memo = Memo,
       };
     }
   }
@@ -235,38 +238,20 @@ namespace TomorrowDAO.Contracts.Vote {
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.VotingRegisterInput> __Marshaller_VotingRegisterInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.VotingRegisterInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.VoteInput> __Marshaller_VoteInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.VoteInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.WithdrawInput> __Marshaller_WithdrawInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.WithdrawInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.StakeInput> __Marshaller_StakeInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.StakeInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.RequestUnStakeInput> __Marshaller_RequestUnStakeInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.RequestUnStakeInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.SetStakeableTokensInput> __Marshaller_SetStakeableTokensInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.SetStakeableTokensInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.SetVotingPowerWeightInput> __Marshaller_SetVotingPowerWeightInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.SetVotingPowerWeightInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.SetMaxVotingPowersInput> __Marshaller_SetMaxVotingPowersInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.SetMaxVotingPowersInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.SetUnstakeCooldownStatusInput> __Marshaller_SetUnstakeCooldownStatusInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.SetUnstakeCooldownStatusInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.SetEmergencyStatusInput> __Marshaller_SetEmergencyStatusInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.SetEmergencyStatusInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.WithdrawInEmergencyInput> __Marshaller_WithdrawInEmergencyInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.WithdrawInEmergencyInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::AElf.Types.Hash> __Marshaller_aelf_Hash = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::AElf.Types.Hash.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.VoteScheme> __Marshaller_VoteScheme = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.VoteScheme.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.GetSupportStakeTokensOutput> __Marshaller_GetSupportStakeTokensOutput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.GetSupportStakeTokensOutput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.GetStakeTokenAmountInput> __Marshaller_GetStakeTokenAmountInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.GetStakeTokenAmountInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.TokenAmountList> __Marshaller_TokenAmountList = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.TokenAmountList.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.GetUserVotingPowerInput> __Marshaller_GetUserVotingPowerInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.GetUserVotingPowerInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.UserVotingPowersInfo> __Marshaller_UserVotingPowersInfo = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.UserVotingPowersInfo.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.DaoVotingPowersInfo> __Marshaller_DaoVotingPowersInfo = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.DaoVotingPowersInfo.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::AElf.Types.Address> __Marshaller_aelf_Address = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::AElf.Types.Address.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.VotingPowersOnProposalList> __Marshaller_VotingPowersOnProposalList = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.VotingPowersOnProposalList.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.GetTokenVotingPowersWeightInput> __Marshaller_GetTokenVotingPowersWeightInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.GetTokenVotingPowersWeightInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::Google.Protobuf.WellKnownTypes.Int32Value> __Marshaller_google_protobuf_Int32Value = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Int32Value.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.GetMaxVotingPowerInput> __Marshaller_GetMaxVotingPowerInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.GetMaxVotingPowerInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::Google.Protobuf.WellKnownTypes.Int64Value> __Marshaller_google_protobuf_Int64Value = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Google.Protobuf.WellKnownTypes.Int64Value.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.VotingItem> __Marshaller_VotingItem = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.VotingItem.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.VotingResult> __Marshaller_VotingResult = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.VotingResult.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.GetVotingSnapShotInput> __Marshaller_GetVotingSnapShotInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.GetVotingSnapShotInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.GetVotingRecordInput> __Marshaller_GetVotingRecordInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.GetVotingRecordInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.VotingRecord> __Marshaller_VotingRecord = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.VotingRecord.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.GetVirtualAddressInput> __Marshaller_GetVirtualAddressInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.GetVirtualAddressInput.Parser.ParseFrom);
-    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.VotedIds> __Marshaller_VotedIds = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.VotedIds.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::AElf.Types.Address> __Marshaller_aelf_Address = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::AElf.Types.Address.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.GetDaoRemainAmountInput> __Marshaller_GetDaoRemainAmountInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.GetDaoRemainAmountInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.DaoRemainAmount> __Marshaller_DaoRemainAmount = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.DaoRemainAmount.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.GetProposalRemainAmountInput> __Marshaller_GetProposalRemainAmountInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.GetProposalRemainAmountInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.ProposalRemainAmount> __Marshaller_ProposalRemainAmount = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.ProposalRemainAmount.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Vote.AddressList> __Marshaller_AddressList = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Vote.AddressList.Parser.ParseFrom);
     #endregion
 
     #region Methods
@@ -305,60 +290,11 @@ namespace TomorrowDAO.Contracts.Vote {
         __Marshaller_WithdrawInput,
         __Marshaller_google_protobuf_Empty);
 
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.StakeInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_Stake = new aelf::Method<global::TomorrowDAO.Contracts.Vote.StakeInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "Stake",
-        __Marshaller_StakeInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.RequestUnStakeInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_RequestUnStake = new aelf::Method<global::TomorrowDAO.Contracts.Vote.RequestUnStakeInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "RequestUnStake",
-        __Marshaller_RequestUnStakeInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.SetStakeableTokensInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SetStakeableTokens = new aelf::Method<global::TomorrowDAO.Contracts.Vote.SetStakeableTokensInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "SetStakeableTokens",
-        __Marshaller_SetStakeableTokensInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.SetVotingPowerWeightInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SetVotingPowerWeight = new aelf::Method<global::TomorrowDAO.Contracts.Vote.SetVotingPowerWeightInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "SetVotingPowerWeight",
-        __Marshaller_SetVotingPowerWeightInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.SetMaxVotingPowersInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SetMaxVotingPowers = new aelf::Method<global::TomorrowDAO.Contracts.Vote.SetMaxVotingPowersInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "SetMaxVotingPowers",
-        __Marshaller_SetMaxVotingPowersInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.SetUnstakeCooldownStatusInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SetUnstakeCooldownStatus = new aelf::Method<global::TomorrowDAO.Contracts.Vote.SetUnstakeCooldownStatusInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "SetUnstakeCooldownStatus",
-        __Marshaller_SetUnstakeCooldownStatusInput,
-        __Marshaller_google_protobuf_Empty);
-
     static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.SetEmergencyStatusInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SetEmergencyStatus = new aelf::Method<global::TomorrowDAO.Contracts.Vote.SetEmergencyStatusInput, global::Google.Protobuf.WellKnownTypes.Empty>(
         aelf::MethodType.Action,
         __ServiceName,
         "SetEmergencyStatus",
         __Marshaller_SetEmergencyStatusInput,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.WithdrawInEmergencyInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_WithdrawInEmergency = new aelf::Method<global::TomorrowDAO.Contracts.Vote.WithdrawInEmergencyInput, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "WithdrawInEmergency",
-        __Marshaller_WithdrawInEmergencyInput,
         __Marshaller_google_protobuf_Empty);
 
     static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Vote.VoteScheme> __Method_GetVoteScheme = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Vote.VoteScheme>(
@@ -367,55 +303,6 @@ namespace TomorrowDAO.Contracts.Vote {
         "GetVoteScheme",
         __Marshaller_aelf_Hash,
         __Marshaller_VoteScheme);
-
-    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Vote.GetSupportStakeTokensOutput> __Method_GetSupportStakeTokens = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Vote.GetSupportStakeTokensOutput>(
-        aelf::MethodType.View,
-        __ServiceName,
-        "GetSupportStakeTokens",
-        __Marshaller_aelf_Hash,
-        __Marshaller_GetSupportStakeTokensOutput);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.GetStakeTokenAmountInput, global::TomorrowDAO.Contracts.Vote.TokenAmountList> __Method_GetStakeTokenAmount = new aelf::Method<global::TomorrowDAO.Contracts.Vote.GetStakeTokenAmountInput, global::TomorrowDAO.Contracts.Vote.TokenAmountList>(
-        aelf::MethodType.View,
-        __ServiceName,
-        "GetStakeTokenAmount",
-        __Marshaller_GetStakeTokenAmountInput,
-        __Marshaller_TokenAmountList);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.GetUserVotingPowerInput, global::TomorrowDAO.Contracts.Vote.UserVotingPowersInfo> __Method_GetUserVotingPower = new aelf::Method<global::TomorrowDAO.Contracts.Vote.GetUserVotingPowerInput, global::TomorrowDAO.Contracts.Vote.UserVotingPowersInfo>(
-        aelf::MethodType.View,
-        __ServiceName,
-        "GetUserVotingPower",
-        __Marshaller_GetUserVotingPowerInput,
-        __Marshaller_UserVotingPowersInfo);
-
-    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Vote.DaoVotingPowersInfo> __Method_GetDaoVotingPower = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Vote.DaoVotingPowersInfo>(
-        aelf::MethodType.View,
-        __ServiceName,
-        "GetDaoVotingPower",
-        __Marshaller_aelf_Hash,
-        __Marshaller_DaoVotingPowersInfo);
-
-    static readonly aelf::Method<global::AElf.Types.Address, global::TomorrowDAO.Contracts.Vote.VotingPowersOnProposalList> __Method_GetVotingPowersOnProposalList = new aelf::Method<global::AElf.Types.Address, global::TomorrowDAO.Contracts.Vote.VotingPowersOnProposalList>(
-        aelf::MethodType.View,
-        __ServiceName,
-        "GetVotingPowersOnProposalList",
-        __Marshaller_aelf_Address,
-        __Marshaller_VotingPowersOnProposalList);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.GetTokenVotingPowersWeightInput, global::Google.Protobuf.WellKnownTypes.Int32Value> __Method_GetTokenVotingPowersWeight = new aelf::Method<global::TomorrowDAO.Contracts.Vote.GetTokenVotingPowersWeightInput, global::Google.Protobuf.WellKnownTypes.Int32Value>(
-        aelf::MethodType.View,
-        __ServiceName,
-        "GetTokenVotingPowersWeight",
-        __Marshaller_GetTokenVotingPowersWeightInput,
-        __Marshaller_google_protobuf_Int32Value);
-
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.GetMaxVotingPowerInput, global::Google.Protobuf.WellKnownTypes.Int64Value> __Method_GetMaxVotingPower = new aelf::Method<global::TomorrowDAO.Contracts.Vote.GetMaxVotingPowerInput, global::Google.Protobuf.WellKnownTypes.Int64Value>(
-        aelf::MethodType.View,
-        __ServiceName,
-        "GetMaxVotingPower",
-        __Marshaller_GetMaxVotingPowerInput,
-        __Marshaller_google_protobuf_Int64Value);
 
     static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Vote.VotingItem> __Method_GetVotingItem = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Vote.VotingItem>(
         aelf::MethodType.View,
@@ -431,13 +318,6 @@ namespace TomorrowDAO.Contracts.Vote {
         __Marshaller_aelf_Hash,
         __Marshaller_VotingResult);
 
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.GetVotingSnapShotInput, global::TomorrowDAO.Contracts.Vote.VotingResult> __Method_GetVotingSnapShot = new aelf::Method<global::TomorrowDAO.Contracts.Vote.GetVotingSnapShotInput, global::TomorrowDAO.Contracts.Vote.VotingResult>(
-        aelf::MethodType.View,
-        __ServiceName,
-        "GetVotingSnapShot",
-        __Marshaller_GetVotingSnapShotInput,
-        __Marshaller_VotingResult);
-
     static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.GetVotingRecordInput, global::TomorrowDAO.Contracts.Vote.VotingRecord> __Method_GetVotingRecord = new aelf::Method<global::TomorrowDAO.Contracts.Vote.GetVotingRecordInput, global::TomorrowDAO.Contracts.Vote.VotingRecord>(
         aelf::MethodType.View,
         __ServiceName,
@@ -445,32 +325,18 @@ namespace TomorrowDAO.Contracts.Vote {
         __Marshaller_GetVotingRecordInput,
         __Marshaller_VotingRecord);
 
-    static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.GetVirtualAddressInput, global::AElf.Types.Address> __Method_GetVirtualAddressDelete = new aelf::Method<global::TomorrowDAO.Contracts.Vote.GetVirtualAddressInput, global::AElf.Types.Address>(
-        aelf::MethodType.View,
-        __ServiceName,
-        "GetVirtualAddressDelete",
-        __Marshaller_GetVirtualAddressInput,
-        __Marshaller_aelf_Address);
-
-    static readonly aelf::Method<global::AElf.Types.Hash, global::AElf.Types.Address> __Method_GetVirtualAddress = new aelf::Method<global::AElf.Types.Hash, global::AElf.Types.Address>(
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.GetVirtualAddressInput, global::AElf.Types.Address> __Method_GetVirtualAddress = new aelf::Method<global::TomorrowDAO.Contracts.Vote.GetVirtualAddressInput, global::AElf.Types.Address>(
         aelf::MethodType.View,
         __ServiceName,
         "GetVirtualAddress",
-        __Marshaller_aelf_Hash,
+        __Marshaller_GetVirtualAddressInput,
         __Marshaller_aelf_Address);
 
-    static readonly aelf::Method<global::AElf.Types.Address, global::TomorrowDAO.Contracts.Vote.VotedIds> __Method_GetVotingIds = new aelf::Method<global::AElf.Types.Address, global::TomorrowDAO.Contracts.Vote.VotedIds>(
-        aelf::MethodType.View,
-        __ServiceName,
-        "GetVotingIds",
-        __Marshaller_aelf_Address,
-        __Marshaller_VotedIds);
-
-    static readonly aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Vote.DaoRemainAmount> __Method_GetDaoRemainAmount = new aelf::Method<global::AElf.Types.Hash, global::TomorrowDAO.Contracts.Vote.DaoRemainAmount>(
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.GetDaoRemainAmountInput, global::TomorrowDAO.Contracts.Vote.DaoRemainAmount> __Method_GetDaoRemainAmount = new aelf::Method<global::TomorrowDAO.Contracts.Vote.GetDaoRemainAmountInput, global::TomorrowDAO.Contracts.Vote.DaoRemainAmount>(
         aelf::MethodType.View,
         __ServiceName,
         "GetDaoRemainAmount",
-        __Marshaller_aelf_Hash,
+        __Marshaller_GetDaoRemainAmountInput,
         __Marshaller_DaoRemainAmount);
 
     static readonly aelf::Method<global::TomorrowDAO.Contracts.Vote.GetProposalRemainAmountInput, global::TomorrowDAO.Contracts.Vote.ProposalRemainAmount> __Method_GetProposalRemainAmount = new aelf::Method<global::TomorrowDAO.Contracts.Vote.GetProposalRemainAmountInput, global::TomorrowDAO.Contracts.Vote.ProposalRemainAmount>(
@@ -479,6 +345,13 @@ namespace TomorrowDAO.Contracts.Vote {
         "GetProposalRemainAmount",
         __Marshaller_GetProposalRemainAmountInput,
         __Marshaller_ProposalRemainAmount);
+
+    static readonly aelf::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::TomorrowDAO.Contracts.Vote.AddressList> __Method_GetBPAddresses = new aelf::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::TomorrowDAO.Contracts.Vote.AddressList>(
+        aelf::MethodType.View,
+        __ServiceName,
+        "GetBPAddresses",
+        __Marshaller_google_protobuf_Empty,
+        __Marshaller_AddressList);
 
     #endregion
 
@@ -529,82 +402,12 @@ namespace TomorrowDAO.Contracts.Vote {
     //     throw new global::System.NotImplementedException();
     //   }
     //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty Stake(global::TomorrowDAO.Contracts.Vote.StakeInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty RequestUnStake(global::TomorrowDAO.Contracts.Vote.RequestUnStakeInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty SetStakeableTokens(global::TomorrowDAO.Contracts.Vote.SetStakeableTokensInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty SetVotingPowerWeight(global::TomorrowDAO.Contracts.Vote.SetVotingPowerWeightInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty SetMaxVotingPowers(global::TomorrowDAO.Contracts.Vote.SetMaxVotingPowersInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty SetUnstakeCooldownStatus(global::TomorrowDAO.Contracts.Vote.SetUnstakeCooldownStatusInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
     //   public virtual global::Google.Protobuf.WellKnownTypes.Empty SetEmergencyStatus(global::TomorrowDAO.Contracts.Vote.SetEmergencyStatusInput input)
     //   {
     //     throw new global::System.NotImplementedException();
     //   }
     //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Empty WithdrawInEmergency(global::TomorrowDAO.Contracts.Vote.WithdrawInEmergencyInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
     //   public virtual global::TomorrowDAO.Contracts.Vote.VoteScheme GetVoteScheme(global::AElf.Types.Hash input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::TomorrowDAO.Contracts.Vote.GetSupportStakeTokensOutput GetSupportStakeTokens(global::AElf.Types.Hash input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::TomorrowDAO.Contracts.Vote.TokenAmountList GetStakeTokenAmount(global::TomorrowDAO.Contracts.Vote.GetStakeTokenAmountInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::TomorrowDAO.Contracts.Vote.UserVotingPowersInfo GetUserVotingPower(global::TomorrowDAO.Contracts.Vote.GetUserVotingPowerInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::TomorrowDAO.Contracts.Vote.DaoVotingPowersInfo GetDaoVotingPower(global::AElf.Types.Hash input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::TomorrowDAO.Contracts.Vote.VotingPowersOnProposalList GetVotingPowersOnProposalList(global::AElf.Types.Address input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Int32Value GetTokenVotingPowersWeight(global::TomorrowDAO.Contracts.Vote.GetTokenVotingPowersWeightInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::Google.Protobuf.WellKnownTypes.Int64Value GetMaxVotingPower(global::TomorrowDAO.Contracts.Vote.GetMaxVotingPowerInput input)
     //   {
     //     throw new global::System.NotImplementedException();
     //   }
@@ -619,37 +422,27 @@ namespace TomorrowDAO.Contracts.Vote {
     //     throw new global::System.NotImplementedException();
     //   }
     //
-    //   public virtual global::TomorrowDAO.Contracts.Vote.VotingResult GetVotingSnapShot(global::TomorrowDAO.Contracts.Vote.GetVotingSnapShotInput input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
     //   public virtual global::TomorrowDAO.Contracts.Vote.VotingRecord GetVotingRecord(global::TomorrowDAO.Contracts.Vote.GetVotingRecordInput input)
     //   {
     //     throw new global::System.NotImplementedException();
     //   }
     //
-    //   public virtual global::AElf.Types.Address GetVirtualAddressDelete(global::TomorrowDAO.Contracts.Vote.GetVirtualAddressInput input)
+    //   public virtual global::AElf.Types.Address GetVirtualAddress(global::TomorrowDAO.Contracts.Vote.GetVirtualAddressInput input)
     //   {
     //     throw new global::System.NotImplementedException();
     //   }
     //
-    //   public virtual global::AElf.Types.Address GetVirtualAddress(global::AElf.Types.Hash input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::TomorrowDAO.Contracts.Vote.VotedIds GetVotingIds(global::AElf.Types.Address input)
-    //   {
-    //     throw new global::System.NotImplementedException();
-    //   }
-    //
-    //   public virtual global::TomorrowDAO.Contracts.Vote.DaoRemainAmount GetDaoRemainAmount(global::AElf.Types.Hash input)
+    //   public virtual global::TomorrowDAO.Contracts.Vote.DaoRemainAmount GetDaoRemainAmount(global::TomorrowDAO.Contracts.Vote.GetDaoRemainAmountInput input)
     //   {
     //     throw new global::System.NotImplementedException();
     //   }
     //
     //   public virtual global::TomorrowDAO.Contracts.Vote.ProposalRemainAmount GetProposalRemainAmount(global::TomorrowDAO.Contracts.Vote.GetProposalRemainAmountInput input)
+    //   {
+    //     throw new global::System.NotImplementedException();
+    //   }
+    //
+    //   public virtual global::TomorrowDAO.Contracts.Vote.AddressList GetBPAddresses(global::Google.Protobuf.WellKnownTypes.Empty input)
     //   {
     //     throw new global::System.NotImplementedException();
     //   }
@@ -665,31 +458,15 @@ namespace TomorrowDAO.Contracts.Vote {
     //       .AddMethod(__Method_Register, serviceImpl.Register)
     //       .AddMethod(__Method_Vote, serviceImpl.Vote)
     //       .AddMethod(__Method_Withdraw, serviceImpl.Withdraw)
-    //       .AddMethod(__Method_Stake, serviceImpl.Stake)
-    //       .AddMethod(__Method_RequestUnStake, serviceImpl.RequestUnStake)
-    //       .AddMethod(__Method_SetStakeableTokens, serviceImpl.SetStakeableTokens)
-    //       .AddMethod(__Method_SetVotingPowerWeight, serviceImpl.SetVotingPowerWeight)
-    //       .AddMethod(__Method_SetMaxVotingPowers, serviceImpl.SetMaxVotingPowers)
-    //       .AddMethod(__Method_SetUnstakeCooldownStatus, serviceImpl.SetUnstakeCooldownStatus)
     //       .AddMethod(__Method_SetEmergencyStatus, serviceImpl.SetEmergencyStatus)
-    //       .AddMethod(__Method_WithdrawInEmergency, serviceImpl.WithdrawInEmergency)
     //       .AddMethod(__Method_GetVoteScheme, serviceImpl.GetVoteScheme)
-    //       .AddMethod(__Method_GetSupportStakeTokens, serviceImpl.GetSupportStakeTokens)
-    //       .AddMethod(__Method_GetStakeTokenAmount, serviceImpl.GetStakeTokenAmount)
-    //       .AddMethod(__Method_GetUserVotingPower, serviceImpl.GetUserVotingPower)
-    //       .AddMethod(__Method_GetDaoVotingPower, serviceImpl.GetDaoVotingPower)
-    //       .AddMethod(__Method_GetVotingPowersOnProposalList, serviceImpl.GetVotingPowersOnProposalList)
-    //       .AddMethod(__Method_GetTokenVotingPowersWeight, serviceImpl.GetTokenVotingPowersWeight)
-    //       .AddMethod(__Method_GetMaxVotingPower, serviceImpl.GetMaxVotingPower)
     //       .AddMethod(__Method_GetVotingItem, serviceImpl.GetVotingItem)
     //       .AddMethod(__Method_GetVotingResult, serviceImpl.GetVotingResult)
-    //       .AddMethod(__Method_GetVotingSnapShot, serviceImpl.GetVotingSnapShot)
     //       .AddMethod(__Method_GetVotingRecord, serviceImpl.GetVotingRecord)
-    //       .AddMethod(__Method_GetVirtualAddressDelete, serviceImpl.GetVirtualAddressDelete)
     //       .AddMethod(__Method_GetVirtualAddress, serviceImpl.GetVirtualAddress)
-    //       .AddMethod(__Method_GetVotingIds, serviceImpl.GetVotingIds)
     //       .AddMethod(__Method_GetDaoRemainAmount, serviceImpl.GetDaoRemainAmount)
-    //       .AddMethod(__Method_GetProposalRemainAmount, serviceImpl.GetProposalRemainAmount).Build();
+    //       .AddMethod(__Method_GetProposalRemainAmount, serviceImpl.GetProposalRemainAmount)
+    //       .AddMethod(__Method_GetBPAddresses, serviceImpl.GetBPAddresses).Build();
     // }
 
   }
