@@ -17,5 +17,5 @@ public class VoteRecordDto
     public DateTime VoteTime { get; set; }
     public DateTime StartTime { get; set; }
     public DateTime EndTime { get; set; }
-    public string Memo { get; set; }
+    public string? Memo { get; set; }
 }
