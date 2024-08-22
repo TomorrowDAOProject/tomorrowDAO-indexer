@@ -13,4 +13,6 @@ public class VoteSchemeInfoDto
     public bool IsQuadratic { get; set; }
     public long TicketCost { get; set; }
     public DateTime CreateTime { get; set; }
+    public bool WithoutLockToken { get; set; }
+    public VoteStrategy VoteStrategy { get; set; }
 }

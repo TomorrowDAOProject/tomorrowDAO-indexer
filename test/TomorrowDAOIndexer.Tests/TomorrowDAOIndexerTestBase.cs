@@ -468,7 +468,9 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         return new VoteSchemeCreated
         {
             VoteMechanism = VoteMechanism.UniqueVote,
-            VoteSchemeId = HashHelper.ComputeFrom(Id3)
+            VoteSchemeId = HashHelper.ComputeFrom(Id3),
+            VoteStrategy = VoteStrategy.ProposalDistinct,
+            WithoutLockToken = true
         };
     }
 
@@ -501,7 +503,8 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
             DaoId = HashHelper.ComputeFrom(Id1),
             VoteMechanism = VoteMechanism.TokenBallot,
             StartTime = DateTime.UtcNow.AddMinutes(1).ToTimestamp(),
-            EndTime = DateTime.UtcNow.AddMinutes(200).ToTimestamp()
+            EndTime = DateTime.UtcNow.AddMinutes(200).ToTimestamp(),
+            Memo = "Memo"
         };
     }
 
