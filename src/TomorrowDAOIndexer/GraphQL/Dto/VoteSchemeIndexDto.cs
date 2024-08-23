@@ -1,3 +1,5 @@
+using TomorrowDAOIndexer.Enums;
+
 namespace TomorrowDAOIndexer.GraphQL.Dto;
 
 public class VoteSchemeIndexDto : BlockInfoDto
@@ -9,4 +11,6 @@ public class VoteSchemeIndexDto : BlockInfoDto
     public bool IsQuadratic { get; set; }
     public long TicketCost { get; set; }
     public DateTime CreateTime { get; set; }
+    public bool WithoutLockToken { get; set; }
+    public VoteStrategy VoteStrategy { get; set; }
 }
