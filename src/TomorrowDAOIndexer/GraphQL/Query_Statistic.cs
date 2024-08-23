@@ -20,7 +20,8 @@ public partial class Query
         [FromServices] IReadOnlyRepository<TreasuryRecordIndex> treasuryRecordRepository,
         [FromServices] IObjectMapper objectMapper, GetDAUInput input)
     {
-        var startTime = DateTime.ParseExact(input.StartTime, TomorrowDAOConst.DateFormat, CultureInfo.InvariantCulture);
+        var startTime = string.IsNullOrEmpty(input.StartTime) ? new DateTime(1970, 1, 1)  :
+            DateTime.ParseExact(input.StartTime, TomorrowDAOConst.DateFormat, CultureInfo.InvariantCulture);
         var endTime = DateTime.ParseExact(input.EndTime, TomorrowDAOConst.DateFormat, CultureInfo.InvariantCulture);
         
         // dao
