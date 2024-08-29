@@ -26,6 +26,7 @@ public class GovernanceSchemeAddedProcessor : GovernanceProcessorBase<Governance
             governanceSchemeIndex = ObjectMapper.Map<GovernanceSchemeAdded, GovernanceSchemeIndex>(logEvent);
             governanceSchemeIndex.Id = id;
             governanceSchemeIndex.OfThreshold(logEvent.SchemeThreshold);
+            governanceSchemeIndex.CreateTime = context.Block.BlockTime;
             await SaveEntityAsync(governanceSchemeIndex, context);
             Logger.LogInformation("[GovernanceSchemeAdded] end id {id}", id);
         }
