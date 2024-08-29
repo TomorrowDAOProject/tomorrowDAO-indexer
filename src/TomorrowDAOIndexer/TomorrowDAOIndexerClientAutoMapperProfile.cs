@@ -31,8 +31,6 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<LogEventContext, DAOIndex>()
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Block.BlockHeight))
-            .ForMember(des => des.CreateTime, opt
-                => opt.MapFrom(source => source.Block.BlockTime))
             ;
         CreateMap<MetadataUpdated, DAOIndex>()
             .ForMember(des => des.Metadata, opt => opt.Ignore())
@@ -268,8 +266,6 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => source.Block.BlockHeight))
             ;
         CreateMap<LogEventContext, GovernanceSchemeIndex>()
-            .ForMember(des => des.CreateTime, opt
-                => opt.MapFrom(source => source.Block.BlockTime))
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Block.BlockHeight))
             ;
