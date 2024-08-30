@@ -72,5 +72,26 @@ public class TomorrowDAOIndexerTestModule : AbpModule
         context.Services.AddSingleton<AssociationProposalCreatedProcessor>();
         context.Services.AddSingleton<ReferendumProposalCreatedProcessor>();
         context.Services.AddSingleton<ParliamentProposalCreatedProcessor>();
+        context.Services.AddSingleton<AssociationProposalCreatedProcessor>();
+        context.Services.AddSingleton<ReferendumProposalCreatedProcessor>();
+        context.Services.AddSingleton<ParliamentProposalCreatedProcessor>();
+        context.Services.AddSingleton<AssociationOrgCreatedProcessor>();
+        context.Services.AddSingleton<AssociationOrgMemberAddedProcessor>();
+        context.Services.AddSingleton<AssociationOrgMemberChangedProcessor>();
+        context.Services.AddSingleton<AssociationOrgMemberRemovedProcessor>();
+        context.Services.AddSingleton<AssociationOrgThresholdChangedProcessor>();
+        context.Services.AddSingleton<AssociationOrgWhiteListChangedProcessor>();
+        context.Services.AddSingleton<AssociationProposalReleasedProcessor>();
+        context.Services.AddSingleton<AssociationReceiptCreatedProcessor>();
+        context.Services.AddSingleton<ParliamentOrgCreatedProcessor>();
+        context.Services.AddSingleton<ParliamentOrgThresholdChangedProcessor>();
+        context.Services.AddSingleton<ParliamentOrgWhiteListChangedProcessor>();
+        context.Services.AddSingleton<ParliamentProposalReleasedProcessor>();
+        context.Services.AddSingleton<ParliamentReceiptCreatedProcessor>();
+        context.Services.AddSingleton<ReferendumOrgCreatedProcessor>();
+        context.Services.AddSingleton<ReferendumOrgThresholdChangedProcessor>();
+        context.Services.AddSingleton<ReferendumOrgWhiteListChangedProcessor>();
+        context.Services.AddSingleton<ReferendumProposalReleasedProcessor>();
+        context.Services.AddSingleton<ReferendumReceiptCreatedProcessor>();
     }
 }

@@ -26,7 +26,7 @@ public class ParliamentProposalCreatedProcessorTests : TomorrowDAOIndexerTestBas
         var id = IdGenerateHelper.GetId(ChainId, proposalId);
         var networkDaoProposalIndex = await GetIndexById<NetworkDaoProposalIndex>(id);
         networkDaoProposalIndex.ShouldNotBeNull();
-        networkDaoProposalIndex.ProposalType.ShouldBe(NetworkDaoProposalType.Parliament);
+        networkDaoProposalIndex.OrgType.ShouldBe(NetworkDaoOrgType.Parliament);
         networkDaoProposalIndex.ProposalId.ShouldBe(proposalId);
         networkDaoProposalIndex.Metadata.ChainId.ShouldBe(ChainId);
     }

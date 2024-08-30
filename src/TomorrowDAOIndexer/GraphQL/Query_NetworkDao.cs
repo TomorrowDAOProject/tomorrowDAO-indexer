@@ -29,9 +29,9 @@ public partial class Query
         {
             queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId);
         }
-        if (input.ProposalType != NetworkDaoProposalType.All)
+        if (input.OrgType != NetworkDaoOrgType.All)
         {
-            queryable = queryable.Where(a => a.ProposalType == input.ProposalType);
+            queryable = queryable.Where(a => a.OrgType == input.OrgType);
         }
         if (!input.ProposalIds.IsNullOrEmpty())
         {

@@ -27,7 +27,7 @@ public class AssociationProposalCreatedProcessorTests : TomorrowDAOIndexerTestBa
         var id = IdGenerateHelper.GetId(ChainId, proposalId);
         var networkDaoProposalIndex = await GetIndexById<NetworkDaoProposalIndex>(id);
         networkDaoProposalIndex.ShouldNotBeNull();
-        networkDaoProposalIndex.ProposalType.ShouldBe(NetworkDaoProposalType.Association);
+        networkDaoProposalIndex.OrgType.ShouldBe(NetworkDaoOrgType.Association);
         networkDaoProposalIndex.ProposalId.ShouldBe(proposalId);
         networkDaoProposalIndex.Metadata.ChainId.ShouldBe(ChainId);
     }
