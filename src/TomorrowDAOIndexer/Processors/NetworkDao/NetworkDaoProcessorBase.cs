@@ -4,6 +4,7 @@ using AElf.CSharp.Core;
 using AElf.Standards.ACS3;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.Enums;
+using TomorrowDAOIndexer.Processors.Common;
 
 namespace TomorrowDAOIndexer.Processors.NetworkDao;
 

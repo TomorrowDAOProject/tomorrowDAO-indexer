@@ -1,4 +1,5 @@
 using AeFinder.Sdk.Processor;
+using AElf.Contracts.MultiToken;
 using TomorrowDAO.Contracts.DAO;
 using TomorrowDAO.Contracts.Election;
 using TomorrowDAO.Contracts.Governance;
@@ -172,6 +173,8 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<LogEventContext, TreasuryRecordIndex>()
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Block.BlockHeight))
+            .ForMember(des => des.CreateTime, opt
+                => opt.MapFrom(source => source.Block.BlockTime))
             ;
         CreateMap<TreasuryTransferred, TreasuryRecordIndex>()
             .ForMember(des => des.DaoId, opt
@@ -184,6 +187,14 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
                 => opt.MapFrom(source => MapAddress(source.Executor)))
             .ForMember(des => des.ProposalId, opt
                 => opt.MapFrom(source => MapHash(source.ProposalId)))
+            ;
+        CreateMap<Transferred, TreasuryRecordIndex>()
+            .ForMember(des => des.Executor, opt
+                => opt.MapFrom(source => MapAddress(source.From)))
+            .ForMember(des => des.FromAddress, opt
+                => opt.MapFrom(source => MapAddress(source.From)))
+            .ForMember(des => des.ToAddress, opt
+                => opt.MapFrom(source => MapAddress(source.To)))
             ;
         CreateMap<LogEventContext, ElectionIndex>()
             .ForMember(des => des.BlockHeight, opt

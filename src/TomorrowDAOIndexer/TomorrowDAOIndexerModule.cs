@@ -10,6 +10,7 @@ using TomorrowDAOIndexer.Processors.NetworkDao.Parliament;
 using TomorrowDAOIndexer.Processors.NetworkDao.Referendum;
 using TomorrowDAOIndexer.Processors.Proposal;
 using TomorrowDAOIndexer.Processors.Token;
+using TomorrowDAOIndexer.Processors.TokenConverter;
 using TomorrowDAOIndexer.Processors.Treasury;
 using TomorrowDAOIndexer.Processors.Vote;
 using Volo.Abp.AutoMapper;
@@ -24,6 +25,10 @@ public class TomorrowDAOIndexerModule: AbpModule
     {
         Configure<AbpAutoMapperOptions>(options => { options.AddMaps<TomorrowDAOIndexerModule>(); });
         context.Services.AddSingleton<ISchema, AppSchema>();
+        
+        // TokenConverter
+        context.Services.AddTransient<ILogEventProcessor, TokenSoldProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, TokenBoughtProcessor>();
         
         // DAO
         context.Services.AddTransient<ILogEventProcessor, DAOCreatedProcessor>();
@@ -74,5 +79,9 @@ public class TomorrowDAOIndexerModule: AbpModule
         context.Services.AddTransient<ILogEventProcessor, AssociationProposalCreatedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, ReferendumProposalCreatedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, ParliamentProposalCreatedProcessor>();
+        // context.Services.AddTransient<ILogEventProcessor, NetworkDaoTransferredProcessor>();
+        
+        // Transaction
+        // context.Services.AddSingleton<ITransactionProcessor, TransactionProcessor>();
     }
 }

@@ -3,7 +3,7 @@ using AeFinder.Sdk.Processor;
 using AElf.CSharp.Core;
 using Volo.Abp.ObjectMapping;
 
-namespace TomorrowDAOIndexer.Processors;
+namespace TomorrowDAOIndexer.Processors.Common;
 
 public abstract class ProcessorBase<TEvent> : LogEventProcessorBase<TEvent> where TEvent : IEvent<TEvent>, new()
 {
