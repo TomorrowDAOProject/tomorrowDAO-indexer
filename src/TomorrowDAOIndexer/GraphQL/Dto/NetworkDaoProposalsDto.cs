@@ -23,7 +23,7 @@ public class GetNetworkDaoProposalsInput
 {
     public string? ChainId { get; set; }
     public List<string?>? ProposalIds { get; set; }
-    public NetworkDaoProposalType ProposalType { get; set; }
+    public NetworkDaoOrgType OrgType { get; set; }
     public int SkipCount { get; set; } = 0;
     public int MaxResultCount { get; set; } = 10;
     public long StartBlockHeight { get; set; }

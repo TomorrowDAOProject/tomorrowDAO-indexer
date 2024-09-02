@@ -1,5 +1,6 @@
 using AeFinder.Sdk.Processor;
 using AElf.Contracts.MultiToken;
+using AElf.Contracts.Referendum;
 using TomorrowDAO.Contracts.DAO;
 using TomorrowDAO.Contracts.Election;
 using TomorrowDAO.Contracts.Governance;
@@ -13,6 +14,7 @@ using FileInfoIndexer = TomorrowDAOIndexer.Entities.FileInfo;
 using FileInfoContract = TomorrowDAO.Contracts.DAO.FileInfo;
 using FileIndexer = TomorrowDAOIndexer.Entities.File;
 using FileContract = TomorrowDAO.Contracts.DAO.File;
+using Transaction = TomorrowDAOIndexer.Entities.Transaction;
 using Voted = TomorrowDAO.Contracts.Vote.Voted;
 
 namespace TomorrowDAOIndexer;
@@ -410,6 +412,27 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Block.BlockHeight))
             ;
+        CreateMap<LogEventContext, NetworkDaoProposalReleasedIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight));
+        CreateMap<LogEventContext, NetworkDaoProposalVoteRecordIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight));
+        CreateMap<LogEventContext, NetworkDaoOrgCreatedIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight));
+        CreateMap<LogEventContext, NetworkDaoOrgChangedIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight));
+        CreateMap<LogEventContext, NetworkDaoOrgWhiteListChangedIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight));
+        CreateMap<LogEventContext, NetworkDaoOrgThresholdChangedIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight));
+        CreateMap<LogEventContext, NetworkDaoOrgMemberChangedIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight));
         CreateMap<NetworkDaoProposalIndex, NetworkDaoProposal>()
             .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
             .ForMember(des => des.BlockHash, opt => opt.MapFrom(source => source.Metadata.Block.BlockHash))
@@ -420,6 +443,45 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.ProposalId, opt => opt.MapFrom(source => MapHash(source.ProposalId)))
             .ForMember(des => des.OrganizationAddress,
                 opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)));
+        CreateMap<AElf.Standards.ACS3.ProposalReleased, NetworkDaoProposalReleasedIndex>()
+            .ForMember(des => des.ProposalId, opt => opt.MapFrom(source => MapHash(source.ProposalId)))
+            .ForMember(des => des.OrganizationAddress,
+                opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)));
+        CreateMap<AElf.Standards.ACS3.ReceiptCreated, NetworkDaoProposalVoteRecordIndex>()
+            .ForMember(des => des.ProposalId, opt => opt.MapFrom(source => MapHash(source.ProposalId)))
+            .ForMember(des => des.Address, opt => opt.MapFrom(source => MapAddress(source.Address)))
+            .ForMember(des => des.ReceiptType, opt => opt.MapFrom(source => MapReceiptType(source.ReceiptType)))
+            .ForMember(des => des.OrganizationAddress, opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)));
+        CreateMap<ReferendumReceiptCreated, NetworkDaoProposalVoteRecordIndex>()
+            .ForMember(des => des.ProposalId, opt => opt.MapFrom(source => MapHash(source.ProposalId)))
+            .ForMember(des => des.Address, opt => opt.MapFrom(source => MapAddress(source.Address)))
+            .ForMember(des => des.ReceiptType, opt => opt.MapFrom(source => MapReceiptType(source.ReceiptType)))
+            .ForMember(des => des.OrganizationAddress, opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)))
+            .ForMember(des => des.Time, opt => opt.MapFrom(source => MapDateTime(source.Time)));
+        CreateMap<AElf.Standards.ACS3.OrganizationCreated, NetworkDaoOrgCreatedIndex>()
+            .ForMember(des => des.OrganizationAddress, opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)));
+        CreateMap<AeFinder.Sdk.Processor.Transaction, Transaction>()
+            .ForMember(des => des.Status, opt => opt.MapFrom(source => MapTransactionStatus(source.Status)));
+        CreateMap<AElf.Standards.ACS3.OrganizationWhiteListChanged, NetworkDaoOrgWhiteListChangedIndex>()
+            .ForMember(des => des.OrganizationAddress, opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)))
+            .ForMember(des => des.ProposerWhiteList, opt => opt.MapFrom(source => MapAddressList(source.ProposerWhiteList.Proposers)));
+        CreateMap<AElf.Standards.ACS3.OrganizationThresholdChanged, NetworkDaoOrgThresholdChangedIndex>()
+            .ForMember(des => des.OrganizationAddress, opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)))
+            .ForMember(des => des.MinimalApprovalThreshold, opt => opt.MapFrom(source => source.ProposerReleaseThreshold.MinimalApprovalThreshold))
+            .ForMember(des => des.MaximalRejectionThreshold, opt => opt.MapFrom(source => source.ProposerReleaseThreshold.MaximalRejectionThreshold))
+            .ForMember(des => des.MaximalAbstentionThreshold, opt => opt.MapFrom(source => source.ProposerReleaseThreshold.MaximalAbstentionThreshold))
+            .ForMember(des => des.MinimalVoteThreshold, opt => opt.MapFrom(source => source.ProposerReleaseThreshold.MinimalVoteThreshold));
+        CreateMap<AElf.Contracts.Association.MemberAdded, NetworkDaoOrgMemberChangedIndex>()
+            .ForMember(des => des.OrganizationAddress, opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)))
+            .ForMember(des => des.AddedAddress, opt => opt.MapFrom(source => MapAddress(source.Member)));
+        CreateMap<AElf.Contracts.Association.MemberRemoved, NetworkDaoOrgMemberChangedIndex>()
+            .ForMember(des => des.OrganizationAddress, opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)))
+            .ForMember(des => des.RemovedAddress, opt => opt.MapFrom(source => MapAddress(source.Member)));
+        CreateMap<AElf.Contracts.Association.MemberChanged, NetworkDaoOrgMemberChangedIndex>()
+            .ForMember(des => des.OrganizationAddress, opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)))
+            .ForMember(des => des.AddedAddress, opt => opt.MapFrom(source => MapAddress(source.NewMember)))
+            .ForMember(des => des.RemovedAddress, opt => opt.MapFrom(source => MapAddress(source.OldMember)));
+        CreateMap<AElf.Standards.ACS3.ReceiptCreated, ReferendumReceiptCreated>();
         CreateMap<DAOIndex, GetDAOAmountRecordDto>()
             .ForMember(des => des.Amount, opt => opt.MapFrom(source => source.VoteAmount - source.WithdrawAmount))
             ;

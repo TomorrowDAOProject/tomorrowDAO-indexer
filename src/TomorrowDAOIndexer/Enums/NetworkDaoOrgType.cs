@@ -1,6 +1,6 @@
 namespace TomorrowDAOIndexer.Enums;
 
-public enum NetworkDaoProposalType
+public enum NetworkDaoOrgType
 {
     All = 0,
     Parliament = 1,
