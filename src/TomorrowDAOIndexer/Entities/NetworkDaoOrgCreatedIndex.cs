@@ -27,12 +27,4 @@ public class Transaction
     public string To { get; set; }
 
     public string MethodName { get; set; }
-
-    public string Params { get; set; }
-
-    public int Index { get; set; }
-
-    public string Status { get; set; }
-
-    public Dictionary<string, string> ExtraProperties { get; set; }
 }
