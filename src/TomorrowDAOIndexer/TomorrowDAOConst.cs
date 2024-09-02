@@ -58,19 +58,19 @@ public class TomorrowDAOConst
 
     public const string DateFormat = "yyyy-MM-dd HH:mm:ss";
     
-    public static readonly Dictionary<string, Dictionary<string, List<string>>> TransactionAddressMethodMap = new()
-    {
-        {
-            MainChainId, new Dictionary<string, List<string>>
-            {
-                { TokenConverterContractAddress, [
-                    TokenConverterContractAddressBuyMethod, 
-                    TokenConverterContractAddressSellMethod,
-                    TokenConverterContractAddressCaMethod
-                ] }
-            }
-        }
-    };
+    // public static readonly Dictionary<string, Dictionary<string, List<string>>> TransactionAddressMethodMap = new()
+    // {
+    //     {
+    //         MainChainId, new Dictionary<string, List<string>>
+    //         {
+    //             { TokenConverterContractAddress, [
+    //                 TokenConverterContractAddressBuyMethod, 
+    //                 TokenConverterContractAddressSellMethod,
+    //                 TokenConverterContractAddressCaMethod
+    //             ] }
+    //         }
+    //     }
+    // };
 
     public static readonly Dictionary<string, string> MethodEventMap = new()
     {
