@@ -101,5 +101,9 @@ public class TomorrowDAOIndexerModule: AbpModule
         
         // Transaction
         // context.Services.AddSingleton<ITransactionProcessor, TransactionProcessor>();
+        
+        // token
+        context.Services.AddTransient<ILogEventProcessor, IssuedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, BurnedProcessor>();
     }
 }

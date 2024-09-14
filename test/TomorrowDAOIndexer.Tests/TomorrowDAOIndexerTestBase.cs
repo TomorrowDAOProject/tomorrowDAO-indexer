@@ -43,6 +43,7 @@ using AddressListDAO = TomorrowDAO.Contracts.DAO.AddressList;
 using ProposalCreated = TomorrowDAO.Contracts.Governance.ProposalCreated;
 using ProposalStatus = TomorrowDAO.Contracts.Governance.ProposalStatus;
 using ProposalType = TomorrowDAO.Contracts.Governance.ProposalType;
+using Transaction = AeFinder.Sdk.Processor.Transaction;
 using Vote = TomorrowDAOIndexer.Processors.Vote;
 using VoteMechanism = TomorrowDAO.Contracts.Vote.VoteMechanism;
 using VoteOption = TomorrowDAO.Contracts.Vote.VoteOption;
@@ -70,6 +71,8 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     protected readonly HighCouncilEnabledProcessor HighCouncilEnabledProcessor;
     protected readonly SubsistStatusSetProcessor SubsistStatusSetProcessor;
     protected readonly TransferredProcessor TransferredProcessor;
+    protected readonly IssuedProcessor IssuedProcessor;
+    protected readonly BurnedProcessor BurnedProcessor;
     protected readonly TreasuryCreatedProcessor TreasuryCreatedProcessor;
     protected readonly TreasuryTransferredProcessor TreasuryTransferredProcessor;
     protected readonly CandidateAddedProcessor CandidateAddedProcessor;
@@ -152,6 +155,10 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     protected readonly string DAOMetadataAdmin = "2N9DJYUUruS7bFqRyKMvafA75qTWgqpWcB78nNZzpmxHrMv4D";
     protected readonly string DAO = "2N9DJYUUruS7bFqRyKMvafA75qTWgqpWcB78nNZzpmxHrMv4D";
     protected readonly string Elf = "ELF";
+    protected readonly string tDVW = "tDVW";
+    protected readonly string tDVV = "tDVV";
+    protected readonly string TOMORROWPASS = "TOMORROWPASS-1";
+    protected readonly string TOMORROWPASSTEST = "TOMORROWPASSTEST-1";
     protected readonly string SchemeId = HashHelper.ComputeFrom(Id2).ToHex();
     protected static readonly string SubId = "456-1";
     protected readonly string FileHash = "FileHash";
@@ -211,6 +218,8 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         DAOCreatedProcessor = GetRequiredService<DAOCreatedProcessor>();
         MetadataUpdatedProcessor = GetRequiredService<MetadataUpdatedProcessor>();
         TransferredProcessor = GetRequiredService<TransferredProcessor>();
+        IssuedProcessor = GetRequiredService<IssuedProcessor>();
+        BurnedProcessor = GetRequiredService<BurnedProcessor>();
         TreasuryCreatedProcessor = GetRequiredService<TreasuryCreatedProcessor>();
         TreasuryTransferredProcessor = GetRequiredService<TreasuryTransferredProcessor>();
         CandidateAddedProcessor = GetRequiredService<CandidateAddedProcessor>();
@@ -297,7 +306,15 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     {
         await processor.ProcessAsync(logEvent, GenerateLogEventContext(logEvent));
     }
-    
+
+    protected LogEventContext GenerateLogEventContext<T>(string chainId, T eventData, Transaction transaction = null)
+        where T : IEvent<T>
+    {
+        var context = GenerateLogEventContext(eventData);
+        context.ChainId = chainId;
+        return context;
+    }
+
     protected async Task CheckFileInfo(DAOIndex index)
     {
         index.ShouldNotBeNull();
@@ -391,15 +408,36 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         };
     }
 
-    protected Transferred TokenTransferred()
+    protected Transferred TokenTransferred(string symbol = "ELF")
     {
         return new Transferred
         {
             From = Address.FromBase58(ExecuteAddress),
             To = Address.FromBase58(TreasuryAccountAddress),
-            Symbol = Elf,
+            Symbol = symbol,
             Amount = 100000000,
             Memo = "Test",
+        };
+    }
+    
+    protected Issued Issued(string symbol = "Elf")
+    {
+        return new Issued
+        {
+            To = Address.FromBase58(ExecuteAddress),
+            Symbol = symbol,
+            Amount = 200000000,
+            Memo = "Test",
+        };
+    }
+    
+    protected Burned Burned(string symbol = "Elf")
+    {
+        return new Burned
+        {
+            Burner = Address.FromBase58(ExecuteAddress),
+            Symbol = symbol,
+            Amount = 100000000
         };
     }
 

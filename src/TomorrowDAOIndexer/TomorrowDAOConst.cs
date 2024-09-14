@@ -82,4 +82,8 @@ public class TomorrowDAOConst
     public const string TokenConverterContractAddressSellMethod = "Sell";
     public const string TokenConverterContractAddressCaMethod = "ManagerForwardCall";
     public const string NetworkDaoId = "e9e131724d50de8fce13629043dc8a58a6692be57417985972418159cd883d72";
+    
+    // Votigram
+    public const string VotigramCollectionSymbolTestNet = "TOMORROWPASSTEST-"; 
+    public const string VotigramCollectionSymbolMainNet = "TOMORROWPASS-"; 
 }
