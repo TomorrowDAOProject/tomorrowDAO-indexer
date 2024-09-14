@@ -74,5 +74,9 @@ public class TomorrowDAOIndexerModule: AbpModule
         context.Services.AddTransient<ILogEventProcessor, AssociationProposalCreatedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, ReferendumProposalCreatedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, ParliamentProposalCreatedProcessor>();
+        
+        // token
+        context.Services.AddTransient<ILogEventProcessor, IssuedProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, BurnedProcessor>();
     }
 }
