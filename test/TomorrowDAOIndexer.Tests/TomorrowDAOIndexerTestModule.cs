@@ -72,5 +72,9 @@ public class TomorrowDAOIndexerTestModule : AbpModule
         context.Services.AddSingleton<AssociationProposalCreatedProcessor>();
         context.Services.AddSingleton<ReferendumProposalCreatedProcessor>();
         context.Services.AddSingleton<ParliamentProposalCreatedProcessor>();
+        
+        // token
+        context.Services.AddSingleton<IssuedProcessor>();
+        context.Services.AddSingleton<BurnedProcessor>();
     }
 }
