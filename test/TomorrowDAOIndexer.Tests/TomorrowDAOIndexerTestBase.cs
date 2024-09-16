@@ -225,6 +225,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         VoteRecordIndexRepository = GetRequiredService<IReadOnlyRepository<VoteRecordIndex>>();
         DAOIndexRepository = GetRequiredService<IReadOnlyRepository<DAOIndex>>();
         DaoVoterRecordIndexRepository = GetRequiredService<IReadOnlyRepository<DaoVoterRecordIndex>>();
+        UserBalanceIndexRepository = GetRequiredService<IReadOnlyRepository<UserBalanceIndex>>();
         ObjectMapper = GetRequiredService<IObjectMapper>();
     }
 

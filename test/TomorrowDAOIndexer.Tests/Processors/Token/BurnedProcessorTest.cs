@@ -29,6 +29,7 @@ public class BurnedProcessorTest : TomorrowDAOIndexerTestBase
         var userBalance = await GetIndexById<UserBalanceIndex>(id);
         userBalance.ShouldNotBeNull();
         userBalance.Amount.ShouldBe(100000000);
+        userBalance.BlockHeight.ShouldBe(BlockHeight);
         
         await IssuedProcessor.ProcessAsync(GenerateLogEventContext(tDVV, Issued(TOMORROWPASS)));
         await BurnedProcessor.ProcessAsync(GenerateLogEventContext(tDVV, Burned(TOMORROWPASS)));
@@ -36,5 +37,6 @@ public class BurnedProcessorTest : TomorrowDAOIndexerTestBase
         userBalance = await GetIndexById<UserBalanceIndex>(id);
         userBalance.ShouldNotBeNull();
         userBalance.Amount.ShouldBe(100000000);
+        userBalance.BlockHeight.ShouldBe(BlockHeight);
     }
 }
