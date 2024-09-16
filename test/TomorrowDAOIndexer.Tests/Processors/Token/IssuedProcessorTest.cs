@@ -28,19 +28,23 @@ public class IssuedProcessorTest : TomorrowDAOIndexerTestBase
         var toUserBalance = await GetIndexById<UserBalanceIndex>(toId);
         toUserBalance.ShouldNotBeNull();
         toUserBalance.Amount.ShouldBe(200000000);
+        toUserBalance.BlockHeight.ShouldBe(BlockHeight);
         await IssuedProcessor.ProcessAsync(GenerateLogEventContext(tDVW, Issued(TOMORROWPASSTEST)));
         toUserBalance = await GetIndexById<UserBalanceIndex>(toId);
         toUserBalance.ShouldNotBeNull();
         toUserBalance.Amount.ShouldBe(400000000);
+        toUserBalance.BlockHeight.ShouldBe(BlockHeight);
         
         await IssuedProcessor.ProcessAsync(GenerateLogEventContext(tDVV, Issued(TOMORROWPASS)));
         toId = IdGenerateHelper.GetId(ExecuteAddress, tDVV, TOMORROWPASS);
         toUserBalance = await GetIndexById<UserBalanceIndex>(toId);
         toUserBalance.ShouldNotBeNull();
         toUserBalance.Amount.ShouldBe(200000000);
+        toUserBalance.BlockHeight.ShouldBe(BlockHeight);
         await IssuedProcessor.ProcessAsync(GenerateLogEventContext(tDVV, Issued(TOMORROWPASS)));
         toUserBalance = await GetIndexById<UserBalanceIndex>(toId);
         toUserBalance.ShouldNotBeNull();
         toUserBalance.Amount.ShouldBe(400000000);
+        toUserBalance.BlockHeight.ShouldBe(BlockHeight);
     }
 }

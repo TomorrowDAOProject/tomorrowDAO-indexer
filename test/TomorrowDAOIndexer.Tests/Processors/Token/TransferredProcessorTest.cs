@@ -75,8 +75,10 @@ public class TransferredProcessorTest : TomorrowDAOIndexerTestBase
         var fromUserBalance = await GetIndexById<UserBalanceIndex>(fromId);
         var toUserBalance = await GetIndexById<UserBalanceIndex>(toId);
         fromUserBalance.ShouldNotBeNull();
+        fromUserBalance.BlockHeight.ShouldBe(BlockHeight);
         fromUserBalance.Amount.ShouldBe(100000000);
         toUserBalance.ShouldNotBeNull();
+        toUserBalance.BlockHeight.ShouldBe(BlockHeight);
         toUserBalance.Amount.ShouldBe(100000000);
         
         await IssuedProcessor.ProcessAsync(GenerateLogEventContext(tDVV, Issued(TOMORROWPASS)));
@@ -86,8 +88,10 @@ public class TransferredProcessorTest : TomorrowDAOIndexerTestBase
         fromUserBalance = await GetIndexById<UserBalanceIndex>(fromId);
         toUserBalance = await GetIndexById<UserBalanceIndex>(toId);
         fromUserBalance.ShouldNotBeNull();
+        fromUserBalance.BlockHeight.ShouldBe(BlockHeight);
         fromUserBalance.Amount.ShouldBe(100000000);
         toUserBalance.ShouldNotBeNull();
+        fromUserBalance.BlockHeight.ShouldBe(BlockHeight);
         toUserBalance.Amount.ShouldBe(100000000);
     }
 }
