@@ -137,6 +137,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     protected readonly IReadOnlyRepository<ProposalIndex> ProposalIndexRepository;
     protected readonly IReadOnlyRepository<VoteRecordIndex> VoteRecordIndexRepository;
     protected readonly IReadOnlyRepository<DaoVoterRecordIndex> DaoVoterRecordIndexRepository;
+    protected readonly IReadOnlyRepository<UserBalanceIndex> UserBalanceIndexRepository;
     // mapper
     protected readonly IObjectMapper ObjectMapper;
     // param

@@ -30,13 +30,15 @@ public abstract class TokenProcessorBase<TEvent> : StatisticProcessorBase<TEvent
                 Address = address,
                 Amount = deltaAmount,
                 Symbol = symbol,
-                ChangeTime = context.Block.BlockTime
+                ChangeTime = context.Block.BlockTime,
+                BlockHeight = context.Block.BlockHeight
             };
         }
         else
         {
             userBalanceIndex.Amount += deltaAmount;
             userBalanceIndex.ChangeTime = context.Block.BlockTime;
+            userBalanceIndex.BlockHeight = context.Block.BlockHeight;
         }
 
         await SaveEntityAsync(userBalanceIndex);
