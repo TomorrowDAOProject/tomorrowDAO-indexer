@@ -99,6 +99,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     protected readonly IReadOnlyRepository<ProposalIndex> ProposalIndexRepository;
     protected readonly IReadOnlyRepository<VoteRecordIndex> VoteRecordIndexRepository;
     protected readonly IReadOnlyRepository<DaoVoterRecordIndex> DaoVoterRecordIndexRepository;
+    protected readonly IReadOnlyRepository<UserBalanceIndex> UserBalanceIndexRepository;
     // mapper
     protected readonly IObjectMapper ObjectMapper;
     // param
@@ -224,6 +225,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         VoteRecordIndexRepository = GetRequiredService<IReadOnlyRepository<VoteRecordIndex>>();
         DAOIndexRepository = GetRequiredService<IReadOnlyRepository<DAOIndex>>();
         DaoVoterRecordIndexRepository = GetRequiredService<IReadOnlyRepository<DaoVoterRecordIndex>>();
+        UserBalanceIndexRepository = GetRequiredService<IReadOnlyRepository<UserBalanceIndex>>();
         ObjectMapper = GetRequiredService<IObjectMapper>();
     }
 

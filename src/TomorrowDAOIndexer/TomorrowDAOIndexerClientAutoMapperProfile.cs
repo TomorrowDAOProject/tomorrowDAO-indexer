@@ -416,5 +416,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<DAOIndex, GetDAOAmountRecordDto>()
             .ForMember(des => des.Amount, opt => opt.MapFrom(source => source.VoteAmount - source.WithdrawAmount))
             ;
+        CreateMap<UserBalanceIndex, UserBalanceDto>()
+            ;
     }
 }
