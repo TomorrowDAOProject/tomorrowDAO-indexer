@@ -3,6 +3,7 @@ namespace TomorrowDAOIndexer.GraphQL.Dto;
 public class UserBalanceDto
 {
     public string Id { get; set; }
+    public string ChainId { get; set; }
     
     public string Address { get; set; }
     

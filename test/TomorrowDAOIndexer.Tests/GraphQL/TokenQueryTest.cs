@@ -21,5 +21,6 @@ public partial class QueryTest
        var userBalanceDto = result[0];
        userBalanceDto.Amount.ShouldBe(100000000);
        userBalanceDto.BlockHeight.ShouldBe(BlockHeight);
+       userBalanceDto.ChainId.ShouldBe(ChainId);
     }
 }
