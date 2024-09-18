@@ -19,15 +19,15 @@ public class IssuedProcessor : TokenProcessorBase<Issued>
                 return;
             }
             
-            Logger.LogInformation("[Burned] START: ChainId={ChainId}, to={toAddress}, amount={amount}",
+            Logger.LogInformation("[Issued] START: ChainId={ChainId}, to={toAddress}, amount={amount}",
                 chainId, toAddress, amount);
             await SaveUserBalanceAsync(symbol, toAddress, amount, context);
-            Logger.LogInformation("[Burned] FINISH: ChainId={ChainId}, to={toAddress}, amount={amount}",
+            Logger.LogInformation("[Issued] FINISH: ChainId={ChainId}, to={toAddress}, amount={amount}",
                 chainId, toAddress, amount);
         }
         catch (Exception e)
         {
-            Logger.LogError(e, "[Burned] FINISH: ChainId={ChainId}, to={toAddress}, amount={amount}",
+            Logger.LogError(e, "[Issued] FINISH: ChainId={ChainId}, to={toAddress}, amount={amount}",
                 chainId, toAddress, amount);
             throw;
         }
