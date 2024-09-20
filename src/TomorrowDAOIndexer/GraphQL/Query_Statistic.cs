@@ -60,6 +60,11 @@ public partial class Query
         return new DAUCountDto
         {
             Dau = count,
+            DauDaoCreate = daoList.Count,
+            DauVote = voteRecordList.Count,
+            DauProposalCreate = proposalList.Count,
+            DauProposalExecute = proposalExecuteList.Count,
+            DauTreasury = treasuryList.Count
         };
     }
 }
