@@ -54,4 +54,8 @@ public class TomorrowDAOConst
     public const string ReferendumContractAddressMainNetSideChain = "V8NtmXA5TsuZKPK1bJMNGK6Gqomt1abvXeGWEpyMpC77s1toc";
 
     public const string DateFormat = "yyyy-MM-dd HH:mm:ss";
+    
+    // Votigram
+    public const string VotigramCollectionSymbolTestNet = "TOMORROWPASSTEST-"; 
+    public const string VotigramCollectionSymbolMainNet = "TOMORROWPASS-"; 
 }
