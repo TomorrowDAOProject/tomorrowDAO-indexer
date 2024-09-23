@@ -2,11 +2,12 @@ using AeFinder.Sdk.Entities;
 using Nest;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using TomorrowDAOIndexer.Entities.Base;
 using TomorrowDAOIndexer.Enums;
 
 namespace TomorrowDAOIndexer.Entities;
 
-public class NetworkDaoOrgThresholdChangedIndex : AeFinderEntity, IAeFinderEntity
+public class NetworkDaoOrgThresholdChangedIndex : AeFinderEntity, IAeFinderEntity, ITransactionEntity
 {
     [Keyword]
     public string OrganizationAddress { get; set; }
@@ -18,5 +19,6 @@ public class NetworkDaoOrgThresholdChangedIndex : AeFinderEntity, IAeFinderEntit
     [Keyword]
     public NetworkDaoOrgType OrgType { get; set; }
     public long BlockHeight { get; set; }
+    public TransactionInfo TransactionInfo { get; set; }
 }
 

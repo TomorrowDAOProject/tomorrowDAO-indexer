@@ -3,6 +3,7 @@ using AeFinder.Sdk.Processor;
 using AElf.CSharp.Core;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.Enums;
+using TomorrowDAOIndexer.Processors.Common;
 
 namespace TomorrowDAOIndexer.Processors.Vote;
 
