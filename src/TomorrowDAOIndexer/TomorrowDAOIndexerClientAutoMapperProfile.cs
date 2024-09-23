@@ -460,8 +460,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.Time, opt => opt.MapFrom(source => MapDateTime(source.Time)));
         CreateMap<AElf.Standards.ACS3.OrganizationCreated, NetworkDaoOrgCreatedIndex>()
             .ForMember(des => des.OrganizationAddress, opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)));
-        CreateMap<AeFinder.Sdk.Processor.Transaction, Transaction>()
-            .ForMember(des => des.Status, opt => opt.MapFrom(source => MapTransactionStatus(source.Status)));
+        CreateMap<AeFinder.Sdk.Processor.Transaction, Transaction>();
         CreateMap<AElf.Standards.ACS3.OrganizationWhiteListChanged, NetworkDaoOrgWhiteListChangedIndex>()
             .ForMember(des => des.OrganizationAddress, opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)))
             .ForMember(des => des.ProposerWhiteList, opt => opt.MapFrom(source => MapAddressList(source.ProposerWhiteList.Proposers)));

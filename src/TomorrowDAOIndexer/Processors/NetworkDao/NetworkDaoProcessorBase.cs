@@ -137,8 +137,7 @@ public abstract class NetworkDaoProposalBase<TEvent> : ProcessorBase<TEvent> whe
             orgCreatedIndex = ObjectMapper.Map<OrganizationCreated, NetworkDaoOrgCreatedIndex>(logEvent);
             orgCreatedIndex.Id = id;
             orgCreatedIndex.OrgType = orgType;
-            orgCreatedIndex.Transaction =
-                ObjectMapper.Map<AeFinder.Sdk.Processor.Transaction, Transaction>(context.Transaction);
+            orgCreatedIndex.Transaction = ObjectMapper.Map<AeFinder.Sdk.Processor.Transaction, Transaction>(context.Transaction);
             await SaveEntityAsync(orgCreatedIndex, context);
 
             await UpdateOrgChangedIndexAsync(chainId, organizationAddress, orgType, context);

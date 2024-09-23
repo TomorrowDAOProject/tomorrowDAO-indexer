@@ -33,6 +33,11 @@ public class TomorrowDAOConst
     public const string TokenConverterContractAddress = "SietKh9cArYub9ox6E4rU94LrzPad6TB72rCwe3X1jQ5m1C34";
     public const string TokenContractAddress = "JRmBduh4nXWi1aXgdUsj5gJrzeZb2LxmrAbf7W99faZSvoAaE";
     public const string NetworkDaoTreasuryContractAddress = "KNdM6U6PyPsgyena8rPHTbCoMrkrALhxAy1b8Qx2cgi4169xr";
+    //public const string PortKeyContractAddress1 = "28PcLvP41ouUd6UNGsNRvKpkFTe6am34nPy4YPsWUJnZNwUvzM";
+    //public const string PortKeyContractAddress2 = "2UthYi7AHRdfrqc1YCfeQnjdChDLaas65bW4WxESMGMojFiXj9";
+    //testnet
+    public const string PortKeyContractAddress1 = "iupiTuL2cshxB9UNauXNXe9iyCcqka7jCotodcEHGpNXeLzqG";
+    public const string PortKeyContractAddress2 = "238X6iw1j8YKcHvkDYVtYVbuYk2gJnK8UoNpVCtssynSpVC8hb";
 
     //TestNet Side Chian
     public const string DAOContractAddressTestNetSideChain = "RRF7deQbmicUh6CZ1R2y7U9M8n2eHPyCgXVHwiSkmNETLbL4D";
@@ -44,6 +49,8 @@ public class TomorrowDAOConst
     public const string ParliamentContractAddressTestNetSideChain = "vcv1qewcsFN2tVWqLuu7DJ5wVFA8YEx5FFgCQBb1jMCbAQHxV";
     public const string AssociationContractAddressTestNetSideChain = "MbWXHaAY5sGpngiep6RS2euSzMZ2vHoXgmrfjEn3D1kCc1wbJ";
     public const string ReferendumContractAddressTestNetSideChain = "2cVQrFiXNaedBYmUrovmUV2jcF9Hf6AXbh12gWsD4P49NaX99y";
+    public const string PortKeyContractAddress1TestNetSideChain = "2WzfRW6KZhAfh3gCZ8Akw4wcti69GUNc1F2sXNa2fgjndv59bE";
+    public const string PortKeyContractAddress2TestNetSideChain = "238X6iw1j8YKcHvkDYVtYVbuYk2gJnK8UoNpVCtssynSpVC8hb";
 
     //MainNet Side Chain
     public const string DAOContractAddressMainNetSideChain = "2izSidAeMiZ6tmD7FKmnoWbygjFSmH5nko3cGJ9EtbfC44BycC";
@@ -55,8 +62,12 @@ public class TomorrowDAOConst
     public const string ParliamentContractAddressMainNetSideChain = "4SGo3CUj3PPh3hC5oXV83WodyUaPHuz4trLoSTGFnxe84nqNr";
     public const string AssociationContractAddressMainNetSideChain = "mWU7iE7HEfeZPDRYqdJAFqr2wiGfkiVrFCBuu6x1oL7Zca4KD";
     public const string ReferendumContractAddressMainNetSideChain = "V8NtmXA5TsuZKPK1bJMNGK6Gqomt1abvXeGWEpyMpC77s1toc";
+    public const string PortKeyContractAddress1MainNetSideChain = "2cLA9kJW3gdHuGoYNY16Qir69J3Nkn6MSsuYxRkUHbz4SG2hZr";
+    public const string PortKeyContractAddress2MainNetSideChain = "2UthYi7AHRdfrqc1YCfeQnjdChDLaas65bW4WxESMGMojFiXj9";
 
     public const string DateFormat = "yyyy-MM-dd HH:mm:ss";
+    
+    public const string PortKeyContactManagerForwardCall = "ManagerForwardCall";
     
     // public static readonly Dictionary<string, Dictionary<string, List<string>>> TransactionAddressMethodMap = new()
     // {
@@ -85,5 +96,5 @@ public class TomorrowDAOConst
     
     // Votigram
     public const string VotigramCollectionSymbolTestNet = "TOMORROWPASSTEST-"; 
-    public const string VotigramCollectionSymbolMainNet = "TOMORROWPASS-"; 
+    public const string VotigramCollectionSymbolMainNet = "TOMORROWPASS-";
 }
