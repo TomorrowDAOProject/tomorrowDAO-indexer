@@ -32,6 +32,10 @@ public class GetNetworkDaoProposalsInput
     public long EndBlockHeight { get; set; }
 }
 
+public class NetworkDaoProposalPageResultDto : NetworkDaoDataPageResultDto<NetworkDaoProposalIndexDto>
+{
+}
+
 public class NetworkDaoProposalIndexDto : BlockInfoDto
 {
     public string Id { get; set; }
@@ -53,6 +57,10 @@ public class GetNetworkDaoProposalIndexInput : GetNetworkDaoDataInput
     public string Title { get; set; }
 }
 
+public class NetworkDaoProposalReleasedPageResultDto : NetworkDaoDataPageResultDto<NetworkDaoProposalReleasedIndexDto>
+{
+}
+
 public class NetworkDaoProposalReleasedIndexDto  : BlockInfoDto
 {
     public string Id { get; set; }
@@ -68,6 +76,10 @@ public class GetNetworkDaoProposalReleasedIndexInput : GetNetworkDaoDataInput
 {
     public List<string> ProposalIds { get; set; }
     public string Title { get; set; }
+}
+
+public class NetworkDaoProposalVoteRecordPageResultDto : NetworkDaoDataPageResultDto<NetworkDaoProposalVoteRecordIndexDto>
+{
 }
 
 public class NetworkDaoProposalVoteRecordIndexDto : BlockInfoDto
