@@ -98,10 +98,6 @@ public class TomorrowDAOIndexerTestModule : AbpModule
         context.Services.AddSingleton<ReferendumOrgWhiteListChangedProcessor>();
         context.Services.AddSingleton<ReferendumProposalReleasedProcessor>();
         context.Services.AddSingleton<ReferendumReceiptCreatedProcessor>();
-        // context.Services.AddSingleton<NetworkDaoTransferredProcessor>();
-        
-        // Transaction
-        // context.Services.AddSingleton<TransactionProcessor>();
         
         // token
         context.Services.AddSingleton<IssuedProcessor>();

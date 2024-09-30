@@ -44,6 +44,9 @@ using ProposalCreated = TomorrowDAO.Contracts.Governance.ProposalCreated;
 using ProposalStatus = TomorrowDAO.Contracts.Governance.ProposalStatus;
 using ProposalType = TomorrowDAO.Contracts.Governance.ProposalType;
 using Transaction = AeFinder.Sdk.Processor.Transaction;
+using ProposalCreated = TomorrowDAO.Contracts.Governance.ProposalCreated;
+using ProposalStatus = TomorrowDAO.Contracts.Governance.ProposalStatus;
+using ProposalType = TomorrowDAO.Contracts.Governance.ProposalType;
 using Vote = TomorrowDAOIndexer.Processors.Vote;
 using VoteMechanism = TomorrowDAO.Contracts.Vote.VoteMechanism;
 using VoteOption = TomorrowDAO.Contracts.Vote.VoteOption;
@@ -51,12 +54,14 @@ using VoteStrategy = TomorrowDAO.Contracts.Vote.VoteStrategy;
 
 namespace TomorrowDAOIndexer;
 
-public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDAOIndexerTestModule>
+public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowDAOIndexerTestModule>
 {
     protected const string TransactionId = "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce";
     protected const string TokenSoldTransactionId = "14f69a1d0719a8ff90ee9e90ea78067af5172d8b83ace72b95aa84de1ef5e53a";
     protected const string TokenBoughtTransactionId = "e1782068e55dc77057b7d6013e7e50c77e95a7fa7bcf8d67d4b3fc91b73b8347";
+
     protected readonly IAbpLazyServiceProvider LazyServiceProvider;
+
     // processor
     protected readonly Vote.VoteSchemeCreatedProcessor VoteSchemeCreatedProcessor;
     protected readonly Vote.VotingItemRegisteredProcessor VotingItemRegisteredProcessor;
@@ -118,7 +123,6 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     // protected readonly TransactionProcessor TransactionProcessor;
     protected readonly TokenBoughtProcessor TokenBoughtProcessor;
     protected readonly TokenSoldProcessor TokenSoldProcessor;
-    
     // repository
     protected readonly IReadOnlyRepository<VoteSchemeIndex> VoteSchemeIndexRepository;
     protected readonly IReadOnlyRepository<VoteItemIndex> VoteItemIndexRepository;
@@ -138,8 +142,21 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     protected readonly IReadOnlyRepository<VoteRecordIndex> VoteRecordIndexRepository;
     protected readonly IReadOnlyRepository<DaoVoterRecordIndex> DaoVoterRecordIndexRepository;
     protected readonly IReadOnlyRepository<UserBalanceIndex> UserBalanceIndexRepository;
+    protected readonly IReadOnlyRepository<NetworkDaoOrgChangedIndex> NetworkDaoOrgChangedIndexRepository;
+    protected readonly IReadOnlyRepository<NetworkDaoOrgCreatedIndex> NetworkDaoOrgCreatedIndexRepository;
+    protected readonly IReadOnlyRepository<NetworkDaoOrgWhiteListChangedIndex>
+        NetworkDaoOrgWhiteListChangedIndexRepository;
+    protected readonly IReadOnlyRepository<NetworkDaoOrgThresholdChangedIndex>
+        NetworkDaoOrgThresholdChangedIndexRepository;
+    protected readonly IReadOnlyRepository<NetworkDaoOrgMemberChangedIndex> NetworkDaoOrgMemberChangedIndexRepository;
+    protected readonly IReadOnlyRepository<NetworkDaoProposalIndex> NetworkDaoProposalIndexRepository;
+    protected readonly IReadOnlyRepository<NetworkDaoProposalReleasedIndex> NetworkDaoProposalReleasedIndexRepository;
+    protected readonly IReadOnlyRepository<NetworkDaoProposalVoteRecordIndex>
+        NetworkDaoProposalVoteRecordIndexRepository;
+
     // mapper
     protected readonly IObjectMapper ObjectMapper;
+
     // param
     protected static readonly string Id1 = "123";
     protected static readonly string Id2 = "456";
@@ -202,7 +219,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     public const int MaxVetoActiveTimePeriod = 5; // days
     public const int MinVetoExecuteTimePeriod = 1; // days
     public const int MaxVetoExecuteTimePeriod = 3; // days
-    
+
     public TomorrowDAOIndexerTestBase()
     {
         LazyServiceProvider = GetRequiredService<IAbpLazyServiceProvider>();
@@ -286,6 +303,20 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         DAOIndexRepository = GetRequiredService<IReadOnlyRepository<DAOIndex>>();
         DaoVoterRecordIndexRepository = GetRequiredService<IReadOnlyRepository<DaoVoterRecordIndex>>();
         UserBalanceIndexRepository = GetRequiredService<IReadOnlyRepository<UserBalanceIndex>>();
+        NetworkDaoOrgChangedIndexRepository = GetRequiredService<IReadOnlyRepository<NetworkDaoOrgChangedIndex>>();
+        NetworkDaoOrgCreatedIndexRepository = GetRequiredService<IReadOnlyRepository<NetworkDaoOrgCreatedIndex>>();
+        NetworkDaoOrgThresholdChangedIndexRepository =
+            GetRequiredService<IReadOnlyRepository<NetworkDaoOrgThresholdChangedIndex>>();
+        NetworkDaoOrgWhiteListChangedIndexRepository =
+            GetRequiredService<IReadOnlyRepository<NetworkDaoOrgWhiteListChangedIndex>>();
+        NetworkDaoOrgMemberChangedIndexRepository =
+            GetRequiredService<IReadOnlyRepository<NetworkDaoOrgMemberChangedIndex>>();
+        NetworkDaoProposalIndexRepository = GetRequiredService<IReadOnlyRepository<NetworkDaoProposalIndex>>();
+        NetworkDaoProposalReleasedIndexRepository =
+            GetRequiredService<IReadOnlyRepository<NetworkDaoProposalReleasedIndex>>();
+        NetworkDaoProposalVoteRecordIndexRepository =
+            GetRequiredService<IReadOnlyRepository<NetworkDaoProposalVoteRecordIndex>>();
+
         ObjectMapper = GetRequiredService<IObjectMapper>();
     }
 
@@ -333,7 +364,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         return await LazyServiceProvider.GetRequiredService<IRepository<TEntity>>().GetAsync(id);
     }
 
-    protected DAOCreated MaxInfoDAOCreated() 
+    protected DAOCreated MaxInfoDAOCreated()
     {
         return new DAOCreated
         {
@@ -649,7 +680,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     }
 
     protected GovernanceSchemeAdded GovernanceSchemeAdded(
-        TomorrowDAO.Contracts.Governance.GovernanceMechanism governanceMechanism 
+        TomorrowDAO.Contracts.Governance.GovernanceMechanism governanceMechanism
             = TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum)
     {
         return new GovernanceSchemeAdded
@@ -804,7 +835,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
             }
         };
     }
-    
+
     protected MemberRemoved MemberRemoved()
     {
         return new MemberRemoved
@@ -816,7 +847,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
             }
         };
     }
-    
+
     protected AElf.Standards.ACS3.ProposalCreated NetworkDaoProposalCreate(string proposalId = null)
     {
         return new AElf.Standards.ACS3.ProposalCreated
@@ -828,14 +859,14 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         };
     }
 
-    protected AElf.Standards.ACS3.OrganizationCreated NetworkDaoOrganizationCreated()
+    protected AElf.Standards.ACS3.OrganizationCreated NetworkDaoOrganizationCreated(string organizationAddress = null)
     {
         return new AElf.Standards.ACS3.OrganizationCreated
         {
-            OrganizationAddress = Address.FromBase58(OrganizationAddress)
+            OrganizationAddress = Address.FromBase58(organizationAddress ?? OrganizationAddress)
         };
     }
-    
+
     protected AElf.Contracts.Association.MemberAdded NetworkDaoOrgMemberAdded()
     {
         return new AElf.Contracts.Association.MemberAdded
@@ -844,7 +875,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
             OrganizationAddress = Address.FromBase58(OrganizationAddress)
         };
     }
-    
+
     protected AElf.Contracts.Association.MemberRemoved NetworkDaoOrgMemberRemoved()
     {
         return new AElf.Contracts.Association.MemberRemoved
@@ -853,7 +884,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
             OrganizationAddress = Address.FromBase58(OrganizationAddress)
         };
     }
-    
+
     protected AElf.Contracts.Association.MemberChanged NetworkDaoOrgMemberChanged()
     {
         return new AElf.Contracts.Association.MemberChanged
@@ -863,12 +894,13 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
             OrganizationAddress = Address.FromBase58(OrganizationAddress)
         };
     }
-    
-    protected AElf.Standards.ACS3.OrganizationThresholdChanged NetworkDaoOrgThresholdChanged()
+
+    protected AElf.Standards.ACS3.OrganizationThresholdChanged NetworkDaoOrgThresholdChanged(
+        string organizationAddress = null)
     {
         return new AElf.Standards.ACS3.OrganizationThresholdChanged
         {
-            OrganizationAddress = Address.FromBase58(OrganizationAddress),
+            OrganizationAddress = Address.FromBase58(organizationAddress ?? OrganizationAddress),
             ProposerReleaseThreshold = new ProposalReleaseThreshold
             {
                 MinimalApprovalThreshold = 10,
@@ -878,19 +910,20 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
             }
         };
     }
-    
-    protected AElf.Standards.ACS3.OrganizationWhiteListChanged NetworkDaoOrgWhiteListChanged()
+
+    protected AElf.Standards.ACS3.OrganizationWhiteListChanged NetworkDaoOrgWhiteListChanged(
+        string organizationAddress = null)
     {
         return new AElf.Standards.ACS3.OrganizationWhiteListChanged
         {
-            OrganizationAddress = Address.FromBase58(OrganizationAddress),
+            OrganizationAddress = Address.FromBase58(organizationAddress ?? OrganizationAddress),
             ProposerWhiteList = new ProposerWhiteList
             {
                 Proposers = { Address.FromBase58(User), Address.FromBase58(Creator) }
             }
         };
     }
-    
+
     protected AElf.Standards.ACS3.ProposalReleased NetworkDaoProposalReleased()
     {
         return new AElf.Standards.ACS3.ProposalReleased
@@ -901,8 +934,9 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
             Description = ProposalDescription,
         };
     }
-    
-    protected AElf.Standards.ACS3.ReceiptCreated NetworkDaoProposalReceiptCreated(ReceiptTypeEnum receiptTypeEnum = ReceiptTypeEnum.Approve)
+
+    protected AElf.Standards.ACS3.ReceiptCreated NetworkDaoProposalReceiptCreated(
+        ReceiptTypeEnum receiptTypeEnum = ReceiptTypeEnum.Approve)
     {
         return new AElf.Standards.ACS3.ReceiptCreated
         {
@@ -913,8 +947,9 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
             OrganizationAddress = Address.FromBase58(OrganizationAddress),
         };
     }
-    
-    protected ReferendumReceiptCreated NetworkDaoProposalReferendumReceiptCreated(ReceiptTypeEnum receiptTypeEnum = ReceiptTypeEnum.Approve)
+
+    protected ReferendumReceiptCreated NetworkDaoProposalReferendumReceiptCreated(
+        ReceiptTypeEnum receiptTypeEnum = ReceiptTypeEnum.Approve)
     {
         return new ReferendumReceiptCreated
         {
@@ -927,7 +962,6 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
             OrganizationAddress = Address.FromBase58(OrganizationAddress),
         };
     }
-    
     
     protected TokenBought TokenBought()
     {

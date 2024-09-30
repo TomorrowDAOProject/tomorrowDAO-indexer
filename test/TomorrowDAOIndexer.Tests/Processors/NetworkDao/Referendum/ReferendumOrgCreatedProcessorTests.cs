@@ -24,7 +24,7 @@ public class ReferendumOrgCreatedProcessorTests : TomorrowDAOIndexerTestBase
         orgCreatedIndex.Metadata.Block.ShouldNotBeNull();
         orgCreatedIndex.Metadata.Block.BlockHash.ShouldNotBeNull();
         orgCreatedIndex.Metadata.Block.BlockHeight.ShouldBe(orgCreatedIndex.BlockHeight);
-        
+        //
         var orgChangedIndex = await GetIndexById<NetworkDaoOrgChangedIndex>(id);
         orgChangedIndex.ShouldNotBeNull();
         orgChangedIndex.BlockHeight.ShouldBeGreaterThan(0);

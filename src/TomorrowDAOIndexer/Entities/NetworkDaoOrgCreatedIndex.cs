@@ -2,11 +2,12 @@ using AeFinder.Sdk.Entities;
 using Nest;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using TomorrowDAOIndexer.Entities.Base;
 using TomorrowDAOIndexer.Enums;
 
 namespace TomorrowDAOIndexer.Entities;
 
-public class NetworkDaoOrgCreatedIndex : AeFinderEntity, IAeFinderEntity
+public class NetworkDaoOrgCreatedIndex : AeFinderEntity, IAeFinderEntity, ITransactionEntity
 {
     [Keyword]
     public string OrganizationAddress { get; set; }
@@ -16,6 +17,7 @@ public class NetworkDaoOrgCreatedIndex : AeFinderEntity, IAeFinderEntity
     public long BlockHeight { get; set; }
     
     public Transaction Transaction { get; set; }
+    public TransactionInfo TransactionInfo { get; set; }
 }
 
 public class Transaction
@@ -27,12 +29,4 @@ public class Transaction
     public string To { get; set; }
 
     public string MethodName { get; set; }
-
-    public string Params { get; set; }
-
-    public int Index { get; set; }
-
-    public string Status { get; set; }
-
-    public Dictionary<string, string> ExtraProperties { get; set; }
 }

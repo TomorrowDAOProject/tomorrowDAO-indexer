@@ -97,10 +97,6 @@ public class TomorrowDAOIndexerModule: AbpModule
         context.Services.AddTransient<ILogEventProcessor, ReferendumOrgWhiteListChangedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, ReferendumProposalReleasedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, ReferendumReceiptCreatedProcessor>();
-        // context.Services.AddTransient<ILogEventProcessor, NetworkDaoTransferredProcessor>();
-        
-        // Transaction
-        // context.Services.AddSingleton<ITransactionProcessor, TransactionProcessor>();
         
         // token
         context.Services.AddTransient<ILogEventProcessor, IssuedProcessor>();

@@ -7,6 +7,7 @@ using TomorrowDAO.Contracts.Governance;
 using TomorrowDAO.Contracts.Treasury;
 using TomorrowDAO.Contracts.Vote;
 using TomorrowDAOIndexer.Entities;
+using TomorrowDAOIndexer.Entities.Base;
 using TomorrowDAOIndexer.GraphQL.Dto;
 using ExecuteTransaction = TomorrowDAOIndexer.Entities.ExecuteTransaction;
 using ExecuteTransactionContract = TomorrowDAO.Contracts.Governance.ExecuteTransaction;
@@ -433,6 +434,55 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<LogEventContext, NetworkDaoOrgMemberChangedIndex>()
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Block.BlockHeight));
+        CreateMap<TransactionInfo, TransactionInfoDto>();
+        CreateMap<NetworkDaoOrgChangedIndex, NetworkDaoOrgChangedIndexDto>()
+            .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
+            .ForMember(des => des.BlockHash, opt => opt.MapFrom(source => source.Metadata.Block.BlockHash))
+            .ForMember(des => des.BlockHeight, opt => opt.MapFrom(source => source.Metadata.Block.BlockHeight))
+            .ForMember(des => des.BlockTime, opt => opt.MapFrom(source => source.Metadata.Block.BlockTime))
+            .ForMember(des => des.IsDeleted, opt => opt.MapFrom(source => source.Metadata.IsDeleted));
+        CreateMap<NetworkDaoOrgCreatedIndex, NetworkDaoOrgCreatedIndexDto>()
+            .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
+            .ForMember(des => des.BlockHash, opt => opt.MapFrom(source => source.Metadata.Block.BlockHash))
+            .ForMember(des => des.BlockHeight, opt => opt.MapFrom(source => source.Metadata.Block.BlockHeight))
+            .ForMember(des => des.BlockTime, opt => opt.MapFrom(source => source.Metadata.Block.BlockTime))
+            .ForMember(des => des.IsDeleted, opt => opt.MapFrom(source => source.Metadata.IsDeleted));
+        CreateMap<NetworkDaoOrgThresholdChangedIndex, NetworkDaoOrgThresholdChangedIndexDto>()
+            .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
+            .ForMember(des => des.BlockHash, opt => opt.MapFrom(source => source.Metadata.Block.BlockHash))
+            .ForMember(des => des.BlockHeight, opt => opt.MapFrom(source => source.Metadata.Block.BlockHeight))
+            .ForMember(des => des.BlockTime, opt => opt.MapFrom(source => source.Metadata.Block.BlockTime))
+            .ForMember(des => des.IsDeleted, opt => opt.MapFrom(source => source.Metadata.IsDeleted));
+        CreateMap<NetworkDaoOrgWhiteListChangedIndex, NetworkDaoOrgWhiteListChangedIndexDto>()
+            .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
+            .ForMember(des => des.BlockHash, opt => opt.MapFrom(source => source.Metadata.Block.BlockHash))
+            .ForMember(des => des.BlockHeight, opt => opt.MapFrom(source => source.Metadata.Block.BlockHeight))
+            .ForMember(des => des.BlockTime, opt => opt.MapFrom(source => source.Metadata.Block.BlockTime))
+            .ForMember(des => des.IsDeleted, opt => opt.MapFrom(source => source.Metadata.IsDeleted));
+        CreateMap<NetworkDaoOrgMemberChangedIndex, NetworkDaoOrgMemberChangedIndexDto>()
+            .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
+            .ForMember(des => des.BlockHash, opt => opt.MapFrom(source => source.Metadata.Block.BlockHash))
+            .ForMember(des => des.BlockHeight, opt => opt.MapFrom(source => source.Metadata.Block.BlockHeight))
+            .ForMember(des => des.BlockTime, opt => opt.MapFrom(source => source.Metadata.Block.BlockTime))
+            .ForMember(des => des.IsDeleted, opt => opt.MapFrom(source => source.Metadata.IsDeleted));
+        CreateMap<NetworkDaoProposalIndex, NetworkDaoProposalIndexDto>()
+            .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
+            .ForMember(des => des.BlockHash, opt => opt.MapFrom(source => source.Metadata.Block.BlockHash))
+            .ForMember(des => des.BlockHeight, opt => opt.MapFrom(source => source.Metadata.Block.BlockHeight))
+            .ForMember(des => des.BlockTime, opt => opt.MapFrom(source => source.Metadata.Block.BlockTime))
+            .ForMember(des => des.IsDeleted, opt => opt.MapFrom(source => source.Metadata.IsDeleted));
+        CreateMap<NetworkDaoProposalReleasedIndex, NetworkDaoProposalReleasedIndexDto>()
+            .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
+            .ForMember(des => des.BlockHash, opt => opt.MapFrom(source => source.Metadata.Block.BlockHash))
+            .ForMember(des => des.BlockHeight, opt => opt.MapFrom(source => source.Metadata.Block.BlockHeight))
+            .ForMember(des => des.BlockTime, opt => opt.MapFrom(source => source.Metadata.Block.BlockTime))
+            .ForMember(des => des.IsDeleted, opt => opt.MapFrom(source => source.Metadata.IsDeleted));
+        CreateMap<NetworkDaoProposalVoteRecordIndex, NetworkDaoProposalVoteRecordIndexDto>()
+            .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
+            .ForMember(des => des.BlockHash, opt => opt.MapFrom(source => source.Metadata.Block.BlockHash))
+            .ForMember(des => des.BlockHeight, opt => opt.MapFrom(source => source.Metadata.Block.BlockHeight))
+            .ForMember(des => des.BlockTime, opt => opt.MapFrom(source => source.Metadata.Block.BlockTime))
+            .ForMember(des => des.IsDeleted, opt => opt.MapFrom(source => source.Metadata.IsDeleted));
         CreateMap<NetworkDaoProposalIndex, NetworkDaoProposal>()
             .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
             .ForMember(des => des.BlockHash, opt => opt.MapFrom(source => source.Metadata.Block.BlockHash))
@@ -460,8 +510,7 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.Time, opt => opt.MapFrom(source => MapDateTime(source.Time)));
         CreateMap<AElf.Standards.ACS3.OrganizationCreated, NetworkDaoOrgCreatedIndex>()
             .ForMember(des => des.OrganizationAddress, opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)));
-        CreateMap<AeFinder.Sdk.Processor.Transaction, Transaction>()
-            .ForMember(des => des.Status, opt => opt.MapFrom(source => MapTransactionStatus(source.Status)));
+        CreateMap<AeFinder.Sdk.Processor.Transaction, Transaction>();
         CreateMap<AElf.Standards.ACS3.OrganizationWhiteListChanged, NetworkDaoOrgWhiteListChangedIndex>()
             .ForMember(des => des.OrganizationAddress, opt => opt.MapFrom(source => MapAddress(source.OrganizationAddress)))
             .ForMember(des => des.ProposerWhiteList, opt => opt.MapFrom(source => MapAddressList(source.ProposerWhiteList.Proposers)));
