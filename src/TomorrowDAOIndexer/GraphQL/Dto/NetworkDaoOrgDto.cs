@@ -13,6 +13,17 @@ public class GetNetworkDaoDataInput
     public int MaxResultCount { get; set; } = 10;
 }
 
+public class NetworkDaoDataPageResultDto<T>
+{
+    public List<T> Data { get; set; }
+    public long TotalCount { get; set; }
+}
+
+public class NetworkDaoOrgChangedPageResultDto : NetworkDaoDataPageResultDto<NetworkDaoOrgChangedIndexDto>
+{
+    
+}
+
 public class NetworkDaoOrgChangedIndexDto : BlockInfoDto
 {
     public string OrganizationAddress { get; set; }
@@ -24,6 +35,10 @@ public class GetNetworkDaoDataChangedIndexInput : GetNetworkDaoDataInput
 {
 }
 
+public class NetworkDaoOrgCreatedPageResultDto : NetworkDaoDataPageResultDto<NetworkDaoOrgCreatedIndexDto>
+{
+}
+
 public class NetworkDaoOrgCreatedIndexDto : BlockInfoDto
 {
     public string OrganizationAddress { get; set; }
@@ -32,6 +47,10 @@ public class NetworkDaoOrgCreatedIndexDto : BlockInfoDto
 }
 
 public class GetNetworkDaoDataCreatedIndexInput : GetNetworkDaoDataInput
+{
+}
+
+public class NetworkDaoOrgThresholdChangedPageResultDto : NetworkDaoDataPageResultDto<NetworkDaoOrgThresholdChangedIndexDto>
 {
 }
 
@@ -50,6 +69,10 @@ public class GetNetworkDaoDataThresholdChangedIndexInput : GetNetworkDaoDataInpu
 {
 }
 
+public class NetworkDaoOrgWhiteListChangedPageResultDto : NetworkDaoDataPageResultDto<NetworkDaoOrgWhiteListChangedIndexDto>
+{
+}
+
 public class NetworkDaoOrgWhiteListChangedIndexDto : BlockInfoDto
 {
     public string OrganizationAddress { get; set; }
@@ -59,6 +82,10 @@ public class NetworkDaoOrgWhiteListChangedIndexDto : BlockInfoDto
 }
 
 public class GetNetworkDaoDataWhiteListChangedIndexInput : GetNetworkDaoDataInput
+{
+}
+
+public class NetworkDaoOrgMemberChangedPageResultDto : NetworkDaoDataPageResultDto<NetworkDaoOrgMemberChangedIndexDto>
 {
 }
 

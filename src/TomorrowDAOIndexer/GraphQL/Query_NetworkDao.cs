@@ -52,7 +52,7 @@ public partial class Query
     
     //Query organization change records
     [Name("getNetworkDaoOrgChangedIndex")]
-    public static async Task<PageResultDto<NetworkDaoOrgChangedIndexDto>> GetNetworkDaoOrgChangedIndexAsync(
+    public static async Task<NetworkDaoOrgChangedPageResultDto> GetNetworkDaoOrgChangedIndexAsync(
         [FromServices] IReadOnlyRepository<NetworkDaoOrgChangedIndex> repository,
         [FromServices] IObjectMapper objectMapper,
         GetNetworkDaoDataChangedIndexInput input)
@@ -84,7 +84,7 @@ public partial class Query
         queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
             .OrderBy(a => a.BlockHeight);
         
-        return new PageResultDto<NetworkDaoOrgChangedIndexDto>()
+        return new NetworkDaoOrgChangedPageResultDto
         {
             TotalCount = count,
             Data = objectMapper.Map<List<NetworkDaoOrgChangedIndex>, List<NetworkDaoOrgChangedIndexDto>>(queryable.ToList())
@@ -93,7 +93,7 @@ public partial class Query
     
     //Query the record of organization creation
     [Name("getNetworkDaoOrgCreatedIndex")]
-    public static async Task<PageResultDto<NetworkDaoOrgCreatedIndexDto>> GetNetworkDaoOrgCreatedIndexAsync(
+    public static async Task<NetworkDaoOrgCreatedPageResultDto> GetNetworkDaoOrgCreatedIndexAsync(
         [FromServices] IReadOnlyRepository<NetworkDaoOrgCreatedIndex> repository,
         [FromServices] IObjectMapper objectMapper,
         GetNetworkDaoDataCreatedIndexInput input)
@@ -125,7 +125,7 @@ public partial class Query
         queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
             .OrderBy(a => a.BlockHeight);
         
-        return new PageResultDto<NetworkDaoOrgCreatedIndexDto>()
+        return new NetworkDaoOrgCreatedPageResultDto
         {
             TotalCount = count,
             Data = objectMapper.Map<List<NetworkDaoOrgCreatedIndex>, List<NetworkDaoOrgCreatedIndexDto>>(queryable.ToList())
@@ -134,7 +134,7 @@ public partial class Query
     
     //Query the organization Threshold change record
     [Name("getNetworkDaoOrgThresholdChangedIndex")]
-    public static async Task<PageResultDto<NetworkDaoOrgThresholdChangedIndexDto>> GetNetworkDaoOrgThresholdChangedIndexAsync(
+    public static async Task<NetworkDaoOrgThresholdChangedPageResultDto> GetNetworkDaoOrgThresholdChangedIndexAsync(
         [FromServices] IReadOnlyRepository<NetworkDaoOrgThresholdChangedIndex> repository,
         [FromServices] IObjectMapper objectMapper,
         GetNetworkDaoDataThresholdChangedIndexInput input)
@@ -166,7 +166,7 @@ public partial class Query
         queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
             .OrderBy(a => a.BlockHeight);
         
-        return new PageResultDto<NetworkDaoOrgThresholdChangedIndexDto>()
+        return new NetworkDaoOrgThresholdChangedPageResultDto
         {
             TotalCount = count,
             Data = objectMapper.Map<List<NetworkDaoOrgThresholdChangedIndex>, List<NetworkDaoOrgThresholdChangedIndexDto>>(queryable.ToList())
@@ -175,7 +175,7 @@ public partial class Query
     
     //Query the change records of the organization's whitelist
     [Name("getNetworkDaoOrgWhiteListChangedIndex")]
-    public static async Task<PageResultDto<NetworkDaoOrgWhiteListChangedIndexDto>> GetNetworkDaoOrgWhiteListChangedIndexAsync(
+    public static async Task<NetworkDaoOrgWhiteListChangedPageResultDto> GetNetworkDaoOrgWhiteListChangedIndexAsync(
         [FromServices] IReadOnlyRepository<NetworkDaoOrgWhiteListChangedIndex> repository,
         [FromServices] IObjectMapper objectMapper,
         GetNetworkDaoDataWhiteListChangedIndexInput input)
@@ -207,7 +207,7 @@ public partial class Query
         queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
             .OrderBy(a => a.BlockHeight);
         
-        return new PageResultDto<NetworkDaoOrgWhiteListChangedIndexDto>()
+        return new NetworkDaoOrgWhiteListChangedPageResultDto
         {
             TotalCount = count,
             Data = objectMapper.Map<List<NetworkDaoOrgWhiteListChangedIndex>, List<NetworkDaoOrgWhiteListChangedIndexDto>>(queryable.ToList())
@@ -216,7 +216,7 @@ public partial class Query
     
     //Query the change records of organization members
     [Name("getNetworkDaoOrgMemberChangedIndex")]
-    public static async Task<PageResultDto<NetworkDaoOrgMemberChangedIndexDto>> GetNetworkDaoOrgMemberChangedIndexAsync(
+    public static async Task<NetworkDaoOrgMemberChangedPageResultDto> GetNetworkDaoOrgMemberChangedIndexAsync(
         [FromServices] IReadOnlyRepository<NetworkDaoOrgMemberChangedIndex> repository,
         [FromServices] IObjectMapper objectMapper,
         GetNetworkDaoDataMemberChangedIndexInput input)
@@ -252,7 +252,7 @@ public partial class Query
         queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
             .OrderBy(a => a.BlockHeight);
         
-        return new PageResultDto<NetworkDaoOrgMemberChangedIndexDto>()
+        return new NetworkDaoOrgMemberChangedPageResultDto
         {
             TotalCount = count,
             Data = objectMapper.Map<List<NetworkDaoOrgMemberChangedIndex>, List<NetworkDaoOrgMemberChangedIndexDto>>(queryable.ToList())
@@ -261,7 +261,7 @@ public partial class Query
     
     //Query the record of proposal creation
     [Name("getNetworkDaoProposalIndex")]
-    public static async Task<PageResultDto<NetworkDaoProposalIndexDto>> GetNetworkDaoProposalIndexAsync(
+    public static async Task<NetworkDaoProposalPageResultDto> GetNetworkDaoProposalIndexAsync(
         [FromServices] IReadOnlyRepository<NetworkDaoProposalIndex> repository,
         [FromServices] IObjectMapper objectMapper,
         GetNetworkDaoProposalIndexInput input)
@@ -303,7 +303,7 @@ public partial class Query
         queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
             .OrderBy(a => a.BlockHeight);
         
-        return new PageResultDto<NetworkDaoProposalIndexDto>()
+        return new NetworkDaoProposalPageResultDto
         {
             TotalCount = count,
             Data = objectMapper.Map<List<NetworkDaoProposalIndex>, List<NetworkDaoProposalIndexDto>>(queryable.ToList())
@@ -312,7 +312,7 @@ public partial class Query
     
     //Query the proposal release record
     [Name("getNetworkDaoProposalReleasedIndex")]
-    public static async Task<PageResultDto<NetworkDaoProposalReleasedIndexDto>> GetNetworkDaoProposalReleasedIndexAsync(
+    public static async Task<NetworkDaoProposalReleasedPageResultDto> GetNetworkDaoProposalReleasedIndexAsync(
         [FromServices] IReadOnlyRepository<NetworkDaoProposalReleasedIndex> repository,
         [FromServices] IObjectMapper objectMapper,
         GetNetworkDaoProposalReleasedIndexInput input)
@@ -354,7 +354,7 @@ public partial class Query
         queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
             .OrderBy(a => a.BlockHeight);
         
-        return new PageResultDto<NetworkDaoProposalReleasedIndexDto>()
+        return new NetworkDaoProposalReleasedPageResultDto
         {
             TotalCount = count,
             Data = objectMapper.Map<List<NetworkDaoProposalReleasedIndex>, List<NetworkDaoProposalReleasedIndexDto>>(queryable.ToList())
@@ -363,7 +363,7 @@ public partial class Query
     
     //Query the voting record of the proposal
     [Name("getNetworkDaoProposalVoteRecordIndex")]
-    public static async Task<PageResultDto<NetworkDaoProposalVoteRecordIndexDto>> GetNetworkDaoProposalVoteRecordIndexAsync(
+    public static async Task<NetworkDaoProposalVoteRecordPageResultDto> GetNetworkDaoProposalVoteRecordIndexAsync(
         [FromServices] IReadOnlyRepository<NetworkDaoProposalVoteRecordIndex> repository,
         [FromServices] IObjectMapper objectMapper,
         GetNetworkDaoProposalVoteRecordIndexInput input)
@@ -406,7 +406,7 @@ public partial class Query
         queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
             .OrderBy(a => a.BlockHeight);
         
-        return new PageResultDto<NetworkDaoProposalVoteRecordIndexDto>()
+        return new NetworkDaoProposalVoteRecordPageResultDto
         {
             TotalCount = count,
             Data = objectMapper.Map<List<NetworkDaoProposalVoteRecordIndex>, List<NetworkDaoProposalVoteRecordIndexDto>>(queryable.ToList())
