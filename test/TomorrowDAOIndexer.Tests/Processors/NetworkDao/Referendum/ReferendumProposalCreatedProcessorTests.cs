@@ -26,7 +26,7 @@ public class ReferendumProposalCreatedProcessorTests : TomorrowDAOIndexerTestBas
         var id = IdGenerateHelper.GetId(ChainId, proposalId);
         var networkDaoProposalIndex = await GetIndexById<NetworkDaoProposalIndex>(id);
         networkDaoProposalIndex.ShouldNotBeNull();
-        networkDaoProposalIndex.ProposalType.ShouldBe(NetworkDaoProposalType.Referendum);
+        networkDaoProposalIndex.OrgType.ShouldBe(NetworkDaoOrgType.Referendum);
         networkDaoProposalIndex.ProposalId.ShouldBe(proposalId);
         networkDaoProposalIndex.Metadata.ChainId.ShouldBe(ChainId);
     }
