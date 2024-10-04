@@ -46,15 +46,15 @@ public class NetworkDaoProposalIndexDto : BlockInfoDto
     public NetworkDaoOrgType OrgType { get; set; }
     public bool IsReleased { get; set; }
     public DateTime SaveTime { get; set; }
-    public string Symbol { get; set; }
+    public string? Symbol { get; set; }
     public long TotalAmount { get; set; }
     public TransactionInfoDto TransactionInfo { get; set; }
 }
 
 public class GetNetworkDaoProposalIndexInput : GetNetworkDaoDataInput
 {
-    public List<string> ProposalIds { get; set; }
-    public string Title { get; set; }
+    public List<string>? ProposalIds { get; set; }
+    public string? Title { get; set; }
 }
 
 public class NetworkDaoProposalReleasedPageResultDto : NetworkDaoDataPageResultDto<NetworkDaoProposalReleasedIndexDto>
@@ -74,8 +74,8 @@ public class NetworkDaoProposalReleasedIndexDto  : BlockInfoDto
 
 public class GetNetworkDaoProposalReleasedIndexInput : GetNetworkDaoDataInput
 {
-    public List<string> ProposalIds { get; set; }
-    public string Title { get; set; }
+    public List<string>? ProposalIds { get; set; }
+    public string? Title { get; set; }
 }
 
 public class NetworkDaoProposalVoteRecordPageResultDto : NetworkDaoDataPageResultDto<NetworkDaoProposalVoteRecordIndexDto>
@@ -99,7 +99,7 @@ public class NetworkDaoProposalVoteRecordIndexDto : BlockInfoDto
 
 public class GetNetworkDaoProposalVoteRecordIndexInput : GetNetworkDaoDataInput
 {
-    public List<string> ProposalIds { get; set; }
+    public List<string>? ProposalIds { get; set; }
 
-    public ReceiptTypeEnum ReceiptType { get; set; } = ReceiptTypeEnum.All;
+    public ReceiptTypeEnum? ReceiptType { get; set; } = ReceiptTypeEnum.All;
 }
