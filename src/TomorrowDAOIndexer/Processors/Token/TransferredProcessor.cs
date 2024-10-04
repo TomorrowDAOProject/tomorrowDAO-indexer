@@ -47,6 +47,8 @@ public class TransferredProcessor : TokenProcessorBase<Transferred>
     private async Task ProcessTreasuryAsync(Transferred logEvent, LogEventContext context)
     {
         var treasuryAddress = logEvent.To?.ToBase58() ?? string.Empty;
+        var executor = logEvent.From?.ToBase58() ?? string.Empty;
+        var symbol = logEvent.Symbol;
         var chainId = context.ChainId;
         try
         {
@@ -56,55 +58,28 @@ public class TransferredProcessor : TokenProcessorBase<Transferred>
             {
                 return;
             }
-            Logger.LogInformation("[Transferred] ProcessTreasuryAsyncSTART: to={treasuryAddress}, ChainId={ChainId}, Event={Event}",
+            
+            Logger.LogInformation("[Transferred] START: to={treasuryAddress}, ChainId={ChainId}, Event={Event}",
                 treasuryAddress, chainId, JsonConvert.SerializeObject(logEvent));
             var daoId = treasuryCreateIndex.DaoId;
-            var symbol = logEvent.Symbol;
+            var treasuryRecordIndex = ObjectMapper.Map<Transferred, TreasuryRecordIndex>(logEvent);
+            treasuryRecordIndex.Id = IdGenerateHelper.GetId(chainId, context.Transaction.TransactionId, executor,
+                TreasuryRecordType.Deposit);
+            treasuryRecordIndex.DaoId = daoId;
+            treasuryRecordIndex.TreasuryAddress = treasuryAddress;
+            treasuryRecordIndex.TreasuryRecordType = TreasuryRecordType.Deposit;
+            await SaveEntityAsync(treasuryRecordIndex, context);
+            await TreasuryFundStatistic(chainId, daoId, symbol, treasuryAddress, logEvent.Amount, context);
+            await TreasuryFundSumStatistic(chainId, symbol, logEvent.Amount, context);
 
-            await CreateOrUpdateTreasuryFundIndex(chainId, daoId, symbol, logEvent, context);
-            await TreasuryStatistic(chainId, symbol, logEvent.Amount, context);
-
-            var executor = logEvent.From?.ToBase58() ?? string.Empty;
-            await SaveEntityAsync(new TreasuryRecordIndex
-            {
-                Id = IdGenerateHelper.GetId(chainId, context.Transaction.TransactionId, executor,
-                    TreasuryRecordType.Deposit),
-                DaoId = daoId,
-                TreasuryAddress = treasuryAddress,
-                Executor = executor,
-                FromAddress = logEvent.From?.ToBase58() ?? string.Empty,
-                ToAddress = treasuryAddress,
-                Amount = logEvent.Amount,
-                Symbol = symbol,
-                TreasuryRecordType = TreasuryRecordType.Deposit,
-                CreateTime = context.Block.BlockTime
-            }, context);
-
-            Logger.LogInformation(
-                "[Transferred] ProcessTreasuryAsyncFINISH: daoId={Id}, ChainId={ChainId}, treasuryAddress={treasuryAddress}", daoId,
-                chainId, treasuryAddress);
+            Logger.LogInformation("[Transferred] FINISH: daoId={Id}, ChainId={ChainId}, treasuryAddress={treasuryAddress}", 
+                daoId, chainId, treasuryAddress);
         }
         catch (Exception e)
         {
-            Logger.LogError(e, "[Transferred] ProcessTreasuryAsyncException to={treasuryAddress}, ChainId={ChainId}", treasuryAddress,
+            Logger.LogError(e, "[Transferred] Exception to={treasuryAddress}, ChainId={ChainId}", treasuryAddress,
                 chainId);
             throw;
         }
-    }
-
-    private async Task CreateOrUpdateTreasuryFundIndex(string chainId, string daoId, string symbol,
-        Transferred eventValue, LogEventContext context)
-    {
-        var id = IdGenerateHelper.GetId(chainId, daoId, symbol);
-        var treasuryFundIndex = await GetEntityAsync<TreasuryFundIndex>(id) ?? new TreasuryFundIndex
-        {
-            Id = id,
-            DaoId = daoId,
-            TreasuryAddress = eventValue.To?.ToBase58() ?? string.Empty,
-            Symbol = symbol
-        };
-
-        treasuryFundIndex.AvailableFunds += eventValue.Amount;
-        await SaveEntityAsync(treasuryFundIndex, context);
     }
 }

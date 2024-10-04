@@ -1,9 +1,10 @@
 using AeFinder.Sdk.Entities;
 using Nest;
+using TomorrowDAOIndexer.Entities.Base;
 
 namespace TomorrowDAOIndexer.Entities;
 
-public class ResourceTokenIndex : AeFinderEntity, IAeFinderEntity
+public class ResourceTokenIndex : AeFinderEntity, IAeFinderEntity, ITransactionEntity
 {
     [Keyword] public override string Id { get; set; }
     [Keyword] public string TransactionId { get; set; }
@@ -16,4 +17,5 @@ public class ResourceTokenIndex : AeFinderEntity, IAeFinderEntity
     public long BlockHeight { get; set; }
     [Keyword] public string TransactionStatus { get; set; }
     public DateTime OperateTime { get; set; }
+    public TransactionInfo TransactionInfo { get; set; }
 }
