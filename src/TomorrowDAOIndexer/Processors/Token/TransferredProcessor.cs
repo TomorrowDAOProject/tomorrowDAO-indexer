@@ -46,7 +46,7 @@ public class TransferredProcessor : TokenProcessorBase<Transferred>
 
     private async Task ProcessTreasuryAsync(Transferred logEvent, LogEventContext context)
     {
-        var treasuryAddress = logEvent.To.ToBase58();
+        var treasuryAddress = logEvent.To?.ToBase58() ?? string.Empty;
         var chainId = context.ChainId;
         try
         {

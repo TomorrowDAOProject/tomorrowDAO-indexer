@@ -35,6 +35,9 @@ public class TomorrowDAOConst
     //testnet
     //public const string PortKeyContractAddress1 = "iupiTuL2cshxB9UNauXNXe9iyCcqka7jCotodcEHGpNXeLzqG";
     //public const string PortKeyContractAddress2 = "238X6iw1j8YKcHvkDYVtYVbuYk2gJnK8UoNpVCtssynSpVC8hb";
+    public const string TokenConverterContractAddress = "SietKh9cArYub9ox6E4rU94LrzPad6TB72rCwe3X1jQ5m1C34";
+    public const string TokenContractAddress = "JRmBduh4nXWi1aXgdUsj5gJrzeZb2LxmrAbf7W99faZSvoAaE";
+    public const string NetworkDaoTreasuryContractAddress = "KNdM6U6PyPsgyena8rPHTbCoMrkrALhxAy1b8Qx2cgi4169xr";
 
     //TestNet Side Chian
     public const string DAOContractAddressTestNetSideChain = "RRF7deQbmicUh6CZ1R2y7U9M8n2eHPyCgXVHwiSkmNETLbL4D";
@@ -63,6 +66,31 @@ public class TomorrowDAOConst
     public const string PortKeyContractAddress2MainNetSideChain = "2UthYi7AHRdfrqc1YCfeQnjdChDLaas65bW4WxESMGMojFiXj9";
 
     public const string DateFormat = "yyyy-MM-dd HH:mm:ss";
+    
+    // public static readonly Dictionary<string, Dictionary<string, List<string>>> TransactionAddressMethodMap = new()
+    // {
+    //     {
+    //         MainChainId, new Dictionary<string, List<string>>
+    //         {
+    //             { TokenConverterContractAddress, [
+    //                 TokenConverterContractAddressBuyMethod, 
+    //                 TokenConverterContractAddressSellMethod,
+    //                 TokenConverterContractAddressCaMethod
+    //             ] }
+    //         }
+    //     }
+    // };
+
+    public static readonly Dictionary<string, string> MethodEventMap = new()
+    {
+        { TokenConverterContractAddressBuyMethod, "TokenBought" },
+        { TokenConverterContractAddressSellMethod, "TokenSold" }
+    };
+    
+    public const string TokenConverterContractAddressBuyMethod = "Buy";
+    public const string TokenConverterContractAddressSellMethod = "Sell";
+    public const string TokenConverterContractAddressCaMethod = "ManagerForwardCall";
+    public const string NetworkDaoId = "e9e131724d50de8fce13629043dc8a58a6692be57417985972418159cd883d72";
     
     // Votigram
     public const string VotigramCollectionSymbolTestNet = "TOMORROWPASSTEST-"; 

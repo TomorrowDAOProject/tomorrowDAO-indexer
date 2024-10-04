@@ -7,6 +7,7 @@ using TomorrowDAOIndexer.Processors.NetworkDao.Parliament;
 using TomorrowDAOIndexer.Processors.NetworkDao.Referendum;
 using TomorrowDAOIndexer.Processors.Proposal;
 using TomorrowDAOIndexer.Processors.Token;
+using TomorrowDAOIndexer.Processors.TokenConverter;
 using TomorrowDAOIndexer.Processors.Treasury;
 using TomorrowDAOIndexer.Processors.Vote;
 using Volo.Abp.Modularity;
@@ -22,6 +23,10 @@ public class TomorrowDAOIndexerTestModule : AbpModule
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         Configure<AeFinderAppEntityOptions>(options => { options.AddTypes<TomorrowDAOIndexerModule>(); });
+        
+        // TokenConverter
+        context.Services.AddSingleton<TokenSoldProcessor>();
+        context.Services.AddSingleton<TokenBoughtProcessor>();
         
         //  DAO
         context.Services.AddSingleton<DAOCreatedProcessor>();

@@ -5,9 +5,12 @@ using AeFinder.Sdk.Processor;
 using AElf;
 using AElf.Contracts.MultiToken;
 using AElf.Contracts.Referendum;
+using AElf.Contracts.TokenConverter;
 using AElf.CSharp.Core;
 using AElf.Standards.ACS3;
 using AElf.Types;
+using Google.Protobuf;
+using Google.Protobuf.Collections;
 using Google.Protobuf.WellKnownTypes;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
@@ -19,6 +22,7 @@ using TomorrowDAO.Contracts.Treasury;
 using TomorrowDAO.Contracts.Vote;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.Enums;
+using TomorrowDAOIndexer.Processors;
 using TomorrowDAOIndexer.Processors.DAO;
 using TomorrowDAOIndexer.Processors.Election;
 using TomorrowDAOIndexer.Processors.GovernanceScheme;
@@ -27,6 +31,7 @@ using TomorrowDAOIndexer.Processors.NetworkDao.Parliament;
 using TomorrowDAOIndexer.Processors.NetworkDao.Referendum;
 using TomorrowDAOIndexer.Processors.Proposal;
 using TomorrowDAOIndexer.Processors.Token;
+using TomorrowDAOIndexer.Processors.TokenConverter;
 using TomorrowDAOIndexer.Processors.Treasury;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.ObjectMapping;
@@ -49,7 +54,8 @@ namespace TomorrowDAOIndexer;
 public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowDAOIndexerTestModule>
 {
     protected const string TransactionId = "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce";
-
+    protected const string TokenSoldTransactionId = "14f69a1d0719a8ff90ee9e90ea78067af5172d8b83ace72b95aa84de1ef5e53a";
+    protected const string TokenBoughtTransactionId = "e1782068e55dc77057b7d6013e7e50c77e95a7fa7bcf8d67d4b3fc91b73b8347";
     protected readonly IAbpLazyServiceProvider LazyServiceProvider;
 
     // processor
@@ -91,6 +97,9 @@ public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowD
     protected readonly ParliamentProposalCreatedProcessor ParliamentProposalCreatedProcessor;
     protected readonly AssociationProposalCreatedProcessor AssociationProposalCreatedProcessor;
     protected readonly ReferendumProposalCreatedProcessor ReferendumProposalCreatedProcessor;
+    // protected readonly TransactionProcessor TransactionProcessor;
+    protected readonly TokenBoughtProcessor TokenBoughtProcessor;
+    protected readonly TokenSoldProcessor TokenSoldProcessor;
     protected readonly AssociationOrgCreatedProcessor AssociationOrgCreatedProcessor;
     protected readonly AssociationOrgMemberAddedProcessor AssociationOrgMemberAddedProcessor;
     protected readonly AssociationOrgMemberChangedProcessor AssociationOrgMemberChangedProcessor;
@@ -248,6 +257,9 @@ public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowD
         ParliamentProposalCreatedProcessor = GetRequiredService<ParliamentProposalCreatedProcessor>();
         AssociationProposalCreatedProcessor = GetRequiredService<AssociationProposalCreatedProcessor>();
         ReferendumProposalCreatedProcessor = GetRequiredService<ReferendumProposalCreatedProcessor>();
+        // TransactionProcessor = GetRequiredService<TransactionProcessor>();
+        TokenBoughtProcessor = GetRequiredService<TokenBoughtProcessor>();
+        TokenSoldProcessor = GetRequiredService<TokenSoldProcessor>();
         AssociationOrgCreatedProcessor = GetRequiredService<AssociationOrgCreatedProcessor>();
         AssociationOrgMemberAddedProcessor = GetRequiredService<AssociationOrgMemberAddedProcessor>();
         AssociationOrgMemberChangedProcessor = GetRequiredService<AssociationOrgMemberChangedProcessor>();
@@ -301,6 +313,21 @@ public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowD
             GetRequiredService<IReadOnlyRepository<NetworkDaoProposalVoteRecordIndex>>();
 
         ObjectMapper = GetRequiredService<IObjectMapper>();
+    }
+    
+    protected TransactionContext GenerateTransactionContext()
+    {
+        return new TransactionContext
+        {
+            ChainId = ChainId,
+            Block = new LightBlock
+            {
+                BlockHash = BlockHash,
+                BlockHeight = BlockHeight,
+                BlockTime = DateTime.UtcNow,
+                PreviousBlockHash = PreviousBlockHash
+            },
+        };
     }
 
     protected async Task MockEventProcess<TEvent>(TEvent logEvent, LogEventProcessorBase<TEvent> processor)
@@ -931,4 +958,46 @@ public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowD
             OrganizationAddress = Address.FromBase58(OrganizationAddress),
         };
     }
+    
+    protected TokenBought TokenBought()
+    {
+        return new TokenBought
+        {
+            Symbol = "WRITE",
+            BaseAmount = 1,
+            BoughtAmount = 2,
+            FeeAmount = 3
+        };
+    }
+    
+    protected TokenSold TokenSold()
+    {
+        return new TokenSold
+        {
+            Symbol = "WRITE",
+            BaseAmount = 1,
+            SoldAmount = 2,
+            FeeAmount = 3
+        };
+    }
+
+    protected AeFinder.Sdk.Processor.Transaction ResourceTokenTransaction(string txId, string methodName, string eventName,
+        Dictionary<string, string> extraProperties = null)
+    {
+        return new AeFinder.Sdk.Processor.Transaction
+        {
+            TransactionId = txId,
+            MethodName = methodName,
+            From = User,
+            To = TomorrowDAOConst.TokenConverterContractAddress,
+            LogEvents = [new AeFinder.Sdk.Processor.LogEvent
+            {
+                EventName = eventName,
+                ContractAddress = TomorrowDAOConst.TokenConverterContractAddress,
+                ExtraProperties = extraProperties
+            }],
+            Status = TransactionStatus.Mined
+        };
+    }
+
 }
