@@ -1,6 +1,7 @@
 using AeFinder.Sdk.Processor;
 using AElf.Contracts.MultiToken;
 using AElf.Contracts.Referendum;
+using AElf.Contracts.MultiToken;
 using TomorrowDAO.Contracts.DAO;
 using TomorrowDAO.Contracts.Election;
 using TomorrowDAO.Contracts.Governance;

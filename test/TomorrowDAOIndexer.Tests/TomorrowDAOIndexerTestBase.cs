@@ -6,6 +6,7 @@ using AElf;
 using AElf.Contracts.MultiToken;
 using AElf.Contracts.TokenConverter;
 using AElf.Contracts.Referendum;
+using AElf.Contracts.TokenConverter;
 using AElf.CSharp.Core;
 using AElf.Standards.ACS3;
 using AElf.Types;
@@ -23,6 +24,7 @@ using TomorrowDAO.Contracts.Vote;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.Processors;
 using TomorrowDAOIndexer.Enums;
+using TomorrowDAOIndexer.Processors;
 using TomorrowDAOIndexer.Processors.DAO;
 using TomorrowDAOIndexer.Processors.Election;
 using TomorrowDAOIndexer.Processors.GovernanceScheme;
@@ -98,6 +100,9 @@ public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowD
     protected readonly ParliamentProposalCreatedProcessor ParliamentProposalCreatedProcessor;
     protected readonly AssociationProposalCreatedProcessor AssociationProposalCreatedProcessor;
     protected readonly ReferendumProposalCreatedProcessor ReferendumProposalCreatedProcessor;
+    // protected readonly TransactionProcessor TransactionProcessor;
+    protected readonly TokenBoughtProcessor TokenBoughtProcessor;
+    protected readonly TokenSoldProcessor TokenSoldProcessor;
     protected readonly AssociationOrgCreatedProcessor AssociationOrgCreatedProcessor;
     protected readonly AssociationOrgMemberAddedProcessor AssociationOrgMemberAddedProcessor;
     protected readonly AssociationOrgMemberChangedProcessor AssociationOrgMemberChangedProcessor;
@@ -116,10 +121,7 @@ public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowD
     protected readonly ReferendumOrgWhiteListChangedProcessor ReferendumOrgWhiteListChangedProcessor;
     protected readonly ReferendumProposalReleasedProcessor ReferendumProposalReleasedProcessor;
     protected readonly ReferendumReceiptCreatedProcessor ReferendumReceiptCreatedProcessor;
-
-    // protected readonly TransactionProcessor TransactionProcessor;
-    protected readonly TokenBoughtProcessor TokenBoughtProcessor;
-    protected readonly TokenSoldProcessor TokenSoldProcessor;
+    
     // repository
     protected readonly IReadOnlyRepository<VoteSchemeIndex> VoteSchemeIndexRepository;
     protected readonly IReadOnlyRepository<VoteItemIndex> VoteItemIndexRepository;
@@ -258,6 +260,9 @@ public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowD
         ParliamentProposalCreatedProcessor = GetRequiredService<ParliamentProposalCreatedProcessor>();
         AssociationProposalCreatedProcessor = GetRequiredService<AssociationProposalCreatedProcessor>();
         ReferendumProposalCreatedProcessor = GetRequiredService<ReferendumProposalCreatedProcessor>();
+        // TransactionProcessor = GetRequiredService<TransactionProcessor>();
+        TokenBoughtProcessor = GetRequiredService<TokenBoughtProcessor>();
+        TokenSoldProcessor = GetRequiredService<TokenSoldProcessor>();
         AssociationOrgCreatedProcessor = GetRequiredService<AssociationOrgCreatedProcessor>();
         AssociationOrgMemberAddedProcessor = GetRequiredService<AssociationOrgMemberAddedProcessor>();
         AssociationOrgMemberChangedProcessor = GetRequiredService<AssociationOrgMemberChangedProcessor>();
@@ -277,10 +282,6 @@ public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowD
         ReferendumProposalReleasedProcessor = GetRequiredService<ReferendumProposalReleasedProcessor>();
         ReferendumReceiptCreatedProcessor = GetRequiredService<ReferendumReceiptCreatedProcessor>();
 
-        // TransactionProcessor = GetRequiredService<TransactionProcessor>();
-        TokenBoughtProcessor = GetRequiredService<TokenBoughtProcessor>();
-        TokenSoldProcessor = GetRequiredService<TokenSoldProcessor>();
-        
         VoteSchemeIndexRepository = GetRequiredService<IReadOnlyRepository<VoteSchemeIndex>>();
         VoteItemIndexRepository = GetRequiredService<IReadOnlyRepository<VoteItemIndex>>();
         VoteWithdrawnRepository = GetRequiredService<IReadOnlyRepository<VoteWithdrawnIndex>>();

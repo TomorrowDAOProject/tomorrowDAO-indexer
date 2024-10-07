@@ -30,14 +30,14 @@ public class TomorrowDAOConst
     public const string ParliamentContractAddress = "2JT8xzjR5zJ8xnBvdgBZdSjfbokFSbF5hDdpUCbXeWaJfPDmsK";
     public const string AssociationContractAddress = "XyRN9VNabpBiVUFeX2t7ZUR2b3tWV7U31exufJ2AUepVb5t56";
     public const string ReferendumContractAddress = "NxSBGHE3zs85tpnX1Ns4awQUtFL8Dnr6Hux4C4E18WZsW4zzJ";
-    public const string TokenConverterContractAddress = "SietKh9cArYub9ox6E4rU94LrzPad6TB72rCwe3X1jQ5m1C34";
-    public const string TokenContractAddress = "JRmBduh4nXWi1aXgdUsj5gJrzeZb2LxmrAbf7W99faZSvoAaE";
-    public const string NetworkDaoTreasuryContractAddress = "KNdM6U6PyPsgyena8rPHTbCoMrkrALhxAy1b8Qx2cgi4169xr";
     //public const string PortKeyContractAddress1 = "28PcLvP41ouUd6UNGsNRvKpkFTe6am34nPy4YPsWUJnZNwUvzM";
     //public const string PortKeyContractAddress2 = "2UthYi7AHRdfrqc1YCfeQnjdChDLaas65bW4WxESMGMojFiXj9";
     //testnet
     public const string PortKeyContractAddress1 = "iupiTuL2cshxB9UNauXNXe9iyCcqka7jCotodcEHGpNXeLzqG";
     public const string PortKeyContractAddress2 = "238X6iw1j8YKcHvkDYVtYVbuYk2gJnK8UoNpVCtssynSpVC8hb";
+    public const string TokenConverterContractAddress = "SietKh9cArYub9ox6E4rU94LrzPad6TB72rCwe3X1jQ5m1C34";
+    public const string TokenContractAddress = "JRmBduh4nXWi1aXgdUsj5gJrzeZb2LxmrAbf7W99faZSvoAaE";
+    public const string NetworkDaoTreasuryContractAddress = "KNdM6U6PyPsgyena8rPHTbCoMrkrALhxAy1b8Qx2cgi4169xr";
 
     //TestNet Side Chian
     public const string DAOContractAddressTestNetSideChain = "RRF7deQbmicUh6CZ1R2y7U9M8n2eHPyCgXVHwiSkmNETLbL4D";
