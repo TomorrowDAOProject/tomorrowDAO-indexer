@@ -26,6 +26,7 @@ public class NetworkDaoOrgChangedPageResultDto : NetworkDaoDataPageResultDto<Net
 
 public class NetworkDaoOrgChangedIndexDto : BlockInfoDto
 {
+    public string Id { get; set; }
     public string OrganizationAddress { get; set; }
     public NetworkDaoOrgType OrgType { get; set; }
     public TransactionInfoDto TransactionInfo { get; set; }
