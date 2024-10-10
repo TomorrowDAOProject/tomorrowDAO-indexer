@@ -1,4 +1,5 @@
 using AElf.CSharp.Core;
+using TomorrowDAOIndexer.Processors.Common;
 
 namespace TomorrowDAOIndexer.Processors.Election;
 

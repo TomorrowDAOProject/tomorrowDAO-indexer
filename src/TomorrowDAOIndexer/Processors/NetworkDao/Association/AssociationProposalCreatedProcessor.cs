@@ -12,6 +12,6 @@ public class AssociationProposalCreatedProcessor : AssociationProcessorBase<Prop
     {
         Logger.LogInformation("[Association ProposalCreated] start. chainId={ChainId}, proposalId={ProposalId}",
             context.ChainId, eventValue.ProposalId?.ToHex());
-        await SaveProposalIndex(eventValue, context, NetworkDaoProposalType.Association);
+        await SaveProposalIndexAsync(eventValue, context, NetworkDaoOrgType.Association);
     }
 }

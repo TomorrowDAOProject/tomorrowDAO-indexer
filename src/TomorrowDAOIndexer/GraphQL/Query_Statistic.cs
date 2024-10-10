@@ -65,6 +65,7 @@ public partial class Query
             DauProposalCreate = proposalList.Count,
             DauProposalExecute = proposalExecuteList.Count,
             DauTreasury = treasuryList.Count
+
         };
     }
 }
