@@ -26,6 +26,27 @@ public partial class QueryTest
     }
 
     [Fact]
+    public async Task GetSyncProposalInfosAsync_Anonymous_Test()
+    {
+        await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
+        await MockEventProcess(GovernanceSchemeAdded(), GovernanceSchemeAddedProcessor);
+        await MockEventProcess(DaoProposalTimePeriodSet(), DAOProposalTimePeriodSetProcessor);
+        await MockEventProcess(ProposalCreated(true), ProposalCreatedProcessor);
+
+        var result = await Query.GetSyncProposalInfosAsync(ProposalIndexRepository, ObjectMapper, new GetChainBlockHeightInput
+        {
+            StartBlockHeight = BlockHeight, EndBlockHeight = BlockHeight + 1,
+            ChainId = ChainId, SkipCount = 0, MaxResultCount = 10
+        });
+        result.ShouldNotBeNull();
+        result.Count.ShouldBe(1);
+        var proposal = result[0];
+        proposal.DAOId.ShouldBe(DAOId);
+        proposal.IsAnonymous.ShouldBe(true);
+    }
+
+    
+    [Fact]
     public async Task GetProposalCountAsync_Test()
     {
         await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);

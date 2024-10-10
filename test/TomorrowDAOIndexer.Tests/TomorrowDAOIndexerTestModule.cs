@@ -51,6 +51,7 @@ public class TomorrowDAOIndexerTestModule : AbpModule
         context.Services.AddSingleton<VotingItemRegisteredProcessor>();
         context.Services.AddSingleton<VotedProcessor>();
         context.Services.AddSingleton<VoteWithdrawnProcessor>();
+        context.Services.AddSingleton<CommittedProcessor>();
         
         // treasury
         context.Services.AddSingleton<TransferredProcessor>();

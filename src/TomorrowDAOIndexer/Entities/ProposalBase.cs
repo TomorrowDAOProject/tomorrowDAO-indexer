@@ -81,4 +81,5 @@ public class ProposalBase : AeFinderEntity
     public long VetoExecuteTimePeriod { get; set; }
     
     public bool IsNetworkDAO { get; set; }
+    public bool IsAnonymous { get; set; }
 }

@@ -37,10 +37,12 @@ using Vote = TomorrowDAOIndexer.Processors.Vote;
 
 namespace TomorrowDAOIndexer;
 
-public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDAOIndexerTestModule>
+public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowDAOIndexerTestModule>
 {
     protected const string TransactionId = "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce";
+
     protected readonly IAbpLazyServiceProvider LazyServiceProvider;
+
     // processor
     protected readonly Vote.VoteSchemeCreatedProcessor VoteSchemeCreatedProcessor;
     protected readonly Vote.VotingItemRegisteredProcessor VotingItemRegisteredProcessor;
@@ -64,6 +66,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     protected readonly CandidateInfoUpdatedProcessor CandidateInfoUpdatedProcessor;
     protected readonly CandidateRemovedProcessor CandidateRemovedProcessor;
     protected readonly VotedProcessor VotedProcessor;
+    protected readonly Vote.CommittedProcessor CommittedProcessor;
     protected readonly Vote.VotedProcessor VoteVotedProcessor;
     protected readonly ElectionVotingEventRegisteredProcessor ElectionVotingEventRegisteredProcessor;
     protected readonly HighCouncilAddedProcessor HighCouncilAddedProcessor;
@@ -80,7 +83,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     protected readonly ParliamentProposalCreatedProcessor ParliamentProposalCreatedProcessor;
     protected readonly AssociationProposalCreatedProcessor AssociationProposalCreatedProcessor;
     protected readonly ReferendumProposalCreatedProcessor ReferendumProposalCreatedProcessor;
-    
+
     // repository
     protected readonly IReadOnlyRepository<VoteSchemeIndex> VoteSchemeIndexRepository;
     protected readonly IReadOnlyRepository<VoteItemIndex> VoteItemIndexRepository;
@@ -99,9 +102,13 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     protected readonly IReadOnlyRepository<ProposalIndex> ProposalIndexRepository;
     protected readonly IReadOnlyRepository<VoteRecordIndex> VoteRecordIndexRepository;
     protected readonly IReadOnlyRepository<DaoVoterRecordIndex> DaoVoterRecordIndexRepository;
+    protected readonly IReadOnlyRepository<CommitmentIndex> CommitmentIndexRepository;
+
     protected readonly IReadOnlyRepository<UserBalanceIndex> UserBalanceIndexRepository;
+
     // mapper
     protected readonly IObjectMapper ObjectMapper;
+
     // param
     protected static readonly string Id1 = "123";
     protected static readonly string Id2 = "456";
@@ -145,6 +152,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     protected readonly string SchemeAddress = "2RjBxiiMKnEe72w5R6CtbdH3M8UQSmh7MfRPs7wJTNMU3KgUpm";
     protected readonly string ForumUrl = "ForumUrl";
     protected readonly string ProposalTitle = "ProposalTitle";
+    protected readonly string Commitment = "aeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeae";
 
     // protected readonly int MinimalRequiredThreshold = 1;
     // protected readonly int MinimalVoteThreshold = 2;
@@ -164,7 +172,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     public const int MaxVetoActiveTimePeriod = 5; // days
     public const int MinVetoExecuteTimePeriod = 1; // days
     public const int MaxVetoExecuteTimePeriod = 3; // days
-    
+
     public TomorrowDAOIndexerTestBase()
     {
         LazyServiceProvider = GetRequiredService<IAbpLazyServiceProvider>();
@@ -190,6 +198,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         CandidateInfoUpdatedProcessor = GetRequiredService<CandidateInfoUpdatedProcessor>();
         CandidateRemovedProcessor = GetRequiredService<CandidateRemovedProcessor>();
         VotedProcessor = GetRequiredService<VotedProcessor>();
+        CommittedProcessor = GetRequiredService<Vote.CommittedProcessor>();
         VoteVotedProcessor = GetRequiredService<Vote.VotedProcessor>();
         ElectionVotingEventRegisteredProcessor = GetRequiredService<ElectionVotingEventRegisteredProcessor>();
         HighCouncilAddedProcessor = GetRequiredService<HighCouncilAddedProcessor>();
@@ -206,7 +215,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         ParliamentProposalCreatedProcessor = GetRequiredService<ParliamentProposalCreatedProcessor>();
         AssociationProposalCreatedProcessor = GetRequiredService<AssociationProposalCreatedProcessor>();
         ReferendumProposalCreatedProcessor = GetRequiredService<ReferendumProposalCreatedProcessor>();
-        
+
         VoteSchemeIndexRepository = GetRequiredService<IReadOnlyRepository<VoteSchemeIndex>>();
         VoteItemIndexRepository = GetRequiredService<IReadOnlyRepository<VoteItemIndex>>();
         VoteWithdrawnRepository = GetRequiredService<IReadOnlyRepository<VoteWithdrawnIndex>>();
@@ -223,13 +232,15 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         CandidateElectedRepository = GetRequiredService<IReadOnlyRepository<ElectionCandidateElectedIndex>>();
         ProposalIndexRepository = GetRequiredService<IReadOnlyRepository<ProposalIndex>>();
         VoteRecordIndexRepository = GetRequiredService<IReadOnlyRepository<VoteRecordIndex>>();
+        CommitmentIndexRepository = GetRequiredService<IReadOnlyRepository<CommitmentIndex>>();
         DAOIndexRepository = GetRequiredService<IReadOnlyRepository<DAOIndex>>();
         DaoVoterRecordIndexRepository = GetRequiredService<IReadOnlyRepository<DaoVoterRecordIndex>>();
         UserBalanceIndexRepository = GetRequiredService<IReadOnlyRepository<UserBalanceIndex>>();
         ObjectMapper = GetRequiredService<IObjectMapper>();
     }
 
-    protected async Task MockEventProcess<TEvent>(TEvent logEvent, LogEventProcessorBase<TEvent> processor) where TEvent : IEvent<TEvent>, new()
+    protected async Task MockEventProcess<TEvent>(TEvent logEvent, LogEventProcessorBase<TEvent> processor)
+        where TEvent : IEvent<TEvent>, new()
     {
         await processor.ProcessAsync(logEvent, GenerateLogEventContext(logEvent));
     }
@@ -258,7 +269,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         return await LazyServiceProvider.GetRequiredService<IRepository<TEntity>>().GetAsync(id);
     }
 
-    protected DAOCreated MaxInfoDAOCreated() 
+    protected DAOCreated MaxInfoDAOCreated()
     {
         return new DAOCreated
         {
@@ -346,7 +357,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
             Memo = "Test",
         };
     }
-    
+
     protected Issued Issued(string symbol = "Elf")
     {
         return new Issued
@@ -357,7 +368,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
             Memo = "Test",
         };
     }
-    
+
     protected Burned Burned(string symbol = "Elf")
     {
         return new Burned
@@ -548,7 +559,19 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         };
     }
 
-    protected VotingItemRegistered VotingItemRegistered()
+    protected Committed Committed()
+    {
+        return new Committed()
+        {
+            DaoId = HashHelper.ComputeFrom(Id1),
+            ProposalId = HashHelper.ComputeFrom(Id2),
+            LeafIndex = 1,
+            Commitment = Hash.LoadFromHex(Commitment),
+            Timestamp = DateTime.UtcNow.AddMinutes(1).ToTimestamp(),
+        };
+    }
+
+    protected VotingItemRegistered VotingItemRegistered(bool isAnonymous = false)
     {
         return new VotingItemRegistered
         {
@@ -558,7 +581,8 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
             AcceptedCurrency = Elf,
             RegisterTimestamp = DateTime.UtcNow.AddMinutes(-10).ToTimestamp(),
             StartTimestamp = DateTime.UtcNow.AddMinutes(-10).ToTimestamp(),
-            EndTimestamp = DateTime.UtcNow.AddMinutes(100).ToTimestamp()
+            EndTimestamp = DateTime.UtcNow.AddMinutes(100).ToTimestamp(),
+            IsAnonymous = isAnonymous
         };
     }
 
@@ -574,7 +598,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     }
 
     protected GovernanceSchemeAdded GovernanceSchemeAdded(
-        TomorrowDAO.Contracts.Governance.GovernanceMechanism governanceMechanism 
+        TomorrowDAO.Contracts.Governance.GovernanceMechanism governanceMechanism
             = TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum)
     {
         return new GovernanceSchemeAdded
@@ -631,7 +655,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         };
     }
 
-    protected ProposalCreated ProposalCreated()
+    protected ProposalCreated ProposalCreated(bool isAnonymous=false)
     {
         return new ProposalCreated
         {
@@ -656,7 +680,8 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
                 Params = ByteStringHelper.FromHexString("0102030405")
             },
             VoteSchemeId = HashHelper.ComputeFrom(Id3),
-            VetoProposalId = HashHelper.ComputeFrom(Id4)
+            VetoProposalId = HashHelper.ComputeFrom(Id4),
+            IsAnonymous = true
         };
     }
 
@@ -729,7 +754,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
             }
         };
     }
-    
+
     protected MemberRemoved MemberRemoved()
     {
         return new MemberRemoved
@@ -741,7 +766,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
             }
         };
     }
-    
+
     protected AElf.Standards.ACS3.ProposalCreated NetworkDaoProposalCreate(string proposalId = null)
     {
         return new AElf.Standards.ACS3.ProposalCreated
