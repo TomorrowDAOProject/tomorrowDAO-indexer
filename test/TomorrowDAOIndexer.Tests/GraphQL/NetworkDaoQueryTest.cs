@@ -162,7 +162,7 @@ public class NetworkDaoQueryTest : TomorrowDAOIndexerTestBase
                 EndBlockHeight = BlockHeight + 1,
                 SkipCount = 0,
                 MaxResultCount = 10,
-                ChangeType = OrgMemberChangeTypeEnum.MemberAdded
+                ChangeType = OrgMemberChangeTypeEnum.MemberRemoved
             });
         pageResultDto.ShouldNotBeNull();
         pageResultDto.TotalCount.ShouldBe(1);
@@ -171,7 +171,7 @@ public class NetworkDaoQueryTest : TomorrowDAOIndexerTestBase
         indexDto.OrganizationAddress.ShouldBe(OrganizationAddress);
         indexDto.TransactionInfo.ShouldNotBeNull();
         indexDto.TransactionInfo.TransactionId.ShouldBe(TransactionId);
-        indexDto.ChangeType.ShouldBe(OrgMemberChangeTypeEnum.MemberAdded);
+        indexDto.ChangeType.ShouldBe(OrgMemberChangeTypeEnum.MemberRemoved);
     }
 
     [Fact]

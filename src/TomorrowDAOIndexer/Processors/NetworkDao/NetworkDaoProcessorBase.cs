@@ -22,14 +22,14 @@ public abstract class NetworkDaoProposalBase<TEvent> : ProcessorBase<TEvent> whe
         try
         {
             var id = IdGenerateHelper.GetId(chainId, proposalId);
-            var proposalIndex = await GetEntityAsync<NetworkDaoProposalIndex>(id);
-            if (proposalIndex != null)
-            {
-                Logger.LogError("[ACS3.ProposalCreated] Network DAO ProposalIndex already existed id {id}", id);
-                return;
-            }
+            // var proposalIndex = await GetEntityAsync<NetworkDaoProposalIndex>(id);
+            // if (proposalIndex != null)
+            // {
+            //     Logger.LogError("[ACS3.ProposalCreated] Network DAO ProposalIndex already existed id {id}", id);
+            //     return;
+            // }
 
-            proposalIndex = ObjectMapper.Map<ProposalCreated, NetworkDaoProposalIndex>(eventValue);
+            var proposalIndex = ObjectMapper.Map<ProposalCreated, NetworkDaoProposalIndex>(eventValue);
             proposalIndex.Id = id;
             proposalIndex.OrgType = orgType;
             proposalIndex.SaveTime = DateTime.Now;
@@ -54,15 +54,15 @@ public abstract class NetworkDaoProposalBase<TEvent> : ProcessorBase<TEvent> whe
         try
         {
             var id = IdGenerateHelper.GetId(chainId, proposalId);
-            var proposalReleasedIndex = await GetEntityAsync<NetworkDaoProposalReleasedIndex>(id);
-            if (proposalReleasedIndex != null)
-            {
-                Logger.LogError("[ACS3.ProposalReleased] Network DAO ProposalReleasedIndex already existed id {id}",
-                    id);
-                return;
-            }
+            // var proposalReleasedIndex = await GetEntityAsync<NetworkDaoProposalReleasedIndex>(id);
+            // if (proposalReleasedIndex != null)
+            // {
+            //     Logger.LogError("[ACS3.ProposalReleased] Network DAO ProposalReleasedIndex already existed id {id}",
+            //         id);
+            //     return;
+            // }
 
-            proposalReleasedIndex = ObjectMapper.Map<ProposalReleased, NetworkDaoProposalReleasedIndex>(eventValue);
+            var proposalReleasedIndex = ObjectMapper.Map<ProposalReleased, NetworkDaoProposalReleasedIndex>(eventValue);
             proposalReleasedIndex.Id = id;
             proposalReleasedIndex.OrgType = orgType;
             await SaveEntityAsync(proposalReleasedIndex, context);
@@ -91,15 +91,15 @@ public abstract class NetworkDaoProposalBase<TEvent> : ProcessorBase<TEvent> whe
         try
         {
             var id = IdGenerateHelper.GetId(chainId, transactionId);
-            var voteIndex = await GetEntityAsync<NetworkDaoProposalVoteRecordIndex>(id);
-            if (voteIndex != null)
-            {
-                Logger.LogError("[ACS3.ReceiptCreated] Network DAO ReceiptCreated already existed id {id}",
-                    id);
-                return;
-            }
+            // var voteIndex = await GetEntityAsync<NetworkDaoProposalVoteRecordIndex>(id);
+            // if (voteIndex != null)
+            // {
+            //     Logger.LogError("[ACS3.ReceiptCreated] Network DAO ReceiptCreated already existed id {id}",
+            //         id);
+            //     return;
+            // }
 
-            voteIndex = ObjectMapper.Map<ReferendumReceiptCreated, NetworkDaoProposalVoteRecordIndex>(logEvent);
+            var voteIndex = ObjectMapper.Map<ReferendumReceiptCreated, NetworkDaoProposalVoteRecordIndex>(logEvent);
             voteIndex.Id = id;
             voteIndex.OrgType = orgType;
             await SaveEntityAsync(voteIndex, context);
@@ -126,15 +126,15 @@ public abstract class NetworkDaoProposalBase<TEvent> : ProcessorBase<TEvent> whe
         try
         {
             var id = IdGenerateHelper.GetId(chainId, organizationAddress);
-            var orgCreatedIndex = await GetEntityAsync<NetworkDaoOrgCreatedIndex>(id);
-            if (orgCreatedIndex != null)
-            {
-                Logger.LogError("[ACS3.OrganizationCreated] Network DAO OrganizationCreated already existed id {id}",
-                    id);
-                return;
-            }
+            // var orgCreatedIndex = await GetEntityAsync<NetworkDaoOrgCreatedIndex>(id);
+            // if (orgCreatedIndex != null)
+            // {
+            //     Logger.LogError("[ACS3.OrganizationCreated] Network DAO OrganizationCreated already existed id {id}",
+            //         id);
+            //     return;
+            // }
 
-            orgCreatedIndex = ObjectMapper.Map<OrganizationCreated, NetworkDaoOrgCreatedIndex>(logEvent);
+            var orgCreatedIndex = ObjectMapper.Map<OrganizationCreated, NetworkDaoOrgCreatedIndex>(logEvent);
             orgCreatedIndex.Id = id;
             orgCreatedIndex.OrgType = orgType;
             orgCreatedIndex.Transaction = ObjectMapper.Map<AeFinder.Sdk.Processor.Transaction, Transaction>(context.Transaction);
@@ -163,16 +163,16 @@ public abstract class NetworkDaoProposalBase<TEvent> : ProcessorBase<TEvent> whe
         try
         {
             var id = IdGenerateHelper.GetId(chainId, transactionId);
-            var orgWhiteListChangedIndex = await GetEntityAsync<NetworkDaoOrgWhiteListChangedIndex>(id);
-            if (orgWhiteListChangedIndex != null)
-            {
-                Logger.LogError(
-                    "[ACS3.OrganizationWhiteListChanged] Network DAO OrgWhiteListChanged already existed id {id}",
-                    id);
-                return;
-            }
+            // var orgWhiteListChangedIndex = await GetEntityAsync<NetworkDaoOrgWhiteListChangedIndex>(id);
+            // if (orgWhiteListChangedIndex != null)
+            // {
+            //     Logger.LogError(
+            //         "[ACS3.OrganizationWhiteListChanged] Network DAO OrgWhiteListChanged already existed id {id}",
+            //         id);
+            //     return;
+            // }
 
-            orgWhiteListChangedIndex =
+            var orgWhiteListChangedIndex =
                 ObjectMapper.Map<OrganizationWhiteListChanged, NetworkDaoOrgWhiteListChangedIndex>(logEvent);
             orgWhiteListChangedIndex.Id = id;
             orgWhiteListChangedIndex.OrgType = orgType;
@@ -201,16 +201,16 @@ public abstract class NetworkDaoProposalBase<TEvent> : ProcessorBase<TEvent> whe
         try
         {
             var id = IdGenerateHelper.GetId(chainId, transactionId);
-            var orgThresholdChangedIndex = await GetEntityAsync<NetworkDaoOrgThresholdChangedIndex>(id);
-            if (orgThresholdChangedIndex != null)
-            {
-                Logger.LogError(
-                    "[ACS3.OrganizationThresholdChanged] Network DAO OrgThresholdChangedIndex already existed id {id}",
-                    id);
-                return;
-            }
+            // var orgThresholdChangedIndex = await GetEntityAsync<NetworkDaoOrgThresholdChangedIndex>(id);
+            // if (orgThresholdChangedIndex != null)
+            // {
+            //     Logger.LogError(
+            //         "[ACS3.OrganizationThresholdChanged] Network DAO OrgThresholdChangedIndex already existed id {id}",
+            //         id);
+            //     return;
+            // }
 
-            orgThresholdChangedIndex =
+            var orgThresholdChangedIndex =
                 ObjectMapper.Map<OrganizationThresholdChanged, NetworkDaoOrgThresholdChangedIndex>(logEvent);
             orgThresholdChangedIndex.Id = id;
             orgThresholdChangedIndex.OrgType = orgType;
@@ -239,16 +239,16 @@ public abstract class NetworkDaoProposalBase<TEvent> : ProcessorBase<TEvent> whe
         try
         {
             var id = IdGenerateHelper.GetId(chainId, transactionId);
-            var orgMemberChangedIndex = await GetEntityAsync<NetworkDaoOrgMemberChangedIndex>(id);
-            if (orgMemberChangedIndex != null)
-            {
-                Logger.LogError(
-                    "[{0}.MemberAdded] Network DAO OrgMemberChangedIndex already existed id {1}",
-                    orgType.ToString(), id);
-                return;
-            }
+            // var orgMemberChangedIndex = await GetEntityAsync<NetworkDaoOrgMemberChangedIndex>(id);
+            // if (orgMemberChangedIndex != null)
+            // {
+            //     Logger.LogError(
+            //         "[{0}.MemberAdded] Network DAO OrgMemberChangedIndex already existed id {1}",
+            //         orgType.ToString(), id);
+            //     return;
+            // }
 
-            orgMemberChangedIndex =
+            var orgMemberChangedIndex =
                 ObjectMapper.Map<AElf.Contracts.Association.MemberAdded, NetworkDaoOrgMemberChangedIndex>(logEvent);
             orgMemberChangedIndex.Id = id;
             orgMemberChangedIndex.OrgType = orgType;
@@ -278,16 +278,16 @@ public abstract class NetworkDaoProposalBase<TEvent> : ProcessorBase<TEvent> whe
         try
         {
             var id = IdGenerateHelper.GetId(chainId, transactionId);
-            var orgMemberChangedIndex = await GetEntityAsync<NetworkDaoOrgMemberChangedIndex>(id);
-            if (orgMemberChangedIndex != null)
-            {
-                Logger.LogError(
-                    "[{0}.MemberRemoved] Network DAO OrgMemberChangedIndex already existed id {1}",
-                    orgType.ToString(), id);
-                return;
-            }
+            // var orgMemberChangedIndex = await GetEntityAsync<NetworkDaoOrgMemberChangedIndex>(id);
+            // if (orgMemberChangedIndex != null)
+            // {
+            //     Logger.LogError(
+            //         "[{0}.MemberRemoved] Network DAO OrgMemberChangedIndex already existed id {1}",
+            //         orgType.ToString(), id);
+            //     return;
+            // }
 
-            orgMemberChangedIndex =
+            var orgMemberChangedIndex =
                 ObjectMapper.Map<AElf.Contracts.Association.MemberRemoved, NetworkDaoOrgMemberChangedIndex>(logEvent);
             orgMemberChangedIndex.Id = id;
             orgMemberChangedIndex.OrgType = orgType;
@@ -317,16 +317,16 @@ public abstract class NetworkDaoProposalBase<TEvent> : ProcessorBase<TEvent> whe
         try
         {
             var id = IdGenerateHelper.GetId(chainId, transactionId);
-            var orgMemberChangedIndex = await GetEntityAsync<NetworkDaoOrgMemberChangedIndex>(id);
-            if (orgMemberChangedIndex != null)
-            {
-                Logger.LogError(
-                    "[{0}.MemberChanged] Network DAO OrgMemberChangedIndex already existed id {1}",
-                    orgType.ToString(), id);
-                return;
-            }
+            // var orgMemberChangedIndex = await GetEntityAsync<NetworkDaoOrgMemberChangedIndex>(id);
+            // if (orgMemberChangedIndex != null)
+            // {
+            //     Logger.LogError(
+            //         "[{0}.MemberChanged] Network DAO OrgMemberChangedIndex already existed id {1}",
+            //         orgType.ToString(), id);
+            //     return;
+            // }
 
-            orgMemberChangedIndex =
+            var orgMemberChangedIndex =
                 ObjectMapper.Map<AElf.Contracts.Association.MemberChanged, NetworkDaoOrgMemberChangedIndex>(logEvent);
             orgMemberChangedIndex.Id = id;
             orgMemberChangedIndex.OrgType = orgType;

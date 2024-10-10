@@ -290,7 +290,7 @@ public partial class Query
         if (!input.ProposalIds.IsNullOrEmpty())
         {
             queryable = queryable.Where(
-                input.OrgAddresses.Select(proposalId => (Expression<Func<NetworkDaoProposalIndex, bool>>)(o => o.ProposalId == proposalId))
+                input.ProposalIds.Select(proposalId => (Expression<Func<NetworkDaoProposalIndex, bool>>)(o => o.ProposalId == proposalId))
                     .Aggregate((prev, next) => prev.Or(next)));
         }
         if (!input.OrgAddresses.IsNullOrEmpty())
@@ -341,7 +341,7 @@ public partial class Query
         if (!input.ProposalIds.IsNullOrEmpty())
         {
             queryable = queryable.Where(
-                input.OrgAddresses.Select(proposalId => (Expression<Func<NetworkDaoProposalReleasedIndex, bool>>)(o => o.ProposalId == proposalId))
+                input.ProposalIds.Select(proposalId => (Expression<Func<NetworkDaoProposalReleasedIndex, bool>>)(o => o.ProposalId == proposalId))
                     .Aggregate((prev, next) => prev.Or(next)));
         }
         if (!input.OrgAddresses.IsNullOrEmpty())
@@ -388,7 +388,7 @@ public partial class Query
         if (!input.ProposalIds.IsNullOrEmpty())
         {
             queryable = queryable.Where(
-                input.OrgAddresses.Select(proposalId => (Expression<Func<NetworkDaoProposalVoteRecordIndex, bool>>)(o => o.ProposalId == proposalId))
+                input.ProposalIds.Select(proposalId => (Expression<Func<NetworkDaoProposalVoteRecordIndex, bool>>)(o => o.ProposalId == proposalId))
                     .Aggregate((prev, next) => prev.Or(next)));
         }
         if (!input.OrgAddresses.IsNullOrEmpty())
