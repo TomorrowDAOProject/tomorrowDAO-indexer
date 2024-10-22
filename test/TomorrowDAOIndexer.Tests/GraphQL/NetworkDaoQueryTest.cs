@@ -1,6 +1,8 @@
+using AeFinder.Sdk.Processor;
 using Shouldly;
 using TomorrowDAOIndexer.Enums;
 using TomorrowDAOIndexer.GraphQL.Dto;
+using TomorrowDAOIndexer.GraphQL.Input;
 using Xunit;
 
 namespace TomorrowDAOIndexer.GraphQL;
@@ -301,5 +303,32 @@ public class NetworkDaoQueryTest : TomorrowDAOIndexerTestBase
         indexDto.TransactionInfo.ShouldNotBeNull();
         indexDto.TransactionInfo.TransactionId.ShouldBe(TransactionId);
         indexDto.TransactionInfo.IsAAForwardCall.ShouldBeFalse();
+    }
+
+    [Fact]
+    public async Task GetResourceTokenListAsync_Test()
+    {
+        await MockEventProcess(TokenBought(), TokenBoughtProcessor);
+
+        var result = await Query.GetResourceTokenListAsync(resourceTokenIndexRepository, ObjectMapper, new GetChainBlockHeightInput
+        {
+            ChainId = ChainId, StartBlockHeight = BlockHeight, EndBlockHeight = BlockHeight + 1,
+            SkipCount = 0, MaxResultCount = 10
+        });
+        result.ShouldNotBeNull();
+        result.Count.ShouldBe(1);
+        var resourceTokenDto = result[0];
+        var id = IdGenerateHelper.GetId(ChainId, TransactionId);
+        resourceTokenDto.ShouldNotBeNull();
+        resourceTokenDto.ChainId.ShouldBe(ChainId);
+        resourceTokenDto.Id.ShouldBe(id);
+        resourceTokenDto.TransactionId.ShouldBe(TransactionId);
+        resourceTokenDto.Method.ShouldBe(TomorrowDAOConst.TokenConverterContractAddressBuyMethod);
+        resourceTokenDto.Symbol.ShouldBe("WRITE");
+        resourceTokenDto.ResourceAmount.ShouldBe(2);
+        resourceTokenDto.BaseAmount.ShouldBe(1);
+        resourceTokenDto.FeeAmount.ShouldBe(3);
+        resourceTokenDto.BlockHeight.ShouldBe(BlockHeight);
+        resourceTokenDto.TransactionStatus.ShouldBe(TransactionStatus.Mined.ToString());
     }
 }
