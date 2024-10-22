@@ -13,7 +13,7 @@ public class TokenSoldProcessor : TokenConverterProcessorBase<TokenSold>
         var feeAmount = logEvent.FeeAmount;
         var baseAmount = logEvent.BaseAmount;
         var soldAmount = logEvent.SoldAmount;
-        Logger.LogInformation("[TokenBought] start chainId:{proposalId} feeAmount:{chainId} baseAmount {baseAmount} soldAmount {soldAmount}",
+        Logger.LogInformation("[TokenSold] start chainId:{proposalId} feeAmount:{chainId} baseAmount {baseAmount} soldAmount {soldAmount}",
             chainId, feeAmount, baseAmount, soldAmount);
         try
         {
@@ -31,12 +31,12 @@ public class TokenSoldProcessor : TokenConverterProcessorBase<TokenSold>
                 TransactionStatus = context.Transaction.Status.ToString(),
                 OperateTime = context.Block.BlockTime
             }, context);
-            Logger.LogInformation("[TokenBought] start chainId:{proposalId} feeAmount:{chainId} baseAmount {baseAmount} soldAmount {soldAmount}",
+            Logger.LogInformation("[TokenSold] start chainId:{proposalId} feeAmount:{chainId} baseAmount {baseAmount} soldAmount {soldAmount}",
                 chainId, feeAmount, baseAmount, soldAmount);
         }
         catch (Exception e)
         {
-            Logger.LogError(e, "[TokenBought] start chainId:{proposalId} feeAmount:{chainId} baseAmount {baseAmount} soldAmount {soldAmount}",
+            Logger.LogError(e, "[TokenSold] start chainId:{proposalId} feeAmount:{chainId} baseAmount {baseAmount} soldAmount {soldAmount}",
                 chainId, feeAmount, baseAmount, soldAmount);
             throw;
         }
