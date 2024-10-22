@@ -538,5 +538,14 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.ChainId, opt
                 => opt.MapFrom(source => source.Metadata.ChainId))
             ;
+        CreateMap<LogEventContext, UserBalanceIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            ;
+        CreateMap<ResourceTokenIndex, ResourceTokenDto>();
+        CreateMap<LogEventContext, ResourceTokenIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            ;
     }
 }

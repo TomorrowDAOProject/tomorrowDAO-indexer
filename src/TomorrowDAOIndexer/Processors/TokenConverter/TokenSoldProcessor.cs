@@ -30,7 +30,7 @@ public class TokenSoldProcessor : TokenConverterProcessorBase<TokenSold>
                 BlockHeight = context.Block.BlockHeight,
                 TransactionStatus = context.Transaction.Status.ToString(),
                 OperateTime = context.Block.BlockTime
-            });
+            }, context);
             Logger.LogInformation("[TokenBought] start chainId:{proposalId} feeAmount:{chainId} baseAmount {baseAmount} soldAmount {soldAmount}",
                 chainId, feeAmount, baseAmount, soldAmount);
         }

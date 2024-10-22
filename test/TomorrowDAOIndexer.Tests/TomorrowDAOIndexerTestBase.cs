@@ -149,6 +149,7 @@ public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowD
     protected readonly IReadOnlyRepository<NetworkDaoProposalReleasedIndex> NetworkDaoProposalReleasedIndexRepository;
     protected readonly IReadOnlyRepository<NetworkDaoProposalVoteRecordIndex>
         NetworkDaoProposalVoteRecordIndexRepository;
+    protected readonly IReadOnlyRepository<ResourceTokenIndex> resourceTokenIndexRepository;
 
     // mapper
     protected readonly IObjectMapper ObjectMapper;
@@ -311,6 +312,7 @@ public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowD
             GetRequiredService<IReadOnlyRepository<NetworkDaoProposalReleasedIndex>>();
         NetworkDaoProposalVoteRecordIndexRepository =
             GetRequiredService<IReadOnlyRepository<NetworkDaoProposalVoteRecordIndex>>();
+        resourceTokenIndexRepository = GetRequiredService<IReadOnlyRepository<ResourceTokenIndex>>();
 
         ObjectMapper = GetRequiredService<IObjectMapper>();
     }

@@ -15,14 +15,14 @@ public class TokenBoughtProcessorTest : TomorrowDAOIndexerTestBase
         var resourceTokenIndex = await GetIndexById<ResourceTokenIndex>(id);
         resourceTokenIndex.ShouldNotBeNull();
         resourceTokenIndex.ChainId.ShouldBe(ChainId);
-         resourceTokenIndex.Id.ShouldBe(id);
-         resourceTokenIndex.TransactionId.ShouldBe(TransactionId);
-         resourceTokenIndex.Method.ShouldBe(TomorrowDAOConst.TokenConverterContractAddressBuyMethod);
-         resourceTokenIndex.Symbol.ShouldBe("WRITE");
-         resourceTokenIndex.ResourceAmount.ShouldBe(2);
-         resourceTokenIndex.BaseAmount.ShouldBe(1);
-         resourceTokenIndex.FeeAmount.ShouldBe(3);
-         resourceTokenIndex.BlockHeight.ShouldBe(BlockHeight);
-         resourceTokenIndex.TransactionStatus.ShouldBe(TransactionStatus.Mined.ToString());
+        resourceTokenIndex.Id.ShouldBe(id);
+        resourceTokenIndex.TransactionId.ShouldBe(TransactionId);
+        resourceTokenIndex.Method.ShouldBe(TomorrowDAOConst.TokenConverterContractAddressBuyMethod);
+        resourceTokenIndex.Symbol.ShouldBe("WRITE");
+        resourceTokenIndex.ResourceAmount.ShouldBe(2);
+        resourceTokenIndex.BaseAmount.ShouldBe(1);
+        resourceTokenIndex.FeeAmount.ShouldBe(3);
+        resourceTokenIndex.BlockHeight.ShouldBe(BlockHeight);
+        resourceTokenIndex.TransactionStatus.ShouldBe(TransactionStatus.Mined.ToString());
     }
 }

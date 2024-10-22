@@ -4,6 +4,7 @@ using GraphQL;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.Enums;
 using TomorrowDAOIndexer.GraphQL.Dto;
+using TomorrowDAOIndexer.GraphQL.Input;
 using Volo.Abp.ObjectMapping;
 
 namespace TomorrowDAOIndexer.GraphQL;
@@ -411,5 +412,28 @@ public partial class Query
             TotalCount = count,
             Data = objectMapper.Map<List<NetworkDaoProposalVoteRecordIndex>, List<NetworkDaoProposalVoteRecordIndexDto>>(queryable.ToList())
         };
+    }
+    
+    [Name("getResourceTokenList")]
+    public static async Task<List<ResourceTokenDto>> GetResourceTokenListAsync(
+        [FromServices] IReadOnlyRepository<ResourceTokenIndex> repository,
+        [FromServices] IObjectMapper objectMapper, GetChainBlockHeightInput input)
+    {
+        var queryable = await repository.GetQueryableAsync();
+        if (input.StartBlockHeight > 0)
+        {
+            queryable = queryable.Where(a => a.BlockHeight >= input.StartBlockHeight);
+        }
+        if (input.EndBlockHeight > 0)
+        {
+            queryable = queryable.Where(a => a.BlockHeight <= input.EndBlockHeight);
+        }
+        if (!input.ChainId.IsNullOrWhiteSpace())
+        {
+            queryable = queryable.Where(a => a.Metadata.ChainId == input.ChainId);
+        }
+        queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
+            .OrderBy(a => a.BlockHeight);
+        return objectMapper.Map<List<ResourceTokenIndex>, List<ResourceTokenDto>>(queryable.ToList());
     }
 }
