@@ -11,23 +11,23 @@ namespace TomorrowDAOIndexer.Processors.Proposal;
 
 public class ProposalCreatedProcessorTest : TomorrowDAOIndexerTestBase
 {
-    
     private readonly ITestOutputHelper _testOutputHelper;
 
     public ProposalCreatedProcessorTest(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
     }
-    
+
     [Fact]
     public async Task HandleEventAsync_Test()
     {
         await MockEventProcess(MaxInfoDAOCreated(), DAOCreatedProcessor);
-        await MockEventProcess(GovernanceSchemeAdded(TomorrowDAO.Contracts.Governance.GovernanceMechanism.HighCouncil), GovernanceSchemeAddedProcessor);
+        await MockEventProcess(GovernanceSchemeAdded(TomorrowDAO.Contracts.Governance.GovernanceMechanism.HighCouncil),
+            GovernanceSchemeAddedProcessor);
         await MockEventProcess(DaoProposalTimePeriodSet(), DAOProposalTimePeriodSetProcessor);
         await MockEventProcess(ProposalCreated_Veto(), ProposalCreatedProcessor);
         await MockEventProcess(ProposalCreated(), ProposalCreatedProcessor);
-        
+
         var proposalId = HashHelper.ComputeFrom(ProposalId).ToHex();
         var proposalIndex = await GetIndexById<ProposalIndex>(proposalId);
         proposalIndex.ShouldNotBeNull();
@@ -61,18 +61,33 @@ public class ProposalCreatedProcessorTest : TomorrowDAOIndexerTestBase
         transaction.ShouldNotBeNull();
         transaction.ContractMethodName.ShouldBe("ContractMethodName");
         transaction.ToAddress.ShouldBe(ExecuteAddress);
-        
+
         var vetoProposalIndex = await GetIndexById<ProposalIndex>(VetoProposalId);
         vetoProposalIndex.ProposalStatus.ShouldBe(ProposalStatus.Challenged);
         vetoProposalIndex.ProposalStage.ShouldBe(ProposalStage.Pending);
-        
-        var latestParticipatedIndex = await GetIndexById<LatestParticipatedIndex>(IdGenerateHelper.GetId(ChainId, DAOId, DAOCreator));
+
+        var latestParticipatedIndex =
+            await GetIndexById<LatestParticipatedIndex>(IdGenerateHelper.GetId(ChainId, DAOId, DAOCreator));
         latestParticipatedIndex.ShouldNotBeNull();
         latestParticipatedIndex.Address.ShouldBe(DAOCreator);
         latestParticipatedIndex.DAOId.ShouldBe(DAOId);
         latestParticipatedIndex.ParticipatedType.ShouldBe(ParticipatedType.Proposed);
     }
-    
+
+    [Fact]
+    public async Task HandleEventAsync_Anonymous_Test()
+    {
+        await MockEventProcess(ProposalCreated(true), ProposalCreatedProcessor);
+
+        var proposalId = HashHelper.ComputeFrom(ProposalId).ToHex();
+        var proposalIndex = await GetIndexById<ProposalIndex>(proposalId);
+        proposalIndex.ShouldNotBeNull();
+        proposalIndex.Id.ShouldBe(proposalId);
+        proposalIndex.DAOId.ShouldBe(DAOId);
+        proposalIndex.ProposalId.ShouldBe(proposalId);
+        proposalIndex.IsAnonymous.ShouldBe(true);
+    }
+
     [Fact]
     public Task ExecuteTransactionParamTest()
     {

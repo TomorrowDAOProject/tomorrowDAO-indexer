@@ -53,6 +53,7 @@ public class TomorrowDAOIndexerModule: AbpModule
         context.Services.AddTransient<ILogEventProcessor, VotingItemRegisteredProcessor>();
         context.Services.AddTransient<ILogEventProcessor, VotedProcessor>();
         context.Services.AddTransient<ILogEventProcessor, VoteWithdrawnProcessor>();
+        context.Services.AddTransient<ILogEventProcessor, CommittedProcessor>();
         
         //Election
         context.Services.AddTransient<ILogEventProcessor, CandidateAddedProcessor>();

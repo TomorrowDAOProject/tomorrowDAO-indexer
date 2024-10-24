@@ -11,7 +11,6 @@ using aelf = global::AElf.CSharp.Core;
 namespace TomorrowDAO.Contracts.Governance {
 
   #region Events
-
   public partial class GovernanceSchemeAdded : aelf::IEvent<GovernanceSchemeAdded>
   {
     public global::System.Collections.Generic.IEnumerable<GovernanceSchemeAdded> GetIndexed()
@@ -123,6 +122,8 @@ namespace TomorrowDAO.Contracts.Governance {
         Transaction = Transaction,
         VoteSchemeId = VoteSchemeId,
         VetoProposalId = VetoProposalId,
+        ActiveTimePeriod = ActiveTimePeriod,
+        IsAnonymous = IsAnonymous,
       };
     }
   }
@@ -192,7 +193,7 @@ namespace TomorrowDAO.Contracts.Governance {
   }
 
   #endregion
-  internal static partial class GovernanceContractContainer
+  public static partial class GovernanceContractContainer
   {
     static readonly string __ServiceName = "GovernanceContract";
 
@@ -211,6 +212,7 @@ namespace TomorrowDAO.Contracts.Governance {
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.CalculateGovernanceSchemeAddressInput> __Marshaller_CalculateGovernanceSchemeAddressInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.CalculateGovernanceSchemeAddressInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.CreateProposalInput> __Marshaller_CreateProposalInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.CreateProposalInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.CreateVetoProposalInput> __Marshaller_CreateVetoProposalInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.CreateVetoProposalInput.Parser.ParseFrom);
+    static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.CreateTransferProposalInput> __Marshaller_CreateTransferProposalInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.CreateTransferProposalInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.VetoProposalInput> __Marshaller_VetoProposalInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.VetoProposalInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.SetProposalTimePeriodInput> __Marshaller_SetProposalTimePeriodInput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.SetProposalTimePeriodInput.Parser.ParseFrom);
     static readonly aelf::Marshaller<global::TomorrowDAO.Contracts.Governance.ProposalInfoOutput> __Marshaller_ProposalInfoOutput = aelf::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::TomorrowDAO.Contracts.Governance.ProposalInfoOutput.Parser.ParseFrom);
@@ -225,6 +227,13 @@ namespace TomorrowDAO.Contracts.Governance {
         __ServiceName,
         "Initialize",
         __Marshaller_InitializeInput,
+        __Marshaller_google_protobuf_Empty);
+
+    static readonly aelf::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SetTokenContract = new aelf::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Google.Protobuf.WellKnownTypes.Empty>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "SetTokenContract",
+        __Marshaller_google_protobuf_Empty,
         __Marshaller_google_protobuf_Empty);
 
     static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.AddGovernanceSchemeInput, global::AElf.Types.Address> __Method_AddGovernanceScheme = new aelf::Method<global::TomorrowDAO.Contracts.Governance.AddGovernanceSchemeInput, global::AElf.Types.Address>(
@@ -297,6 +306,13 @@ namespace TomorrowDAO.Contracts.Governance {
         __Marshaller_CreateVetoProposalInput,
         __Marshaller_aelf_Hash);
 
+    static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.CreateTransferProposalInput, global::AElf.Types.Hash> __Method_CreateTransferProposal = new aelf::Method<global::TomorrowDAO.Contracts.Governance.CreateTransferProposalInput, global::AElf.Types.Hash>(
+        aelf::MethodType.Action,
+        __ServiceName,
+        "CreateTransferProposal",
+        __Marshaller_CreateTransferProposalInput,
+        __Marshaller_aelf_Hash);
+
     static readonly aelf::Method<global::TomorrowDAO.Contracts.Governance.VetoProposalInput, global::Google.Protobuf.WellKnownTypes.Empty> __Method_VetoProposal = new aelf::Method<global::TomorrowDAO.Contracts.Governance.VetoProposalInput, global::Google.Protobuf.WellKnownTypes.Empty>(
         aelf::MethodType.Action,
         __ServiceName,
@@ -308,13 +324,6 @@ namespace TomorrowDAO.Contracts.Governance {
         aelf::MethodType.Action,
         __ServiceName,
         "ExecuteProposal",
-        __Marshaller_aelf_Hash,
-        __Marshaller_google_protobuf_Empty);
-
-    static readonly aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty> __Method_ClearProposal = new aelf::Method<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty>(
-        aelf::MethodType.Action,
-        __ServiceName,
-        "ClearProposal",
         __Marshaller_aelf_Hash,
         __Marshaller_google_protobuf_Empty);
 
@@ -381,6 +390,11 @@ namespace TomorrowDAO.Contracts.Governance {
         get { return __factory.Create(__Method_Initialize); }
       }
 
+      public aelf::IMethodStub<global::Google.Protobuf.WellKnownTypes.Empty, global::Google.Protobuf.WellKnownTypes.Empty> SetTokenContract
+      {
+        get { return __factory.Create(__Method_SetTokenContract); }
+      }
+
       public aelf::IMethodStub<global::TomorrowDAO.Contracts.Governance.AddGovernanceSchemeInput, global::AElf.Types.Address> AddGovernanceScheme
       {
         get { return __factory.Create(__Method_AddGovernanceScheme); }
@@ -431,6 +445,11 @@ namespace TomorrowDAO.Contracts.Governance {
         get { return __factory.Create(__Method_CreateVetoProposal); }
       }
 
+      public aelf::IMethodStub<global::TomorrowDAO.Contracts.Governance.CreateTransferProposalInput, global::AElf.Types.Hash> CreateTransferProposal
+      {
+        get { return __factory.Create(__Method_CreateTransferProposal); }
+      }
+
       public aelf::IMethodStub<global::TomorrowDAO.Contracts.Governance.VetoProposalInput, global::Google.Protobuf.WellKnownTypes.Empty> VetoProposal
       {
         get { return __factory.Create(__Method_VetoProposal); }
@@ -439,11 +458,6 @@ namespace TomorrowDAO.Contracts.Governance {
       public aelf::IMethodStub<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty> ExecuteProposal
       {
         get { return __factory.Create(__Method_ExecuteProposal); }
-      }
-
-      public aelf::IMethodStub<global::AElf.Types.Hash, global::Google.Protobuf.WellKnownTypes.Empty> ClearProposal
-      {
-        get { return __factory.Create(__Method_ClearProposal); }
       }
 
       public aelf::IMethodStub<global::TomorrowDAO.Contracts.Governance.SetProposalTimePeriodInput, global::Google.Protobuf.WellKnownTypes.Empty> SetProposalTimePeriod

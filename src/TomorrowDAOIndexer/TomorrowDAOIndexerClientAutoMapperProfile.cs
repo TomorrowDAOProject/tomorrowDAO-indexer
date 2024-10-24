@@ -303,6 +303,16 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Metadata.Block.BlockHeight))
             ;
+        CreateMap<CommitmentIndex, CommitmentDto>()
+            .ForMember(des => des.VotingItemId, opt
+                => opt.MapFrom(source => source.ProposalId))
+            .ForMember(des => des.TransactionId, opt
+                => opt.MapFrom(source => source.TransactionId))
+            .ForMember(des => des.ChainId, opt
+                => opt.MapFrom(source => source.Metadata.ChainId))
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Metadata.Block.BlockHeight))
+            ;
         CreateMap<LogEventContext, VoteSchemeIndex>()
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Block.BlockHeight))
@@ -310,6 +320,12 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
         CreateMap<LogEventContext, VoteItemIndex>()
             .ForMember(des => des.BlockHeight, opt
                 => opt.MapFrom(source => source.Block.BlockHeight))
+            ;
+        CreateMap<LogEventContext, CommitmentIndex>()
+            .ForMember(des => des.BlockHeight, opt
+                => opt.MapFrom(source => source.Block.BlockHeight))
+            .ForMember(des => des.TransactionId, opt
+                => opt.MapFrom(source => source.Transaction.TransactionId))
             ;
         CreateMap<LogEventContext, VoteRecordIndex>()
             .ForMember(des => des.BlockHeight, opt
@@ -366,6 +382,16 @@ public class TomorrowDAOIndexerClientAutoMapperProfile : IndexerMapperBase
             .ForMember(des => des.DAOId, opt
                 => opt.MapFrom(source => MapHash(source.DaoId)));
         ;
+        CreateMap<Committed, CommitmentIndex>()
+            .ForMember(des => des.DaoId, opt
+                =>opt.MapFrom(source=> MapHash(source.DaoId)))
+            .ForMember(des => des.ProposalId, opt
+                => opt.MapFrom(source => MapHash(source.ProposalId)))
+            .ForMember(des=>des.Commitment, opt 
+                =>opt.MapFrom(source => MapHash(source.Commitment)))
+            .ForMember(des => des.Timestamp, opt
+                =>opt.MapFrom(source => MapDateTime(source.Timestamp)))
+            ;
         CreateMap<VoteSchemeIndex, VoteSchemeIndexDto>()
             .ForMember(des => des.ChainId, opt => opt.MapFrom(source => source.Metadata.ChainId))
             .ForMember(des => des.BlockHash, opt => opt.MapFrom(source => source.Metadata.Block.BlockHash))
