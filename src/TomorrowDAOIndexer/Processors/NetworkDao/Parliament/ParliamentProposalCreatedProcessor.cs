@@ -11,6 +11,6 @@ public class ParliamentProposalCreatedProcessor : ParliamentProcessorBase<Propos
     {
         Logger.LogInformation("[Parliament ProposalCreated] start. chainId={ChainId}, proposalId={ProposalId}",
             context.ChainId, eventValue.ProposalId?.ToHex());
-        await SaveProposalIndex(eventValue, context, NetworkDaoProposalType.Parliament);
+        await SaveProposalIndexAsync(eventValue, context, NetworkDaoOrgType.Parliament);
     }
 }

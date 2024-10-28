@@ -4,8 +4,13 @@ using AeFinder.Sdk.Entities;
 using AeFinder.Sdk.Processor;
 using AElf;
 using AElf.Contracts.MultiToken;
+using AElf.Contracts.Referendum;
+using AElf.Contracts.TokenConverter;
 using AElf.CSharp.Core;
+using AElf.Standards.ACS3;
 using AElf.Types;
+using Google.Protobuf;
+using Google.Protobuf.Collections;
 using Google.Protobuf.WellKnownTypes;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
@@ -16,6 +21,8 @@ using TomorrowDAO.Contracts.Governance;
 using TomorrowDAO.Contracts.Treasury;
 using TomorrowDAO.Contracts.Vote;
 using TomorrowDAOIndexer.Entities;
+using TomorrowDAOIndexer.Enums;
+using TomorrowDAOIndexer.Processors;
 using TomorrowDAOIndexer.Processors.DAO;
 using TomorrowDAOIndexer.Processors.Election;
 using TomorrowDAOIndexer.Processors.GovernanceScheme;
@@ -24,6 +31,7 @@ using TomorrowDAOIndexer.Processors.NetworkDao.Parliament;
 using TomorrowDAOIndexer.Processors.NetworkDao.Referendum;
 using TomorrowDAOIndexer.Processors.Proposal;
 using TomorrowDAOIndexer.Processors.Token;
+using TomorrowDAOIndexer.Processors.TokenConverter;
 using TomorrowDAOIndexer.Processors.Treasury;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.ObjectMapping;
@@ -33,14 +41,23 @@ using Voted = TomorrowDAO.Contracts.Election.Voted;
 using VotingItem = TomorrowDAO.Contracts.Election.VotingItem;
 using AddressListDAO = TomorrowDAO.Contracts.DAO.AddressList;
 using Transaction = AeFinder.Sdk.Processor.Transaction;
+using ProposalCreated = TomorrowDAO.Contracts.Governance.ProposalCreated;
+using ProposalStatus = TomorrowDAO.Contracts.Governance.ProposalStatus;
+using ProposalType = TomorrowDAO.Contracts.Governance.ProposalType;
 using Vote = TomorrowDAOIndexer.Processors.Vote;
+using VoteMechanism = TomorrowDAO.Contracts.Vote.VoteMechanism;
+using VoteOption = TomorrowDAO.Contracts.Vote.VoteOption;
+using VoteStrategy = TomorrowDAO.Contracts.Vote.VoteStrategy;
 
 namespace TomorrowDAOIndexer;
 
-public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDAOIndexerTestModule>
+public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowDAOIndexerTestModule>
 {
     protected const string TransactionId = "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce";
+    protected const string TokenSoldTransactionId = "14f69a1d0719a8ff90ee9e90ea78067af5172d8b83ace72b95aa84de1ef5e53a";
+    protected const string TokenBoughtTransactionId = "e1782068e55dc77057b7d6013e7e50c77e95a7fa7bcf8d67d4b3fc91b73b8347";
     protected readonly IAbpLazyServiceProvider LazyServiceProvider;
+
     // processor
     protected readonly Vote.VoteSchemeCreatedProcessor VoteSchemeCreatedProcessor;
     protected readonly Vote.VotingItemRegisteredProcessor VotingItemRegisteredProcessor;
@@ -80,7 +97,28 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     protected readonly ParliamentProposalCreatedProcessor ParliamentProposalCreatedProcessor;
     protected readonly AssociationProposalCreatedProcessor AssociationProposalCreatedProcessor;
     protected readonly ReferendumProposalCreatedProcessor ReferendumProposalCreatedProcessor;
-    
+    // protected readonly TransactionProcessor TransactionProcessor;
+    protected readonly TokenBoughtProcessor TokenBoughtProcessor;
+    protected readonly TokenSoldProcessor TokenSoldProcessor;
+    protected readonly AssociationOrgCreatedProcessor AssociationOrgCreatedProcessor;
+    protected readonly AssociationOrgMemberAddedProcessor AssociationOrgMemberAddedProcessor;
+    protected readonly AssociationOrgMemberChangedProcessor AssociationOrgMemberChangedProcessor;
+    protected readonly AssociationOrgMemberRemovedProcessor AssociationOrgMemberRemovedProcessor;
+    protected readonly AssociationOrgThresholdChangedProcessor AssociationOrgThresholdChangedProcessor;
+    protected readonly AssociationOrgWhiteListChangedProcessor AssociationOrgWhiteListChangedProcessor;
+    protected readonly AssociationProposalReleasedProcessor AssociationProposalReleasedProcessor;
+    protected readonly AssociationReceiptCreatedProcessor AssociationReceiptCreatedProcessor;
+    protected readonly ParliamentOrgCreatedProcessor ParliamentOrgCreatedProcessor;
+    protected readonly ParliamentOrgThresholdChangedProcessor ParliamentOrgThresholdChangedProcessor;
+    protected readonly ParliamentOrgWhiteListChangedProcessor ParliamentOrgWhiteListChangedProcessor;
+    protected readonly ParliamentProposalReleasedProcessor ParliamentProposalReleasedProcessor;
+    protected readonly ParliamentReceiptCreatedProcessor ParliamentReceiptCreatedProcessor;
+    protected readonly ReferendumOrgCreatedProcessor ReferendumOrgCreatedProcessor;
+    protected readonly ReferendumOrgThresholdChangedProcessor ReferendumOrgThresholdChangedProcessor;
+    protected readonly ReferendumOrgWhiteListChangedProcessor ReferendumOrgWhiteListChangedProcessor;
+    protected readonly ReferendumProposalReleasedProcessor ReferendumProposalReleasedProcessor;
+    protected readonly ReferendumReceiptCreatedProcessor ReferendumReceiptCreatedProcessor;
+
     // repository
     protected readonly IReadOnlyRepository<VoteSchemeIndex> VoteSchemeIndexRepository;
     protected readonly IReadOnlyRepository<VoteItemIndex> VoteItemIndexRepository;
@@ -100,8 +138,22 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     protected readonly IReadOnlyRepository<VoteRecordIndex> VoteRecordIndexRepository;
     protected readonly IReadOnlyRepository<DaoVoterRecordIndex> DaoVoterRecordIndexRepository;
     protected readonly IReadOnlyRepository<UserBalanceIndex> UserBalanceIndexRepository;
+    protected readonly IReadOnlyRepository<NetworkDaoOrgChangedIndex> NetworkDaoOrgChangedIndexRepository;
+    protected readonly IReadOnlyRepository<NetworkDaoOrgCreatedIndex> NetworkDaoOrgCreatedIndexRepository;
+    protected readonly IReadOnlyRepository<NetworkDaoOrgWhiteListChangedIndex>
+        NetworkDaoOrgWhiteListChangedIndexRepository;
+    protected readonly IReadOnlyRepository<NetworkDaoOrgThresholdChangedIndex>
+        NetworkDaoOrgThresholdChangedIndexRepository;
+    protected readonly IReadOnlyRepository<NetworkDaoOrgMemberChangedIndex> NetworkDaoOrgMemberChangedIndexRepository;
+    protected readonly IReadOnlyRepository<NetworkDaoProposalIndex> NetworkDaoProposalIndexRepository;
+    protected readonly IReadOnlyRepository<NetworkDaoProposalReleasedIndex> NetworkDaoProposalReleasedIndexRepository;
+    protected readonly IReadOnlyRepository<NetworkDaoProposalVoteRecordIndex>
+        NetworkDaoProposalVoteRecordIndexRepository;
+    protected readonly IReadOnlyRepository<ResourceTokenIndex> resourceTokenIndexRepository;
+
     // mapper
     protected readonly IObjectMapper ObjectMapper;
+
     // param
     protected static readonly string Id1 = "123";
     protected static readonly string Id2 = "456";
@@ -164,7 +216,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     public const int MaxVetoActiveTimePeriod = 5; // days
     public const int MinVetoExecuteTimePeriod = 1; // days
     public const int MaxVetoExecuteTimePeriod = 3; // days
-    
+
     public TomorrowDAOIndexerTestBase()
     {
         LazyServiceProvider = GetRequiredService<IAbpLazyServiceProvider>();
@@ -206,7 +258,28 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         ParliamentProposalCreatedProcessor = GetRequiredService<ParliamentProposalCreatedProcessor>();
         AssociationProposalCreatedProcessor = GetRequiredService<AssociationProposalCreatedProcessor>();
         ReferendumProposalCreatedProcessor = GetRequiredService<ReferendumProposalCreatedProcessor>();
-        
+        // TransactionProcessor = GetRequiredService<TransactionProcessor>();
+        TokenBoughtProcessor = GetRequiredService<TokenBoughtProcessor>();
+        TokenSoldProcessor = GetRequiredService<TokenSoldProcessor>();
+        AssociationOrgCreatedProcessor = GetRequiredService<AssociationOrgCreatedProcessor>();
+        AssociationOrgMemberAddedProcessor = GetRequiredService<AssociationOrgMemberAddedProcessor>();
+        AssociationOrgMemberChangedProcessor = GetRequiredService<AssociationOrgMemberChangedProcessor>();
+        AssociationOrgMemberRemovedProcessor = GetRequiredService<AssociationOrgMemberRemovedProcessor>();
+        AssociationOrgThresholdChangedProcessor = GetRequiredService<AssociationOrgThresholdChangedProcessor>();
+        AssociationOrgWhiteListChangedProcessor = GetRequiredService<AssociationOrgWhiteListChangedProcessor>();
+        AssociationProposalReleasedProcessor = GetRequiredService<AssociationProposalReleasedProcessor>();
+        AssociationReceiptCreatedProcessor = GetRequiredService<AssociationReceiptCreatedProcessor>();
+        ParliamentOrgCreatedProcessor = GetRequiredService<ParliamentOrgCreatedProcessor>();
+        ParliamentOrgThresholdChangedProcessor = GetRequiredService<ParliamentOrgThresholdChangedProcessor>();
+        ParliamentOrgWhiteListChangedProcessor = GetRequiredService<ParliamentOrgWhiteListChangedProcessor>();
+        ParliamentProposalReleasedProcessor = GetRequiredService<ParliamentProposalReleasedProcessor>();
+        ParliamentReceiptCreatedProcessor = GetRequiredService<ParliamentReceiptCreatedProcessor>();
+        ReferendumOrgCreatedProcessor = GetRequiredService<ReferendumOrgCreatedProcessor>();
+        ReferendumOrgThresholdChangedProcessor = GetRequiredService<ReferendumOrgThresholdChangedProcessor>();
+        ReferendumOrgWhiteListChangedProcessor = GetRequiredService<ReferendumOrgWhiteListChangedProcessor>();
+        ReferendumProposalReleasedProcessor = GetRequiredService<ReferendumProposalReleasedProcessor>();
+        ReferendumReceiptCreatedProcessor = GetRequiredService<ReferendumReceiptCreatedProcessor>();
+
         VoteSchemeIndexRepository = GetRequiredService<IReadOnlyRepository<VoteSchemeIndex>>();
         VoteItemIndexRepository = GetRequiredService<IReadOnlyRepository<VoteItemIndex>>();
         VoteWithdrawnRepository = GetRequiredService<IReadOnlyRepository<VoteWithdrawnIndex>>();
@@ -226,10 +299,41 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         DAOIndexRepository = GetRequiredService<IReadOnlyRepository<DAOIndex>>();
         DaoVoterRecordIndexRepository = GetRequiredService<IReadOnlyRepository<DaoVoterRecordIndex>>();
         UserBalanceIndexRepository = GetRequiredService<IReadOnlyRepository<UserBalanceIndex>>();
+        NetworkDaoOrgChangedIndexRepository = GetRequiredService<IReadOnlyRepository<NetworkDaoOrgChangedIndex>>();
+        NetworkDaoOrgCreatedIndexRepository = GetRequiredService<IReadOnlyRepository<NetworkDaoOrgCreatedIndex>>();
+        NetworkDaoOrgThresholdChangedIndexRepository =
+            GetRequiredService<IReadOnlyRepository<NetworkDaoOrgThresholdChangedIndex>>();
+        NetworkDaoOrgWhiteListChangedIndexRepository =
+            GetRequiredService<IReadOnlyRepository<NetworkDaoOrgWhiteListChangedIndex>>();
+        NetworkDaoOrgMemberChangedIndexRepository =
+            GetRequiredService<IReadOnlyRepository<NetworkDaoOrgMemberChangedIndex>>();
+        NetworkDaoProposalIndexRepository = GetRequiredService<IReadOnlyRepository<NetworkDaoProposalIndex>>();
+        NetworkDaoProposalReleasedIndexRepository =
+            GetRequiredService<IReadOnlyRepository<NetworkDaoProposalReleasedIndex>>();
+        NetworkDaoProposalVoteRecordIndexRepository =
+            GetRequiredService<IReadOnlyRepository<NetworkDaoProposalVoteRecordIndex>>();
+        resourceTokenIndexRepository = GetRequiredService<IReadOnlyRepository<ResourceTokenIndex>>();
+
         ObjectMapper = GetRequiredService<IObjectMapper>();
     }
+    
+    protected TransactionContext GenerateTransactionContext()
+    {
+        return new TransactionContext
+        {
+            ChainId = ChainId,
+            Block = new LightBlock
+            {
+                BlockHash = BlockHash,
+                BlockHeight = BlockHeight,
+                BlockTime = DateTime.UtcNow,
+                PreviousBlockHash = PreviousBlockHash
+            },
+        };
+    }
 
-    protected async Task MockEventProcess<TEvent>(TEvent logEvent, LogEventProcessorBase<TEvent> processor) where TEvent : IEvent<TEvent>, new()
+    protected async Task MockEventProcess<TEvent>(TEvent logEvent, LogEventProcessorBase<TEvent> processor)
+        where TEvent : IEvent<TEvent>, new()
     {
         await processor.ProcessAsync(logEvent, GenerateLogEventContext(logEvent));
     }
@@ -258,7 +362,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
         return await LazyServiceProvider.GetRequiredService<IRepository<TEntity>>().GetAsync(id);
     }
 
-    protected DAOCreated MaxInfoDAOCreated() 
+    protected DAOCreated MaxInfoDAOCreated()
     {
         return new DAOCreated
         {
@@ -574,7 +678,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
     }
 
     protected GovernanceSchemeAdded GovernanceSchemeAdded(
-        TomorrowDAO.Contracts.Governance.GovernanceMechanism governanceMechanism 
+        TomorrowDAO.Contracts.Governance.GovernanceMechanism governanceMechanism
             = TomorrowDAO.Contracts.Governance.GovernanceMechanism.Referendum)
     {
         return new GovernanceSchemeAdded
@@ -729,7 +833,7 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
             }
         };
     }
-    
+
     protected MemberRemoved MemberRemoved()
     {
         return new MemberRemoved
@@ -741,15 +845,161 @@ public abstract class TomorrowDAOIndexerTestBase: AeFinderAppTestBase<TomorrowDA
             }
         };
     }
-    
+
     protected AElf.Standards.ACS3.ProposalCreated NetworkDaoProposalCreate(string proposalId = null)
     {
         return new AElf.Standards.ACS3.ProposalCreated
         {
             ProposalId = HashHelper.ComputeFrom(proposalId ?? ProposalId),
-            OrganizationAddress = Address.FromBase58(DAOCreator),
-            Title = "Title",
-            Description = "Description"
+            OrganizationAddress = Address.FromBase58(OrganizationAddress),
+            Title = ProposalTitle,
+            Description = ProposalDescription
         };
     }
+
+    protected AElf.Standards.ACS3.OrganizationCreated NetworkDaoOrganizationCreated(string organizationAddress = null)
+    {
+        return new AElf.Standards.ACS3.OrganizationCreated
+        {
+            OrganizationAddress = Address.FromBase58(organizationAddress ?? OrganizationAddress)
+        };
+    }
+
+    protected AElf.Contracts.Association.MemberAdded NetworkDaoOrgMemberAdded()
+    {
+        return new AElf.Contracts.Association.MemberAdded
+        {
+            Member = Address.FromBase58(User),
+            OrganizationAddress = Address.FromBase58(OrganizationAddress)
+        };
+    }
+
+    protected AElf.Contracts.Association.MemberRemoved NetworkDaoOrgMemberRemoved()
+    {
+        return new AElf.Contracts.Association.MemberRemoved
+        {
+            Member = Address.FromBase58(User),
+            OrganizationAddress = Address.FromBase58(OrganizationAddress)
+        };
+    }
+
+    protected AElf.Contracts.Association.MemberChanged NetworkDaoOrgMemberChanged()
+    {
+        return new AElf.Contracts.Association.MemberChanged
+        {
+            OldMember = Address.FromBase58(User),
+            NewMember = Address.FromBase58(Creator),
+            OrganizationAddress = Address.FromBase58(OrganizationAddress)
+        };
+    }
+
+    protected AElf.Standards.ACS3.OrganizationThresholdChanged NetworkDaoOrgThresholdChanged(
+        string organizationAddress = null)
+    {
+        return new AElf.Standards.ACS3.OrganizationThresholdChanged
+        {
+            OrganizationAddress = Address.FromBase58(organizationAddress ?? OrganizationAddress),
+            ProposerReleaseThreshold = new ProposalReleaseThreshold
+            {
+                MinimalApprovalThreshold = 10,
+                MaximalRejectionThreshold = 10,
+                MaximalAbstentionThreshold = 10,
+                MinimalVoteThreshold = 10
+            }
+        };
+    }
+
+    protected AElf.Standards.ACS3.OrganizationWhiteListChanged NetworkDaoOrgWhiteListChanged(
+        string organizationAddress = null)
+    {
+        return new AElf.Standards.ACS3.OrganizationWhiteListChanged
+        {
+            OrganizationAddress = Address.FromBase58(organizationAddress ?? OrganizationAddress),
+            ProposerWhiteList = new ProposerWhiteList
+            {
+                Proposers = { Address.FromBase58(User), Address.FromBase58(Creator) }
+            }
+        };
+    }
+
+    protected AElf.Standards.ACS3.ProposalReleased NetworkDaoProposalReleased()
+    {
+        return new AElf.Standards.ACS3.ProposalReleased
+        {
+            ProposalId = HashHelper.ComputeFrom(ProposalId),
+            OrganizationAddress = Address.FromBase58(OrganizationAddress),
+            Title = ProposalTitle,
+            Description = ProposalDescription,
+        };
+    }
+
+    protected AElf.Standards.ACS3.ReceiptCreated NetworkDaoProposalReceiptCreated(
+        ReceiptTypeEnum receiptTypeEnum = ReceiptTypeEnum.Approve)
+    {
+        return new AElf.Standards.ACS3.ReceiptCreated
+        {
+            ProposalId = HashHelper.ComputeFrom(ProposalId),
+            Address = Address.FromBase58(User),
+            ReceiptType = receiptTypeEnum.ToString(),
+            Time = new Timestamp(),
+            OrganizationAddress = Address.FromBase58(OrganizationAddress),
+        };
+    }
+
+    protected ReferendumReceiptCreated NetworkDaoProposalReferendumReceiptCreated(
+        ReceiptTypeEnum receiptTypeEnum = ReceiptTypeEnum.Approve)
+    {
+        return new ReferendumReceiptCreated
+        {
+            ProposalId = HashHelper.ComputeFrom(ProposalId),
+            Address = Address.FromBase58(User),
+            Symbol = Elf,
+            Amount = 100,
+            ReceiptType = receiptTypeEnum.ToString(),
+            Time = new Timestamp(),
+            OrganizationAddress = Address.FromBase58(OrganizationAddress),
+        };
+    }
+    
+    protected TokenBought TokenBought()
+    {
+        return new TokenBought
+        {
+            Symbol = "WRITE",
+            BaseAmount = 1,
+            BoughtAmount = 2,
+            FeeAmount = 3
+        };
+    }
+    
+    protected TokenSold TokenSold()
+    {
+        return new TokenSold
+        {
+            Symbol = "WRITE",
+            BaseAmount = 1,
+            SoldAmount = 2,
+            FeeAmount = 3
+        };
+    }
+
+    protected AeFinder.Sdk.Processor.Transaction ResourceTokenTransaction(string txId, string methodName, string eventName,
+        Dictionary<string, string> extraProperties = null)
+    {
+        return new AeFinder.Sdk.Processor.Transaction
+        {
+            TransactionId = txId,
+            MethodName = methodName,
+            From = User,
+            To = TomorrowDAOConst.TokenConverterContractAddress,
+            LogEvents = [new AeFinder.Sdk.Processor.LogEvent
+            {
+                EventName = eventName,
+                ContractAddress = TomorrowDAOConst.TokenConverterContractAddress,
+                ExtraProperties = extraProperties
+            }],
+            Status = TransactionStatus.Mined
+        };
+    }
+
 }
