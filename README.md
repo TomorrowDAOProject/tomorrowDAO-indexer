@@ -34,7 +34,7 @@ We welcome contributions to the TomorrowDAO Indexer project. If you would like t
 
 ## License
 
-TomorrowDAO Indexer is licensed under [MIT].
+TomorrowDAO Indexer is licensed under [MIT](https://github.com/TomorrowDAOProject/tomorrowDAO-indexer/blob/master/LICENSE).
 
 ## Contact
 
