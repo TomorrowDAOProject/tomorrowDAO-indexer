@@ -11,6 +11,6 @@ public class ReferendumProposalCreatedProcessor : ReferendumProcessorBase<Propos
     {
         Logger.LogInformation("[Referendum ProposalCreated] start. chainId={ChainId}, proposalId={ProposalId}",
             context.ChainId, eventValue.ProposalId?.ToHex());
-        await SaveProposalIndex(eventValue, context, NetworkDaoProposalType.Referendum);
+        await SaveProposalIndexAsync(eventValue, context, NetworkDaoOrgType.Referendum);
     }
 }
