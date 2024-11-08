@@ -31,20 +31,8 @@ public partial class Query
 
         // vote
         var voteQueryAble = await voteRecordRepository.GetQueryableAsync();
-        voteQueryAble = voteQueryAble.Where(a => a.VoteTimestamp >= startTime).Where(a => a.VoteTimestamp <= endTime)
-                .OrderBy(a => a.BlockHeight).OrderBy(a => a.Id).Take(10000);
-        var list = voteQueryAble.ToList();
-        while (list.Count != 0 && list.Count % 10000 !=0)
-        {
-            var blocks = voteQueryAble
-                .After(new object[] { list.Last().BlockHeight, list.Last().Id }).ToList();
-            if (blocks.Count == 0)
-            {
-                break;
-            }
-            list.AddRange(blocks);
-        }
-        var voteRecordList = list.Select(x => x.Voter).Distinct().ToList();
+        voteQueryAble = voteQueryAble.Where(a => a.VoteTimestamp >= startTime).Where(a => a.VoteTimestamp <= endTime);
+        var voteRecordList = QueryHelper.GetAllIndex(voteQueryAble).Select(x => x.Voter).Distinct().ToList();
         
         // proposal create
         var proposalQueryAble = await proposalRepository.GetQueryableAsync();
