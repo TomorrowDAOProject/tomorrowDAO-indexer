@@ -198,7 +198,7 @@ public class NetworkDaoQueryTest : TomorrowDAOIndexerTestBase
                 SkipCount = 0,
                 MaxResultCount = 10,
                 ProposalIds = null,
-                Title = null,
+                Title = null
             });
         pageResultDto.ShouldNotBeNull();
         pageResultDto.TotalCount.ShouldBe(1);
@@ -211,6 +211,42 @@ public class NetworkDaoQueryTest : TomorrowDAOIndexerTestBase
         indexDto.TransactionInfo.IsAAForwardCall.ShouldBeTrue();
         indexDto.TransactionInfo.To.ShouldBe(TomorrowDAOConst.PortKeyContractAddress1);
         indexDto.TransactionInfo.RealTo.ShouldBe("2fgbLE3pTghxVLmo5iR63pm2sZYe3vkphCG1Sungg3ed9sdsaQ");
+        
+        var pageResultDto1 = await Query.GetNetworkDaoProposalIndexAsync(NetworkDaoProposalIndexRepository, ObjectMapper,
+            new GetNetworkDaoProposalIndexInput
+            {
+                ChainId = ChainId,
+                OrgAddresses = null,
+                OrgType = NetworkDaoOrgType.All,
+                StartBlockHeight = BlockHeight,
+                EndBlockHeight = BlockHeight + 1,
+                SkipCount = 0,
+                MaxResultCount = 10,
+                ProposalIds = null,
+                Title = null,
+                ContractNames = new List<string>() {TomorrowDAOConst.PortKeyContractAddress1},
+                MethodNames = new List<string>(){TomorrowDAOConst.PortKeyContactManagerForwardCall}
+            });
+        pageResultDto1.ShouldNotBeNull();
+        pageResultDto1.TotalCount.ShouldBe(1);
+        
+        var pageResultDto2 = await Query.GetNetworkDaoProposalIndexAsync(NetworkDaoProposalIndexRepository, ObjectMapper,
+            new GetNetworkDaoProposalIndexInput
+            {
+                ChainId = ChainId,
+                OrgAddresses = null,
+                OrgType = NetworkDaoOrgType.All,
+                StartBlockHeight = BlockHeight,
+                EndBlockHeight = BlockHeight + 1,
+                SkipCount = 0,
+                MaxResultCount = 10,
+                ProposalIds = null,
+                Title = null,
+                ContractNames = new List<string>() {"TomorrowDAOConst.PortKeyContractAddress1"},
+                MethodNames = null
+            });
+        pageResultDto2.ShouldNotBeNull();
+        pageResultDto2.TotalCount.ShouldBe(0);
     }
 
     [Fact]

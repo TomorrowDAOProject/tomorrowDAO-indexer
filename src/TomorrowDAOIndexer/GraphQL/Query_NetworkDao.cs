@@ -300,6 +300,21 @@ public partial class Query
                 input.OrgAddresses.Select(orgAddress => (Expression<Func<NetworkDaoProposalIndex, bool>>)(o => o.OrganizationAddress == orgAddress))
                     .Aggregate((prev, next) => prev.Or(next)));
         }
+
+        if (!input.ContractNames.IsNullOrEmpty())
+        {
+            queryable = queryable.Where(
+                input.ContractNames.Select(contractName => (Expression<Func<NetworkDaoProposalIndex, bool>>)(o => o.TransactionInfo.To.Contains(contractName)))
+                    .Aggregate((prev, next) => prev.Or(next)));
+        }
+
+        if (!input.MethodNames.IsNullOrEmpty())
+        {
+            queryable = queryable.Where(
+                input.MethodNames.Select(methodName => (Expression<Func<NetworkDaoProposalIndex, bool>>)(o => o.TransactionInfo.MethodName.Contains(methodName)))
+                    .Aggregate((prev, next) => prev.Or(next)));
+        }
+        
         var count = queryable.Count();
         queryable = queryable.Skip(input.SkipCount).Take(input.MaxResultCount)
             .OrderBy(a => a.BlockHeight);
