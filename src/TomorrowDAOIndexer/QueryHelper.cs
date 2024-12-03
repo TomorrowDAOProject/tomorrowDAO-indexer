@@ -22,7 +22,7 @@ public class QueryHelper
         const int maxSize = 10000;
         queryable = queryable.OrderBy(a => a.Metadata.Block.BlockHeight).ThenBy(a => a.Id).Take(maxSize);
         var list = queryable.ToList();
-        while (list.Count != 0 && list.Count % maxSize != 0)
+        while (list.Count != 0 && list.Count % maxSize == 0)
         {
             var blocks = queryable.After([list.Last().Metadata.Block.BlockHeight, list.Last().Id]).ToList();
             if (blocks.Count == 0)
