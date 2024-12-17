@@ -992,12 +992,12 @@ public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowD
             MethodName = methodName,
             From = User,
             To = TomorrowDAOConst.TokenConverterContractAddress,
-            LogEvents = [new AeFinder.Sdk.Processor.LogEvent
+            LogEvents = new List<AeFinder.Sdk.Processor.LogEvent> { new AeFinder.Sdk.Processor.LogEvent
             {
                 EventName = eventName,
                 ContractAddress = TomorrowDAOConst.TokenConverterContractAddress,
                 ExtraProperties = extraProperties
-            }],
+            }},
             Status = TransactionStatus.Mined
         };
     }
