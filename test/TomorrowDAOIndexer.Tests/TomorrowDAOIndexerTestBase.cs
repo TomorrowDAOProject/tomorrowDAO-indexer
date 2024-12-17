@@ -618,6 +618,18 @@ public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowD
         };
     }
 
+    protected VoteSchemeCreated VoteSchemeCreated_DailyNVote()
+    {
+        return new VoteSchemeCreated
+        {
+            VoteMechanism = VoteMechanism.TokenBallot,
+            VoteSchemeId = HashHelper.ComputeFrom(Id4),
+            VoteStrategy = VoteStrategy.DailyNVotes,
+            VoteCount = 20,
+            WithoutLockToken = true
+        };
+    }
+
     protected Withdrawn VoteWithdrawn()
     {
         var votingItemIdList = new VotingItemIdList
@@ -992,12 +1004,12 @@ public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowD
             MethodName = methodName,
             From = User,
             To = TomorrowDAOConst.TokenConverterContractAddress,
-            LogEvents = [new AeFinder.Sdk.Processor.LogEvent
+            LogEvents = new List<AeFinder.Sdk.Processor.LogEvent> { new AeFinder.Sdk.Processor.LogEvent
             {
                 EventName = eventName,
                 ContractAddress = TomorrowDAOConst.TokenConverterContractAddress,
                 ExtraProperties = extraProperties
-            }],
+            }},
             Status = TransactionStatus.Mined
         };
     }

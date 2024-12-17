@@ -20,4 +20,5 @@ public class VoteSchemeIndex : AeFinderEntity, IAeFinderEntity
     public bool WithoutLockToken { get; set; }
     [JsonConverter(typeof(StringEnumConverter))]
     public VoteStrategy VoteStrategy { get; set; }
+    public int VoteCount { get; set; }
 }

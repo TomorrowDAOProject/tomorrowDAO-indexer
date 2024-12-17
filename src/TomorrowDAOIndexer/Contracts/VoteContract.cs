@@ -28,143 +28,151 @@ namespace TomorrowDAO.Contracts.Vote {
             "L2NvcmUucHJvdG8aEmFlbGYvb3B0aW9ucy5wcm90bxobZ29vZ2xlL3Byb3Rv",
             "YnVmL2VtcHR5LnByb3RvGh5nb29nbGUvcHJvdG9idWYvd3JhcHBlcnMucHJv",
             "dG8aH2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8aGVByb3RvYnVm",
-            "L2Jhc2UvYWNzMTIucHJvdG8ilQEKClZvdGVTY2hlbWUSHQoJc2NoZW1lX2lk",
+            "L2Jhc2UvYWNzMTIucHJvdG8iqQEKClZvdGVTY2hlbWUSHQoJc2NoZW1lX2lk",
             "GAEgASgLMgouYWVsZi5IYXNoEiYKDnZvdGVfbWVjaGFuaXNtGAMgASgOMg4u",
             "Vm90ZU1lY2hhbmlzbRIaChJ3aXRob3V0X2xvY2tfdG9rZW4YBCABKAgSJAoN",
-            "dm90ZV9zdHJhdGVneRgFIAEoDjINLlZvdGVTdHJhdGVneSItChBWb3RpbmdJ",
-            "dGVtSWRMaXN0EhkKBXZhbHVlGAEgAygLMgouYWVsZi5IYXNoIsICCgpWb3Rp",
-            "bmdJdGVtEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIiCg52b3Rpbmdf",
-            "aXRlbV9pZBgCIAEoCzIKLmFlbGYuSGFzaBIdCglzY2hlbWVfaWQYAyABKAsy",
-            "Ci5hZWxmLkhhc2gSFwoPYWNjZXB0ZWRfc3ltYm9sGAQgASgJEjYKEnJlZ2lz",
-            "dGVyX3RpbWVzdGFtcBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3Rh",
-            "bXASMwoPc3RhcnRfdGltZXN0YW1wGAYgASgLMhouZ29vZ2xlLnByb3RvYnVm",
-            "LlRpbWVzdGFtcBIxCg1lbmRfdGltZXN0YW1wGAcgASgLMhouZ29vZ2xlLnBy",
-            "b3RvYnVmLlRpbWVzdGFtcBIcChRnb3Zlcm5hbmNlX21lY2hhbmlzbRgIIAEo",
-            "CSLOAQoMVm90aW5nUmVjb3JkEiIKDnZvdGluZ19pdGVtX2lkGAEgASgLMgou",
-            "YWVsZi5IYXNoEhwKBXZvdGVyGAIgASgLMg0uYWVsZi5BZGRyZXNzEg4KBmFt",
-            "b3VudBgDIAEoAxIyCg52b3RlX3RpbWVzdGFtcBgEIAEoCzIaLmdvb2dsZS5w",
-            "cm90b2J1Zi5UaW1lc3RhbXASGwoGb3B0aW9uGAUgASgOMgsuVm90ZU9wdGlv",
-            "bhIbCgd2b3RlX2lkGAYgASgLMgouYWVsZi5IYXNoIpMCCgxWb3RpbmdSZXN1",
-            "bHQSIgoOdm90aW5nX2l0ZW1faWQYASABKAsyCi5hZWxmLkhhc2gSFgoOYXBw",
-            "cm92ZV9jb3VudHMYAiABKAMSFQoNcmVqZWN0X2NvdW50cxgDIAEoAxIWCg5h",
-            "YnN0YWluX2NvdW50cxgEIAEoAxIUCgx2b3Rlc19hbW91bnQYBSABKAMSGgoS",
-            "dG90YWxfdm90ZXJzX2NvdW50GAYgASgDEjMKD3N0YXJ0X3RpbWVzdGFtcBgH",
-            "IAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASMQoNZW5kX3RpbWVz",
-            "dGFtcBgIIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAiMgoSU3Rh",
-            "a2VhYmxlVG9rZW5MaXN0EhwKFGFjY2VwdGVkX3N5bWJvbF9saXN0GAEgAygJ",
-            "Ij0KD0Rhb1JlbWFpbkFtb3VudBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhh",
-            "c2gSDgoGYW1vdW50GAIgASgDImYKFFByb3Bvc2FsUmVtYWluQW1vdW50EhoK",
-            "BmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIiCg52b3RpbmdfaXRlbV9pZBgC",
-            "IAEoCzIKLmFlbGYuSGFzaBIOCgZhbW91bnQYAyABKAMiKwoLQWRkcmVzc0xp",
-            "c3QSHAoFdmFsdWUYASADKAsyDS5hZWxmLkFkZHJlc3MiGwoKU3RyaW5nTGlz",
-            "dBINCgV2YWx1ZRgBIAMoCSI3CglTdGFrZUluZm8SFAoMdG9rZW5fc3ltYm9s",
-            "GAEgASgJEhQKDHN0YWtlX2Ftb3VudBgCIAEoAyJmCghTdGFrZU1hcBIhCgRk",
-            "YXRhGAEgAygLMhMuU3Rha2VNYXAuRGF0YUVudHJ5GjcKCURhdGFFbnRyeRIL",
-            "CgNrZXkYASABKAkSGQoFdmFsdWUYAiABKAsyCi5TdGFrZUluZm86AjgBImYK",
-            "DVVzZXJTdGFrZUluZm8SGgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEhsK",
-            "BHVzZXIYAiABKAsyDS5hZWxmLkFkZHJlc3MSHAoJc3Rha2VfbWFwGAMgASgL",
-            "MgkuU3Rha2VNYXAipAEKD0luaXRpYWxpemVJbnB1dBIrChRkYW9fY29udHJh",
-            "Y3RfYWRkcmVzcxgBIAEoCzINLmFlbGYuQWRkcmVzcxIyChtnb3Zlcm5hbmNl",
-            "X2NvbnRyYWN0X2FkZHJlc3MYAiABKAsyDS5hZWxmLkFkZHJlc3MSMAoZZWxl",
-            "Y3Rpb25fY29udHJhY3RfYWRkcmVzcxgDIAEoCzINLmFlbGYuQWRkcmVzcyKB",
-            "AQoVQ3JlYXRlVm90ZVNjaGVtZUlucHV0EiYKDnZvdGVfbWVjaGFuaXNtGAEg",
-            "ASgOMg4uVm90ZU1lY2hhbmlzbRIaChJ3aXRob3V0X2xvY2tfdG9rZW4YAiAB",
-            "KAgSJAoNdm90ZV9zdHJhdGVneRgDIAEoDjINLlZvdGVTdHJhdGVneSLYAQoT",
-            "Vm90aW5nUmVnaXN0ZXJJbnB1dBIiCg52b3RpbmdfaXRlbV9pZBgBIAEoCzIK",
-            "LmFlbGYuSGFzaBIdCglzY2hlbWVfaWQYAiABKAsyCi5hZWxmLkhhc2gSFgoO",
-            "YWNjZXB0ZWRfdG9rZW4YAyABKAkSMwoPc3RhcnRfdGltZXN0YW1wGAQgASgL",
-            "MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIxCg1lbmRfdGltZXN0YW1w",
-            "GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCJnCglWb3RlSW5w",
-            "dXQSIgoOdm90aW5nX2l0ZW1faWQYASABKAsyCi5hZWxmLkhhc2gSEwoLdm90",
-            "ZV9vcHRpb24YAiABKAUSEwoLdm90ZV9hbW91bnQYAyABKAMSDAoEbWVtbxgE",
-            "IAEoCSJ0Cg1XaXRoZHJhd0lucHV0EhoKBmRhb19pZBgBIAEoCzIKLmFlbGYu",
-            "SGFzaBIXCg93aXRoZHJhd19hbW91bnQYAiABKAMSLgoTdm90aW5nX2l0ZW1f",
-            "aWRfbGlzdBgDIAEoCzIRLlZvdGluZ0l0ZW1JZExpc3QiSAoXU2V0RW1lcmdl",
-            "bmN5U3RhdHVzSW5wdXQSGgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEhEK",
-            "CWlzX2VuYWJsZRgCIAEoCCItCgtUb2tlbkFtb3VudBIOCgZzeW1ib2wYASAB",
-            "KAkSDgoGYW1vdW50GAIgASgDIkkKFlZvdGluZ1Bvd2Vyc09uUHJvcG9zYWwS",
-            "HwoLcHJvcG9zYWxfaWQYASABKAsyCi5hZWxmLkhhc2gSDgoGYW1vdW50GAIg",
-            "ASgDIlgKFEdldFZvdGluZ1JlY29yZElucHV0EiIKDnZvdGluZ19pdGVtX2lk",
-            "GAEgASgLMgouYWVsZi5IYXNoEhwKBXZvdGVyGAIgASgLMg0uYWVsZi5BZGRy",
-            "ZXNzIlIKFkdldFZpcnR1YWxBZGRyZXNzSW5wdXQSGgoGZGFvX2lkGAEgASgL",
-            "MgouYWVsZi5IYXNoEhwKBXZvdGVyGAIgASgLMg0uYWVsZi5BZGRyZXNzIlMK",
-            "F0dldERhb1JlbWFpbkFtb3VudElucHV0EhoKBmRhb19pZBgBIAEoCzIKLmFl",
-            "bGYuSGFzaBIcCgV2b3RlchgCIAEoCzINLmFlbGYuQWRkcmVzcyJ8ChxHZXRQ",
-            "cm9wb3NhbFJlbWFpbkFtb3VudElucHV0EhoKBmRhb19pZBgBIAEoCzIKLmFl",
-            "bGYuSGFzaBIiCg52b3RpbmdfaXRlbV9pZBgCIAEoCzIKLmFlbGYuSGFzaBIc",
-            "CgV2b3RlchgDIAEoCzINLmFlbGYuQWRkcmVzcyKnAQoRVm90ZVNjaGVtZUNy",
-            "ZWF0ZWQSIgoOdm90ZV9zY2hlbWVfaWQYASABKAsyCi5hZWxmLkhhc2gSJgoO",
-            "dm90ZV9tZWNoYW5pc20YAiABKA4yDi5Wb3RlTWVjaGFuaXNtEhoKEndpdGhv",
-            "dXRfbG9ja190b2tlbhgEIAEoCBIkCg12b3RlX3N0cmF0ZWd5GAUgASgOMg0u",
-            "Vm90ZVN0cmF0ZWd5OgSguxgBIrYCChRWb3RpbmdJdGVtUmVnaXN0ZXJlZBIa",
-            "CgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSIgoOdm90aW5nX2l0ZW1faWQY",
-            "AiABKAsyCi5hZWxmLkhhc2gSHQoJc2NoZW1lX2lkGAMgASgLMgouYWVsZi5I",
-            "YXNoEhkKEWFjY2VwdGVkX2N1cnJlbmN5GAQgASgJEjYKEnJlZ2lzdGVyX3Rp",
-            "bWVzdGFtcBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASMwoP",
-            "c3RhcnRfdGltZXN0YW1wGAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz",
-            "dGFtcBIxCg1lbmRfdGltZXN0YW1wGAcgASgLMhouZ29vZ2xlLnByb3RvYnVm",
-            "LlRpbWVzdGFtcDoEoLsYASL9AgoFVm90ZWQSIgoOdm90aW5nX2l0ZW1faWQY",
-            "ASABKAsyCi5hZWxmLkhhc2gSHAoFdm90ZXIYAiABKAsyDS5hZWxmLkFkZHJl",
-            "c3MSDgoGYW1vdW50GAMgASgDEjIKDnZvdGVfdGltZXN0YW1wGAQgASgLMhou",
-            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIbCgZvcHRpb24YBSABKA4yCy5W",
-            "b3RlT3B0aW9uEhsKB3ZvdGVfaWQYBiABKAsyCi5hZWxmLkhhc2gSGgoGZGFv",
-            "X2lkGAcgASgLMgouYWVsZi5IYXNoEiYKDnZvdGVfbWVjaGFuaXNtGAggASgO",
-            "Mg4uVm90ZU1lY2hhbmlzbRIuCgpzdGFydF90aW1lGAkgASgLMhouZ29vZ2xl",
-            "LnByb3RvYnVmLlRpbWVzdGFtcBIsCghlbmRfdGltZRgKIAEoCzIaLmdvb2ds",
-            "ZS5wcm90b2J1Zi5UaW1lc3RhbXASDAoEbWVtbxgLIAEoCToEoLsYASLRAQoJ",
-            "V2l0aGRyYXduEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIhCgp3aXRo",
-            "ZHJhd2VyGAIgASgLMg0uYWVsZi5BZGRyZXNzEhcKD3dpdGhkcmF3X2Ftb3Vu",
-            "dBgDIAEoAxI2ChJ3aXRoZHJhd190aW1lc3RhbXAYBCABKAsyGi5nb29nbGUu",
-            "cHJvdG9idWYuVGltZXN0YW1wEi4KE3ZvdGluZ19pdGVtX2lkX2xpc3QYBSAB",
-            "KAsyES5Wb3RpbmdJdGVtSWRMaXN0OgSguxgBIlAKEkVtZXJnZW5jeVN0YXR1",
-            "c1NldBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSGAoQZW1lcmdlbmN5",
-            "X3N0YXR1cxgCIAEoCDoEoLsYASJpCgZTdGFrZWQSGgoGZGFvX2lkGAEgASgL",
-            "MgouYWVsZi5IYXNoEg4KBmFtb3VudBgCIAEoAxIdCgZzZW5kZXIYAyABKAsy",
-            "DS5hZWxmLkFkZHJlc3MSDgoGc3ltYm9sGAQgASgJOgSguxgBInkKEFVuU3Rh",
-            "a2VSZXF1ZXN0ZWQSGgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEg4KBmFt",
-            "b3VudBgCIAEoAxIdCgZzZW5kZXIYAyABKAsyDS5hZWxmLkFkZHJlc3MSFAoM",
-            "dG9rZW5fc3ltYm9sGAQgASgJOgSguxgBIl8KEVN0YWtlYWJsZVRva2VuU2V0",
-            "EhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIoChNhY2NlcHRlZF90b2tl",
-            "bl9saXN0GAIgASgLMgsuU3RyaW5nTGlzdDoEoLsYASJeChRWb3RpbmdQb3dl",
-            "cldlaWdodFNldBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSFAoMdG9r",
-            "ZW5fc3ltYm9sGAIgASgJEg4KBndlaWdodBgDIAEoAzoEoLsYASJmChJNYXhW",
-            "b3RpbmdQb3dlcnNTZXQSGgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEhQK",
-            "DHRva2VuX3N5bWJvbBgCIAEoCRIYChBtYXhfdm90aW5nX3Bvd2VyGAMgASgD",
-            "OgSguxgBKjIKDVZvdGVNZWNoYW5pc20SDwoLVU5JUVVFX1ZPVEUQABIQCgxU",
-            "T0tFTl9CQUxMT1QQASo3CgxWb3RlU3RyYXRlZ3kSFQoRUFJPUE9TQUxfRElT",
-            "VElOQ1QQABIQCgxEQVlfRElTVElOQ1QQASo3CgpWb3RlT3B0aW9uEgwKCEFQ",
-            "UFJPVkVEEAASDAoIUkVKRUNURUQQARINCglBQlNUQUlORUQQAipJChNHb3Zl",
-            "cm5hbmNlTWVjaGFuaXNtEg4KClJFRkVSRU5EVU0QABIQCgxISUdIX0NPVU5D",
-            "SUwQARIQCgxPUkdBTklaQVRJT04QAjLEBwoMVm90ZUNvbnRyYWN0EjgKCklu",
-            "aXRpYWxpemUSEC5Jbml0aWFsaXplSW5wdXQaFi5nb29nbGUucHJvdG9idWYu",
-            "RW1wdHkiABJEChBDcmVhdGVWb3RlU2NoZW1lEhYuQ3JlYXRlVm90ZVNjaGVt",
-            "ZUlucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASOgoIUmVnaXN0ZXIS",
-            "FC5Wb3RpbmdSZWdpc3RlcklucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5",
-            "IgASLAoEVm90ZRIKLlZvdGVJbnB1dBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0",
-            "eSIAEjQKCFdpdGhkcmF3Eg4uV2l0aGRyYXdJbnB1dBoWLmdvb2dsZS5wcm90",
-            "b2J1Zi5FbXB0eSIAEkgKElNldEVtZXJnZW5jeVN0YXR1cxIYLlNldEVtZXJn",
-            "ZW5jeVN0YXR1c0lucHV0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASLwoN",
-            "R2V0Vm90ZVNjaGVtZRIKLmFlbGYuSGFzaBoLLlZvdGVTY2hlbWUiBYiJ9wEB",
-            "Ei8KDUdldFZvdGluZ0l0ZW0SCi5hZWxmLkhhc2gaCy5Wb3RpbmdJdGVtIgWI",
-            "ifcBARIzCg9HZXRWb3RpbmdSZXN1bHQSCi5hZWxmLkhhc2gaDS5Wb3RpbmdS",
-            "ZXN1bHQiBYiJ9wEBEj4KD0dldFZvdGluZ1JlY29yZBIVLkdldFZvdGluZ1Jl",
-            "Y29yZElucHV0Gg0uVm90aW5nUmVjb3JkIgWIifcBARJCChFHZXRWaXJ0dWFs",
-            "QWRkcmVzcxIXLkdldFZpcnR1YWxBZGRyZXNzSW5wdXQaDS5hZWxmLkFkZHJl",
-            "c3MiBYiJ9wEBEkcKEkdldERhb1JlbWFpbkFtb3VudBIYLkdldERhb1JlbWFp",
-            "bkFtb3VudElucHV0GhAuRGFvUmVtYWluQW1vdW50IgWIifcBARJWChdHZXRQ",
-            "cm9wb3NhbFJlbWFpbkFtb3VudBIdLkdldFByb3Bvc2FsUmVtYWluQW1vdW50",
-            "SW5wdXQaFS5Qcm9wb3NhbFJlbWFpbkFtb3VudCIFiIn3AQESPQoOR2V0QlBB",
-            "ZGRyZXNzZXMSFi5nb29nbGUucHJvdG9idWYuRW1wdHkaDC5BZGRyZXNzTGlz",
-            "dCIFiIn3AQEaT7LM9gEsVG9tb3Jyb3dEQU8uQ29udHJhY3RzLlZvdGUuVm90",
-            "ZUNvbnRyYWN0U3RhdGXKyvYBGVByb3RvYnVmL2Jhc2UvYWNzMTIucHJvdG9C",
-            "HaoCGlRvbW9ycm93REFPLkNvbnRyYWN0cy5Wb3RlUARiBnByb3RvMw=="));
+            "dm90ZV9zdHJhdGVneRgFIAEoDjINLlZvdGVTdHJhdGVneRISCgp2b3RlX2Nv",
+            "dW50GAYgASgFIi0KEFZvdGluZ0l0ZW1JZExpc3QSGQoFdmFsdWUYASADKAsy",
+            "Ci5hZWxmLkhhc2giwgIKClZvdGluZ0l0ZW0SGgoGZGFvX2lkGAEgASgLMgou",
+            "YWVsZi5IYXNoEiIKDnZvdGluZ19pdGVtX2lkGAIgASgLMgouYWVsZi5IYXNo",
+            "Eh0KCXNjaGVtZV9pZBgDIAEoCzIKLmFlbGYuSGFzaBIXCg9hY2NlcHRlZF9z",
+            "eW1ib2wYBCABKAkSNgoScmVnaXN0ZXJfdGltZXN0YW1wGAUgASgLMhouZ29v",
+            "Z2xlLnByb3RvYnVmLlRpbWVzdGFtcBIzCg9zdGFydF90aW1lc3RhbXAYBiAB",
+            "KAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjEKDWVuZF90aW1lc3Rh",
+            "bXAYByABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhwKFGdvdmVy",
+            "bmFuY2VfbWVjaGFuaXNtGAggASgJIvUBCgxWb3RpbmdSZWNvcmQSIgoOdm90",
+            "aW5nX2l0ZW1faWQYASABKAsyCi5hZWxmLkhhc2gSHAoFdm90ZXIYAiABKAsy",
+            "DS5hZWxmLkFkZHJlc3MSDgoGYW1vdW50GAMgASgDEjIKDnZvdGVfdGltZXN0",
+            "YW1wGAQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIbCgZvcHRp",
+            "b24YBSABKA4yCy5Wb3RlT3B0aW9uEhsKB3ZvdGVfaWQYBiABKAsyCi5hZWxm",
+            "Lkhhc2gSJQoMdm90ZV9kZXRhaWxzGAcgASgLMg8uVm90ZURldGFpbExpc3Qi",
+            "LAoOVm90ZURldGFpbExpc3QSGgoFdmFsdWUYASADKAsyCy5Wb3RlRGV0YWls",
+            "IlAKClZvdGVEZXRhaWwSDgoGYW1vdW50GAEgASgDEjIKDnZvdGVfdGltZXN0",
+            "YW1wGAIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCKTAgoMVm90",
+            "aW5nUmVzdWx0EiIKDnZvdGluZ19pdGVtX2lkGAEgASgLMgouYWVsZi5IYXNo",
+            "EhYKDmFwcHJvdmVfY291bnRzGAIgASgDEhUKDXJlamVjdF9jb3VudHMYAyAB",
+            "KAMSFgoOYWJzdGFpbl9jb3VudHMYBCABKAMSFAoMdm90ZXNfYW1vdW50GAUg",
+            "ASgDEhoKEnRvdGFsX3ZvdGVyc19jb3VudBgGIAEoAxIzCg9zdGFydF90aW1l",
+            "c3RhbXAYByABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjEKDWVu",
+            "ZF90aW1lc3RhbXAYCCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1w",
+            "IjIKElN0YWtlYWJsZVRva2VuTGlzdBIcChRhY2NlcHRlZF9zeW1ib2xfbGlz",
+            "dBgBIAMoCSI9Cg9EYW9SZW1haW5BbW91bnQSGgoGZGFvX2lkGAEgASgLMgou",
+            "YWVsZi5IYXNoEg4KBmFtb3VudBgCIAEoAyJmChRQcm9wb3NhbFJlbWFpbkFt",
+            "b3VudBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSIgoOdm90aW5nX2l0",
+            "ZW1faWQYAiABKAsyCi5hZWxmLkhhc2gSDgoGYW1vdW50GAMgASgDIisKC0Fk",
+            "ZHJlc3NMaXN0EhwKBXZhbHVlGAEgAygLMg0uYWVsZi5BZGRyZXNzIhsKClN0",
+            "cmluZ0xpc3QSDQoFdmFsdWUYASADKAkiNwoJU3Rha2VJbmZvEhQKDHRva2Vu",
+            "X3N5bWJvbBgBIAEoCRIUCgxzdGFrZV9hbW91bnQYAiABKAMiZgoIU3Rha2VN",
+            "YXASIQoEZGF0YRgBIAMoCzITLlN0YWtlTWFwLkRhdGFFbnRyeRo3CglEYXRh",
+            "RW50cnkSCwoDa2V5GAEgASgJEhkKBXZhbHVlGAIgASgLMgouU3Rha2VJbmZv",
+            "OgI4ASJmCg1Vc2VyU3Rha2VJbmZvEhoKBmRhb19pZBgBIAEoCzIKLmFlbGYu",
+            "SGFzaBIbCgR1c2VyGAIgASgLMg0uYWVsZi5BZGRyZXNzEhwKCXN0YWtlX21h",
+            "cBgDIAEoCzIJLlN0YWtlTWFwIqQBCg9Jbml0aWFsaXplSW5wdXQSKwoUZGFv",
+            "X2NvbnRyYWN0X2FkZHJlc3MYASABKAsyDS5hZWxmLkFkZHJlc3MSMgobZ292",
+            "ZXJuYW5jZV9jb250cmFjdF9hZGRyZXNzGAIgASgLMg0uYWVsZi5BZGRyZXNz",
+            "EjAKGWVsZWN0aW9uX2NvbnRyYWN0X2FkZHJlc3MYAyABKAsyDS5hZWxmLkFk",
+            "ZHJlc3MilQEKFUNyZWF0ZVZvdGVTY2hlbWVJbnB1dBImCg52b3RlX21lY2hh",
+            "bmlzbRgBIAEoDjIOLlZvdGVNZWNoYW5pc20SGgoSd2l0aG91dF9sb2NrX3Rv",
+            "a2VuGAIgASgIEiQKDXZvdGVfc3RyYXRlZ3kYAyABKA4yDS5Wb3RlU3RyYXRl",
+            "Z3kSEgoKdm90ZV9jb3VudBgEIAEoBSLYAQoTVm90aW5nUmVnaXN0ZXJJbnB1",
+            "dBIiCg52b3RpbmdfaXRlbV9pZBgBIAEoCzIKLmFlbGYuSGFzaBIdCglzY2hl",
+            "bWVfaWQYAiABKAsyCi5hZWxmLkhhc2gSFgoOYWNjZXB0ZWRfdG9rZW4YAyAB",
+            "KAkSMwoPc3RhcnRfdGltZXN0YW1wGAQgASgLMhouZ29vZ2xlLnByb3RvYnVm",
+            "LlRpbWVzdGFtcBIxCg1lbmRfdGltZXN0YW1wGAUgASgLMhouZ29vZ2xlLnBy",
+            "b3RvYnVmLlRpbWVzdGFtcCJnCglWb3RlSW5wdXQSIgoOdm90aW5nX2l0ZW1f",
+            "aWQYASABKAsyCi5hZWxmLkhhc2gSEwoLdm90ZV9vcHRpb24YAiABKAUSEwoL",
+            "dm90ZV9hbW91bnQYAyABKAMSDAoEbWVtbxgEIAEoCSJ0Cg1XaXRoZHJhd0lu",
+            "cHV0EhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIXCg93aXRoZHJhd19h",
+            "bW91bnQYAiABKAMSLgoTdm90aW5nX2l0ZW1faWRfbGlzdBgDIAEoCzIRLlZv",
+            "dGluZ0l0ZW1JZExpc3QiSAoXU2V0RW1lcmdlbmN5U3RhdHVzSW5wdXQSGgoG",
+            "ZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEhEKCWlzX2VuYWJsZRgCIAEoCCIt",
+            "CgtUb2tlbkFtb3VudBIOCgZzeW1ib2wYASABKAkSDgoGYW1vdW50GAIgASgD",
+            "IkkKFlZvdGluZ1Bvd2Vyc09uUHJvcG9zYWwSHwoLcHJvcG9zYWxfaWQYASAB",
+            "KAsyCi5hZWxmLkhhc2gSDgoGYW1vdW50GAIgASgDIlgKFEdldFZvdGluZ1Jl",
+            "Y29yZElucHV0EiIKDnZvdGluZ19pdGVtX2lkGAEgASgLMgouYWVsZi5IYXNo",
+            "EhwKBXZvdGVyGAIgASgLMg0uYWVsZi5BZGRyZXNzIlIKFkdldFZpcnR1YWxB",
+            "ZGRyZXNzSW5wdXQSGgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEhwKBXZv",
+            "dGVyGAIgASgLMg0uYWVsZi5BZGRyZXNzIlMKF0dldERhb1JlbWFpbkFtb3Vu",
+            "dElucHV0EhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIcCgV2b3RlchgC",
+            "IAEoCzINLmFlbGYuQWRkcmVzcyJ8ChxHZXRQcm9wb3NhbFJlbWFpbkFtb3Vu",
+            "dElucHV0EhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIiCg52b3Rpbmdf",
+            "aXRlbV9pZBgCIAEoCzIKLmFlbGYuSGFzaBIcCgV2b3RlchgDIAEoCzINLmFl",
+            "bGYuQWRkcmVzcyK7AQoRVm90ZVNjaGVtZUNyZWF0ZWQSIgoOdm90ZV9zY2hl",
+            "bWVfaWQYASABKAsyCi5hZWxmLkhhc2gSJgoOdm90ZV9tZWNoYW5pc20YAiAB",
+            "KA4yDi5Wb3RlTWVjaGFuaXNtEhoKEndpdGhvdXRfbG9ja190b2tlbhgEIAEo",
+            "CBIkCg12b3RlX3N0cmF0ZWd5GAUgASgOMg0uVm90ZVN0cmF0ZWd5EhIKCnZv",
+            "dGVfY291bnQYBiABKAU6BKC7GAEitgIKFFZvdGluZ0l0ZW1SZWdpc3RlcmVk",
+            "EhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIiCg52b3RpbmdfaXRlbV9p",
+            "ZBgCIAEoCzIKLmFlbGYuSGFzaBIdCglzY2hlbWVfaWQYAyABKAsyCi5hZWxm",
+            "Lkhhc2gSGQoRYWNjZXB0ZWRfY3VycmVuY3kYBCABKAkSNgoScmVnaXN0ZXJf",
+            "dGltZXN0YW1wGAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIz",
+            "Cg9zdGFydF90aW1lc3RhbXAYBiABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
+            "ZXN0YW1wEjEKDWVuZF90aW1lc3RhbXAYByABKAsyGi5nb29nbGUucHJvdG9i",
+            "dWYuVGltZXN0YW1wOgSguxgBIv0CCgVWb3RlZBIiCg52b3RpbmdfaXRlbV9p",
+            "ZBgBIAEoCzIKLmFlbGYuSGFzaBIcCgV2b3RlchgCIAEoCzINLmFlbGYuQWRk",
+            "cmVzcxIOCgZhbW91bnQYAyABKAMSMgoOdm90ZV90aW1lc3RhbXAYBCABKAsy",
+            "Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhsKBm9wdGlvbhgFIAEoDjIL",
+            "LlZvdGVPcHRpb24SGwoHdm90ZV9pZBgGIAEoCzIKLmFlbGYuSGFzaBIaCgZk",
+            "YW9faWQYByABKAsyCi5hZWxmLkhhc2gSJgoOdm90ZV9tZWNoYW5pc20YCCAB",
+            "KA4yDi5Wb3RlTWVjaGFuaXNtEi4KCnN0YXJ0X3RpbWUYCSABKAsyGi5nb29n",
+            "bGUucHJvdG9idWYuVGltZXN0YW1wEiwKCGVuZF90aW1lGAogASgLMhouZ29v",
+            "Z2xlLnByb3RvYnVmLlRpbWVzdGFtcBIMCgRtZW1vGAsgASgJOgSguxgBItEB",
+            "CglXaXRoZHJhd24SGgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEiEKCndp",
+            "dGhkcmF3ZXIYAiABKAsyDS5hZWxmLkFkZHJlc3MSFwoPd2l0aGRyYXdfYW1v",
+            "dW50GAMgASgDEjYKEndpdGhkcmF3X3RpbWVzdGFtcBgEIAEoCzIaLmdvb2ds",
+            "ZS5wcm90b2J1Zi5UaW1lc3RhbXASLgoTdm90aW5nX2l0ZW1faWRfbGlzdBgF",
+            "IAEoCzIRLlZvdGluZ0l0ZW1JZExpc3Q6BKC7GAEiUAoSRW1lcmdlbmN5U3Rh",
+            "dHVzU2V0EhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIYChBlbWVyZ2Vu",
+            "Y3lfc3RhdHVzGAIgASgIOgSguxgBImkKBlN0YWtlZBIaCgZkYW9faWQYASAB",
+            "KAsyCi5hZWxmLkhhc2gSDgoGYW1vdW50GAIgASgDEh0KBnNlbmRlchgDIAEo",
+            "CzINLmFlbGYuQWRkcmVzcxIOCgZzeW1ib2wYBCABKAk6BKC7GAEieQoQVW5T",
+            "dGFrZVJlcXVlc3RlZBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gSDgoG",
+            "YW1vdW50GAIgASgDEh0KBnNlbmRlchgDIAEoCzINLmFlbGYuQWRkcmVzcxIU",
+            "Cgx0b2tlbl9zeW1ib2wYBCABKAk6BKC7GAEiXwoRU3Rha2VhYmxlVG9rZW5T",
+            "ZXQSGgoGZGFvX2lkGAEgASgLMgouYWVsZi5IYXNoEigKE2FjY2VwdGVkX3Rv",
+            "a2VuX2xpc3QYAiABKAsyCy5TdHJpbmdMaXN0OgSguxgBIl4KFFZvdGluZ1Bv",
+            "d2VyV2VpZ2h0U2V0EhoKBmRhb19pZBgBIAEoCzIKLmFlbGYuSGFzaBIUCgx0",
+            "b2tlbl9zeW1ib2wYAiABKAkSDgoGd2VpZ2h0GAMgASgDOgSguxgBImYKEk1h",
+            "eFZvdGluZ1Bvd2Vyc1NldBIaCgZkYW9faWQYASABKAsyCi5hZWxmLkhhc2gS",
+            "FAoMdG9rZW5fc3ltYm9sGAIgASgJEhgKEG1heF92b3RpbmdfcG93ZXIYAyAB",
+            "KAM6BKC7GAEqMgoNVm90ZU1lY2hhbmlzbRIPCgtVTklRVUVfVk9URRAAEhAK",
+            "DFRPS0VOX0JBTExPVBABKkoKDFZvdGVTdHJhdGVneRIVChFQUk9QT1NBTF9E",
+            "SVNUSU5DVBAAEhAKDERBWV9ESVNUSU5DVBABEhEKDURBSUxZX05fVk9URVMQ",
+            "Aio3CgpWb3RlT3B0aW9uEgwKCEFQUFJPVkVEEAASDAoIUkVKRUNURUQQARIN",
+            "CglBQlNUQUlORUQQAipJChNHb3Zlcm5hbmNlTWVjaGFuaXNtEg4KClJFRkVS",
+            "RU5EVU0QABIQCgxISUdIX0NPVU5DSUwQARIQCgxPUkdBTklaQVRJT04QAjLE",
+            "BwoMVm90ZUNvbnRyYWN0EjgKCkluaXRpYWxpemUSEC5Jbml0aWFsaXplSW5w",
+            "dXQaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABJEChBDcmVhdGVWb3RlU2No",
+            "ZW1lEhYuQ3JlYXRlVm90ZVNjaGVtZUlucHV0GhYuZ29vZ2xlLnByb3RvYnVm",
+            "LkVtcHR5IgASOgoIUmVnaXN0ZXISFC5Wb3RpbmdSZWdpc3RlcklucHV0GhYu",
+            "Z29vZ2xlLnByb3RvYnVmLkVtcHR5IgASLAoEVm90ZRIKLlZvdGVJbnB1dBoW",
+            "Lmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEjQKCFdpdGhkcmF3Eg4uV2l0aGRy",
+            "YXdJbnB1dBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEkgKElNldEVtZXJn",
+            "ZW5jeVN0YXR1cxIYLlNldEVtZXJnZW5jeVN0YXR1c0lucHV0GhYuZ29vZ2xl",
+            "LnByb3RvYnVmLkVtcHR5IgASLwoNR2V0Vm90ZVNjaGVtZRIKLmFlbGYuSGFz",
+            "aBoLLlZvdGVTY2hlbWUiBYiJ9wEBEi8KDUdldFZvdGluZ0l0ZW0SCi5hZWxm",
+            "Lkhhc2gaCy5Wb3RpbmdJdGVtIgWIifcBARIzCg9HZXRWb3RpbmdSZXN1bHQS",
+            "Ci5hZWxmLkhhc2gaDS5Wb3RpbmdSZXN1bHQiBYiJ9wEBEj4KD0dldFZvdGlu",
+            "Z1JlY29yZBIVLkdldFZvdGluZ1JlY29yZElucHV0Gg0uVm90aW5nUmVjb3Jk",
+            "IgWIifcBARJCChFHZXRWaXJ0dWFsQWRkcmVzcxIXLkdldFZpcnR1YWxBZGRy",
+            "ZXNzSW5wdXQaDS5hZWxmLkFkZHJlc3MiBYiJ9wEBEkcKEkdldERhb1JlbWFp",
+            "bkFtb3VudBIYLkdldERhb1JlbWFpbkFtb3VudElucHV0GhAuRGFvUmVtYWlu",
+            "QW1vdW50IgWIifcBARJWChdHZXRQcm9wb3NhbFJlbWFpbkFtb3VudBIdLkdl",
+            "dFByb3Bvc2FsUmVtYWluQW1vdW50SW5wdXQaFS5Qcm9wb3NhbFJlbWFpbkFt",
+            "b3VudCIFiIn3AQESPQoOR2V0QlBBZGRyZXNzZXMSFi5nb29nbGUucHJvdG9i",
+            "dWYuRW1wdHkaDC5BZGRyZXNzTGlzdCIFiIn3AQEaT7LM9gEsVG9tb3Jyb3dE",
+            "QU8uQ29udHJhY3RzLlZvdGUuVm90ZUNvbnRyYWN0U3RhdGXKyvYBGVByb3Rv",
+            "YnVmL2Jhc2UvYWNzMTIucHJvdG9CHaoCGlRvbW9ycm93REFPLkNvbnRyYWN0",
+            "cy5Wb3RlUARiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::AElf.Types.CoreReflection.Descriptor, global::AElf.OptionsReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::AElf.Standards.ACS12.Acs12Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::TomorrowDAO.Contracts.Vote.VoteMechanism), typeof(global::TomorrowDAO.Contracts.Vote.VoteStrategy), typeof(global::TomorrowDAO.Contracts.Vote.VoteOption), typeof(global::TomorrowDAO.Contracts.Vote.GovernanceMechanism), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.VoteScheme), global::TomorrowDAO.Contracts.Vote.VoteScheme.Parser, new[]{ "SchemeId", "VoteMechanism", "WithoutLockToken", "VoteStrategy" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.VoteScheme), global::TomorrowDAO.Contracts.Vote.VoteScheme.Parser, new[]{ "SchemeId", "VoteMechanism", "WithoutLockToken", "VoteStrategy", "VoteCount" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.VotingItemIdList), global::TomorrowDAO.Contracts.Vote.VotingItemIdList.Parser, new[]{ "Value" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.VotingItem), global::TomorrowDAO.Contracts.Vote.VotingItem.Parser, new[]{ "DaoId", "VotingItemId", "SchemeId", "AcceptedSymbol", "RegisterTimestamp", "StartTimestamp", "EndTimestamp", "GovernanceMechanism" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.VotingRecord), global::TomorrowDAO.Contracts.Vote.VotingRecord.Parser, new[]{ "VotingItemId", "Voter", "Amount", "VoteTimestamp", "Option", "VoteId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.VotingRecord), global::TomorrowDAO.Contracts.Vote.VotingRecord.Parser, new[]{ "VotingItemId", "Voter", "Amount", "VoteTimestamp", "Option", "VoteId", "VoteDetails" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.VoteDetailList), global::TomorrowDAO.Contracts.Vote.VoteDetailList.Parser, new[]{ "Value" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.VoteDetail), global::TomorrowDAO.Contracts.Vote.VoteDetail.Parser, new[]{ "Amount", "VoteTimestamp" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.VotingResult), global::TomorrowDAO.Contracts.Vote.VotingResult.Parser, new[]{ "VotingItemId", "ApproveCounts", "RejectCounts", "AbstainCounts", "VotesAmount", "TotalVotersCount", "StartTimestamp", "EndTimestamp" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.StakeableTokenList), global::TomorrowDAO.Contracts.Vote.StakeableTokenList.Parser, new[]{ "AcceptedSymbolList" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.DaoRemainAmount), global::TomorrowDAO.Contracts.Vote.DaoRemainAmount.Parser, new[]{ "DaoId", "Amount" }, null, null, null, null),
@@ -175,7 +183,7 @@ namespace TomorrowDAO.Contracts.Vote {
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.StakeMap), global::TomorrowDAO.Contracts.Vote.StakeMap.Parser, new[]{ "Data" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.UserStakeInfo), global::TomorrowDAO.Contracts.Vote.UserStakeInfo.Parser, new[]{ "DaoId", "User", "StakeMap" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.InitializeInput), global::TomorrowDAO.Contracts.Vote.InitializeInput.Parser, new[]{ "DaoContractAddress", "GovernanceContractAddress", "ElectionContractAddress" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.CreateVoteSchemeInput), global::TomorrowDAO.Contracts.Vote.CreateVoteSchemeInput.Parser, new[]{ "VoteMechanism", "WithoutLockToken", "VoteStrategy" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.CreateVoteSchemeInput), global::TomorrowDAO.Contracts.Vote.CreateVoteSchemeInput.Parser, new[]{ "VoteMechanism", "WithoutLockToken", "VoteStrategy", "VoteCount" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.VotingRegisterInput), global::TomorrowDAO.Contracts.Vote.VotingRegisterInput.Parser, new[]{ "VotingItemId", "SchemeId", "AcceptedToken", "StartTimestamp", "EndTimestamp" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.VoteInput), global::TomorrowDAO.Contracts.Vote.VoteInput.Parser, new[]{ "VotingItemId", "VoteOption", "VoteAmount", "Memo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.WithdrawInput), global::TomorrowDAO.Contracts.Vote.WithdrawInput.Parser, new[]{ "DaoId", "WithdrawAmount", "VotingItemIdList" }, null, null, null, null),
@@ -186,7 +194,7 @@ namespace TomorrowDAO.Contracts.Vote {
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.GetVirtualAddressInput), global::TomorrowDAO.Contracts.Vote.GetVirtualAddressInput.Parser, new[]{ "DaoId", "Voter" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.GetDaoRemainAmountInput), global::TomorrowDAO.Contracts.Vote.GetDaoRemainAmountInput.Parser, new[]{ "DaoId", "Voter" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.GetProposalRemainAmountInput), global::TomorrowDAO.Contracts.Vote.GetProposalRemainAmountInput.Parser, new[]{ "DaoId", "VotingItemId", "Voter" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.VoteSchemeCreated), global::TomorrowDAO.Contracts.Vote.VoteSchemeCreated.Parser, new[]{ "VoteSchemeId", "VoteMechanism", "WithoutLockToken", "VoteStrategy" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.VoteSchemeCreated), global::TomorrowDAO.Contracts.Vote.VoteSchemeCreated.Parser, new[]{ "VoteSchemeId", "VoteMechanism", "WithoutLockToken", "VoteStrategy", "VoteCount" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.VotingItemRegistered), global::TomorrowDAO.Contracts.Vote.VotingItemRegistered.Parser, new[]{ "DaoId", "VotingItemId", "SchemeId", "AcceptedCurrency", "RegisterTimestamp", "StartTimestamp", "EndTimestamp" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.Voted), global::TomorrowDAO.Contracts.Vote.Voted.Parser, new[]{ "VotingItemId", "Voter", "Amount", "VoteTimestamp", "Option", "VoteId", "DaoId", "VoteMechanism", "StartTime", "EndTime", "Memo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::TomorrowDAO.Contracts.Vote.Withdrawn), global::TomorrowDAO.Contracts.Vote.Withdrawn.Parser, new[]{ "DaoId", "Withdrawer", "WithdrawAmount", "WithdrawTimestamp", "VotingItemIdList" }, null, null, null, null),
@@ -216,6 +224,7 @@ namespace TomorrowDAO.Contracts.Vote {
   public enum VoteStrategy {
     [pbr::OriginalName("PROPOSAL_DISTINCT")] ProposalDistinct = 0,
     [pbr::OriginalName("DAY_DISTINCT")] DayDistinct = 1,
+    [pbr::OriginalName("DAILY_N_VOTES")] DailyNVotes = 2,
   }
 
   public enum VoteOption {
@@ -274,6 +283,7 @@ namespace TomorrowDAO.Contracts.Vote {
       voteMechanism_ = other.voteMechanism_;
       withoutLockToken_ = other.withoutLockToken_;
       voteStrategy_ = other.voteStrategy_;
+      voteCount_ = other.voteCount_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -331,6 +341,18 @@ namespace TomorrowDAO.Contracts.Vote {
       }
     }
 
+    /// <summary>Field number for the "vote_count" field.</summary>
+    public const int VoteCountFieldNumber = 6;
+    private int voteCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int VoteCount {
+      get { return voteCount_; }
+      set {
+        voteCount_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -350,6 +372,7 @@ namespace TomorrowDAO.Contracts.Vote {
       if (VoteMechanism != other.VoteMechanism) return false;
       if (WithoutLockToken != other.WithoutLockToken) return false;
       if (VoteStrategy != other.VoteStrategy) return false;
+      if (VoteCount != other.VoteCount) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -361,6 +384,7 @@ namespace TomorrowDAO.Contracts.Vote {
       if (VoteMechanism != global::TomorrowDAO.Contracts.Vote.VoteMechanism.UniqueVote) hash ^= VoteMechanism.GetHashCode();
       if (WithoutLockToken != false) hash ^= WithoutLockToken.GetHashCode();
       if (VoteStrategy != global::TomorrowDAO.Contracts.Vote.VoteStrategy.ProposalDistinct) hash ^= VoteStrategy.GetHashCode();
+      if (VoteCount != 0) hash ^= VoteCount.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -395,6 +419,10 @@ namespace TomorrowDAO.Contracts.Vote {
         output.WriteRawTag(40);
         output.WriteEnum((int) VoteStrategy);
       }
+      if (VoteCount != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(VoteCount);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -421,6 +449,10 @@ namespace TomorrowDAO.Contracts.Vote {
         output.WriteRawTag(40);
         output.WriteEnum((int) VoteStrategy);
       }
+      if (VoteCount != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(VoteCount);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -442,6 +474,9 @@ namespace TomorrowDAO.Contracts.Vote {
       }
       if (VoteStrategy != global::TomorrowDAO.Contracts.Vote.VoteStrategy.ProposalDistinct) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) VoteStrategy);
+      }
+      if (VoteCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(VoteCount);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -469,6 +504,9 @@ namespace TomorrowDAO.Contracts.Vote {
       }
       if (other.VoteStrategy != global::TomorrowDAO.Contracts.Vote.VoteStrategy.ProposalDistinct) {
         VoteStrategy = other.VoteStrategy;
+      }
+      if (other.VoteCount != 0) {
+        VoteCount = other.VoteCount;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -504,6 +542,10 @@ namespace TomorrowDAO.Contracts.Vote {
             VoteStrategy = (global::TomorrowDAO.Contracts.Vote.VoteStrategy) input.ReadEnum();
             break;
           }
+          case 48: {
+            VoteCount = input.ReadInt32();
+            break;
+          }
         }
       }
     #endif
@@ -536,6 +578,10 @@ namespace TomorrowDAO.Contracts.Vote {
           }
           case 40: {
             VoteStrategy = (global::TomorrowDAO.Contracts.Vote.VoteStrategy) input.ReadEnum();
+            break;
+          }
+          case 48: {
+            VoteCount = input.ReadInt32();
             break;
           }
         }
@@ -1280,6 +1326,7 @@ namespace TomorrowDAO.Contracts.Vote {
       voteTimestamp_ = other.voteTimestamp_ != null ? other.voteTimestamp_.Clone() : null;
       option_ = other.option_;
       voteId_ = other.voteId_ != null ? other.voteId_.Clone() : null;
+      voteDetails_ = other.voteDetails_ != null ? other.voteDetails_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1376,6 +1423,18 @@ namespace TomorrowDAO.Contracts.Vote {
       }
     }
 
+    /// <summary>Field number for the "vote_details" field.</summary>
+    public const int VoteDetailsFieldNumber = 7;
+    private global::TomorrowDAO.Contracts.Vote.VoteDetailList voteDetails_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::TomorrowDAO.Contracts.Vote.VoteDetailList VoteDetails {
+      get { return voteDetails_; }
+      set {
+        voteDetails_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1397,6 +1456,7 @@ namespace TomorrowDAO.Contracts.Vote {
       if (!object.Equals(VoteTimestamp, other.VoteTimestamp)) return false;
       if (Option != other.Option) return false;
       if (!object.Equals(VoteId, other.VoteId)) return false;
+      if (!object.Equals(VoteDetails, other.VoteDetails)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1410,6 +1470,7 @@ namespace TomorrowDAO.Contracts.Vote {
       if (voteTimestamp_ != null) hash ^= VoteTimestamp.GetHashCode();
       if (Option != global::TomorrowDAO.Contracts.Vote.VoteOption.Approved) hash ^= Option.GetHashCode();
       if (voteId_ != null) hash ^= VoteId.GetHashCode();
+      if (voteDetails_ != null) hash ^= VoteDetails.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1452,6 +1513,10 @@ namespace TomorrowDAO.Contracts.Vote {
         output.WriteRawTag(50);
         output.WriteMessage(VoteId);
       }
+      if (voteDetails_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(VoteDetails);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1486,6 +1551,10 @@ namespace TomorrowDAO.Contracts.Vote {
         output.WriteRawTag(50);
         output.WriteMessage(VoteId);
       }
+      if (voteDetails_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(VoteDetails);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1513,6 +1582,9 @@ namespace TomorrowDAO.Contracts.Vote {
       }
       if (voteId_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(VoteId);
+      }
+      if (voteDetails_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(VoteDetails);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1555,6 +1627,12 @@ namespace TomorrowDAO.Contracts.Vote {
           VoteId = new global::AElf.Types.Hash();
         }
         VoteId.MergeFrom(other.VoteId);
+      }
+      if (other.voteDetails_ != null) {
+        if (voteDetails_ == null) {
+          VoteDetails = new global::TomorrowDAO.Contracts.Vote.VoteDetailList();
+        }
+        VoteDetails.MergeFrom(other.VoteDetails);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1605,6 +1683,13 @@ namespace TomorrowDAO.Contracts.Vote {
               VoteId = new global::AElf.Types.Hash();
             }
             input.ReadMessage(VoteId);
+            break;
+          }
+          case 58: {
+            if (voteDetails_ == null) {
+              VoteDetails = new global::TomorrowDAO.Contracts.Vote.VoteDetailList();
+            }
+            input.ReadMessage(VoteDetails);
             break;
           }
         }
@@ -1658,6 +1743,426 @@ namespace TomorrowDAO.Contracts.Vote {
             input.ReadMessage(VoteId);
             break;
           }
+          case 58: {
+            if (voteDetails_ == null) {
+              VoteDetails = new global::TomorrowDAO.Contracts.Vote.VoteDetailList();
+            }
+            input.ReadMessage(VoteDetails);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class VoteDetailList : pb::IMessage<VoteDetailList>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<VoteDetailList> _parser = new pb::MessageParser<VoteDetailList>(() => new VoteDetailList());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<VoteDetailList> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VoteDetailList() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VoteDetailList(VoteDetailList other) : this() {
+      value_ = other.value_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VoteDetailList Clone() {
+      return new VoteDetailList(this);
+    }
+
+    /// <summary>Field number for the "value" field.</summary>
+    public const int ValueFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::TomorrowDAO.Contracts.Vote.VoteDetail> _repeated_value_codec
+        = pb::FieldCodec.ForMessage(10, global::TomorrowDAO.Contracts.Vote.VoteDetail.Parser);
+    private readonly pbc::RepeatedField<global::TomorrowDAO.Contracts.Vote.VoteDetail> value_ = new pbc::RepeatedField<global::TomorrowDAO.Contracts.Vote.VoteDetail>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::TomorrowDAO.Contracts.Vote.VoteDetail> Value {
+      get { return value_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as VoteDetailList);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(VoteDetailList other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!value_.Equals(other.value_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= value_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      value_.WriteTo(output, _repeated_value_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      value_.WriteTo(ref output, _repeated_value_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += value_.CalculateSize(_repeated_value_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(VoteDetailList other) {
+      if (other == null) {
+        return;
+      }
+      value_.Add(other.value_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            value_.AddEntriesFrom(input, _repeated_value_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            value_.AddEntriesFrom(ref input, _repeated_value_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class VoteDetail : pb::IMessage<VoteDetail>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<VoteDetail> _parser = new pb::MessageParser<VoteDetail>(() => new VoteDetail());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<VoteDetail> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VoteDetail() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VoteDetail(VoteDetail other) : this() {
+      amount_ = other.amount_;
+      voteTimestamp_ = other.voteTimestamp_ != null ? other.voteTimestamp_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public VoteDetail Clone() {
+      return new VoteDetail(this);
+    }
+
+    /// <summary>Field number for the "amount" field.</summary>
+    public const int AmountFieldNumber = 1;
+    private long amount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long Amount {
+      get { return amount_; }
+      set {
+        amount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "vote_timestamp" field.</summary>
+    public const int VoteTimestampFieldNumber = 2;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp voteTimestamp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp VoteTimestamp {
+      get { return voteTimestamp_; }
+      set {
+        voteTimestamp_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as VoteDetail);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(VoteDetail other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Amount != other.Amount) return false;
+      if (!object.Equals(VoteTimestamp, other.VoteTimestamp)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Amount != 0L) hash ^= Amount.GetHashCode();
+      if (voteTimestamp_ != null) hash ^= VoteTimestamp.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Amount != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Amount);
+      }
+      if (voteTimestamp_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(VoteTimestamp);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Amount != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Amount);
+      }
+      if (voteTimestamp_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(VoteTimestamp);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Amount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Amount);
+      }
+      if (voteTimestamp_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(VoteTimestamp);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(VoteDetail other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Amount != 0L) {
+        Amount = other.Amount;
+      }
+      if (other.voteTimestamp_ != null) {
+        if (voteTimestamp_ == null) {
+          VoteTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        VoteTimestamp.MergeFrom(other.VoteTimestamp);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Amount = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            if (voteTimestamp_ == null) {
+              VoteTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(VoteTimestamp);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Amount = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            if (voteTimestamp_ == null) {
+              VoteTimestamp = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(VoteTimestamp);
+            break;
+          }
         }
       }
     }
@@ -1679,7 +2184,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[4]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2157,7 +2662,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[5]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2335,7 +2840,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[6]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2570,7 +3075,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[7]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2851,7 +3356,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[8]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3029,7 +3534,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[9]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3207,7 +3712,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[10]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3433,7 +3938,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[11]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3614,7 +4119,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[12]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3907,7 +4412,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[13]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4197,7 +4702,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[14]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4220,6 +4725,7 @@ namespace TomorrowDAO.Contracts.Vote {
       voteMechanism_ = other.voteMechanism_;
       withoutLockToken_ = other.withoutLockToken_;
       voteStrategy_ = other.voteStrategy_;
+      voteCount_ = other.voteCount_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4265,6 +4771,18 @@ namespace TomorrowDAO.Contracts.Vote {
       }
     }
 
+    /// <summary>Field number for the "vote_count" field.</summary>
+    public const int VoteCountFieldNumber = 4;
+    private int voteCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int VoteCount {
+      get { return voteCount_; }
+      set {
+        voteCount_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -4283,6 +4801,7 @@ namespace TomorrowDAO.Contracts.Vote {
       if (VoteMechanism != other.VoteMechanism) return false;
       if (WithoutLockToken != other.WithoutLockToken) return false;
       if (VoteStrategy != other.VoteStrategy) return false;
+      if (VoteCount != other.VoteCount) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4293,6 +4812,7 @@ namespace TomorrowDAO.Contracts.Vote {
       if (VoteMechanism != global::TomorrowDAO.Contracts.Vote.VoteMechanism.UniqueVote) hash ^= VoteMechanism.GetHashCode();
       if (WithoutLockToken != false) hash ^= WithoutLockToken.GetHashCode();
       if (VoteStrategy != global::TomorrowDAO.Contracts.Vote.VoteStrategy.ProposalDistinct) hash ^= VoteStrategy.GetHashCode();
+      if (VoteCount != 0) hash ^= VoteCount.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4323,6 +4843,10 @@ namespace TomorrowDAO.Contracts.Vote {
         output.WriteRawTag(24);
         output.WriteEnum((int) VoteStrategy);
       }
+      if (VoteCount != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(VoteCount);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4345,6 +4869,10 @@ namespace TomorrowDAO.Contracts.Vote {
         output.WriteRawTag(24);
         output.WriteEnum((int) VoteStrategy);
       }
+      if (VoteCount != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(VoteCount);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4363,6 +4891,9 @@ namespace TomorrowDAO.Contracts.Vote {
       }
       if (VoteStrategy != global::TomorrowDAO.Contracts.Vote.VoteStrategy.ProposalDistinct) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) VoteStrategy);
+      }
+      if (VoteCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(VoteCount);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4384,6 +4915,9 @@ namespace TomorrowDAO.Contracts.Vote {
       }
       if (other.VoteStrategy != global::TomorrowDAO.Contracts.Vote.VoteStrategy.ProposalDistinct) {
         VoteStrategy = other.VoteStrategy;
+      }
+      if (other.VoteCount != 0) {
+        VoteCount = other.VoteCount;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4410,6 +4944,10 @@ namespace TomorrowDAO.Contracts.Vote {
           }
           case 24: {
             VoteStrategy = (global::TomorrowDAO.Contracts.Vote.VoteStrategy) input.ReadEnum();
+            break;
+          }
+          case 32: {
+            VoteCount = input.ReadInt32();
             break;
           }
         }
@@ -4439,6 +4977,10 @@ namespace TomorrowDAO.Contracts.Vote {
             VoteStrategy = (global::TomorrowDAO.Contracts.Vote.VoteStrategy) input.ReadEnum();
             break;
           }
+          case 32: {
+            VoteCount = input.ReadInt32();
+            break;
+          }
         }
       }
     }
@@ -4460,7 +5002,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[15]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4842,7 +5384,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[16]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5154,7 +5696,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[17]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5435,7 +5977,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[18]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5670,7 +6212,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[19]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5896,7 +6438,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[20]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6131,7 +6673,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[21]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6375,7 +6917,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[22]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6619,7 +7161,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[23]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6863,7 +7405,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[24]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[26]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7156,7 +7698,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[25]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[27]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7180,6 +7722,7 @@ namespace TomorrowDAO.Contracts.Vote {
       voteMechanism_ = other.voteMechanism_;
       withoutLockToken_ = other.withoutLockToken_;
       voteStrategy_ = other.voteStrategy_;
+      voteCount_ = other.voteCount_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -7237,6 +7780,18 @@ namespace TomorrowDAO.Contracts.Vote {
       }
     }
 
+    /// <summary>Field number for the "vote_count" field.</summary>
+    public const int VoteCountFieldNumber = 6;
+    private int voteCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int VoteCount {
+      get { return voteCount_; }
+      set {
+        voteCount_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -7256,6 +7811,7 @@ namespace TomorrowDAO.Contracts.Vote {
       if (VoteMechanism != other.VoteMechanism) return false;
       if (WithoutLockToken != other.WithoutLockToken) return false;
       if (VoteStrategy != other.VoteStrategy) return false;
+      if (VoteCount != other.VoteCount) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -7267,6 +7823,7 @@ namespace TomorrowDAO.Contracts.Vote {
       if (VoteMechanism != global::TomorrowDAO.Contracts.Vote.VoteMechanism.UniqueVote) hash ^= VoteMechanism.GetHashCode();
       if (WithoutLockToken != false) hash ^= WithoutLockToken.GetHashCode();
       if (VoteStrategy != global::TomorrowDAO.Contracts.Vote.VoteStrategy.ProposalDistinct) hash ^= VoteStrategy.GetHashCode();
+      if (VoteCount != 0) hash ^= VoteCount.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -7301,6 +7858,10 @@ namespace TomorrowDAO.Contracts.Vote {
         output.WriteRawTag(40);
         output.WriteEnum((int) VoteStrategy);
       }
+      if (VoteCount != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(VoteCount);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -7327,6 +7888,10 @@ namespace TomorrowDAO.Contracts.Vote {
         output.WriteRawTag(40);
         output.WriteEnum((int) VoteStrategy);
       }
+      if (VoteCount != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(VoteCount);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -7348,6 +7913,9 @@ namespace TomorrowDAO.Contracts.Vote {
       }
       if (VoteStrategy != global::TomorrowDAO.Contracts.Vote.VoteStrategy.ProposalDistinct) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) VoteStrategy);
+      }
+      if (VoteCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(VoteCount);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -7375,6 +7943,9 @@ namespace TomorrowDAO.Contracts.Vote {
       }
       if (other.VoteStrategy != global::TomorrowDAO.Contracts.Vote.VoteStrategy.ProposalDistinct) {
         VoteStrategy = other.VoteStrategy;
+      }
+      if (other.VoteCount != 0) {
+        VoteCount = other.VoteCount;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -7408,6 +7979,10 @@ namespace TomorrowDAO.Contracts.Vote {
           }
           case 40: {
             VoteStrategy = (global::TomorrowDAO.Contracts.Vote.VoteStrategy) input.ReadEnum();
+            break;
+          }
+          case 48: {
+            VoteCount = input.ReadInt32();
             break;
           }
         }
@@ -7444,6 +8019,10 @@ namespace TomorrowDAO.Contracts.Vote {
             VoteStrategy = (global::TomorrowDAO.Contracts.Vote.VoteStrategy) input.ReadEnum();
             break;
           }
+          case 48: {
+            VoteCount = input.ReadInt32();
+            break;
+          }
         }
       }
     }
@@ -7465,7 +8044,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[26]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[28]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7945,7 +8524,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[27]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[29]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8585,7 +9164,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[28]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[30]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8958,7 +9537,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[29]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[31]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9193,7 +9772,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[30]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[32]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9511,7 +10090,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[31]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[33]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9832,7 +10411,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[32]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[34]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10076,7 +10655,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[33]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[35]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10348,7 +10927,7 @@ namespace TomorrowDAO.Contracts.Vote {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[34]; }
+      get { return global::TomorrowDAO.Contracts.Vote.VoteContractReflection.Descriptor.MessageTypes[36]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

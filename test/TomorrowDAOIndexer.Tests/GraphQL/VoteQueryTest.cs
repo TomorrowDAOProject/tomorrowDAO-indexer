@@ -3,6 +3,7 @@ using AElf.Types;
 using Shouldly;
 using TomorrowDAOIndexer.Entities;
 using TomorrowDAOIndexer.Enums;
+using TomorrowDAOIndexer.GraphQL.Dto;
 using TomorrowDAOIndexer.GraphQL.Input;
 using Xunit;
 
@@ -54,6 +55,44 @@ public partial class QueryTest
         voteScheme.VoteSchemeId.ShouldBe(VoteSchemeId);
         voteScheme.IsQuadratic.ShouldBe(false);
         voteScheme.IsLockToken.ShouldBe(false);
+    }
+    
+    [Fact]
+    public async Task GetVoteSchemesAsync_Test_DailyNVote()
+    {
+        await MockEventProcess(VoteSchemeCreated_UniqueVote(), VoteSchemeCreatedProcessor);
+        await MockEventProcess(VoteSchemeCreated_TokenBallot(), VoteSchemeCreatedProcessor);
+        await MockEventProcess(VoteSchemeCreated_DailyNVote(), VoteSchemeCreatedProcessor);
+        
+        var voteSchemes = await Query.GetVoteSchemesAsync(VoteSchemeIndexRepository, ObjectMapper, new GetVoteSchemeInput
+        {
+            ChainId = ChainId
+        });
+        voteSchemes.ShouldNotBeNull();
+        voteSchemes.Count.ShouldBe(3);
+        var voteScheme = voteSchemes[0];
+        voteScheme.ChainId.ShouldBe(ChainId);
+        voteScheme.VoteMechanism.ShouldBe(0);
+        voteScheme.VoteSchemeId.ShouldBe(VoteSchemeId);
+        voteScheme.IsQuadratic.ShouldBe(false);
+        voteScheme.IsLockToken.ShouldBe(false);
+
+        VoteSchemeIndexDto dailyNVoteScheme = null;
+        var dailyNVoteSchemeId = HashHelper.ComputeFrom(Id4).ToHex();
+        foreach (var schemeIndexDto in voteSchemes)
+        {
+            if (schemeIndexDto.VoteSchemeId == dailyNVoteSchemeId)
+            {
+                dailyNVoteScheme = schemeIndexDto;
+            }
+        }
+
+        dailyNVoteScheme.ShouldNotBeNull();
+        dailyNVoteScheme.VoteSchemeId.ShouldBe(dailyNVoteSchemeId);
+        dailyNVoteScheme.VoteMechanism.ShouldBe((int)VoteMechanism.TOKEN_BALLOT);
+        dailyNVoteScheme.VoteStrategy.ShouldBe(VoteStrategy.DAILY_N_VOTES);
+        dailyNVoteScheme.WithoutLockToken.ShouldBe(true);
+        dailyNVoteScheme.VoteCount.ShouldBe(20);
     }
 
     [Fact]
