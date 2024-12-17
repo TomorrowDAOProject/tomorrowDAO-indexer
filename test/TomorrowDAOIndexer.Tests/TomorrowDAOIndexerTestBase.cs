@@ -620,6 +620,18 @@ public abstract class TomorrowDAOIndexerTestBase : AeFinderAppTestBase<TomorrowD
         };
     }
 
+    protected VoteSchemeCreated VoteSchemeCreated_DailyNVote()
+    {
+        return new VoteSchemeCreated
+        {
+            VoteMechanism = VoteMechanism.TokenBallot,
+            VoteSchemeId = HashHelper.ComputeFrom(Id4),
+            VoteStrategy = VoteStrategy.DailyNVotes,
+            VoteCount = 20,
+            WithoutLockToken = true
+        };
+    }
+
     protected Withdrawn VoteWithdrawn()
     {
         var votingItemIdList = new VotingItemIdList
