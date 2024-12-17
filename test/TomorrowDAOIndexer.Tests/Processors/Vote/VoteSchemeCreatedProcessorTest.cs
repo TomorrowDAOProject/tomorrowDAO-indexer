@@ -17,6 +17,8 @@ public class VoteSchemeCreatedProcessorTest : TomorrowDAOIndexerTestBase
         voteSchemeIndex.VoteSchemeId.ShouldBe(VoteSchemeId);
         voteSchemeIndex.Id.ShouldBe(VoteSchemeId);
         voteSchemeIndex.VoteMechanism.ShouldBe(VoteMechanism.UNIQUE_VOTE);
+        voteSchemeIndex.VoteStrategy.ShouldBe(VoteStrategy.PROPOSAL_DISTINCT);
+        voteSchemeIndex.WithoutLockToken.ShouldBe(true);
         
         voteSchemeIndex = await GetIndexById<VoteSchemeIndex>(VoteSchemeId);
         voteSchemeIndex.ShouldNotBeNull();

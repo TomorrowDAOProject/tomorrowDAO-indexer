@@ -13,6 +13,7 @@ public class VotedProcessor : VoteProcessorBase<Voted>
     public override async Task ProcessAsync(Voted logEvent, LogEventContext context)
     {
         var voteId = logEvent.VoteId?.ToHex() ?? string.Empty;
+        var transactionId = context.Transaction.TransactionId ?? string.Empty;
         var chainId = context.ChainId;
         var voter = logEvent.Voter?.ToBase58();
         var DAOId = logEvent.DaoId?.ToHex();
@@ -20,24 +21,24 @@ public class VotedProcessor : VoteProcessorBase<Voted>
             voteId, chainId, JsonConvert.SerializeObject(logEvent));
         try
         {
-            if (voteId.IsNullOrWhiteSpace())
+            var id = IdGenerateHelper.GetId(voteId, transactionId);
+            if (id.IsNullOrWhiteSpace())
             {
                 Logger.LogInformation(
                     "[Voted] VoteId is null: Id={Id}, ChainId={ChainId}, TransactionId={TransactionId}, Event={Event}",
-                    voteId, chainId, context.Transaction.TransactionId, JsonConvert.SerializeObject(logEvent));
+                    id, chainId, transactionId, JsonConvert.SerializeObject(logEvent));
                 return;
             }
 
-            var voteRecordIndex = await GetEntityAsync<VoteRecordIndex>(voteId);
+            var voteRecordIndex = await GetEntityAsync<VoteRecordIndex>(id);
             if (voteRecordIndex != null)
             {
-                Logger.LogInformation("[Voted] VoteRecord already existed: Id={Id}, ChainId={ChainId}", voteId,
-                    chainId);
+                Logger.LogInformation("[Voted] VoteRecord already existed: Id={Id}, ChainId={ChainId}", id, chainId);
                 return;
             }
 
             voteRecordIndex = ObjectMapper.Map<Voted, VoteRecordIndex>(logEvent);
-            voteRecordIndex.Id = voteId!;
+            voteRecordIndex.Id = id;
             await SaveEntityAsync(voteRecordIndex, context);
 
             await UpdateVoteItemIndexAsync(chainId, voteRecordIndex, context);

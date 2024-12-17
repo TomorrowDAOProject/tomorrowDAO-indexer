@@ -21,10 +21,11 @@ public class VotedProcessorTest : TomorrowDAOIndexerTestBase
         daoIndex.ShouldNotBeNull();
         daoIndex.VoteAmount.ShouldBe(100);
 
-        var voteId = HashHelper.ComputeFrom(Id3).ToHex();
-        var voteItemIndex = await GetIndexById<VoteRecordIndex>(voteId);
-        voteItemIndex.ShouldNotBeNull();
-        voteItemIndex.TransactionId.ShouldBe("4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce");
+        var id = IdGenerateHelper.GetId(HashHelper.ComputeFrom(Id3).ToHex(), "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce");
+        var voteRecordIndex = await GetIndexById<VoteRecordIndex>(id);
+        voteRecordIndex.ShouldNotBeNull();
+        voteRecordIndex.TransactionId.ShouldBe("4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce");
+        voteRecordIndex.Memo.ShouldBe("Memo");
         
         var latestParticipatedIndex = await GetIndexById<LatestParticipatedIndex>(IdGenerateHelper.GetId(ChainId, daoId, User));
         latestParticipatedIndex.ShouldNotBeNull();
