@@ -13,4 +13,5 @@ public class VoteSchemeIndexDto : BlockInfoDto
     public DateTime CreateTime { get; set; }
     public bool WithoutLockToken { get; set; }
     public VoteStrategy VoteStrategy { get; set; }
+    public int VoteCount { get; set; }
 }

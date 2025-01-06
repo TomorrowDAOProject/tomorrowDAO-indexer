@@ -28,6 +28,7 @@ namespace TomorrowDAO.Contracts.Vote {
         VoteMechanism = VoteMechanism,
         WithoutLockToken = WithoutLockToken,
         VoteStrategy = VoteStrategy,
+        VoteCount = VoteCount,
       };
     }
   }
