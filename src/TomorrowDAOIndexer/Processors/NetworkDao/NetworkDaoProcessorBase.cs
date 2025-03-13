@@ -83,14 +83,14 @@ public abstract class NetworkDaoProposalBase<TEvent> : ProcessorBase<TEvent> whe
         NetworkDaoOrgType orgType)
     {
         var chainId = context.ChainId;
-        var proposalId = logEvent.ProposalId?.ToHex();
+        var proposalId = logEvent.ProposalId?.ToHex() ?? string.Empty;
         var transactionId = context.Transaction.TransactionId;
         Logger.LogInformation($"[ACS3.ReceiptCreated] start. chainId={0},proposalId={1},transactionId={2}", chainId,
             proposalId, transactionId);
 
         try
         {
-            var id = IdGenerateHelper.GetId(chainId, transactionId);
+            var id = IdGenerateHelper.GetId(chainId, proposalId, transactionId);
             // var voteIndex = await GetEntityAsync<NetworkDaoProposalVoteRecordIndex>(id);
             // if (voteIndex != null)
             // {
