@@ -1,7 +1,10 @@
+using AElf;
+using AElf.Types;
 using Shouldly;
-using TomorrowDAO.Indexer.Plugin.Enums;
+using TomorrowDAO.Contracts.DAO;
 using TomorrowDAOIndexer.Entities;
 using Xunit;
+using GovernanceMechanism = TomorrowDAO.Indexer.Plugin.Enums.GovernanceMechanism;
 
 namespace TomorrowDAOIndexer.Processors.DAO;
 
@@ -76,5 +79,62 @@ public class DAOCreatedProcessorTest : TomorrowDAOIndexerTestBase
     {
         var contractAddress = DAOCreatedProcessor.GetContractAddress(TomorrowDAOConst.TestNetSideChainId);
         contractAddress.ShouldBe(TomorrowDAOConst.DAOContractAddressTestNetSideChain);
+    }
+    
+    [Fact]
+    public async Task EmptySocialMedia_Test()
+    {
+        //empty
+        var metadata = new TomorrowDAO.Contracts.DAO.Metadata
+        {
+            Name = DAOName,
+            LogoUrl = DAOLogoUrl,
+            Description = DAODescription,
+            SocialMedia = {}
+        };
+
+        var daoCreated = new DAOCreated
+        {
+            Metadata = metadata,
+            GovernanceToken = Elf,
+            DaoId = HashHelper.ComputeFrom(Id1),
+            Creator = Address.FromBase58(DAOCreator),
+            ContractAddressList = new ContractAddressList
+            {
+                TreasuryContractAddress = Address.FromBase58(TreasuryContractAddress),
+                VoteContractAddress = Address.FromBase58(VoteContractAddress),
+                ElectionContractAddress = Address.FromBase58(ElectionContractAddress),
+                GovernanceContractAddress = Address.FromBase58(GovernanceContractAddress),
+                TimelockContractAddress = Address.FromBase58(TimelockContractAddress)
+            },
+            IsNetworkDao = false,
+            GovernanceMechanism = TomorrowDAO.Contracts.DAO.GovernanceMechanism.Referendum
+        };
+        
+        await MockEventProcess(daoCreated, DAOCreatedProcessor);
+        
+        var DAOIndex = await GetIndexById<DAOIndex>(daoCreated.DaoId.ToHex());
+        DAOIndex.ShouldNotBeNull();
+        DAOIndex.Id.ShouldBe(DAOId);
+        DAOIndex.SocialMedia.ShouldNotBeNull();
+        DAOIndex.SocialMedia.ShouldBe("{ }");
+        
+        
+        //null
+        metadata = new TomorrowDAO.Contracts.DAO.Metadata
+        {
+            Name = DAOName,
+            LogoUrl = DAOLogoUrl,
+            Description = DAODescription
+        };
+        daoCreated.Metadata = metadata;
+        daoCreated.DaoId = HashHelper.ComputeFrom(Id2);
+        await MockEventProcess(daoCreated, DAOCreatedProcessor);
+        
+        DAOIndex = await GetIndexById<DAOIndex>(daoCreated.DaoId.ToHex());
+        DAOIndex.ShouldNotBeNull();
+        DAOIndex.Id.ShouldBe(daoCreated.DaoId.ToHex());
+        DAOIndex.SocialMedia.ShouldNotBeNull();
+        DAOIndex.SocialMedia.ShouldBe("{ }");
     }
 }
